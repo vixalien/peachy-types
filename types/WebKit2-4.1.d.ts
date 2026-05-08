@@ -14610,7 +14610,7 @@ declare module "gi://WebKit2?version=4.1" {
                 EDITING_COMMAND_SELECT_ALL: "SelectAll"
                 EDITING_COMMAND_UNDO: "Undo"
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 1
+                MICRO_VERSION: 2
                 MINOR_VERSION: 53
                 /**
                  * Gets the quark for the domain of download errors.

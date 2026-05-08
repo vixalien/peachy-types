@@ -44358,8 +44358,9 @@ declare module "gi://Gio?version=2.0" {
                 /**
                  * This application handles opening files (in
                  *     the primary instance). Note that this flag only affects the default
-                 *     implementation of local_command_line(), and has no effect if
-                 *     %G_APPLICATION_HANDLES_COMMAND_LINE is given.
+                 *     implementation of local_command_line(). It can be useful even when
+                 *     using `G_APPLICATION_HANDLES_COMMAND_LINE` to handle
+                 *     `org.freedesktop.Application.open`.
                  *     See g_application_run() for details.
                  */
                 readonly "HANDLES_OPEN": 4

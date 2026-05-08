@@ -1473,7 +1473,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 __name__: "JavaScriptCore"
                 __version__: "4.1"
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 1
+                MICRO_VERSION: 2
                 MINOR_VERSION: 53
                 OPTIONS_USE_DFG: "useDFGJIT"
                 OPTIONS_USE_FTL: "useFTLJIT"

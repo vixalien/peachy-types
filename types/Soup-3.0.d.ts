@@ -1079,7 +1079,7 @@ declare module "gi://Soup?version=3.0" {
                  *
                  * {@link ContentDecoder} handles adding the "Accept-Encoding" header on
                  * outgoing messages, and processing the "Content-Encoding" header on
-                 * incoming ones. Currently it supports the "gzip", "deflate", and "br"
+                 * incoming ones. Currently it supports the "gzip", "deflate", "br", and "zstd"
                  * content codings.
                  *
                  * A {@link ContentDecoder} will automatically be
