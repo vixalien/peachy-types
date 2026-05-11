@@ -26,10 +26,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -179,14 +182,15 @@ declare module "gi://Gst?version=1.0" {
                     "element-removed"(element: Element): void
                 }
 
-                interface ReadableProperties extends Element.ReadableProperties, ChildProxy.ReadableProperties {
+                interface ReadWriteProperties extends Element.ReadWriteProperties, ChildProxy.ReadWriteProperties {
                     "async-handling": boolean
                     "message-forward": boolean
                 }
 
-                interface WritableProperties extends Element.WritableProperties, ChildProxy.WritableProperties {
-                    "async-handling": boolean
-                    "message-forward": boolean
+                interface ReadableProperties extends ReadWriteProperties, Element.ReadableProperties, ChildProxy.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Element.WritableProperties, ChildProxy.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Element.ConstructOnlyProperties, ChildProxy.ConstructOnlyProperties {
@@ -384,8 +388,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param child the element that was removed
                  */
                 vfunc_deep_element_removed(sub_bin: Bin, child: Element): void
-                /**
-                 */
+                
                 vfunc_do_latency(): boolean
                 /**
                  * Method called when an element was added to the bin.
@@ -538,10 +541,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -574,10 +580,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -939,10 +948,13 @@ declare module "gi://Gst?version=1.0" {
                     "sync-message::{}"(message: Message): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1306,16 +1318,16 @@ declare module "gi://Gst?version=1.0" {
                     "synced"(synced: boolean): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "timeout": number
                     "window-size": number
                     "window-threshold": number
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "timeout": number
-                    "window-size": number
-                    "window-threshold": number
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1802,12 +1814,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
-                    "name": string
-                    "object": Object
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1826,8 +1839,7 @@ declare module "gi://Gst?version=1.0" {
                  */
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get object(): Object
                 set object(value: Object)
                 /**
@@ -1927,10 +1939,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1988,19 +2003,17 @@ declare module "gi://Gst?version=1.0" {
 
             namespace Device {
                 interface SignalSignatures extends Object.SignalSignatures {
-                    /**
-                     */
+                    
                     "removed"(): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
-                    "caps": Caps | null
-                    "device-class": string
-                    "display-name": string
-                    "properties": Structure | null
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -2016,20 +2029,16 @@ declare module "gi://Gst?version=1.0" {
                 readonly $readableProperties: Device.ReadableProperties
                 readonly $writableProperties: Device.WritableProperties
                 readonly $constructOnlyProperties: Device.ConstructOnlyProperties
-                /**
-                 */
+                
                 get caps(): Caps | null
                 set caps(value: Caps | null)
-                /**
-                 */
+                
                 get deviceClass(): string
                 set deviceClass(value: string)
-                /**
-                 */
+                
                 get displayName(): string
                 set displayName(value: string)
-                /**
-                 */
+                
                 get properties(): Structure | null
                 set properties(value: Structure | null)
                 /**
@@ -2139,12 +2148,14 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "show-all": boolean
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "show-all": boolean
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -2331,10 +2342,13 @@ declare module "gi://Gst?version=1.0" {
                     "provider-unhidden"(object: string): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -2346,8 +2360,7 @@ declare module "gi://Gst?version=1.0" {
                 readonly $readableProperties: DeviceProvider.ReadableProperties
                 readonly $writableProperties: DeviceProvider.WritableProperties
                 readonly $constructOnlyProperties: DeviceProvider.ConstructOnlyProperties
-                /**
-                 */
+                
                 can_monitor(): boolean
                 /**
                  * Posts a message on the provider's #GstBus to inform applications that
@@ -2585,10 +2598,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends PluginFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PluginFeature.ReadableProperties {
+                interface ReadWriteProperties extends PluginFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PluginFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PluginFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PluginFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PluginFeature.ConstructOnlyProperties {
@@ -2695,10 +2711,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -2731,10 +2750,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends PluginFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PluginFeature.ReadableProperties {
+                interface ReadWriteProperties extends PluginFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PluginFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PluginFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PluginFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PluginFeature.ConstructOnlyProperties {
@@ -2810,10 +2832,13 @@ declare module "gi://Gst?version=1.0" {
                     "pad-removed"(old_pad: Pad): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -3952,10 +3977,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends PluginFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PluginFeature.ReadableProperties {
+                interface ReadWriteProperties extends PluginFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PluginFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PluginFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PluginFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PluginFeature.ConstructOnlyProperties {
@@ -4163,10 +4191,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -4208,10 +4239,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -4245,10 +4279,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -4281,10 +4318,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends ProxyPad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ProxyPad.ReadableProperties {
+                interface ReadWriteProperties extends ProxyPad.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ProxyPad.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ProxyPad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ProxyPad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ProxyPad.ConstructOnlyProperties {
@@ -4412,10 +4452,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -4448,10 +4491,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -4492,14 +4538,15 @@ declare module "gi://Gst?version=1.0" {
                     "deep-notify::{}"(prop_object: Object, prop: GObject.ParamSpec): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                     "name": string | null
                     "parent": Object | null
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
-                    "name": string | null
-                    "parent": Object | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -4849,17 +4896,16 @@ declare module "gi://Gst?version=1.0" {
                     "unlinked"(peer: Pad): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "caps": Caps
-                    "direction": PadDirection
                     "offset": number
                     "template": PadTemplate
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "caps": Caps
-                    "offset": number
-                    "template": PadTemplate
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -4872,8 +4918,7 @@ declare module "gi://Gst?version=1.0" {
                 readonly $readableProperties: Pad.ReadableProperties
                 readonly $writableProperties: Pad.WritableProperties
                 readonly $constructOnlyProperties: Pad.ConstructOnlyProperties
-                /**
-                 */
+                
                 get caps(): Caps
                 set caps(value: Caps)
                 /**
@@ -4888,8 +4933,7 @@ declare module "gi://Gst?version=1.0" {
                  */
                 get offset(): number
                 set offset(value: number)
-                /**
-                 */
+                
                 get template(): PadTemplate
                 set template(value: PadTemplate)
                 /**
@@ -5819,15 +5863,13 @@ declare module "gi://Gst?version=1.0" {
                     "pad-created"(pad: Pad): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
-                    "caps": Caps
-                    "direction": PadDirection
-                    "gtype": GObject.GType
-                    "name-template": string
-                    "presence": PadPresence
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -6013,10 +6055,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends GObject.ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends GObject.ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.ParamSpec.ConstructOnlyProperties {
@@ -6051,10 +6096,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends GObject.ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends GObject.ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.ParamSpec.ConstructOnlyProperties {
@@ -6088,16 +6136,16 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, ChildProxy.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, ChildProxy.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, ChildProxy.ReadWriteProperties {
                     "auto-flush-bus": boolean
                     "delay": number
                     "latency": number
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, ChildProxy.WritableProperties {
-                    "auto-flush-bus": boolean
-                    "delay": number
-                    "latency": number
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, ChildProxy.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, ChildProxy.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, ChildProxy.ConstructOnlyProperties {
@@ -6319,10 +6367,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -6584,10 +6635,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -6697,10 +6751,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Pad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Pad.ReadableProperties {
+                interface ReadWriteProperties extends Pad.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Pad.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Pad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Pad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Pad.ConstructOnlyProperties {
@@ -6762,8 +6819,7 @@ declare module "gi://Gst?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ProxyPad: ProxyPadClass
             }
             
@@ -6784,10 +6840,13 @@ declare module "gi://Gst?version=1.0" {
                     "plugin-added"(plugin: Plugin): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -7023,10 +7082,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends TaskPool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends TaskPool.ReadableProperties {
+                interface ReadWriteProperties extends TaskPool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends TaskPool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, TaskPool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TaskPool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TaskPool.ConstructOnlyProperties {
@@ -7086,19 +7148,17 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "caps": Caps | null
                     "stream-flags": StreamFlags
-                    "stream-id": string | null
                     "stream-type": StreamType
                     "tags": TagList | null
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "caps": Caps | null
-                    "stream-flags": StreamFlags
-                    "stream-type": StreamType
-                    "tags": TagList | null
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -7244,12 +7304,14 @@ declare module "gi://Gst?version=1.0" {
                     "stream-notify::{}"(prop_stream: Stream, prop: GObject.ParamSpec): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "upstream-id": string | null
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "upstream-id": string | null
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -7345,12 +7407,14 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Clock.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Clock.ReadableProperties {
+                interface ReadWriteProperties extends Clock.ReadWriteProperties {
                     "clock-type": ClockType
                 }
 
-                interface WritableProperties extends Clock.WritableProperties {
-                    "clock-type": ClockType
+                interface ReadableProperties extends ReadWriteProperties, Clock.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Clock.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Clock.ConstructOnlyProperties {
@@ -7416,10 +7480,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -7613,10 +7680,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -7748,12 +7818,14 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "params": string
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "params": string
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -7823,10 +7895,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends PluginFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PluginFeature.ReadableProperties {
+                interface ReadWriteProperties extends PluginFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PluginFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PluginFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PluginFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PluginFeature.ConstructOnlyProperties {
@@ -7880,10 +7955,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -7918,10 +7996,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends PluginFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PluginFeature.ReadableProperties {
+                interface ReadWriteProperties extends PluginFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PluginFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PluginFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PluginFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PluginFeature.ConstructOnlyProperties {
@@ -8038,10 +8119,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -8115,10 +8199,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -8225,10 +8312,13 @@ declare module "gi://Gst?version=1.0" {
                     "child-removed"(object: GObject.Object, name: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -8374,10 +8464,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -8564,10 +8657,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Element.ReadableProperties {
+                interface ReadWriteProperties extends Element.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Element.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Element.ConstructOnlyProperties {
@@ -8680,10 +8776,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Element.ReadableProperties {
+                interface ReadWriteProperties extends Element.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Element.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Element.ConstructOnlyProperties {
@@ -8748,10 +8847,13 @@ declare module "gi://Gst?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14306,8 +14408,7 @@ declare module "gi://Gst?version=1.0" {
                     meta?: Meta
                     info?: Structure
                 }): ProtectionMeta
-                /**
-                 */
+                
                 get_info(): MetaInfo
             }
 
@@ -16853,8 +16954,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param entry A #GstTocEntry
                  */
                 append_entry(entry: TocEntry): void
-                /**
-                 */
+                
                 dump(): void
                 /**
                  * Find #GstTocEntry with given `uid` in the `toc`.
@@ -17856,8 +17956,7 @@ declare module "gi://Gst?version=1.0" {
                  * the number of core error types.
                  */
                 readonly "NUM_ERRORS": 15
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -17886,8 +17985,7 @@ declare module "gi://Gst?version=1.0" {
             }
             type DebugColorMode = DebugColorModeEnum[Exclude<keyof DebugColorModeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 DebugColorMode: DebugColorModeEnum
             }
             
@@ -18415,8 +18513,7 @@ declare module "gi://Gst?version=1.0" {
                  * the number of library error types.
                  */
                 readonly "NUM_ERRORS": 7
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -18996,8 +19093,7 @@ declare module "gi://Gst?version=1.0" {
                  * the number of resource error types.
                  */
                 readonly "NUM_ERRORS": 16
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -19305,8 +19401,7 @@ declare module "gi://Gst?version=1.0" {
                  * the number of stream error types.
                  */
                 readonly "NUM_ERRORS": 14
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -19703,8 +19798,7 @@ declare module "gi://Gst?version=1.0" {
                  *     the URI references
                  */
                 readonly "BAD_REFERENCE": 3
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -22465,8 +22559,7 @@ declare module "gi://Gst?version=1.0" {
                  * @returns %TRUE if `new_context` was different from `old_context`, pointer to a pointer to a #GstContext     to be replaced.
                  */
                 context_replace(old_context: Context, new_context: Context | null): [boolean, Context]
-                /**
-                 */
+                
                 core_error_quark(): GLib.Quark
                 /**
                  * Adds the logging function to the list of logging functions.
@@ -22927,8 +23020,7 @@ declare module "gi://Gst?version=1.0" {
                  * @returns %TRUE if initialization has been done, %FALSE otherwise.
                  */
                 is_initialized(): boolean
-                /**
-                 */
+                
                 library_error_quark(): GLib.Quark
                 /**
                  * Modifies a pointer to a #GstMessage to point to a different #GstMessage. This
@@ -23105,8 +23197,7 @@ declare module "gi://Gst?version=1.0" {
                  * @returns a newly created parameter specification
                  */
                 param_spec_fraction(name: string, nick: string, blurb: string, min_num: number, min_denom: number, max_num: number, max_denom: number, default_num: number, default_denom: number, flags: GObject.ParamFlags): GObject.ParamSpec | null
-                /**
-                 */
+                
                 parent_buffer_meta_api_get_type(): GObject.GType
                 /**
                  * Gets the global #GstMetaInfo describing  the #GstParentBufferMeta meta.
@@ -23228,11 +23319,9 @@ declare module "gi://Gst?version=1.0" {
                  * @returns  A null terminated array containing all the `system_identifiers` supported by the set of available decryptors, or %NULL if no matches were found.
                  */
                 protection_filter_systems_by_available_decryptors(system_identifiers: string[]): string[] | null
-                /**
-                 */
+                
                 protection_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 protection_meta_get_info(): MetaInfo
                 /**
                  * Iterates the supplied list of UUIDs and checks the GstRegistry for
@@ -23272,8 +23361,7 @@ declare module "gi://Gst?version=1.0" {
                  * @returns the quark associated with the query type
                  */
                 query_type_to_quark(type: QueryType): GLib.Quark
-                /**
-                 */
+                
                 reference_timestamp_meta_api_get_type(): GObject.GType
                 /**
                  * Gets the global #GstMetaInfo describing the #GstReferenceTimestampMeta meta.
@@ -23281,8 +23369,7 @@ declare module "gi://Gst?version=1.0" {
                  * @returns The #GstMetaInfo
                  */
                 reference_timestamp_meta_get_info(): MetaInfo
-                /**
-                 */
+                
                 resource_error_quark(): GLib.Quark
                 /**
                  * Some functions in the GStreamer core might install a custom SIGSEGV handler
@@ -23308,8 +23395,7 @@ declare module "gi://Gst?version=1.0" {
                  * @returns a string with the name of the state    result.
                  */
                 state_change_get_name(transition: StateChange): string
-                /**
-                 */
+                
                 stream_error_quark(): GLib.Quark
                 /**
                  * Get a descriptive string for a given #GstStreamType
@@ -23507,8 +23593,7 @@ declare module "gi://Gst?version=1.0" {
                  * @returns a new string for this URI.
                  */
                 uri_construct(protocol: string, location: string): string
-                /**
-                 */
+                
                 uri_error_quark(): GLib.Quark
                 /**
                  * Parses a URI string into a new #GstUri object. Will return NULL if the URI

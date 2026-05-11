@@ -34,10 +34,13 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -303,10 +306,13 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -403,10 +409,13 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -541,8 +550,7 @@ declare module "gi://Pango?version=1.0" {
                  * @returns a `GBytes` containing the serialized form of `font`
                  */
                 serialize(): GLib.Bytes
-                /**
-                 */
+                
                 vfunc_create_hb_font(): HarfBuzz.font_t
                 /**
                  * Returns a description of the font, with font size set in points.
@@ -552,8 +560,7 @@ declare module "gi://Pango?version=1.0" {
                  * @returns a newly-allocated `PangoFontDescription` object.
                  */
                 vfunc_describe(): FontDescription
-                /**
-                 */
+                
                 vfunc_describe_absolute(): FontDescription
                 /**
                  * Computes the coverage map for a given font and language tag.
@@ -661,10 +668,13 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -788,7 +798,7 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "is-monospace": boolean
                     "is-variable": boolean
                     "item-type": GObject.GType
@@ -796,12 +806,10 @@ declare module "gi://Pango?version=1.0" {
                     "name": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "is-monospace": boolean
-                    "is-variable": boolean
-                    "item-type": GObject.GType
-                    "n-items": number
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -990,14 +998,15 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "item-type": GObject.GType
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -1211,10 +1220,13 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1298,10 +1310,13 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends Fontset.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Fontset.ReadableProperties {
+                interface ReadWriteProperties extends Fontset.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Fontset.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Fontset.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Fontset.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Fontset.ConstructOnlyProperties {
@@ -1356,10 +1371,13 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2185,10 +2203,13 @@ declare module "gi://Pango?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4191,29 +4212,21 @@ declare module "gi://Pango?version=1.0" {
             }
 
             interface GlyphItemIter {
-                /**
-                 */
+                
                 glyph_item: GlyphItem
-                /**
-                 */
+                
                 text: string
-                /**
-                 */
+                
                 start_glyph: number
-                /**
-                 */
+                
                 start_index: number
-                /**
-                 */
+                
                 start_char: number
-                /**
-                 */
+                
                 end_glyph: number
-                /**
-                 */
+                
                 end_index: number
-                /**
-                 */
+                
                 end_char: number
                 /**
                  * Make a shallow copy of an existing `PangoGlyphItemIter` structure.
@@ -5159,8 +5172,7 @@ declare module "gi://Pango?version=1.0" {
                  *   preceding char. Since 1.50
                  */
                 break_removes_preceding: number
-                /**
-                 */
+                
                 reserved: number
             }
 
@@ -5788,8 +5800,7 @@ declare module "gi://Pango?version=1.0" {
                  * line height ({@link Pango.AttrInt}). Since: 1.50
                  */
                 readonly "ABSOLUTE_LINE_HEIGHT": 32
-                /**
-                 */
+                
                 readonly "TEXT_TRANSFORM": 33
                 /**
                  * override segmentation to classify the range of the attribute as a single word ({@link Pango.AttrInt}). Since 1.50
@@ -6329,8 +6340,7 @@ declare module "gi://Pango?version=1.0" {
                  *   not found
                  */
                 readonly "MISSING_VALUE": 2
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -8229,8 +8239,7 @@ declare module "gi://Pango?version=1.0" {
                  * @returns a %NULL-terminated array   of `PangoLanguage`*
                  */
                 language_get_preferred(): Language[] | null
-                /**
-                 */
+                
                 layout_deserialize_error_quark(): GLib.Quark
                 /**
                  * Return the bidirectional embedding levels of the input paragraph.

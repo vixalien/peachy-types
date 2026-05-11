@@ -28,10 +28,13 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -131,18 +134,17 @@ declare module "gi://Polkit?version=1.0" {
                     "sessions-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                     "backend-features": AuthorityFeatures
                     "backend-name": string
                     "backend-version": string
                     "owner": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
-                    "backend-features": AuthorityFeatures
-                    "backend-name": string
-                    "backend-version": string
-                    "owner": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -672,10 +674,13 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -775,10 +780,13 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -835,12 +843,13 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends Gio.Permission.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.Permission.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
-                    "action-id": string
-                    "subject": Subject
+                interface ReadWriteProperties extends Gio.Permission.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.Permission.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.Permission.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.Permission.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.Permission.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -935,12 +944,14 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Subject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Subject.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Subject.ReadWriteProperties {
                     "name": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Subject.WritableProperties {
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Subject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Subject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Subject.ConstructOnlyProperties {
@@ -1011,10 +1022,13 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1078,12 +1092,14 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Identity.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Identity.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Identity.ReadWriteProperties {
                     "gid": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Identity.WritableProperties {
-                    "gid": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Identity.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Identity.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Identity.ConstructOnlyProperties {
@@ -1146,12 +1162,14 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Identity.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Identity.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Identity.ReadWriteProperties {
                     "name": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Identity.WritableProperties {
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Identity.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Identity.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Identity.ConstructOnlyProperties {
@@ -1206,7 +1224,7 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Subject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Subject.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Subject.ReadWriteProperties {
                     "cgroupid": number
                     "ctty": number
                     "gids": never[] | null
@@ -1218,16 +1236,10 @@ declare module "gi://Polkit?version=1.0" {
                     "uid": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Subject.WritableProperties {
-                    "cgroupid": number
-                    "ctty": number
-                    "gids": never[] | null
-                    "pid": number
-                    "pidfd": number
-                    "pidfd-is-safe": boolean
-                    "ppidfd": number
-                    "start-time": number
-                    "uid": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Subject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Subject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Subject.ConstructOnlyProperties {
@@ -1461,12 +1473,14 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.Initable.SignalSignatures, Subject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties, Subject.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.Initable.ReadWriteProperties, Subject.ReadWriteProperties {
                     "session-id": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties, Subject.WritableProperties {
-                    "session-id": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties, Subject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties, Subject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties, Subject.ConstructOnlyProperties {
@@ -1566,12 +1580,14 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Identity.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Identity.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Identity.ReadWriteProperties {
                     "uid": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Identity.WritableProperties {
-                    "uid": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Identity.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Identity.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Identity.ConstructOnlyProperties {
@@ -1639,10 +1655,13 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1724,10 +1743,13 @@ declare module "gi://Polkit?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1890,8 +1912,7 @@ declare module "gi://Polkit?version=1.0" {
                  * Not authorized to perform operation.
                  */
                 readonly "NOT_AUTHORIZED": 3
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -1998,8 +2019,7 @@ declare module "gi://Polkit?version=1.0" {
             interface $Exports {
                 __name__: "Polkit"
                 __version__: "1.0"
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
                 /**
                  * Creates an object from `str` that implements the #PolkitIdentity

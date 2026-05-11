@@ -28,10 +28,13 @@ declare module "gi://Geoclue?version=2.0" {
                 interface SignalSignatures extends Gio.DBusProxy.SignalSignatures, Client.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.DBusInterface.SignalSignatures, Gio.Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusProxy.ReadableProperties, Client.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Client.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusProxy.WritableProperties, Client.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Client.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Client.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusProxy.ConstructOnlyProperties, Client.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -215,10 +218,13 @@ declare module "gi://Geoclue?version=2.0" {
                 interface SignalSignatures extends Gio.DBusInterfaceSkeleton.SignalSignatures, Client.SignalSignatures, Gio.DBusInterface.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusInterfaceSkeleton.ReadableProperties, Client.ReadableProperties, Gio.DBusInterface.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusInterfaceSkeleton.ReadWriteProperties, Client.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusInterfaceSkeleton.WritableProperties, Client.WritableProperties, Gio.DBusInterface.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusInterfaceSkeleton.ReadableProperties, Client.ReadableProperties, Gio.DBusInterface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusInterfaceSkeleton.WritableProperties, Client.WritableProperties, Gio.DBusInterface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusInterfaceSkeleton.ConstructOnlyProperties, Client.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties {
@@ -256,10 +262,13 @@ declare module "gi://Geoclue?version=2.0" {
                 interface SignalSignatures extends Gio.DBusProxy.SignalSignatures, Location.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.DBusInterface.SignalSignatures, Gio.Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusProxy.ReadableProperties, Location.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Location.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusProxy.WritableProperties, Location.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Location.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Location.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusProxy.ConstructOnlyProperties, Location.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -366,10 +375,13 @@ declare module "gi://Geoclue?version=2.0" {
                 interface SignalSignatures extends Gio.DBusInterfaceSkeleton.SignalSignatures, Location.SignalSignatures, Gio.DBusInterface.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusInterfaceSkeleton.ReadableProperties, Location.ReadableProperties, Gio.DBusInterface.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusInterfaceSkeleton.ReadWriteProperties, Location.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusInterfaceSkeleton.WritableProperties, Location.WritableProperties, Gio.DBusInterface.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusInterfaceSkeleton.ReadableProperties, Location.ReadableProperties, Gio.DBusInterface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusInterfaceSkeleton.WritableProperties, Location.WritableProperties, Gio.DBusInterface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusInterfaceSkeleton.ConstructOnlyProperties, Location.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties {
@@ -407,10 +419,13 @@ declare module "gi://Geoclue?version=2.0" {
                 interface SignalSignatures extends Gio.DBusProxy.SignalSignatures, Manager.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.DBusInterface.SignalSignatures, Gio.Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusProxy.ReadableProperties, Manager.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Manager.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusProxy.WritableProperties, Manager.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Manager.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Manager.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusProxy.ConstructOnlyProperties, Manager.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -517,10 +532,13 @@ declare module "gi://Geoclue?version=2.0" {
                 interface SignalSignatures extends Gio.DBusInterfaceSkeleton.SignalSignatures, Manager.SignalSignatures, Gio.DBusInterface.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusInterfaceSkeleton.ReadableProperties, Manager.ReadableProperties, Gio.DBusInterface.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusInterfaceSkeleton.ReadWriteProperties, Manager.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusInterfaceSkeleton.WritableProperties, Manager.WritableProperties, Gio.DBusInterface.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusInterfaceSkeleton.ReadableProperties, Manager.ReadableProperties, Gio.DBusInterface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusInterfaceSkeleton.WritableProperties, Manager.WritableProperties, Gio.DBusInterface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusInterfaceSkeleton.ConstructOnlyProperties, Manager.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties {
@@ -558,16 +576,15 @@ declare module "gi://Geoclue?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.AsyncInitable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties {
                     "client": ClientProxy | null
-                    "distance-threshold": number
                     "location": LocationProxy | null
-                    "time-threshold": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties {
-                    "client": ClientProxy | null
-                    "location": LocationProxy | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties {
@@ -705,8 +722,7 @@ declare module "gi://Geoclue?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Simple: SimpleClass
             }
             
@@ -739,7 +755,7 @@ declare module "gi://Geoclue?version=2.0" {
                     "location-updated"(arg_old: string, arg_new: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "active": boolean
                     "desktop-id": string | null
                     "distance-threshold": number
@@ -748,13 +764,10 @@ declare module "gi://Geoclue?version=2.0" {
                     "time-threshold": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "active": boolean
-                    "desktop-id": string | null
-                    "distance-threshold": number
-                    "location": string | null
-                    "requested-accuracy-level": number
-                    "time-threshold": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -938,7 +951,7 @@ declare module "gi://Geoclue?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accuracy": number
                     "altitude": number
                     "description": string | null
@@ -949,15 +962,10 @@ declare module "gi://Geoclue?version=2.0" {
                     "timestamp": GLib.Variant | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accuracy": number
-                    "altitude": number
-                    "description": string | null
-                    "heading": number
-                    "latitude": number
-                    "longitude": number
-                    "speed": number
-                    "timestamp": GLib.Variant | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1102,14 +1110,15 @@ declare module "gi://Geoclue?version=2.0" {
                     "handle-get-client"(invocation: Gio.DBusMethodInvocation): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "available-accuracy-level": number
                     "in-use": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "available-accuracy-level": number
-                    "in-use": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1421,45 +1430,35 @@ declare module "gi://Geoclue?version=2.0" {
             
             interface AccuracyLevelEnum {
                 readonly $gtype: GObject.GType<AccuracyLevel>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "COUNTRY": 1
-                /**
-                 */
+                
                 readonly "CITY": 4
-                /**
-                 */
+                
                 readonly "NEIGHBORHOOD": 5
-                /**
-                 */
+                
                 readonly "STREET": 6
-                /**
-                 */
+                
                 readonly "EXACT": 8
             }
             type AccuracyLevel = AccuracyLevelEnum[Exclude<keyof AccuracyLevelEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 AccuracyLevel: AccuracyLevelEnum
             }
             
             interface ClientProxyCreateFlagsBitfield {
                 readonly $gtype: GObject.GType<ClientProxyCreateFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "AUTO_DELETE": 1
             }
             type ClientProxyCreateFlags = number
             interface $Exports {
-                /**
-                 */
+                
                 ClientProxyCreateFlags: ClientProxyCreateFlagsBitfield
             }
 

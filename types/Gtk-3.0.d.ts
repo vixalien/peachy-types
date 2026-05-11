@@ -60,7 +60,7 @@ declare module "gi://Gtk?version=3.0" {
                     "activate-link"(uri: string): boolean
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "artists": string[]
                     "authors": string[]
                     "comments": string
@@ -78,22 +78,10 @@ declare module "gi://Gtk?version=3.0" {
                     "wrap-license": boolean
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "artists": string[]
-                    "authors": string[]
-                    "comments": string
-                    "copyright": string
-                    "documenters": string[]
-                    "license": string
-                    "license-type": License
-                    "logo": GdkPixbuf.Pixbuf
-                    "logo-icon-name": string
-                    "program-name": string
-                    "translator-credits": string
-                    "version": string
-                    "website": string
-                    "website-label": string
-                    "wrap-license": boolean
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -553,14 +541,15 @@ declare module "gi://Gtk?version=3.0" {
                     "accel-changed::{}"(keyval: number, modifier: Gdk.ModifierType, accel_closure: ((...args: unknown[]) => unknown)): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "is-locked": boolean
                     "modifier-mask": Gdk.ModifierType
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "is-locked": boolean
-                    "modifier-mask": Gdk.ModifierType
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -742,14 +731,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Label.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Label.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Label.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "accel-closure": GObject.Closure
                     "accel-widget": Widget | null
                 }
 
-                interface WritableProperties extends Label.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "accel-closure": GObject.Closure
-                    "accel-widget": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Label.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Label.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Label.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -761,12 +751,10 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: AccelLabel.ReadableProperties
                 readonly $writableProperties: AccelLabel.WritableProperties
                 readonly $constructOnlyProperties: AccelLabel.ConstructOnlyProperties
-                /**
-                 */
+                
                 get accelClosure(): GObject.Closure
                 set accelClosure(value: GObject.Closure)
-                /**
-                 */
+                
                 get accelWidget(): Widget | null
                 set accelWidget(value: Widget | null)
                 /**
@@ -920,10 +908,13 @@ declare module "gi://Gtk?version=3.0" {
                     "changed::{}"(accel_path: string, accel_key: number, accel_mods: Gdk.ModifierType): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1153,12 +1144,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Atk.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Atk.Object.ReadableProperties {
+                interface ReadWriteProperties extends Atk.Object.ReadWriteProperties {
                     "widget": Widget | null
                 }
 
-                interface WritableProperties extends Atk.Object.WritableProperties {
-                    "widget": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Atk.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Atk.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Atk.Object.ConstructOnlyProperties {
@@ -1170,8 +1163,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: Accessible.ReadableProperties
                 readonly $writableProperties: Accessible.WritableProperties
                 readonly $constructOnlyProperties: Accessible.ConstructOnlyProperties
-                /**
-                 */
+                
                 get widget(): Widget | null
                 set widget(value: Widget | null)
                 /**
@@ -1205,11 +1197,9 @@ declare module "gi://Gtk?version=3.0" {
                  * @deprecated since 3.4 Use gtk_accessible_set_widget() and its vfuncs.
                  */
                 vfunc_connect_widget_destroyed(): void
-                /**
-                 */
+                
                 vfunc_widget_set(): void
-                /**
-                 */
+                
                 vfunc_widget_unset(): void
             }
 
@@ -1248,7 +1238,7 @@ declare module "gi://Gtk?version=3.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "action-group": ActionGroup
                     "always-show-image": boolean
                     "gicon": Gio.Icon
@@ -1256,7 +1246,6 @@ declare module "gi://Gtk?version=3.0" {
                     "icon-name": string
                     "is-important": boolean
                     "label": string
-                    "name": string
                     "sensitive": boolean
                     "short-label": string
                     "stock-id": string
@@ -1267,22 +1256,10 @@ declare module "gi://Gtk?version=3.0" {
                     "visible-vertical": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties {
-                    "action-group": ActionGroup
-                    "always-show-image": boolean
-                    "gicon": Gio.Icon
-                    "hide-if-empty": boolean
-                    "icon-name": string
-                    "is-important": boolean
-                    "label": string
-                    "sensitive": boolean
-                    "short-label": string
-                    "stock-id": string
-                    "tooltip": string
-                    "visible": boolean
-                    "visible-horizontal": boolean
-                    "visible-overflown": boolean
-                    "visible-vertical": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -1890,10 +1867,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -2022,17 +2002,16 @@ declare module "gi://Gtk?version=3.0" {
                     "pre-activate"(action: Action): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "accel-group": AccelGroup
-                    "name": string
                     "sensitive": boolean
                     "visible": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties {
-                    "accel-group": AccelGroup
-                    "sensitive": boolean
-                    "visible": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -2304,7 +2283,7 @@ declare module "gi://Gtk?version=3.0" {
                     "value-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                     "lower": number
                     "page-increment": number
                     "page-size": number
@@ -2313,13 +2292,10 @@ declare module "gi://Gtk?version=3.0" {
                     "value": number
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
-                    "lower": number
-                    "page-increment": number
-                    "page-size": number
-                    "step-increment": number
-                    "upper": number
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -2586,7 +2562,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "bottom-padding": number
                     "left-padding": number
                     "right-padding": number
@@ -2597,15 +2573,10 @@ declare module "gi://Gtk?version=3.0" {
                     "yscale": number
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "bottom-padding": number
-                    "left-padding": number
-                    "right-padding": number
-                    "top-padding": number
-                    "xalign": number
-                    "xscale": number
-                    "yalign": number
-                    "yscale": number
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -2769,16 +2740,16 @@ declare module "gi://Gtk?version=3.0" {
                     "custom-item-activated::{}"(item_name: string): void
                 }
 
-                interface ReadableProperties extends ComboBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties {
+                interface ReadWriteProperties extends ComboBox.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, AppChooser.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                     "heading": string | null
                     "show-default-item": boolean
                     "show-dialog-item": boolean
                 }
 
-                interface WritableProperties extends ComboBox.WritableProperties, Atk.ImplementorIface.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties {
-                    "heading": string | null
-                    "show-default-item": boolean
-                    "show-dialog-item": boolean
+                interface ReadableProperties extends ReadWriteProperties, ComboBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ComboBox.WritableProperties, Atk.ImplementorIface.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ComboBox.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, AppChooser.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -2939,13 +2910,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, AppChooser.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties {
-                    "gfile": Gio.File
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, AppChooser.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "heading": string | null
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties {
-                    "heading": string | null
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, AppChooser.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -3061,7 +3033,7 @@ declare module "gi://Gtk?version=3.0" {
                     "populate-popup"(menu: Menu, application: Gio.AppInfo): void
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, AppChooser.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "default-text": string
                     "show-all": boolean
                     "show-default": boolean
@@ -3070,13 +3042,10 @@ declare module "gi://Gtk?version=3.0" {
                     "show-recommended": boolean
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "default-text": string
-                    "show-all": boolean
-                    "show-default": boolean
-                    "show-fallback": boolean
-                    "show-other": boolean
-                    "show-recommended": boolean
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, AppChooser.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -3314,7 +3283,7 @@ declare module "gi://Gtk?version=3.0" {
                     "window-removed"(window: Window): void
                 }
 
-                interface ReadableProperties extends Gio.Application.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties {
+                interface ReadWriteProperties extends Gio.Application.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties {
                     "active-window": Window | null
                     "app-menu": Gio.MenuModel | null
                     "menubar": Gio.MenuModel
@@ -3322,12 +3291,10 @@ declare module "gi://Gtk?version=3.0" {
                     "screensaver-active": boolean
                 }
 
-                interface WritableProperties extends Gio.Application.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties {
-                    "active-window": Window | null
-                    "app-menu": Gio.MenuModel | null
-                    "menubar": Gio.MenuModel
-                    "register-session": boolean
-                    "screensaver-active": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gio.Application.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.Application.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.Application.ConstructOnlyProperties, Gio.ActionGroup.ConstructOnlyProperties, Gio.ActionMap.ConstructOnlyProperties {
@@ -3339,16 +3306,13 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: Application.ReadableProperties
                 readonly $writableProperties: Application.WritableProperties
                 readonly $constructOnlyProperties: Application.ConstructOnlyProperties
-                /**
-                 */
+                
                 get activeWindow(): Window | null
                 set activeWindow(value: Window | null)
-                /**
-                 */
+                
                 get appMenu(): Gio.MenuModel | null
                 set appMenu(value: Gio.MenuModel | null)
-                /**
-                 */
+                
                 get menubar(): Gio.MenuModel
                 set menubar(value: Gio.MenuModel)
                 /**
@@ -3815,12 +3779,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Window.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gio.ActionGroup.SignalSignatures, Gio.ActionMap.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "show-menubar": boolean
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties, Buildable.WritableProperties {
-                    "show-menubar": boolean
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gio.ActionGroup.ConstructOnlyProperties, Gio.ActionMap.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -4012,14 +3978,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Misc.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Misc.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Misc.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "arrow-type": ArrowType
                     "shadow-type": ShadowType
                 }
 
-                interface WritableProperties extends Misc.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "arrow-type": ArrowType
-                    "shadow-type": ShadowType
+                interface ReadableProperties extends ReadWriteProperties, Misc.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Misc.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Misc.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -4096,10 +4063,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -4121,8 +4091,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ArrowAccessible: ArrowAccessibleClass
             }
             
@@ -4131,18 +4100,17 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Frame.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Frame.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Frame.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "obey-child": boolean
                     "ratio": number
                     "xalign": number
                     "yalign": number
                 }
 
-                interface WritableProperties extends Frame.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "obey-child": boolean
-                    "ratio": number
-                    "xalign": number
-                    "yalign": number
+                interface ReadableProperties extends ReadWriteProperties, Frame.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Frame.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Frame.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -4248,8 +4216,7 @@ declare module "gi://Gtk?version=3.0" {
                      * @since 2.10
                      */
                     "close"(): void
-                    /**
-                     */
+                    
                     "escape"(): void
                     /**
                      * The ::prepare signal is emitted when a new page is set as the
@@ -4263,11 +4230,13 @@ declare module "gi://Gtk?version=3.0" {
                     "prepare"(page: Widget): void
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
-                    "use-header-bar": number
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -4591,10 +4560,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -4639,10 +4611,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends RendererCellAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.TableCell.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RendererCellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties {
+                interface ReadWriteProperties extends RendererCellAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.TableCell.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RendererCellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RendererCellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RendererCellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RendererCellAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.TableCell.ConstructOnlyProperties {
@@ -4664,8 +4639,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BooleanCellAccessible: BooleanCellAccessibleClass
             }
             
@@ -4674,16 +4648,16 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "baseline-position": BaselinePosition
                     "homogeneous": boolean
                     "spacing": number
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "baseline-position": BaselinePosition
-                    "homogeneous": boolean
-                    "spacing": number
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -4890,12 +4864,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "translation-domain": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "translation-domain": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5492,7 +5468,7 @@ declare module "gi://Gtk?version=3.0" {
                     "released"(): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "always-show-image": boolean
                     "image": Widget | null
                     "image-position": PositionType
@@ -5504,16 +5480,10 @@ declare module "gi://Gtk?version=3.0" {
                     "yalign": number
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "always-show-image": boolean
-                    "image": Widget | null
-                    "image-position": PositionType
-                    "label": string
-                    "relief": ReliefStyle
-                    "use-stock": boolean
-                    "use-underline": boolean
-                    "xalign": number
-                    "yalign": number
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -5884,10 +5854,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -5909,8 +5882,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ButtonAccessible: ButtonAccessibleClass
             }
             
@@ -5919,12 +5891,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "layout-style": ButtonBoxStyle
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "layout-style": ButtonBoxStyle
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -6007,8 +5981,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ButtonBox: ButtonBoxClass
             }
             
@@ -6046,7 +6019,7 @@ declare module "gi://Gtk?version=3.0" {
                     "prev-year"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "day": number
                     "detail-height-rows": number
                     "detail-width-chars": number
@@ -6059,17 +6032,10 @@ declare module "gi://Gtk?version=3.0" {
                     "year": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "day": number
-                    "detail-height-rows": number
-                    "detail-width-chars": number
-                    "month": number
-                    "no-month-change": boolean
-                    "show-day-names": boolean
-                    "show-details": boolean
-                    "show-heading": boolean
-                    "show-week-numbers": boolean
-                    "year": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -6249,26 +6215,19 @@ declare module "gi://Gtk?version=3.0" {
                  * @param day the day number to unmark between 1 and 31.
                  */
                 unmark_day(day: number): void
-                /**
-                 */
+                
                 vfunc_day_selected(): void
-                /**
-                 */
+                
                 vfunc_day_selected_double_click(): void
-                /**
-                 */
+                
                 vfunc_month_changed(): void
-                /**
-                 */
+                
                 vfunc_next_month(): void
-                /**
-                 */
+                
                 vfunc_next_year(): void
-                /**
-                 */
+                
                 vfunc_prev_month(): void
-                /**
-                 */
+                
                 vfunc_prev_year(): void
             }
 
@@ -6316,10 +6275,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Accessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.TableCell.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Accessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties {
+                interface ReadWriteProperties extends Accessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.TableCell.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Accessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Accessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Accessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Accessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.TableCell.ConstructOnlyProperties {
@@ -6345,8 +6307,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 CellAccessible: CellAccessibleClass
             }
             
@@ -6396,16 +6357,16 @@ declare module "gi://Gtk?version=3.0" {
                     "remove-editable"(renderer: CellRenderer, editable: CellEditable): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                     "edit-widget": CellEditable
                     "edited-cell": CellRenderer
                     "focus-cell": CellRenderer
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
-                    "edit-widget": CellEditable
-                    "edited-cell": CellRenderer
-                    "focus-cell": CellRenderer
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -7433,12 +7394,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends CellArea.SignalSignatures, Buildable.SignalSignatures, CellLayout.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellArea.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends CellArea.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "spacing": number
                 }
 
-                interface WritableProperties extends CellArea.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Orientable.WritableProperties {
-                    "spacing": number
+                interface ReadableProperties extends ReadWriteProperties, CellArea.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellArea.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellArea.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -7536,19 +7499,17 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "area": CellArea
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "minimum-height": number
                     "minimum-width": number
                     "natural-height": number
                     "natural-width": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "minimum-height": number
-                    "minimum-width": number
-                    "natural-height": number
-                    "natural-width": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7880,7 +7841,8 @@ declare module "gi://Gtk?version=3.0" {
                     "editing-started"(editable: CellEditable, path: string): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
+                    "cell-background": string
                     "cell-background-gdk": Gdk.Color
                     "cell-background-rgba": Gdk.RGBA
                     "cell-background-set": boolean
@@ -7898,23 +7860,10 @@ declare module "gi://Gtk?version=3.0" {
                     "ypad": number
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
-                    "cell-background": string
-                    "cell-background-gdk": Gdk.Color
-                    "cell-background-rgba": Gdk.RGBA
-                    "cell-background-set": boolean
-                    "editing": boolean
-                    "height": number
-                    "is-expanded": boolean
-                    "is-expander": boolean
-                    "mode": CellRendererMode
-                    "sensitive": boolean
-                    "visible": boolean
-                    "width": number
-                    "xalign": number
-                    "xpad": number
-                    "yalign": number
-                    "ypad": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -8400,18 +8349,17 @@ declare module "gi://Gtk?version=3.0" {
                     "accel-edited"(path_string: string, accel_key: number, accel_mods: Gdk.ModifierType, hardware_keycode: number): void
                 }
 
-                interface ReadableProperties extends CellRendererText.ReadableProperties {
+                interface ReadWriteProperties extends CellRendererText.ReadWriteProperties {
                     "accel-key": number
                     "accel-mode": CellRendererAccelMode
                     "accel-mods": Gdk.ModifierType
                     "keycode": number
                 }
 
-                interface WritableProperties extends CellRendererText.WritableProperties {
-                    "accel-key": number
-                    "accel-mode": CellRendererAccelMode
-                    "accel-mods": Gdk.ModifierType
-                    "keycode": number
+                interface ReadableProperties extends ReadWriteProperties, CellRendererText.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRendererText.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRendererText.ConstructOnlyProperties {
@@ -8515,16 +8463,16 @@ declare module "gi://Gtk?version=3.0" {
                     "changed"(path_string: string, new_iter: TreeIter): void
                 }
 
-                interface ReadableProperties extends CellRendererText.ReadableProperties {
+                interface ReadWriteProperties extends CellRendererText.ReadWriteProperties {
                     "has-entry": boolean
                     "model": TreeModel
                     "text-column": number
                 }
 
-                interface WritableProperties extends CellRendererText.WritableProperties {
-                    "has-entry": boolean
-                    "model": TreeModel
-                    "text-column": number
+                interface ReadableProperties extends ReadWriteProperties, CellRendererText.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRendererText.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRendererText.ConstructOnlyProperties {
@@ -8610,7 +8558,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends CellRenderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties {
                     "follow-state": boolean
                     "gicon": Gio.Icon
                     "icon-name": string
@@ -8623,17 +8571,10 @@ declare module "gi://Gtk?version=3.0" {
                     "surface": cairo.Surface
                 }
 
-                interface WritableProperties extends CellRenderer.WritableProperties {
-                    "follow-state": boolean
-                    "gicon": Gio.Icon
-                    "icon-name": string
-                    "pixbuf": GdkPixbuf.Pixbuf
-                    "pixbuf-expander-closed": GdkPixbuf.Pixbuf
-                    "pixbuf-expander-open": GdkPixbuf.Pixbuf
-                    "stock-detail": string
-                    "stock-id": string
-                    "stock-size": number
-                    "surface": cairo.Surface
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
@@ -8671,16 +8612,13 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get iconName(): string
                 set iconName(value: string)
-                /**
-                 */
+                
                 get pixbuf(): GdkPixbuf.Pixbuf
                 set pixbuf(value: GdkPixbuf.Pixbuf)
-                /**
-                 */
+                
                 get pixbufExpanderClosed(): GdkPixbuf.Pixbuf
                 set pixbufExpanderClosed(value: GdkPixbuf.Pixbuf)
-                /**
-                 */
+                
                 get pixbufExpanderOpen(): GdkPixbuf.Pixbuf
                 set pixbufExpanderOpen(value: GdkPixbuf.Pixbuf)
                 /**
@@ -8750,7 +8688,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends CellRenderer.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "inverted": boolean
                     "pulse": number
                     "text": string
@@ -8759,13 +8697,10 @@ declare module "gi://Gtk?version=3.0" {
                     "value": number
                 }
 
-                interface WritableProperties extends CellRenderer.WritableProperties, Orientable.WritableProperties {
-                    "inverted": boolean
-                    "pulse": number
-                    "text": string
-                    "text-xalign": number
-                    "text-yalign": number
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -8864,16 +8799,16 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends CellRendererText.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellRendererText.ReadableProperties {
+                interface ReadWriteProperties extends CellRendererText.ReadWriteProperties {
                     "adjustment": Adjustment
                     "climb-rate": number
                     "digits": number
                 }
 
-                interface WritableProperties extends CellRendererText.WritableProperties {
-                    "adjustment": Adjustment
-                    "climb-rate": number
-                    "digits": number
+                interface ReadableProperties extends ReadWriteProperties, CellRendererText.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRendererText.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRendererText.ConstructOnlyProperties {
@@ -8945,16 +8880,16 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends CellRenderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties {
                     "active": boolean
                     "pulse": number
                     "size": IconSize
                 }
 
-                interface WritableProperties extends CellRenderer.WritableProperties {
-                    "active": boolean
-                    "pulse": number
-                    "size": IconSize
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
@@ -9035,55 +8970,7 @@ declare module "gi://Gtk?version=3.0" {
                     "edited"(path: string, new_text: string): void
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties {
-                    "align-set": boolean
-                    "alignment": Pango.Alignment
-                    "attributes": Pango.AttrList
-                    "background-gdk": Gdk.Color
-                    "background-rgba": Gdk.RGBA
-                    "background-set": boolean
-                    "editable": boolean
-                    "editable-set": boolean
-                    "ellipsize": Pango.EllipsizeMode
-                    "ellipsize-set": boolean
-                    "family": string
-                    "family-set": boolean
-                    "font": string
-                    "font-desc": Pango.FontDescription
-                    "foreground-gdk": Gdk.Color
-                    "foreground-rgba": Gdk.RGBA
-                    "foreground-set": boolean
-                    "language": string
-                    "language-set": boolean
-                    "max-width-chars": number
-                    "placeholder-text": string
-                    "rise": number
-                    "rise-set": boolean
-                    "scale": number
-                    "scale-set": boolean
-                    "single-paragraph-mode": boolean
-                    "size": number
-                    "size-points": number
-                    "size-set": boolean
-                    "stretch": Pango.Stretch
-                    "stretch-set": boolean
-                    "strikethrough": boolean
-                    "strikethrough-set": boolean
-                    "style": Pango.Style
-                    "style-set": boolean
-                    "text": string
-                    "underline": Pango.Underline
-                    "underline-set": boolean
-                    "variant": Pango.Variant
-                    "variant-set": boolean
-                    "weight": number
-                    "weight-set": boolean
-                    "width-chars": number
-                    "wrap-mode": Pango.WrapMode
-                    "wrap-width": number
-                }
-
-                interface WritableProperties extends CellRenderer.WritableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties {
                     "align-set": boolean
                     "alignment": Pango.Alignment
                     "attributes": Pango.AttrList
@@ -9134,6 +9021,12 @@ declare module "gi://Gtk?version=3.0" {
                     "wrap-width": number
                 }
 
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
+                }
+
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
                 }
             }
@@ -9159,8 +9052,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get alignment(): Pango.Alignment
                 set alignment(value: Pango.Alignment)
-                /**
-                 */
+                
                 get attributes(): Pango.AttrList
                 set attributes(value: Pango.AttrList)
                 /**
@@ -9224,8 +9116,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get font(): string
                 set font(value: string)
-                /**
-                 */
+                
                 get fontDesc(): Pango.FontDescription
                 set fontDesc(value: Pango.FontDescription)
                 /**
@@ -9480,7 +9371,7 @@ declare module "gi://Gtk?version=3.0" {
                     "toggled"(path: string): void
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties {
                     "activatable": boolean
                     "active": boolean
                     "inconsistent": boolean
@@ -9488,12 +9379,10 @@ declare module "gi://Gtk?version=3.0" {
                     "radio": boolean
                 }
 
-                interface WritableProperties extends CellRenderer.WritableProperties {
-                    "activatable": boolean
-                    "active": boolean
-                    "inconsistent": boolean
-                    "indicator-size": number
-                    "radio": boolean
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
@@ -9609,18 +9498,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, CellLayout.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, Orientable.ReadableProperties {
-                    "background-gdk": Gdk.Color
-                    "background-rgba": Gdk.RGBA
-                    "background-set": boolean
-                    "cell-area": CellArea
-                    "cell-area-context": CellAreaContext
-                    "draw-sensitive": boolean
-                    "fit-model": boolean
-                    "model": TreeModel | null
-                }
-
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Orientable.WritableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "background": string
                     "background-gdk": Gdk.Color
                     "background-rgba": Gdk.RGBA
@@ -9628,6 +9506,12 @@ declare module "gi://Gtk?version=3.0" {
                     "draw-sensitive": boolean
                     "fit-model": boolean
                     "model": TreeModel | null
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -9887,10 +9771,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ToggleButton.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ToggleButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ToggleButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ToggleButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ToggleButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToggleButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToggleButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -9979,16 +9866,16 @@ declare module "gi://Gtk?version=3.0" {
                     "toggled"(): void
                 }
 
-                interface ReadableProperties extends MenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends MenuItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "active": boolean
                     "draw-as-radio": boolean
                     "inconsistent": boolean
                 }
 
-                interface WritableProperties extends MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "active": boolean
-                    "draw-as-radio": boolean
-                    "inconsistent": boolean
+                interface ReadableProperties extends ReadWriteProperties, MenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -10125,10 +10012,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends MenuItemAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MenuItemAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends MenuItemAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends MenuItemAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, MenuItemAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuItemAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuItemAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -10150,8 +10040,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 CheckMenuItemAccessible: CheckMenuItemAccessibleClass
             }
             
@@ -10168,10 +10057,13 @@ declare module "gi://Gtk?version=3.0" {
                     "owner-change"(event: Gdk.EventOwnerChange): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -10572,7 +10464,7 @@ declare module "gi://Gtk?version=3.0" {
                     "color-set"(): void
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties, ColorChooser.ReadWriteProperties {
                     "alpha": number
                     "color": Gdk.Color
                     "rgba": Gdk.RGBA
@@ -10581,13 +10473,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-alpha": boolean
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties {
-                    "alpha": number
-                    "color": Gdk.Color
-                    "rgba": Gdk.RGBA
-                    "show-editor": boolean
-                    "title": string
-                    "use-alpha": boolean
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ColorChooser.ConstructOnlyProperties {
@@ -10701,8 +10590,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param use_alpha %TRUE if color button should use alpha channel, %FALSE if not
                  */
                 set_use_alpha(use_alpha: boolean): void
-                /**
-                 */
+                
                 vfunc_color_set(): void
             }
 
@@ -10759,12 +10647,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, ColorChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, ColorChooser.ReadWriteProperties {
                     "show-editor": boolean
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties {
-                    "show-editor": boolean
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ColorChooser.ConstructOnlyProperties {
@@ -10812,12 +10702,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, ColorChooser.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, ColorChooser.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "show-editor": boolean
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties, Orientable.WritableProperties {
-                    "show-editor": boolean
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ColorChooser.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -10890,7 +10782,7 @@ declare module "gi://Gtk?version=3.0" {
                     "color-changed"(): void
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "current-alpha": number
                     "current-color": Gdk.Color
                     "current-rgba": Gdk.RGBA
@@ -10898,12 +10790,10 @@ declare module "gi://Gtk?version=3.0" {
                     "has-palette": boolean
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "current-alpha": number
-                    "current-color": Gdk.Color
-                    "current-rgba": Gdk.RGBA
-                    "has-opacity-control": boolean
-                    "has-palette": boolean
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -11057,8 +10947,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param rgba a #GdkRGBA to set the previous color with
                  */
                 set_previous_rgba(rgba: Gdk.RGBA): void
-                /**
-                 */
+                
                 vfunc_color_changed(): void
             }
 
@@ -11088,8 +10977,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ColorSelection: ColorSelectionClass
             }
             
@@ -11098,18 +10986,17 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "cancel-button": Widget
                     "color-selection": Widget
                     "help-button": Widget
                     "ok-button": Widget
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "cancel-button": Widget
-                    "color-selection": Widget
-                    "help-button": Widget
-                    "ok-button": Widget
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -11121,20 +11008,16 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: ColorSelectionDialog.ReadableProperties
                 readonly $writableProperties: ColorSelectionDialog.WritableProperties
                 readonly $constructOnlyProperties: ColorSelectionDialog.ConstructOnlyProperties
-                /**
-                 */
+                
                 get cancelButton(): Widget
                 set cancelButton(value: Widget)
-                /**
-                 */
+                
                 get colorSelection(): Widget
                 set colorSelection(value: Widget)
-                /**
-                 */
+                
                 get helpButton(): Widget
                 set helpButton(value: Widget)
-                /**
-                 */
+                
                 get okButton(): Widget
                 set okButton(value: Widget)
                 /**
@@ -11159,8 +11042,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ColorSelectionDialog: ColorSelectionDialogClass
             }
             
@@ -11243,15 +11125,13 @@ declare module "gi://Gtk?version=3.0" {
                     "popup"(): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                     "active": number
                     "active-id": string | null
                     "add-tearoffs": boolean
                     "button-sensitivity": SensitivityType
-                    "cell-area": CellArea
                     "column-span-column": number
                     "entry-text-column": number
-                    "has-entry": boolean
                     "has-frame": boolean
                     "id-column": number
                     "model": TreeModel
@@ -11262,21 +11142,10 @@ declare module "gi://Gtk?version=3.0" {
                     "wrap-width": number
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties {
-                    "active": number
-                    "active-id": string | null
-                    "add-tearoffs": boolean
-                    "button-sensitivity": SensitivityType
-                    "column-span-column": number
-                    "entry-text-column": number
-                    "has-frame": boolean
-                    "id-column": number
-                    "model": TreeModel
-                    "popup-fixed-width": boolean
-                    "popup-shown": boolean
-                    "row-span-column": number
-                    "tearoff-title": string
-                    "wrap-width": number
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -11831,10 +11700,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -11856,8 +11728,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ComboBoxAccessible: ComboBoxAccessibleClass
             }
             
@@ -11866,10 +11737,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ComboBox.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, CellEditable.SignalSignatures, CellLayout.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ComboBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties {
+                interface ReadWriteProperties extends ComboBox.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ComboBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ComboBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ComboBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ComboBox.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -12053,8 +11927,7 @@ declare module "gi://Gtk?version=3.0" {
                      * @param object
                      */
                     "add"(object: Widget): void
-                    /**
-                     */
+                    
                     "check-resize"(): void
                     /**
                      * @param object
@@ -12066,15 +11939,16 @@ declare module "gi://Gtk?version=3.0" {
                     "set-focus-child"(object: Widget): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
-                    "border-width": number
-                    "resize-mode": ResizeMode
-                }
-
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "border-width": number
                     "child": Widget
                     "resize-mode": ResizeMode
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -12091,8 +11965,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get borderWidth(): number
                 set borderWidth(value: number)
-                /**
-                 */
+                
                 set child(value: Widget)
                 /**
                  * @default GTK_RESIZE_PARENT
@@ -12115,8 +11988,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param widget a widget to be placed inside `container`
                  */
                 add(widget: Widget): void
-                /**
-                 */
+                
                 check_resize(): void
                 /**
                  * Gets the value of a child property for `child` and `container`.
@@ -12724,10 +12596,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -12749,8 +12624,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ContainerAccessible: ContainerAccessibleClass
             }
             
@@ -12759,10 +12633,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends CellAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.TableCell.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties {
+                interface ReadWriteProperties extends CellAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.TableCell.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.TableCell.ConstructOnlyProperties {
@@ -12793,14 +12670,12 @@ declare module "gi://Gtk?version=3.0" {
                 readonly prototype: ContainerCellAccessible
 
                 new (props?: Partial<GObject.ConstructorProps<ContainerCellAccessible>>): ContainerCellAccessible
-                /**
-                 */
+                
                 "new"(): ContainerCellAccessible
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ContainerCellAccessible: ContainerCellAccessibleClass
             }
             
@@ -12825,10 +12700,13 @@ declare module "gi://Gtk?version=3.0" {
                     "parsing-error"(section: CssSection, error: GLib.Error): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, StyleProvider.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, StyleProvider.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, StyleProvider.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, StyleProvider.ConstructOnlyProperties {
@@ -12970,11 +12848,13 @@ declare module "gi://Gtk?version=3.0" {
                     "response"(response_id: number): void
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
-                    "use-header-bar": number
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -13301,10 +13181,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -13569,8 +13452,7 @@ declare module "gi://Gtk?version=3.0" {
                      * @param preedit the current preedit string
                      */
                     "preedit-changed"(preedit: string): void
-                    /**
-                     */
+                    
                     "toggle-direction"(): void
                     /**
                      * The ::toggle-overwrite signal is a
@@ -13582,7 +13464,7 @@ declare module "gi://Gtk?version=3.0" {
                     "toggle-overwrite"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, Editable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, Editable.ReadWriteProperties {
                     "activates-default": boolean
                     "attributes": Pango.AttrList | null
                     "buffer": EntryBuffer
@@ -13636,58 +13518,10 @@ declare module "gi://Gtk?version=3.0" {
                     "xalign": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, Editable.WritableProperties {
-                    "activates-default": boolean
-                    "attributes": Pango.AttrList | null
-                    "buffer": EntryBuffer
-                    "caps-lock-warning": boolean
-                    "completion": EntryCompletion
-                    "cursor-position": number
-                    "editable": boolean
-                    "enable-emoji-completion": boolean
-                    "has-frame": boolean
-                    "im-module": string
-                    "inner-border": Border | null
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
-                    "invisible-char": number
-                    "invisible-char-set": boolean
-                    "max-length": number
-                    "max-width-chars": number
-                    "overwrite-mode": boolean
-                    "placeholder-text": string
-                    "populate-all": boolean
-                    "primary-icon-activatable": boolean
-                    "primary-icon-gicon": Gio.Icon
-                    "primary-icon-name": string
-                    "primary-icon-pixbuf": GdkPixbuf.Pixbuf
-                    "primary-icon-sensitive": boolean
-                    "primary-icon-stock": string
-                    "primary-icon-storage-type": ImageType
-                    "primary-icon-tooltip-markup": string
-                    "primary-icon-tooltip-text": string
-                    "progress-fraction": number
-                    "progress-pulse-step": number
-                    "scroll-offset": number
-                    "secondary-icon-activatable": boolean
-                    "secondary-icon-gicon": Gio.Icon
-                    "secondary-icon-name": string
-                    "secondary-icon-pixbuf": GdkPixbuf.Pixbuf
-                    "secondary-icon-sensitive": boolean
-                    "secondary-icon-stock": string
-                    "secondary-icon-storage-type": ImageType
-                    "secondary-icon-tooltip-markup": string
-                    "secondary-icon-tooltip-text": string
-                    "selection-bound": number
-                    "shadow-type": ShadowType
-                    "show-emoji-icon": boolean
-                    "tabs": Pango.TabArray | null
-                    "text": string
-                    "text-length": number
-                    "truncate-multiline": boolean
-                    "visibility": boolean
-                    "width-chars": number
-                    "xalign": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, Editable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, Editable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, Editable.ConstructOnlyProperties {
@@ -13715,8 +13549,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get attributes(): Pango.AttrList | null
                 set attributes(value: Pango.AttrList | null)
-                /**
-                 */
+                
                 get buffer(): EntryBuffer
                 set buffer(value: EntryBuffer)
                 /**
@@ -14054,12 +13887,10 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get showEmojiIcon(): boolean
                 set showEmojiIcon(value: boolean)
-                /**
-                 */
+                
                 get tabs(): Pango.TabArray | null
                 set tabs(value: Pango.TabArray | null)
-                /**
-                 */
+                
                 get text(): string
                 set text(value: string)
                 /**
@@ -14832,8 +14663,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param str
                  */
                 vfunc_insert_at_cursor(str: string): void
-                /**
-                 */
+                
                 vfunc_insert_emoji(): void
                 /**
                  * Class handler for the #GtkEntry::move-cursor signal. The
@@ -14857,8 +14687,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param popup
                  */
                 vfunc_populate_popup(popup: Widget): void
-                /**
-                 */
+                
                 vfunc_toggle_direction(): void
                 /**
                  * Class handler for the #GtkEntry::toggle-overwrite signal.
@@ -14969,10 +14798,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.EditableText.SignalSignatures, Atk.Text.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.EditableText.ReadableProperties, Atk.Text.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.EditableText.ReadWriteProperties, Atk.Text.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.EditableText.WritableProperties, Atk.Text.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.EditableText.ReadableProperties, Atk.Text.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.EditableText.WritableProperties, Atk.Text.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.EditableText.ConstructOnlyProperties, Atk.Text.ConstructOnlyProperties {
@@ -14994,8 +14826,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 EntryAccessible: EntryAccessibleClass
             }
             
@@ -15019,16 +14850,16 @@ declare module "gi://Gtk?version=3.0" {
                     "inserted-text"(position: number, chars: string, n_chars: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "length": number
                     "max-length": number
                     "text": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "length": number
-                    "max-length": number
-                    "text": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15307,8 +15138,7 @@ declare module "gi://Gtk?version=3.0" {
                     "no-matches"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
-                    "cell-area": CellArea
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                     "inline-completion": boolean
                     "inline-selection": boolean
                     "minimum-key-length": number
@@ -15319,15 +15149,10 @@ declare module "gi://Gtk?version=3.0" {
                     "text-column": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
-                    "inline-completion": boolean
-                    "inline-selection": boolean
-                    "minimum-key-length": number
-                    "model": TreeModel | null
-                    "popup-completion": boolean
-                    "popup-set-width": boolean
-                    "popup-single-match": boolean
-                    "text-column": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -15373,8 +15198,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get minimumKeyLength(): number
                 set minimumKeyLength(value: number)
-                /**
-                 */
+                
                 get model(): TreeModel | null
                 set model(value: TreeModel | null)
                 /**
@@ -15619,8 +15443,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param iter
                  */
                 vfunc_match_selected(model: TreeModel, iter: TreeIter): boolean
-                /**
-                 */
+                
                 vfunc_no_matches(): void
             }
 
@@ -15697,10 +15520,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Atk.Object.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Atk.Object.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends Atk.Object.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Atk.Object.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Atk.Object.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Atk.Object.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Atk.Object.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -15722,8 +15548,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 EntryIconAccessible: EntryIconAccessibleClass
             }
             
@@ -15732,14 +15557,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "above-child": boolean
                     "visible-window": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "above-child": boolean
-                    "visible-window": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -15854,13 +15680,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "propagation-phase": PropagationPhase
-                    "widget": Widget
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "propagation-phase": PropagationPhase
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15944,14 +15771,11 @@ declare module "gi://Gtk?version=3.0" {
 
             namespace EventControllerKey {
                 interface SignalSignatures extends EventController.SignalSignatures {
-                    /**
-                     */
+                    
                     "focus-in"(): void
-                    /**
-                     */
+                    
                     "focus-out"(): void
-                    /**
-                     */
+                    
                     "im-update"(): void
                     /**
                      * This signal is emitted whenever a key is pressed.
@@ -15976,10 +15800,13 @@ declare module "gi://Gtk?version=3.0" {
                     "modifiers"(object: Gdk.ModifierType): boolean
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -15995,8 +15822,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param widget
                  */
                 forward(widget: Widget): boolean
-                /**
-                 */
+                
                 get_group(): number
                 /**
                  * Gets the IM context of a key controller.
@@ -16052,10 +15878,13 @@ declare module "gi://Gtk?version=3.0" {
                     "motion"(x: number, y: number): void
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -16125,12 +15954,14 @@ declare module "gi://Gtk?version=3.0" {
                     "scroll-end"(): void
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                     "flags": EventControllerScrollFlags
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
-                    "flags": EventControllerScrollFlags
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -16222,12 +16053,11 @@ declare module "gi://Gtk?version=3.0" {
 
             namespace Expander {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
-                    /**
-                     */
+                    
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "expanded": boolean
                     "label": string | null
                     "label-fill": boolean
@@ -16238,15 +16068,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "expanded": boolean
-                    "label": string | null
-                    "label-fill": boolean
-                    "label-widget": Widget | null
-                    "resize-toplevel": boolean
-                    "spacing": number
-                    "use-markup": boolean
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -16276,8 +16101,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get labelFill(): boolean
                 set labelFill(value: boolean)
-                /**
-                 */
+                
                 get labelWidget(): Widget | null
                 set labelWidget(value: Widget | null)
                 /**
@@ -16561,10 +16385,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -16586,8 +16413,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ExpanderAccessible: ExpanderAccessibleClass
             }
             
@@ -16604,14 +16430,15 @@ declare module "gi://Gtk?version=3.0" {
                     "file-set"(): void
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FileChooser.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, FileChooser.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "title": string
                     "width-chars": number
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FileChooser.WritableProperties, Orientable.WritableProperties {
-                    "title": string
-                    "width-chars": number
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FileChooser.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FileChooser.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, FileChooser.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -16768,10 +16595,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, FileChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FileChooser.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, FileChooser.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FileChooser.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FileChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FileChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, FileChooser.ConstructOnlyProperties {
@@ -16958,14 +16788,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends NativeDialog.SignalSignatures, FileChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends NativeDialog.ReadableProperties, FileChooser.ReadableProperties {
+                interface ReadWriteProperties extends NativeDialog.ReadWriteProperties, FileChooser.ReadWriteProperties {
                     "accept-label": string | null
                     "cancel-label": string | null
                 }
 
-                interface WritableProperties extends NativeDialog.WritableProperties, FileChooser.WritableProperties {
-                    "accept-label": string | null
-                    "cancel-label": string | null
+                interface ReadableProperties extends ReadWriteProperties, NativeDialog.ReadableProperties, FileChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, NativeDialog.WritableProperties, FileChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends NativeDialog.ConstructOnlyProperties, FileChooser.ConstructOnlyProperties {
@@ -17344,14 +17175,15 @@ declare module "gi://Gtk?version=3.0" {
                     "up-folder"(): void
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FileChooser.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, FileChooser.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "search-mode": boolean
                     "subtitle": string
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FileChooser.WritableProperties, Orientable.WritableProperties {
-                    "search-mode": boolean
-                    "subtitle": string
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FileChooser.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FileChooser.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, FileChooser.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -17368,8 +17200,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get searchMode(): boolean
                 set searchMode(value: boolean)
-                /**
-                 */
+                
                 get subtitle(): string
                 set subtitle(value: string)
             }
@@ -17409,10 +17240,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -17445,10 +17279,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -17615,10 +17452,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -17777,7 +17617,7 @@ declare module "gi://Gtk?version=3.0" {
                     "unselect-all"(): void
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "activate-on-single-click": boolean
                     "column-spacing": number
                     "homogeneous": boolean
@@ -17787,14 +17627,10 @@ declare module "gi://Gtk?version=3.0" {
                     "selection-mode": SelectionMode
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "activate-on-single-click": boolean
-                    "column-spacing": number
-                    "homogeneous": boolean
-                    "max-children-per-line": number
-                    "min-children-per-line": number
-                    "row-spacing": number
-                    "selection-mode": SelectionMode
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -18126,8 +17962,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param child a child of `box`
                  */
                 unselect_child(child: FlowBoxChild): void
-                /**
-                 */
+                
                 vfunc_activate_cursor_child(): void
                 /**
                  * @param child
@@ -18144,11 +17979,9 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 3.12
                  */
                 vfunc_select_all(): void
-                /**
-                 */
+                
                 vfunc_selected_children_changed(): void
-                /**
-                 */
+                
                 vfunc_toggle_cursor_child(): void
                 /**
                  * Unselect all children of `box`, if the selection
@@ -18225,10 +18058,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -18250,8 +18086,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 FlowBoxAccessible: FlowBoxAccessibleClass
             }
             
@@ -18270,10 +18105,13 @@ declare module "gi://Gtk?version=3.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -18318,8 +18156,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @returns %TRUE if `child` is selected
                  */
                 is_selected(): boolean
-                /**
-                 */
+                
                 vfunc_activate(): void
             }
 
@@ -18338,8 +18175,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 FlowBoxChild: FlowBoxChildClass
             }
             
@@ -18348,10 +18184,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -18373,8 +18212,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 FlowBoxChildAccessible: FlowBoxChildAccessibleClass
             }
             
@@ -18394,7 +18232,7 @@ declare module "gi://Gtk?version=3.0" {
                     "font-set"(): void
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, FontChooser.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties, FontChooser.ReadWriteProperties {
                     "font-name": string
                     "show-size": boolean
                     "show-style": boolean
@@ -18403,13 +18241,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-size": boolean
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, FontChooser.WritableProperties {
-                    "font-name": string
-                    "show-size": boolean
-                    "show-style": boolean
-                    "title": string
-                    "use-font": boolean
-                    "use-size": boolean
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, FontChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, FontChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, FontChooser.ConstructOnlyProperties {
@@ -18550,8 +18385,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param use_size If %TRUE, font name will be written using the selected size.
                  */
                 set_use_size(use_size: boolean): void
-                /**
-                 */
+                
                 vfunc_font_set(): void
             }
 
@@ -18593,10 +18427,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, FontChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FontChooser.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, FontChooser.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FontChooser.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FontChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FontChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, FontChooser.ConstructOnlyProperties {
@@ -18645,12 +18482,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, FontChooser.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FontChooser.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, FontChooser.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "tweak-action": Gio.Action
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FontChooser.WritableProperties, Orientable.WritableProperties {
-                    "tweak-action": Gio.Action
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FontChooser.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FontChooser.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, FontChooser.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -18716,14 +18555,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "font-name": string
                     "preview-text": string
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "font-name": string
-                    "preview-text": string
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -18858,8 +18698,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 FontSelection: FontSelectionClass
             }
             
@@ -18868,10 +18707,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -18953,8 +18795,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 FontSelectionDialog: FontSelectionDialogClass
             }
             
@@ -18963,7 +18804,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "label": string | null
                     "label-widget": Widget | null
                     "label-xalign": number
@@ -18971,12 +18812,10 @@ declare module "gi://Gtk?version=3.0" {
                     "shadow-type": ShadowType
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "label": string | null
-                    "label-widget": Widget | null
-                    "label-xalign": number
-                    "label-yalign": number
-                    "shadow-type": ShadowType
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -18993,8 +18832,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get label(): string | null
                 set label(value: string | null)
-                /**
-                 */
+                
                 get labelWidget(): Widget | null
                 set labelWidget(value: Widget | null)
                 /**
@@ -19138,10 +18976,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -19163,8 +19004,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 FrameAccessible: FrameAccessibleClass
             }
             
@@ -19213,7 +19053,7 @@ declare module "gi://Gtk?version=3.0" {
                     "resize"(width: number, height: number): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "auto-render": boolean
                     "context": Gdk.GLContext
                     "has-alpha": boolean
@@ -19222,13 +19062,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-es": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "auto-render": boolean
-                    "context": Gdk.GLContext
-                    "has-alpha": boolean
-                    "has-depth-buffer": boolean
-                    "has-stencil-buffer": boolean
-                    "use-es": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -19642,13 +19479,14 @@ declare module "gi://Gtk?version=3.0" {
                     "update"(sequence: Gdk.EventSequence | null): void
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
-                    "n-points": number
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                     "window": Gdk.Window | null
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
-                    "window": Gdk.Window | null
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -20009,10 +19847,13 @@ declare module "gi://Gtk?version=3.0" {
                     "drag-update"(offset_x: number, offset_y: number): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -20087,12 +19928,14 @@ declare module "gi://Gtk?version=3.0" {
                     "pressed"(x: number, y: number): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                     "delay-factor": number
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
-                    "delay-factor": number
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -20168,10 +20011,13 @@ declare module "gi://Gtk?version=3.0" {
                     "stopped"(): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -20252,12 +20098,14 @@ declare module "gi://Gtk?version=3.0" {
                     "pan"(direction: PanDirection, offset: number): void
                 }
 
-                interface ReadableProperties extends GestureDrag.ReadableProperties {
+                interface ReadWriteProperties extends GestureDrag.ReadWriteProperties {
                     "orientation": Orientation
                 }
 
-                interface WritableProperties extends GestureDrag.WritableProperties {
-                    "orientation": Orientation
+                interface ReadableProperties extends ReadWriteProperties, GestureDrag.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureDrag.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureDrag.ConstructOnlyProperties {
@@ -20338,10 +20186,13 @@ declare module "gi://Gtk?version=3.0" {
                     "angle-changed"(angle: number, angle_delta: number): void
                 }
 
-                interface ReadableProperties extends Gesture.ReadableProperties {
+                interface ReadWriteProperties extends Gesture.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gesture.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gesture.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gesture.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gesture.ConstructOnlyProperties {
@@ -20392,16 +20243,16 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Gesture.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gesture.ReadableProperties {
+                interface ReadWriteProperties extends Gesture.ReadWriteProperties {
                     "button": number
                     "exclusive": boolean
                     "touch-only": boolean
                 }
 
-                interface WritableProperties extends Gesture.WritableProperties {
-                    "button": number
-                    "exclusive": boolean
-                    "touch-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gesture.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gesture.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gesture.ConstructOnlyProperties {
@@ -20546,10 +20397,13 @@ declare module "gi://Gtk?version=3.0" {
                     "up"(object: number, p0: number): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -20627,10 +20481,13 @@ declare module "gi://Gtk?version=3.0" {
                     "swipe"(velocity_x: number, velocity_y: number): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -20694,10 +20551,13 @@ declare module "gi://Gtk?version=3.0" {
                     "scale-changed"(scale: number): void
                 }
 
-                interface ReadableProperties extends Gesture.ReadableProperties {
+                interface ReadWriteProperties extends Gesture.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gesture.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gesture.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gesture.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gesture.ConstructOnlyProperties {
@@ -20749,7 +20609,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "baseline-row": number
                     "column-homogeneous": boolean
                     "column-spacing": number
@@ -20757,12 +20617,10 @@ declare module "gi://Gtk?version=3.0" {
                     "row-spacing": number
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "baseline-row": number
-                    "column-homogeneous": boolean
-                    "column-spacing": number
-                    "row-homogeneous": boolean
-                    "row-spacing": number
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -21005,10 +20863,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -21066,10 +20927,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ButtonBox.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ButtonBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends ButtonBox.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ButtonBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ButtonBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ButtonBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ButtonBox.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -21097,8 +20961,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 HButtonBox: HButtonBoxClass
             }
             
@@ -21107,10 +20970,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Paned.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Paned.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Paned.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Paned.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Paned.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Paned.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Paned.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -21152,8 +21018,7 @@ declare module "gi://Gtk?version=3.0" {
 
             namespace HSV {
                 interface SignalSignatures extends Widget.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
-                    /**
-                     */
+                    
                     "changed"(): void
                     /**
                      * @param object
@@ -21161,10 +21026,13 @@ declare module "gi://Gtk?version=3.0" {
                     "move"(object: DirectionType): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -21214,8 +21082,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param ring_width Width of the hue ring
                  */
                 set_metrics(size: number, ring_width: number): void
-                /**
-                 */
+                
                 vfunc_changed(): void
                 /**
                  * @param type
@@ -21267,10 +21134,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Scale.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Scale.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Scale.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Scale.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Scale.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Scale.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Scale.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -21332,10 +21202,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Scrollbar.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Scrollbar.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Scrollbar.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Scrollbar.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Scrollbar.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Scrollbar.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Scrollbar.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -21382,10 +21255,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Separator.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Separator.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Separator.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Separator.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Separator.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Separator.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Separator.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -21447,7 +21323,7 @@ declare module "gi://Gtk?version=3.0" {
                     "child-detached"(widget: Widget): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "child-detached": boolean
                     "handle-position": PositionType
                     "shadow-type": ShadowType
@@ -21455,12 +21331,10 @@ declare module "gi://Gtk?version=3.0" {
                     "snap-edge-set": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "child-detached": boolean
-                    "handle-position": PositionType
-                    "shadow-type": ShadowType
-                    "snap-edge": PositionType
-                    "snap-edge-set": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -21619,7 +21493,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "custom-title": Widget | null
                     "decoration-layout": string
                     "decoration-layout-set": boolean
@@ -21630,15 +21504,10 @@ declare module "gi://Gtk?version=3.0" {
                     "title": string | null
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "custom-title": Widget | null
-                    "decoration-layout": string
-                    "decoration-layout-set": boolean
-                    "has-subtitle": boolean
-                    "show-close-button": boolean
-                    "spacing": number
-                    "subtitle": string | null
-                    "title": string | null
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -21650,8 +21519,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: HeaderBar.ReadableProperties
                 readonly $writableProperties: HeaderBar.WritableProperties
                 readonly $constructOnlyProperties: HeaderBar.ConstructOnlyProperties
-                /**
-                 */
+                
                 get customTitle(): Widget | null
                 set customTitle(value: Widget | null)
                 /**
@@ -21872,10 +21740,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -21948,14 +21819,15 @@ declare module "gi://Gtk?version=3.0" {
                     "retrieve-surrounding"(): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "input-hints": InputHints
                     "input-purpose": InputPurpose
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -22300,10 +22172,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends IMContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends IMContext.ReadableProperties {
+                interface ReadWriteProperties extends IMContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends IMContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, IMContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, IMContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends IMContext.ConstructOnlyProperties {
@@ -22361,10 +22236,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends IMContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends IMContext.ReadableProperties {
+                interface ReadWriteProperties extends IMContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends IMContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, IMContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, IMContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends IMContext.ConstructOnlyProperties {
@@ -22414,8 +22292,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 IMMulticontext: IMMulticontextClass
             }
             
@@ -22424,10 +22301,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -22602,10 +22482,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -22902,10 +22785,13 @@ declare module "gi://Gtk?version=3.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -23447,9 +23333,8 @@ declare module "gi://Gtk?version=3.0" {
                     "unselect-all"(): void
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "activate-on-single-click": boolean
-                    "cell-area": CellArea
                     "column-spacing": number
                     "columns": number
                     "item-orientation": Orientation
@@ -23467,23 +23352,10 @@ declare module "gi://Gtk?version=3.0" {
                     "tooltip-column": number
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Scrollable.WritableProperties {
-                    "activate-on-single-click": boolean
-                    "column-spacing": number
-                    "columns": number
-                    "item-orientation": Orientation
-                    "item-padding": number
-                    "item-width": number
-                    "margin": number
-                    "markup-column": number
-                    "model": TreeModel | null
-                    "pixbuf-column": number
-                    "reorderable": boolean
-                    "row-spacing": number
-                    "selection-mode": SelectionMode
-                    "spacing": number
-                    "text-column": number
-                    "tooltip-column": number
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -23574,8 +23446,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get markupColumn(): number
                 set markupColumn(value: number)
-                /**
-                 */
+                
                 get model(): TreeModel | null
                 set model(value: TreeModel | null)
                 /**
@@ -24145,8 +24016,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 2.8
                  */
                 unset_model_drag_source(): void
-                /**
-                 */
+                
                 vfunc_activate_cursor_item(): boolean
                 /**
                  * Activates the item determined by `path`.
@@ -24165,14 +24035,11 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 2.6
                  */
                 vfunc_select_all(): void
-                /**
-                 */
+                
                 vfunc_select_cursor_item(): void
-                /**
-                 */
+                
                 vfunc_selection_changed(): void
-                /**
-                 */
+                
                 vfunc_toggle_cursor_item(): void
                 /**
                  * Unselects all the icons.
@@ -24241,10 +24108,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -24266,8 +24136,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 IconViewAccessible: IconViewAccessibleClass
             }
             
@@ -24276,7 +24145,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Misc.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Misc.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Misc.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "file": string
                     "gicon": Gio.Icon
                     "icon-name": string
@@ -24292,20 +24161,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-fallback": boolean
                 }
 
-                interface WritableProperties extends Misc.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "file": string
-                    "gicon": Gio.Icon
-                    "icon-name": string
-                    "icon-set": IconSet
-                    "icon-size": number
-                    "pixbuf": GdkPixbuf.Pixbuf | null
-                    "pixbuf-animation": GdkPixbuf.PixbufAnimation
-                    "pixel-size": number
-                    "resource": string
-                    "stock": string
-                    "storage-type": ImageType
-                    "surface": cairo.Surface
-                    "use-fallback": boolean
+                interface ReadableProperties extends ReadWriteProperties, Misc.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Misc.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Misc.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -24348,12 +24207,10 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get iconSize(): number
                 set iconSize(value: number)
-                /**
-                 */
+                
                 get pixbuf(): GdkPixbuf.Pixbuf | null
                 set pixbuf(value: GdkPixbuf.Pixbuf | null)
-                /**
-                 */
+                
                 get pixbufAnimation(): GdkPixbuf.PixbufAnimation
                 set pixbufAnimation(value: GdkPixbuf.PixbufAnimation)
                 /**
@@ -24383,8 +24240,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get storageType(): ImageType
                 set storageType(value: ImageType)
-                /**
-                 */
+                
                 get surface(): cairo.Surface
                 set surface(value: cairo.Surface)
                 /**
@@ -24776,10 +24632,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -24801,8 +24660,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ImageAccessible: ImageAccessibleClass
             }
             
@@ -24811,10 +24669,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends RendererCellAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures, Atk.TableCell.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RendererCellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties, Atk.TableCell.ReadableProperties {
+                interface ReadWriteProperties extends RendererCellAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties, Atk.TableCell.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RendererCellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties, Atk.TableCell.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RendererCellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties, Atk.TableCell.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RendererCellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties, Atk.TableCell.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RendererCellAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties, Atk.TableCell.ConstructOnlyProperties {
@@ -24836,8 +24697,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ImageCellAccessible: ImageCellAccessibleClass
             }
             
@@ -24846,17 +24706,17 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends MenuItem.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends MenuItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
+                    "accel-group": AccelGroup
                     "always-show-image": boolean
                     "image": Widget
                     "use-stock": boolean
                 }
 
-                interface WritableProperties extends MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "accel-group": AccelGroup
-                    "always-show-image": boolean
-                    "image": Widget
-                    "use-stock": boolean
+                interface ReadableProperties extends ReadWriteProperties, MenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -25100,16 +24960,16 @@ declare module "gi://Gtk?version=3.0" {
                     "response"(response_id: number): void
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "message-type": MessageType
                     "revealed": boolean
                     "show-close-button": boolean
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "message-type": MessageType
-                    "revealed": boolean
-                    "show-close-button": boolean
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -25244,8 +25104,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param setting %TRUE to include a close button
                  */
                 set_show_close_button(setting: boolean): void
-                /**
-                 */
+                
                 vfunc_close(): void
                 /**
                  * Emits the “response” signal with the given `response_id`.
@@ -25349,12 +25208,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "screen": Gdk.Screen
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "screen": Gdk.Screen
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -25366,8 +25227,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: Invisible.ReadableProperties
                 readonly $writableProperties: Invisible.WritableProperties
                 readonly $constructOnlyProperties: Invisible.ConstructOnlyProperties
-                /**
-                 */
+                
                 get screen(): Gdk.Screen
                 set screen(value: Gdk.Screen)
                 /**
@@ -25480,31 +25340,7 @@ declare module "gi://Gtk?version=3.0" {
                     "populate-popup"(menu: Menu): void
                 }
 
-                interface ReadableProperties extends Misc.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
-                    "angle": number
-                    "attributes": Pango.AttrList | null
-                    "cursor-position": number
-                    "ellipsize": Pango.EllipsizeMode
-                    "justify": Justification
-                    "label": string
-                    "lines": number
-                    "max-width-chars": number
-                    "mnemonic-keyval": number
-                    "mnemonic-widget": Widget | null
-                    "selectable": boolean
-                    "selection-bound": number
-                    "single-line-mode": boolean
-                    "track-visited-links": boolean
-                    "use-markup": boolean
-                    "use-underline": boolean
-                    "width-chars": number
-                    "wrap": boolean
-                    "wrap-mode": Pango.WrapMode
-                    "xalign": number
-                    "yalign": number
-                }
-
-                interface WritableProperties extends Misc.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadWriteProperties extends Misc.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "angle": number
                     "attributes": Pango.AttrList | null
                     "cursor-position": number
@@ -25529,6 +25365,12 @@ declare module "gi://Gtk?version=3.0" {
                     "yalign": number
                 }
 
+                interface ReadableProperties extends ReadWriteProperties, Misc.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Misc.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                }
+
                 interface ConstructOnlyProperties extends Misc.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
                 }
             }
@@ -25548,8 +25390,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get angle(): number
                 set angle(value: number)
-                /**
-                 */
+                
                 get attributes(): Pango.AttrList | null
                 set attributes(value: Pango.AttrList | null)
                 /**
@@ -25621,8 +25462,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get mnemonicKeyval(): number
                 set mnemonicKeyval(value: number)
-                /**
-                 */
+                
                 get mnemonicWidget(): Widget | null
                 set mnemonicWidget(value: Widget | null)
                 /**
@@ -26124,8 +25964,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param uri
                  */
                 vfunc_activate_link(uri: string): boolean
-                /**
-                 */
+                
                 vfunc_copy_clipboard(): void
                 /**
                  * @param step
@@ -26360,10 +26199,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Hypertext.SignalSignatures, Atk.Text.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Hypertext.ReadableProperties, Atk.Text.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Hypertext.ReadWriteProperties, Atk.Text.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Hypertext.WritableProperties, Atk.Text.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Hypertext.ReadableProperties, Atk.Text.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Hypertext.WritableProperties, Atk.Text.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Hypertext.ConstructOnlyProperties, Atk.Text.ConstructOnlyProperties {
@@ -26385,8 +26227,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 LabelAccessible: LabelAccessibleClass
             }
             
@@ -26395,14 +26236,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Scrollable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "height": number
                     "width": number
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Scrollable.WritableProperties {
-                    "height": number
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -26548,7 +26390,7 @@ declare module "gi://Gtk?version=3.0" {
                     "offset-changed::{}"(name: string): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "inverted": boolean
                     "max-value": number
                     "min-value": number
@@ -26556,12 +26398,10 @@ declare module "gi://Gtk?version=3.0" {
                     "value": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "inverted": boolean
-                    "max-value": number
-                    "min-value": number
-                    "mode": LevelBarMode
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -26845,10 +26685,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Value.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Value.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Value.ConstructOnlyProperties {
@@ -26870,8 +26713,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 LevelBarAccessible: LevelBarAccessibleClass
             }
             
@@ -26892,14 +26734,15 @@ declare module "gi://Gtk?version=3.0" {
                     "activate-link"(): boolean
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "uri": string
                     "visited": boolean
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "uri": string
-                    "visited": boolean
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -27015,10 +26858,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ButtonAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.HyperlinkImpl.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.HyperlinkImpl.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends ButtonAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.HyperlinkImpl.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.HyperlinkImpl.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.HyperlinkImpl.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.HyperlinkImpl.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ButtonAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.HyperlinkImpl.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -27040,16 +26886,14 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 LinkButtonAccessible: LinkButtonAccessibleClass
             }
             
 
             namespace ListBox {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
-                    /**
-                     */
+                    
                     "activate-cursor-row"(): void
                     /**
                      * @param object
@@ -27088,8 +26932,7 @@ declare module "gi://Gtk?version=3.0" {
                      * @since 3.14
                      */
                     "selected-rows-changed"(): void
-                    /**
-                     */
+                    
                     "toggle-cursor-row"(): void
                     /**
                      * The ::unselect-all signal is a [keybinding signal][GtkBindingSignal]
@@ -27102,14 +26945,15 @@ declare module "gi://Gtk?version=3.0" {
                     "unselect-all"(): void
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "activate-on-single-click": boolean
                     "selection-mode": SelectionMode
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "activate-on-single-click": boolean
-                    "selection-mode": SelectionMode
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -27482,10 +27326,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -27507,8 +27354,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ListBoxAccessible: ListBoxAccessibleClass
             }
             
@@ -27525,14 +27371,15 @@ declare module "gi://Gtk?version=3.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "activatable": boolean
                     "selectable": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties {
-                    "activatable": boolean
-                    "selectable": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -27634,8 +27481,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param selectable %TRUE to mark the row as selectable
                  */
                 set_selectable(selectable: boolean): void
-                /**
-                 */
+                
                 vfunc_activate(): void
             }
 
@@ -27653,8 +27499,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ListBoxRow: ListBoxRowClass
             }
             
@@ -27663,10 +27508,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -27688,8 +27536,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ListBoxRowAccessible: ListBoxRowAccessibleClass
             }
             
@@ -27698,10 +27545,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Buildable.SignalSignatures, TreeDragDest.SignalSignatures, TreeDragSource.SignalSignatures, TreeModel.SignalSignatures, TreeSortable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties, TreeDragDest.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties, TreeDragDest.ReadWriteProperties, TreeDragSource.ReadWriteProperties, TreeModel.ReadWriteProperties, TreeSortable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties, TreeDragDest.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties, TreeDragDest.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties, TreeDragDest.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, TreeDragDest.ConstructOnlyProperties, TreeDragSource.ConstructOnlyProperties, TreeModel.ConstructOnlyProperties, TreeSortable.ConstructOnlyProperties {
@@ -28014,7 +27864,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Button.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "permission": Gio.Permission
                     "text-lock": string
                     "text-unlock": string
@@ -28023,13 +27873,10 @@ declare module "gi://Gtk?version=3.0" {
                     "tooltip-unlock": string
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "permission": Gio.Permission
-                    "text-lock": string
-                    "text-unlock": string
-                    "tooltip-lock": string
-                    "tooltip-not-authorized": string
-                    "tooltip-unlock": string
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -28041,8 +27888,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: LockButton.ReadableProperties
                 readonly $writableProperties: LockButton.WritableProperties
                 readonly $constructOnlyProperties: LockButton.ConstructOnlyProperties
-                /**
-                 */
+                
                 get permission(): Gio.Permission
                 set permission(value: Gio.Permission)
                 /**
@@ -28139,10 +27985,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ButtonAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends ButtonAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ButtonAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -28164,8 +28013,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 LockButtonAccessible: LockButtonAccessibleClass
             }
             
@@ -28208,7 +28056,7 @@ declare module "gi://Gtk?version=3.0" {
                     "popped-up"(flipped_rect: never | null, final_rect: never | null, flipped_x: boolean, flipped_y: boolean): void
                 }
 
-                interface ReadableProperties extends MenuShell.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends MenuShell.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "accel-group": AccelGroup
                     "accel-path": string
                     "active": number
@@ -28223,19 +28071,10 @@ declare module "gi://Gtk?version=3.0" {
                     "tearoff-title": string
                 }
 
-                interface WritableProperties extends MenuShell.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "accel-group": AccelGroup
-                    "accel-path": string
-                    "active": number
-                    "anchor-hints": Gdk.AnchorHints
-                    "attach-widget": Widget
-                    "menu-type-hint": Gdk.WindowTypeHint
-                    "monitor": number
-                    "rect-anchor-dx": number
-                    "rect-anchor-dy": number
-                    "reserve-toggle-size": boolean
-                    "tearoff-state": boolean
-                    "tearoff-title": string
+                interface ReadableProperties extends ReadWriteProperties, MenuShell.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuShell.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuShell.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -28817,10 +28656,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends MenuShellAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MenuShellAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends MenuShellAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends MenuShellAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, MenuShellAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuShellAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuShellAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -28842,8 +28684,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 MenuAccessible: MenuAccessibleClass
             }
             
@@ -28852,14 +28693,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends MenuShell.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MenuShell.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends MenuShell.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "child-pack-direction": PackDirection
                     "pack-direction": PackDirection
                 }
 
-                interface WritableProperties extends MenuShell.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "child-pack-direction": PackDirection
-                    "pack-direction": PackDirection
+                interface ReadableProperties extends ReadWriteProperties, MenuShell.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuShell.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuShell.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -28958,7 +28800,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ToggleButton.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ToggleButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ToggleButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "align-widget": Container | null
                     "direction": ArrowType
                     "menu-model": Gio.MenuModel | null
@@ -28967,13 +28809,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-popover": boolean
                 }
 
-                interface WritableProperties extends ToggleButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "align-widget": Container | null
-                    "direction": ArrowType
-                    "menu-model": Gio.MenuModel | null
-                    "popover": Popover | null
-                    "popup": Menu | null
-                    "use-popover": boolean
+                interface ReadableProperties extends ReadWriteProperties, ToggleButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToggleButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToggleButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -29253,10 +29092,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ToggleButtonAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ToggleButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends ToggleButtonAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ToggleButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ToggleButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToggleButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToggleButtonAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -29278,8 +29120,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 MenuButtonAccessible: MenuButtonAccessibleClass
             }
             
@@ -29296,11 +29137,9 @@ declare module "gi://Gtk?version=3.0" {
                      * #GtkMenuItem::activate.
                      */
                     "activate-item"(): void
-                    /**
-                     */
+                    
                     "deselect"(): void
-                    /**
-                     */
+                    
                     "select"(): void
                     /**
                      * @param object
@@ -29312,7 +29151,7 @@ declare module "gi://Gtk?version=3.0" {
                     "toggle-size-request"(object: never | null): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "accel-path": string | null
                     "label": string
                     "right-justified": boolean
@@ -29320,12 +29159,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "accel-path": string | null
-                    "label": string
-                    "right-justified": boolean
-                    "submenu": Menu | null
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -29627,10 +29464,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -29652,8 +29492,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 MenuItemAccessible: MenuItemAccessibleClass
             }
             
@@ -29714,12 +29553,14 @@ declare module "gi://Gtk?version=3.0" {
                     "selection-done"(): void
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "take-focus": boolean
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "take-focus": boolean
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -29903,8 +29744,7 @@ declare module "gi://Gtk?version=3.0" {
                  * from the screen.
                  */
                 vfunc_deactivate(): void
-                /**
-                 */
+                
                 vfunc_get_popup_delay(): number
                 /**
                  * Adds a new #GtkMenuItem to the menu shell’s item list
@@ -29926,8 +29766,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param menu_item The #GtkMenuItem to select
                  */
                 vfunc_select_item(menu_item: Widget): void
-                /**
-                 */
+                
                 vfunc_selection_done(): void
             }
 
@@ -29976,10 +29815,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -30001,8 +29843,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 MenuShellAccessible: MenuShellAccessibleClass
             }
             
@@ -30022,12 +29863,14 @@ declare module "gi://Gtk?version=3.0" {
                     "show-menu"(): void
                 }
 
-                interface ReadableProperties extends ToolButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ToolButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "menu": Menu
                 }
 
-                interface WritableProperties extends ToolButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "menu": Menu
+                interface ReadableProperties extends ReadWriteProperties, ToolButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToolButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToolButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -30039,8 +29882,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: MenuToolButton.ReadableProperties
                 readonly $writableProperties: MenuToolButton.WritableProperties
                 readonly $constructOnlyProperties: MenuToolButton.ConstructOnlyProperties
-                /**
-                 */
+                
                 get menu(): Menu
                 set menu(value: Menu)
                 /**
@@ -30137,7 +29979,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "image": Widget
                     "message-area": Widget
                     "message-type": MessageType
@@ -30147,14 +29989,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-markup": boolean
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "image": Widget
-                    "message-area": Widget
-                    "message-type": MessageType
-                    "secondary-text": string
-                    "secondary-use-markup": boolean
-                    "text": string
-                    "use-markup": boolean
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -30325,18 +30163,17 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "xalign": number
                     "xpad": number
                     "yalign": number
                     "ypad": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "xalign": number
-                    "xpad": number
-                    "yalign": number
-                    "ypad": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -30444,7 +30281,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Button.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "active": boolean
                     "centered": boolean
                     "icon": Gio.Icon
@@ -30456,16 +30293,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-markup": boolean
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "active": boolean
-                    "centered": boolean
-                    "icon": Gio.Icon
-                    "iconic": boolean
-                    "inverted": boolean
-                    "menu-name": string
-                    "role": ButtonRole
-                    "text": string
-                    "use-markup": boolean
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -30675,16 +30506,16 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Gio.MountOperation.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.MountOperation.ReadableProperties {
+                interface ReadWriteProperties extends Gio.MountOperation.ReadWriteProperties {
                     "is-showing": boolean
                     "parent": Window
                     "screen": Gdk.Screen
                 }
 
-                interface WritableProperties extends Gio.MountOperation.WritableProperties {
-                    "is-showing": boolean
-                    "parent": Window
-                    "screen": Gdk.Screen
+                interface ReadableProperties extends ReadWriteProperties, Gio.MountOperation.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.MountOperation.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.MountOperation.ConstructOnlyProperties {
@@ -30701,12 +30532,10 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get isShowing(): boolean
                 set isShowing(value: boolean)
-                /**
-                 */
+                
                 get parent(): Window
                 set parent(value: Window)
-                /**
-                 */
+                
                 get screen(): Gdk.Screen
                 set screen(value: Gdk.Screen)
                 /**
@@ -30781,18 +30610,17 @@ declare module "gi://Gtk?version=3.0" {
                     "response"(response_id: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "modal": boolean
                     "title": string | null
                     "transient-for": Window | null
                     "visible": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "modal": boolean
-                    "title": string | null
-                    "transient-for": Window | null
-                    "visible": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -31076,7 +30904,7 @@ declare module "gi://Gtk?version=3.0" {
                     "switch-page"(page: Widget, page_num: number): void
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "enable-popup": boolean
                     "group-name": string | null
                     "page": number
@@ -31086,14 +30914,10 @@ declare module "gi://Gtk?version=3.0" {
                     "tab-pos": PositionType
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "enable-popup": boolean
-                    "group-name": string | null
-                    "page": number
-                    "scrollable": boolean
-                    "show-border": boolean
-                    "show-tabs": boolean
-                    "tab-pos": PositionType
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -31651,10 +31475,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -31676,8 +31503,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 NotebookAccessible: NotebookAccessibleClass
             }
             
@@ -31686,10 +31512,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Atk.Object.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Atk.Object.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends Atk.Object.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Atk.Object.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Atk.Object.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Atk.Object.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Atk.Object.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -31701,8 +31530,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: NotebookPageAccessible.ReadableProperties
                 readonly $writableProperties: NotebookPageAccessible.WritableProperties
                 readonly $constructOnlyProperties: NotebookPageAccessible.ConstructOnlyProperties
-                /**
-                 */
+                
                 invalidate(): void
             }
 
@@ -31719,8 +31547,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 NotebookPageAccessible: NotebookPageAccessibleClass
             }
             
@@ -31729,7 +31556,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Gio.EmblemedIcon.SignalSignatures, Gio.Icon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.EmblemedIcon.ReadableProperties, Gio.Icon.ReadableProperties {
+                interface ReadWriteProperties extends Gio.EmblemedIcon.ReadWriteProperties, Gio.Icon.ReadWriteProperties {
                     "background-icon": Gio.Icon
                     "background-icon-name": string | null
                     "count": number
@@ -31737,12 +31564,10 @@ declare module "gi://Gtk?version=3.0" {
                     "style-context": StyleContext | null
                 }
 
-                interface WritableProperties extends Gio.EmblemedIcon.WritableProperties, Gio.Icon.WritableProperties {
-                    "background-icon": Gio.Icon
-                    "background-icon-name": string | null
-                    "count": number
-                    "label": string | null
-                    "style-context": StyleContext | null
+                interface ReadableProperties extends ReadWriteProperties, Gio.EmblemedIcon.ReadableProperties, Gio.Icon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.EmblemedIcon.WritableProperties, Gio.Icon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.EmblemedIcon.ConstructOnlyProperties, Gio.Icon.ConstructOnlyProperties {
@@ -31754,8 +31579,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: NumerableIcon.ReadableProperties
                 readonly $writableProperties: NumerableIcon.WritableProperties
                 readonly $constructOnlyProperties: NumerableIcon.ConstructOnlyProperties
-                /**
-                 */
+                
                 get backgroundIcon(): Gio.Icon
                 set backgroundIcon(value: Gio.Icon)
                 /**
@@ -31773,8 +31597,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get label(): string | null
                 set label(value: string | null)
-                /**
-                 */
+                
                 get styleContext(): StyleContext | null
                 set styleContext(value: StyleContext | null)
                 /**
@@ -31936,10 +31759,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Window.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -32030,10 +31856,13 @@ declare module "gi://Gtk?version=3.0" {
                     "get-child-position"(widget: Widget): [boolean, Gdk.Rectangle]
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -32146,12 +31975,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends EventController.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
-                    "action-group": Gio.ActionGroup
-                    "pad": Gdk.Device
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -32165,12 +31995,10 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: PadController.ReadableProperties
                 readonly $writableProperties: PadController.WritableProperties
                 readonly $constructOnlyProperties: PadController.ConstructOnlyProperties
-                /**
-                 */
+                
                 get actionGroup(): Gio.ActionGroup
                 set actionGroup(value: Gio.ActionGroup)
-                /**
-                 */
+                
                 get pad(): Gdk.Device
                 set pad(value: Gdk.Device)
                 /**
@@ -32276,10 +32104,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -32629,7 +32460,7 @@ declare module "gi://Gtk?version=3.0" {
                     "toggle-handle-focus"(): boolean
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "max-position": number
                     "min-position": number
                     "position": number
@@ -32637,12 +32468,10 @@ declare module "gi://Gtk?version=3.0" {
                     "wide-handle": boolean
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "max-position": number
-                    "min-position": number
-                    "position": number
-                    "position-set": boolean
-                    "wide-handle": boolean
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -32762,11 +32591,9 @@ declare module "gi://Gtk?version=3.0" {
                  * @param wide the new value for the #GtkPaned:wide-handle property
                  */
                 set_wide_handle(wide: boolean): void
-                /**
-                 */
+                
                 vfunc_accept_position(): boolean
-                /**
-                 */
+                
                 vfunc_cancel_position(): boolean
                 /**
                  * @param reverse
@@ -32780,8 +32607,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param scroll
                  */
                 vfunc_move_handle(scroll: ScrollType): boolean
-                /**
-                 */
+                
                 vfunc_toggle_handle_focus(): boolean
             }
 
@@ -32874,10 +32700,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Value.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Value.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Value.ConstructOnlyProperties {
@@ -32899,8 +32728,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PanedAccessible: PanedAccessibleClass
             }
             
@@ -33062,7 +32890,7 @@ declare module "gi://Gtk?version=3.0" {
                     "unmount"(mount_operation: Gio.MountOperation): void
                 }
 
-                interface ReadableProperties extends ScrolledWindow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ScrolledWindow.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "local-only": boolean
                     "location": Gio.File | null
                     "open-flags": PlacesOpenFlags
@@ -33076,18 +32904,10 @@ declare module "gi://Gtk?version=3.0" {
                     "show-trash": boolean
                 }
 
-                interface WritableProperties extends ScrolledWindow.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "local-only": boolean
-                    "location": Gio.File | null
-                    "open-flags": PlacesOpenFlags
-                    "populate-all": boolean
-                    "show-connect-to-server": boolean
-                    "show-desktop": boolean
-                    "show-enter-location": boolean
-                    "show-other-locations": boolean
-                    "show-recent": boolean
-                    "show-starred-location": boolean
-                    "show-trash": boolean
+                interface ReadableProperties extends ReadWriteProperties, ScrolledWindow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ScrolledWindow.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ScrolledWindow.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -33104,8 +32924,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get localOnly(): boolean
                 set localOnly(value: boolean)
-                /**
-                 */
+                
                 get location(): Gio.File | null
                 set location(value: Gio.File | null)
                 /**
@@ -33447,14 +33266,15 @@ declare module "gi://Gtk?version=3.0" {
                     "embedded"(): void
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "embedded": boolean
                     "socket-window": Gdk.Window | null
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "embedded": boolean
-                    "socket-window": Gdk.Window | null
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -33513,8 +33333,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @returns the window of the socket, or %NULL
                  */
                 get_socket_window(): Gdk.Window | null
-                /**
-                 */
+                
                 vfunc_embedded(): void
             }
 
@@ -33570,10 +33389,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WindowAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Window.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WindowAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Window.ReadableProperties {
+                interface ReadWriteProperties extends WindowAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Window.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WindowAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Window.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WindowAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Window.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WindowAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Window.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WindowAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Window.ConstructOnlyProperties {
@@ -33585,8 +33407,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: PlugAccessible.ReadableProperties
                 readonly $writableProperties: PlugAccessible.WritableProperties
                 readonly $constructOnlyProperties: PlugAccessible.ConstructOnlyProperties
-                /**
-                 */
+                
                 get_id(): string
             }
 
@@ -33615,7 +33436,7 @@ declare module "gi://Gtk?version=3.0" {
                     "closed"(): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "constrain-to": PopoverConstraint
                     "modal": boolean
                     "pointing-to": Gdk.Rectangle
@@ -33624,13 +33445,10 @@ declare module "gi://Gtk?version=3.0" {
                     "transitions-enabled": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "constrain-to": PopoverConstraint
-                    "modal": boolean
-                    "pointing-to": Gdk.Rectangle
-                    "position": PositionType
-                    "relative-to": Widget
-                    "transitions-enabled": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -33840,8 +33658,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param transitions_enabled Whether transitions are enabled
                  */
                 set_transitions_enabled(transitions_enabled: boolean): void
-                /**
-                 */
+                
                 vfunc_closed(): void
             }
 
@@ -33949,10 +33766,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -33974,8 +33794,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PopoverAccessible: PopoverAccessibleClass
             }
             
@@ -33984,12 +33803,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Popover.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Popover.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Popover.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "visible-submenu": string
                 }
 
-                interface WritableProperties extends Popover.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "visible-submenu": string
+                interface ReadableProperties extends ReadWriteProperties, Popover.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Popover.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Popover.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -34118,10 +33939,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -34484,7 +34308,7 @@ declare module "gi://Gtk?version=3.0" {
                     "update-custom-widget"(widget: Widget, setup: PageSetup, settings: PrintSettings): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PrintOperationPreview.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PrintOperationPreview.ReadWriteProperties {
                     "allow-async": boolean
                     "current-page": number
                     "custom-tab-label": string
@@ -34505,25 +34329,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-full-page": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PrintOperationPreview.WritableProperties {
-                    "allow-async": boolean
-                    "current-page": number
-                    "custom-tab-label": string
-                    "default-page-setup": PageSetup
-                    "embed-page-setup": boolean
-                    "export-filename": string
-                    "has-selection": boolean
-                    "job-name": string
-                    "n-pages": number
-                    "n-pages-to-print": number
-                    "print-settings": PrintSettings
-                    "show-progress": boolean
-                    "status": PrintStatus
-                    "status-string": string
-                    "support-selection": boolean
-                    "track-print-status": boolean
-                    "unit": Unit
-                    "use-full-page": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PrintOperationPreview.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PrintOperationPreview.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PrintOperationPreview.ConstructOnlyProperties {
@@ -35206,10 +35015,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -35785,7 +35597,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "ellipsize": Pango.EllipsizeMode
                     "fraction": number
                     "inverted": boolean
@@ -35794,13 +35606,10 @@ declare module "gi://Gtk?version=3.0" {
                     "text": string | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "ellipsize": Pango.EllipsizeMode
-                    "fraction": number
-                    "inverted": boolean
-                    "pulse-step": number
-                    "show-text": boolean
-                    "text": string | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -36023,10 +35832,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Value.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Value.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Value.ConstructOnlyProperties {
@@ -36048,8 +35860,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ProgressBarAccessible: ProgressBarAccessibleClass
             }
             
@@ -36067,15 +35878,16 @@ declare module "gi://Gtk?version=3.0" {
                     "changed"(current: RadioAction): void
                 }
 
-                interface ReadableProperties extends ToggleAction.ReadableProperties, Buildable.ReadableProperties {
-                    "current-value": number
-                    "value": number
-                }
-
-                interface WritableProperties extends ToggleAction.WritableProperties, Buildable.WritableProperties {
+                interface ReadWriteProperties extends ToggleAction.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "current-value": number
                     "group": RadioAction
                     "value": number
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, ToggleAction.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToggleAction.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToggleAction.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -36235,11 +36047,14 @@ declare module "gi://Gtk?version=3.0" {
                     "group-changed"(): void
                 }
 
-                interface ReadableProperties extends CheckButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends CheckButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
+                    "group": RadioButton
                 }
 
-                interface WritableProperties extends CheckButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "group": RadioButton
+                interface ReadableProperties extends ReadWriteProperties, CheckButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CheckButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CheckButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -36291,8 +36106,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param group an existing radio     button group, such as one returned from gtk_radio_button_get_group(), or %NULL.
                  */
                 set_group(group: RadioButton[] | null): void
-                /**
-                 */
+                
                 vfunc_group_changed(): void
             }
 
@@ -36447,10 +36261,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ToggleButtonAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ToggleButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends ToggleButtonAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ToggleButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ToggleButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToggleButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToggleButtonAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -36472,24 +36289,25 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 RadioButtonAccessible: RadioButtonAccessibleClass
             }
             
 
             namespace RadioMenuItem {
                 interface SignalSignatures extends CheckMenuItem.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
-                    /**
-                     */
+                    
                     "group-changed"(): void
                 }
 
-                interface ReadableProperties extends CheckMenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends CheckMenuItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
+                    "group": RadioMenuItem
                 }
 
-                interface WritableProperties extends CheckMenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "group": RadioMenuItem
+                interface ReadableProperties extends ReadWriteProperties, CheckMenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CheckMenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CheckMenuItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -36544,8 +36362,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param group the new group, or %NULL.
                  */
                 set_group(group: RadioMenuItem[] | null): void
-                /**
-                 */
+                
                 vfunc_group_changed(): void
             }
 
@@ -36652,10 +36469,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends CheckMenuItemAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CheckMenuItemAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                interface ReadWriteProperties extends CheckMenuItemAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CheckMenuItemAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CheckMenuItemAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CheckMenuItemAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CheckMenuItemAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties {
@@ -36677,8 +36497,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 RadioMenuItemAccessible: RadioMenuItemAccessibleClass
             }
             
@@ -36687,11 +36506,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ToggleToolButton.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ToggleToolButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ToggleToolButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
+                    "group": RadioToolButton
                 }
 
-                interface WritableProperties extends ToggleToolButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "group": RadioToolButton
+                interface ReadableProperties extends ReadWriteProperties, ToggleToolButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToggleToolButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToggleToolButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -36821,7 +36643,7 @@ declare module "gi://Gtk?version=3.0" {
                     "value-changed"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "adjustment": Adjustment
                     "fill-level": number
                     "inverted": boolean
@@ -36832,15 +36654,10 @@ declare module "gi://Gtk?version=3.0" {
                     "upper-stepper-sensitivity": SensitivityType
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "adjustment": Adjustment
-                    "fill-level": number
-                    "inverted": boolean
-                    "lower-stepper-sensitivity": SensitivityType
-                    "restrict-to-fill-level": boolean
-                    "round-digits": number
-                    "show-fill-level": boolean
-                    "upper-stepper-sensitivity": SensitivityType
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -36852,8 +36669,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: Range.ReadableProperties
                 readonly $writableProperties: Range.WritableProperties
                 readonly $constructOnlyProperties: Range.ConstructOnlyProperties
-                /**
-                 */
+                
                 get adjustment(): Adjustment
                 set adjustment(value: Adjustment)
                 /**
@@ -37156,8 +36972,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param scroll
                  */
                 vfunc_move_slider(scroll: ScrollType): void
-                /**
-                 */
+                
                 vfunc_value_changed(): void
             }
 
@@ -37186,10 +37001,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Value.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Value.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Value.ConstructOnlyProperties {
@@ -37211,8 +37029,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 RangeAccessible: RangeAccessibleClass
             }
             
@@ -37221,10 +37038,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -37284,12 +37104,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Action.SignalSignatures, Buildable.SignalSignatures, RecentChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Action.ReadableProperties, Buildable.ReadableProperties, RecentChooser.ReadableProperties {
+                interface ReadWriteProperties extends Action.ReadWriteProperties, Buildable.ReadWriteProperties, RecentChooser.ReadWriteProperties {
                     "show-numbers": boolean
                 }
 
-                interface WritableProperties extends Action.WritableProperties, Buildable.WritableProperties, RecentChooser.WritableProperties {
-                    "show-numbers": boolean
+                interface ReadableProperties extends ReadWriteProperties, Action.ReadableProperties, Buildable.ReadableProperties, RecentChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Action.WritableProperties, Buildable.WritableProperties, RecentChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Action.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, RecentChooser.ConstructOnlyProperties {
@@ -37380,10 +37202,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, RecentChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, RecentChooser.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, RecentChooser.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, RecentChooser.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, RecentChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, RecentChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, RecentChooser.ConstructOnlyProperties {
@@ -37456,12 +37281,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Menu.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures, RecentChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Menu.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, RecentChooser.ReadableProperties {
+                interface ReadWriteProperties extends Menu.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties, RecentChooser.ReadWriteProperties {
                     "show-numbers": boolean
                 }
 
-                interface WritableProperties extends Menu.WritableProperties, Atk.ImplementorIface.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, RecentChooser.WritableProperties {
-                    "show-numbers": boolean
+                interface ReadableProperties extends ReadWriteProperties, Menu.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, RecentChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Menu.WritableProperties, Atk.ImplementorIface.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, RecentChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Menu.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, RecentChooser.ConstructOnlyProperties {
@@ -37564,10 +37391,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures, RecentChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties, RecentChooser.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties, RecentChooser.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties, RecentChooser.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties, RecentChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties, RecentChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties, RecentChooser.ConstructOnlyProperties {
@@ -37625,10 +37455,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -37822,13 +37655,14 @@ declare module "gi://Gtk?version=3.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "filename": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "size": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "size": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -37949,8 +37783,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @returns %TRUE if the item pointed by `uri` has been successfully   removed by the recently used resources list, and %FALSE otherwise
                  */
                 remove_item(uri: string): boolean
-                /**
-                 */
+                
                 vfunc_changed(): void
             }
 
@@ -38052,11 +37885,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends CellAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.TableCell.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties {
-                    "renderer": CellRenderer
+                interface ReadWriteProperties extends CellAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.TableCell.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.TableCell.ConstructOnlyProperties {
@@ -38069,8 +37904,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: RendererCellAccessible.ReadableProperties
                 readonly $writableProperties: RendererCellAccessible.WritableProperties
                 readonly $constructOnlyProperties: RendererCellAccessible.ConstructOnlyProperties
-                /**
-                 */
+                
                 get renderer(): CellRenderer
                 set renderer(value: CellRenderer)
             }
@@ -38087,8 +37921,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 RendererCellAccessible: RendererCellAccessibleClass
             }
             
@@ -38097,18 +37930,17 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "child-revealed": boolean
                     "reveal-child": boolean
                     "transition-duration": number
                     "transition-type": RevealerTransitionType
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "child-revealed": boolean
-                    "reveal-child": boolean
-                    "transition-duration": number
-                    "transition-type": RevealerTransitionType
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -38259,18 +38091,17 @@ declare module "gi://Gtk?version=3.0" {
                     "format-value"(value: number): string
                 }
 
-                interface ReadableProperties extends Range.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Range.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "digits": number
                     "draw-value": boolean
                     "has-origin": boolean
                     "value-pos": PositionType
                 }
 
-                interface WritableProperties extends Range.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "digits": number
-                    "draw-value": boolean
-                    "has-origin": boolean
-                    "value-pos": PositionType
+                interface ReadableProperties extends ReadWriteProperties, Range.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Range.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Range.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -38398,8 +38229,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param pos the position in which the current value is displayed
                  */
                 set_value_pos(pos: PositionType): void
-                /**
-                 */
+                
                 vfunc_draw_value(): void
                 /**
                  * @param value
@@ -38535,10 +38365,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends RangeAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Value.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RangeAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                interface ReadWriteProperties extends RangeAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Value.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RangeAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RangeAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Value.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RangeAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Value.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RangeAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Value.ConstructOnlyProperties {
@@ -38560,8 +38393,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ScaleAccessible: ScaleAccessibleClass
             }
             
@@ -38595,18 +38427,17 @@ declare module "gi://Gtk?version=3.0" {
                     "value-changed"(value: number): void
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "adjustment": Adjustment
                     "icons": string[]
                     "size": IconSize
                     "value": number
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "adjustment": Adjustment
-                    "icons": string[]
-                    "size": IconSize
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -38618,8 +38449,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: ScaleButton.ReadableProperties
                 readonly $writableProperties: ScaleButton.WritableProperties
                 readonly $constructOnlyProperties: ScaleButton.ConstructOnlyProperties
-                /**
-                 */
+                
                 get adjustment(): Adjustment
                 set adjustment(value: Adjustment)
                 /**
@@ -38754,10 +38584,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ButtonAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures, Atk.Value.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties, Atk.Value.ReadableProperties {
+                interface ReadWriteProperties extends ButtonAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties, Atk.Value.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties, Atk.Value.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties, Atk.Value.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties, Atk.Value.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ButtonAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties, Atk.Value.ConstructOnlyProperties {
@@ -38779,8 +38612,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ScaleButtonAccessible: ScaleButtonAccessibleClass
             }
             
@@ -38789,10 +38621,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Range.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Range.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Range.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Range.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Range.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Range.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Range.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -38920,7 +38755,7 @@ declare module "gi://Gtk?version=3.0" {
                     "scroll-child"(scroll: ScrollType, horizontal: boolean): boolean
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "hadjustment": Adjustment
                     "hscrollbar-policy": PolicyType
                     "kinetic-scrolling": boolean
@@ -38938,22 +38773,10 @@ declare module "gi://Gtk?version=3.0" {
                     "window-placement-set": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "hadjustment": Adjustment
-                    "hscrollbar-policy": PolicyType
-                    "kinetic-scrolling": boolean
-                    "max-content-height": number
-                    "max-content-width": number
-                    "min-content-height": number
-                    "min-content-width": number
-                    "overlay-scrolling": boolean
-                    "propagate-natural-height": boolean
-                    "propagate-natural-width": boolean
-                    "shadow-type": ShadowType
-                    "vadjustment": Adjustment
-                    "vscrollbar-policy": PolicyType
-                    "window-placement": CornerType
-                    "window-placement-set": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -38965,8 +38788,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: ScrolledWindow.ReadableProperties
                 readonly $writableProperties: ScrolledWindow.WritableProperties
                 readonly $constructOnlyProperties: ScrolledWindow.ConstructOnlyProperties
-                /**
-                 */
+                
                 get hadjustment(): Adjustment
                 set hadjustment(value: Adjustment)
                 /**
@@ -39050,8 +38872,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get shadowType(): ShadowType
                 set shadowType(value: ShadowType)
-                /**
-                 */
+                
                 get vadjustment(): Adjustment
                 set vadjustment(value: Adjustment)
                 /**
@@ -39457,10 +39278,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -39482,8 +39306,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ScrolledWindowAccessible: ScrolledWindowAccessibleClass
             }
             
@@ -39492,14 +39315,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "search-mode-enabled": boolean
                     "show-close-button": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "search-mode-enabled": boolean
-                    "show-close-button": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -39694,10 +39518,13 @@ declare module "gi://Gtk?version=3.0" {
                     "stop-search"(): void
                 }
 
-                interface ReadableProperties extends Entry.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, Editable.ReadableProperties {
+                interface ReadWriteProperties extends Entry.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, Editable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Entry.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, Editable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Entry.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, Editable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Entry.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, Editable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Entry.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, Editable.ConstructOnlyProperties {
@@ -39726,17 +39553,13 @@ declare module "gi://Gtk?version=3.0" {
                  * @returns %GDK_EVENT_STOP if the key press event resulted     in a search beginning or continuing, %GDK_EVENT_PROPAGATE     otherwise.
                  */
                 handle_event(event: Gdk.Event): boolean
-                /**
-                 */
+                
                 vfunc_next_match(): void
-                /**
-                 */
+                
                 vfunc_previous_match(): void
-                /**
-                 */
+                
                 vfunc_search_changed(): void
-                /**
-                 */
+                
                 vfunc_stop_search(): void
             }
 
@@ -39790,10 +39613,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -39841,10 +39667,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends MenuItem.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends MenuItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, MenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -39888,12 +39717,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ToolItem.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ToolItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ToolItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "draw": boolean
                 }
 
-                interface WritableProperties extends ToolItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "draw": boolean
+                interface ReadableProperties extends ReadWriteProperties, ToolItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToolItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToolItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -39964,7 +39795,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, StyleProvider.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, StyleProvider.ReadWriteProperties {
                     "color-hash": Record<string, Gdk.Color>
                     "gtk-alternative-button-order": boolean
                     "gtk-alternative-sort-arrows": boolean
@@ -40052,92 +39883,10 @@ declare module "gi://Gtk?version=3.0" {
                     "gtk-xft-rgba": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, StyleProvider.WritableProperties {
-                    "color-hash": Record<string, Gdk.Color>
-                    "gtk-alternative-button-order": boolean
-                    "gtk-alternative-sort-arrows": boolean
-                    "gtk-application-prefer-dark-theme": boolean
-                    "gtk-auto-mnemonics": boolean
-                    "gtk-button-images": boolean
-                    "gtk-can-change-accels": boolean
-                    "gtk-color-palette": string
-                    "gtk-color-scheme": string
-                    "gtk-cursor-aspect-ratio": number
-                    "gtk-cursor-blink": boolean
-                    "gtk-cursor-blink-time": number
-                    "gtk-cursor-blink-timeout": number
-                    "gtk-cursor-theme-name": string
-                    "gtk-cursor-theme-size": number
-                    "gtk-decoration-layout": string
-                    "gtk-dialogs-use-header": boolean
-                    "gtk-dnd-drag-threshold": number
-                    "gtk-double-click-distance": number
-                    "gtk-double-click-time": number
-                    "gtk-enable-accels": boolean
-                    "gtk-enable-animations": boolean
-                    "gtk-enable-event-sounds": boolean
-                    "gtk-enable-input-feedback-sounds": boolean
-                    "gtk-enable-mnemonics": boolean
-                    "gtk-enable-primary-paste": boolean
-                    "gtk-enable-tooltips": boolean
-                    "gtk-entry-password-hint-timeout": number
-                    "gtk-entry-select-on-focus": boolean
-                    "gtk-error-bell": boolean
-                    "gtk-fallback-icon-theme": string
-                    "gtk-file-chooser-backend": string
-                    "gtk-font-name": string
-                    "gtk-fontconfig-timestamp": number
-                    "gtk-icon-sizes": string
-                    "gtk-icon-theme-name": string
-                    "gtk-im-module": string
-                    "gtk-im-preedit-style": IMPreeditStyle
-                    "gtk-im-status-style": IMStatusStyle
-                    "gtk-key-theme-name": string
-                    "gtk-keynav-cursor-only": boolean
-                    "gtk-keynav-use-caret": boolean
-                    "gtk-keynav-wrap-around": boolean
-                    "gtk-label-select-on-focus": boolean
-                    "gtk-long-press-time": number
-                    "gtk-menu-bar-accel": string
-                    "gtk-menu-bar-popup-delay": number
-                    "gtk-menu-images": boolean
-                    "gtk-menu-popdown-delay": number
-                    "gtk-menu-popup-delay": number
-                    "gtk-modules": string
-                    "gtk-overlay-scrolling": boolean
-                    "gtk-primary-button-warps-slider": boolean
-                    "gtk-print-backends": string
-                    "gtk-print-preview-command": string
-                    "gtk-recent-files-enabled": boolean
-                    "gtk-recent-files-limit": number
-                    "gtk-recent-files-max-age": number
-                    "gtk-scrolled-window-placement": CornerType
-                    "gtk-shell-shows-app-menu": boolean
-                    "gtk-shell-shows-desktop": boolean
-                    "gtk-shell-shows-menubar": boolean
-                    "gtk-show-input-method-menu": boolean
-                    "gtk-show-unicode-menu": boolean
-                    "gtk-sound-theme-name": string
-                    "gtk-split-cursor": boolean
-                    "gtk-theme-name": string
-                    "gtk-timeout-expand": number
-                    "gtk-timeout-initial": number
-                    "gtk-timeout-repeat": number
-                    "gtk-titlebar-double-click": string
-                    "gtk-titlebar-middle-click": string
-                    "gtk-titlebar-right-click": string
-                    "gtk-toolbar-icon-size": IconSize
-                    "gtk-toolbar-style": ToolbarStyle
-                    "gtk-tooltip-browse-mode-timeout": number
-                    "gtk-tooltip-browse-timeout": number
-                    "gtk-tooltip-timeout": number
-                    "gtk-touchscreen-mode": boolean
-                    "gtk-visible-focus": PolicyType
-                    "gtk-xft-antialias": number
-                    "gtk-xft-dpi": number
-                    "gtk-xft-hinting": number
-                    "gtk-xft-hintstyle": string
-                    "gtk-xft-rgba": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, StyleProvider.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, StyleProvider.ConstructOnlyProperties {
@@ -40980,14 +40729,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "accelerator": string | null
                     "disabled-text": string | null
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "accelerator": string | null
-                    "disabled-text": string | null
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -41067,18 +40817,18 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
-                    "height": number
-                    "title": string
-                    "view": string
-                }
-
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "accel-size-group": SizeGroup
                     "height": number
                     "title": string
                     "title-size-group": SizeGroup
                     "view": string
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -41155,18 +40905,17 @@ declare module "gi://Gtk?version=3.0" {
                     "change-current-page"(object: number): boolean
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "max-height": number
                     "section-name": string
                     "title": string
                     "view-name": string
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "max-height": number
-                    "section-name": string
-                    "title": string
-                    "view-name": string
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -41244,19 +40993,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
-                    "accelerator": string
-                    "action-name": string
-                    "direction": TextDirection
-                    "icon": Gio.Icon
-                    "icon-set": boolean
-                    "shortcut-type": ShortcutType
-                    "subtitle": string
-                    "subtitle-set": boolean
-                    "title": string
-                }
-
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "accel-size-group": SizeGroup
                     "accelerator": string
                     "action-name": string
@@ -41268,6 +41005,12 @@ declare module "gi://Gtk?version=3.0" {
                     "subtitle-set": boolean
                     "title": string
                     "title-size-group": SizeGroup
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -41416,14 +41159,15 @@ declare module "gi://Gtk?version=3.0" {
                     "search"(): void
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "section-name": string
                     "view-name": string
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "section-name": string
-                    "view-name": string
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -41455,11 +41199,9 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get viewName(): string
                 set viewName(value: string)
-                /**
-                 */
+                
                 vfunc_close(): void
-                /**
-                 */
+                
                 vfunc_search(): void
             }
 
@@ -41521,14 +41263,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "ignore-hidden": boolean
                     "mode": SizeGroupMode
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties {
-                    "ignore-hidden": boolean
-                    "mode": SizeGroupMode
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -41711,10 +41454,13 @@ declare module "gi://Gtk?version=3.0" {
                     "plug-removed"(): boolean
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -41759,11 +41505,9 @@ declare module "gi://Gtk?version=3.0" {
                  * @returns the window of the plug if available, or %NULL
                  */
                 get_plug_window(): Gdk.Window | null
-                /**
-                 */
+                
                 vfunc_plug_added(): void
-                /**
-                 */
+                
                 vfunc_plug_removed(): boolean
             }
 
@@ -41841,10 +41585,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -41939,7 +41686,7 @@ declare module "gi://Gtk?version=3.0" {
                     "wrapped"(): void
                 }
 
-                interface ReadableProperties extends Entry.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, Editable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Entry.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, Editable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "adjustment": Adjustment
                     "climb-rate": number
                     "digits": number
@@ -41950,15 +41697,10 @@ declare module "gi://Gtk?version=3.0" {
                     "wrap": boolean
                 }
 
-                interface WritableProperties extends Entry.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, Editable.WritableProperties, Orientable.WritableProperties {
-                    "adjustment": Adjustment
-                    "climb-rate": number
-                    "digits": number
-                    "numeric": boolean
-                    "snap-to-ticks": boolean
-                    "update-policy": SpinButtonUpdatePolicy
-                    "value": number
-                    "wrap": boolean
+                interface ReadableProperties extends ReadWriteProperties, Entry.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, Editable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Entry.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, Editable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Entry.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, Editable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -41970,8 +41712,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: SpinButton.ReadableProperties
                 readonly $writableProperties: SpinButton.WritableProperties
                 readonly $constructOnlyProperties: SpinButton.ConstructOnlyProperties
-                /**
-                 */
+                
                 get adjustment(): Adjustment
                 set adjustment(value: Adjustment)
                 /**
@@ -42152,14 +41893,11 @@ declare module "gi://Gtk?version=3.0" {
                  * @param new_value
                  */
                 vfunc_input(new_value: number): number
-                /**
-                 */
+                
                 vfunc_output(): number
-                /**
-                 */
+                
                 vfunc_value_changed(): void
-                /**
-                 */
+                
                 vfunc_wrapped(): void
             }
 
@@ -42312,10 +42050,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends EntryAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.EditableText.SignalSignatures, Atk.Text.SignalSignatures, Atk.Value.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EntryAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.EditableText.ReadableProperties, Atk.Text.ReadableProperties, Atk.Value.ReadableProperties {
+                interface ReadWriteProperties extends EntryAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.EditableText.ReadWriteProperties, Atk.Text.ReadWriteProperties, Atk.Value.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EntryAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.EditableText.WritableProperties, Atk.Text.WritableProperties, Atk.Value.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EntryAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.EditableText.ReadableProperties, Atk.Text.ReadableProperties, Atk.Value.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EntryAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.EditableText.WritableProperties, Atk.Text.WritableProperties, Atk.Value.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EntryAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.EditableText.ConstructOnlyProperties, Atk.Text.ConstructOnlyProperties, Atk.Value.ConstructOnlyProperties {
@@ -42337,8 +42078,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 SpinButtonAccessible: SpinButtonAccessibleClass
             }
             
@@ -42347,12 +42087,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "active": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "active": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -42416,10 +42158,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -42441,8 +42186,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 SpinnerAccessible: SpinnerAccessibleClass
             }
             
@@ -42451,7 +42195,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "hhomogeneous": boolean
                     "homogeneous": boolean
                     "interpolate-size": boolean
@@ -42463,16 +42207,10 @@ declare module "gi://Gtk?version=3.0" {
                     "visible-child-name": string | null
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "hhomogeneous": boolean
-                    "homogeneous": boolean
-                    "interpolate-size": boolean
-                    "transition-duration": number
-                    "transition-running": boolean
-                    "transition-type": StackTransitionType
-                    "vhomogeneous": boolean
-                    "visible-child": Widget | null
-                    "visible-child-name": string | null
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -42523,8 +42261,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get vhomogeneous(): boolean
                 set vhomogeneous(value: boolean)
-                /**
-                 */
+                
                 get visibleChild(): Widget | null
                 set visibleChild(value: Widget | null)
                 /**
@@ -42766,10 +42503,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -42791,8 +42531,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 StackAccessible: StackAccessibleClass
             }
             
@@ -42801,12 +42540,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "stack": Stack | null
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "stack": Stack | null
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -42818,8 +42559,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: StackSidebar.ReadableProperties
                 readonly $writableProperties: StackSidebar.WritableProperties
                 readonly $constructOnlyProperties: StackSidebar.ConstructOnlyProperties
-                /**
-                 */
+                
                 get stack(): Stack | null
                 set stack(value: Stack | null)
                 /**
@@ -42881,14 +42621,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "icon-size": number
                     "stack": Stack | null
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "icon-size": number
-                    "stack": Stack | null
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -42908,8 +42649,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get iconSize(): number
                 set iconSize(value: number)
-                /**
-                 */
+                
                 get stack(): Stack | null
                 set stack(value: Stack | null)
                 /**
@@ -43062,24 +42802,7 @@ declare module "gi://Gtk?version=3.0" {
                     "size-changed"(size: number): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "embedded": boolean
-                    "gicon": Gio.Icon | null
-                    "has-tooltip": boolean
-                    "icon-name": string | null
-                    "orientation": Orientation
-                    "pixbuf": GdkPixbuf.Pixbuf | null
-                    "screen": Gdk.Screen
-                    "size": number
-                    "stock": string | null
-                    "storage-type": ImageType
-                    "title": string
-                    "tooltip-markup": string | null
-                    "tooltip-text": string | null
-                    "visible": boolean
-                }
-
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "embedded": boolean
                     "file": string
                     "gicon": Gio.Icon | null
@@ -43095,6 +42818,12 @@ declare module "gi://Gtk?version=3.0" {
                     "tooltip-markup": string | null
                     "tooltip-text": string | null
                     "visible": boolean
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -43156,12 +42885,10 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get orientation(): Orientation
                 set orientation(value: Orientation)
-                /**
-                 */
+                
                 get pixbuf(): GdkPixbuf.Pixbuf | null
                 set pixbuf(value: GdkPixbuf.Pixbuf | null)
-                /**
-                 */
+                
                 get screen(): Gdk.Screen
                 set screen(value: Gdk.Screen)
                 /**
@@ -43501,8 +43228,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param visible %TRUE to show the status icon, %FALSE to hide it
                  */
                 set_visible(visible: boolean): void
-                /**
-                 */
+                
                 vfunc_activate(): void
                 /**
                  * @param event
@@ -43666,10 +43392,13 @@ declare module "gi://Gtk?version=3.0" {
                     "text-pushed"(context_id: number, text: string): void
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -43794,10 +43523,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -43819,8 +43551,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 StatusbarAccessible: StatusbarAccessibleClass
             }
             
@@ -43845,11 +43576,13 @@ declare module "gi://Gtk?version=3.0" {
                     "unrealize"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "context": StyleContext
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -43862,8 +43595,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: Style.ReadableProperties
                 readonly $writableProperties: Style.WritableProperties
                 readonly $constructOnlyProperties: Style.ConstructOnlyProperties
-                /**
-                 */
+                
                 get context(): StyleContext
                 set context(value: StyleContext)
                 /**
@@ -44198,8 +43930,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param rc_style
                  */
                 vfunc_init_from_rc(rc_style: RcStyle): void
-                /**
-                 */
+                
                 vfunc_realize(): void
                 /**
                  * Renders the icon specified by `source` at the given `size`
@@ -44223,8 +43954,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param state_type a state
                  */
                 vfunc_set_background(window: Gdk.Window, state_type: StateType): void
-                /**
-                 */
+                
                 vfunc_unrealize(): void
             }
 
@@ -44279,18 +44009,17 @@ declare module "gi://Gtk?version=3.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "direction": TextDirection
                     "paint-clock": Gdk.FrameClock
                     "parent": StyleContext | null
                     "screen": Gdk.Screen
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "direction": TextDirection
-                    "paint-clock": Gdk.FrameClock
-                    "parent": StyleContext | null
-                    "screen": Gdk.Screen
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -44307,8 +44036,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get direction(): TextDirection
                 set direction(value: TextDirection)
-                /**
-                 */
+                
                 get paintClock(): Gdk.FrameClock
                 set paintClock(value: Gdk.FrameClock)
                 /**
@@ -44318,8 +44046,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get parent(): StyleContext | null
                 set parent(value: StyleContext | null)
-                /**
-                 */
+                
                 get screen(): Gdk.Screen
                 set screen(value: Gdk.Screen)
                 /**
@@ -44873,8 +44600,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @returns a newly allocated string representing `context`
                  */
                 to_string(flags: StyleContextPrintFlags): string
-                /**
-                 */
+                
                 vfunc_changed(): void
             }
 
@@ -44995,10 +44721,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, StyleProvider.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, StyleProvider.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, StyleProvider.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, StyleProvider.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, StyleProvider.ConstructOnlyProperties {
@@ -45139,14 +44868,15 @@ declare module "gi://Gtk?version=3.0" {
                     "state-set"(state: boolean): boolean
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "active": boolean
                     "state": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "active": boolean
-                    "state": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -45253,10 +44983,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends WidgetAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WidgetAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends WidgetAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WidgetAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WidgetAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WidgetAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WidgetAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -45278,8 +45011,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 SwitchAccessible: SwitchAccessibleClass
             }
             
@@ -45288,7 +45020,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "column-spacing": number
                     "homogeneous": boolean
                     "n-columns": number
@@ -45296,12 +45028,10 @@ declare module "gi://Gtk?version=3.0" {
                     "row-spacing": number
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "column-spacing": number
-                    "homogeneous": boolean
-                    "n-columns": number
-                    "n-rows": number
-                    "row-spacing": number
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -45523,10 +45253,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends MenuItem.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends MenuItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, MenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -45741,21 +45474,18 @@ declare module "gi://Gtk?version=3.0" {
                     "remove-tag"(tag: TextTag, start: TextIter, end: TextIter): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "copy-target-list": TargetList
                     "cursor-position": number
                     "has-selection": boolean
                     "paste-target-list": TargetList
-                    "tag-table": TextTagTable
                     "text": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "copy-target-list": TargetList
-                    "cursor-position": number
-                    "has-selection": boolean
-                    "paste-target-list": TargetList
-                    "text": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -45798,8 +45528,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get pasteTargetList(): TargetList
                 set pasteTargetList(value: TargetList)
-                /**
-                 */
+                
                 get tagTable(): TextTagTable
                 set tagTable(value: TextTagTable)
                 /**
@@ -46692,10 +46421,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends RendererCellAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.TableCell.SignalSignatures, Atk.Text.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RendererCellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties, Atk.Text.ReadableProperties {
+                interface ReadWriteProperties extends RendererCellAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.TableCell.ReadWriteProperties, Atk.Text.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RendererCellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties, Atk.Text.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RendererCellAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.TableCell.ReadableProperties, Atk.Text.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RendererCellAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.TableCell.WritableProperties, Atk.Text.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RendererCellAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.TableCell.ConstructOnlyProperties, Atk.Text.ConstructOnlyProperties {
@@ -46717,8 +46449,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TextCellAccessible: TextCellAccessibleClass
             }
             
@@ -46727,10 +46458,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -46789,12 +46523,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "left-gravity": boolean
-                    "name": string | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -46934,81 +46669,7 @@ declare module "gi://Gtk?version=3.0" {
                     "event"(object: GObject.Object, event: Gdk.Event, iter: TextIter): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "accumulative-margin": boolean
-                    "background-full-height": boolean
-                    "background-full-height-set": boolean
-                    "background-gdk": Gdk.Color
-                    "background-rgba": Gdk.RGBA
-                    "background-set": boolean
-                    "direction": TextDirection
-                    "editable": boolean
-                    "editable-set": boolean
-                    "fallback": boolean
-                    "fallback-set": boolean
-                    "family": string
-                    "family-set": boolean
-                    "font": string
-                    "font-desc": Pango.FontDescription
-                    "font-features": string
-                    "font-features-set": boolean
-                    "foreground-gdk": Gdk.Color
-                    "foreground-rgba": Gdk.RGBA
-                    "foreground-set": boolean
-                    "indent": number
-                    "indent-set": boolean
-                    "invisible": boolean
-                    "invisible-set": boolean
-                    "justification": Justification
-                    "justification-set": boolean
-                    "language": string
-                    "language-set": boolean
-                    "left-margin": number
-                    "left-margin-set": boolean
-                    "letter-spacing": number
-                    "letter-spacing-set": boolean
-                    "name": string
-                    "paragraph-background-gdk": Gdk.Color
-                    "paragraph-background-rgba": Gdk.RGBA
-                    "paragraph-background-set": boolean
-                    "pixels-above-lines": number
-                    "pixels-above-lines-set": boolean
-                    "pixels-below-lines": number
-                    "pixels-below-lines-set": boolean
-                    "pixels-inside-wrap": number
-                    "pixels-inside-wrap-set": boolean
-                    "right-margin": number
-                    "right-margin-set": boolean
-                    "rise": number
-                    "rise-set": boolean
-                    "scale": number
-                    "scale-set": boolean
-                    "size": number
-                    "size-points": number
-                    "size-set": boolean
-                    "stretch": Pango.Stretch
-                    "stretch-set": boolean
-                    "strikethrough": boolean
-                    "strikethrough-rgba": Gdk.RGBA
-                    "strikethrough-rgba-set": boolean
-                    "strikethrough-set": boolean
-                    "style": Pango.Style
-                    "style-set": boolean
-                    "tabs": Pango.TabArray
-                    "tabs-set": boolean
-                    "underline": Pango.Underline
-                    "underline-rgba": Gdk.RGBA
-                    "underline-rgba-set": boolean
-                    "underline-set": boolean
-                    "variant": Pango.Variant
-                    "variant-set": boolean
-                    "weight": number
-                    "weight-set": boolean
-                    "wrap-mode": WrapMode
-                    "wrap-mode-set": boolean
-                }
-
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accumulative-margin": boolean
                     "background": string
                     "background-full-height": boolean
@@ -47082,6 +46743,12 @@ declare module "gi://Gtk?version=3.0" {
                     "weight-set": boolean
                     "wrap-mode": WrapMode
                     "wrap-mode-set": boolean
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -47185,8 +46852,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get font(): string
                 set font(value: string)
-                /**
-                 */
+                
                 get fontDesc(): Pango.FontDescription
                 set fontDesc(value: Pango.FontDescription)
                 /**
@@ -47444,8 +47110,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get styleSet(): boolean
                 set styleSet(value: boolean)
-                /**
-                 */
+                
                 get tabs(): Pango.TabArray
                 set tabs(value: Pango.TabArray)
                 /**
@@ -47612,10 +47277,13 @@ declare module "gi://Gtk?version=3.0" {
                     "tag-removed"(tag: TextTag): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -47910,7 +47578,7 @@ declare module "gi://Gtk?version=3.0" {
                     "toggle-overwrite"(): void
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "accepts-tab": boolean
                     "bottom-margin": number
                     "buffer": TextBuffer
@@ -47934,28 +47602,10 @@ declare module "gi://Gtk?version=3.0" {
                     "wrap-mode": WrapMode
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Scrollable.WritableProperties {
-                    "accepts-tab": boolean
-                    "bottom-margin": number
-                    "buffer": TextBuffer
-                    "cursor-visible": boolean
-                    "editable": boolean
-                    "im-module": string
-                    "indent": number
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
-                    "justification": Justification
-                    "left-margin": number
-                    "monospace": boolean
-                    "overwrite": boolean
-                    "pixels-above-lines": number
-                    "pixels-below-lines": number
-                    "pixels-inside-wrap": number
-                    "populate-all": boolean
-                    "right-margin": number
-                    "tabs": Pango.TabArray | null
-                    "top-margin": number
-                    "wrap-mode": WrapMode
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -47985,8 +47635,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get bottomMargin(): number
                 set bottomMargin(value: number)
-                /**
-                 */
+                
                 get buffer(): TextBuffer
                 set buffer(value: TextBuffer)
                 /**
@@ -48098,8 +47747,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get rightMargin(): number
                 set rightMargin(value: number)
-                /**
-                 */
+                
                 get tabs(): Pango.TabArray | null
                 set tabs(value: Pango.TabArray | null)
                 /**
@@ -48824,8 +48472,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param str
                  */
                 vfunc_insert_at_cursor(str: string): void
-                /**
-                 */
+                
                 vfunc_insert_emoji(): void
                 /**
                  * The class handler for the #GtkTextView::move-cursor
@@ -48922,10 +48569,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.EditableText.SignalSignatures, Atk.StreamableContent.SignalSignatures, Atk.Text.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.EditableText.ReadableProperties, Atk.StreamableContent.ReadableProperties, Atk.Text.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.EditableText.ReadWriteProperties, Atk.StreamableContent.ReadWriteProperties, Atk.Text.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.EditableText.WritableProperties, Atk.StreamableContent.WritableProperties, Atk.Text.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.EditableText.ReadableProperties, Atk.StreamableContent.ReadableProperties, Atk.Text.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.EditableText.WritableProperties, Atk.StreamableContent.WritableProperties, Atk.Text.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.EditableText.ConstructOnlyProperties, Atk.StreamableContent.ConstructOnlyProperties, Atk.Text.ConstructOnlyProperties {
@@ -48947,8 +48597,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TextViewAccessible: TextViewAccessibleClass
             }
             
@@ -48957,11 +48606,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "name": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -49328,14 +48979,15 @@ declare module "gi://Gtk?version=3.0" {
                     "toggled"(): void
                 }
 
-                interface ReadableProperties extends Action.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Action.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "active": boolean
                     "draw-as-radio": boolean
                 }
 
-                interface WritableProperties extends Action.WritableProperties, Buildable.WritableProperties {
-                    "active": boolean
-                    "draw-as-radio": boolean
+                interface ReadableProperties extends ReadWriteProperties, Action.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Action.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Action.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -49445,16 +49097,16 @@ declare module "gi://Gtk?version=3.0" {
                     "toggled"(): void
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "active": boolean
                     "draw-indicator": boolean
                     "inconsistent": boolean
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "active": boolean
-                    "draw-indicator": boolean
-                    "inconsistent": boolean
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -49643,10 +49295,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ButtonAccessible.SignalSignatures, Atk.Action.SignalSignatures, Atk.Component.SignalSignatures, Atk.Image.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                interface ReadWriteProperties extends ButtonAccessible.ReadWriteProperties, Atk.Action.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Image.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ButtonAccessible.ReadableProperties, Atk.Action.ReadableProperties, Atk.Component.ReadableProperties, Atk.Image.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ButtonAccessible.WritableProperties, Atk.Action.WritableProperties, Atk.Component.WritableProperties, Atk.Image.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ButtonAccessible.ConstructOnlyProperties, Atk.Action.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Image.ConstructOnlyProperties {
@@ -49668,8 +49323,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ToggleButtonAccessible: ToggleButtonAccessibleClass
             }
             
@@ -49682,12 +49336,14 @@ declare module "gi://Gtk?version=3.0" {
                     "toggled"(): void
                 }
 
-                interface ReadableProperties extends ToolButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ToolButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "active": boolean
                 }
 
-                interface WritableProperties extends ToolButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "active": boolean
+                interface ReadableProperties extends ReadWriteProperties, ToolButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToolButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToolButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -49776,7 +49432,7 @@ declare module "gi://Gtk?version=3.0" {
                     "clicked"(): void
                 }
 
-                interface ReadableProperties extends ToolItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ToolItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "icon-name": string | null
                     "icon-widget": Widget | null
                     "label": string | null
@@ -49785,13 +49441,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends ToolItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "icon-name": string | null
-                    "icon-widget": Widget | null
-                    "label": string | null
-                    "label-widget": Widget | null
-                    "stock-id": string
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, ToolItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ToolItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ToolItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -49813,8 +49466,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get iconName(): string | null
                 set iconName(value: string | null)
-                /**
-                 */
+                
                 get iconWidget(): Widget | null
                 set iconWidget(value: Widget | null)
                 /**
@@ -49822,8 +49474,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get label(): string | null
                 set label(value: string | null)
-                /**
-                 */
+                
                 get labelWidget(): Widget | null
                 set labelWidget(value: Widget | null)
                 /**
@@ -50045,16 +49696,16 @@ declare module "gi://Gtk?version=3.0" {
                     "toolbar-reconfigured"(): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "is-important": boolean
                     "visible-horizontal": boolean
                     "visible-vertical": boolean
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
-                    "is-important": boolean
-                    "visible-horizontal": boolean
-                    "visible-vertical": boolean
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -50361,7 +50012,7 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, ToolShell.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, ToolShell.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, ToolShell.ReadWriteProperties {
                     "collapsed": boolean
                     "ellipsize": Pango.EllipsizeMode
                     "header-relief": ReliefStyle
@@ -50369,12 +50020,10 @@ declare module "gi://Gtk?version=3.0" {
                     "label-widget": Widget
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, ToolShell.WritableProperties {
-                    "collapsed": boolean
-                    "ellipsize": Pango.EllipsizeMode
-                    "header-relief": ReliefStyle
-                    "label": string
-                    "label-widget": Widget
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, ToolShell.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, ToolShell.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ToolShell.ConstructOnlyProperties {
@@ -50401,12 +50050,10 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get headerRelief(): ReliefStyle
                 set headerRelief(value: ReliefStyle)
-                /**
-                 */
+                
                 get label(): string
                 set label(value: string)
-                /**
-                 */
+                
                 get labelWidget(): Widget
                 set labelWidget(value: Widget)
                 /**
@@ -50551,16 +50198,16 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures, Scrollable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "icon-size": IconSize
                     "icon-size-set": boolean
                     "toolbar-style": ToolbarStyle
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties, Scrollable.WritableProperties {
-                    "icon-size": IconSize
-                    "icon-size-set": boolean
-                    "toolbar-style": ToolbarStyle
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -50882,18 +50529,17 @@ declare module "gi://Gtk?version=3.0" {
                     "style-changed"(style: ToolbarStyle): void
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties, ToolShell.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties, ToolShell.ReadWriteProperties {
                     "icon-size": IconSize
                     "icon-size-set": boolean
                     "show-arrow": boolean
                     "toolbar-style": ToolbarStyle
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties, ToolShell.WritableProperties {
-                    "icon-size": IconSize
-                    "icon-size-set": boolean
-                    "show-arrow": boolean
-                    "toolbar-style": ToolbarStyle
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties, ToolShell.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties, ToolShell.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties, ToolShell.ConstructOnlyProperties {
@@ -51119,10 +50765,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -51271,10 +50920,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Atk.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Atk.Object.ReadableProperties {
+                interface ReadWriteProperties extends Atk.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Atk.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Atk.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Atk.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Atk.Object.ConstructOnlyProperties {
@@ -51300,8 +50952,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ToplevelAccessible: ToplevelAccessibleClass
             }
             
@@ -51310,12 +50961,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, TreeDragSource.SignalSignatures, TreeModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties {
-                    "child-model": TreeModel
-                    "virtual-root": TreePath
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, TreeDragSource.ReadWriteProperties, TreeModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, TreeDragSource.ConstructOnlyProperties, TreeModel.ConstructOnlyProperties {
@@ -51329,12 +50981,10 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: TreeModelFilter.ReadableProperties
                 readonly $writableProperties: TreeModelFilter.WritableProperties
                 readonly $constructOnlyProperties: TreeModelFilter.ConstructOnlyProperties
-                /**
-                 */
+                
                 get childModel(): TreeModel
                 set childModel(value: TreeModel)
-                /**
-                 */
+                
                 get virtualRoot(): TreePath
                 set virtualRoot(value: TreePath)
                 /**
@@ -51562,11 +51212,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, TreeDragSource.SignalSignatures, TreeModel.SignalSignatures, TreeSortable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
-                    "model": TreeModel
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, TreeDragSource.ReadWriteProperties, TreeModel.ReadWriteProperties, TreeSortable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, TreeDragSource.ConstructOnlyProperties, TreeModel.ConstructOnlyProperties, TreeSortable.ConstructOnlyProperties {
@@ -51579,8 +51231,7 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $readableProperties: TreeModelSort.ReadableProperties
                 readonly $writableProperties: TreeModelSort.WritableProperties
                 readonly $constructOnlyProperties: TreeModelSort.ConstructOnlyProperties
-                /**
-                 */
+                
                 get model(): TreeModel
                 set model(value: TreeModel)
                 /**
@@ -51774,12 +51425,14 @@ declare module "gi://Gtk?version=3.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "mode": SelectionMode
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "mode": SelectionMode
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -51976,10 +51629,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Buildable.SignalSignatures, TreeDragDest.SignalSignatures, TreeDragSource.SignalSignatures, TreeModel.SignalSignatures, TreeSortable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties, TreeDragDest.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties, TreeDragDest.ReadWriteProperties, TreeDragSource.ReadWriteProperties, TreeModel.ReadWriteProperties, TreeSortable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties, TreeDragDest.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties, TreeDragDest.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties, TreeDragDest.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, TreeDragDest.ConstructOnlyProperties, TreeDragSource.ConstructOnlyProperties, TreeModel.ConstructOnlyProperties, TreeSortable.ConstructOnlyProperties {
@@ -52266,18 +51922,15 @@ declare module "gi://Gtk?version=3.0" {
                      * @param path a tree path that points to the row
                      */
                     "row-expanded"(iter: TreeIter, path: TreePath): void
-                    /**
-                     */
+                    
                     "select-all"(): boolean
-                    /**
-                     */
+                    
                     "select-cursor-parent"(): boolean
                     /**
                      * @param object
                      */
                     "select-cursor-row"(object: boolean): boolean
-                    /**
-                     */
+                    
                     "start-interactive-search"(): boolean
                     /**
                      * The given row is about to be collapsed (hide its children nodes). Use this
@@ -52295,15 +51948,13 @@ declare module "gi://Gtk?version=3.0" {
                      * @returns %FALSE to allow expansion, %TRUE to reject
                      */
                     "test-expand-row"(iter: TreeIter, path: TreePath): boolean
-                    /**
-                     */
+                    
                     "toggle-cursor-row"(): boolean
-                    /**
-                     */
+                    
                     "unselect-all"(): boolean
                 }
 
-                interface ReadableProperties extends Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "activate-on-single-click": boolean
                     "enable-grid-lines": TreeViewGridLines
                     "enable-search": boolean
@@ -52324,25 +51975,10 @@ declare module "gi://Gtk?version=3.0" {
                     "tooltip-column": number
                 }
 
-                interface WritableProperties extends Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Scrollable.WritableProperties {
-                    "activate-on-single-click": boolean
-                    "enable-grid-lines": TreeViewGridLines
-                    "enable-search": boolean
-                    "enable-tree-lines": boolean
-                    "expander-column": TreeViewColumn
-                    "fixed-height-mode": boolean
-                    "headers-clickable": boolean
-                    "headers-visible": boolean
-                    "hover-expand": boolean
-                    "hover-selection": boolean
-                    "level-indentation": number
-                    "model": TreeModel | null
-                    "reorderable": boolean
-                    "rubber-banding": boolean
-                    "rules-hint": boolean
-                    "search-column": number
-                    "show-expanders": boolean
-                    "tooltip-column": number
+                interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -52377,8 +52013,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get enableTreeLines(): boolean
                 set enableTreeLines(value: boolean)
-                /**
-                 */
+                
                 get expanderColumn(): TreeViewColumn
                 set expanderColumn(value: TreeViewColumn)
                 /**
@@ -52434,8 +52069,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get levelIndentation(): number
                 set levelIndentation(value: number)
-                /**
-                 */
+                
                 get model(): TreeModel | null
                 set model(value: TreeModel | null)
                 /**
@@ -53312,11 +52946,9 @@ declare module "gi://Gtk?version=3.0" {
                  * #GtkTreeView:reorderable to %FALSE.
                  */
                 unset_rows_drag_source(): void
-                /**
-                 */
+                
                 vfunc_columns_changed(): void
-                /**
-                 */
+                
                 vfunc_cursor_changed(): void
                 /**
                  * @param logical
@@ -53345,18 +52977,15 @@ declare module "gi://Gtk?version=3.0" {
                  * @param path
                  */
                 vfunc_row_expanded(iter: TreeIter, path: TreePath): void
-                /**
-                 */
+                
                 vfunc_select_all(): boolean
-                /**
-                 */
+                
                 vfunc_select_cursor_parent(): boolean
                 /**
                  * @param start_editing
                  */
                 vfunc_select_cursor_row(start_editing: boolean): boolean
-                /**
-                 */
+                
                 vfunc_start_interactive_search(): boolean
                 /**
                  * @param iter
@@ -53368,11 +52997,9 @@ declare module "gi://Gtk?version=3.0" {
                  * @param path
                  */
                 vfunc_test_expand_row(iter: TreeIter, path: TreePath): boolean
-                /**
-                 */
+                
                 vfunc_toggle_cursor_row(): boolean
-                /**
-                 */
+                
                 vfunc_unselect_all(): boolean
             }
 
@@ -53479,10 +53106,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Selection.SignalSignatures, Atk.Table.SignalSignatures, CellAccessibleParent.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties, Atk.Table.ReadableProperties, CellAccessibleParent.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Selection.ReadWriteProperties, Atk.Table.ReadWriteProperties, CellAccessibleParent.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties, Atk.Table.WritableProperties, CellAccessibleParent.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Selection.ReadableProperties, Atk.Table.ReadableProperties, CellAccessibleParent.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Selection.WritableProperties, Atk.Table.WritableProperties, CellAccessibleParent.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Selection.ConstructOnlyProperties, Atk.Table.ConstructOnlyProperties, CellAccessibleParent.ConstructOnlyProperties {
@@ -53504,22 +53134,19 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TreeViewAccessible: TreeViewAccessibleClass
             }
             
 
             namespace TreeViewColumn {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures, Buildable.SignalSignatures, CellLayout.SignalSignatures {
-                    /**
-                     */
+                    
                     "clicked"(): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                     "alignment": number
-                    "cell-area": CellArea
                     "clickable": boolean
                     "expand": boolean
                     "fixed-width": number
@@ -53539,25 +53166,10 @@ declare module "gi://Gtk?version=3.0" {
                     "x-offset": number
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
-                    "alignment": number
-                    "clickable": boolean
-                    "expand": boolean
-                    "fixed-width": number
-                    "max-width": number
-                    "min-width": number
-                    "reorderable": boolean
-                    "resizable": boolean
-                    "sizing": TreeViewColumnSizing
-                    "sort-column-id": number
-                    "sort-indicator": boolean
-                    "sort-order": SortType
-                    "spacing": number
-                    "title": string
-                    "visible": boolean
-                    "widget": Widget | null
-                    "width": number
-                    "x-offset": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -53647,8 +53259,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get spacing(): number
                 set spacing(value: number)
-                /**
-                 */
+                
                 get title(): string
                 set title(value: string)
                 /**
@@ -53656,8 +53267,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get visible(): boolean
                 set visible(value: boolean)
-                /**
-                 */
+                
                 get widget(): Widget | null
                 set widget(value: Widget | null)
                 /**
@@ -54111,14 +53721,15 @@ declare module "gi://Gtk?version=3.0" {
                     "pre-activate"(action: Action): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "add-tearoffs": boolean
                     "ui": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties {
-                    "add-tearoffs": boolean
-                    "ui": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -54334,8 +53945,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param add_tearoffs whether tearoff menu items are added
                  */
                 set_add_tearoffs(add_tearoffs: boolean): void
-                /**
-                 */
+                
                 vfunc_actions_changed(): void
                 /**
                  * @param widget
@@ -54641,10 +54251,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -54709,10 +54322,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ButtonBox.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ButtonBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends ButtonBox.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ButtonBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ButtonBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ButtonBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ButtonBox.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -54740,8 +54356,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 VButtonBox: VButtonBoxClass
             }
             
@@ -54750,10 +54365,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Paned.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Paned.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Paned.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Paned.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Paned.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Paned.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Paned.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -54797,10 +54415,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Scale.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Scale.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Scale.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Scale.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Scale.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Scale.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Scale.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -54862,10 +54483,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Scrollbar.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Scrollbar.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Scrollbar.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Scrollbar.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Scrollbar.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Scrollbar.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Scrollbar.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -54912,10 +54536,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Separator.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Separator.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Separator.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Separator.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Separator.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Separator.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Separator.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -54958,12 +54585,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures, Scrollable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "shadow-type": ShadowType
                 }
 
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Scrollable.WritableProperties {
-                    "shadow-type": ShadowType
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -55074,12 +54703,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ScaleButton.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Actionable.SignalSignatures, Activatable.SignalSignatures, Buildable.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ScaleButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends ScaleButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "use-symbolic": boolean
                 }
 
-                interface WritableProperties extends ScaleButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
-                    "use-symbolic": boolean
+                interface ReadableProperties extends ReadWriteProperties, ScaleButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ScaleButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ScaleButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -55130,8 +54761,7 @@ declare module "gi://Gtk?version=3.0" {
 
             namespace Widget {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Buildable.SignalSignatures {
-                    /**
-                     */
+                    
                     "accel-closures-changed"(): void
                     /**
                      * The ::button-press-event signal will be emitted when a button
@@ -55572,8 +55202,7 @@ declare module "gi://Gtk?version=3.0" {
                      * @returns %TRUE to stop other handlers from being invoked for   the event. %FALSE to propagate the event further.
                      */
                     "grab-broken-event"(event: Gdk.EventGrabBroken): boolean
-                    /**
-                     */
+                    
                     "grab-focus"(): void
                     /**
                      * The ::grab-notify signal is emitted when a widget becomes
@@ -55917,7 +55546,7 @@ declare module "gi://Gtk?version=3.0" {
                     "window-state-event"(event: Gdk.EventWindowState): boolean
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "app-paintable": boolean
                     "can-default": boolean
                     "can-focus": boolean
@@ -55959,46 +55588,10 @@ declare module "gi://Gtk?version=3.0" {
                     "window": Gdk.Window | null
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
-                    "app-paintable": boolean
-                    "can-default": boolean
-                    "can-focus": boolean
-                    "composite-child": boolean
-                    "double-buffered": boolean
-                    "events": Gdk.EventMask
-                    "expand": boolean
-                    "focus-on-click": boolean
-                    "halign": Align
-                    "has-default": boolean
-                    "has-focus": boolean
-                    "has-tooltip": boolean
-                    "height-request": number
-                    "hexpand": boolean
-                    "hexpand-set": boolean
-                    "is-focus": boolean
-                    "margin": number
-                    "margin-bottom": number
-                    "margin-end": number
-                    "margin-left": number
-                    "margin-right": number
-                    "margin-start": number
-                    "margin-top": number
-                    "name": string
-                    "no-show-all": boolean
-                    "opacity": number
-                    "parent": Container | null
-                    "receives-default": boolean
-                    "scale-factor": number
-                    "sensitive": boolean
-                    "style": Style
-                    "tooltip-markup": string | null
-                    "tooltip-text": string | null
-                    "valign": Align
-                    "vexpand": boolean
-                    "vexpand-set": boolean
-                    "visible": boolean
-                    "width-request": number
-                    "window": Gdk.Window | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -56216,8 +55809,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get opacity(): number
                 set opacity(value: number)
-                /**
-                 */
+                
                 get parent(): Container | null
                 set parent(value: Container | null)
                 /**
@@ -60570,10 +60162,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Accessible.SignalSignatures, Atk.Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Accessible.ReadableProperties, Atk.Component.ReadableProperties {
+                interface ReadWriteProperties extends Accessible.ReadWriteProperties, Atk.Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Accessible.WritableProperties, Atk.Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Accessible.ReadableProperties, Atk.Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Accessible.WritableProperties, Atk.Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Accessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties {
@@ -60595,8 +60190,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 WidgetAccessible: WidgetAccessibleClass
             }
             
@@ -60644,42 +60238,7 @@ declare module "gi://Gtk?version=3.0" {
                     "set-focus"(widget: Widget | null): void
                 }
 
-                interface ReadableProperties extends Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
-                    "accept-focus": boolean
-                    "application": Application | null
-                    "attached-to": Widget | null
-                    "decorated": boolean
-                    "default-height": number
-                    "default-width": number
-                    "deletable": boolean
-                    "destroy-with-parent": boolean
-                    "focus-on-map": boolean
-                    "focus-visible": boolean
-                    "gravity": Gdk.Gravity
-                    "has-resize-grip": boolean
-                    "has-toplevel-focus": boolean
-                    "hide-titlebar-when-maximized": boolean
-                    "icon": GdkPixbuf.Pixbuf | null
-                    "icon-name": string | null
-                    "is-active": boolean
-                    "is-maximized": boolean
-                    "mnemonics-visible": boolean
-                    "modal": boolean
-                    "resizable": boolean
-                    "resize-grip-visible": boolean
-                    "role": string | null
-                    "screen": Gdk.Screen
-                    "skip-pager-hint": boolean
-                    "skip-taskbar-hint": boolean
-                    "title": string | null
-                    "transient-for": Window | null
-                    "type": WindowType
-                    "type-hint": Gdk.WindowTypeHint
-                    "urgency-hint": boolean
-                    "window-position": WindowPosition
-                }
-
-                interface WritableProperties extends Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "accept-focus": boolean
                     "application": Application | null
                     "attached-to": Widget | null
@@ -60712,6 +60271,12 @@ declare module "gi://Gtk?version=3.0" {
                     "type-hint": Gdk.WindowTypeHint
                     "urgency-hint": boolean
                     "window-position": WindowPosition
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -60836,8 +60401,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get hideTitlebarWhenMaximized(): boolean
                 set hideTitlebarWhenMaximized(value: boolean)
-                /**
-                 */
+                
                 get icon(): GdkPixbuf.Pixbuf | null
                 set icon(value: GdkPixbuf.Pixbuf | null)
                 /**
@@ -60891,8 +60455,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get role(): string | null
                 set role(value: string | null)
-                /**
-                 */
+                
                 get screen(): Gdk.Screen
                 set screen(value: Gdk.Screen)
                 /**
@@ -62492,10 +62055,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends ContainerAccessible.SignalSignatures, Atk.Component.SignalSignatures, Atk.Window.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Window.ReadableProperties {
+                interface ReadWriteProperties extends ContainerAccessible.ReadWriteProperties, Atk.Component.ReadWriteProperties, Atk.Window.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Window.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ContainerAccessible.ReadableProperties, Atk.Component.ReadableProperties, Atk.Window.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ContainerAccessible.WritableProperties, Atk.Component.WritableProperties, Atk.Window.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ContainerAccessible.ConstructOnlyProperties, Atk.Component.ConstructOnlyProperties, Atk.Window.ConstructOnlyProperties {
@@ -62517,8 +62083,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 WindowAccessible: WindowAccessibleClass
             }
             
@@ -62527,10 +62092,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -62613,14 +62181,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                     "action-name": string | null
                     "action-target": GLib.Variant
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
-                    "action-name": string | null
-                    "action-target": GLib.Variant
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
@@ -62696,8 +62265,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get actionName(): string | null
                 set actionName(value: string | null)
-                /**
-                 */
+                
                 get actionTarget(): GLib.Variant
                 set actionTarget(value: GLib.Variant)
                 /**
@@ -62804,14 +62372,15 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "related-action": Action
                     "use-action-appearance": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "related-action": Action
-                    "use-action-appearance": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -63195,11 +62764,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
-                    "content-type": string
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
@@ -63277,10 +62848,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -63508,10 +63082,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -63641,8 +63218,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 CellAccessibleParent: CellAccessibleParentIface
             }
             
@@ -63680,12 +63256,14 @@ declare module "gi://Gtk?version=3.0" {
                     "remove-widget"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                     "editing-canceled": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
-                    "editing-canceled": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
@@ -63773,10 +63351,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -64093,14 +63674,15 @@ declare module "gi://Gtk?version=3.0" {
                     "color-activated"(color: Gdk.RGBA): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "rgba": Gdk.RGBA
                     "use-alpha": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "rgba": Gdk.RGBA
-                    "use-alpha": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -64288,18 +63870,20 @@ declare module "gi://Gtk?version=3.0" {
                     "insert-text"(new_text: string, new_text_length: number, position: number): number
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
                 }
 
                 interface Interface extends GObject.Object {
-                    /**
-                     */
+                    
                     vfunc_changed(): void
                     /**
                      * Deletes a sequence of characters. The characters that are deleted are
@@ -64700,7 +64284,7 @@ declare module "gi://Gtk?version=3.0" {
                     "update-preview"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "action": FileChooserAction
                     "create-folders": boolean
                     "do-overwrite-confirmation": boolean
@@ -64714,18 +64298,10 @@ declare module "gi://Gtk?version=3.0" {
                     "use-preview-label": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "action": FileChooserAction
-                    "create-folders": boolean
-                    "do-overwrite-confirmation": boolean
-                    "extra-widget": Widget | null
-                    "filter": FileFilter | null
-                    "local-only": boolean
-                    "preview-widget": Widget | null
-                    "preview-widget-active": boolean
-                    "select-multiple": boolean
-                    "show-hidden": boolean
-                    "use-preview-label": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -64762,12 +64338,10 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get doOverwriteConfirmation(): boolean
                 set doOverwriteConfirmation(value: boolean)
-                /**
-                 */
+                
                 get extraWidget(): Widget | null
                 set extraWidget(value: Widget | null)
-                /**
-                 */
+                
                 get filter(): FileFilter | null
                 set filter(value: FileFilter | null)
                 /**
@@ -64775,8 +64349,7 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 get localOnly(): boolean
                 set localOnly(value: boolean)
-                /**
-                 */
+                
                 get previewWidget(): Widget | null
                 set previewWidget(value: Widget | null)
                 /**
@@ -65615,7 +65188,7 @@ declare module "gi://Gtk?version=3.0" {
                     "font-activated"(fontname: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "font": string | null
                     "font-desc": Pango.FontDescription | null
                     "font-features": string
@@ -65625,14 +65198,10 @@ declare module "gi://Gtk?version=3.0" {
                     "show-preview-entry": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "font": string | null
-                    "font-desc": Pango.FontDescription | null
-                    "font-features": string
-                    "language": string
-                    "level": FontChooserLevel
-                    "preview-text": string
-                    "show-preview-entry": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -65951,12 +65520,14 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "orientation": Orientation
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "orientation": Orientation
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -66036,10 +65607,13 @@ declare module "gi://Gtk?version=3.0" {
                     "ready"(context: PrintContext): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -66130,8 +65704,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PrintOperationPreview: PrintOperationPreviewIface
             }
             
@@ -66156,7 +65729,7 @@ declare module "gi://Gtk?version=3.0" {
                     "selection-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "filter": RecentFilter
                     "limit": number
                     "local-only": boolean
@@ -66168,16 +65741,10 @@ declare module "gi://Gtk?version=3.0" {
                     "sort-type": RecentSortType
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "filter": RecentFilter
-                    "limit": number
-                    "local-only": boolean
-                    "select-multiple": boolean
-                    "show-icons": boolean
-                    "show-not-found": boolean
-                    "show-private": boolean
-                    "show-tips": boolean
-                    "sort-type": RecentSortType
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -66605,18 +66172,17 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "hadjustment": Adjustment
                     "hscroll-policy": ScrollablePolicy
                     "vadjustment": Adjustment
                     "vscroll-policy": ScrollablePolicy
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "hadjustment": Adjustment
-                    "hscroll-policy": ScrollablePolicy
-                    "vadjustment": Adjustment
-                    "vscroll-policy": ScrollablePolicy
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -66779,10 +66345,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -66874,10 +66443,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends Widget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
@@ -67054,10 +66626,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -67127,8 +66702,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TreeDragDest: TreeDragDestIface
             }
             
@@ -67137,10 +66711,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -67220,8 +66797,7 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TreeDragSource: TreeDragSourceIface
             }
             
@@ -67266,10 +66842,13 @@ declare module "gi://Gtk?version=3.0" {
                     "row-inserted"(path: TreePath, iter: TreeIter): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -67923,10 +67502,13 @@ declare module "gi://Gtk?version=3.0" {
                     "sort-column-changed"(): void
                 }
 
-                interface ReadableProperties extends TreeModel.ReadableProperties {
+                interface ReadWriteProperties extends TreeModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends TreeModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, TreeModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TreeModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TreeModel.ConstructOnlyProperties {
@@ -68090,14 +67672,11 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface AccelGroupEntry {
-                /**
-                 */
+                
                 key: AccelKey
-                /**
-                 */
+                
                 closure: GObject.Closure
-                /**
-                 */
+                
                 accel_path_quark: GLib.Quark
             }
 
@@ -69484,14 +69063,11 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface FixedChild {
-                /**
-                 */
+                
                 widget: Widget
-                /**
-                 */
+                
                 x: number
-                /**
-                 */
+                
                 y: number
             }
 
@@ -72529,44 +72105,31 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface TableChild {
-                /**
-                 */
+                
                 widget: Widget
-                /**
-                 */
+                
                 left_attach: number
-                /**
-                 */
+                
                 right_attach: number
-                /**
-                 */
+                
                 top_attach: number
-                /**
-                 */
+                
                 bottom_attach: number
-                /**
-                 */
+                
                 xpadding: number
-                /**
-                 */
+                
                 ypadding: number
-                /**
-                 */
+                
                 xexpand: number
-                /**
-                 */
+                
                 yexpand: number
-                /**
-                 */
+                
                 xshrink: number
-                /**
-                 */
+                
                 yshrink: number
-                /**
-                 */
+                
                 xfill: number
-                /**
-                 */
+                
                 yfill: number
             }
 
@@ -72603,29 +72166,21 @@ declare module "gi://Gtk?version=3.0" {
             }
 
             interface TableRowCol {
-                /**
-                 */
+                
                 requisition: number
-                /**
-                 */
+                
                 allocation: number
-                /**
-                 */
+                
                 spacing: number
-                /**
-                 */
+                
                 need_expand: number
-                /**
-                 */
+                
                 need_shrink: number
-                /**
-                 */
+                
                 expand: number
-                /**
-                 */
+                
                 shrink: number
-                /**
-                 */
+                
                 empty: number
             }
 
@@ -75458,8 +75013,7 @@ declare module "gi://Gtk?version=3.0" {
                  * An object id is unknown
                  */
                 readonly "INVALID_ID": 13
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -75687,8 +75241,7 @@ declare module "gi://Gtk?version=3.0" {
                  * Unknown value.
                  */
                 readonly "UNKNOWN_VALUE": 5
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -76226,8 +75779,7 @@ declare module "gi://Gtk?version=3.0" {
                  * An unspecified error occurred.
                  */
                 readonly "FAILED": 1
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -76638,24 +76190,20 @@ declare module "gi://Gtk?version=3.0" {
             }
             type MovementStep = MovementStepEnum[Exclude<keyof MovementStepEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 MovementStep: MovementStepEnum
             }
             
             interface NotebookTabEnum {
                 readonly $gtype: GObject.GType<NotebookTab>
-                /**
-                 */
+                
                 readonly "FIRST": 0
-                /**
-                 */
+                
                 readonly "LAST": 1
             }
             type NotebookTab = NotebookTabEnum[Exclude<keyof NotebookTabEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 NotebookTab: NotebookTabEnum
             }
             
@@ -77476,8 +77024,7 @@ declare module "gi://Gtk?version=3.0" {
                  * Indicates a malformed URI
                  */
                 readonly "INVALID_URI": 1
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -77529,8 +77076,7 @@ declare module "gi://Gtk?version=3.0" {
                  * unspecified error.
                  */
                 readonly "UNKNOWN": 6
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -77615,8 +77161,7 @@ declare module "gi://Gtk?version=3.0" {
             }
             type ResizeMode = ResizeModeEnum[Exclude<keyof ResizeModeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ResizeMode: ResizeModeEnum
             }
             
@@ -77743,8 +77288,7 @@ declare module "gi://Gtk?version=3.0" {
             }
             type ScrollStep = ScrollStepEnum[Exclude<keyof ScrollStepEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ScrollStep: ScrollStepEnum
             }
             
@@ -78828,77 +78372,54 @@ declare module "gi://Gtk?version=3.0" {
             
             interface DebugFlagBitfield {
                 readonly $gtype: GObject.GType<DebugFlag>
-                /**
-                 */
+                
                 readonly "MISC": 1
-                /**
-                 */
+                
                 readonly "PLUGSOCKET": 2
-                /**
-                 */
+                
                 readonly "TEXT": 4
-                /**
-                 */
+                
                 readonly "TREE": 8
-                /**
-                 */
+                
                 readonly "UPDATES": 16
-                /**
-                 */
+                
                 readonly "KEYBINDINGS": 32
-                /**
-                 */
+                
                 readonly "MULTIHEAD": 64
-                /**
-                 */
+                
                 readonly "MODULES": 128
-                /**
-                 */
+                
                 readonly "GEOMETRY": 256
-                /**
-                 */
+                
                 readonly "ICONTHEME": 512
-                /**
-                 */
+                
                 readonly "PRINTING": 1024
-                /**
-                 */
+                
                 readonly "BUILDER": 2048
-                /**
-                 */
+                
                 readonly "SIZE_REQUEST": 4096
-                /**
-                 */
+                
                 readonly "NO_CSS_CACHE": 8192
-                /**
-                 */
+                
                 readonly "BASELINES": 16384
-                /**
-                 */
+                
                 readonly "PIXEL_CACHE": 32768
-                /**
-                 */
+                
                 readonly "NO_PIXEL_CACHE": 65536
-                /**
-                 */
+                
                 readonly "INTERACTIVE": 131072
-                /**
-                 */
+                
                 readonly "TOUCHSCREEN": 262144
-                /**
-                 */
+                
                 readonly "ACTIONS": 524288
-                /**
-                 */
+                
                 readonly "RESIZE": 1048576
-                /**
-                 */
+                
                 readonly "LAYOUT": 2097152
             }
             type DebugFlag = number
             interface $Exports {
-                /**
-                 */
+                
                 DebugFlag: DebugFlagBitfield
             }
             
@@ -79048,8 +78569,7 @@ declare module "gi://Gtk?version=3.0" {
                  * Allow selecting a specific font size
                  */
                 readonly "SIZE": 2
-                /**
-                 */
+                
                 readonly "VARIATIONS": 4
                 /**
                  * Allow selecting specific OpenType font features
@@ -79461,8 +78981,7 @@ declare module "gi://Gtk?version=3.0" {
             
             interface StyleContextPrintFlagsBitfield {
                 readonly $gtype: GObject.GType<StyleContextPrintFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
                 /**
                  * Print the entire tree of
@@ -80204,8 +79723,7 @@ declare module "gi://Gtk?version=3.0" {
              * more information.
              */
             type Allocation = Gdk.Rectangle
-            /**
-             */
+            
             type Stock = string
 
             interface $Exports {
@@ -80708,8 +80226,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @returns %TRUE if a matching key binding was found
                  */
                 bindings_activate_event(object: GObject.Object, event: Gdk.EventKey): boolean
-                /**
-                 */
+                
                 builder_error_quark(): GLib.Quark
                 /**
                  * This function is supposed to be called in #GtkWidget::draw
@@ -80772,8 +80289,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @returns %NULL if the GTK+ library is compatible with the   given version, or a string describing the version mismatch.   The returned string is owned by GTK+ and should not be modified   or freed.
                  */
                 check_version(required_major: number, required_minor: number, required_micro: number): string | null
-                /**
-                 */
+                
                 css_provider_error_quark(): GLib.Quark
                 /**
                  * Adds a GTK+ grab on `device`, so all the events on `device` and its
@@ -81185,8 +80701,7 @@ declare module "gi://Gtk?version=3.0" {
                  * @param target an existing icon size (#GtkIconSize)
                  */
                 icon_size_register_alias(alias: string, target: number): void
-                /**
-                 */
+                
                 icon_theme_error_quark(): GLib.Quark
                 /**
                  * Call this function before using any other GTK+ functions in your GUI
@@ -82005,11 +81520,9 @@ declare module "gi://Gtk?version=3.0" {
                  * @param filenames A     %NULL-terminated list of filenames.
                  */
                 rc_set_default_files(filenames: string[]): void
-                /**
-                 */
+                
                 recent_chooser_error_quark(): GLib.Quark
-                /**
-                 */
+                
                 recent_manager_error_quark(): GLib.Quark
                 /**
                  * Renders an activity indicator (such as in #GtkSpinner).

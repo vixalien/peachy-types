@@ -561,8 +561,7 @@ declare module "gi://GstAnalytics?version=1.0" {
                  * number of tensors
                  */
                 num_tensors: number
-                /**
-                 */
+                
                 tensors: Tensor
                 /**
                  * Retrieves a tensor from the #GstTensorMeta, the index must be

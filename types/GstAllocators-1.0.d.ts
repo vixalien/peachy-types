@@ -28,12 +28,13 @@ declare module "gi://GstAllocators?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
-                    "drm-device-path": string
-                    "drm-fd": number
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -117,10 +118,13 @@ declare module "gi://GstAllocators?version=1.0" {
                 interface SignalSignatures extends FdAllocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends FdAllocator.ReadableProperties {
+                interface ReadWriteProperties extends FdAllocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends FdAllocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, FdAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, FdAllocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends FdAllocator.ConstructOnlyProperties {
@@ -179,10 +183,13 @@ declare module "gi://GstAllocators?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -232,10 +239,13 @@ declare module "gi://GstAllocators?version=1.0" {
                 interface SignalSignatures extends FdAllocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends FdAllocator.ReadableProperties {
+                interface ReadWriteProperties extends FdAllocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends FdAllocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, FdAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, FdAllocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends FdAllocator.ConstructOnlyProperties {
@@ -290,10 +300,13 @@ declare module "gi://GstAllocators?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {

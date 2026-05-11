@@ -157,51 +157,37 @@ declare module "gi://xlib?version=2.0" {
             interface $Exports {
                 XEvent: XEventStruct
             }
-            /**
-             */
+            
             type Atom = number
-            /**
-             */
+            
             type Colormap = number
-            /**
-             */
+            
             type Cursor = number
-            /**
-             */
+            
             type Drawable = number
-            /**
-             */
+            
             type GC = never
-            /**
-             */
+            
             type KeyCode = number
-            /**
-             */
+            
             type KeySym = number
-            /**
-             */
+            
             type Picture = number
-            /**
-             */
+            
             type Time = number
-            /**
-             */
+            
             type VisualID = number
-            /**
-             */
+            
             type Window = number
-            /**
-             */
+            
             type XID = number
-            /**
-             */
+            
             type Pixmap = number
 
             interface $Exports {
                 __name__: "xlib"
                 __version__: "2.0"
-                /**
-                 */
+                
                 open_display(): void
             }
         }

@@ -28,10 +28,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -99,8 +102,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Agreement: AgreementClass
             }
             
@@ -109,10 +111,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -192,8 +197,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AgreementSection: AgreementSectionClass
             }
             
@@ -202,10 +206,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -311,8 +318,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Artifact: ArtifactClass
             }
             
@@ -321,10 +327,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -378,8 +387,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Branding: BrandingClass
             }
             
@@ -388,10 +396,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -443,8 +454,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Bundle: BundleClass
             }
             
@@ -453,7 +463,7 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "children": never
                     "icon": string
                     "id": string
@@ -461,12 +471,10 @@ declare module "gi://AppStream?version=1.0" {
                     "summary": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "children": never
-                    "icon": string
-                    "id": string
-                    "name": string
-                    "summary": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -478,8 +486,7 @@ declare module "gi://AppStream?version=1.0" {
                 readonly $readableProperties: Category.ReadableProperties
                 readonly $writableProperties: Category.WritableProperties
                 readonly $constructOnlyProperties: Category.ConstructOnlyProperties
-                /**
-                 */
+                
                 get children(): never
                 set children(value: never)
                 /**
@@ -598,8 +605,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Category: CategoryClass
             }
             
@@ -608,10 +614,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -667,8 +676,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Checksum: ChecksumClass
             }
             
@@ -677,7 +685,7 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "categories": never[]
                     "description": string
                     "icons": Icon[]
@@ -693,20 +701,10 @@ declare module "gi://AppStream?version=1.0" {
                     "urls": Record<UrlKind, string>
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "categories": never[]
-                    "description": string
-                    "icons": Icon[]
-                    "id": string
-                    "keywords": string[]
-                    "kind": ComponentKind
-                    "name": string
-                    "pkgnames": string[]
-                    "project-group": string
-                    "project-license": string
-                    "screenshots": Screenshot[]
-                    "summary": string
-                    "urls": Record<UrlKind, string>
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1184,8 +1182,7 @@ declare module "gi://AppStream?version=1.0" {
                  * @returns the variant suffix
                  */
                 get_name_variant_suffix(): string
-                /**
-                 */
+                
                 get_origin(): string
                 /**
                  * Get the first package name of the list of packages that need to be installed
@@ -1670,8 +1667,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Component: ComponentClass
             }
             
@@ -1680,11 +1676,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "flags": number
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1783,8 +1781,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ComponentBox: ComponentBoxClass
             }
             
@@ -1793,10 +1790,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1923,8 +1923,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ContentRating: ContentRatingClass
             }
             
@@ -1933,10 +1932,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2044,8 +2046,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Context: ContextClass
             }
             
@@ -2054,10 +2055,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2105,8 +2109,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Developer: DeveloperClass
             }
             
@@ -2115,10 +2118,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2213,8 +2219,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Icon: IconClass
             }
             
@@ -2223,10 +2228,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2315,8 +2323,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Image: ImageClass
             }
             
@@ -2325,10 +2332,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2386,8 +2396,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Issue: IssueClass
             }
             
@@ -2396,10 +2405,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2453,8 +2465,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Launchable: LaunchableClass
             }
             
@@ -2463,10 +2474,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2745,8 +2759,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Metadata: MetadataClass
             }
             
@@ -2761,10 +2774,13 @@ declare module "gi://AppStream?version=1.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2963,8 +2979,7 @@ declare module "gi://AppStream?version=1.0" {
                  * @param locale the BCP47 or POSIX locale to use for this pool.
                  */
                 set_locale(locale: string): void
-                /**
-                 */
+                
                 vfunc_changed(): void
             }
 
@@ -2981,8 +2996,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Pool: PoolClass
             }
             
@@ -2991,10 +3005,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3048,8 +3065,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Provided: ProvidedClass
             }
             
@@ -3058,10 +3074,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3125,8 +3144,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Reference: ReferenceClass
             }
             
@@ -3135,10 +3153,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3337,8 +3358,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Relation: RelationClass
             }
             
@@ -3347,10 +3367,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3416,8 +3439,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 RelationCheckResult: RelationCheckResultClass
             }
             
@@ -3426,10 +3448,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3637,8 +3662,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Release: ReleaseClass
             }
             
@@ -3647,10 +3671,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3765,8 +3792,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ReleaseList: ReleaseListClass
             }
             
@@ -3775,7 +3801,7 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "date": Review
                     "description": string
                     "flags": number
@@ -3789,18 +3815,10 @@ declare module "gi://AppStream?version=1.0" {
                     "version": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "date": Review
-                    "description": string
-                    "flags": number
-                    "id": string
-                    "locale": string
-                    "priority": number
-                    "rating": number
-                    "reviewer-id": string
-                    "reviewer-name": string
-                    "summary": string
-                    "version": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4062,8 +4080,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Review: ReviewClass
             }
             
@@ -4072,10 +4089,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4211,8 +4231,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Screenshot: ScreenshotClass
             }
             
@@ -4221,10 +4240,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4277,8 +4299,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Suggested: SuggestedClass
             }
             
@@ -4287,10 +4308,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4443,8 +4467,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 SystemInfo: SystemInfoClass
             }
             
@@ -4453,10 +4476,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4517,8 +4543,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Translation: TranslationClass
             }
             
@@ -4527,10 +4552,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4692,8 +4720,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Validator: ValidatorClass
             }
             
@@ -4702,10 +4729,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4815,8 +4845,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ValidatorIssue: ValidatorIssueClass
             }
             
@@ -4825,10 +4854,13 @@ declare module "gi://AppStream?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4915,8 +4947,7 @@ declare module "gi://AppStream?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Video: VideoClass
             }
             
@@ -6636,8 +6667,7 @@ declare module "gi://AppStream?version=1.0" {
             
             interface ReleaseUrlKindEnum {
                 readonly $gtype: GObject.GType<ReleaseUrlKind>
-                /**
-                 */
+                
                 readonly "UNKNOWN": 0
                 /**
                  * Weblink to detailed release notes.

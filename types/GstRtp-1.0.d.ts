@@ -30,12 +30,14 @@ declare module "gi://GstRtp?version=1.0" {
                 interface SignalSignatures extends RTPBasePayload.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RTPBasePayload.ReadableProperties {
+                interface ReadWriteProperties extends RTPBasePayload.ReadWriteProperties {
                     "buffer-list": boolean
                 }
 
-                interface WritableProperties extends RTPBasePayload.WritableProperties {
-                    "buffer-list": boolean
+                interface ReadableProperties extends ReadWriteProperties, RTPBasePayload.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RTPBasePayload.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RTPBasePayload.ConstructOnlyProperties {
@@ -173,7 +175,7 @@ declare module "gi://GstRtp?version=1.0" {
                     "request-extension"(ext_id: number, ext_uri: string | null): RTPHeaderExtension | null
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "auto-header-extension": boolean
                     "extensions": Gst.ValueArray
                     "max-reorder": number
@@ -181,12 +183,10 @@ declare module "gi://GstRtp?version=1.0" {
                     "stats": Gst.Structure
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "auto-header-extension": boolean
-                    "extensions": Gst.ValueArray
-                    "max-reorder": number
-                    "source-info": boolean
-                    "stats": Gst.Structure
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -465,7 +465,7 @@ declare module "gi://GstRtp?version=1.0" {
                     "request-extension"(ext_id: number, ext_uri: string): RTPHeaderExtension | null
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "auto-header-extension": boolean
                     "extensions": Gst.ValueArray
                     "max-ptime": number
@@ -485,24 +485,10 @@ declare module "gi://GstRtp?version=1.0" {
                     "timestamp-offset": number
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "auto-header-extension": boolean
-                    "extensions": Gst.ValueArray
-                    "max-ptime": number
-                    "min-ptime": number
-                    "mtu": number
-                    "onvif-no-rate-control": boolean
-                    "perfect-rtptime": boolean
-                    "pt": number
-                    "ptime-multiple": number
-                    "scale-rtptime": boolean
-                    "seqnum": number
-                    "seqnum-offset": number
-                    "source-info": boolean
-                    "ssrc": number
-                    "stats": Gst.Structure
-                    "timestamp": number
-                    "timestamp-offset": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -791,10 +777,13 @@ declare module "gi://GstRtp?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -1130,11 +1119,9 @@ declare module "gi://GstRtp?version=1.0" {
             }
 
             interface RTCPBuffer {
-                /**
-                 */
+                
                 buffer: Gst.Buffer
-                /**
-                 */
+                
                 map: Gst.MapInfo
                 /**
                  * Add a new packet of `type` to `rtcp`. `packet` will point to the newly created
@@ -2210,8 +2197,7 @@ declare module "gi://GstRtp?version=1.0" {
                     csrc?: number[]
                     csrc_count?: number
                 }): RTPSourceMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -2286,8 +2272,7 @@ declare module "gi://GstRtp?version=1.0" {
                  *    synchronization
                  */
                 readonly "RTPFB_TYPE_RTCP_SR_REQ": 5
-                /**
-                 */
+                
                 readonly "RTPFB_TYPE_TWCC": 15
                 /**
                  * Picture Loss Indication
@@ -2733,8 +2718,7 @@ declare module "gi://GstRtp?version=1.0" {
                  * receive RTP Header Extensions
                  */
                 readonly "SENDONLY": 1
-                /**
-                 */
+                
                 readonly "RECVONLY": 2
                 /**
                  * Send and receive RTP
@@ -3132,11 +3116,9 @@ declare module "gi://GstRtp?version=1.0" {
                  * @returns a #GstRTPPayloadInfo or NULL when no info could be found.
                  */
                 rtp_payload_info_for_pt(payload_type: number): RTPPayloadInfo | null
-                /**
-                 */
+                
                 rtp_source_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 rtp_source_meta_get_info(): Gst.MetaInfo
             }
         }

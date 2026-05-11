@@ -44,8 +44,7 @@ declare module "gi://GstPlayer?version=1.0" {
                      * @param object
                      */
                     "duration-changed"(object: number): void
-                    /**
-                     */
+                    
                     "end-of-stream"(): void
                     /**
                      * @param object
@@ -55,8 +54,7 @@ declare module "gi://GstPlayer?version=1.0" {
                      * @param object
                      */
                     "media-info-updated"(object: PlayerMediaInfo): void
-                    /**
-                     */
+                    
                     "mute-changed"(): void
                     /**
                      * @param object
@@ -79,8 +77,7 @@ declare module "gi://GstPlayer?version=1.0" {
                      * @param p0
                      */
                     "video-dimensions-changed"(object: number, p0: number): void
-                    /**
-                     */
+                    
                     "volume-changed"(): void
                     /**
                      * @param object
@@ -88,7 +85,7 @@ declare module "gi://GstPlayer?version=1.0" {
                     "warning"(object: GLib.Error): void
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "audio-video-offset": number
                     "current-audio-track": PlayerAudioInfo | null
                     "current-subtitle-track": PlayerSubtitleInfo | null
@@ -104,27 +101,13 @@ declare module "gi://GstPlayer?version=1.0" {
                     "uri": string | null
                     "video-multiview-flags": GstVideo.VideoMultiviewFlags
                     "video-multiview-mode": GstVideo.VideoMultiviewFramePacking
-                    "video-renderer": PlayerVideoRenderer
                     "volume": number
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "audio-video-offset": number
-                    "current-audio-track": PlayerAudioInfo | null
-                    "current-subtitle-track": PlayerSubtitleInfo | null
-                    "current-video-track": PlayerVideoInfo | null
-                    "duration": number
-                    "media-info": PlayerMediaInfo | null
-                    "mute": boolean
-                    "pipeline": Gst.Element
-                    "position": number
-                    "rate": number
-                    "subtitle-video-offset": number
-                    "suburi": string
-                    "uri": string | null
-                    "video-multiview-flags": GstVideo.VideoMultiviewFlags
-                    "video-multiview-mode": GstVideo.VideoMultiviewFramePacking
-                    "volume": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -143,16 +126,13 @@ declare module "gi://GstPlayer?version=1.0" {
                  */
                 get audioVideoOffset(): number
                 set audioVideoOffset(value: number)
-                /**
-                 */
+                
                 get currentAudioTrack(): PlayerAudioInfo | null
                 set currentAudioTrack(value: PlayerAudioInfo | null)
-                /**
-                 */
+                
                 get currentSubtitleTrack(): PlayerSubtitleInfo | null
                 set currentSubtitleTrack(value: PlayerSubtitleInfo | null)
-                /**
-                 */
+                
                 get currentVideoTrack(): PlayerVideoInfo | null
                 set currentVideoTrack(value: PlayerVideoInfo | null)
                 /**
@@ -160,8 +140,7 @@ declare module "gi://GstPlayer?version=1.0" {
                  */
                 get duration(): number
                 set duration(value: number)
-                /**
-                 */
+                
                 get mediaInfo(): PlayerMediaInfo | null
                 set mediaInfo(value: PlayerMediaInfo | null)
                 /**
@@ -169,8 +148,7 @@ declare module "gi://GstPlayer?version=1.0" {
                  */
                 get mute(): boolean
                 set mute(value: boolean)
-                /**
-                 */
+                
                 get pipeline(): Gst.Element
                 set pipeline(value: Gst.Element)
                 /**
@@ -183,8 +161,7 @@ declare module "gi://GstPlayer?version=1.0" {
                  */
                 get rate(): number
                 set rate(value: number)
-                /**
-                 */
+                
                 set signalDispatcher(value: PlayerSignalDispatcher)
                 /**
                  * @default 0
@@ -211,8 +188,7 @@ declare module "gi://GstPlayer?version=1.0" {
                  */
                 get videoMultiviewMode(): GstVideo.VideoMultiviewFramePacking
                 set videoMultiviewMode(value: GstVideo.VideoMultiviewFramePacking)
-                /**
-                 */
+                
                 get videoRenderer(): PlayerVideoRenderer
                 set videoRenderer(value: PlayerVideoRenderer)
                 /**
@@ -588,10 +564,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends PlayerStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PlayerStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends PlayerStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PlayerStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PlayerStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PlayerStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PlayerStreamInfo.ConstructOnlyProperties {
@@ -644,11 +623,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PlayerSignalDispatcher.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PlayerSignalDispatcher.ReadableProperties {
-                    "application-context": GLib.MainContext
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PlayerSignalDispatcher.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PlayerSignalDispatcher.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PlayerSignalDispatcher.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PlayerSignalDispatcher.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PlayerSignalDispatcher.ConstructOnlyProperties {
@@ -661,8 +642,7 @@ declare module "gi://GstPlayer?version=1.0" {
                 readonly $readableProperties: PlayerGMainContextSignalDispatcher.ReadableProperties
                 readonly $writableProperties: PlayerGMainContextSignalDispatcher.WritableProperties
                 readonly $constructOnlyProperties: PlayerGMainContextSignalDispatcher.ConstructOnlyProperties
-                /**
-                 */
+                
                 get applicationContext(): GLib.MainContext
                 set applicationContext(value: GLib.MainContext)
             }
@@ -682,8 +662,7 @@ declare module "gi://GstPlayer?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PlayerGMainContextSignalDispatcher: PlayerGMainContextSignalDispatcherClass
             }
             
@@ -692,10 +671,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -798,10 +780,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -861,10 +846,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends PlayerStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PlayerStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends PlayerStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PlayerStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PlayerStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PlayerStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PlayerStreamInfo.ConstructOnlyProperties {
@@ -901,10 +889,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends PlayerStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PlayerStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends PlayerStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PlayerStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PlayerStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PlayerStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PlayerStreamInfo.ConstructOnlyProperties {
@@ -962,14 +953,15 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PlayerVideoRenderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PlayerVideoRenderer.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PlayerVideoRenderer.ReadWriteProperties {
                     "video-sink": Gst.Element
                     "window-handle": never | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PlayerVideoRenderer.WritableProperties {
-                    "video-sink": Gst.Element
-                    "window-handle": never | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PlayerVideoRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PlayerVideoRenderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PlayerVideoRenderer.ConstructOnlyProperties {
@@ -981,12 +973,10 @@ declare module "gi://GstPlayer?version=1.0" {
                 readonly $readableProperties: PlayerVideoOverlayVideoRenderer.ReadableProperties
                 readonly $writableProperties: PlayerVideoOverlayVideoRenderer.WritableProperties
                 readonly $constructOnlyProperties: PlayerVideoOverlayVideoRenderer.ConstructOnlyProperties
-                /**
-                 */
+                
                 get videoSink(): Gst.Element
                 set videoSink(value: Gst.Element)
-                /**
-                 */
+                
                 get windowHandle(): never | null
                 set windowHandle(value: never | null)
                 /**
@@ -1047,8 +1037,7 @@ declare module "gi://GstPlayer?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PlayerVideoOverlayVideoRenderer: PlayerVideoOverlayVideoRendererClass
             }
             
@@ -1057,10 +1046,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1089,8 +1081,7 @@ declare module "gi://GstPlayer?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PlayerSignalDispatcher: PlayerSignalDispatcherInterface
             }
             
@@ -1099,10 +1090,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1126,8 +1120,7 @@ declare module "gi://GstPlayer?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PlayerVideoRenderer: PlayerVideoRendererInterface
             }
             
@@ -1187,8 +1180,7 @@ declare module "gi://GstPlayer?version=1.0" {
             }
             type PlayerColorBalanceType = PlayerColorBalanceTypeEnum[Exclude<keyof PlayerColorBalanceTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 PlayerColorBalanceType: PlayerColorBalanceTypeEnum
                 /**
              * Gets a string representing the given color balance type.
@@ -1214,39 +1206,31 @@ declare module "gi://GstPlayer?version=1.0" {
              * @returns a string with the given error.
              */
             get_name: (error: PlayerError) => string
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PlayerError: PlayerErrorEnum
             }
             
             interface PlayerSnapshotFormatEnum {
                 readonly $gtype: GObject.GType<PlayerSnapshotFormat>
-                /**
-                 */
+                
                 readonly "RAW_NATIVE": 0
-                /**
-                 */
+                
                 readonly "RAW_XRGB": 1
-                /**
-                 */
+                
                 readonly "RAW_BGRX": 2
-                /**
-                 */
+                
                 readonly "JPG": 3
-                /**
-                 */
+                
                 readonly "PNG": 4
             }
             type PlayerSnapshotFormat = PlayerSnapshotFormatEnum[Exclude<keyof PlayerSnapshotFormatEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 PlayerSnapshotFormat: PlayerSnapshotFormatEnum
             }
             
@@ -1272,8 +1256,7 @@ declare module "gi://GstPlayer?version=1.0" {
             }
             type PlayerState = PlayerStateEnum[Exclude<keyof PlayerStateEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 PlayerState: PlayerStateEnum
                 /**
              * Gets a string representing the given state.
@@ -1302,8 +1285,7 @@ declare module "gi://GstPlayer?version=1.0" {
                  * @returns a string with the given error.
                  */
                 player_error_get_name(error: PlayerError): string
-                /**
-                 */
+                
                 player_error_quark(): GLib.Quark
                 /**
                  * Gets a string representing the given state.

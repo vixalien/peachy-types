@@ -28,13 +28,14 @@ declare module "gi://Gly?version=2" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "mime-type": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "sandbox-selector": SandboxSelector
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "sandbox-selector": SandboxSelector
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -195,12 +196,14 @@ declare module "gi://Gly?version=2" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "data": GLib.Bytes
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "data": GLib.Bytes
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -212,8 +215,7 @@ declare module "gi://Gly?version=2" {
                 readonly $readableProperties: EncodedImage.ReadableProperties
                 readonly $writableProperties: EncodedImage.WritableProperties
                 readonly $constructOnlyProperties: EncodedImage.ConstructOnlyProperties
-                /**
-                 */
+                
                 get data(): GLib.Bytes
                 set data(value: GLib.Bytes)
                 /**
@@ -243,10 +245,13 @@ declare module "gi://Gly?version=2" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -325,16 +330,16 @@ declare module "gi://Gly?version=2" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "loop-animation": boolean
                     "scale-height": number
                     "scale-width": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "loop-animation": boolean
-                    "scale-height": number
-                    "scale-width": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -417,10 +422,13 @@ declare module "gi://Gly?version=2" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -554,21 +562,17 @@ declare module "gi://Gly?version=2" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "apply-transformation": boolean
-                    "bytes": GLib.Bytes
                     "cancellable": Gio.Cancellable
-                    "file": Gio.File
                     "memory-format-selection": MemoryFormatSelection
                     "sandbox-selector": SandboxSelector
-                    "stream": Gio.InputStream
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "apply-transformation": boolean
-                    "cancellable": Gio.Cancellable
-                    "memory-format-selection": MemoryFormatSelection
-                    "sandbox-selector": SandboxSelector
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -588,16 +592,13 @@ declare module "gi://Gly?version=2" {
                  */
                 get applyTransformation(): boolean
                 set applyTransformation(value: boolean)
-                /**
-                 */
+                
                 get bytes(): GLib.Bytes
                 set bytes(value: GLib.Bytes)
-                /**
-                 */
+                
                 get cancellable(): Gio.Cancellable
                 set cancellable(value: Gio.Cancellable)
-                /**
-                 */
+                
                 get file(): Gio.File
                 set file(value: Gio.File)
                 /**
@@ -610,8 +611,7 @@ declare module "gi://Gly?version=2" {
                  */
                 get sandboxSelector(): SandboxSelector
                 set sandboxSelector(value: SandboxSelector)
-                /**
-                 */
+                
                 get stream(): Gio.InputStream
                 set stream(value: Gio.InputStream)
                 /**
@@ -752,10 +752,13 @@ declare module "gi://Gly?version=2" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -802,23 +805,17 @@ declare module "gi://Gly?version=2" {
             }
 
             interface Cicp {
-                /**
-                 */
+                
                 color_primaries: number
-                /**
-                 */
+                
                 transfer_characteristics: number
-                /**
-                 */
+                
                 matrix_coefficients: number
-                /**
-                 */
+                
                 video_full_range_flag: number
-                /**
-                 */
+                
                 copy(): Cicp
-                /**
-                 */
+                
                 free(): void
             }
 

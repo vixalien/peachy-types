@@ -38,11 +38,13 @@ declare module "gi://Gdk?version=3.0" {
                 interface SignalSignatures extends Gio.AppLaunchContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.AppLaunchContext.ReadableProperties {
-                    "display": Display
+                interface ReadWriteProperties extends Gio.AppLaunchContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.AppLaunchContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.AppLaunchContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.AppLaunchContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.AppLaunchContext.ConstructOnlyProperties {
@@ -55,8 +57,7 @@ declare module "gi://Gdk?version=3.0" {
                 readonly $readableProperties: AppLaunchContext.ReadableProperties
                 readonly $writableProperties: AppLaunchContext.WritableProperties
                 readonly $constructOnlyProperties: AppLaunchContext.ConstructOnlyProperties
-                /**
-                 */
+                
                 get display(): Display
                 set display(value: Display)
                 /**
@@ -178,12 +179,13 @@ declare module "gi://Gdk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "cursor-type": CursorType
-                    "display": Display
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -202,8 +204,7 @@ declare module "gi://Gdk?version=3.0" {
                  */
                 get cursorType(): CursorType
                 set cursorType(value: CursorType)
-                /**
-                 */
+                
                 get display(): Display
                 set display(value: Display)
                 /**
@@ -407,31 +408,19 @@ declare module "gi://Gdk?version=3.0" {
                     "tool-changed"(tool: DeviceTool): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "associated-device": Device | null
                     "axes": AxisFlags
-                    "device-manager": DeviceManager
-                    "display": Display
-                    "has-cursor": boolean
                     "input-mode": InputMode
-                    "input-source": InputSource
                     "n-axes": number
-                    "name": string
-                    "num-touches": number
-                    "product-id": string | null
                     "seat": Seat
                     "tool": DeviceTool
-                    "type": DeviceType
-                    "vendor-id": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "associated-device": Device | null
-                    "axes": AxisFlags
-                    "input-mode": InputMode
-                    "n-axes": number
-                    "seat": Seat
-                    "tool": DeviceTool
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -534,8 +523,7 @@ declare module "gi://Gdk?version=3.0" {
                  */
                 get seat(): Seat
                 set seat(value: Seat)
-                /**
-                 */
+                
                 get tool(): DeviceTool
                 set tool(value: DeviceTool)
                 /**
@@ -892,11 +880,13 @@ declare module "gi://Gdk?version=3.0" {
                     "device-removed"(device: Device): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "display": Display | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -909,8 +899,7 @@ declare module "gi://Gdk?version=3.0" {
                 readonly $readableProperties: DeviceManager.ReadableProperties
                 readonly $writableProperties: DeviceManager.WritableProperties
                 readonly $constructOnlyProperties: DeviceManager.ConstructOnlyProperties
-                /**
-                 */
+                
                 get display(): Display | null
                 set display(value: Display | null)
                 /**
@@ -1074,14 +1063,13 @@ declare module "gi://Gdk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "axes": AxisFlags
-                    "hardware-id": number
-                    "serial": number
-                    "tool-type": DeviceToolType
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1154,8 +1142,7 @@ declare module "gi://Gdk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DeviceTool: DeviceToolClass
             }
             
@@ -1204,10 +1191,13 @@ declare module "gi://Gdk?version=3.0" {
                     "seat-removed"(seat: Seat): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1658,12 +1648,14 @@ declare module "gi://Gdk?version=3.0" {
                     "display-opened"(display: Display): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "default-display": Display | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "default-display": Display | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1675,8 +1667,7 @@ declare module "gi://Gdk?version=3.0" {
                 readonly $readableProperties: DisplayManager.ReadableProperties
                 readonly $writableProperties: DisplayManager.WritableProperties
                 readonly $constructOnlyProperties: DisplayManager.ConstructOnlyProperties
-                /**
-                 */
+                
                 get defaultDisplay(): Display | null
                 set defaultDisplay(value: Display | null)
                 /**
@@ -1816,10 +1807,13 @@ declare module "gi://Gdk?version=3.0" {
                     "drop-performed"(time: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1938,8 +1932,7 @@ declare module "gi://Gdk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DragContext: DragContextClass
             }
             
@@ -1948,12 +1941,13 @@ declare module "gi://Gdk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "clip": cairo.Region | null
-                    "window": Window
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2084,10 +2078,13 @@ declare module "gi://Gdk?version=3.0" {
                     "update"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2238,13 +2235,13 @@ declare module "gi://Gdk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "display": Display | null
-                    "shared-context": GLContext | null
-                    "window": Window | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2521,10 +2518,13 @@ declare module "gi://Gdk?version=3.0" {
                     "state-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2741,13 +2741,11 @@ declare module "gi://Gdk?version=3.0" {
 
             namespace Monitor {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
-                    /**
-                     */
+                    
                     "invalidate"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "display": Display
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "geometry": Rectangle
                     "height-mm": number
                     "manufacturer": string | null
@@ -2759,16 +2757,10 @@ declare module "gi://Gdk?version=3.0" {
                     "workarea": Rectangle
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "geometry": Rectangle
-                    "height-mm": number
-                    "manufacturer": string | null
-                    "model": string | null
-                    "refresh-rate": number
-                    "scale-factor": number
-                    "subpixel-layout": SubpixelLayout
-                    "width-mm": number
-                    "workarea": Rectangle
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2781,12 +2773,10 @@ declare module "gi://Gdk?version=3.0" {
                 readonly $readableProperties: Monitor.ReadableProperties
                 readonly $writableProperties: Monitor.WritableProperties
                 readonly $constructOnlyProperties: Monitor.ConstructOnlyProperties
-                /**
-                 */
+                
                 get display(): Display
                 set display(value: Display)
-                /**
-                 */
+                
                 get geometry(): Rectangle
                 set geometry(value: Rectangle)
                 /**
@@ -2824,8 +2814,7 @@ declare module "gi://Gdk?version=3.0" {
                  */
                 get widthMm(): number
                 set widthMm(value: number)
-                /**
-                 */
+                
                 get workarea(): Rectangle
                 set workarea(value: Rectangle)
                 /**
@@ -2970,14 +2959,15 @@ declare module "gi://Gdk?version=3.0" {
                     "size-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "font-options": never | null
                     "resolution": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "font-options": never | null
-                    "resolution": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2989,8 +2979,7 @@ declare module "gi://Gdk?version=3.0" {
                 readonly $readableProperties: Screen.ReadableProperties
                 readonly $writableProperties: Screen.WritableProperties
                 readonly $constructOnlyProperties: Screen.ConstructOnlyProperties
-                /**
-                 */
+                
                 get fontOptions(): never | null
                 set fontOptions(value: never | null)
                 /**
@@ -3427,11 +3416,13 @@ declare module "gi://Gdk?version=3.0" {
                     "tool-removed"(tool: DeviceTool): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "display": Display
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3542,10 +3533,13 @@ declare module "gi://Gdk?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3781,12 +3775,14 @@ declare module "gi://Gdk?version=3.0" {
                     "to-embedder"(offscreen_x: number, offscreen_y: number): [number, number]
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "cursor": Cursor | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "cursor": Cursor | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4088,8 +4084,7 @@ declare module "gi://Gdk?version=3.0" {
                  * reaches zero. You must call this function yourself before that happens.
                  */
                 destroy(): void
-                /**
-                 */
+                
                 destroy_notify(): void
                 /**
                  * Does nothing, present only for compatiblity.
@@ -5693,8 +5688,7 @@ declare module "gi://Gdk?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Window: WindowClass
             }
             
@@ -5703,10 +5697,13 @@ declare module "gi://Gdk?version=3.0" {
                 interface SignalSignatures extends Device.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Device.ReadableProperties {
+                interface ReadWriteProperties extends Device.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Device.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Device.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Device.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Device.ConstructOnlyProperties {
@@ -6890,8 +6887,7 @@ declare module "gi://Gdk?version=3.0" {
                  * the y coordinate of the scroll delta
                  */
                 delta_y: number
-                /**
-                 */
+                
                 is_stop: number
             }
 
@@ -7694,17 +7690,13 @@ declare module "gi://Gdk?version=3.0" {
             }
 
             interface Rectangle {
-                /**
-                 */
+                
                 x: number
-                /**
-                 */
+                
                 y: number
-                /**
-                 */
+                
                 width: number
-                /**
-                 */
+                
                 height: number
                 /**
                  * Checks if the two given rectangles are equal.
@@ -9281,8 +9273,7 @@ declare module "gi://Gdk?version=3.0" {
                  * The requested profile is not supported
                  */
                 readonly "UNSUPPORTED_PROFILE": 2
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -9719,26 +9710,20 @@ declare module "gi://Gdk?version=3.0" {
             
             interface StatusEnum {
                 readonly $gtype: GObject.GType<Status>
-                /**
-                 */
+                
                 readonly "OK": 0
-                /**
-                 */
+                
                 readonly "ERROR": -1
-                /**
-                 */
+                
                 readonly "ERROR_PARAM": -2
-                /**
-                 */
+                
                 readonly "ERROR_FILE": -3
-                /**
-                 */
+                
                 readonly "ERROR_MEM": -4
             }
             type Status = StatusEnum[Exclude<keyof StatusEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 Status: StatusEnum
             }
             
@@ -13761,8 +13746,7 @@ declare module "gi://Gdk?version=3.0" {
                  * @returns %TRUE if event debugging output is enabled.
                  */
                 get_show_events(): boolean
-                /**
-                 */
+                
                 gl_error_quark(): GLib.Quark
                 /**
                  * Initializes the GDK library and connects to the windowing system.

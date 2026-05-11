@@ -34,10 +34,13 @@ declare module "gi://GstDxva?version=1.0" {
                 interface SignalSignatures extends GstCodecs.AV1Decoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstCodecs.AV1Decoder.ReadableProperties {
+                interface ReadWriteProperties extends GstCodecs.AV1Decoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstCodecs.AV1Decoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstCodecs.AV1Decoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstCodecs.AV1Decoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstCodecs.AV1Decoder.ConstructOnlyProperties {
@@ -106,10 +109,13 @@ declare module "gi://GstDxva?version=1.0" {
                 interface SignalSignatures extends GstCodecs.H264Decoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstCodecs.H264Decoder.ReadableProperties {
+                interface ReadWriteProperties extends GstCodecs.H264Decoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstCodecs.H264Decoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstCodecs.H264Decoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstCodecs.H264Decoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstCodecs.H264Decoder.ConstructOnlyProperties {
@@ -178,10 +184,13 @@ declare module "gi://GstDxva?version=1.0" {
                 interface SignalSignatures extends GstCodecs.H265Decoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstCodecs.H265Decoder.ReadableProperties {
+                interface ReadWriteProperties extends GstCodecs.H265Decoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstCodecs.H265Decoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstCodecs.H265Decoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstCodecs.H265Decoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstCodecs.H265Decoder.ConstructOnlyProperties {
@@ -245,10 +254,13 @@ declare module "gi://GstDxva?version=1.0" {
                 interface SignalSignatures extends GstCodecs.Mpeg2Decoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstCodecs.Mpeg2Decoder.ReadableProperties {
+                interface ReadWriteProperties extends GstCodecs.Mpeg2Decoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstCodecs.Mpeg2Decoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstCodecs.Mpeg2Decoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstCodecs.Mpeg2Decoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstCodecs.Mpeg2Decoder.ConstructOnlyProperties {
@@ -260,8 +272,7 @@ declare module "gi://GstDxva?version=1.0" {
                 readonly $readableProperties: DxvaMpeg2Decoder.ReadableProperties
                 readonly $writableProperties: DxvaMpeg2Decoder.WritableProperties
                 readonly $constructOnlyProperties: DxvaMpeg2Decoder.ConstructOnlyProperties
-                /**
-                 */
+                
                 disable_postproc(): void
                 /**
                  * @param input_state
@@ -320,10 +331,13 @@ declare module "gi://GstDxva?version=1.0" {
                 interface SignalSignatures extends GstCodecs.Vp8Decoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstCodecs.Vp8Decoder.ReadableProperties {
+                interface ReadWriteProperties extends GstCodecs.Vp8Decoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstCodecs.Vp8Decoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstCodecs.Vp8Decoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstCodecs.Vp8Decoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstCodecs.Vp8Decoder.ConstructOnlyProperties {
@@ -387,10 +401,13 @@ declare module "gi://GstDxva?version=1.0" {
                 interface SignalSignatures extends GstCodecs.Vp9Decoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstCodecs.Vp9Decoder.ReadableProperties {
+                interface ReadWriteProperties extends GstCodecs.Vp9Decoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstCodecs.Vp9Decoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstCodecs.Vp9Decoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstCodecs.Vp9Decoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstCodecs.Vp9Decoder.ConstructOnlyProperties {
@@ -483,29 +500,21 @@ declare module "gi://GstDxva?version=1.0" {
             }
 
             interface DxvaDecodingArgs {
-                /**
-                 */
+                
                 picture_params: never
-                /**
-                 */
+                
                 picture_params_size: number
-                /**
-                 */
+                
                 slice_control: never
-                /**
-                 */
+                
                 slice_control_size: number
-                /**
-                 */
+                
                 bitstream: never
-                /**
-                 */
+                
                 bitstream_size: number
-                /**
-                 */
+                
                 inverse_quantization_matrix: never
-                /**
-                 */
+                
                 inverse_quantization_matrix_size: number
             }
 
@@ -562,11 +571,9 @@ declare module "gi://GstDxva?version=1.0" {
             }
 
             interface DxvaResolution {
-                /**
-                 */
+                
                 width: number
-                /**
-                 */
+                
                 height: number
             }
 
@@ -602,29 +609,21 @@ declare module "gi://GstDxva?version=1.0" {
             
             interface DxvaCodecEnum {
                 readonly $gtype: GObject.GType<DxvaCodec>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "MPEG2": 1
-                /**
-                 */
+                
                 readonly "H264": 2
-                /**
-                 */
+                
                 readonly "H265": 3
-                /**
-                 */
+                
                 readonly "VP8": 4
-                /**
-                 */
+                
                 readonly "VP9": 5
-                /**
-                 */
+                
                 readonly "AV1": 6
-                /**
-                 */
+                
                 readonly "LAST": 7
             }
             type DxvaCodec = DxvaCodecEnum[Exclude<keyof DxvaCodecEnum, "$gtype">]

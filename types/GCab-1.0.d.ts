@@ -28,14 +28,15 @@ declare module "gi://GCab?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "reserved": Uint8Array
                     "signature": Uint8Array
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "reserved": Uint8Array
-                    "signature": Uint8Array
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -47,12 +48,10 @@ declare module "gi://GCab?version=1.0" {
                 readonly $readableProperties: Cabinet.ReadableProperties
                 readonly $writableProperties: Cabinet.WritableProperties
                 readonly $constructOnlyProperties: Cabinet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get reserved(): Uint8Array
                 set reserved(value: Uint8Array)
-                /**
-                 */
+                
                 get signature(): Uint8Array
                 set signature(value: Uint8Array)
                 /**
@@ -167,16 +166,16 @@ declare module "gi://GCab?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "bytes": GLib.Bytes
                     "file": Gio.File
                     "name": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "bytes": GLib.Bytes
-                    "file": Gio.File
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -188,12 +187,10 @@ declare module "gi://GCab?version=1.0" {
                 readonly $readableProperties: File.ReadableProperties
                 readonly $writableProperties: File.WritableProperties
                 readonly $constructOnlyProperties: File.ConstructOnlyProperties
-                /**
-                 */
+                
                 get bytes(): GLib.Bytes
                 set bytes(value: GLib.Bytes)
-                /**
-                 */
+                
                 get file(): Gio.File
                 set file(value: Gio.File)
                 /**
@@ -325,15 +322,15 @@ declare module "gi://GCab?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "compression": Compression
-                    "comptype": number
                     "reserved": Uint8Array
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "compression": Compression
-                    "reserved": Uint8Array
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -356,8 +353,7 @@ declare module "gi://GCab?version=1.0" {
                  */
                 get comptype(): number
                 set comptype(value: number)
-                /**
-                 */
+                
                 get reserved(): Uint8Array
                 set reserved(value: Uint8Array)
                 /**
@@ -522,8 +518,7 @@ declare module "gi://GCab?version=1.0" {
             interface $Exports {
                 __name__: "GCab"
                 __version__: "1.0"
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
             }
         }

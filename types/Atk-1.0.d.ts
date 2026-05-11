@@ -24,10 +24,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -80,18 +83,17 @@ declare module "gi://Atk?version=1.0" {
                     "link-activated"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Action.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Action.ReadWriteProperties {
                     "end-index": number
                     "number-of-anchors": number
                     "selected-link": boolean
                     "start-index": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Action.WritableProperties {
-                    "end-index": number
-                    "number-of-anchors": number
-                    "selected-link": boolean
-                    "start-index": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Action.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Action.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Action.ConstructOnlyProperties {
@@ -231,11 +233,9 @@ declare module "gi://Atk?version=1.0" {
                  * @returns whether or not this link is still valid
                  */
                 vfunc_is_valid(): boolean
-                /**
-                 */
+                
                 vfunc_link_activated(): void
-                /**
-                 */
+                
                 vfunc_link_state(): number
             }
 
@@ -265,10 +265,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -357,10 +360,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures, Action.SignalSignatures, Component.SignalSignatures, Document.SignalSignatures, EditableText.SignalSignatures, Hypertext.SignalSignatures, Image.SignalSignatures, Selection.SignalSignatures, Table.SignalSignatures, TableCell.SignalSignatures, Text.SignalSignatures, Value.SignalSignatures, Window.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties, Action.ReadableProperties, Component.ReadableProperties, Document.ReadableProperties, EditableText.ReadableProperties, Hypertext.ReadableProperties, Image.ReadableProperties, Selection.ReadableProperties, Table.ReadableProperties, TableCell.ReadableProperties, Text.ReadableProperties, Value.ReadableProperties, Window.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties, Action.ReadWriteProperties, Component.ReadWriteProperties, Document.ReadWriteProperties, EditableText.ReadWriteProperties, Hypertext.ReadWriteProperties, Image.ReadWriteProperties, Selection.ReadWriteProperties, Table.ReadWriteProperties, TableCell.ReadWriteProperties, Text.ReadWriteProperties, Value.ReadWriteProperties, Window.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties, Action.WritableProperties, Component.WritableProperties, Document.WritableProperties, EditableText.WritableProperties, Hypertext.WritableProperties, Image.WritableProperties, Selection.WritableProperties, Table.WritableProperties, TableCell.WritableProperties, Text.WritableProperties, Value.WritableProperties, Window.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties, Action.ReadableProperties, Component.ReadableProperties, Document.ReadableProperties, EditableText.ReadableProperties, Hypertext.ReadableProperties, Image.ReadableProperties, Selection.ReadableProperties, Table.ReadableProperties, TableCell.ReadableProperties, Text.ReadableProperties, Value.ReadableProperties, Window.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties, Action.WritableProperties, Component.WritableProperties, Document.WritableProperties, EditableText.WritableProperties, Hypertext.WritableProperties, Image.WritableProperties, Selection.WritableProperties, Table.WritableProperties, TableCell.WritableProperties, Text.WritableProperties, Value.WritableProperties, Window.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties, Action.ConstructOnlyProperties, Component.ConstructOnlyProperties, Document.ConstructOnlyProperties, EditableText.ConstructOnlyProperties, Hypertext.ConstructOnlyProperties, Image.ConstructOnlyProperties, Selection.ConstructOnlyProperties, Table.ConstructOnlyProperties, TableCell.ConstructOnlyProperties, Text.ConstructOnlyProperties, Value.ConstructOnlyProperties, Window.ConstructOnlyProperties {
@@ -405,10 +411,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends ObjectFactory.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ObjectFactory.ReadableProperties {
+                interface ReadWriteProperties extends ObjectFactory.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ObjectFactory.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ObjectFactory.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ObjectFactory.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ObjectFactory.ConstructOnlyProperties {
@@ -529,7 +538,7 @@ declare module "gi://Atk?version=1.0" {
                     "visible-data-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accessible-component-layer": number
                     "accessible-component-mdi-zorder": number
                     "accessible-description": string
@@ -549,24 +558,10 @@ declare module "gi://Atk?version=1.0" {
                     "accessible-value": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accessible-component-layer": number
-                    "accessible-component-mdi-zorder": number
-                    "accessible-description": string
-                    "accessible-help-text": string
-                    "accessible-hypertext-nlinks": number
-                    "accessible-id": string
-                    "accessible-name": string
-                    "accessible-parent": Object
-                    "accessible-role": Role
-                    "accessible-table-caption": string
-                    "accessible-table-caption-object": Object
-                    "accessible-table-column-description": string
-                    "accessible-table-column-header": Object
-                    "accessible-table-row-description": string
-                    "accessible-table-row-header": Object
-                    "accessible-table-summary": Object
-                    "accessible-value": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -613,8 +608,7 @@ declare module "gi://Atk?version=1.0" {
                  */
                 get accessibleName(): string
                 set accessibleName(value: string)
-                /**
-                 */
+                
                 get accessibleParent(): Object
                 set accessibleParent(value: Object)
                 /**
@@ -629,8 +623,7 @@ declare module "gi://Atk?version=1.0" {
                  */
                 get accessibleTableCaption(): string
                 set accessibleTableCaption(value: string)
-                /**
-                 */
+                
                 get accessibleTableCaptionObject(): Object
                 set accessibleTableCaptionObject(value: Object)
                 /**
@@ -659,8 +652,7 @@ declare module "gi://Atk?version=1.0" {
                  */
                 get accessibleTableRowHeader(): Object
                 set accessibleTableRowHeader(value: Object)
-                /**
-                 */
+                
                 get accessibleTableSummary(): Object
                 set accessibleTableSummary(value: Object)
                 /**
@@ -912,8 +904,7 @@ declare module "gi://Atk?version=1.0" {
                  * @returns a gint which is the zorder of the accessible, i.e. the depth at which the component is shown in relation to other components in the same container.
                  */
                 vfunc_get_mdi_zorder(): number
-                /**
-                 */
+                
                 vfunc_get_n_children(): number
                 /**
                  * Gets the accessible name of the accessible.
@@ -1004,8 +995,7 @@ declare module "gi://Atk?version=1.0" {
                  * @param state_set
                  */
                 vfunc_state_change(name: string, state_set: boolean): void
-                /**
-                 */
+                
                 vfunc_visible_data_changed(): void
             }
 
@@ -1049,10 +1039,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1120,10 +1113,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures, Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties, Component.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties, Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties, Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties, Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties, Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties, Component.ConstructOnlyProperties {
@@ -1162,8 +1158,7 @@ declare module "gi://Atk?version=1.0" {
                  * @param child an #AtkObject to be set as accessible child of `plug`.
                  */
                 set_child(child: Object): void
-                /**
-                 */
+                
                 vfunc_get_object_id(): string
             }
 
@@ -1194,10 +1189,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1262,14 +1260,15 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "relation-type": RelationType
                     "target": GObject.ValueArray
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "relation-type": RelationType
-                    "target": GObject.ValueArray
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1286,8 +1285,7 @@ declare module "gi://Atk?version=1.0" {
                  */
                 get relationType(): RelationType
                 set relationType(value: RelationType)
-                /**
-                 */
+                
                 get target(): GObject.ValueArray
                 set target(value: GObject.ValueArray)
                 /**
@@ -1348,10 +1346,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1458,10 +1459,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures, Component.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties, Component.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties, Component.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties, Component.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties, Component.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties, Component.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties, Component.ConstructOnlyProperties {
@@ -1560,10 +1564,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1681,10 +1688,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1722,10 +1732,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1941,10 +1954,13 @@ declare module "gi://Atk?version=1.0" {
                     "bounds-changed"(arg1: Rectangle): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2304,10 +2320,13 @@ declare module "gi://Atk?version=1.0" {
                     "reload"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2501,10 +2520,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2645,10 +2667,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2706,10 +2731,13 @@ declare module "gi://Atk?version=1.0" {
                     "link-selected"(arg1: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2795,10 +2823,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2922,10 +2953,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2967,10 +3001,13 @@ declare module "gi://Atk?version=1.0" {
                     "selection-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3032,8 +3069,7 @@ declare module "gi://Atk?version=1.0" {
                      * @returns TRUE if success, FALSE otherwise.
                      */
                     vfunc_select_all_selection(): boolean
-                    /**
-                     */
+                    
                     vfunc_selection_changed(): void
                 }
             }
@@ -3129,10 +3165,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3294,10 +3333,13 @@ declare module "gi://Atk?version=1.0" {
                     "row-reordered"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3326,8 +3368,7 @@ declare module "gi://Atk?version=1.0" {
                      * @param num_inserted
                      */
                     vfunc_column_inserted(column: number, num_inserted: number): void
-                    /**
-                     */
+                    
                     vfunc_column_reordered(): void
                     /**
                      * Gets the caption for the `table`.
@@ -3448,8 +3489,7 @@ declare module "gi://Atk?version=1.0" {
                      * @returns a gboolean representing if the cell is selected, or 0 if value does not implement this interface.
                      */
                     vfunc_is_selected(row: number, column: number): boolean
-                    /**
-                     */
+                    
                     vfunc_model_changed(): void
                     /**
                      * Get a reference to the table cell at `row`, `column`. This cell
@@ -3481,8 +3521,7 @@ declare module "gi://Atk?version=1.0" {
                      * @param num_inserted
                      */
                     vfunc_row_inserted(row: number, num_inserted: number): void
-                    /**
-                     */
+                    
                     vfunc_row_reordered(): void
                     /**
                      * Sets the caption for the table.
@@ -3760,10 +3799,13 @@ declare module "gi://Atk?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -3945,10 +3987,13 @@ declare module "gi://Atk?version=1.0" {
                     "text-selection-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4200,8 +4245,7 @@ declare module "gi://Atk?version=1.0" {
                      * @returns %TRUE if successful, %FALSE otherwise
                      */
                     vfunc_set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
-                    /**
-                     */
+                    
                     vfunc_text_attributes_changed(): void
                     /**
                      * @param location
@@ -4215,8 +4259,7 @@ declare module "gi://Atk?version=1.0" {
                      * @param length
                      */
                     vfunc_text_changed(position: number, length: number): void
-                    /**
-                     */
+                    
                     vfunc_text_selection_changed(): void
                 }
             }
@@ -4537,10 +4580,13 @@ declare module "gi://Atk?version=1.0" {
                     "value-changed"(value: number, text: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4936,10 +4982,13 @@ declare module "gi://Atk?version=1.0" {
                     "restore"(): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -6260,8 +6309,7 @@ declare module "gi://Atk?version=1.0" {
                  * not a valid role, used for finding end of the enumeration
                  */
                 readonly "LAST_DEFINED": 129
-                /**
-                 */
+                
                 readonly "PUSH_BUTTON": 42
             }
             type Role = RoleEnum[Exclude<keyof RoleEnum, "$gtype">]
@@ -6912,53 +6960,37 @@ declare module "gi://Atk?version=1.0" {
             
             interface ValueTypeEnum {
                 readonly $gtype: GObject.GType<ValueType>
-                /**
-                 */
+                
                 readonly "VERY_WEAK": 0
-                /**
-                 */
+                
                 readonly "WEAK": 1
-                /**
-                 */
+                
                 readonly "ACCEPTABLE": 2
-                /**
-                 */
+                
                 readonly "STRONG": 3
-                /**
-                 */
+                
                 readonly "VERY_STRONG": 4
-                /**
-                 */
+                
                 readonly "VERY_LOW": 5
-                /**
-                 */
+                
                 readonly "LOW": 6
-                /**
-                 */
+                
                 readonly "MEDIUM": 7
-                /**
-                 */
+                
                 readonly "HIGH": 8
-                /**
-                 */
+                
                 readonly "VERY_HIGH": 9
-                /**
-                 */
+                
                 readonly "VERY_BAD": 10
-                /**
-                 */
+                
                 readonly "BAD": 11
-                /**
-                 */
+                
                 readonly "GOOD": 12
-                /**
-                 */
+                
                 readonly "VERY_GOOD": 13
-                /**
-                 */
+                
                 readonly "BEST": 14
-                /**
-                 */
+                
                 readonly "LAST_DEFINED": 15
             }
             type ValueType = ValueTypeEnum[Exclude<keyof ValueTypeEnum, "$gtype">]

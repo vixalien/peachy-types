@@ -28,10 +28,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -169,10 +172,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -347,10 +353,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -555,10 +564,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends CallableInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CallableInfo.ReadableProperties {
+                interface ReadWriteProperties extends CallableInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CallableInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CallableInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CallableInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CallableInfo.ConstructOnlyProperties {
@@ -592,10 +604,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -639,10 +654,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends RegisteredTypeInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RegisteredTypeInfo.ReadableProperties {
+                interface ReadWriteProperties extends RegisteredTypeInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RegisteredTypeInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RegisteredTypeInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RegisteredTypeInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RegisteredTypeInfo.ConstructOnlyProperties {
@@ -726,10 +744,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -801,10 +822,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends EnumInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EnumInfo.ReadableProperties {
+                interface ReadWriteProperties extends EnumInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EnumInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EnumInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EnumInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EnumInfo.ConstructOnlyProperties {
@@ -845,10 +869,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends CallableInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CallableInfo.ReadableProperties {
+                interface ReadWriteProperties extends CallableInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CallableInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CallableInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CallableInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CallableInfo.ConstructOnlyProperties {
@@ -922,10 +949,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends RegisteredTypeInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RegisteredTypeInfo.ReadableProperties {
+                interface ReadWriteProperties extends RegisteredTypeInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RegisteredTypeInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RegisteredTypeInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RegisteredTypeInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RegisteredTypeInfo.ConstructOnlyProperties {
@@ -1077,10 +1107,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends RegisteredTypeInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RegisteredTypeInfo.ReadableProperties {
+                interface ReadWriteProperties extends RegisteredTypeInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RegisteredTypeInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RegisteredTypeInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RegisteredTypeInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RegisteredTypeInfo.ConstructOnlyProperties {
@@ -1372,10 +1405,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -1452,10 +1488,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -1558,10 +1597,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1920,8 +1962,7 @@ declare module "gi://GIRepository?version=3.0" {
                  * @returns the global singleton repository
                  */
                 dup_default(): Repository
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
                 /**
                  * Obtain the option group for girepository.
@@ -1987,10 +2028,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends CallableInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CallableInfo.ReadableProperties {
+                interface ReadWriteProperties extends CallableInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CallableInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CallableInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CallableInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CallableInfo.ConstructOnlyProperties {
@@ -2055,10 +2099,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends RegisteredTypeInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RegisteredTypeInfo.ReadableProperties {
+                interface ReadWriteProperties extends RegisteredTypeInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RegisteredTypeInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RegisteredTypeInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RegisteredTypeInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RegisteredTypeInfo.ConstructOnlyProperties {
@@ -2175,10 +2222,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -2354,10 +2404,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends RegisteredTypeInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RegisteredTypeInfo.ReadableProperties {
+                interface ReadWriteProperties extends RegisteredTypeInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RegisteredTypeInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RegisteredTypeInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RegisteredTypeInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RegisteredTypeInfo.ConstructOnlyProperties {
@@ -2483,10 +2536,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -2520,10 +2576,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends CallableInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CallableInfo.ReadableProperties {
+                interface ReadWriteProperties extends CallableInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CallableInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CallableInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CallableInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CallableInfo.ConstructOnlyProperties {
@@ -2604,10 +2663,13 @@ declare module "gi://GIRepository?version=3.0" {
                 interface SignalSignatures extends BaseInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseInfo.ReadableProperties {
+                interface ReadWriteProperties extends BaseInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseInfo.ConstructOnlyProperties {
@@ -3182,8 +3244,7 @@ declare module "gi://GIRepository?version=3.0" {
                  * represents a virtual function.
                  */
                 readonly "WRAPS_VFUNC": 16
-                /**
-                 */
+                
                 readonly "IS_ASYNC": 32
             }
             type FunctionInfoFlags = number

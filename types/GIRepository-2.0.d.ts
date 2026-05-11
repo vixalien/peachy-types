@@ -24,10 +24,13 @@ declare module "gi://GIRepository?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -247,8 +250,7 @@ declare module "gi://GIRepository?version=2.0" {
                  * @param arg
                  */
                 dump(arg: string): boolean
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
                 /**
                  * Returns the singleton process-global default #GIRepository. It is
@@ -436,11 +438,9 @@ declare module "gi://GIRepository?version=2.0" {
             }
 
             interface Typelib {
-                /**
-                 */
+                
                 free(): void
-                /**
-                 */
+                
                 get_namespace(): string
                 /**
                  * @param symbol_name

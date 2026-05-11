@@ -28,19 +28,13 @@ declare module "gi://GdkPixbuf?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.Icon.SignalSignatures, Gio.LoadableIcon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
-                    "bits-per-sample": number
-                    "colorspace": Colorspace
-                    "has-alpha": boolean
-                    "height": number
-                    "n-channels": number
-                    "pixel-bytes": GLib.Bytes
-                    "pixels": never
-                    "rowstride": number
-                    "width": number
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.Icon.ReadWriteProperties, Gio.LoadableIcon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.Icon.ConstructOnlyProperties, Gio.LoadableIcon.ConstructOnlyProperties {
@@ -97,8 +91,7 @@ declare module "gi://GdkPixbuf?version=2.0" {
                  */
                 get nChannels(): number
                 set nChannels(value: number)
-                /**
-                 */
+                
                 get pixelBytes(): GLib.Bytes
                 set pixelBytes(value: GLib.Bytes)
                 /**
@@ -1143,10 +1136,13 @@ declare module "gi://GdkPixbuf?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1418,10 +1414,13 @@ declare module "gi://GdkPixbuf?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1644,10 +1643,13 @@ declare module "gi://GdkPixbuf?version=2.0" {
                     "size-prepared"(width: number, height: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1746,8 +1748,7 @@ declare module "gi://GdkPixbuf?version=2.0" {
                  * @returns `TRUE` if the write was successful, or `FALSE` if   the loader cannot parse the buffer
                  */
                 write_bytes(buffer: (GLib.Bytes | Uint8Array)): boolean
-                /**
-                 */
+                
                 vfunc_area_prepared(): void
                 /**
                  * @param x
@@ -1756,8 +1757,7 @@ declare module "gi://GdkPixbuf?version=2.0" {
                  * @param height
                  */
                 vfunc_area_updated(x: number, y: number, width: number, height: number): void
-                /**
-                 */
+                
                 vfunc_closed(): void
                 /**
                  * @param width
@@ -1876,10 +1876,13 @@ declare module "gi://GdkPixbuf?version=2.0" {
                 interface SignalSignatures extends PixbufAnimation.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PixbufAnimation.ReadableProperties {
+                interface ReadWriteProperties extends PixbufAnimation.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PixbufAnimation.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PixbufAnimation.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PixbufAnimation.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PixbufAnimation.ConstructOnlyProperties {
@@ -1905,8 +1908,7 @@ declare module "gi://GdkPixbuf?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PixbufNonAnim: PixbufNonAnimClass
             }
             
@@ -1915,12 +1917,14 @@ declare module "gi://GdkPixbuf?version=2.0" {
                 interface SignalSignatures extends PixbufAnimation.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PixbufAnimation.ReadableProperties {
+                interface ReadWriteProperties extends PixbufAnimation.ReadWriteProperties {
                     "loop": boolean
                 }
 
-                interface WritableProperties extends PixbufAnimation.WritableProperties {
-                    "loop": boolean
+                interface ReadableProperties extends ReadWriteProperties, PixbufAnimation.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PixbufAnimation.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PixbufAnimation.ConstructOnlyProperties {
@@ -1994,10 +1998,13 @@ declare module "gi://GdkPixbuf?version=2.0" {
                 interface SignalSignatures extends PixbufAnimationIter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PixbufAnimationIter.ReadableProperties {
+                interface ReadWriteProperties extends PixbufAnimationIter.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PixbufAnimationIter.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PixbufAnimationIter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PixbufAnimationIter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PixbufAnimationIter.ConstructOnlyProperties {
@@ -2019,8 +2026,7 @@ declare module "gi://GdkPixbuf?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PixbufSimpleAnimIter: PixbufSimpleAnimIterClass
             }
             
@@ -2417,8 +2423,7 @@ declare module "gi://GdkPixbuf?version=2.0" {
                  * Only part of the animation was loaded.
                  */
                 readonly "INCOMPLETE_ANIMATION": 6
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -2640,8 +2645,7 @@ declare module "gi://GdkPixbuf?version=2.0" {
                 PIXBUF_MICRO: 6
                 PIXBUF_MINOR: 44
                 PIXBUF_VERSION: "2.44.6"
-                /**
-                 */
+                
                 pixbuf_error_quark(): GLib.Quark
             }
         }

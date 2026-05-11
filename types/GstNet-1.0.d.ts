@@ -30,9 +30,8 @@ declare module "gi://GstNet?version=1.0" {
                 interface SignalSignatures extends Gst.SystemClock.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.SystemClock.ReadableProperties {
+                interface ReadWriteProperties extends Gst.SystemClock.ReadWriteProperties {
                     "address": string
-                    "base-time": number
                     "bus": Gst.Bus
                     "internal-clock": Gst.Clock
                     "minimum-update-interval": number
@@ -41,14 +40,10 @@ declare module "gi://GstNet?version=1.0" {
                     "round-trip-limit": number
                 }
 
-                interface WritableProperties extends Gst.SystemClock.WritableProperties {
-                    "address": string
-                    "bus": Gst.Bus
-                    "internal-clock": Gst.Clock
-                    "minimum-update-interval": number
-                    "port": number
-                    "qos-dscp": number
-                    "round-trip-limit": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.SystemClock.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.SystemClock.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.SystemClock.ConstructOnlyProperties {
@@ -71,12 +66,10 @@ declare module "gi://GstNet?version=1.0" {
                  */
                 get baseTime(): number
                 set baseTime(value: number)
-                /**
-                 */
+                
                 get bus(): Gst.Bus
                 set bus(value: Gst.Bus)
-                /**
-                 */
+                
                 get internalClock(): Gst.Clock
                 set internalClock(value: Gst.Clock)
                 /**
@@ -152,17 +145,15 @@ declare module "gi://GstNet?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures, Gio.Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                     "active": boolean
-                    "address": string
-                    "clock": Gst.Clock
-                    "port": number
                     "qos-dscp": number
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties, Gio.Initable.WritableProperties {
-                    "active": boolean
-                    "qos-dscp": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -187,8 +178,7 @@ declare module "gi://GstNet?version=1.0" {
                  */
                 get address(): string
                 set address(value: string)
-                /**
-                 */
+                
                 get clock(): Gst.Clock
                 set clock(value: Gst.Clock)
                 /**
@@ -238,10 +228,13 @@ declare module "gi://GstNet?version=1.0" {
                 interface SignalSignatures extends NetClientClock.SignalSignatures {
                 }
 
-                interface ReadableProperties extends NetClientClock.ReadableProperties {
+                interface ReadWriteProperties extends NetClientClock.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends NetClientClock.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, NetClientClock.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, NetClientClock.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends NetClientClock.ConstructOnlyProperties {
@@ -274,8 +267,7 @@ declare module "gi://GstNet?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 NtpClock: NtpClockClass
             }
             
@@ -284,17 +276,16 @@ declare module "gi://GstNet?version=1.0" {
                 interface SignalSignatures extends Gst.SystemClock.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.SystemClock.ReadableProperties {
-                    "domain": number
+                interface ReadWriteProperties extends Gst.SystemClock.ReadWriteProperties {
                     "grandmaster-clock-id": number
                     "internal-clock": Gst.Clock
                     "master-clock-id": number
                 }
 
-                interface WritableProperties extends Gst.SystemClock.WritableProperties {
-                    "grandmaster-clock-id": number
-                    "internal-clock": Gst.Clock
-                    "master-clock-id": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.SystemClock.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.SystemClock.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.SystemClock.ConstructOnlyProperties {
@@ -317,8 +308,7 @@ declare module "gi://GstNet?version=1.0" {
                  */
                 get grandmasterClockId(): number
                 set grandmasterClockId(value: number)
-                /**
-                 */
+                
                 get internalClock(): Gst.Clock
                 set internalClock(value: Gst.Clock)
                 /**
@@ -388,8 +378,7 @@ declare module "gi://GstNet?version=1.0" {
                     meta?: Gst.Meta
                     addr?: Gio.SocketAddress
                 }): NetAddressMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -428,8 +417,7 @@ declare module "gi://GstNet?version=1.0" {
                     meta?: Gst.Meta
                     message?: Gio.SocketControlMessage
                 }): NetControlMessageMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -618,17 +606,13 @@ declare module "gi://GstNet?version=1.0" {
                  * @returns the #GstNetAddressMeta or %NULL when there is no such metadata on `buffer`.
                  */
                 buffer_get_net_address_meta(buffer: Gst.Buffer): NetAddressMeta | null
-                /**
-                 */
+                
                 net_address_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 net_address_meta_get_info(): Gst.MetaInfo
-                /**
-                 */
+                
                 net_control_message_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 net_control_message_meta_get_info(): Gst.MetaInfo
                 /**
                  * Receives a #GstNetTimePacket over a socket. Handles interrupted system

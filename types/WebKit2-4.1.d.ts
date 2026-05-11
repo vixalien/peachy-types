@@ -65,10 +65,13 @@ declare module "gi://WebKit2?version=4.1" {
                     "cancelled"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -255,11 +258,13 @@ declare module "gi://WebKit2?version=4.1" {
                     "will-close"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "id": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -345,10 +350,13 @@ declare module "gi://WebKit2?version=4.1" {
                     "changed"(item_added: BackForwardListItem | null, items_removed: never | null): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -443,10 +451,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -503,10 +514,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -555,12 +569,14 @@ declare module "gi://WebKit2?version=4.1" {
                     "finished"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "rgba": Gdk.RGBA
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "rgba": Gdk.RGBA
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -652,10 +668,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -840,10 +859,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -994,10 +1016,13 @@ declare module "gi://WebKit2?version=4.1" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1217,10 +1242,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -1307,18 +1335,17 @@ declare module "gi://WebKit2?version=4.1" {
                     "received-data"(data_length: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "allow-overwrite": boolean
                     "destination": string | null
                     "estimated-progress": number
                     "response": URIResponse
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "allow-overwrite": boolean
-                    "destination": string | null
-                    "estimated-progress": number
-                    "response": URIResponse
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1498,12 +1525,14 @@ declare module "gi://WebKit2?version=4.1" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "typing-attributes": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "typing-attributes": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1601,10 +1630,13 @@ declare module "gi://WebKit2?version=4.1" {
                     "favicon-changed"(page_uri: string, favicon_uri: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1679,18 +1711,17 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "filter": Gtk.FileFilter
                     "mime-types": string[]
                     "select-multiple": boolean
                     "selected-files": string[]
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "filter": Gtk.FileFilter
-                    "mime-types": string[]
-                    "select-multiple": boolean
-                    "selected-files": string[]
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1860,17 +1891,16 @@ declare module "gi://WebKit2?version=4.1" {
                     "found-text"(match_count: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "max-match-count": number
                     "options": FindOptions
                     "text": string
-                    "web-view": WebView
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "max-match-count": number
-                    "options": FindOptions
-                    "text": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2038,10 +2068,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2128,12 +2161,14 @@ declare module "gi://WebKit2?version=4.1" {
                     "stop"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "enable-high-accuracy": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "enable-high-accuracy": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2201,10 +2236,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -2260,16 +2298,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "context": number
-                    "image-uri": string
-                    "link-label": string
-                    "link-title": string
-                    "link-uri": string
-                    "media-uri": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2469,14 +2504,15 @@ declare module "gi://WebKit2?version=4.1" {
                     "preedit-started"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "input-hints": InputHints
                     "input-purpose": InputPurpose
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2646,14 +2682,11 @@ declare module "gi://WebKit2?version=4.1" {
                  * @param selection_index the byte index of the selection cursor within `text`.
                  */
                 vfunc_notify_surrounding(text: string, length: number, cursor_index: number, selection_index: number): void
-                /**
-                 */
+                
                 vfunc_preedit_changed(): void
-                /**
-                 */
+                
                 vfunc_preedit_finished(): void
-                /**
-                 */
+                
                 vfunc_preedit_started(): void
                 /**
                  * Reset the `context`.
@@ -2699,10 +2732,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -2747,10 +2783,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -2793,7 +2832,7 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends PolicyDecision.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PolicyDecision.ReadableProperties {
+                interface ReadWriteProperties extends PolicyDecision.ReadWriteProperties {
                     "frame-name": string
                     "modifiers": number
                     "mouse-button": number
@@ -2802,13 +2841,10 @@ declare module "gi://WebKit2?version=4.1" {
                     "request": URIRequest
                 }
 
-                interface WritableProperties extends PolicyDecision.WritableProperties {
-                    "frame-name": string
-                    "modifiers": number
-                    "mouse-button": number
-                    "navigation-action": NavigationAction
-                    "navigation-type": NavigationType
-                    "request": URIRequest
+                interface ReadableProperties extends ReadWriteProperties, PolicyDecision.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PolicyDecision.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PolicyDecision.ConstructOnlyProperties {
@@ -2948,18 +2984,17 @@ declare module "gi://WebKit2?version=4.1" {
                     "closed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "body": string
                     "id": number
                     "tag": string | null
                     "title": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "body": string
-                    "id": number
-                    "tag": string | null
-                    "title": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3058,10 +3093,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -3109,10 +3147,13 @@ declare module "gi://WebKit2?version=4.1" {
                     "close"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3204,10 +3245,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3275,10 +3319,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -3319,10 +3366,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3412,12 +3462,13 @@ declare module "gi://WebKit2?version=4.1" {
                     "update"(page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "title": string
-                    "widget": Gtk.Widget
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3551,15 +3602,15 @@ declare module "gi://WebKit2?version=4.1" {
                     "finished"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "page-setup": Gtk.PageSetup
                     "print-settings": Gtk.PrintSettings
-                    "web-view": WebView
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "page-setup": Gtk.PageSetup
-                    "print-settings": Gtk.PrintSettings
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3690,14 +3741,15 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends PolicyDecision.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PolicyDecision.ReadableProperties {
+                interface ReadWriteProperties extends PolicyDecision.ReadWriteProperties {
                     "request": URIRequest
                     "response": URIResponse
                 }
 
-                interface WritableProperties extends PolicyDecision.WritableProperties {
-                    "request": URIRequest
-                    "response": URIResponse
+                interface ReadableProperties extends ReadWriteProperties, PolicyDecision.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PolicyDecision.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PolicyDecision.ConstructOnlyProperties {
@@ -3779,10 +3831,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3918,7 +3973,7 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "allow-file-access-from-file-urls": boolean
                     "allow-modal-dialogs": boolean
                     "allow-top-navigation-to-data-urls": boolean
@@ -3985,71 +4040,10 @@ declare module "gi://WebKit2?version=4.1" {
                     "zoom-text-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "allow-file-access-from-file-urls": boolean
-                    "allow-modal-dialogs": boolean
-                    "allow-top-navigation-to-data-urls": boolean
-                    "allow-universal-access-from-file-urls": boolean
-                    "auto-load-images": boolean
-                    "cursive-font-family": string
-                    "default-charset": string
-                    "default-font-family": string
-                    "default-font-size": number
-                    "default-monospace-font-size": number
-                    "disable-web-security": boolean
-                    "draw-compositing-indicators": boolean
-                    "enable-2d-canvas-acceleration": boolean
-                    "enable-accelerated-2d-canvas": boolean
-                    "enable-back-forward-navigation-gestures": boolean
-                    "enable-caret-browsing": boolean
-                    "enable-developer-extras": boolean
-                    "enable-dns-prefetching": boolean
-                    "enable-encrypted-media": boolean
-                    "enable-frame-flattening": boolean
-                    "enable-fullscreen": boolean
-                    "enable-html5-database": boolean
-                    "enable-html5-local-storage": boolean
-                    "enable-hyperlink-auditing": boolean
-                    "enable-java": boolean
-                    "enable-javascript": boolean
-                    "enable-javascript-markup": boolean
-                    "enable-media": boolean
-                    "enable-media-capabilities": boolean
-                    "enable-media-stream": boolean
-                    "enable-mediasource": boolean
-                    "enable-mock-capture-devices": boolean
-                    "enable-offline-web-application-cache": boolean
-                    "enable-page-cache": boolean
-                    "enable-plugins": boolean
-                    "enable-private-browsing": boolean
-                    "enable-resizable-text-areas": boolean
-                    "enable-site-specific-quirks": boolean
-                    "enable-smooth-scrolling": boolean
-                    "enable-spatial-navigation": boolean
-                    "enable-tabs-to-links": boolean
-                    "enable-webaudio": boolean
-                    "enable-webgl": boolean
-                    "enable-webrtc": boolean
-                    "enable-write-console-messages-to-stdout": boolean
-                    "enable-xss-auditor": boolean
-                    "fantasy-font-family": string
-                    "hardware-acceleration-policy": HardwareAccelerationPolicy
-                    "javascript-can-access-clipboard": boolean
-                    "javascript-can-open-windows-automatically": boolean
-                    "load-icons-ignoring-image-load-setting": boolean
-                    "math-font-family": string | null
-                    "media-content-types-requiring-hardware-support": string
-                    "media-playback-allows-inline": boolean
-                    "media-playback-requires-user-gesture": boolean
-                    "minimum-font-size": number
-                    "monospace-font-family": string
-                    "pictograph-font-family": string
-                    "print-backgrounds": boolean
-                    "sans-serif-font-family": string
-                    "serif-font-family": string
-                    "user-agent": string
-                    "webrtc-udp-ports-range": string
-                    "zoom-text-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5463,12 +5457,14 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "uri": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "uri": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5538,7 +5534,7 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "content-length": number
                     "http-headers": Soup.MessageHeaders
                     "mime-type": string
@@ -5547,13 +5543,10 @@ declare module "gi://WebKit2?version=4.1" {
                     "uri": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "content-length": number
-                    "http-headers": Soup.MessageHeaders
-                    "mime-type": string
-                    "status-code": number
-                    "suggested-filename": string
-                    "uri": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5668,10 +5661,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5770,10 +5766,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5862,11 +5861,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "path": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -6084,10 +6085,13 @@ declare module "gi://WebKit2?version=4.1" {
                     "script-message-with-reply-received::{}"(value: JavaScriptCore.Value, reply: ScriptMessageReply): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -6308,14 +6312,15 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                     "is-for-audio-device": boolean
                     "is-for-video-device": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
-                    "is-for-audio-device": boolean
-                    "is-for-video-device": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -6370,13 +6375,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
-                    "fd-list": Gio.UnixFDList | null
-                    "name": string
-                    "parameters": GLib.Variant | null
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -6531,16 +6536,14 @@ declare module "gi://WebKit2?version=4.1" {
                     "user-message-received"(message: UserMessage): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "local-storage-directory": string
-                    "process-swap-on-cross-site-navigation-enabled": boolean
-                    "time-zone-override": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "use-system-appearance-for-scrollbars": boolean
-                    "website-data-manager": WebsiteDataManager
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "use-system-appearance-for-scrollbars": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7083,11 +7086,9 @@ declare module "gi://WebKit2?version=4.1" {
                  * @param download
                  */
                 vfunc_download_started(download: Download): void
-                /**
-                 */
+                
                 vfunc_initialize_notification_permissions(): void
-                /**
-                 */
+                
                 vfunc_initialize_web_extensions(): void
                 /**
                  * @param message
@@ -7229,16 +7230,16 @@ declare module "gi://WebKit2?version=4.1" {
                     "open-window"(): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "attached-height": number
                     "can-attach": boolean
                     "inspected-uri": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "attached-height": number
-                    "can-attach": boolean
-                    "inspected-uri": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7415,14 +7416,15 @@ declare module "gi://WebKit2?version=4.1" {
                     "sent-request"(request: URIRequest, redirected_response: URIResponse): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "response": URIResponse
                     "uri": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "response": URIResponse
-                    "uri": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -8044,34 +8046,7 @@ declare module "gi://WebKit2?version=4.1" {
                     "web-process-terminated"(reason: WebProcessTerminationReason): void
                 }
 
-                interface ReadableProperties extends WebViewBase.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
-                    "automation-presentation-type": AutomationBrowsingContextPresentation
-                    "camera-capture-state": MediaCaptureState
-                    "default-content-security-policy": string | null
-                    "display-capture-state": MediaCaptureState
-                    "editable": boolean
-                    "estimated-load-progress": number
-                    "favicon": never
-                    "is-controlled-by-automation": boolean
-                    "is-ephemeral": boolean
-                    "is-immersive-mode-enabled": boolean
-                    "is-loading": boolean
-                    "is-muted": boolean
-                    "is-playing-audio": boolean
-                    "is-web-process-responsive": boolean
-                    "microphone-capture-state": MediaCaptureState
-                    "page-id": number
-                    "theme-color": Gdk.RGBA
-                    "title": string
-                    "uri": string
-                    "user-content-manager": UserContentManager
-                    "web-context": WebContext
-                    "web-extension-mode": WebExtensionMode
-                    "website-policies": WebsitePolicies
-                    "zoom-level": number
-                }
-
-                interface WritableProperties extends WebViewBase.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
+                interface ReadWriteProperties extends WebViewBase.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "camera-capture-state": MediaCaptureState
                     "display-capture-state": MediaCaptureState
                     "editable": boolean
@@ -8089,6 +8064,12 @@ declare module "gi://WebKit2?version=4.1" {
                     "title": string
                     "uri": string
                     "zoom-level": number
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, WebViewBase.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WebViewBase.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WebViewBase.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -9485,8 +9466,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * @param request
                  */
                 vfunc_authenticate(request: AuthenticationRequest): boolean
-                /**
-                 */
+                
                 vfunc_close(): void
                 /**
                  * @param context_menu
@@ -9494,23 +9474,20 @@ declare module "gi://WebKit2?version=4.1" {
                  * @param hit_test_result
                  */
                 vfunc_context_menu(context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult): boolean
-                /**
-                 */
+                
                 vfunc_context_menu_dismissed(): void
                 /**
                  * @param decision
                  * @param type
                  */
                 vfunc_decide_policy(decision: PolicyDecision, type: PolicyDecisionType): boolean
-                /**
-                 */
+                
                 vfunc_enter_fullscreen(): boolean
                 /**
                  * @param event
                  */
                 vfunc_insecure_content_detected(event: InsecureContentEvent): void
-                /**
-                 */
+                
                 vfunc_leave_fullscreen(): boolean
                 /**
                  * @param load_event
@@ -9545,16 +9522,14 @@ declare module "gi://WebKit2?version=4.1" {
                  * @param query
                  */
                 vfunc_query_permission_state(query: PermissionStateQuery): boolean
-                /**
-                 */
+                
                 vfunc_ready_to_show(): void
                 /**
                  * @param resource
                  * @param request
                  */
                 vfunc_resource_load_started(resource: WebResource, request: URIRequest): void
-                /**
-                 */
+                
                 vfunc_run_as_modal(): void
                 /**
                  * @param request
@@ -9586,8 +9561,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * @param message
                  */
                 vfunc_user_message_received(message: UserMessage): boolean
-                /**
-                 */
+                
                 vfunc_web_process_crashed(): boolean
                 /**
                  * @param reason
@@ -9682,10 +9656,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends Gtk.Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -9707,8 +9684,7 @@ declare module "gi://WebKit2?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 WebViewBase: WebViewBaseClass
             }
             
@@ -9717,10 +9693,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -9772,22 +9751,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "base-cache-directory": string | null
-                    "base-data-directory": string | null
-                    "disk-cache-directory": string | null
-                    "dom-cache-directory": string | null
-                    "hsts-cache-directory": string | null
-                    "indexeddb-directory": string | null
-                    "is-ephemeral": boolean
-                    "itp-directory": string | null
-                    "local-storage-directory": string | null
-                    "offline-application-cache-directory": string | null
-                    "service-worker-registrations-directory": string | null
-                    "websql-directory": string | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -10250,11 +10220,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "autoplay": AutoplayPolicy
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -10311,18 +10283,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "fullscreen": boolean
-                    "geometry": Gdk.Rectangle
-                    "locationbar-visible": boolean
-                    "menubar-visible": boolean
-                    "resizable": boolean
-                    "scrollbars-visible": boolean
-                    "statusbar-visible": boolean
-                    "toolbar-visible": boolean
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -10503,10 +10470,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PermissionRequest.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PermissionRequest.ConstructOnlyProperties {
@@ -10615,10 +10585,13 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {

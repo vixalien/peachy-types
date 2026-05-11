@@ -207,7 +207,7 @@ declare module "gi://GstApp?version=1.0" {
                     "try-pull-sample"(timeout: number): Gst.Sample | null
                 }
 
-                interface ReadableProperties extends GstBase.BaseSink.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.BaseSink.ReadWriteProperties, Gst.URIHandler.ReadWriteProperties {
                     "buffer-list": boolean
                     "caps": Gst.Caps | null
                     "drop": boolean
@@ -219,16 +219,10 @@ declare module "gi://GstApp?version=1.0" {
                     "wait-on-eos": boolean
                 }
 
-                interface WritableProperties extends GstBase.BaseSink.WritableProperties, Gst.URIHandler.WritableProperties {
-                    "buffer-list": boolean
-                    "caps": Gst.Caps | null
-                    "drop": boolean
-                    "emit-signals": boolean
-                    "eos": boolean
-                    "max-buffers": number
-                    "max-bytes": number
-                    "max-time": number
-                    "wait-on-eos": boolean
+                interface ReadableProperties extends ReadWriteProperties, GstBase.BaseSink.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.BaseSink.WritableProperties, Gst.URIHandler.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.BaseSink.ConstructOnlyProperties, Gst.URIHandler.ConstructOnlyProperties {
@@ -245,8 +239,7 @@ declare module "gi://GstApp?version=1.0" {
                  */
                 get bufferList(): boolean
                 set bufferList(value: boolean)
-                /**
-                 */
+                
                 get caps(): Gst.Caps | null
                 set caps(value: Gst.Caps | null)
                 /**
@@ -538,14 +531,11 @@ declare module "gi://GstApp?version=1.0" {
                  * @returns a #GstSample or NULL when the appsink is stopped or EOS or the timeout expires.          Call gst_sample_unref() after usage.
                  */
                 try_pull_sample(timeout: Gst.ClockTime): Gst.Sample | null
-                /**
-                 */
+                
                 vfunc_eos(): void
-                /**
-                 */
+                
                 vfunc_new_preroll(): Gst.FlowReturn
-                /**
-                 */
+                
                 vfunc_new_sample(): Gst.FlowReturn
                 /**
                  * Get the last preroll sample in `appsink`. This was the sample that caused the
@@ -783,7 +773,7 @@ declare module "gi://GstApp?version=1.0" {
                     "seek-data"(offset: number): boolean
                 }
 
-                interface ReadableProperties extends GstBase.BaseSrc.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.BaseSrc.ReadWriteProperties, Gst.URIHandler.ReadWriteProperties {
                     "block": boolean
                     "caps": Gst.Caps | null
                     "current-level-buffers": number
@@ -805,26 +795,10 @@ declare module "gi://GstApp?version=1.0" {
                     "stream-type": AppStreamType
                 }
 
-                interface WritableProperties extends GstBase.BaseSrc.WritableProperties, Gst.URIHandler.WritableProperties {
-                    "block": boolean
-                    "caps": Gst.Caps | null
-                    "current-level-buffers": number
-                    "current-level-bytes": number
-                    "current-level-time": number
-                    "duration": number
-                    "emit-signals": boolean
-                    "format": Gst.Format
-                    "handle-segment-change": boolean
-                    "is-live": boolean
-                    "leaky-type": AppLeakyType
-                    "max-buffers": number
-                    "max-bytes": number
-                    "max-latency": number
-                    "max-time": number
-                    "min-latency": number
-                    "min-percent": number
-                    "size": number
-                    "stream-type": AppStreamType
+                interface ReadableProperties extends ReadWriteProperties, GstBase.BaseSrc.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.BaseSrc.WritableProperties, Gst.URIHandler.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.BaseSrc.ConstructOnlyProperties, Gst.URIHandler.ConstructOnlyProperties {
@@ -1185,8 +1159,7 @@ declare module "gi://GstApp?version=1.0" {
                  * @returns #GST_FLOW_OK when the EOS was successfully queued. #GST_FLOW_FLUSHING when `appsrc` is not PAUSED or PLAYING.
                  */
                 vfunc_end_of_stream(): Gst.FlowReturn
-                /**
-                 */
+                
                 vfunc_enough_data(): void
                 /**
                  * @param length

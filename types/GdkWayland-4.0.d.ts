@@ -42,10 +42,13 @@ declare module "gi://GdkWayland?version=4.0" {
                 interface SignalSignatures extends Gdk.Device.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Device.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Device.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Device.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Device.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Device.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Device.ConstructOnlyProperties {
@@ -102,10 +105,13 @@ declare module "gi://GdkWayland?version=4.0" {
                 interface SignalSignatures extends Gdk.Display.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Display.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Display.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Display.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Display.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Display.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Display.ConstructOnlyProperties {
@@ -187,10 +193,13 @@ declare module "gi://GdkWayland?version=4.0" {
                 interface SignalSignatures extends Gdk.GLContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.GLContext.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.GLContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.GLContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.GLContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.GLContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.GLContext.ConstructOnlyProperties {
@@ -223,10 +232,13 @@ declare module "gi://GdkWayland?version=4.0" {
                 interface SignalSignatures extends Gdk.Monitor.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Monitor.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Monitor.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Monitor.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Monitor.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Monitor.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Monitor.ConstructOnlyProperties {
@@ -263,10 +275,13 @@ declare module "gi://GdkWayland?version=4.0" {
                 interface SignalSignatures extends WaylandSurface.SignalSignatures, Gdk.Popup.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WaylandSurface.ReadableProperties, Gdk.Popup.ReadableProperties {
+                interface ReadWriteProperties extends WaylandSurface.ReadWriteProperties, Gdk.Popup.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WaylandSurface.WritableProperties, Gdk.Popup.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WaylandSurface.ReadableProperties, Gdk.Popup.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WaylandSurface.WritableProperties, Gdk.Popup.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WaylandSurface.ConstructOnlyProperties, Gdk.Popup.ConstructOnlyProperties {
@@ -299,10 +314,13 @@ declare module "gi://GdkWayland?version=4.0" {
                 interface SignalSignatures extends Gdk.Seat.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Seat.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Seat.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Seat.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Seat.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Seat.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Seat.ConstructOnlyProperties {
@@ -339,10 +357,13 @@ declare module "gi://GdkWayland?version=4.0" {
                 interface SignalSignatures extends Gdk.Surface.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Surface.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Surface.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Surface.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Surface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Surface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Surface.ConstructOnlyProperties {
@@ -384,10 +405,13 @@ declare module "gi://GdkWayland?version=4.0" {
                 interface SignalSignatures extends WaylandSurface.SignalSignatures, Gdk.Toplevel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WaylandSurface.ReadableProperties, Gdk.Toplevel.ReadableProperties {
+                interface ReadWriteProperties extends WaylandSurface.ReadWriteProperties, Gdk.Toplevel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WaylandSurface.WritableProperties, Gdk.Toplevel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WaylandSurface.ReadableProperties, Gdk.Toplevel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WaylandSurface.WritableProperties, Gdk.Toplevel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WaylandSurface.ConstructOnlyProperties, Gdk.Toplevel.ConstructOnlyProperties {

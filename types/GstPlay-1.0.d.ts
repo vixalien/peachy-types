@@ -38,7 +38,7 @@ declare module "gi://GstPlay?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "audio-video-offset": number
                     "current-audio-track": PlayAudioInfo | null
                     "current-subtitle-track": PlaySubtitleInfo | null
@@ -58,24 +58,10 @@ declare module "gi://GstPlay?version=1.0" {
                     "volume": number
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "audio-video-offset": number
-                    "current-audio-track": PlayAudioInfo | null
-                    "current-subtitle-track": PlaySubtitleInfo | null
-                    "current-video-track": PlayVideoInfo | null
-                    "duration": number
-                    "media-info": PlayMediaInfo | null
-                    "mute": boolean
-                    "pipeline": Gst.Element
-                    "position": number
-                    "rate": number
-                    "subtitle-video-offset": number
-                    "suburi": string
-                    "uri": string | null
-                    "video-multiview-flags": GstVideo.VideoMultiviewFlags
-                    "video-multiview-mode": GstVideo.VideoMultiviewFramePacking
-                    "video-renderer": PlayVideoRenderer
-                    "volume": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -92,16 +78,13 @@ declare module "gi://GstPlay?version=1.0" {
                  */
                 get audioVideoOffset(): number
                 set audioVideoOffset(value: number)
-                /**
-                 */
+                
                 get currentAudioTrack(): PlayAudioInfo | null
                 set currentAudioTrack(value: PlayAudioInfo | null)
-                /**
-                 */
+                
                 get currentSubtitleTrack(): PlaySubtitleInfo | null
                 set currentSubtitleTrack(value: PlaySubtitleInfo | null)
-                /**
-                 */
+                
                 get currentVideoTrack(): PlayVideoInfo | null
                 set currentVideoTrack(value: PlayVideoInfo | null)
                 /**
@@ -109,8 +92,7 @@ declare module "gi://GstPlay?version=1.0" {
                  */
                 get duration(): number
                 set duration(value: number)
-                /**
-                 */
+                
                 get mediaInfo(): PlayMediaInfo | null
                 set mediaInfo(value: PlayMediaInfo | null)
                 /**
@@ -118,8 +100,7 @@ declare module "gi://GstPlay?version=1.0" {
                  */
                 get mute(): boolean
                 set mute(value: boolean)
-                /**
-                 */
+                
                 get pipeline(): Gst.Element
                 set pipeline(value: Gst.Element)
                 /**
@@ -157,8 +138,7 @@ declare module "gi://GstPlay?version=1.0" {
                  */
                 get videoMultiviewMode(): GstVideo.VideoMultiviewFramePacking
                 set videoMultiviewMode(value: GstVideo.VideoMultiviewFramePacking)
-                /**
-                 */
+                
                 get videoRenderer(): PlayVideoRenderer
                 set videoRenderer(value: PlayVideoRenderer)
                 /**
@@ -667,10 +647,13 @@ declare module "gi://GstPlay?version=1.0" {
                 interface SignalSignatures extends PlayStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PlayStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends PlayStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PlayStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PlayStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PlayStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PlayStreamInfo.ConstructOnlyProperties {
@@ -729,10 +712,13 @@ declare module "gi://GstPlay?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -854,8 +840,7 @@ declare module "gi://GstPlay?version=1.0" {
                      * @param object
                      */
                     "duration-changed"(object: number): void
-                    /**
-                     */
+                    
                     "end-of-stream"(): void
                     /**
                      * Emitted on errors.
@@ -904,12 +889,14 @@ declare module "gi://GstPlay?version=1.0" {
                     "warning"(error: GLib.Error, details: Gst.Structure | null): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "play": Play
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "play": Play
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -921,8 +908,7 @@ declare module "gi://GstPlay?version=1.0" {
                 readonly $readableProperties: PlaySignalAdapter.ReadableProperties
                 readonly $writableProperties: PlaySignalAdapter.WritableProperties
                 readonly $constructOnlyProperties: PlaySignalAdapter.ConstructOnlyProperties
-                /**
-                 */
+                
                 get play(): Play
                 set play(value: Play)
                 /**
@@ -980,10 +966,13 @@ declare module "gi://GstPlay?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1056,10 +1045,13 @@ declare module "gi://GstPlay?version=1.0" {
                 interface SignalSignatures extends PlayStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PlayStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends PlayStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PlayStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PlayStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PlayStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PlayStreamInfo.ConstructOnlyProperties {
@@ -1098,10 +1090,13 @@ declare module "gi://GstPlay?version=1.0" {
                 interface SignalSignatures extends PlayStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PlayStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends PlayStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PlayStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PlayStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PlayStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PlayStreamInfo.ConstructOnlyProperties {
@@ -1166,14 +1161,15 @@ declare module "gi://GstPlay?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, PlayVideoRenderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PlayVideoRenderer.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PlayVideoRenderer.ReadWriteProperties {
                     "video-sink": Gst.Element
                     "window-handle": never | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PlayVideoRenderer.WritableProperties {
-                    "video-sink": Gst.Element
-                    "window-handle": never | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PlayVideoRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PlayVideoRenderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PlayVideoRenderer.ConstructOnlyProperties {
@@ -1185,12 +1181,10 @@ declare module "gi://GstPlay?version=1.0" {
                 readonly $readableProperties: PlayVideoOverlayVideoRenderer.ReadableProperties
                 readonly $writableProperties: PlayVideoOverlayVideoRenderer.WritableProperties
                 readonly $constructOnlyProperties: PlayVideoOverlayVideoRenderer.ConstructOnlyProperties
-                /**
-                 */
+                
                 get videoSink(): Gst.Element
                 set videoSink(value: Gst.Element)
-                /**
-                 */
+                
                 get windowHandle(): never | null
                 set windowHandle(value: never | null)
                 /**
@@ -1268,10 +1262,13 @@ declare module "gi://GstPlay?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {

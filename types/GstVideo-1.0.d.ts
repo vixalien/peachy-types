@@ -35,10 +35,13 @@ declare module "gi://GstVideo?version=1.0" {
                     "value-changed"(value: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -78,11 +81,13 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends GstBase.Aggregator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.Aggregator.ReadableProperties {
-                    "force-live": boolean
+                interface ReadWriteProperties extends GstBase.Aggregator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstBase.Aggregator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstBase.Aggregator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.Aggregator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.Aggregator.ConstructOnlyProperties {
@@ -175,12 +180,14 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends VideoAggregatorPad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VideoAggregatorPad.ReadableProperties {
+                interface ReadWriteProperties extends VideoAggregatorPad.ReadWriteProperties {
                     "converter-config": Gst.Structure
                 }
 
-                interface WritableProperties extends VideoAggregatorPad.WritableProperties {
-                    "converter-config": Gst.Structure
+                interface ReadableProperties extends ReadWriteProperties, VideoAggregatorPad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VideoAggregatorPad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VideoAggregatorPad.ConstructOnlyProperties {
@@ -192,8 +199,7 @@ declare module "gi://GstVideo?version=1.0" {
                 readonly $readableProperties: VideoAggregatorConvertPad.ReadableProperties
                 readonly $writableProperties: VideoAggregatorConvertPad.WritableProperties
                 readonly $constructOnlyProperties: VideoAggregatorConvertPad.ConstructOnlyProperties
-                /**
-                 */
+                
                 get converterConfig(): Gst.Structure
                 set converterConfig(value: Gst.Structure)
                 /**
@@ -230,16 +236,16 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends GstBase.AggregatorPad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.AggregatorPad.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.AggregatorPad.ReadWriteProperties {
                     "max-last-buffer-repeat": number
                     "repeat-after-eos": boolean
                     "zorder": number
                 }
 
-                interface WritableProperties extends GstBase.AggregatorPad.WritableProperties {
-                    "max-last-buffer-repeat": number
-                    "repeat-after-eos": boolean
-                    "zorder": number
+                interface ReadableProperties extends ReadWriteProperties, GstBase.AggregatorPad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.AggregatorPad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.AggregatorPad.ConstructOnlyProperties {
@@ -364,10 +370,13 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends VideoAggregatorConvertPad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VideoAggregatorConvertPad.ReadableProperties {
+                interface ReadWriteProperties extends VideoAggregatorConvertPad.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends VideoAggregatorConvertPad.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, VideoAggregatorConvertPad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VideoAggregatorConvertPad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VideoAggregatorConvertPad.ConstructOnlyProperties {
@@ -403,10 +412,13 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends Gst.BufferPool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.BufferPool.ReadableProperties {
+                interface ReadWriteProperties extends Gst.BufferPool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.BufferPool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.BufferPool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.BufferPool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.BufferPool.ConstructOnlyProperties {
@@ -434,8 +446,7 @@ declare module "gi://GstVideo?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 VideoBufferPool: VideoBufferPoolClass
             }
             
@@ -444,7 +455,7 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "automatic-request-sync-point-flags": VideoDecoderRequestSyncPointFlags
                     "automatic-request-sync-points": boolean
                     "discard-corrupted-frames": boolean
@@ -453,13 +464,10 @@ declare module "gi://GstVideo?version=1.0" {
                     "qos": boolean
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "automatic-request-sync-point-flags": VideoDecoderRequestSyncPointFlags
-                    "automatic-request-sync-points": boolean
-                    "discard-corrupted-frames": boolean
-                    "max-errors": number
-                    "min-force-key-unit-interval": number
-                    "qos": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -1208,14 +1216,15 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures, Gst.Preset.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties, Gst.Preset.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties, Gst.Preset.ReadWriteProperties {
                     "min-force-key-unit-interval": number
                     "qos": boolean
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties, Gst.Preset.WritableProperties {
-                    "min-force-key-unit-interval": number
-                    "qos": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties, Gst.Preset.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties, Gst.Preset.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties, Gst.Preset.ConstructOnlyProperties {
@@ -1687,10 +1696,13 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends GstBase.BaseTransform.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.BaseTransform.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.BaseTransform.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstBase.BaseTransform.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstBase.BaseTransform.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.BaseTransform.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.BaseTransform.ConstructOnlyProperties {
@@ -1745,10 +1757,13 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends Gst.FlagSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.FlagSet.ReadableProperties {
+                interface ReadWriteProperties extends Gst.FlagSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.FlagSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.FlagSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.FlagSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.FlagSet.ConstructOnlyProperties {
@@ -1781,12 +1796,14 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends GstBase.BaseSink.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.BaseSink.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.BaseSink.ReadWriteProperties {
                     "show-preroll-frame": boolean
                 }
 
-                interface WritableProperties extends GstBase.BaseSink.WritableProperties {
-                    "show-preroll-frame": boolean
+                interface ReadableProperties extends ReadWriteProperties, GstBase.BaseSink.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.BaseSink.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.BaseSink.ConstructOnlyProperties {
@@ -1859,10 +1876,13 @@ declare module "gi://GstVideo?version=1.0" {
                     "value-changed"(channel: ColorBalanceChannel, value: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1983,10 +2003,13 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2430,12 +2453,14 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "video-direction": VideoOrientationMethod
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "video-direction": VideoOrientationMethod
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2477,10 +2502,13 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2612,10 +2640,13 @@ declare module "gi://GstVideo?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3026,8 +3057,7 @@ declare module "gi://GstVideo?version=1.0" {
                     data?: number
                     checksum?: number
                 }): AncillaryMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3097,8 +3127,7 @@ declare module "gi://GstVideo?version=1.0" {
                     spec?: VideoAFDSpec
                     afd?: VideoAFDValue
                 }): VideoAFDMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3132,8 +3161,7 @@ declare module "gi://GstVideo?version=1.0" {
                     meta?: Gst.Meta
                     matrix?: number[]
                 }): VideoAffineTransformationMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3287,8 +3315,7 @@ declare module "gi://GstVideo?version=1.0" {
                     bar_data1?: number
                     bar_data2?: number
                 }): VideoBarMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3347,8 +3374,7 @@ declare module "gi://GstVideo?version=1.0" {
                     data?: Uint8Array
                     size?: number
                 }): VideoCaptionMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3852,8 +3878,7 @@ declare module "gi://GstVideo?version=1.0" {
                     width?: number
                     height?: number
                 }): VideoCropMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -4242,8 +4267,7 @@ declare module "gi://GstVideo?version=1.0" {
                     n_textures?: number
                     texture_type?: VideoGLTextureType[]
                 }): VideoGLTextureUploadMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -4684,8 +4708,7 @@ declare module "gi://GstVideo?version=1.0" {
                     stride?: number[]
                     alignment?: VideoAlignment
                 }): VideoMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -4906,8 +4929,7 @@ declare module "gi://GstVideo?version=1.0" {
                     meta?: Gst.Meta
                     overlay?: VideoOverlayComposition
                 }): VideoOverlayCompositionMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -5144,8 +5166,7 @@ declare module "gi://GstVideo?version=1.0" {
                     h?: number
                     params?: never[]
                 }): VideoRegionOfInterestMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -5429,8 +5450,7 @@ declare module "gi://GstVideo?version=1.0" {
                  * @since 1.22
                  */
                 width: number
-                /**
-                 */
+                
                 height: number
                 /**
                  * The stride (in bytes) of a tile line. Regardless if the tile have sub-tiles
@@ -5787,8 +5807,7 @@ declare module "gi://GstVideo?version=1.0" {
                     meta?: Gst.Meta
                     tc?: VideoTimeCode
                 }): VideoTimeCodeMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -5842,8 +5861,7 @@ declare module "gi://GstVideo?version=1.0" {
                  * @returns %TRUE if enough space was left in the current line, %FALSE          otherwise.
                  */
                 add_ancillary(composite: boolean, DID: number, SDID_block_number: number, data: Uint8Array): boolean
-                /**
-                 */
+                
                 copy(): VideoVBIEncoder
                 /**
                  * Frees the `encoder`.
@@ -5889,8 +5907,7 @@ declare module "gi://GstVideo?version=1.0" {
                  * @param data The line of data to parse
                  */
                 add_line(data: Uint8Array): void
-                /**
-                 */
+                
                 copy(): VideoVBIParser
                 /**
                  * Frees the `parser`.
@@ -6222,8 +6239,7 @@ declare module "gi://GstVideo?version=1.0" {
                  * AFD value is from ATSC A/53 standard
                  */
                 readonly "ATSC_A53": 1
-                /**
-                 */
+                
                 readonly "SMPTE_ST2016_1": 2
             }
             type VideoAFDSpec = VideoAFDSpecEnum[Exclude<keyof VideoAFDSpecEnum, "$gtype">]
@@ -6379,41 +6395,29 @@ declare module "gi://GstVideo?version=1.0" {
             
             interface VideoAncillaryDIDEnum {
                 readonly $gtype: GObject.GType<VideoAncillaryDID>
-                /**
-                 */
+                
                 readonly "UNDEFINED": 0
-                /**
-                 */
+                
                 readonly "DELETION": 128
-                /**
-                 */
+                
                 readonly "HANC_3G_AUDIO_DATA_FIRST": 160
-                /**
-                 */
+                
                 readonly "HANC_3G_AUDIO_DATA_LAST": 167
-                /**
-                 */
+                
                 readonly "HANC_HDTV_AUDIO_DATA_FIRST": 224
-                /**
-                 */
+                
                 readonly "HANC_HDTV_AUDIO_DATA_LAST": 231
-                /**
-                 */
+                
                 readonly "HANC_SDTV_AUDIO_DATA_1_FIRST": 236
-                /**
-                 */
+                
                 readonly "HANC_SDTV_AUDIO_DATA_1_LAST": 239
-                /**
-                 */
+                
                 readonly "CAMERA_POSITION": 240
-                /**
-                 */
+                
                 readonly "HANC_ERROR_DETECTION": 244
-                /**
-                 */
+                
                 readonly "HANC_SDTV_AUDIO_DATA_2_FIRST": 248
-                /**
-                 */
+                
                 readonly "HANC_SDTV_AUDIO_DATA_2_LAST": 255
             }
             type VideoAncillaryDID = VideoAncillaryDIDEnum[Exclude<keyof VideoAncillaryDIDEnum, "$gtype">]
@@ -8251,15 +8255,13 @@ declare module "gi://GstVideo?version=1.0" {
             
             interface NavigationModifierTypeBitfield {
                 readonly $gtype: GObject.GType<NavigationModifierType>
-                /**
-                 */
+                
                 readonly "NONE": 0
                 /**
                  * the Shift key.
                  */
                 readonly "SHIFT_MASK": 1
-                /**
-                 */
+                
                 readonly "LOCK_MASK": 2
                 /**
                  * the Control key.
@@ -9076,11 +9078,9 @@ declare module "gi://GstVideo?version=1.0" {
                 VIDEO_TILE_TYPE_SHIFT: 16
                 VIDEO_TILE_X_TILES_MASK: 65535
                 VIDEO_TILE_Y_TILES_SHIFT: 16
-                /**
-                 */
+                
                 ancillary_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 ancillary_meta_get_info(): Gst.MetaInfo
                 /**
                  * Adds a new #GstAncillaryMeta to the `buffer`. The caller is responsible for setting the appropriate
@@ -9633,23 +9633,17 @@ declare module "gi://GstVideo?version=1.0" {
                  * @param cmds An array containing `n_cmds`     `GstNavigationCommand` values.
                  */
                 navigation_query_set_commandsv(query: Gst.Query, cmds: NavigationCommand[]): void
-                /**
-                 */
+                
                 video_afd_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_afd_meta_get_info(): Gst.MetaInfo
-                /**
-                 */
+                
                 video_affine_transformation_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_affine_transformation_meta_get_info(): Gst.MetaInfo
-                /**
-                 */
+                
                 video_bar_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_bar_meta_get_info(): Gst.MetaInfo
                 /**
                  * Lets you blend the `src` image into the `dest` image
@@ -9685,11 +9679,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * @returns A boolean indicating success and a calculated Display Ratio in the dar_n and dar_d parameters. The return value is FALSE in the case of integer overflow or other error., Numerator of the calculated display_ratio, Denominator of the calculated display_ratio
                  */
                 video_calculate_display_ratio(video_width: number, video_height: number, video_par_n: number, video_par_d: number, display_par_n: number, display_par_d: number): [boolean, number, number]
-                /**
-                 */
+                
                 video_caption_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_caption_meta_get_info(): Gst.MetaInfo
                 /**
                  * Parses fixed Closed Caption #GstCaps and returns the corresponding caption
@@ -9908,11 +9900,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * @param callback %GstVideoConvertSampleCallback that will be called after conversion.
                  */
                 video_convert_sample_async(sample: Gst.Sample, to_caps: Gst.Caps, timeout: Gst.ClockTime, callback: VideoConvertSampleCallback): void
-                /**
-                 */
+                
                 video_crop_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_crop_meta_get_info(): Gst.MetaInfo
                 /**
                  * Converting the video format into dma drm fourcc/modifier pair.
@@ -10205,11 +10195,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * @returns %TRUE on success., pointer to #GstVideoFrame
                  */
                 video_frame_map_id(info: VideoInfo, buffer: Gst.Buffer, id: number, flags: Gst.MapFlags): [boolean, VideoFrame]
-                /**
-                 */
+                
                 video_gl_texture_upload_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_gl_texture_upload_meta_get_info(): Gst.MetaInfo
                 /**
                  * Given the nominal duration of one video frame,
@@ -10321,11 +10309,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * @returns %TRUE if `minfo` was filled with `mastering`, a #GstVideoMasteringDisplayInfo
                  */
                 video_mastering_display_info_from_string(mastering: string): [boolean, VideoMasteringDisplayInfo]
-                /**
-                 */
+                
                 video_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_meta_get_info(): Gst.MetaInfo
                 /**
                  * Get the #GQuark for the "gst-video-scale" metadata transform operation.
@@ -10399,11 +10385,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * @returns TRUE if there was a valid "image-orientation" tag in the taglist., The location where to return the orientation.
                  */
                 video_orientation_from_tag(taglist: Gst.TagList): [boolean, VideoOrientationMethod]
-                /**
-                 */
+                
                 video_overlay_composition_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_overlay_composition_meta_get_info(): Gst.MetaInfo
                 /**
                  * This helper shall be used by classes implementing the #GstVideoOverlay
@@ -10428,11 +10412,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * @returns %TRUE if the `property_id` matches the GstVideoOverlay property
                  */
                 video_overlay_set_property(object: GObject.Object, last_prop_id: number, property_id: number, value: (GObject.Value | unknown)): boolean
-                /**
-                 */
+                
                 video_region_of_interest_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_region_of_interest_meta_get_info(): Gst.MetaInfo
                 /**
                  * @since 1.22
@@ -10465,11 +10447,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * @returns the index of the tile at `x` and `y` in the tiled image of   `x_tiles` by `y_tiles`.
                  */
                 video_tile_get_index(mode: VideoTileMode, x: number, y: number, x_tiles: number, y_tiles: number): number
-                /**
-                 */
+                
                 video_time_code_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 video_time_code_meta_get_info(): Gst.MetaInfo
                 /**
                  * Convert `val` to its gamma decoded value. This is the inverse operation of

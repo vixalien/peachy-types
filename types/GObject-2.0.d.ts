@@ -121,14 +121,14 @@ declare module "gi://GObject?version=2.0" {
             }
 
             type ConstructorProps<Class> = Class extends {
-                $readableProperties: unknown
+                $writableProperties: unknown
                 $constructOnlyProperties: unknown
             }
                 ? {
                       [K in Keyof<
-                          Class["$readableProperties"] &
+                          Class["$writableProperties"] &
                               Class["$constructOnlyProperties"]
-                      > as CamelCase<K>]: (Class["$readableProperties"] &
+                      > as CamelCase<K>]: (Class["$writableProperties"] &
                           Class["$constructOnlyProperties"])[K]
                   }
                 : never
@@ -1218,15 +1218,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
-                    "flags": BindingFlags
-                    "source": Object | null
-                    "source-property": string
-                    "target": Object | null
-                    "target-property": string
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1465,12 +1463,14 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "source": Object
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "source": Object
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1572,10 +1572,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1640,10 +1643,13 @@ declare module "gi://GObject?version=2.0" {
                     "notify::{}"(pspec: ParamSpec): void
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -2125,10 +2131,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2161,10 +2170,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2197,10 +2209,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2233,10 +2248,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2269,10 +2287,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2306,10 +2327,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2343,10 +2367,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2379,10 +2406,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2416,10 +2446,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2452,10 +2485,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2488,10 +2524,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2524,10 +2563,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2560,10 +2602,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2607,10 +2652,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2644,10 +2692,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2680,10 +2731,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2717,10 +2771,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2753,10 +2810,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2789,10 +2849,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2825,10 +2888,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2861,10 +2927,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2897,10 +2966,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2933,10 +3005,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ParamSpec.ConstructOnlyProperties {
@@ -2994,13 +3069,14 @@ declare module "gi://GObject?version=2.0" {
                     "unbind"(): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "target": Object
-                    "target-type": GObject.GType
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "target": Object
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -3140,10 +3216,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends Object.SignalSignatures, TypePlugin.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties, TypePlugin.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties, TypePlugin.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties, TypePlugin.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties, TypePlugin.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties, TypePlugin.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties, TypePlugin.ConstructOnlyProperties {
@@ -3307,10 +3386,13 @@ declare module "gi://GObject?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3884,11 +3966,9 @@ declare module "gi://GObject?version=2.0" {
             }
 
             interface ClosureNotifyData {
-                /**
-                 */
+                
                 data: never
-                /**
-                 */
+                
                 notify: ClosureNotify
             }
 
@@ -4900,32 +4980,23 @@ declare module "gi://GObject?version=2.0" {
             }
 
             interface _Value__data__union {
-                /**
-                 */
+                
                 v_int: number
-                /**
-                 */
+                
                 v_uint: number
-                /**
-                 */
+                
                 v_long: number
-                /**
-                 */
+                
                 v_ulong: number
-                /**
-                 */
+                
                 v_int64: number
-                /**
-                 */
+                
                 v_uint64: number
-                /**
-                 */
+                
                 v_float: number
-                /**
-                 */
+                
                 v_double: number
-                /**
-                 */
+                
                 v_pointer: never
             }
 
@@ -5002,29 +5073,22 @@ declare module "gi://GObject?version=2.0" {
             
             interface IOConditionBitfield {
                 readonly $gtype: GObject.GType<IOCondition>
-                /**
-                 */
+                
                 readonly "IN": 1
-                /**
-                 */
+                
                 readonly "OUT": 4
-                /**
-                 */
+                
                 readonly "PRI": 2
-                /**
-                 */
+                
                 readonly "ERR": 8
-                /**
-                 */
+                
                 readonly "HUP": 16
-                /**
-                 */
+                
                 readonly "NVAL": 32
             }
             type IOCondition = number
             interface $Exports {
-                /**
-                 */
+                
                 IOCondition: IOConditionBitfield
             }
             
@@ -6339,8 +6403,7 @@ declare module "gi://GObject?version=2.0" {
                  * @returns a newly-allocated text string
                  */
                 flags_to_string(flags_type: (GObject.GType | { $gtype: GObject.GType }), value: number): string
-                /**
-                 */
+                
                 gtype_get_type(): GObject.GType
                 /**
                  * Creates a new #GParamSpecBoolean instance specifying a %G_TYPE_BOOLEAN
@@ -7562,8 +7625,7 @@ declare module "gi://GObject?version=2.0" {
                  * @returns true if the transformation is possible; false otherwise
                  */
                 value_type_transformable(src_type: (GObject.GType | { $gtype: GObject.GType }), dest_type: (GObject.GType | { $gtype: GObject.GType })): boolean
-                /**
-                 */
+                
                 variant_get_gtype(): GObject.GType
             }
         }

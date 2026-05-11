@@ -85,10 +85,13 @@ declare module "gi://GstInsertBin?version=1.0" {
                     "remove"(callback: Gst.Element, user_data: never | null, user_data2: never | null): void
                 }
 
-                interface ReadableProperties extends Gst.Bin.ReadableProperties, Gst.ChildProxy.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Bin.ReadWriteProperties, Gst.ChildProxy.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Bin.WritableProperties, Gst.ChildProxy.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Bin.ReadableProperties, Gst.ChildProxy.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Bin.WritableProperties, Gst.ChildProxy.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Bin.ConstructOnlyProperties, Gst.ChildProxy.ConstructOnlyProperties {

@@ -36,10 +36,13 @@ declare module "gi://GstCuda?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -135,10 +138,13 @@ declare module "gi://GstCuda?version=1.0" {
                 interface SignalSignatures extends Gst.BufferPool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.BufferPool.ReadableProperties {
+                interface ReadWriteProperties extends Gst.BufferPool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.BufferPool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.BufferPool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.BufferPool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.BufferPool.ConstructOnlyProperties {
@@ -177,8 +183,7 @@ declare module "gi://GstCuda?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
-                    "cuda-device-id": number
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "default-gpu-stack-size": number
                     "external-resource-interop": boolean
                     "os-handle": boolean
@@ -187,13 +192,10 @@ declare module "gi://GstCuda?version=1.0" {
                     "virtual-memory": boolean
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "default-gpu-stack-size": number
-                    "external-resource-interop": boolean
-                    "os-handle": boolean
-                    "prefer-stream-ordered-alloc": boolean
-                    "stream-ordered-alloc": boolean
-                    "virtual-memory": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -324,10 +326,13 @@ declare module "gi://GstCuda?version=1.0" {
                 interface SignalSignatures extends CudaAllocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CudaAllocator.ReadableProperties {
+                interface ReadWriteProperties extends CudaAllocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CudaAllocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CudaAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CudaAllocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CudaAllocator.ConstructOnlyProperties {
@@ -447,26 +452,19 @@ declare module "gi://GstCuda?version=1.0" {
             }
 
             interface CudaGraphicsResource {
-                /**
-                 */
+                
                 cuda_context: CudaContext
-                /**
-                 */
+                
                 graphics_context: Gst.Object
-                /**
-                 */
+                
                 type: CudaGraphicsResourceType
-                /**
-                 */
+                
                 resource: CudaGst.graphicsResource
-                /**
-                 */
+                
                 flags: CudaGst.graphicsRegisterFlags
-                /**
-                 */
+                
                 registered: boolean
-                /**
-                 */
+                
                 mapped: boolean
             }
 
@@ -490,14 +488,11 @@ declare module "gi://GstCuda?version=1.0" {
             }
 
             interface CudaMemory {
-                /**
-                 */
+                
                 mem: Gst.Memory
-                /**
-                 */
+                
                 context: CudaContext
-                /**
-                 */
+                
                 info: GstVideo.VideoInfo
                 /**
                  * Exports virtual memory handle to OS specific handle.
@@ -581,11 +576,9 @@ declare module "gi://GstCuda?version=1.0" {
             }
 
             interface CudaMemoryPool {
-                /**
-                 */
+                
                 parent: Gst.MiniObject
-                /**
-                 */
+                
                 context: CudaContext
                 /**
                  * Get CUDA memory pool handle
@@ -666,11 +659,9 @@ declare module "gi://GstCuda?version=1.0" {
             }
 
             interface CudaStream {
-                /**
-                 */
+                
                 parent: Gst.MiniObject
-                /**
-                 */
+                
                 context: CudaContext
                 /**
                  * Get CUDA stream handle
@@ -710,14 +701,11 @@ declare module "gi://GstCuda?version=1.0" {
             
             interface CudaGraphicsResourceTypeEnum {
                 readonly $gtype: GObject.GType<CudaGraphicsResourceType>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "GL_BUFFER": 1
-                /**
-                 */
+                
                 readonly "D3D11_RESOURCE": 2
                 /**
                  * Resource represents a EGL resource.
@@ -761,11 +749,9 @@ declare module "gi://GstCuda?version=1.0" {
             
             interface CudaQuarkIdEnum {
                 readonly $gtype: GObject.GType<CudaQuarkId>
-                /**
-                 */
+                
                 readonly "GRAPHICS_RESOURCE": 0
-                /**
-                 */
+                
                 readonly "MAX": 1
             }
             type CudaQuarkId = CudaQuarkIdEnum[Exclude<keyof CudaQuarkIdEnum, "$gtype">]

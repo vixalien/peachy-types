@@ -28,20 +28,17 @@ declare module "gi://Secret?version=1" {
                 interface SignalSignatures extends Gio.DBusProxy.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.DBusInterface.SignalSignatures, Gio.Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                     "created": number
-                    "flags": CollectionFlags
                     "label": string
                     "locked": boolean
                     "modified": number
-                    "service": Service
                 }
 
-                interface WritableProperties extends Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
-                    "created": number
-                    "label": string
-                    "locked": boolean
-                    "modified": number
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusProxy.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -429,14 +426,14 @@ declare module "gi://Secret?version=1" {
                 interface SignalSignatures extends Gio.DBusProxy.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.DBusInterface.SignalSignatures, Gio.Initable.SignalSignatures, Retrievable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties, Retrievable.ReadableProperties {
-                    "flags": ItemFlags
+                interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties, Retrievable.ReadWriteProperties {
                     "locked": boolean
-                    "service": Service
                 }
 
-                interface WritableProperties extends Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties, Retrievable.WritableProperties {
-                    "locked": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties, Retrievable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties, Retrievable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusProxy.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties, Retrievable.ConstructOnlyProperties {
@@ -841,10 +838,13 @@ declare module "gi://Secret?version=1" {
                 interface SignalSignatures extends Gio.DBusProxy.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.DBusInterface.SignalSignatures, Gio.Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusProxy.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -965,10 +965,13 @@ declare module "gi://Secret?version=1" {
                 interface SignalSignatures extends Gio.DBusProxy.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.DBusInterface.SignalSignatures, Gio.Initable.SignalSignatures, Backend.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties, Backend.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties, Backend.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties, Backend.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties, Backend.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties, Backend.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusProxy.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties, Backend.ConstructOnlyProperties {
@@ -1763,11 +1766,13 @@ declare module "gi://Secret?version=1" {
                 interface SignalSignatures extends Gio.AsyncInitable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.AsyncInitable.ReadableProperties {
-                    "flags": ServiceFlags
+                interface ReadWriteProperties extends Gio.AsyncInitable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.AsyncInitable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.AsyncInitable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.AsyncInitable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.AsyncInitable.ConstructOnlyProperties {
@@ -1903,18 +1908,17 @@ declare module "gi://Secret?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "attributes": Record<string, string>
                     "created": number
                     "label": string
                     "modified": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "attributes": Record<string, string>
-                    "created": number
-                    "label": string
-                    "modified": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {

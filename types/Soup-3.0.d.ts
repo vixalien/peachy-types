@@ -28,7 +28,7 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "authority": string
                     "is-authenticated": boolean
                     "is-cancelled": boolean
@@ -37,13 +37,10 @@ declare module "gi://Soup?version=3.0" {
                     "scheme-name": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "authority": string
-                    "is-authenticated": boolean
-                    "is-cancelled": boolean
-                    "is-for-proxy": boolean
-                    "realm": string
-                    "scheme-name": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -298,10 +295,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends Auth.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Auth.ReadableProperties {
+                interface ReadWriteProperties extends Auth.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Auth.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Auth.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Auth.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Auth.ConstructOnlyProperties {
@@ -338,10 +338,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends Auth.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Auth.ReadableProperties {
+                interface ReadWriteProperties extends Auth.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Auth.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Auth.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Auth.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Auth.ConstructOnlyProperties {
@@ -378,20 +381,17 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "filter": AuthDomainFilter
                     "filter-data": never
                     "generic-auth-callback": AuthDomainGenericAuthCallback
                     "generic-auth-data": never
-                    "proxy": boolean
-                    "realm": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "filter": AuthDomainFilter
-                    "filter-data": never
-                    "generic-auth-callback": AuthDomainGenericAuthCallback
-                    "generic-auth-data": never
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -619,14 +619,15 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends AuthDomain.SignalSignatures {
                 }
 
-                interface ReadableProperties extends AuthDomain.ReadableProperties {
+                interface ReadWriteProperties extends AuthDomain.ReadWriteProperties {
                     "auth-callback": AuthDomainBasicAuthCallback
                     "auth-data": never
                 }
 
-                interface WritableProperties extends AuthDomain.WritableProperties {
-                    "auth-callback": AuthDomainBasicAuthCallback
-                    "auth-data": never
+                interface ReadableProperties extends ReadWriteProperties, AuthDomain.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, AuthDomain.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends AuthDomain.ConstructOnlyProperties {
@@ -687,14 +688,15 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends AuthDomain.SignalSignatures {
                 }
 
-                interface ReadableProperties extends AuthDomain.ReadableProperties {
+                interface ReadWriteProperties extends AuthDomain.ReadWriteProperties {
                     "auth-callback": AuthDomainDigestAuthCallback
                     "auth-data": never
                 }
 
-                interface WritableProperties extends AuthDomain.WritableProperties {
-                    "auth-callback": AuthDomainDigestAuthCallback
-                    "auth-data": never
+                interface ReadableProperties extends ReadWriteProperties, AuthDomain.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, AuthDomain.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends AuthDomain.ConstructOnlyProperties {
@@ -777,10 +779,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -848,10 +853,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends Auth.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Auth.ReadableProperties {
+                interface ReadWriteProperties extends Auth.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Auth.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Auth.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Auth.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Auth.ConstructOnlyProperties {
@@ -888,10 +896,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends Auth.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Auth.ReadableProperties {
+                interface ReadWriteProperties extends Auth.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Auth.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Auth.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Auth.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Auth.ConstructOnlyProperties {
@@ -942,12 +953,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
-                    "cache-dir": string
-                    "cache-type": CacheType
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -1049,10 +1061,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -1108,10 +1123,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -1180,13 +1198,14 @@ declare module "gi://Soup?version=3.0" {
                     "changed"(old_cookie: Cookie | null, new_cookie: Cookie | null): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                     "accept-policy": CookieJarAcceptPolicy
-                    "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SessionFeature.WritableProperties {
-                    "accept-policy": CookieJarAcceptPolicy
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -1374,8 +1393,7 @@ declare module "gi://Soup?version=3.0" {
                  * @returns %TRUE if `jar` storage is persistent or %FALSE otherwise.
                  */
                 vfunc_is_persistent(): boolean
-                /**
-                 */
+                
                 vfunc_save(): void
             }
 
@@ -1414,11 +1432,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends CookieJar.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CookieJar.ReadableProperties, SessionFeature.ReadableProperties {
-                    "filename": string
+                interface ReadWriteProperties extends CookieJar.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CookieJar.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CookieJar.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CookieJar.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CookieJar.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -1478,11 +1498,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends CookieJar.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CookieJar.ReadableProperties, SessionFeature.ReadableProperties {
-                    "filename": string
+                interface ReadWriteProperties extends CookieJar.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CookieJar.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CookieJar.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CookieJar.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CookieJar.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -1555,10 +1577,13 @@ declare module "gi://Soup?version=3.0" {
                     "changed"(old_policy: HSTSPolicy, new_policy: HSTSPolicy): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -1681,11 +1706,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends HSTSEnforcer.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends HSTSEnforcer.ReadableProperties, SessionFeature.ReadableProperties {
-                    "filename": string
+                interface ReadWriteProperties extends HSTSEnforcer.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends HSTSEnforcer.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, HSTSEnforcer.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, HSTSEnforcer.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends HSTSEnforcer.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -1741,14 +1768,15 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                     "level": LoggerLogLevel
                     "max-body-size": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SessionFeature.WritableProperties {
-                    "level": LoggerLogLevel
-                    "max-body-size": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -2073,7 +2101,7 @@ declare module "gi://Soup?version=3.0" {
                     "wrote-headers"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "first-party": GLib.Uri
                     "flags": MessageFlags
                     "http-version": HTTPVersion
@@ -2094,25 +2122,10 @@ declare module "gi://Soup?version=3.0" {
                     "uri": GLib.Uri
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "first-party": GLib.Uri
-                    "flags": MessageFlags
-                    "http-version": HTTPVersion
-                    "is-options-ping": boolean
-                    "is-top-level-navigation": boolean
-                    "method": string
-                    "priority": MessagePriority
-                    "reason-phrase": string | null
-                    "remote-address": Gio.SocketAddress | null
-                    "request-headers": MessageHeaders
-                    "response-headers": MessageHeaders
-                    "site-for-cookies": GLib.Uri
-                    "status-code": number
-                    "tls-ciphersuite-name": string
-                    "tls-peer-certificate": Gio.TlsCertificate | null
-                    "tls-peer-certificate-errors": Gio.TlsCertificateFlags
-                    "tls-protocol-version": Gio.TlsProtocolVersion
-                    "uri": GLib.Uri
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2623,11 +2636,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends Gio.FilterInputStream.SignalSignatures, Gio.PollableInputStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.FilterInputStream.ReadableProperties, Gio.PollableInputStream.ReadableProperties {
-                    "message": Message
+                interface ReadWriteProperties extends Gio.FilterInputStream.ReadWriteProperties, Gio.PollableInputStream.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.FilterInputStream.WritableProperties, Gio.PollableInputStream.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.FilterInputStream.ReadableProperties, Gio.PollableInputStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.FilterInputStream.WritableProperties, Gio.PollableInputStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.FilterInputStream.ConstructOnlyProperties, Gio.PollableInputStream.ConstructOnlyProperties {
@@ -2786,19 +2801,17 @@ declare module "gi://Soup?version=3.0" {
                     "request-started"(message: ServerMessage): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "raw-paths": boolean
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "server-header": string
                     "tls-auth-mode": Gio.TlsAuthenticationMode
                     "tls-certificate": Gio.TlsCertificate | null
                     "tls-database": Gio.TlsDatabase | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "server-header": string
-                    "tls-auth-mode": Gio.TlsAuthenticationMode
-                    "tls-certificate": Gio.TlsCertificate | null
-                    "tls-database": Gio.TlsDatabase | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3384,14 +3397,15 @@ declare module "gi://Soup?version=3.0" {
                     "wrote-informational"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "tls-peer-certificate": Gio.TlsCertificate | null
                     "tls-peer-certificate-errors": Gio.TlsCertificateFlags
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "tls-peer-certificate": Gio.TlsCertificate | null
-                    "tls-peer-certificate-errors": Gio.TlsCertificateFlags
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3652,30 +3666,21 @@ declare module "gi://Soup?version=3.0" {
                     "request-unqueued"(msg: Message): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accept-language": string | null
                     "accept-language-auto": boolean
                     "idle-timeout": number
-                    "local-address": Gio.InetSocketAddress | null
-                    "max-conns": number
-                    "max-conns-per-host": number
                     "proxy-resolver": Gio.ProxyResolver | null
-                    "remote-connectable": Gio.SocketConnectable | null
                     "timeout": number
                     "tls-database": Gio.TlsDatabase | null
                     "tls-interaction": Gio.TlsInteraction | null
                     "user-agent": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accept-language": string | null
-                    "accept-language-auto": boolean
-                    "idle-timeout": number
-                    "proxy-resolver": Gio.ProxyResolver | null
-                    "timeout": number
-                    "tls-database": Gio.TlsDatabase | null
-                    "tls-interaction": Gio.TlsInteraction | null
-                    "user-agent": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4340,26 +4345,18 @@ declare module "gi://Soup?version=3.0" {
                     "pong"(message: (GLib.Bytes | Uint8Array)): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "connection-type": WebsocketConnectionType
-                    "extensions": never
-                    "io-stream": Gio.IOStream
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "keepalive-interval": number
                     "keepalive-pong-timeout": number
                     "max-incoming-payload-size": number
                     "max-total-message-size": number
-                    "origin": string | null
-                    "protocol": string | null
                     "state": WebsocketState
-                    "uri": GLib.Uri
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "keepalive-interval": number
-                    "keepalive-pong-timeout": number
-                    "max-incoming-payload-size": number
-                    "max-total-message-size": number
-                    "state": WebsocketState
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4684,10 +4681,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4822,10 +4822,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends WebsocketExtension.SignalSignatures {
                 }
 
-                interface ReadableProperties extends WebsocketExtension.ReadableProperties {
+                interface ReadWriteProperties extends WebsocketExtension.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends WebsocketExtension.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, WebsocketExtension.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, WebsocketExtension.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends WebsocketExtension.ConstructOnlyProperties {
@@ -4862,10 +4865,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SessionFeature.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SessionFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SessionFeature.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
@@ -4905,10 +4911,13 @@ declare module "gi://Soup?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {

@@ -32,31 +32,23 @@ declare module "gi://Rsvg?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "base-uri": string
                     "desc": string | null
                     "dpi-x": number
                     "dpi-y": number
                     "em": number
                     "ex": number
-                    "flags": HandleFlags
                     "height": number
                     "metadata": string | null
                     "title": string | null
                     "width": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "base-uri": string
-                    "desc": string | null
-                    "dpi-x": number
-                    "dpi-y": number
-                    "em": number
-                    "ex": number
-                    "height": number
-                    "metadata": string | null
-                    "title": string | null
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {

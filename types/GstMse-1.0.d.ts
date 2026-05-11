@@ -26,8 +26,7 @@ declare module "gi://GstMse?version=1.0" {
 
             namespace MediaSource {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
-                    /**
-                     */
+                    
                     "on-source-close"(): void
                     /**
                      * Emitted when `self` has ended, normally through
@@ -46,7 +45,7 @@ declare module "gi://GstMse?version=1.0" {
                     "on-source-open"(): void
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "active-source-buffers": SourceBufferList
                     "duration": number
                     "position": number
@@ -54,12 +53,10 @@ declare module "gi://GstMse?version=1.0" {
                     "source-buffers": SourceBufferList
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "active-source-buffers": SourceBufferList
-                    "duration": number
-                    "position": number
-                    "ready-state": MediaSourceReadyState
-                    "source-buffers": SourceBufferList
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -303,7 +300,7 @@ declare module "gi://GstMse?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures, Gst.URIHandler.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties, Gst.URIHandler.ReadWriteProperties {
                     "duration": number
                     "n-audio": number
                     "n-text": number
@@ -312,13 +309,10 @@ declare module "gi://GstMse?version=1.0" {
                     "ready-state": MseSrcReadyState
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties, Gst.URIHandler.WritableProperties {
-                    "duration": number
-                    "n-audio": number
-                    "n-text": number
-                    "n-video": number
-                    "position": number
-                    "ready-state": MseSrcReadyState
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties, Gst.URIHandler.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties, Gst.URIHandler.ConstructOnlyProperties {
@@ -454,10 +448,13 @@ declare module "gi://GstMse?version=1.0" {
                 interface SignalSignatures extends Gst.Pad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Pad.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Pad.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Pad.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Pad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Pad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Pad.ConstructOnlyProperties {
@@ -530,7 +527,7 @@ declare module "gi://GstMse?version=1.0" {
                     "on-update-start"(): void
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "append-mode": SourceBufferAppendMode
                     "append-window-end": number
                     "append-window-start": number
@@ -540,14 +537,10 @@ declare module "gi://GstMse?version=1.0" {
                     "updating": boolean
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "append-mode": SourceBufferAppendMode
-                    "append-window-end": number
-                    "append-window-start": number
-                    "buffered": never[]
-                    "content-type": string
-                    "timestamp-offset": number
-                    "updating": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -832,12 +825,14 @@ declare module "gi://GstMse?version=1.0" {
                     "on-sourcebuffer-removed"(): void
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -933,11 +928,9 @@ declare module "gi://GstMse?version=1.0" {
             }
 
             interface SourceBufferInterval {
-                /**
-                 */
+                
                 start: Gst.ClockTime
-                /**
-                 */
+                
                 end: Gst.ClockTime
             }
 
@@ -977,20 +970,15 @@ declare module "gi://GstMse?version=1.0" {
                 readonly $gtype: GObject.GType<MediaSourceError>
 
                 new(props: { message: string, code: number }): MediaSourceError
-                /**
-                 */
+                
                 readonly "INVALID_STATE": 0
-                /**
-                 */
+                
                 readonly "TYPE": 1
-                /**
-                 */
+                
                 readonly "NOT_SUPPORTED": 2
-                /**
-                 */
+                
                 readonly "NOT_FOUND": 3
-                /**
-                 */
+                
                 readonly "QUOTA_EXCEEDED": 4
                 /**
              * Any error type that can be reported by the Media Source API.
@@ -1084,11 +1072,9 @@ declare module "gi://GstMse?version=1.0" {
             
             interface SourceBufferAppendModeEnum {
                 readonly $gtype: GObject.GType<SourceBufferAppendMode>
-                /**
-                 */
+                
                 readonly "SEGMENTS": 0
-                /**
-                 */
+                
                 readonly "SEQUENCE": 1
             }
             type SourceBufferAppendMode = SourceBufferAppendModeEnum[Exclude<keyof SourceBufferAppendModeEnum, "$gtype">]

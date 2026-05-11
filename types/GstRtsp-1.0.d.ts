@@ -39,10 +39,13 @@ declare module "gi://GstRtsp?version=1.0" {
                     "send"(object: never | null, p0: never | null): RTSPResult
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -208,11 +211,9 @@ declare module "gi://GstRtsp?version=1.0" {
                  * The value of the parameter
                  */
                 value: string
-                /**
-                 */
+                
                 copy(): RTSPAuthParam
-                /**
-                 */
+                
                 free(): void
             }
 
@@ -1606,275 +1607,185 @@ declare module "gi://GstRtsp?version=1.0" {
             
             interface RTSPHeaderFieldEnum {
                 readonly $gtype: GObject.GType<RTSPHeaderField>
-                /**
-                 */
+                
                 readonly "INVALID": 0
-                /**
-                 */
+                
                 readonly "ACCEPT": 1
-                /**
-                 */
+                
                 readonly "ACCEPT_ENCODING": 2
-                /**
-                 */
+                
                 readonly "ACCEPT_LANGUAGE": 3
-                /**
-                 */
+                
                 readonly "ALLOW": 4
-                /**
-                 */
+                
                 readonly "AUTHORIZATION": 5
-                /**
-                 */
+                
                 readonly "BANDWIDTH": 6
-                /**
-                 */
+                
                 readonly "BLOCKSIZE": 7
-                /**
-                 */
+                
                 readonly "CACHE_CONTROL": 8
-                /**
-                 */
+                
                 readonly "CONFERENCE": 9
-                /**
-                 */
+                
                 readonly "CONNECTION": 10
-                /**
-                 */
+                
                 readonly "CONTENT_BASE": 11
-                /**
-                 */
+                
                 readonly "CONTENT_ENCODING": 12
-                /**
-                 */
+                
                 readonly "CONTENT_LANGUAGE": 13
-                /**
-                 */
+                
                 readonly "CONTENT_LENGTH": 14
-                /**
-                 */
+                
                 readonly "CONTENT_LOCATION": 15
-                /**
-                 */
+                
                 readonly "CONTENT_TYPE": 16
-                /**
-                 */
+                
                 readonly "CSEQ": 17
-                /**
-                 */
+                
                 readonly "DATE": 18
-                /**
-                 */
+                
                 readonly "EXPIRES": 19
-                /**
-                 */
+                
                 readonly "FROM": 20
-                /**
-                 */
+                
                 readonly "IF_MODIFIED_SINCE": 21
-                /**
-                 */
+                
                 readonly "LAST_MODIFIED": 22
-                /**
-                 */
+                
                 readonly "PROXY_AUTHENTICATE": 23
-                /**
-                 */
+                
                 readonly "PROXY_REQUIRE": 24
-                /**
-                 */
+                
                 readonly "PUBLIC": 25
-                /**
-                 */
+                
                 readonly "RANGE": 26
-                /**
-                 */
+                
                 readonly "REFERER": 27
-                /**
-                 */
+                
                 readonly "REQUIRE": 28
-                /**
-                 */
+                
                 readonly "RETRY_AFTER": 29
-                /**
-                 */
+                
                 readonly "RTP_INFO": 30
-                /**
-                 */
+                
                 readonly "SCALE": 31
-                /**
-                 */
+                
                 readonly "SESSION": 32
-                /**
-                 */
+                
                 readonly "SERVER": 33
-                /**
-                 */
+                
                 readonly "SPEED": 34
-                /**
-                 */
+                
                 readonly "TRANSPORT": 35
-                /**
-                 */
+                
                 readonly "UNSUPPORTED": 36
-                /**
-                 */
+                
                 readonly "USER_AGENT": 37
-                /**
-                 */
+                
                 readonly "VIA": 38
-                /**
-                 */
+                
                 readonly "WWW_AUTHENTICATE": 39
-                /**
-                 */
+                
                 readonly "CLIENT_CHALLENGE": 40
-                /**
-                 */
+                
                 readonly "REAL_CHALLENGE1": 41
-                /**
-                 */
+                
                 readonly "REAL_CHALLENGE2": 42
-                /**
-                 */
+                
                 readonly "REAL_CHALLENGE3": 43
-                /**
-                 */
+                
                 readonly "SUBSCRIBE": 44
-                /**
-                 */
+                
                 readonly "ALERT": 45
-                /**
-                 */
+                
                 readonly "CLIENT_ID": 46
-                /**
-                 */
+                
                 readonly "COMPANY_ID": 47
-                /**
-                 */
+                
                 readonly "GUID": 48
-                /**
-                 */
+                
                 readonly "REGION_DATA": 49
-                /**
-                 */
+                
                 readonly "MAX_ASM_WIDTH": 50
-                /**
-                 */
+                
                 readonly "LANGUAGE": 51
-                /**
-                 */
+                
                 readonly "PLAYER_START_TIME": 52
-                /**
-                 */
+                
                 readonly "LOCATION": 53
-                /**
-                 */
+                
                 readonly "ETAG": 54
-                /**
-                 */
+                
                 readonly "IF_MATCH": 55
-                /**
-                 */
+                
                 readonly "ACCEPT_CHARSET": 56
-                /**
-                 */
+                
                 readonly "SUPPORTED": 57
-                /**
-                 */
+                
                 readonly "VARY": 58
-                /**
-                 */
+                
                 readonly "X_ACCELERATE_STREAMING": 59
-                /**
-                 */
+                
                 readonly "X_ACCEPT_AUTHENT": 60
-                /**
-                 */
+                
                 readonly "X_ACCEPT_PROXY_AUTHENT": 61
-                /**
-                 */
+                
                 readonly "X_BROADCAST_ID": 62
-                /**
-                 */
+                
                 readonly "X_BURST_STREAMING": 63
-                /**
-                 */
+                
                 readonly "X_NOTICE": 64
-                /**
-                 */
+                
                 readonly "X_PLAYER_LAG_TIME": 65
-                /**
-                 */
+                
                 readonly "X_PLAYLIST": 66
-                /**
-                 */
+                
                 readonly "X_PLAYLIST_CHANGE_NOTICE": 67
-                /**
-                 */
+                
                 readonly "X_PLAYLIST_GEN_ID": 68
-                /**
-                 */
+                
                 readonly "X_PLAYLIST_SEEK_ID": 69
-                /**
-                 */
+                
                 readonly "X_PROXY_CLIENT_AGENT": 70
-                /**
-                 */
+                
                 readonly "X_PROXY_CLIENT_VERB": 71
-                /**
-                 */
+                
                 readonly "X_RECEDING_PLAYLISTCHANGE": 72
-                /**
-                 */
+                
                 readonly "X_RTP_INFO": 73
-                /**
-                 */
+                
                 readonly "X_STARTUPPROFILE": 74
-                /**
-                 */
+                
                 readonly "TIMESTAMP": 75
-                /**
-                 */
+                
                 readonly "AUTHENTICATION_INFO": 76
-                /**
-                 */
+                
                 readonly "HOST": 77
-                /**
-                 */
+                
                 readonly "PRAGMA": 78
-                /**
-                 */
+                
                 readonly "X_SERVER_IP_ADDRESS": 79
-                /**
-                 */
+                
                 readonly "X_SESSIONCOOKIE": 80
-                /**
-                 */
+                
                 readonly "RTCP_INTERVAL": 81
-                /**
-                 */
+                
                 readonly "KEYMGMT": 82
-                /**
-                 */
+                
                 readonly "PIPELINED_REQUESTS": 83
-                /**
-                 */
+                
                 readonly "MEDIA_PROPERTIES": 84
-                /**
-                 */
+                
                 readonly "SEEK_STYLE": 85
-                /**
-                 */
+                
                 readonly "ACCEPT_RANGES": 86
-                /**
-                 */
+                
                 readonly "FRAMES": 87
-                /**
-                 */
+                
                 readonly "RATE_CONTROL": 88
-                /**
-                 */
+                
                 readonly "LAST": 89
             }
             type RTSPHeaderField = RTSPHeaderFieldEnum[Exclude<keyof RTSPHeaderFieldEnum, "$gtype">]
@@ -2076,38 +1987,27 @@ declare module "gi://GstRtsp?version=1.0" {
             
             interface RTSPStatusCodeEnum {
                 readonly $gtype: GObject.GType<RTSPStatusCode>
-                /**
-                 */
+                
                 readonly "INVALID": 0
-                /**
-                 */
+                
                 readonly "CONTINUE": 100
-                /**
-                 */
+                
                 readonly "OK": 200
-                /**
-                 */
+                
                 readonly "CREATED": 201
-                /**
-                 */
+                
                 readonly "LOW_ON_STORAGE": 250
-                /**
-                 */
+                
                 readonly "MULTIPLE_CHOICES": 300
-                /**
-                 */
+                
                 readonly "MOVED_PERMANENTLY": 301
-                /**
-                 */
+                
                 readonly "MOVE_TEMPORARILY": 302
-                /**
-                 */
+                
                 readonly "SEE_OTHER": 303
-                /**
-                 */
+                
                 readonly "NOT_MODIFIED": 304
-                /**
-                 */
+                
                 readonly "USE_PROXY": 305
                 /**
                  * RTSP request is temporarily redirected
@@ -2119,110 +2019,75 @@ declare module "gi://GstRtsp?version=1.0" {
                  * @since 1.24
                  */
                 readonly "REDIRECT_PERMANENTLY": 308
-                /**
-                 */
+                
                 readonly "BAD_REQUEST": 400
-                /**
-                 */
+                
                 readonly "UNAUTHORIZED": 401
-                /**
-                 */
+                
                 readonly "PAYMENT_REQUIRED": 402
-                /**
-                 */
+                
                 readonly "FORBIDDEN": 403
-                /**
-                 */
+                
                 readonly "NOT_FOUND": 404
-                /**
-                 */
+                
                 readonly "METHOD_NOT_ALLOWED": 405
-                /**
-                 */
+                
                 readonly "NOT_ACCEPTABLE": 406
-                /**
-                 */
+                
                 readonly "PROXY_AUTH_REQUIRED": 407
-                /**
-                 */
+                
                 readonly "REQUEST_TIMEOUT": 408
-                /**
-                 */
+                
                 readonly "GONE": 410
-                /**
-                 */
+                
                 readonly "LENGTH_REQUIRED": 411
-                /**
-                 */
+                
                 readonly "PRECONDITION_FAILED": 412
-                /**
-                 */
+                
                 readonly "REQUEST_ENTITY_TOO_LARGE": 413
-                /**
-                 */
+                
                 readonly "REQUEST_URI_TOO_LARGE": 414
-                /**
-                 */
+                
                 readonly "UNSUPPORTED_MEDIA_TYPE": 415
-                /**
-                 */
+                
                 readonly "PARAMETER_NOT_UNDERSTOOD": 451
-                /**
-                 */
+                
                 readonly "CONFERENCE_NOT_FOUND": 452
-                /**
-                 */
+                
                 readonly "NOT_ENOUGH_BANDWIDTH": 453
-                /**
-                 */
+                
                 readonly "SESSION_NOT_FOUND": 454
-                /**
-                 */
+                
                 readonly "METHOD_NOT_VALID_IN_THIS_STATE": 455
-                /**
-                 */
+                
                 readonly "HEADER_FIELD_NOT_VALID_FOR_RESOURCE": 456
-                /**
-                 */
+                
                 readonly "INVALID_RANGE": 457
-                /**
-                 */
+                
                 readonly "PARAMETER_IS_READONLY": 458
-                /**
-                 */
+                
                 readonly "AGGREGATE_OPERATION_NOT_ALLOWED": 459
-                /**
-                 */
+                
                 readonly "ONLY_AGGREGATE_OPERATION_ALLOWED": 460
-                /**
-                 */
+                
                 readonly "UNSUPPORTED_TRANSPORT": 461
-                /**
-                 */
+                
                 readonly "DESTINATION_UNREACHABLE": 462
-                /**
-                 */
+                
                 readonly "KEY_MANAGEMENT_FAILURE": 463
-                /**
-                 */
+                
                 readonly "INTERNAL_SERVER_ERROR": 500
-                /**
-                 */
+                
                 readonly "NOT_IMPLEMENTED": 501
-                /**
-                 */
+                
                 readonly "BAD_GATEWAY": 502
-                /**
-                 */
+                
                 readonly "SERVICE_UNAVAILABLE": 503
-                /**
-                 */
+                
                 readonly "GATEWAY_TIMEOUT": 504
-                /**
-                 */
+                
                 readonly "RTSP_VERSION_NOT_SUPPORTED": 505
-                /**
-                 */
+                
                 readonly "OPTION_NOT_SUPPORTED": 551
             }
             type RTSPStatusCode = RTSPStatusCodeEnum[Exclude<keyof RTSPStatusCodeEnum, "$gtype">]

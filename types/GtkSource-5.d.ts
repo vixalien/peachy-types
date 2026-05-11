@@ -48,18 +48,17 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "description": string
                     "icon": Gio.Icon | null
                     "line": number
                     "style": AnnotationStyle
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "description": string
-                    "icon": Gio.Icon | null
-                    "line": number
-                    "style": AnnotationStyle
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -155,10 +154,13 @@ declare module "gi://GtkSource?version=5" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -255,15 +257,17 @@ declare module "gi://GtkSource?version=5" {
 
             namespace Annotations {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
-                    /**
-                     */
+                    
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -343,7 +347,7 @@ declare module "gi://GtkSource?version=5" {
                     "source-mark-updated"(mark: Gtk.TextMark): void
                 }
 
-                interface ReadableProperties extends Gtk.TextBuffer.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.TextBuffer.ReadWriteProperties {
                     "highlight-matching-brackets": boolean
                     "highlight-syntax": boolean
                     "implicit-trailing-newline": boolean
@@ -352,13 +356,10 @@ declare module "gi://GtkSource?version=5" {
                     "style-scheme": StyleScheme | null
                 }
 
-                interface WritableProperties extends Gtk.TextBuffer.WritableProperties {
-                    "highlight-matching-brackets": boolean
-                    "highlight-syntax": boolean
-                    "implicit-trailing-newline": boolean
-                    "language": Language | null
-                    "loading": boolean
-                    "style-scheme": StyleScheme | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.TextBuffer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.TextBuffer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.TextBuffer.ConstructOnlyProperties {
@@ -389,8 +390,7 @@ declare module "gi://GtkSource?version=5" {
                  */
                 get implicitTrailingNewline(): boolean
                 set implicitTrailingNewline(value: boolean)
-                /**
-                 */
+                
                 get language(): Language | null
                 set language(value: Language | null)
                 /**
@@ -507,8 +507,7 @@ declare module "gi://GtkSource?version=5" {
                  * @returns the {@link Language} associated with the buffer, or %NULL.
                  */
                 get_language(): Language | null
-                /**
-                 */
+                
                 get_loading(): boolean
                 /**
                  * Returns the text in the specified range converting any text formatting
@@ -808,21 +807,18 @@ declare module "gi://GtkSource?version=5" {
                     "show"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "buffer": Gtk.TextView
                     "page-size": number
                     "remember-info-visibility": boolean
                     "select-on-show": boolean
                     "show-icons": boolean
-                    "view": View
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "buffer": Gtk.TextView
-                    "page-size": number
-                    "remember-info-visibility": boolean
-                    "select-on-show": boolean
-                    "show-icons": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -880,16 +876,14 @@ declare module "gi://GtkSource?version=5" {
                  * @param provider a #GtkSourceCompletionProvider
                  */
                 add_provider(provider: CompletionProvider): void
-                /**
-                 */
+                
                 block_interactive(): void
                 /**
                  * Gets the connected {@link View}'s {@link Buffer}
                  * @returns A #GtkSourceBuffer
                  */
                 get_buffer(): Buffer
-                /**
-                 */
+                
                 get_page_size(): number
                 /**
                  * Gets the {@link View} that owns the {@link Completion}.
@@ -920,8 +914,7 @@ declare module "gi://GtkSource?version=5" {
                  * displayed if there are any results available.
                  */
                 show(): void
-                /**
-                 */
+                
                 unblock_interactive(): void
             }
 
@@ -994,19 +987,17 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends Gtk.Widget.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
-                    "column": CompletionColumn
+                interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "markup": string
                     "paintable": Gdk.Paintable
                     "text": string
                     "widget": Gtk.Widget | null
                 }
 
-                interface WritableProperties extends Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
-                    "markup": string
-                    "paintable": Gdk.Paintable
-                    "text": string
-                    "widget": Gtk.Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Widget.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties {
@@ -1029,8 +1020,7 @@ declare module "gi://GtkSource?version=5" {
                  */
                 get markup(): string
                 set markup(value: string)
-                /**
-                 */
+                
                 get paintable(): Gdk.Paintable
                 set paintable(value: Gdk.Paintable)
                 /**
@@ -1038,12 +1028,10 @@ declare module "gi://GtkSource?version=5" {
                  */
                 get text(): string
                 set text(value: string)
-                /**
-                 */
+                
                 get widget(): Gtk.Widget | null
                 set widget(value: Gtk.Widget | null)
-                /**
-                 */
+                
                 get_column(): CompletionColumn
                 /**
                  * Gets the child #GtkWidget, if any.
@@ -1126,15 +1114,15 @@ declare module "gi://GtkSource?version=5" {
                     "provider-model-changed"(provider: CompletionProvider, model: Gio.ListModel | null): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "busy": boolean
-                    "completion": Completion | null
                     "empty": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "busy": boolean
-                    "empty": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -1290,14 +1278,15 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, CompletionProvider.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, CompletionProvider.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, CompletionProvider.ReadWriteProperties {
                     "priority": number
                     "title": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, CompletionProvider.WritableProperties {
-                    "priority": number
-                    "title": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, CompletionProvider.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, CompletionProvider.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, CompletionProvider.ConstructOnlyProperties {
@@ -1326,8 +1315,7 @@ declare module "gi://GtkSource?version=5" {
                 readonly prototype: CompletionSnippets
 
                 new (props?: Partial<GObject.ConstructorProps<CompletionSnippets>>): CompletionSnippets
-                /**
-                 */
+                
                 "new"(): CompletionSnippets
             }
 
@@ -1347,7 +1335,7 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, CompletionProvider.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, CompletionProvider.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, CompletionProvider.ReadWriteProperties {
                     "minimum-word-size": number
                     "priority": number
                     "proposals-batch-size": number
@@ -1355,12 +1343,10 @@ declare module "gi://GtkSource?version=5" {
                     "title": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, CompletionProvider.WritableProperties {
-                    "minimum-word-size": number
-                    "priority": number
-                    "proposals-batch-size": number
-                    "scan-batch-size": number
-                    "title": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, CompletionProvider.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, CompletionProvider.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, CompletionProvider.ConstructOnlyProperties {
@@ -1437,7 +1423,7 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "compression-type": CompressionType
                     "encoding": Encoding
                     "location": Gio.File | null
@@ -1445,12 +1431,10 @@ declare module "gi://GtkSource?version=5" {
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "compression-type": CompressionType
-                    "encoding": Encoding
-                    "location": Gio.File | null
-                    "newline-type": NewlineType
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1593,14 +1577,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "buffer": Buffer
-                    "file": File
-                    "input-stream": Gio.InputStream | null
-                    "location": Gio.File | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1764,21 +1747,17 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "buffer": Buffer
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "compression-type": CompressionType
                     "encoding": Encoding
-                    "file": File
                     "flags": FileSaverFlags
-                    "location": Gio.File
                     "newline-type": NewlineType
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "compression-type": CompressionType
-                    "encoding": Encoding
-                    "flags": FileSaverFlags
-                    "newline-type": NewlineType
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1963,12 +1942,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends Gtk.Widget.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
-                    "view": View
-                    "window-type": Gtk.TextWindowType
+                interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Widget.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties {
@@ -2053,10 +2033,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2253,7 +2236,7 @@ declare module "gi://GtkSource?version=5" {
                     "query-data"(object: GObject.Object, p0: number): void
                 }
 
-                interface ReadableProperties extends Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "alignment-mode": GutterRendererAlignmentMode
                     "lines": GutterLines
                     "view": Gtk.TextView
@@ -2263,14 +2246,10 @@ declare module "gi://GtkSource?version=5" {
                     "ypad": number
                 }
 
-                interface WritableProperties extends Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
-                    "alignment-mode": GutterRendererAlignmentMode
-                    "lines": GutterLines
-                    "view": Gtk.TextView
-                    "xalign": number
-                    "xpad": number
-                    "yalign": number
-                    "ypad": number
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Widget.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties {
@@ -2469,8 +2448,7 @@ declare module "gi://GtkSource?version=5" {
                  * @param old_view the old #GtkTextView.
                  */
                 vfunc_change_view(old_view: View | null): void
-                /**
-                 */
+                
                 vfunc_end(): void
                 /**
                  * Get whether the renderer is activatable at the location provided. This is
@@ -2544,18 +2522,17 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GutterRenderer.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GutterRenderer.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends GutterRenderer.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "gicon": Gio.Icon
                     "icon-name": string
                     "paintable": Gdk.Paintable | null
                     "pixbuf": GdkPixbuf.Pixbuf
                 }
 
-                interface WritableProperties extends GutterRenderer.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
-                    "gicon": Gio.Icon
-                    "icon-name": string
-                    "paintable": Gdk.Paintable | null
-                    "pixbuf": GdkPixbuf.Pixbuf
+                interface ReadableProperties extends ReadWriteProperties, GutterRenderer.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GutterRenderer.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GutterRenderer.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties {
@@ -2567,8 +2544,7 @@ declare module "gi://GtkSource?version=5" {
                 readonly $readableProperties: GutterRendererPixbuf.ReadableProperties
                 readonly $writableProperties: GutterRendererPixbuf.WritableProperties
                 readonly $constructOnlyProperties: GutterRendererPixbuf.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gicon(): Gio.Icon
                 set gicon(value: Gio.Icon)
                 /**
@@ -2576,12 +2552,10 @@ declare module "gi://GtkSource?version=5" {
                  */
                 get iconName(): string
                 set iconName(value: string)
-                /**
-                 */
+                
                 get paintable(): Gdk.Paintable | null
                 set paintable(value: Gdk.Paintable | null)
-                /**
-                 */
+                
                 get pixbuf(): GdkPixbuf.Pixbuf
                 set pixbuf(value: GdkPixbuf.Pixbuf)
                 /**
@@ -2589,8 +2563,7 @@ declare module "gi://GtkSource?version=5" {
                  * @returns a #GIcon
                  */
                 get_gicon(): Gio.Icon
-                /**
-                 */
+                
                 get_icon_name(): string
                 /**
                  * Gets a {@link Gdk.Paintable} that was set with
@@ -2655,14 +2628,15 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GutterRenderer.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GutterRenderer.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends GutterRenderer.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "markup": string
                     "text": string
                 }
 
-                interface WritableProperties extends GutterRenderer.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
-                    "markup": string
-                    "text": string
+                interface ReadableProperties extends ReadWriteProperties, GutterRenderer.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GutterRenderer.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GutterRenderer.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties {
@@ -2737,12 +2711,14 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "hover-delay": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "hover-delay": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2801,10 +2777,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2872,10 +2851,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends Gtk.Widget.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Widget.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties {
@@ -2932,18 +2914,17 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "hidden": boolean
                     "id": string
                     "name": string
                     "section": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "hidden": boolean
-                    "id": string
-                    "name": string
-                    "section": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3073,14 +3054,15 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "language-ids": string[] | null
                     "search-path": string[]
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "language-ids": string[] | null
-                    "search-path": string[]
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3092,12 +3074,10 @@ declare module "gi://GtkSource?version=5" {
                 readonly $readableProperties: LanguageManager.ReadableProperties
                 readonly $writableProperties: LanguageManager.WritableProperties
                 readonly $constructOnlyProperties: LanguageManager.ConstructOnlyProperties
-                /**
-                 */
+                
                 get languageIds(): string[] | null
                 set languageIds(value: string[] | null)
-                /**
-                 */
+                
                 get searchPath(): string[]
                 set searchPath(value: string[])
                 /**
@@ -3252,14 +3232,15 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends View.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.AccessibleText.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures, Gtk.Scrollable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends View.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.AccessibleText.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends View.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.AccessibleText.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties, Gtk.Scrollable.ReadWriteProperties {
                     "font-desc": Pango.FontDescription
                     "view": View | null
                 }
 
-                interface WritableProperties extends View.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.AccessibleText.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Scrollable.WritableProperties {
-                    "font-desc": Pango.FontDescription
-                    "view": View | null
+                interface ReadableProperties extends ReadWriteProperties, View.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.AccessibleText.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, View.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.AccessibleText.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends View.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.AccessibleText.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties, Gtk.Scrollable.ConstructOnlyProperties {
@@ -3271,12 +3252,10 @@ declare module "gi://GtkSource?version=5" {
                 readonly $readableProperties: Map.ReadableProperties
                 readonly $writableProperties: Map.WritableProperties
                 readonly $constructOnlyProperties: Map.ConstructOnlyProperties
-                /**
-                 */
+                
                 get fontDesc(): Pango.FontDescription
                 set fontDesc(value: Pango.FontDescription)
-                /**
-                 */
+                
                 get view(): View | null
                 set view(value: View | null)
                 /**
@@ -3337,11 +3316,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends Gtk.TextMark.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.TextMark.ReadableProperties {
-                    "category": string
+                interface ReadWriteProperties extends Gtk.TextMark.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.TextMark.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.TextMark.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.TextMark.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.TextMark.ConstructOnlyProperties {
@@ -3448,18 +3429,17 @@ declare module "gi://GtkSource?version=5" {
                     "query-tooltip-text"(mark: Mark): string
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "background": Gdk.RGBA
                     "gicon": Gio.Icon
                     "icon-name": string
                     "pixbuf": GdkPixbuf.Pixbuf
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "background": Gdk.RGBA
-                    "gicon": Gio.Icon
-                    "icon-name": string
-                    "pixbuf": GdkPixbuf.Pixbuf
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3625,9 +3605,8 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "body-font-name": string
-                    "buffer": Buffer
                     "footer-font-name": string
                     "header-font-name": string
                     "highlight-syntax": boolean
@@ -3640,18 +3619,10 @@ declare module "gi://GtkSource?version=5" {
                     "wrap-mode": Gtk.WrapMode
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "body-font-name": string
-                    "footer-font-name": string
-                    "header-font-name": string
-                    "highlight-syntax": boolean
-                    "line-numbers-font-name": string
-                    "n-pages": number
-                    "print-footer": boolean
-                    "print-header": boolean
-                    "print-line-numbers": number
-                    "tab-width": number
-                    "wrap-mode": Gtk.WrapMode
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4291,11 +4262,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "buffer": Gtk.TextBuffer | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4470,20 +4443,17 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "buffer": Buffer
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "highlight": boolean
                     "match-style": Style | null
                     "occurrences-count": number
                     "regex-error": GLib.Error | null
-                    "settings": SearchSettings
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "highlight": boolean
-                    "match-style": Style | null
-                    "occurrences-count": number
-                    "regex-error": GLib.Error | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4791,7 +4761,7 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "at-word-boundaries": boolean
                     "case-sensitive": boolean
                     "regex-enabled": boolean
@@ -4800,13 +4770,10 @@ declare module "gi://GtkSource?version=5" {
                     "wrap-around": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "at-word-boundaries": boolean
-                    "case-sensitive": boolean
-                    "regex-enabled": boolean
-                    "search-text": string | null
-                    "visible-only": boolean
-                    "wrap-around": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4979,7 +4946,7 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "buffer": Gtk.TextBuffer
                     "description": string
                     "focus-position": number
@@ -4988,13 +4955,10 @@ declare module "gi://GtkSource?version=5" {
                     "trigger": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "buffer": Gtk.TextBuffer
-                    "description": string
-                    "focus-position": number
-                    "language-id": string
-                    "name": string
-                    "trigger": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5006,8 +4970,7 @@ declare module "gi://GtkSource?version=5" {
                 readonly $readableProperties: Snippet.ReadableProperties
                 readonly $writableProperties: Snippet.WritableProperties
                 readonly $constructOnlyProperties: Snippet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get buffer(): Gtk.TextBuffer
                 set buffer(value: Gtk.TextBuffer)
                 /**
@@ -5166,7 +5129,7 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                     "context": SnippetContext
                     "focus-position": number
                     "spec": string | null
@@ -5175,13 +5138,10 @@ declare module "gi://GtkSource?version=5" {
                     "tooltip-text": string
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
-                    "context": SnippetContext
-                    "focus-position": number
-                    "spec": string | null
-                    "text": string
-                    "text-set": boolean
-                    "tooltip-text": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -5193,8 +5153,7 @@ declare module "gi://GtkSource?version=5" {
                 readonly $readableProperties: SnippetChunk.ReadableProperties
                 readonly $writableProperties: SnippetChunk.WritableProperties
                 readonly $constructOnlyProperties: SnippetChunk.ConstructOnlyProperties
-                /**
-                 */
+                
                 get context(): SnippetContext
                 set context(value: SnippetContext)
                 /**
@@ -5270,8 +5229,7 @@ declare module "gi://GtkSource?version=5" {
                  * This is typically set when the user has edited a snippet chunk.
                  */
                 get_text_set(): boolean
-                /**
-                 */
+                
                 get_tooltip_text(): string
                 /**
                  * @param context
@@ -5359,10 +5317,13 @@ declare module "gi://GtkSource?version=5" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5457,12 +5418,14 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "search-path": string[]
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "search-path": string[]
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5576,14 +5539,15 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "enable-matrix": boolean
                     "matrix": GLib.Variant
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "enable-matrix": boolean
-                    "matrix": GLib.Variant
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5773,30 +5737,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "background": string
-                    "background-set": boolean
-                    "bold": boolean
-                    "bold-set": boolean
-                    "foreground": string
-                    "foreground-set": boolean
-                    "italic": boolean
-                    "italic-set": boolean
-                    "line-background": string
-                    "line-background-set": boolean
-                    "pango-underline": Pango.Underline
-                    "scale": string
-                    "scale-set": boolean
-                    "strikethrough": boolean
-                    "strikethrough-set": boolean
-                    "underline-color": string
-                    "underline-color-set": boolean
-                    "underline-set": boolean
-                    "weight": Pango.Weight
-                    "weight-set": boolean
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5969,17 +5916,16 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "description": string | null
                     "filename": string | null
-                    "id": string
                     "name": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "description": string | null
-                    "filename": string | null
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -6082,10 +6028,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends Gtk.Button.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.Actionable.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures, StyleSchemeChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Button.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, StyleSchemeChooser.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Button.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Actionable.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties, StyleSchemeChooser.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Button.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, StyleSchemeChooser.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Button.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, StyleSchemeChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Button.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, StyleSchemeChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Button.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Actionable.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties, StyleSchemeChooser.ConstructOnlyProperties {
@@ -6131,10 +6080,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends Gtk.Widget.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures, StyleSchemeChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, StyleSchemeChooser.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties, StyleSchemeChooser.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, StyleSchemeChooser.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, StyleSchemeChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, StyleSchemeChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Widget.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties, StyleSchemeChooser.ConstructOnlyProperties {
@@ -6181,14 +6133,15 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "scheme-ids": string[] | null
                     "search-path": string[]
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "scheme-ids": string[] | null
-                    "search-path": string[]
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -6200,12 +6153,10 @@ declare module "gi://GtkSource?version=5" {
                 readonly $readableProperties: StyleSchemeManager.ReadableProperties
                 readonly $writableProperties: StyleSchemeManager.WritableProperties
                 readonly $constructOnlyProperties: StyleSchemeManager.ConstructOnlyProperties
-                /**
-                 */
+                
                 get schemeIds(): string[] | null
                 set schemeIds(value: string[] | null)
-                /**
-                 */
+                
                 get searchPath(): string[]
                 set searchPath(value: string[])
                 /**
@@ -6293,18 +6244,18 @@ declare module "gi://GtkSource?version=5" {
 
             namespace StyleSchemePreview {
                 interface SignalSignatures extends Gtk.Widget.SignalSignatures, Gtk.Accessible.SignalSignatures, Gtk.Actionable.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.ConstraintTarget.SignalSignatures {
-                    /**
-                     */
+                    
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
-                    "scheme": StyleScheme
+                interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Actionable.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "selected": boolean
                 }
 
-                interface WritableProperties extends Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
-                    "selected": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Widget.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.Actionable.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties {
@@ -6317,8 +6268,7 @@ declare module "gi://GtkSource?version=5" {
                 readonly $readableProperties: StyleSchemePreview.ReadableProperties
                 readonly $writableProperties: StyleSchemePreview.WritableProperties
                 readonly $constructOnlyProperties: StyleSchemePreview.ConstructOnlyProperties
-                /**
-                 */
+                
                 get scheme(): StyleScheme
                 set scheme(value: StyleScheme)
                 /**
@@ -6332,8 +6282,7 @@ declare module "gi://GtkSource?version=5" {
                  * @returns a #GtkSourceStyleScheme
                  */
                 get_scheme(): StyleScheme
-                /**
-                 */
+                
                 get_selected(): boolean
                 /**
                  * @param selected
@@ -6374,14 +6323,15 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends Gtk.TextTag.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.TextTag.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.TextTag.ReadWriteProperties {
                     "draw-spaces": boolean
                     "draw-spaces-set": boolean
                 }
 
-                interface WritableProperties extends Gtk.TextTag.WritableProperties {
-                    "draw-spaces": boolean
-                    "draw-spaces-set": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.TextTag.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.TextTag.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.TextTag.ConstructOnlyProperties {
@@ -6530,7 +6480,7 @@ declare module "gi://GtkSource?version=5" {
                     "smart-home-end"(iter: Gtk.TextIter, count: number): void
                 }
 
-                interface ReadableProperties extends Gtk.TextView.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.AccessibleText.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.TextView.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.AccessibleText.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties, Gtk.Scrollable.ReadWriteProperties {
                     "annotations": Annotations
                     "auto-indent": boolean
                     "background-pattern": BackgroundPatternType
@@ -6551,25 +6501,10 @@ declare module "gi://GtkSource?version=5" {
                     "tab-width": number
                 }
 
-                interface WritableProperties extends Gtk.TextView.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.AccessibleText.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Scrollable.WritableProperties {
-                    "annotations": Annotations
-                    "auto-indent": boolean
-                    "background-pattern": BackgroundPatternType
-                    "completion": Completion
-                    "enable-snippets": boolean
-                    "highlight-current-line": boolean
-                    "indent-on-tab": boolean
-                    "indent-width": number
-                    "indenter": Indenter | null
-                    "insert-spaces-instead-of-tabs": boolean
-                    "right-margin-position": number
-                    "show-line-marks": boolean
-                    "show-line-numbers": boolean
-                    "show-right-margin": boolean
-                    "smart-backspace": boolean
-                    "smart-home-end": SmartHomeEndType
-                    "space-drawer": SpaceDrawer
-                    "tab-width": number
+                interface ReadableProperties extends ReadWriteProperties, Gtk.TextView.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.AccessibleText.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.TextView.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.AccessibleText.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.TextView.ConstructOnlyProperties, Gtk.Accessible.ConstructOnlyProperties, Gtk.AccessibleText.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.ConstraintTarget.ConstructOnlyProperties, Gtk.Scrollable.ConstructOnlyProperties {
@@ -7011,8 +6946,7 @@ declare module "gi://GtkSource?version=5" {
                  * @param location a #GtkTextIter or %NULL for the cursor position
                  */
                 vfunc_push_snippet(snippet: Snippet, location: Gtk.TextIter | null): void
-                /**
-                 */
+                
                 vfunc_show_completion(): void
             }
 
@@ -7157,14 +7091,15 @@ declare module "gi://GtkSource?version=5" {
                     "write"(view: View, path: string | null): void
                 }
 
-                interface ReadableProperties extends Gtk.IMContext.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.IMContext.ReadWriteProperties {
                     "command-bar-text": string
                     "command-text": string
                 }
 
-                interface WritableProperties extends Gtk.IMContext.WritableProperties {
-                    "command-bar-text": string
-                    "command-text": string
+                interface ReadableProperties extends ReadWriteProperties, Gtk.IMContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.IMContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.IMContext.ConstructOnlyProperties {
@@ -7213,8 +7148,7 @@ declare module "gi://GtkSource?version=5" {
                 readonly prototype: VimIMContext
 
                 new (props?: Partial<GObject.ConstructorProps<VimIMContext>>): VimIMContext
-                /**
-                 */
+                
                 "new"(): VimIMContext
             }
 
@@ -7301,10 +7235,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7365,10 +7302,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7639,10 +7579,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7716,10 +7659,13 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7859,12 +7805,14 @@ declare module "gi://GtkSource?version=5" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "style-scheme": StyleScheme
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "style-scheme": StyleScheme
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -8066,8 +8014,7 @@ declare module "gi://GtkSource?version=5" {
             }
             type BackgroundPatternType = BackgroundPatternTypeEnum[Exclude<keyof BackgroundPatternTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 BackgroundPatternType: BackgroundPatternTypeEnum
             }
             
@@ -8093,8 +8040,7 @@ declare module "gi://GtkSource?version=5" {
             }
             type BracketMatchType = BracketMatchTypeEnum[Exclude<keyof BracketMatchTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 BracketMatchType: BracketMatchTypeEnum
             }
             
@@ -8119,55 +8065,43 @@ declare module "gi://GtkSource?version=5" {
             }
             type ChangeCaseType = ChangeCaseTypeEnum[Exclude<keyof ChangeCaseTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ChangeCaseType: ChangeCaseTypeEnum
             }
             
             interface CompletionActivationEnum {
                 readonly $gtype: GObject.GType<CompletionActivation>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "INTERACTIVE": 1
-                /**
-                 */
+                
                 readonly "USER_REQUESTED": 2
             }
             type CompletionActivation = CompletionActivationEnum[Exclude<keyof CompletionActivationEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 CompletionActivation: CompletionActivationEnum
             }
             
             interface CompletionColumnEnum {
                 readonly $gtype: GObject.GType<CompletionColumn>
-                /**
-                 */
+                
                 readonly "ICON": 0
-                /**
-                 */
+                
                 readonly "BEFORE": 1
-                /**
-                 */
+                
                 readonly "TYPED_TEXT": 2
-                /**
-                 */
+                
                 readonly "AFTER": 3
-                /**
-                 */
+                
                 readonly "COMMENT": 4
-                /**
-                 */
+                
                 readonly "DETAILS": 5
             }
             type CompletionColumn = CompletionColumnEnum[Exclude<keyof CompletionColumnEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 CompletionColumn: CompletionColumnEnum
             }
             
@@ -8184,8 +8118,7 @@ declare module "gi://GtkSource?version=5" {
             }
             type CompressionType = CompressionTypeEnum[Exclude<keyof CompressionTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 CompressionType: CompressionTypeEnum
             }
             
@@ -8209,8 +8142,7 @@ declare module "gi://GtkSource?version=5" {
                  * conversion error and it was needed to use a fallback character.
                  */
                 readonly "CONVERSION_FALLBACK": 2
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -8237,8 +8169,7 @@ declare module "gi://GtkSource?version=5" {
                  *   modified.
                  */
                 readonly "EXTERNALLY_MODIFIED": 1
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -8291,8 +8222,7 @@ declare module "gi://GtkSource?version=5" {
             }
             type NewlineType = NewlineTypeEnum[Exclude<keyof NewlineTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 NewlineType: NewlineTypeEnum
             }
             
@@ -8322,8 +8252,7 @@ declare module "gi://GtkSource?version=5" {
             }
             type SmartHomeEndType = SmartHomeEndTypeEnum[Exclude<keyof SmartHomeEndTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 SmartHomeEndType: SmartHomeEndTypeEnum
             }
             
@@ -8342,8 +8271,7 @@ declare module "gi://GtkSource?version=5" {
             }
             type ViewGutterPosition = ViewGutterPositionEnum[Exclude<keyof ViewGutterPositionEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ViewGutterPosition: ViewGutterPositionEnum
             }
             
@@ -8402,8 +8330,7 @@ declare module "gi://GtkSource?version=5" {
             }
             type SortFlags = number
             interface $Exports {
-                /**
-                 */
+                
                 SortFlags: SortFlagsBitfield
             }
             
@@ -8542,11 +8469,9 @@ declare module "gi://GtkSource?version=5" {
                  * @returns the UTF-8 encoding.
                  */
                 encoding_get_utf8(): Encoding
-                /**
-                 */
+                
                 file_loader_error_quark(): GLib.Quark
-                /**
-                 */
+                
                 file_saver_error_quark(): GLib.Quark
                 /**
                  * Free the resources allocated by GtkSourceView. For example it unrefs the

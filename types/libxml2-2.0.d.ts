@@ -134,8 +134,7 @@ declare module "gi://libxml2?version=2.0" {
             interface $Exports {
                 __name__: "libxml2"
                 __version__: "2.0"
-                /**
-                 */
+                
                 dummy(): void
             }
         }

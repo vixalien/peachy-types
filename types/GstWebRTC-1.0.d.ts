@@ -30,21 +30,18 @@ declare module "gi://GstWebRTC?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "certificate": string
                     "client": boolean
                     "remote-certificate": string
-                    "session-id": number
                     "state": WebRTCDTLSTransportState
                     "transport": WebRTCICETransport
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "certificate": string
-                    "client": boolean
-                    "remote-certificate": string
-                    "state": WebRTCDTLSTransportState
-                    "transport": WebRTCICETransport
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -82,8 +79,7 @@ declare module "gi://GstWebRTC?version=1.0" {
                  */
                 get state(): WebRTCDTLSTransportState
                 set state(value: WebRTCDTLSTransportState)
-                /**
-                 */
+                
                 get transport(): WebRTCICETransport
                 set transport(value: WebRTCICETransport)
             }
@@ -96,8 +92,7 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 WebRTCDTLSTransport: WebRTCDTLSTransportClass
             }
             
@@ -108,11 +103,9 @@ declare module "gi://GstWebRTC?version=1.0" {
                      * Close the data channel
                      */
                     "close"(): void
-                    /**
-                     */
+                    
                     "on-buffered-amount-low"(): void
-                    /**
-                     */
+                    
                     "on-close"(): void
                     /**
                      * @param error the #GError thrown
@@ -126,8 +119,7 @@ declare module "gi://GstWebRTC?version=1.0" {
                      * @param data the data received as a string
                      */
                     "on-message-string"(data: string | null): void
-                    /**
-                     */
+                    
                     "on-open"(): void
                     /**
                      * @param data a #GBytes with the data
@@ -139,24 +131,16 @@ declare module "gi://GstWebRTC?version=1.0" {
                     "send-string"(data: string | null): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "buffered-amount": number
                     "buffered-amount-low-threshold": number
-                    "id": number
-                    "label": string
-                    "max-packet-lifetime": number
-                    "max-retransmits": number
-                    "negotiated": boolean
-                    "ordered": boolean
-                    "priority": WebRTCPriorityType
-                    "protocol": string
                     "ready-state": WebRTCDataChannelState
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "buffered-amount": number
-                    "buffered-amount-low-threshold": number
-                    "ready-state": WebRTCDataChannelState
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -221,8 +205,7 @@ declare module "gi://GstWebRTC?version=1.0" {
                  */
                 get priority(): WebRTCPriorityType
                 set priority(value: WebRTCPriorityType)
-                /**
-                 */
+                
                 get protocol(): string
                 set protocol(value: string)
                 /**
@@ -289,14 +272,15 @@ declare module "gi://GstWebRTC?version=1.0" {
                     "add-local-ip-address"(address: string): boolean
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "max-rtp-port": number
                     "min-rtp-port": number
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "max-rtp-port": number
-                    "min-rtp-port": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -588,11 +572,13 @@ declare module "gi://GstWebRTC?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
-                    "stream-id": number
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -655,20 +641,19 @@ declare module "gi://GstWebRTC?version=1.0" {
                      * @param object
                      */
                     "on-new-candidate"(object: string): void
-                    /**
-                     */
+                    
                     "on-selected-candidate-pair-change"(): void
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
-                    "component": WebRTCICEComponent
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "gathering-state": WebRTCICEGatheringState
                     "state": WebRTCICEConnectionState
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "gathering-state": WebRTCICEGatheringState
-                    "state": WebRTCICEConnectionState
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -710,11 +695,9 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @param attr
                  */
                 new_candidate(stream_id: number, component: WebRTCICEComponent, attr: string): void
-                /**
-                 */
+                
                 selected_pair_change(): void
-                /**
-                 */
+                
                 vfunc_gather_candidates(): boolean
             }
 
@@ -726,8 +709,7 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 WebRTCICETransport: WebRTCICETransportClass
             }
             
@@ -736,12 +718,14 @@ declare module "gi://GstWebRTC?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "transport": WebRTCDTLSTransport
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "transport": WebRTCDTLSTransport
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -782,14 +766,15 @@ declare module "gi://GstWebRTC?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "priority": WebRTCPriorityType
                     "transport": WebRTCDTLSTransport
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "priority": WebRTCPriorityType
-                    "transport": WebRTCDTLSTransport
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -845,23 +830,18 @@ declare module "gi://GstWebRTC?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "codec-preferences": Gst.Caps
                     "current-direction": WebRTCRTPTransceiverDirection
                     "direction": WebRTCRTPTransceiverDirection
                     "kind": WebRTCKind
                     "mid": string
-                    "mlineindex": number
-                    "receiver": WebRTCRTPReceiver
-                    "sender": WebRTCRTPSender
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "codec-preferences": Gst.Caps
-                    "current-direction": WebRTCRTPTransceiverDirection
-                    "direction": WebRTCRTPTransceiverDirection
-                    "kind": WebRTCKind
-                    "mid": string
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -923,12 +903,10 @@ declare module "gi://GstWebRTC?version=1.0" {
                  */
                 get mlineindex(): number
                 set mlineindex(value: number)
-                /**
-                 */
+                
                 get receiver(): WebRTCRTPReceiver
                 set receiver(value: WebRTCRTPReceiver)
-                /**
-                 */
+                
                 get sender(): WebRTCRTPSender
                 set sender(value: WebRTCRTPSender)
             }
@@ -952,18 +930,17 @@ declare module "gi://GstWebRTC?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "max-channels": number
                     "max-message-size": number
                     "state": WebRTCSCTPTransportState
                     "transport": WebRTCDTLSTransport
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "max-channels": number
-                    "max-message-size": number
-                    "state": WebRTCSCTPTransportState
-                    "transport": WebRTCDTLSTransport
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -990,8 +967,7 @@ declare module "gi://GstWebRTC?version=1.0" {
                  */
                 get state(): WebRTCSCTPTransportState
                 set state(value: WebRTCSCTPTransportState)
-                /**
-                 */
+                
                 get transport(): WebRTCDTLSTransport
                 set transport(value: WebRTCDTLSTransport)
             }
@@ -1004,8 +980,7 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 WebRTCSCTPTransport: WebRTCSCTPTransportClass
             }
             
@@ -1026,32 +1001,23 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
 
             interface WebRTCICECandidateStats {
-                /**
-                 */
+                
                 ipaddr: string
-                /**
-                 */
+                
                 port: number
-                /**
-                 */
+                
                 stream_id: number
-                /**
-                 */
+                
                 type: string
-                /**
-                 */
+                
                 proto: string
-                /**
-                 */
+                
                 relay_proto: string
-                /**
-                 */
+                
                 prio: number
-                /**
-                 */
+                
                 url: string
-                /**
-                 */
+                
                 gst_reserved: never[]
                 /**
                  * @since 1.22
@@ -1157,8 +1123,7 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
             type WebRTCDTLSSetup = WebRTCDTLSSetupEnum[Exclude<keyof WebRTCDTLSSetupEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 WebRTCDTLSSetup: WebRTCDTLSSetupEnum
             }
             
@@ -1187,8 +1152,7 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
             type WebRTCDTLSTransportState = WebRTCDTLSTransportStateEnum[Exclude<keyof WebRTCDTLSTransportStateEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 WebRTCDTLSTransportState: WebRTCDTLSTransportStateEnum
             }
             
@@ -1318,8 +1282,7 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
             type WebRTCICEComponent = WebRTCICEComponentEnum[Exclude<keyof WebRTCICEComponentEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 WebRTCICEComponent: WebRTCICEComponentEnum
             }
             
@@ -1398,8 +1361,7 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
             type WebRTCICERole = WebRTCICERoleEnum[Exclude<keyof WebRTCICERoleEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 WebRTCICERole: WebRTCICERoleEnum
             }
             
@@ -1536,8 +1498,7 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
             type WebRTCRTPTransceiverDirection = WebRTCRTPTransceiverDirectionEnum[Exclude<keyof WebRTCRTPTransceiverDirectionEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 WebRTCRTPTransceiverDirection: WebRTCRTPTransceiverDirectionEnum
             }
             

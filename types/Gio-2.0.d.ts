@@ -310,10 +310,13 @@ declare module "gi://Gio?version=2.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -467,10 +470,13 @@ declare module "gi://Gio?version=2.0" {
                     "launched"(info: AppInfo, platform_data: GLib.Variant): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -707,7 +713,8 @@ declare module "gi://Gio?version=2.0" {
                     "startup"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, ActionGroup.ReadableProperties, ActionMap.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, ActionGroup.ReadWriteProperties, ActionMap.ReadWriteProperties {
+                    "action-group": ActionGroup
                     "application-id": string | null
                     "flags": ApplicationFlags
                     "inactivity-timeout": number
@@ -718,16 +725,10 @@ declare module "gi://Gio?version=2.0" {
                     "version": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, ActionGroup.WritableProperties, ActionMap.WritableProperties {
-                    "action-group": ActionGroup
-                    "application-id": string | null
-                    "flags": ApplicationFlags
-                    "inactivity-timeout": number
-                    "is-busy": boolean
-                    "is-registered": boolean
-                    "is-remote": boolean
-                    "resource-base-path": string | null
-                    "version": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, ActionGroup.ReadableProperties, ActionMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, ActionGroup.WritableProperties, ActionMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, ActionGroup.ConstructOnlyProperties, ActionMap.ConstructOnlyProperties {
@@ -1778,12 +1779,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "is-remote": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "is-remote": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2270,12 +2273,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends FilterInputStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends FilterInputStream.ReadableProperties, Seekable.ReadableProperties {
+                interface ReadWriteProperties extends FilterInputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                     "buffer-size": number
                 }
 
-                interface WritableProperties extends FilterInputStream.WritableProperties, Seekable.WritableProperties {
-                    "buffer-size": number
+                interface ReadableProperties extends ReadWriteProperties, FilterInputStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, FilterInputStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends FilterInputStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -2496,14 +2501,15 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends FilterOutputStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends FilterOutputStream.ReadableProperties, Seekable.ReadableProperties {
+                interface ReadWriteProperties extends FilterOutputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                     "auto-grow": boolean
                     "buffer-size": number
                 }
 
-                interface WritableProperties extends FilterOutputStream.WritableProperties, Seekable.WritableProperties {
-                    "auto-grow": boolean
-                    "buffer-size": number
+                interface ReadableProperties extends ReadWriteProperties, FilterOutputStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, FilterOutputStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends FilterOutputStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -2596,11 +2602,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Icon.SignalSignatures, LoadableIcon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Icon.ReadableProperties, LoadableIcon.ReadableProperties {
-                    "bytes": GLib.Bytes
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Icon.ReadWriteProperties, LoadableIcon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Icon.WritableProperties, LoadableIcon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Icon.ReadableProperties, LoadableIcon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Icon.WritableProperties, LoadableIcon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Icon.ConstructOnlyProperties, LoadableIcon.ConstructOnlyProperties {
@@ -2711,10 +2719,13 @@ declare module "gi://Gio?version=2.0" {
                     "cancelled"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2933,8 +2944,7 @@ declare module "gi://Gio?version=2.0" {
                  * @returns the new #GSource.
                  */
                 source_new(): GLib.Source
-                /**
-                 */
+                
                 vfunc_cancelled(): void
             }
 
@@ -2978,14 +2988,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Converter.SignalSignatures, Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Converter.ReadableProperties, Initable.ReadableProperties {
-                    "from-charset": string
-                    "to-charset": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Converter.ReadWriteProperties, Initable.ReadWriteProperties {
                     "use-fallback": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Converter.WritableProperties, Initable.WritableProperties {
-                    "use-fallback": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Converter.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Converter.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Converter.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -3069,11 +3079,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends FilterInputStream.SignalSignatures, PollableInputStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends FilterInputStream.ReadableProperties, PollableInputStream.ReadableProperties {
-                    "converter": Converter
+                interface ReadWriteProperties extends FilterInputStream.ReadWriteProperties, PollableInputStream.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends FilterInputStream.WritableProperties, PollableInputStream.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, FilterInputStream.ReadableProperties, PollableInputStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, FilterInputStream.WritableProperties, PollableInputStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends FilterInputStream.ConstructOnlyProperties, PollableInputStream.ConstructOnlyProperties {
@@ -3129,11 +3141,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends FilterOutputStream.SignalSignatures, PollableOutputStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends FilterOutputStream.ReadableProperties, PollableOutputStream.ReadableProperties {
-                    "converter": Converter
+                interface ReadWriteProperties extends FilterOutputStream.ReadWriteProperties, PollableOutputStream.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends FilterOutputStream.WritableProperties, PollableOutputStream.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, FilterOutputStream.ReadableProperties, PollableOutputStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, FilterOutputStream.WritableProperties, PollableOutputStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends FilterOutputStream.ConstructOnlyProperties, PollableOutputStream.ConstructOnlyProperties {
@@ -3189,10 +3203,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3340,10 +3357,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, ActionGroup.SignalSignatures, RemoteActionGroup.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, ActionGroup.ReadableProperties, RemoteActionGroup.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, ActionGroup.ReadWriteProperties, RemoteActionGroup.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, ActionGroup.WritableProperties, RemoteActionGroup.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, ActionGroup.ReadableProperties, RemoteActionGroup.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, ActionGroup.WritableProperties, RemoteActionGroup.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, ActionGroup.ConstructOnlyProperties, RemoteActionGroup.ConstructOnlyProperties {
@@ -3417,10 +3437,13 @@ declare module "gi://Gio?version=2.0" {
                     "authorize-authenticated-peer"(stream: IOStream, credentials: Credentials | null): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3559,21 +3582,17 @@ declare module "gi://Gio?version=2.0" {
                     "closed"(remote_peer_vanished: boolean, error: GLib.Error | null): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, Initable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncInitable.ReadWriteProperties, Initable.ReadWriteProperties {
                     "capabilities": DBusCapabilityFlags
                     "closed": boolean
                     "exit-on-close": boolean
-                    "flags": DBusConnectionFlags
-                    "guid": string
-                    "stream": IOStream
                     "unique-name": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, AsyncInitable.WritableProperties, Initable.WritableProperties {
-                    "capabilities": DBusCapabilityFlags
-                    "closed": boolean
-                    "exit-on-close": boolean
-                    "unique-name": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncInitable.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, AsyncInitable.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -4798,12 +4817,14 @@ declare module "gi://Gio?version=2.0" {
                     "g-authorize-method"(invocation: DBusMethodInvocation): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, DBusInterface.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, DBusInterface.ReadWriteProperties {
                     "g-flags": DBusInterfaceSkeletonFlags
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, DBusInterface.WritableProperties {
-                    "g-flags": DBusInterfaceSkeletonFlags
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, DBusInterface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, DBusInterface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, DBusInterface.ConstructOnlyProperties {
@@ -4985,10 +5006,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends MenuModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MenuModel.ReadableProperties {
+                interface ReadWriteProperties extends MenuModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends MenuModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, MenuModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuModel.ConstructOnlyProperties {
@@ -5039,12 +5063,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "locked": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "locked": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5517,10 +5543,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5772,19 +5801,14 @@ declare module "gi://Gio?version=2.0" {
                     "interface-proxy-signal"(object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, DBusObjectManager.ReadableProperties, Initable.ReadableProperties {
-                    "connection": DBusConnection
-                    "flags": DBusObjectManagerClientFlags
-                    "get-proxy-type-destroy-notify": never
-                    "get-proxy-type-func": never
-                    "get-proxy-type-user-data": never
-                    "name": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncInitable.ReadWriteProperties, DBusObjectManager.ReadWriteProperties, Initable.ReadWriteProperties {
                     "name-owner": string | null
-                    "object-path": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, AsyncInitable.WritableProperties, DBusObjectManager.WritableProperties, Initable.WritableProperties {
-                    "name-owner": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, DBusObjectManager.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncInitable.WritableProperties, DBusObjectManager.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, AsyncInitable.ConstructOnlyProperties, DBusObjectManager.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -6102,13 +6126,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, DBusObjectManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, DBusObjectManager.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, DBusObjectManager.ReadWriteProperties {
                     "connection": DBusConnection | null
-                    "object-path": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, DBusObjectManager.WritableProperties {
-                    "connection": DBusConnection | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, DBusObjectManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, DBusObjectManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, DBusObjectManager.ConstructOnlyProperties {
@@ -6243,12 +6268,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, DBusObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, DBusObject.ReadableProperties {
-                    "g-connection": DBusConnection
-                    "g-object-path": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, DBusObject.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, DBusObject.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, DBusObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, DBusObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, DBusObject.ConstructOnlyProperties {
@@ -6330,12 +6356,14 @@ declare module "gi://Gio?version=2.0" {
                     "authorize-method"(interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, DBusObject.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, DBusObject.ReadWriteProperties {
                     "g-object-path": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, DBusObject.WritableProperties {
-                    "g-object-path": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, DBusObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, DBusObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, DBusObject.ConstructOnlyProperties {
@@ -6463,21 +6491,16 @@ declare module "gi://Gio?version=2.0" {
                     "g-signal::{}"(sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, DBusInterface.ReadableProperties, Initable.ReadableProperties {
-                    "g-connection": DBusConnection
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncInitable.ReadWriteProperties, DBusInterface.ReadWriteProperties, Initable.ReadWriteProperties {
                     "g-default-timeout": number
-                    "g-flags": DBusProxyFlags
                     "g-interface-info": DBusInterfaceInfo | null
-                    "g-interface-name": string
-                    "g-name": string | null
                     "g-name-owner": string | null
-                    "g-object-path": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, AsyncInitable.WritableProperties, DBusInterface.WritableProperties, Initable.WritableProperties {
-                    "g-default-timeout": number
-                    "g-interface-info": DBusInterfaceInfo | null
-                    "g-name-owner": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, DBusInterface.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncInitable.WritableProperties, DBusInterface.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, AsyncInitable.ConstructOnlyProperties, DBusInterface.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -7098,18 +7121,15 @@ declare module "gi://Gio?version=2.0" {
                     "new-connection"(connection: DBusConnection): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Initable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Initable.ReadWriteProperties {
                     "active": boolean
-                    "address": string
-                    "authentication-observer": DBusAuthObserver
                     "client-address": string
-                    "flags": DBusServerFlags
-                    "guid": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Initable.WritableProperties {
-                    "active": boolean
-                    "client-address": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -7278,14 +7298,15 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends BufferedInputStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BufferedInputStream.ReadableProperties, Seekable.ReadableProperties {
+                interface ReadWriteProperties extends BufferedInputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                     "byte-order": DataStreamByteOrder
                     "newline-type": DataStreamNewlineType
                 }
 
-                interface WritableProperties extends BufferedInputStream.WritableProperties, Seekable.WritableProperties {
-                    "byte-order": DataStreamByteOrder
-                    "newline-type": DataStreamNewlineType
+                interface ReadableProperties extends ReadWriteProperties, BufferedInputStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BufferedInputStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BufferedInputStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -7618,12 +7639,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends FilterOutputStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends FilterOutputStream.ReadableProperties, Seekable.ReadableProperties {
+                interface ReadWriteProperties extends FilterOutputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                     "byte-order": DataStreamByteOrder
                 }
 
-                interface WritableProperties extends FilterOutputStream.WritableProperties, Seekable.WritableProperties {
-                    "byte-order": DataStreamByteOrder
+                interface ReadableProperties extends ReadWriteProperties, FilterOutputStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, FilterOutputStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends FilterOutputStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -7767,11 +7790,13 @@ declare module "gi://Gio?version=2.0" {
                     "authorize"(invocation: DBusMethodInvocation): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, DebugController.ReadableProperties, Initable.ReadableProperties {
-                    "connection": DBusConnection
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, DebugController.ReadWriteProperties, Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, DebugController.WritableProperties, Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, DebugController.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, DebugController.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, DebugController.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -7965,12 +7990,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Icon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Icon.ReadableProperties {
-                    "icon": GObject.Object
-                    "origin": EmblemOrigin
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Icon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Icon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Icon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Icon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Icon.ConstructOnlyProperties {
@@ -8050,11 +8076,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Icon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Icon.ReadableProperties {
-                    "gicon": Icon
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Icon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Icon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Icon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Icon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Icon.ConstructOnlyProperties {
@@ -8130,10 +8158,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -8544,10 +8575,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends IOStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends IOStream.ReadableProperties, Seekable.ReadableProperties {
+                interface ReadWriteProperties extends IOStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends IOStream.WritableProperties, Seekable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, IOStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, IOStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends IOStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -8615,11 +8649,9 @@ declare module "gi://Gio?version=2.0" {
                  * @returns A #GFileInfo for the finished query.
                  */
                 query_info_finish(result: AsyncResult): FileInfo
-                /**
-                 */
+                
                 vfunc_can_seek(): boolean
-                /**
-                 */
+                
                 vfunc_can_truncate(): boolean
                 /**
                  * Gets the entity tag for the file when it has been written.
@@ -8684,8 +8716,7 @@ declare module "gi://Gio?version=2.0" {
                  * @param cancellable
                  */
                 vfunc_seek(offset: number, type: GLib.SeekType, cancellable: Cancellable | null): boolean
-                /**
-                 */
+                
                 vfunc_tell(): number
                 /**
                  * @throws {GLib.Error}
@@ -8733,11 +8764,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Icon.SignalSignatures, LoadableIcon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Icon.ReadableProperties, LoadableIcon.ReadableProperties {
-                    "file": File
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Icon.ReadWriteProperties, LoadableIcon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Icon.WritableProperties, LoadableIcon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Icon.ReadableProperties, LoadableIcon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Icon.WritableProperties, LoadableIcon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Icon.ConstructOnlyProperties, LoadableIcon.ConstructOnlyProperties {
@@ -8790,10 +8823,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -9434,10 +9470,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends InputStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends InputStream.ReadableProperties, Seekable.ReadableProperties {
+                interface ReadWriteProperties extends InputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends InputStream.WritableProperties, Seekable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, InputStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, InputStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends InputStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -9486,8 +9525,7 @@ declare module "gi://Gio?version=2.0" {
                  * @returns #GFileInfo.
                  */
                 query_info_finish(result: AsyncResult): FileInfo
-                /**
-                 */
+                
                 vfunc_can_seek(): boolean
                 /**
                  * Queries a file input stream the given `attributes`. This function blocks
@@ -9533,8 +9571,7 @@ declare module "gi://Gio?version=2.0" {
                  * @param cancellable
                  */
                 vfunc_seek(offset: number, type: GLib.SeekType, cancellable: Cancellable | null): boolean
-                /**
-                 */
+                
                 vfunc_tell(): number
             }
 
@@ -9599,14 +9636,15 @@ declare module "gi://Gio?version=2.0" {
                     "changed"(file: File, other_file: File | null, event_type: FileMonitorEvent): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "cancelled": boolean
                     "rate-limit": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "cancelled": boolean
-                    "rate-limit": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -9703,10 +9741,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends OutputStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends OutputStream.ReadableProperties, Seekable.ReadableProperties {
+                interface ReadWriteProperties extends OutputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends OutputStream.WritableProperties, Seekable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, OutputStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, OutputStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends OutputStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -9770,11 +9811,9 @@ declare module "gi://Gio?version=2.0" {
                  * @returns A #GFileInfo for the finished query.
                  */
                 query_info_finish(result: AsyncResult): FileInfo
-                /**
-                 */
+                
                 vfunc_can_seek(): boolean
-                /**
-                 */
+                
                 vfunc_can_truncate(): boolean
                 /**
                  * Gets the entity tag for the file when it has been written.
@@ -9835,8 +9874,7 @@ declare module "gi://Gio?version=2.0" {
                  * @param cancellable
                  */
                 vfunc_seek(offset: number, type: GLib.SeekType, cancellable: Cancellable | null): boolean
-                /**
-                 */
+                
                 vfunc_tell(): number
                 /**
                  * @throws {GLib.Error}
@@ -9882,10 +9920,13 @@ declare module "gi://Gio?version=2.0" {
                     "got-completion-data"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -9921,8 +9962,7 @@ declare module "gi://Gio?version=2.0" {
                  * @param dirs_only a #gboolean.
                  */
                 set_dirs_only(dirs_only: boolean): void
-                /**
-                 */
+                
                 vfunc_got_completion_data(): void
             }
 
@@ -9952,13 +9992,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends InputStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends InputStream.ReadableProperties {
-                    "base-stream": InputStream
+                interface ReadWriteProperties extends InputStream.ReadWriteProperties {
                     "close-base-stream": boolean
                 }
 
-                interface WritableProperties extends InputStream.WritableProperties {
-                    "close-base-stream": boolean
+                interface ReadableProperties extends ReadWriteProperties, InputStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, InputStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends InputStream.ConstructOnlyProperties {
@@ -10022,12 +10063,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends OutputStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends OutputStream.ReadableProperties {
-                    "base-stream": OutputStream
-                    "close-base-stream": boolean
+                interface ReadWriteProperties extends OutputStream.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends OutputStream.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, OutputStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, OutputStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends OutputStream.ConstructOnlyProperties {
@@ -10092,10 +10134,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.TypeModule.SignalSignatures, GObject.TypePlugin.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.TypeModule.ReadableProperties, GObject.TypePlugin.ReadableProperties {
+                interface ReadWriteProperties extends GObject.TypeModule.ReadWriteProperties, GObject.TypePlugin.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.TypeModule.WritableProperties, GObject.TypePlugin.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.TypeModule.ReadableProperties, GObject.TypePlugin.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.TypeModule.WritableProperties, GObject.TypePlugin.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.TypeModule.ConstructOnlyProperties, GObject.TypePlugin.ConstructOnlyProperties {
@@ -10173,16 +10218,16 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "closed": boolean
                     "input-stream": InputStream
                     "output-stream": OutputStream
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "closed": boolean
-                    "input-stream": InputStream
-                    "output-stream": OutputStream
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -10455,10 +10500,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketControlMessage.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketControlMessage.ReadableProperties {
+                interface ReadWriteProperties extends SocketControlMessage.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends SocketControlMessage.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, SocketControlMessage.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketControlMessage.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketControlMessage.ConstructOnlyProperties {
@@ -10525,10 +10573,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketControlMessage.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketControlMessage.ReadableProperties {
+                interface ReadWriteProperties extends SocketControlMessage.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends SocketControlMessage.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, SocketControlMessage.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketControlMessage.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketControlMessage.ConstructOnlyProperties {
@@ -10595,10 +10646,7 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "bytes": never
-                    "family": SocketFamily
-                    "flowinfo": number
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "is-any": boolean
                     "is-link-local": boolean
                     "is-loopback": boolean
@@ -10609,20 +10657,12 @@ declare module "gi://Gio?version=2.0" {
                     "is-mc-site-local": boolean
                     "is-multicast": boolean
                     "is-site-local": boolean
-                    "scope-id": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "is-any": boolean
-                    "is-link-local": boolean
-                    "is-loopback": boolean
-                    "is-mc-global": boolean
-                    "is-mc-link-local": boolean
-                    "is-mc-node-local": boolean
-                    "is-mc-org-local": boolean
-                    "is-mc-site-local": boolean
-                    "is-multicast": boolean
-                    "is-site-local": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -10936,16 +10976,16 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Initable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Initable.ReadWriteProperties {
                     "address": InetAddress
                     "family": SocketFamily
                     "length": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Initable.WritableProperties {
-                    "address": InetAddress
-                    "family": SocketFamily
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -11061,14 +11101,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketAddress.SignalSignatures, SocketConnectable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketAddress.ReadableProperties, SocketConnectable.ReadableProperties {
-                    "address": InetAddress
-                    "flowinfo": number
-                    "port": number
-                    "scope-id": number
+                interface ReadWriteProperties extends SocketAddress.ReadWriteProperties, SocketConnectable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends SocketAddress.WritableProperties, SocketConnectable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, SocketAddress.ReadableProperties, SocketConnectable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketAddress.WritableProperties, SocketConnectable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketAddress.ConstructOnlyProperties, SocketConnectable.ConstructOnlyProperties {
@@ -11190,10 +11229,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -11690,13 +11732,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, ListModel.ReadableProperties {
-                    "item-type": GObject.GType
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, ListModel.ReadWriteProperties {
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, ListModel.WritableProperties {
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, ListModel.ConstructOnlyProperties {
@@ -11877,10 +11920,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends InputStream.SignalSignatures, PollableInputStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends InputStream.ReadableProperties, PollableInputStream.ReadableProperties, Seekable.ReadableProperties {
+                interface ReadWriteProperties extends InputStream.ReadWriteProperties, PollableInputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends InputStream.WritableProperties, PollableInputStream.WritableProperties, Seekable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, InputStream.ReadableProperties, PollableInputStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, InputStream.WritableProperties, PollableInputStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends InputStream.ConstructOnlyProperties, PollableInputStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -11948,14 +11994,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends OutputStream.SignalSignatures, PollableOutputStream.SignalSignatures, Seekable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends OutputStream.ReadableProperties, PollableOutputStream.ReadableProperties, Seekable.ReadableProperties {
-                    "data": never | null
+                interface ReadWriteProperties extends OutputStream.ReadWriteProperties, PollableOutputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
                     "data-size": number
-                    "size": number
                 }
 
-                interface WritableProperties extends OutputStream.WritableProperties, PollableOutputStream.WritableProperties, Seekable.WritableProperties {
-                    "data-size": number
+                interface ReadableProperties extends ReadWriteProperties, OutputStream.ReadableProperties, PollableOutputStream.ReadableProperties, Seekable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, OutputStream.WritableProperties, PollableOutputStream.WritableProperties, Seekable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends OutputStream.ConstructOnlyProperties, PollableOutputStream.ConstructOnlyProperties, Seekable.ConstructOnlyProperties {
@@ -12072,10 +12118,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends MenuModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MenuModel.ReadableProperties {
+                interface ReadWriteProperties extends MenuModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends MenuModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, MenuModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MenuModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MenuModel.ConstructOnlyProperties {
@@ -12279,10 +12328,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -12388,10 +12440,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -12699,10 +12754,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -12830,10 +12888,13 @@ declare module "gi://Gio?version=2.0" {
                     "items-changed"(position: number, removed: number, added: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -13231,7 +13292,7 @@ declare module "gi://Gio?version=2.0" {
                     "show-unmount-progress"(message: string, time_left: number, bytes_left: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "anonymous": boolean
                     "choice": number
                     "domain": string | null
@@ -13243,16 +13304,10 @@ declare module "gi://Gio?version=2.0" {
                     "username": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "anonymous": boolean
-                    "choice": number
-                    "domain": string | null
-                    "is-tcrypt-hidden-volume": boolean
-                    "is-tcrypt-system-volume": boolean
-                    "password": string | null
-                    "password-save": PasswordSave
-                    "pim": number
-                    "username": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -13434,8 +13489,7 @@ declare module "gi://Gio?version=2.0" {
                  * @param username input username.
                  */
                 set_username(username: string | null): void
-                /**
-                 */
+                
                 vfunc_aborted(): void
                 /**
                  * @param message
@@ -13516,10 +13570,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketAddress.SignalSignatures, SocketConnectable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketAddress.ReadableProperties, SocketConnectable.ReadableProperties {
+                interface ReadWriteProperties extends SocketAddress.ReadWriteProperties, SocketConnectable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends SocketAddress.WritableProperties, SocketConnectable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, SocketAddress.ReadableProperties, SocketConnectable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketAddress.WritableProperties, SocketConnectable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketAddress.ConstructOnlyProperties, SocketConnectable.ConstructOnlyProperties {
@@ -13564,10 +13621,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends VolumeMonitor.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VolumeMonitor.ReadableProperties {
+                interface ReadWriteProperties extends VolumeMonitor.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends VolumeMonitor.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, VolumeMonitor.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VolumeMonitor.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VolumeMonitor.ConstructOnlyProperties {
@@ -13589,8 +13649,7 @@ declare module "gi://Gio?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 NativeVolumeMonitor: NativeVolumeMonitorClass
             }
             
@@ -13599,13 +13658,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SocketConnectable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SocketConnectable.ReadableProperties {
-                    "hostname": string
-                    "port": number
-                    "scheme": string | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SocketConnectable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SocketConnectable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SocketConnectable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SocketConnectable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SocketConnectable.ConstructOnlyProperties {
@@ -13766,15 +13825,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SocketConnectable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SocketConnectable.ReadableProperties {
-                    "domain": string
-                    "protocol": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SocketConnectable.ReadWriteProperties {
                     "scheme": string
-                    "service": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SocketConnectable.WritableProperties {
-                    "scheme": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SocketConnectable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SocketConnectable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SocketConnectable.ConstructOnlyProperties {
@@ -13890,10 +13948,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14085,10 +14146,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14874,16 +14938,16 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "allowed": boolean
                     "can-acquire": boolean
                     "can-release": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "allowed": boolean
-                    "can-acquire": boolean
-                    "can-release": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15163,20 +15227,17 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Action.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Action.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Action.ReadWriteProperties {
                     "enabled": boolean
-                    "invert-boolean": boolean
-                    "name": string
                     "parameter-type": GLib.VariantType
                     "state": GLib.Variant
                     "state-type": GLib.VariantType
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Action.WritableProperties {
-                    "enabled": boolean
-                    "parameter-type": GLib.VariantType
-                    "state": GLib.Variant
-                    "state-type": GLib.VariantType
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Action.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Action.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Action.ConstructOnlyProperties {
@@ -15343,17 +15404,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends InetSocketAddress.SignalSignatures, SocketConnectable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends InetSocketAddress.ReadableProperties, SocketConnectable.ReadableProperties {
-                    "destination-hostname": string
-                    "destination-port": number
-                    "destination-protocol": string
-                    "password": string | null
-                    "protocol": string
-                    "uri": string | null
-                    "username": string | null
+                interface ReadWriteProperties extends InetSocketAddress.ReadWriteProperties, SocketConnectable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends InetSocketAddress.WritableProperties, SocketConnectable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, InetSocketAddress.ReadableProperties, SocketConnectable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, InetSocketAddress.WritableProperties, SocketConnectable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends InetSocketAddress.ConstructOnlyProperties, SocketConnectable.ConstructOnlyProperties {
@@ -15510,15 +15567,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketAddressEnumerator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketAddressEnumerator.ReadableProperties {
-                    "connectable": SocketConnectable
-                    "default-port": number
+                interface ReadWriteProperties extends SocketAddressEnumerator.ReadWriteProperties {
                     "proxy-resolver": ProxyResolver
-                    "uri": string
                 }
 
-                interface WritableProperties extends SocketAddressEnumerator.WritableProperties {
-                    "proxy-resolver": ProxyResolver
+                interface ReadableProperties extends ReadWriteProperties, SocketAddressEnumerator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketAddressEnumerator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketAddressEnumerator.ConstructOnlyProperties {
@@ -15593,12 +15649,14 @@ declare module "gi://Gio?version=2.0" {
                     "reload"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "timeout": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "timeout": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -16084,8 +16142,7 @@ declare module "gi://Gio?version=2.0" {
                  * @returns a non-empty #GList of #GSrvTarget, or %NULL on error. See g_resolver_lookup_service() for more details.
                  */
                 vfunc_lookup_service_finish(result: AsyncResult): SrvTarget[]
-                /**
-                 */
+                
                 vfunc_reload(): void
             }
 
@@ -16206,19 +16263,15 @@ declare module "gi://Gio?version=2.0" {
                     "writable-changed::{}"(key: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "backend": SettingsBackend
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "delay-apply": boolean
                     "has-unapplied": boolean
-                    "path": string
-                    "schema": string
-                    "schema-id": string
-                    "settings-schema": SettingsSchema
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "delay-apply": boolean
-                    "has-unapplied": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -17430,10 +17483,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -17729,18 +17785,16 @@ declare module "gi://Gio?version=2.0" {
                     "change-state"(value: GLib.Variant | null): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Action.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Action.ReadWriteProperties {
                     "enabled": boolean
-                    "name": string
-                    "parameter-type": GLib.VariantType
                     "state": GLib.Variant
                     "state-type": GLib.VariantType
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Action.WritableProperties {
-                    "enabled": boolean
-                    "state": GLib.Variant
-                    "state-type": GLib.VariantType
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Action.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Action.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Action.ConstructOnlyProperties {
@@ -17876,10 +17930,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, ActionGroup.SignalSignatures, ActionMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, ActionGroup.ReadableProperties, ActionMap.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, ActionGroup.ReadWriteProperties, ActionMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, ActionGroup.WritableProperties, ActionMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, ActionGroup.ReadableProperties, ActionMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, ActionGroup.WritableProperties, ActionMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, ActionGroup.ConstructOnlyProperties, ActionMap.ConstructOnlyProperties {
@@ -17961,10 +18018,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, AsyncResult.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, AsyncResult.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncResult.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, AsyncResult.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncResult.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncResult.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, AsyncResult.ConstructOnlyProperties {
@@ -18306,12 +18366,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends IOStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends IOStream.ReadableProperties {
-                    "input-stream": InputStream
-                    "output-stream": OutputStream
+                interface ReadWriteProperties extends IOStream.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends IOStream.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, IOStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, IOStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends IOStream.ConstructOnlyProperties {
@@ -18377,10 +18438,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends Permission.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Permission.ReadableProperties {
+                interface ReadWriteProperties extends Permission.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Permission.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Permission.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Permission.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Permission.ConstructOnlyProperties {
@@ -18426,14 +18490,15 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, ProxyResolver.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, ProxyResolver.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, ProxyResolver.ReadWriteProperties {
                     "default-proxy": string
                     "ignore-hosts": string[]
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, ProxyResolver.WritableProperties {
-                    "default-proxy": string
-                    "ignore-hosts": string[]
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, ProxyResolver.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, ProxyResolver.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, ProxyResolver.ConstructOnlyProperties {
@@ -18570,34 +18635,23 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, DatagramBased.SignalSignatures, Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, DatagramBased.ReadableProperties, Initable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, DatagramBased.ReadWriteProperties, Initable.ReadWriteProperties {
                     "blocking": boolean
                     "broadcast": boolean
-                    "family": SocketFamily
-                    "fd": number
                     "keepalive": boolean
                     "listen-backlog": number
                     "local-address": SocketAddress
                     "multicast-loopback": boolean
                     "multicast-ttl": number
-                    "protocol": SocketProtocol
                     "remote-address": SocketAddress
                     "timeout": number
                     "ttl": number
-                    "type": SocketType
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, DatagramBased.WritableProperties, Initable.WritableProperties {
-                    "blocking": boolean
-                    "broadcast": boolean
-                    "keepalive": boolean
-                    "listen-backlog": number
-                    "local-address": SocketAddress
-                    "multicast-loopback": boolean
-                    "multicast-ttl": number
-                    "remote-address": SocketAddress
-                    "timeout": number
-                    "ttl": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, DatagramBased.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, DatagramBased.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, DatagramBased.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -19849,12 +19903,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SocketConnectable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, SocketConnectable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SocketConnectable.ReadWriteProperties {
                     "family": SocketFamily
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, SocketConnectable.WritableProperties {
-                    "family": SocketFamily
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SocketConnectable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SocketConnectable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, SocketConnectable.ConstructOnlyProperties {
@@ -19962,10 +20018,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -20146,7 +20205,7 @@ declare module "gi://Gio?version=2.0" {
                     "event"(event: SocketClientEvent, connectable: SocketConnectable, connection: IOStream | null): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "enable-proxy": boolean
                     "family": SocketFamily
                     "local-address": SocketAddress | null
@@ -20158,16 +20217,10 @@ declare module "gi://Gio?version=2.0" {
                     "type": SocketType
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "enable-proxy": boolean
-                    "family": SocketFamily
-                    "local-address": SocketAddress | null
-                    "protocol": SocketProtocol
-                    "proxy-resolver": ProxyResolver
-                    "timeout": number
-                    "tls": boolean
-                    "tls-validation-flags": TlsCertificateFlags
-                    "type": SocketType
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -20719,11 +20772,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends IOStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends IOStream.ReadableProperties {
-                    "socket": Socket
+                interface ReadWriteProperties extends IOStream.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends IOStream.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, IOStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, IOStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends IOStream.ConstructOnlyProperties {
@@ -20873,10 +20928,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -21015,12 +21073,14 @@ declare module "gi://Gio?version=2.0" {
                     "event"(event: SocketListenerEvent, socket: Socket): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "listen-backlog": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "listen-backlog": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -21308,12 +21368,14 @@ declare module "gi://Gio?version=2.0" {
                     "incoming"(connection: SocketConnection, source_object: GObject.Object | null): boolean
                 }
 
-                interface ReadableProperties extends SocketListener.ReadableProperties {
+                interface ReadWriteProperties extends SocketListener.ReadWriteProperties {
                     "active": boolean
                 }
 
-                interface WritableProperties extends SocketListener.WritableProperties {
-                    "active": boolean
+                interface ReadableProperties extends ReadWriteProperties, SocketListener.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketListener.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketListener.ConstructOnlyProperties {
@@ -21436,10 +21498,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Initable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Initable.ConstructOnlyProperties {
@@ -21848,10 +21913,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -22149,12 +22217,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, AsyncResult.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, AsyncResult.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncResult.ReadWriteProperties {
                     "completed": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, AsyncResult.WritableProperties {
-                    "completed": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncResult.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncResult.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, AsyncResult.ConstructOnlyProperties {
@@ -23165,12 +23235,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketConnection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketConnection.ReadableProperties {
+                interface ReadWriteProperties extends SocketConnection.ReadWriteProperties {
                     "graceful-disconnect": boolean
                 }
 
-                interface WritableProperties extends SocketConnection.WritableProperties {
-                    "graceful-disconnect": boolean
+                interface ReadableProperties extends ReadWriteProperties, SocketConnection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketConnection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketConnection.ConstructOnlyProperties {
@@ -23233,11 +23305,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends TcpConnection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends TcpConnection.ReadableProperties {
-                    "base-io-stream": IOStream
+                interface ReadWriteProperties extends TcpConnection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends TcpConnection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, TcpConnection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TcpConnection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TcpConnection.ConstructOnlyProperties {
@@ -23296,11 +23370,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "flags": TestDBusFlags
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -23481,12 +23557,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Icon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Icon.ReadableProperties {
-                    "names": string[]
-                    "use-default-fallbacks": boolean
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Icon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Icon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Icon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Icon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Icon.ConstructOnlyProperties {
@@ -23614,10 +23691,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends Resolver.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Resolver.ReadableProperties {
+                interface ReadWriteProperties extends Resolver.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Resolver.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Resolver.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Resolver.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Resolver.ConstructOnlyProperties {
@@ -23662,11 +23742,13 @@ declare module "gi://Gio?version=2.0" {
                     "run"(connection: SocketConnection, source_object: GObject.Object | null): boolean
                 }
 
-                interface ReadableProperties extends SocketService.ReadableProperties {
-                    "max-threads": number
+                interface ReadWriteProperties extends SocketService.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends SocketService.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, SocketService.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketService.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketService.ConstructOnlyProperties {
@@ -23736,29 +23818,19 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "certificate": Uint8Array
-                    "certificate-pem": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "dns-names": never[] | null
                     "ip-addresses": never[] | null
-                    "issuer": TlsCertificate | null
                     "issuer-name": string | null
                     "not-valid-after": GLib.DateTime | null
                     "not-valid-before": GLib.DateTime | null
-                    "pkcs11-uri": string
-                    "private-key": Uint8Array
-                    "private-key-pem": string
-                    "private-key-pkcs11-uri": string
                     "subject-name": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "dns-names": never[] | null
-                    "ip-addresses": never[] | null
-                    "issuer-name": string | null
-                    "not-valid-after": GLib.DateTime | null
-                    "not-valid-before": GLib.DateTime | null
-                    "subject-name": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -24292,9 +24364,8 @@ declare module "gi://Gio?version=2.0" {
                     "accept-certificate"(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
                 }
 
-                interface ReadableProperties extends IOStream.ReadableProperties {
+                interface ReadWriteProperties extends IOStream.ReadWriteProperties {
                     "advertised-protocols": string[]
-                    "base-io-stream": IOStream
                     "certificate": TlsCertificate | null
                     "ciphersuite-name": string | null
                     "database": TlsDatabase | null
@@ -24308,19 +24379,10 @@ declare module "gi://Gio?version=2.0" {
                     "use-system-certdb": boolean
                 }
 
-                interface WritableProperties extends IOStream.WritableProperties {
-                    "advertised-protocols": string[]
-                    "certificate": TlsCertificate | null
-                    "ciphersuite-name": string | null
-                    "database": TlsDatabase | null
-                    "interaction": TlsInteraction | null
-                    "negotiated-protocol": string | null
-                    "peer-certificate": TlsCertificate | null
-                    "peer-certificate-errors": TlsCertificateFlags
-                    "protocol-version": TlsProtocolVersion
-                    "rehandshake-mode": TlsRehandshakeMode
-                    "require-close-notify": boolean
-                    "use-system-certdb": boolean
+                interface ReadableProperties extends ReadWriteProperties, IOStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, IOStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends IOStream.ConstructOnlyProperties {
@@ -24876,10 +24938,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -25423,10 +25488,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -25769,16 +25837,16 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "description": string
                     "flags": TlsPasswordFlags
                     "warning": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "description": string
-                    "flags": TlsPasswordFlags
-                    "warning": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -25948,10 +26016,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketConnection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketConnection.ReadableProperties {
+                interface ReadWriteProperties extends SocketConnection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends SocketConnection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, SocketConnection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketConnection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketConnection.ConstructOnlyProperties {
@@ -26120,11 +26191,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketControlMessage.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketControlMessage.ReadableProperties {
-                    "credentials": Credentials
+                interface ReadWriteProperties extends SocketControlMessage.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends SocketControlMessage.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, SocketControlMessage.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketControlMessage.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketControlMessage.ConstructOnlyProperties {
@@ -26208,10 +26281,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -26363,14 +26439,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends SocketAddress.SignalSignatures, SocketConnectable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends SocketAddress.ReadableProperties, SocketConnectable.ReadableProperties {
-                    "abstract": boolean
-                    "address-type": UnixSocketAddressType
-                    "path": string
-                    "path-as-array": Uint8Array
+                interface ReadWriteProperties extends SocketAddress.ReadWriteProperties, SocketConnectable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends SocketAddress.WritableProperties, SocketConnectable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, SocketAddress.ReadableProperties, SocketConnectable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, SocketAddress.WritableProperties, SocketConnectable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends SocketAddress.ConstructOnlyProperties, SocketConnectable.ConstructOnlyProperties {
@@ -26546,10 +26621,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -26792,10 +26870,13 @@ declare module "gi://Gio?version=2.0" {
                     "volume-removed"(volume: Volume): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -26997,16 +27078,15 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Converter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Converter.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Converter.ReadWriteProperties {
                     "file-info": FileInfo | null
-                    "format": ZlibCompressorFormat
-                    "level": number
                     "os": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Converter.WritableProperties {
-                    "file-info": FileInfo | null
-                    "os": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Converter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Converter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Converter.ConstructOnlyProperties {
@@ -27128,13 +27208,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Converter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Converter.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Converter.ReadWriteProperties {
                     "file-info": FileInfo | null
-                    "format": ZlibCompressorFormat
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Converter.WritableProperties {
-                    "file-info": FileInfo | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Converter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Converter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Converter.ConstructOnlyProperties {
@@ -27200,7 +27281,7 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "enabled": boolean
                     "name": string
                     "parameter-type": GLib.VariantType | null
@@ -27208,12 +27289,10 @@ declare module "gi://Gio?version=2.0" {
                     "state-type": GLib.VariantType | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "enabled": boolean
-                    "name": string
-                    "parameter-type": GLib.VariantType | null
-                    "state": GLib.Variant | null
-                    "state-type": GLib.VariantType | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -27632,10 +27711,13 @@ declare module "gi://Gio?version=2.0" {
                     "action-state-changed::{}"(action_name: string, value: GLib.Variant): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -28169,10 +28251,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -28301,10 +28386,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -29022,10 +29110,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -29291,10 +29382,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -29465,10 +29559,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -29716,10 +29813,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -29823,10 +29923,13 @@ declare module "gi://Gio?version=2.0" {
                     "interface-removed"(interface: DBusInterface): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -29946,10 +30049,13 @@ declare module "gi://Gio?version=2.0" {
                     "object-removed"(object: DBusObject): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -30068,10 +30174,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -30533,12 +30642,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Initable.ReadableProperties {
+                interface ReadWriteProperties extends Initable.ReadWriteProperties {
                     "debug-enabled": boolean
                 }
 
-                interface WritableProperties extends Initable.WritableProperties {
-                    "debug-enabled": boolean
+                interface ReadableProperties extends ReadWriteProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Initable.ConstructOnlyProperties {
@@ -30631,10 +30742,13 @@ declare module "gi://Gio?version=2.0" {
                     "stop-button"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -31124,16 +31238,16 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends DatagramBased.SignalSignatures, DtlsConnection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DatagramBased.ReadableProperties, DtlsConnection.ReadableProperties {
+                interface ReadWriteProperties extends DatagramBased.ReadWriteProperties, DtlsConnection.ReadWriteProperties {
                     "accepted-cas": never[]
                     "server-identity": SocketConnectable
                     "validation-flags": TlsCertificateFlags
                 }
 
-                interface WritableProperties extends DatagramBased.WritableProperties, DtlsConnection.WritableProperties {
-                    "accepted-cas": never[]
-                    "server-identity": SocketConnectable
-                    "validation-flags": TlsCertificateFlags
+                interface ReadableProperties extends ReadWriteProperties, DatagramBased.ReadableProperties, DtlsConnection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DatagramBased.WritableProperties, DtlsConnection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DatagramBased.ConstructOnlyProperties, DtlsConnection.ConstructOnlyProperties {
@@ -31334,9 +31448,8 @@ declare module "gi://Gio?version=2.0" {
                     "accept-certificate"(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
                 }
 
-                interface ReadableProperties extends DatagramBased.ReadableProperties {
+                interface ReadWriteProperties extends DatagramBased.ReadWriteProperties {
                     "advertised-protocols": string[]
-                    "base-socket": DatagramBased
                     "certificate": TlsCertificate | null
                     "ciphersuite-name": string | null
                     "database": TlsDatabase | null
@@ -31349,18 +31462,10 @@ declare module "gi://Gio?version=2.0" {
                     "require-close-notify": boolean
                 }
 
-                interface WritableProperties extends DatagramBased.WritableProperties {
-                    "advertised-protocols": string[]
-                    "certificate": TlsCertificate | null
-                    "ciphersuite-name": string | null
-                    "database": TlsDatabase | null
-                    "interaction": TlsInteraction | null
-                    "negotiated-protocol": string | null
-                    "peer-certificate": TlsCertificate | null
-                    "peer-certificate-errors": TlsCertificateFlags
-                    "protocol-version": TlsProtocolVersion
-                    "rehandshake-mode": TlsRehandshakeMode
-                    "require-close-notify": boolean
+                interface ReadableProperties extends ReadWriteProperties, DatagramBased.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DatagramBased.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DatagramBased.ConstructOnlyProperties {
@@ -32036,12 +32141,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends DatagramBased.SignalSignatures, DtlsConnection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DatagramBased.ReadableProperties, DtlsConnection.ReadableProperties {
+                interface ReadWriteProperties extends DatagramBased.ReadWriteProperties, DtlsConnection.ReadWriteProperties {
                     "authentication-mode": TlsAuthenticationMode
                 }
 
-                interface WritableProperties extends DatagramBased.WritableProperties, DtlsConnection.WritableProperties {
-                    "authentication-mode": TlsAuthenticationMode
+                interface ReadableProperties extends ReadWriteProperties, DatagramBased.ReadableProperties, DtlsConnection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DatagramBased.WritableProperties, DtlsConnection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DatagramBased.ConstructOnlyProperties, DtlsConnection.ConstructOnlyProperties {
@@ -32096,10 +32203,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -35945,10 +36055,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -36102,10 +36215,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -36280,10 +36396,13 @@ declare module "gi://Gio?version=2.0" {
                     "items-changed"(position: number, removed: number, added: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -36485,10 +36604,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends Icon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Icon.ReadableProperties {
+                interface ReadWriteProperties extends Icon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Icon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Icon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Icon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Icon.ConstructOnlyProperties {
@@ -36589,10 +36711,13 @@ declare module "gi://Gio?version=2.0" {
                     "low-memory-warning"(level: MemoryMonitorWarningLevel): void
                 }
 
-                interface ReadableProperties extends Initable.ReadableProperties {
+                interface ReadWriteProperties extends Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Initable.ConstructOnlyProperties {
@@ -36707,10 +36832,13 @@ declare module "gi://Gio?version=2.0" {
                     "unmounted"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -37259,16 +37387,16 @@ declare module "gi://Gio?version=2.0" {
                     "network-changed"(network_available: boolean): void
                 }
 
-                interface ReadableProperties extends Initable.ReadableProperties {
+                interface ReadWriteProperties extends Initable.ReadWriteProperties {
                     "connectivity": NetworkConnectivity
                     "network-available": boolean
                     "network-metered": boolean
                 }
 
-                interface WritableProperties extends Initable.WritableProperties {
-                    "connectivity": NetworkConnectivity
-                    "network-available": boolean
-                    "network-metered": boolean
+                interface ReadableProperties extends ReadWriteProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Initable.ConstructOnlyProperties {
@@ -37516,10 +37644,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends InputStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends InputStream.ReadableProperties {
+                interface ReadWriteProperties extends InputStream.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends InputStream.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, InputStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, InputStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends InputStream.ConstructOnlyProperties {
@@ -37692,10 +37823,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends OutputStream.SignalSignatures {
                 }
 
-                interface ReadableProperties extends OutputStream.ReadableProperties {
+                interface ReadWriteProperties extends OutputStream.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends OutputStream.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, OutputStream.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, OutputStream.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends OutputStream.ConstructOnlyProperties {
@@ -37931,12 +38065,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Initable.ReadableProperties {
+                interface ReadWriteProperties extends Initable.ReadWriteProperties {
                     "power-saver-enabled": boolean
                 }
 
-                interface WritableProperties extends Initable.WritableProperties {
-                    "power-saver-enabled": boolean
+                interface ReadableProperties extends ReadWriteProperties, Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Initable.ConstructOnlyProperties {
@@ -38018,10 +38154,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -38154,10 +38293,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -38306,10 +38448,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends ActionGroup.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ActionGroup.ReadableProperties {
+                interface ReadWriteProperties extends ActionGroup.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ActionGroup.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ActionGroup.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ActionGroup.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ActionGroup.ConstructOnlyProperties {
@@ -38429,10 +38574,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -38588,10 +38736,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -38742,10 +38893,13 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -38878,18 +39032,17 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends TlsConnection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends TlsConnection.ReadableProperties {
+                interface ReadWriteProperties extends TlsConnection.ReadWriteProperties {
                     "accepted-cas": never[]
                     "server-identity": SocketConnectable | null
                     "use-ssl3": boolean
                     "validation-flags": TlsCertificateFlags
                 }
 
-                interface WritableProperties extends TlsConnection.WritableProperties {
-                    "accepted-cas": never[]
-                    "server-identity": SocketConnectable | null
-                    "use-ssl3": boolean
-                    "validation-flags": TlsCertificateFlags
+                interface ReadableProperties extends ReadWriteProperties, TlsConnection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TlsConnection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TlsConnection.ConstructOnlyProperties {
@@ -39145,12 +39298,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends TlsDatabase.SignalSignatures {
                 }
 
-                interface ReadableProperties extends TlsDatabase.ReadableProperties {
+                interface ReadWriteProperties extends TlsDatabase.ReadWriteProperties {
                     "anchors": string
                 }
 
-                interface WritableProperties extends TlsDatabase.WritableProperties {
-                    "anchors": string
+                interface ReadableProperties extends ReadWriteProperties, TlsDatabase.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TlsDatabase.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TlsDatabase.ConstructOnlyProperties {
@@ -39209,12 +39364,14 @@ declare module "gi://Gio?version=2.0" {
                 interface SignalSignatures extends TlsConnection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends TlsConnection.ReadableProperties {
+                interface ReadWriteProperties extends TlsConnection.ReadWriteProperties {
                     "authentication-mode": TlsAuthenticationMode
                 }
 
-                interface WritableProperties extends TlsConnection.WritableProperties {
-                    "authentication-mode": TlsAuthenticationMode
+                interface ReadableProperties extends ReadWriteProperties, TlsConnection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TlsConnection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TlsConnection.ConstructOnlyProperties {
@@ -39284,10 +39441,13 @@ declare module "gi://Gio?version=2.0" {
                     "removed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -42668,8 +42828,7 @@ declare module "gi://Gio?version=2.0" {
              * @returns an allocated {@link GLib.Error}
              */
             new_for_dbus_error: (dbus_error_name: string, dbus_error_message: string) => GLib.Error
-                /**
-             */
+                
             quark: () => GLib.Quark
                 /**
              * Creates an association mapping between `dbus_error_name` and
@@ -47030,8 +47189,7 @@ declare module "gi://Gio?version=2.0" {
                  * @returns an allocated {@link GLib.Error}
                  */
                 dbus_error_new_for_dbus_error(dbus_error_name: string, dbus_error_message: string): GLib.Error
-                /**
-                 */
+                
                 dbus_error_quark(): GLib.Quark
                 /**
                  * Creates an association mapping between `dbus_error_name` and

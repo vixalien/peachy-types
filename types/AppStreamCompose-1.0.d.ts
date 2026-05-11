@@ -32,10 +32,13 @@ declare module "gi://AppStreamCompose?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -84,8 +87,7 @@ declare module "gi://AppStreamCompose?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Canvas: CanvasClass
             }
             
@@ -94,10 +96,13 @@ declare module "gi://AppStreamCompose?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -338,8 +343,7 @@ declare module "gi://AppStreamCompose?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Compose: ComposeClass
             }
             
@@ -348,10 +352,13 @@ declare module "gi://AppStreamCompose?version=1.0" {
                 interface SignalSignatures extends Unit.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Unit.ReadableProperties {
+                interface ReadWriteProperties extends Unit.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Unit.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Unit.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Unit.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Unit.ConstructOnlyProperties {
@@ -387,8 +394,7 @@ declare module "gi://AppStreamCompose?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DirectoryUnit: DirectoryUnitClass
             }
             
@@ -397,10 +403,13 @@ declare module "gi://AppStreamCompose?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -488,8 +497,7 @@ declare module "gi://AppStreamCompose?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Hint: HintClass
             }
             
@@ -498,10 +506,13 @@ declare module "gi://AppStreamCompose?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -545,8 +556,7 @@ declare module "gi://AppStreamCompose?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 IconPolicy: IconPolicyClass
             }
             
@@ -555,10 +565,13 @@ declare module "gi://AppStreamCompose?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -678,8 +691,7 @@ declare module "gi://AppStreamCompose?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Image: ImageClass
             }
             
@@ -688,10 +700,13 @@ declare module "gi://AppStreamCompose?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -876,8 +891,7 @@ declare module "gi://AppStreamCompose?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Result: ResultClass
             }
             
@@ -886,10 +900,13 @@ declare module "gi://AppStreamCompose?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1024,8 +1041,7 @@ declare module "gi://AppStreamCompose?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Unit: UnitClass
             }
             
@@ -1259,53 +1275,38 @@ declare module "gi://AppStreamCompose?version=1.0" {
             
             interface ComposeFlagsBitfield {
                 readonly $gtype: GObject.GType<ComposeFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "USE_THREADS": 1
-                /**
-                 */
+                
                 readonly "ALLOW_NET": 2
-                /**
-                 */
+                
                 readonly "VALIDATE": 4
-                /**
-                 */
+                
                 readonly "STORE_SCREENSHOTS": 8
-                /**
-                 */
+                
                 readonly "ALLOW_SCREENCASTS": 16
-                /**
-                 */
+                
                 readonly "PROCESS_FONTS": 32
-                /**
-                 */
+                
                 readonly "PROCESS_TRANSLATIONS": 64
-                /**
-                 */
+                
                 readonly "IGNORE_ICONS": 128
-                /**
-                 */
+                
                 readonly "PROCESS_UNPAIRED_DESKTOP": 256
-                /**
-                 */
+                
                 readonly "PROPAGATE_CUSTOM": 512
-                /**
-                 */
+                
                 readonly "PROPAGATE_ARTIFACTS": 1024
-                /**
-                 */
+                
                 readonly "NO_FINAL_CHECK": 2048
-                /**
-                 */
+                
                 readonly "NO_PARTIAL_URLS": 4096
             }
             type ComposeFlags = number
             interface $Exports {
-                /**
-                 */
+                
                 ComposeFlags: ComposeFlagsBitfield
             }
             

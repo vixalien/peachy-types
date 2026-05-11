@@ -50,16 +50,16 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gcr.Certificate.SignalSignatures, Gcr.Comparable.SignalSignatures, Renderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gcr.Certificate.ReadableProperties, Gcr.Comparable.ReadableProperties, Renderer.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gcr.Certificate.ReadWriteProperties, Gcr.Comparable.ReadWriteProperties, Renderer.ReadWriteProperties {
                     "attributes": Gck.Attributes
                     "certificate": Gcr.Certificate
                     "label": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gcr.Certificate.WritableProperties, Gcr.Comparable.WritableProperties, Renderer.WritableProperties {
-                    "attributes": Gck.Attributes
-                    "certificate": Gcr.Certificate
-                    "label": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gcr.Certificate.ReadableProperties, Gcr.Comparable.ReadableProperties, Renderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gcr.Certificate.WritableProperties, Gcr.Comparable.WritableProperties, Renderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gcr.Certificate.ConstructOnlyProperties, Gcr.Comparable.ConstructOnlyProperties, Renderer.ConstructOnlyProperties {
@@ -135,14 +135,15 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "attributes": Gck.Attributes | null
                     "certificate": Gcr.Certificate | null
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "attributes": Gck.Attributes | null
-                    "certificate": Gcr.Certificate | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -154,12 +155,10 @@ declare module "gi://GcrUi?version=3" {
                 readonly $readableProperties: CertificateWidget.ReadableProperties
                 readonly $writableProperties: CertificateWidget.WritableProperties
                 readonly $constructOnlyProperties: CertificateWidget.ConstructOnlyProperties
-                /**
-                 */
+                
                 get attributes(): Gck.Attributes | null
                 set attributes(value: Gck.Attributes | null)
-                /**
-                 */
+                
                 get certificate(): Gcr.Certificate | null
                 set certificate(value: Gcr.Certificate | null)
                 /**
@@ -222,13 +221,14 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gtk.TreeModel.SignalSignatures, Gtk.TreeSortable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gtk.TreeModel.ReadableProperties, Gtk.TreeSortable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gtk.TreeModel.ReadWriteProperties, Gtk.TreeSortable.ReadWriteProperties {
                     "collection": Gcr.Collection
-                    "columns": never
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gtk.TreeModel.WritableProperties, Gtk.TreeSortable.WritableProperties {
-                    "collection": Gcr.Collection
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gtk.TreeModel.ReadableProperties, Gtk.TreeSortable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gtk.TreeModel.WritableProperties, Gtk.TreeSortable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gtk.TreeModel.ConstructOnlyProperties, Gtk.TreeSortable.ConstructOnlyProperties {
@@ -241,12 +241,10 @@ declare module "gi://GcrUi?version=3" {
                 readonly $readableProperties: CollectionModel.ReadableProperties
                 readonly $writableProperties: CollectionModel.WritableProperties
                 readonly $constructOnlyProperties: CollectionModel.ConstructOnlyProperties
-                /**
-                 */
+                
                 get collection(): Gcr.Collection
                 set collection(value: Gcr.Collection)
-                /**
-                 */
+                
                 get columns(): never
                 set columns(value: never)
                 /**
@@ -346,11 +344,13 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.ComboBox.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.CellEditable.SignalSignatures, Gtk.CellLayout.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.ComboBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.CellEditable.ReadableProperties, Gtk.CellLayout.ReadableProperties {
-                    "collection": Gcr.Collection
+                interface ReadWriteProperties extends Gtk.ComboBox.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.CellEditable.ReadWriteProperties, Gtk.CellLayout.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.ComboBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.CellEditable.WritableProperties, Gtk.CellLayout.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.ComboBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.CellEditable.ReadableProperties, Gtk.CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.ComboBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.CellEditable.WritableProperties, Gtk.CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.ComboBox.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.CellEditable.ConstructOnlyProperties, Gtk.CellLayout.ConstructOnlyProperties {
@@ -412,14 +412,15 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Renderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Renderer.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Renderer.ReadWriteProperties {
                     "attributes": Gck.Attributes
                     "label": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Renderer.WritableProperties {
-                    "attributes": Gck.Attributes
-                    "label": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Renderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Renderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Renderer.ConstructOnlyProperties {
@@ -431,12 +432,10 @@ declare module "gi://GcrUi?version=3" {
                 readonly $readableProperties: FailureRenderer.ReadableProperties
                 readonly $writableProperties: FailureRenderer.WritableProperties
                 readonly $constructOnlyProperties: FailureRenderer.ConstructOnlyProperties
-                /**
-                 */
+                
                 get attributes(): Gck.Attributes
                 set attributes(value: Gck.Attributes)
-                /**
-                 */
+                
                 get label(): string
                 set label(value: string)
             }
@@ -484,10 +483,13 @@ declare module "gi://GcrUi?version=3" {
                     "importing"(importer: GObject.Object): void
                 }
 
-                interface ReadableProperties extends Gtk.Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Activatable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Button.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Actionable.ReadWriteProperties, Gtk.Activatable.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Activatable.WritableProperties, Gtk.Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Button.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Activatable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Button.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Activatable.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Button.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Actionable.ConstructOnlyProperties, Gtk.Activatable.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -546,12 +548,14 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Renderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Renderer.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Renderer.ReadWriteProperties {
                     "object": Gck.Object
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Renderer.WritableProperties {
-                    "object": Gck.Object
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Renderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Renderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Renderer.ConstructOnlyProperties {
@@ -563,8 +567,7 @@ declare module "gi://GcrUi?version=3" {
                 readonly $readableProperties: KeyRenderer.ReadableProperties
                 readonly $writableProperties: KeyRenderer.WritableProperties
                 readonly $constructOnlyProperties: KeyRenderer.ConstructOnlyProperties
-                /**
-                 */
+                
                 get object(): Gck.Object
                 set object(value: Gck.Object)
                 /**
@@ -606,12 +609,14 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "attributes": Gck.Attributes | null
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "attributes": Gck.Attributes | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -623,8 +628,7 @@ declare module "gi://GcrUi?version=3" {
                 readonly $readableProperties: KeyWidget.ReadableProperties
                 readonly $writableProperties: KeyWidget.WritableProperties
                 readonly $constructOnlyProperties: KeyWidget.ConstructOnlyProperties
-                /**
-                 */
+                
                 get attributes(): Gck.Attributes | null
                 set attributes(value: Gck.Attributes | null)
                 /**
@@ -674,11 +678,13 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.TreeView.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Scrollable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.TreeView.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Scrollable.ReadableProperties {
-                    "collection": Gcr.Collection
+                interface ReadWriteProperties extends Gtk.TreeView.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Scrollable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.TreeView.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Scrollable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.TreeView.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.TreeView.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.TreeView.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Scrollable.ConstructOnlyProperties {
@@ -740,18 +746,17 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.Dialog.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gcr.Prompt.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gcr.Prompt.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gcr.Prompt.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "choice-visible": boolean
                     "confirm-visible": boolean
                     "password-visible": boolean
                     "warning-visible": boolean
                 }
 
-                interface WritableProperties extends Gtk.Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Gcr.Prompt.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "choice-visible": boolean
-                    "confirm-visible": boolean
-                    "password-visible": boolean
-                    "warning-visible": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gcr.Prompt.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Gcr.Prompt.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Dialog.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gcr.Prompt.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -810,10 +815,13 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.EntryBuffer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.EntryBuffer.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.EntryBuffer.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.EntryBuffer.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.EntryBuffer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.EntryBuffer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.EntryBuffer.ConstructOnlyProperties {
@@ -863,12 +871,13 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.TreeView.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Scrollable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.TreeView.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Scrollable.ReadableProperties {
-                    "collection": Gcr.Collection
-                    "columns": never
+                interface ReadWriteProperties extends Gtk.TreeView.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Scrollable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.TreeView.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Scrollable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.TreeView.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.TreeView.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.TreeView.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Scrollable.ConstructOnlyProperties {
@@ -929,14 +938,15 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "choice": string
                     "ttl": number
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "choice": string
-                    "ttl": number
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -1050,14 +1060,15 @@ declare module "gi://GcrUi?version=3" {
                     "added"(renderer: Renderer, parsed: Gcr.Parsed): void
                 }
 
-                interface ReadableProperties extends Gtk.Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties {
                     "display-name": string
                     "parser": Gcr.Parser
                 }
 
-                interface WritableProperties extends Gtk.Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
-                    "display-name": string
-                    "parser": Gcr.Parser
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties {
@@ -1180,14 +1191,15 @@ declare module "gi://GcrUi?version=3" {
                     "data-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "attributes": Gck.Attributes | null
                     "label": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "attributes": Gck.Attributes | null
-                    "label": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1304,10 +1316,13 @@ declare module "gi://GcrUi?version=3" {
                 interface SignalSignatures extends Gtk.Widget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Widget.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Widget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Widget.ConstructOnlyProperties {

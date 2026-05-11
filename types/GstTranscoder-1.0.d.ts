@@ -36,23 +36,18 @@ declare module "gi://GstTranscoder?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "avoid-reencoding": boolean
-                    "dest-uri": string
                     "duration": number
                     "pipeline": Gst.Element
                     "position": number
                     "position-update-interval": number
-                    "profile": GstPbutils.EncodingProfile
-                    "src-uri": string
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "avoid-reencoding": boolean
-                    "duration": number
-                    "pipeline": Gst.Element
-                    "position": number
-                    "position-update-interval": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -83,8 +78,7 @@ declare module "gi://GstTranscoder?version=1.0" {
                  */
                 get duration(): number
                 set duration(value: number)
-                /**
-                 */
+                
                 get pipeline(): Gst.Element
                 set pipeline(value: Gst.Element)
                 /**
@@ -97,8 +91,7 @@ declare module "gi://GstTranscoder?version=1.0" {
                  */
                 get positionUpdateInterval(): number
                 set positionUpdateInterval(value: number)
-                /**
-                 */
+                
                 get profile(): GstPbutils.EncodingProfile
                 set profile(value: GstPbutils.EncodingProfile)
                 /**
@@ -233,16 +226,14 @@ declare module "gi://GstTranscoder?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Transcoder: TranscoderClass
             }
             
 
             namespace TranscoderSignalAdapter {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
-                    /**
-                     */
+                    
                     "done"(): void
                     /**
                      * @param object
@@ -268,12 +259,14 @@ declare module "gi://GstTranscoder?version=1.0" {
                     "warning"(object: GLib.Error, p0: Gst.Structure): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "transcoder": Transcoder | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "transcoder": Transcoder | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -329,14 +322,12 @@ declare module "gi://GstTranscoder?version=1.0" {
              * @returns a string with the given error.
              */
             get_name: (error: TranscoderError) => string
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TranscoderError: TranscoderErrorEnum
             }
             
@@ -460,8 +451,7 @@ declare module "gi://GstTranscoder?version=1.0" {
                  * @returns a string with the given error.
                  */
                 transcoder_error_get_name(error: TranscoderError): string
-                /**
-                 */
+                
                 transcoder_error_quark(): GLib.Quark
                 /**
                  * Returns (transfer none): The message name

@@ -28,11 +28,13 @@ declare module "gi://Json?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "immutable": boolean
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -264,18 +266,17 @@ declare module "gi://Json?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "indent": number
                     "indent-char": number
                     "pretty": boolean
                     "root": Node | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "indent": number
-                    "indent-char": number
-                    "pretty": boolean
-                    "root": Node | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -505,13 +506,14 @@ declare module "gi://Json?version=1.0" {
                     "parse-start"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "immutable": boolean
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "strict": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "strict": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -805,10 +807,13 @@ declare module "gi://Json?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1012,12 +1017,14 @@ declare module "gi://Json?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "root": Node
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "root": Node
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1387,10 +1394,13 @@ declare module "gi://Json?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2860,8 +2870,7 @@ declare module "gi://Json?version=1.0" {
                  * @since 1.10
                  */
                 readonly "INVALID_ASSIGNMENT": 10
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -2884,8 +2893,7 @@ declare module "gi://Json?version=1.0" {
                  * Invalid query
                  */
                 readonly "QUERY": 0
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -2935,8 +2943,7 @@ declare module "gi://Json?version=1.0" {
                  *   hold a value of the desired type
                  */
                 readonly "INVALID_TYPE": 6
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -3237,14 +3244,11 @@ declare module "gi://Json?version=1.0" {
                  * @returns The JSON encoded string corresponding to   the given variant, the length of the returned string
                  */
                 gvariant_serialize_data(variant: GLib.Variant): [string, number]
-                /**
-                 */
+                
                 parser_error_quark(): GLib.Quark
-                /**
-                 */
+                
                 path_error_quark(): GLib.Quark
-                /**
-                 */
+                
                 reader_error_quark(): GLib.Quark
                 /**
                  * Serializes a `GObject` instance into a JSON data stream.

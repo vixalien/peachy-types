@@ -34,10 +34,13 @@ declare module "gi://GstGLWayland?version=1.0" {
                 interface SignalSignatures extends GstGL.GLDisplay.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstGL.GLDisplay.ReadableProperties {
+                interface ReadWriteProperties extends GstGL.GLDisplay.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstGL.GLDisplay.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstGL.GLDisplay.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstGL.GLDisplay.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstGL.GLDisplay.ConstructOnlyProperties {

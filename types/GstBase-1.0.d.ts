@@ -28,10 +28,13 @@ declare module "gi://GstBase?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -525,7 +528,7 @@ declare module "gi://GstBase?version=1.0" {
                     "samples-selected"(segment: Gst.Segment, pts: number, dts: number, duration: number, info: Gst.Structure | null): void
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "emit-signals": boolean
                     "latency": number
                     "min-upstream-latency": number
@@ -533,12 +536,10 @@ declare module "gi://GstBase?version=1.0" {
                     "start-time-selection": AggregatorStartTimeSelection
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "emit-signals": boolean
-                    "latency": number
-                    "min-upstream-latency": number
-                    "start-time": number
-                    "start-time-selection": AggregatorStartTimeSelection
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -994,12 +995,14 @@ declare module "gi://GstBase?version=1.0" {
                     "buffer-consumed"(object: Gst.Buffer): void
                 }
 
-                interface ReadableProperties extends Gst.Pad.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Pad.ReadWriteProperties {
                     "emit-signals": boolean
                 }
 
-                interface WritableProperties extends Gst.Pad.WritableProperties {
-                    "emit-signals": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Pad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Pad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Pad.ConstructOnlyProperties {
@@ -1090,12 +1093,14 @@ declare module "gi://GstBase?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "disable-passthrough": boolean
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "disable-passthrough": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -1544,7 +1549,7 @@ declare module "gi://GstBase?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "async": boolean
                     "blocksize": number
                     "enable-last-sample": boolean
@@ -1560,20 +1565,10 @@ declare module "gi://GstBase?version=1.0" {
                     "ts-offset": number
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "async": boolean
-                    "blocksize": number
-                    "enable-last-sample": boolean
-                    "last-sample": Gst.Sample | null
-                    "max-bitrate": number
-                    "max-lateness": number
-                    "processing-deadline": number
-                    "qos": boolean
-                    "render-delay": number
-                    "stats": Gst.Structure
-                    "sync": boolean
-                    "throttle-time": number
-                    "ts-offset": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -2195,7 +2190,7 @@ declare module "gi://GstBase?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "automatic-eos": boolean
                     "blocksize": number
                     "do-timestamp": boolean
@@ -2203,12 +2198,10 @@ declare module "gi://GstBase?version=1.0" {
                     "typefind": boolean
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "automatic-eos": boolean
-                    "blocksize": number
-                    "do-timestamp": boolean
-                    "num-buffers": number
-                    "typefind": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -2727,12 +2720,14 @@ declare module "gi://GstBase?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "qos": boolean
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "qos": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -3179,10 +3174,13 @@ declare module "gi://GstBase?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -3518,16 +3516,16 @@ declare module "gi://GstBase?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "current-level-bytes": number
                     "current-level-time": number
                     "current-level-visible": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "current-level-bytes": number
-                    "current-level-time": number
-                    "current-level-visible": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3554,11 +3552,9 @@ declare module "gi://GstBase?version=1.0" {
                  */
                 get currentLevelVisible(): number
                 set currentLevelVisible(value: number)
-                /**
-                 */
+                
                 vfunc_empty(): void
-                /**
-                 */
+                
                 vfunc_full(): void
             }
 
@@ -3583,10 +3579,13 @@ declare module "gi://GstBase?version=1.0" {
                 interface SignalSignatures extends BaseSrc.SignalSignatures {
                 }
 
-                interface ReadableProperties extends BaseSrc.ReadableProperties {
+                interface ReadWriteProperties extends BaseSrc.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends BaseSrc.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, BaseSrc.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, BaseSrc.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends BaseSrc.ConstructOnlyProperties {
@@ -3975,8 +3974,7 @@ declare module "gi://GstBase?version=1.0" {
                  * @returns data pointer
                  */
                 get_data(): Uint8Array
-                /**
-                 */
+                
                 get_remaining(): number
                 /**
                  * Get size of written `data`
@@ -5110,8 +5108,7 @@ declare module "gi://GstBase?version=1.0" {
             }
             type CollectPadsStateFlags = number
             interface $Exports {
-                /**
-                 */
+                
                 CollectPadsStateFlags: CollectPadsStateFlagsBitfield
             }
             /**

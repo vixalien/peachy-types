@@ -30,10 +30,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -86,12 +89,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -298,14 +303,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "critical": boolean
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "oid": string
-                    "value": GLib.Bytes
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "oid": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -389,12 +394,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "n-items": number
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -447,10 +454,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties {
@@ -506,10 +516,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties {
@@ -561,12 +574,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "n-items": number
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -615,12 +630,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "n-items": number
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -671,10 +688,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties {
@@ -722,10 +742,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties {
@@ -772,12 +795,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -831,10 +856,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -879,10 +907,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends CertificateExtension.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CertificateExtension.ReadableProperties {
+                interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends CertificateExtension.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CertificateExtension.ConstructOnlyProperties {
@@ -921,14 +952,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "label": string
-                    "section": CertificateSection
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "value": GObject.Value
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "value": GObject.Value
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -947,12 +978,10 @@ declare module "gi://Gcr?version=4" {
                  */
                 get label(): string
                 set label(value: string)
-                /**
-                 */
+                
                 get section(): CertificateSection
                 set section(value: CertificateSection)
-                /**
-                 */
+                
                 get value(): GObject.Value
                 set value(value: GObject.Value)
                 /**
@@ -988,8 +1017,7 @@ declare module "gi://Gcr?version=4" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 CertificateField: CertificateFieldClass
             }
             
@@ -998,10 +1026,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -1051,10 +1082,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1101,11 +1135,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "private-key": Gck.Object
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1237,13 +1273,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "fields": Gio.ListModel
-                    "label": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "fields": Gio.ListModel
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1256,8 +1293,7 @@ declare module "gi://Gcr?version=4" {
                 readonly $readableProperties: CertificateSection.ReadableProperties
                 readonly $writableProperties: CertificateSection.WritableProperties
                 readonly $constructOnlyProperties: CertificateSection.ConstructOnlyProperties
-                /**
-                 */
+                
                 get fields(): Gio.ListModel
                 set fields(value: Gio.ListModel)
                 /**
@@ -1290,8 +1326,7 @@ declare module "gi://Gcr?version=4" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 CertificateSection: CertificateSectionClass
             }
             
@@ -1300,10 +1335,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1359,10 +1397,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1409,10 +1450,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -1478,16 +1522,16 @@ declare module "gi://Gcr?version=4" {
                     "parsed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "parsed-attributes": Gck.Attributes | null
                     "parsed-description": string | null
                     "parsed-label": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "parsed-attributes": Gck.Attributes | null
-                    "parsed-description": string | null
-                    "parsed-label": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1691,11 +1735,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends Gck.Object.SignalSignatures, Certificate.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gck.Object.ReadableProperties, Certificate.ReadableProperties {
-                    "attributes": Gck.Attributes
+                interface ReadWriteProperties extends Gck.Object.ReadWriteProperties, Certificate.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gck.Object.WritableProperties, Certificate.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gck.Object.ReadableProperties, Certificate.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gck.Object.WritableProperties, Certificate.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gck.Object.ConstructOnlyProperties, Certificate.ConstructOnlyProperties {
@@ -1822,11 +1868,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "protocol": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1963,10 +2011,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Certificate.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Certificate.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Certificate.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Certificate.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Certificate.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Certificate.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Certificate.ConstructOnlyProperties {
@@ -2010,11 +2061,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "interaction": Gio.TlsInteraction
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2075,13 +2128,14 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Prompt.SignalSignatures, Gio.AsyncInitable.SignalSignatures, Gio.Initable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Prompt.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
-                    "bus-name": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Prompt.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                     "secret-exchange": SecretExchange
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Prompt.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
-                    "secret-exchange": SecretExchange
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Prompt.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Prompt.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Prompt.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -2160,8 +2214,7 @@ declare module "gi://Gcr?version=4" {
                 readonly prototype: SystemPrompt
 
                 new (props?: Partial<GObject.ConstructorProps<SystemPrompt>>): SystemPrompt
-                /**
-                 */
+                
                 error_get_domain(): GLib.Quark
                 /**
                  * Opens a system prompt with the default prompter.
@@ -2264,13 +2317,14 @@ declare module "gi://Gcr?version=4" {
                     "new-prompt"(): Prompt
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "prompt-type": GObject.GType
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "prompting": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "prompting": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2378,7 +2432,7 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "description": string
                     "expiry-date": GLib.DateTime | null
                     "issuer-name": string | null
@@ -2386,12 +2440,10 @@ declare module "gi://Gcr?version=4" {
                     "subject-name": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "description": string
-                    "expiry-date": GLib.DateTime | null
-                    "issuer-name": string | null
-                    "label": string
-                    "subject-name": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2431,8 +2483,7 @@ declare module "gi://Gcr?version=4" {
                  */
                 get label(): string
                 set label(value: string)
-                /**
-                 */
+                
                 get subjectName(): string | null
                 set subjectName(value: string | null)
                 /**
@@ -2661,10 +2712,13 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends Gio.TlsInteraction.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.TlsInteraction.ReadableProperties {
+                interface ReadWriteProperties extends Gio.TlsInteraction.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.TlsInteraction.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.TlsInteraction.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.TlsInteraction.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.TlsInteraction.ConstructOnlyProperties {
@@ -2792,16 +2846,16 @@ declare module "gi://Gcr?version=4" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "interaction": Gio.TlsInteraction | null
                     "label": string
                     "uri": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "interaction": Gio.TlsInteraction | null
-                    "label": string
-                    "uri": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2965,7 +3019,7 @@ declare module "gi://Gcr?version=4" {
                     "prompt-close"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "caller-window": string
                     "cancel-label": string
                     "choice-chosen": boolean
@@ -2979,18 +3033,10 @@ declare module "gi://Gcr?version=4" {
                     "warning": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "caller-window": string
-                    "cancel-label": string
-                    "choice-chosen": boolean
-                    "choice-label": string
-                    "continue-label": string
-                    "description": string
-                    "message": string
-                    "password-new": boolean
-                    "password-strength": number
-                    "title": string
-                    "warning": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3624,11 +3670,9 @@ declare module "gi://Gcr?version=4" {
             }
 
             interface SubjectPublicKeyInfo {
-                /**
-                 */
+                
                 copy(): SubjectPublicKeyInfo
-                /**
-                 */
+                
                 free(): void
                 /**
                  * Returns a user-facing description of the algorithm used by the public key.
@@ -3993,17 +4037,14 @@ declare module "gi://Gcr?version=4" {
             
             interface CertificateSectionFlagsBitfield {
                 readonly $gtype: GObject.GType<CertificateSectionFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "IMPORTANT": 1
             }
             type CertificateSectionFlags = number
             interface $Exports {
-                /**
-                 */
+                
                 CertificateSectionFlags: CertificateSectionFlagsBitfield
             }
 
@@ -4022,8 +4063,7 @@ declare module "gi://Gcr?version=4" {
                 UNLOCK_OPTION_IDLE: "idle"
                 UNLOCK_OPTION_SESSION: "session"
                 UNLOCK_OPTION_TIMEOUT: "timeout"
-                /**
-                 */
+                
                 data_error_get_domain(): GLib.Quark
                 /**
                  * Create a key fingerprint for a certificate, public key or private key.

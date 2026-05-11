@@ -32,10 +32,13 @@ declare module "gi://GstCodecs?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoDecoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoDecoder.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoDecoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstVideo.VideoDecoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoDecoder.ConstructOnlyProperties {
@@ -126,12 +129,14 @@ declare module "gi://GstCodecs?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoDecoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoDecoder.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoDecoder.ReadWriteProperties {
                     "compliance": H264DecoderCompliance
                 }
 
-                interface WritableProperties extends GstVideo.VideoDecoder.WritableProperties {
-                    "compliance": H264DecoderCompliance
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoDecoder.ConstructOnlyProperties {
@@ -250,10 +255,13 @@ declare module "gi://GstCodecs?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoDecoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoDecoder.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoDecoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstVideo.VideoDecoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoDecoder.ConstructOnlyProperties {
@@ -346,10 +354,13 @@ declare module "gi://GstCodecs?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoDecoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoDecoder.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoDecoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstVideo.VideoDecoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoDecoder.ConstructOnlyProperties {
@@ -429,10 +440,13 @@ declare module "gi://GstCodecs?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoDecoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoDecoder.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoDecoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstVideo.VideoDecoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoDecoder.ConstructOnlyProperties {
@@ -525,10 +539,13 @@ declare module "gi://GstCodecs?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoDecoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoDecoder.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoDecoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstVideo.VideoDecoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoDecoder.ConstructOnlyProperties {
@@ -602,10 +619,13 @@ declare module "gi://GstCodecs?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoDecoder.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoDecoder.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoDecoder.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstVideo.VideoDecoder.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoDecoder.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoDecoder.ConstructOnlyProperties {
@@ -732,8 +752,7 @@ declare module "gi://GstCodecs?version=1.0" {
             }
 
             interface AV1Dpb {
-                /**
-                 */
+                
                 pic_list: AV1Picture[]
                 /**
                  * Store the `picture`
@@ -1482,8 +1501,7 @@ declare module "gi://GstCodecs?version=1.0" {
             }
 
             interface Vp9Dpb {
-                /**
-                 */
+                
                 pic_list: Vp9Picture[]
                 /**
                  * Store the `picture`
@@ -1686,8 +1704,7 @@ declare module "gi://GstCodecs?version=1.0" {
                  * specifies the base 2 logarithm of the height of each tile
                  */
                 tile_rows_log2: number
-                /**
-                 */
+                
                 header_size_in_bytes: number
                 /**
                  * Specifies how the transform size is determined.
@@ -1925,8 +1942,7 @@ declare module "gi://GstCodecs?version=1.0" {
             }
 
             interface Vp9StatefulParser {
-                /**
-                 */
+                
                 reference: never[]
                 /**
                  * Frees `parser`.
@@ -2012,20 +2028,16 @@ declare module "gi://GstCodecs?version=1.0" {
             
             interface H264PictureFieldEnum {
                 readonly $gtype: GObject.GType<H264PictureField>
-                /**
-                 */
+                
                 readonly "FRAME": 0
-                /**
-                 */
+                
                 readonly "TOP_FIELD": 1
-                /**
-                 */
+                
                 readonly "BOTTOM_FIELD": 2
             }
             type H264PictureField = H264PictureFieldEnum[Exclude<keyof H264PictureFieldEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 H264PictureField: H264PictureFieldEnum
             }
             

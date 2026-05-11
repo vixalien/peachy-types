@@ -28,10 +28,13 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -137,8 +140,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Builder: BuilderClass
             }
             
@@ -147,10 +149,13 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -196,8 +201,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BuilderFixup: BuilderFixupClass
             }
             
@@ -206,10 +210,13 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -437,8 +444,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BuilderNode: BuilderNodeClass
             }
             
@@ -447,10 +453,13 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -526,8 +535,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BuilderSource: BuilderSourceClass
             }
             
@@ -536,10 +544,13 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -585,8 +596,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BuilderSourceCtx: BuilderSourceCtxClass
             }
             
@@ -595,10 +605,13 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -813,8 +826,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Machine: MachineClass
             }
             
@@ -823,10 +835,13 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1123,8 +1138,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Node: NodeClass
             }
             
@@ -1133,10 +1147,13 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1236,8 +1253,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Query: QueryClass
             }
             
@@ -1246,16 +1262,16 @@ declare module "gi://Xmlb?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "enable-node-cache": boolean
                     "guid": string
                     "valid": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "enable-node-cache": boolean
-                    "guid": string
-                    "valid": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1559,8 +1575,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Silo: SiloClass
             }
             
@@ -1977,8 +1992,7 @@ declare module "gi://Xmlb?version=2.0" {
                  * An operator
                  */
                 readonly "FUNCTION": 5
-                /**
-                 */
+                
                 readonly "BOUND_UNSET": 8
                 /**
                  * A bound integer value
@@ -1992,8 +2006,7 @@ declare module "gi://Xmlb?version=2.0" {
                  * An indexed text value
                  */
                 readonly "INDEXED_TEXT": 3
-                /**
-                 */
+                
                 readonly "BOOLEAN": 17
                 /**
                  * An bound indexed text value
@@ -2002,8 +2015,7 @@ declare module "gi://Xmlb?version=2.0" {
             }
             type OpcodeKind = OpcodeKindEnum[Exclude<keyof OpcodeKindEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 OpcodeKind: OpcodeKindEnum
             }
             
@@ -2207,8 +2219,7 @@ declare module "gi://Xmlb?version=2.0" {
             
             interface OpcodeFlagsBitfield {
                 readonly $gtype: GObject.GType<OpcodeFlags>
-                /**
-                 */
+                
                 readonly "UNKNOWN": 0
                 /**
                  * Integer value set
@@ -2226,8 +2237,7 @@ declare module "gi://Xmlb?version=2.0" {
                  * A bound value, assigned later
                  */
                 readonly "BOUND": 8
-                /**
-                 */
+                
                 readonly "BOOLEAN": 16
                 /**
                  * Tokenized text

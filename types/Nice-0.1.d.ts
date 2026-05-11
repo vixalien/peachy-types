@@ -146,20 +146,16 @@ declare module "gi://Nice?version=0.1" {
                     "streams-removed"(stream_ids: number[]): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "bytestream-tcp": boolean
-                    "close-forced": boolean
-                    "compatibility": number
                     "consent-freshness": boolean
                     "controlling-mode": boolean
                     "force-relay": boolean
-                    "full-mode": boolean
                     "ice-tcp": boolean
                     "ice-trickle": boolean
                     "ice-udp": boolean
                     "idle-timeout": number
                     "keepalive-conncheck": boolean
-                    "main-context": never
                     "max-connectivity-checks": number
                     "proxy-extra-headers": Record<string, string>
                     "proxy-ip": string
@@ -167,7 +163,6 @@ declare module "gi://Nice?version=0.1" {
                     "proxy-port": number
                     "proxy-type": number
                     "proxy-username": string
-                    "reliable": boolean
                     "stun-initial-timeout": number
                     "stun-max-retransmissions": number
                     "stun-pacing-timer": number
@@ -179,32 +174,10 @@ declare module "gi://Nice?version=0.1" {
                     "upnp-timeout": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "bytestream-tcp": boolean
-                    "consent-freshness": boolean
-                    "controlling-mode": boolean
-                    "force-relay": boolean
-                    "ice-tcp": boolean
-                    "ice-trickle": boolean
-                    "ice-udp": boolean
-                    "idle-timeout": number
-                    "keepalive-conncheck": boolean
-                    "max-connectivity-checks": number
-                    "proxy-extra-headers": Record<string, string>
-                    "proxy-ip": string
-                    "proxy-password": string
-                    "proxy-port": number
-                    "proxy-type": number
-                    "proxy-username": string
-                    "stun-initial-timeout": number
-                    "stun-max-retransmissions": number
-                    "stun-pacing-timer": number
-                    "stun-reliable-timeout": number
-                    "stun-server": string
-                    "stun-server-port": number
-                    "support-renomination": boolean
-                    "upnp": boolean
-                    "upnp-timeout": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1297,24 +1270,19 @@ declare module "gi://Nice?version=0.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "ack-delay": number
                     "callbacks": never
-                    "conversation": number
                     "no-delay": boolean
                     "rcv-buf": number
                     "snd-buf": number
                     "state": number
-                    "support-fin-ack": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "ack-delay": number
-                    "callbacks": never
-                    "no-delay": boolean
-                    "rcv-buf": number
-                    "snd-buf": number
-                    "state": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1333,8 +1301,7 @@ declare module "gi://Nice?version=0.1" {
                  */
                 get ackDelay(): number
                 set ackDelay(value: number)
-                /**
-                 */
+                
                 get callbacks(): never
                 set callbacks(value: never)
                 /**

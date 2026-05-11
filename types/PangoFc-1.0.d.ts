@@ -38,10 +38,13 @@ declare module "gi://PangoFc?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -136,13 +139,14 @@ declare module "gi://PangoFc?version=1.0" {
                 interface SignalSignatures extends Pango.Font.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Pango.Font.ReadableProperties {
+                interface ReadWriteProperties extends Pango.Font.ReadWriteProperties {
                     "fontmap": FontMap
-                    "pattern": never
                 }
 
-                interface WritableProperties extends Pango.Font.WritableProperties {
-                    "fontmap": FontMap
+                interface ReadableProperties extends ReadWriteProperties, Pango.Font.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Pango.Font.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Pango.Font.ConstructOnlyProperties {
@@ -263,10 +267,13 @@ declare module "gi://PangoFc?version=1.0" {
                 interface SignalSignatures extends Pango.FontMap.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Pango.FontMap.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends Pango.FontMap.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Pango.FontMap.WritableProperties, Gio.ListModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Pango.FontMap.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Pango.FontMap.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Pango.FontMap.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {

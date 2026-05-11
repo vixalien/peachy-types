@@ -2441,8 +2441,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns an empty #GBookmarkFile
                  */
                 "new"(): BookmarkFile
-                /**
-                 */
+                
                 error_quark(): Quark
             }
 
@@ -6036,8 +6035,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns a #GIOChannelError error number, e.g.      %G_IO_CHANNEL_ERROR_INVAL.
                  */
                 error_from_errno(en: number): IOChannelError
-                /**
-                 */
+                
                 error_quark(): Quark
             }
 
@@ -6362,8 +6360,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns an empty {@link GLib.KeyFile}.
                  */
                 "new"(): KeyFile
-                /**
-                 */
+                
                 error_quark(): Quark
             }
 
@@ -9978,8 +9975,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns whether `replacement` is a valid replacement string, location to store information about   references in `replacement` or %NULL
                  */
                 check_replacement(replacement: string): [boolean, boolean]
-                /**
-                 */
+                
                 error_quark(): Quark
                 /**
                  * Escapes the nul characters in `string` to "\x00".  It can be used
@@ -12583,23 +12579,17 @@ declare module "gi://GLib?version=2.0" {
             }
 
             interface TestConfig {
-                /**
-                 */
+                
                 test_initialized: boolean
-                /**
-                 */
+                
                 test_quick: boolean
-                /**
-                 */
+                
                 test_perf: boolean
-                /**
-                 */
+                
                 test_verbose: boolean
-                /**
-                 */
+                
                 test_quiet: boolean
-                /**
-                 */
+                
                 test_undefined: boolean
             }
 
@@ -12643,17 +12633,13 @@ declare module "gi://GLib?version=2.0" {
             }
 
             interface TestLogMsg {
-                /**
-                 */
+                
                 log_type: TestLogType
-                /**
-                 */
+                
                 n_strings: number
-                /**
-                 */
+                
                 strings: string
-                /**
-                 */
+                
                 n_nums: number
                 /**
                  * Internal function for gtester to free test log messages, no ABI guarantees provided.
@@ -12747,8 +12733,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns the new #GThread, or %NULL if an error occurred
                  */
                 try_new(name: string | null, func: ThreadFunc): Thread
-                /**
-                 */
+                
                 error_quark(): Quark
                 /**
                  * Terminates the current thread.
@@ -13851,8 +13836,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns a new #GUri
                  */
                 build_with_user(flags: UriFlags, scheme: string, user: string | null, password: string | null, auth_params: string | null, host: string | null, port: number, path: string, query: string | null, fragment: string | null): Uri
-                /**
-                 */
+                
                 error_quark(): Quark
                 /**
                  * Escapes arbitrary data for use in a URI.
@@ -15901,29 +15885,22 @@ declare module "gi://GLib?version=2.0" {
             
             interface SliceConfigEnum {
                 readonly $gtype: GObject.GType<SliceConfig>
-                /**
-                 */
+                
                 readonly "ALWAYS_MALLOC": 1
-                /**
-                 */
+                
                 readonly "BYPASS_MAGAZINES": 2
-                /**
-                 */
+                
                 readonly "WORKING_SET_MSECS": 3
-                /**
-                 */
+                
                 readonly "COLOR_INCREMENT": 4
-                /**
-                 */
+                
                 readonly "CHUNK_SIZES": 5
-                /**
-                 */
+                
                 readonly "CONTENTION_COUNTER": 6
             }
             type SliceConfig = SliceConfigEnum[Exclude<keyof SliceConfigEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 SliceConfig: SliceConfigEnum
             }
             
@@ -16065,69 +16042,51 @@ declare module "gi://GLib?version=2.0" {
             
             interface TestLogTypeEnum {
                 readonly $gtype: GObject.GType<TestLogType>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "ERROR": 1
-                /**
-                 */
+                
                 readonly "START_BINARY": 2
-                /**
-                 */
+                
                 readonly "LIST_CASE": 3
-                /**
-                 */
+                
                 readonly "SKIP_CASE": 4
-                /**
-                 */
+                
                 readonly "START_CASE": 5
-                /**
-                 */
+                
                 readonly "STOP_CASE": 6
-                /**
-                 */
+                
                 readonly "MIN_RESULT": 7
-                /**
-                 */
+                
                 readonly "MAX_RESULT": 8
-                /**
-                 */
+                
                 readonly "MESSAGE": 9
-                /**
-                 */
+                
                 readonly "START_SUITE": 10
-                /**
-                 */
+                
                 readonly "STOP_SUITE": 11
             }
             type TestLogType = TestLogTypeEnum[Exclude<keyof TestLogTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 TestLogType: TestLogTypeEnum
             }
             
             interface TestResultEnum {
                 readonly $gtype: GObject.GType<TestResult>
-                /**
-                 */
+                
                 readonly "SUCCESS": 0
-                /**
-                 */
+                
                 readonly "SKIPPED": 1
-                /**
-                 */
+                
                 readonly "FAILURE": 2
-                /**
-                 */
+                
                 readonly "INCOMPLETE": 3
             }
             type TestResult = TestResultEnum[Exclude<keyof TestResultEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 TestResult: TestResultEnum
             }
             
@@ -17748,44 +17707,32 @@ declare module "gi://GLib?version=2.0" {
             
             interface AsciiTypeBitfield {
                 readonly $gtype: GObject.GType<AsciiType>
-                /**
-                 */
+                
                 readonly "ALNUM": 1
-                /**
-                 */
+                
                 readonly "ALPHA": 2
-                /**
-                 */
+                
                 readonly "CNTRL": 4
-                /**
-                 */
+                
                 readonly "DIGIT": 8
-                /**
-                 */
+                
                 readonly "GRAPH": 16
-                /**
-                 */
+                
                 readonly "LOWER": 32
-                /**
-                 */
+                
                 readonly "PRINT": 64
-                /**
-                 */
+                
                 readonly "PUNCT": 128
-                /**
-                 */
+                
                 readonly "SPACE": 256
-                /**
-                 */
+                
                 readonly "UPPER": 512
-                /**
-                 */
+                
                 readonly "XDIGIT": 1024
             }
             type AsciiType = number
             interface $Exports {
-                /**
-                 */
+                
                 AsciiType: AsciiTypeBitfield
             }
             
@@ -17918,8 +17865,7 @@ declare module "gi://GLib?version=2.0" {
                  * set if the hook is currently being run
                  */
                 readonly "IN_CALL": 2
-                /**
-                 */
+                
                 readonly "RESERVED1": 4
             }
             type HookFlagMask = number
@@ -18412,8 +18358,7 @@ declare module "gi://GLib?version=2.0" {
                  *   is `\n`.
                  */
                 readonly "NEWLINE_LF": 2097152
-                /**
-                 */
+                
                 readonly "NEWLINE_RESERVED1": 4194304
             }
             type RegexCompileFlags = number
@@ -20922,8 +20867,7 @@ declare module "gi://GLib?version=2.0" {
                  * @deprecated since 2.10
                  */
                 blow_chunks(): void
-                /**
-                 */
+                
                 bookmark_file_error_quark(): Quark
                 /**
                  * Creates a filename from a vector of elements using the correct
@@ -21385,8 +21329,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns           If the conversion was successful, a newly allocated buffer          containing the converted string, which must be freed with g_free().          Otherwise %NULL and `error` will be set., location to store the number of bytes in                 the input string that were successfully converted, or %NULL.                 Even if the conversion was successful, this may be                 less than `len` if there were partial characters                 at the end of the input. If the error                 %G_CONVERT_ERROR_ILLEGAL_SEQUENCE occurs, the value                 stored will be the byte offset after the last valid                 input sequence.
                  */
                 convert(str: Uint8Array, to_codeset: string, from_codeset: string): [Uint8Array, number]
-                /**
-                 */
+                
                 convert_error_quark(): Quark
                 /**
                  * Converts a string from one character set to another, possibly
@@ -21914,8 +21857,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns #GFileError corresponding to the given `err_no`
                  */
                 file_error_from_errno(err_no: number): FileError
-                /**
-                 */
+                
                 file_error_quark(): Quark
                 /**
                  * Reads an entire file into allocated memory, with good error
@@ -22661,6 +22603,10 @@ declare module "gi://GLib?version=2.0" {
                  * schedule simultaneously for this process.  This is intended to be
                  * used as a parameter to g_thread_pool_new() for CPU bound tasks and
                  * similar cases.
+                 *
+                 * On platforms where enough information is known, this will be the number of
+                 * high performance cores and will not include low power ‘efficiency’ cores.
+                 * Use platform specific APIs to query for low power cores if needed.
                  * @since 2.36
                  * @returns Number of schedulable threads, always greater than 0
                  */
@@ -23443,8 +23389,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns a #GIOChannelError error number, e.g.      %G_IO_CHANNEL_ERROR_INVAL.
                  */
                 io_channel_error_from_errno(en: number): IOChannelError
-                /**
-                 */
+                
                 io_channel_error_quark(): Quark
                 /**
                  * Creates a #GSource that's dispatched when `condition` is met for the
@@ -23466,8 +23411,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns a new #GSource
                  */
                 io_create_watch(channel: IOChannel, condition: IOCondition): Source
-                /**
-                 */
+                
                 key_file_error_quark(): Quark
                 /**
                  * @deprecated since 2.10
@@ -24140,8 +24084,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns a pointer to the allocated memory
                  */
                 malloc_n(n_blocks: number, n_block_bytes: number): never | null
-                /**
-                 */
+                
                 markup_error_quark(): Quark
                 /**
                  * Escapes text so that the markup parser will parse it verbatim.
@@ -24249,8 +24192,7 @@ declare module "gi://GLib?version=2.0" {
                  * @param nullify_location the memory address of the pointer.
                  */
                 nullify_pointer(nullify_location: never): void
-                /**
-                 */
+                
                 number_parser_error_quark(): Quark
                 /**
                  * Prompts the user with
@@ -24428,8 +24370,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns a new file descriptor, or -1 if an error occurred.     The return value can be used exactly like the return value     from open().
                  */
                 open(filename: string, flags: number, mode: number): number
-                /**
-                 */
+                
                 option_error_quark(): Quark
                 /**
                  * Parses a string containing debugging options
@@ -24975,8 +24916,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns whether `replacement` is a valid replacement string, location to store information about   references in `replacement` or %NULL
                  */
                 regex_check_replacement(replacement: string): [boolean, boolean]
-                /**
-                 */
+                
                 regex_error_quark(): Quark
                 /**
                  * Escapes the nul characters in `string` to "\x00".  It can be used
@@ -25323,8 +25263,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns %FALSE if the environment variable couldn't be set.
                  */
                 setenv(variable: string, value: string, overwrite: boolean): boolean
-                /**
-                 */
+                
                 shell_error_quark(): Quark
                 /**
                  * Parses a command line into an argument vector, in much the same way
@@ -25966,11 +25905,9 @@ declare module "gi://GLib?version=2.0" {
                  * @returns %TRUE on success, %FALSE if an error was set, return location for child output, return location for child errors, return location for child wait status, as returned by waitpid()
                  */
                 spawn_command_line_sync(command_line: string): [boolean, Uint8Array, Uint8Array, number]
-                /**
-                 */
+                
                 spawn_error_quark(): Quark
-                /**
-                 */
+                
                 spawn_exit_error_quark(): Quark
                 /**
                  * Executes a child synchronously (waits for the child to exit before returning).
@@ -26625,8 +26562,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns true if `strv1` and `strv2` are equal
                  */
                 strv_equal(strv1: string[], strv2: string[]): boolean
-                /**
-                 */
+                
                 strv_get_type(): GObject.GType
                 /**
                  * Returns the length of an array of strings. `str_array` must not be `NULL`.
@@ -27245,8 +27181,7 @@ declare module "gi://GLib?version=2.0" {
                  * @param test_flags flags to modify subprocess behaviour
                  */
                 test_trap_subprocess_with_envp(test_path: string | null, envp: string[] | null, usec_timeout: number, test_flags: TestSubprocessFlags): void
-                /**
-                 */
+                
                 thread_error_quark(): Quark
                 /**
                  * Terminates the current thread.
@@ -28039,8 +27974,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns a new #GUri
                  */
                 uri_build_with_user(flags: UriFlags, scheme: string, user: string | null, password: string | null, auth_params: string | null, host: string | null, port: number, path: string, query: string | null, fragment: string | null): Uri
-                /**
-                 */
+                
                 uri_error_quark(): Quark
                 /**
                  * Escapes arbitrary data for use in a URI.
@@ -28821,8 +28755,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns A string that should be freed with g_free().
                  */
                 uuid_string_random(): string
-                /**
-                 */
+                
                 variant_get_gtype(): GObject.GType
                 /**
                  * Determines if a given string is a valid D-Bus object path.  You
@@ -28931,8 +28864,7 @@ declare module "gi://GLib?version=2.0" {
                  * @returns the printed message
                  */
                 variant_parse_error_print_context(error: Error, source_str: string): string
-                /**
-                 */
+                
                 variant_parse_error_quark(): Quark
                 /**
                  * Same as g_variant_error_quark().

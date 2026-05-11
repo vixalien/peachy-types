@@ -30,10 +30,13 @@ declare module "gi://GstTag?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -125,10 +128,13 @@ declare module "gi://GstTag?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures, Gst.TagSetter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties, Gst.TagSetter.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties, Gst.TagSetter.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties, Gst.TagSetter.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties, Gst.TagSetter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties, Gst.TagSetter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties, Gst.TagSetter.ConstructOnlyProperties {
@@ -186,10 +192,13 @@ declare module "gi://GstTag?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {

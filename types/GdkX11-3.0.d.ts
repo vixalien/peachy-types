@@ -42,10 +42,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.AppLaunchContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.AppLaunchContext.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.AppLaunchContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.AppLaunchContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.AppLaunchContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.AppLaunchContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.AppLaunchContext.ConstructOnlyProperties {
@@ -67,8 +70,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11AppLaunchContext: X11AppLaunchContextClass
             }
             
@@ -77,10 +79,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.Cursor.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Cursor.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Cursor.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Cursor.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Cursor.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Cursor.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Cursor.ConstructOnlyProperties {
@@ -112,8 +117,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11Cursor: X11CursorClass
             }
             
@@ -122,10 +126,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.Device.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Device.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Device.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Device.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Device.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Device.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Device.ConstructOnlyProperties {
@@ -147,8 +154,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11DeviceCore: X11DeviceCoreClass
             }
             
@@ -157,10 +163,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.DeviceManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.DeviceManager.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.DeviceManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.DeviceManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.DeviceManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.DeviceManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.DeviceManager.ConstructOnlyProperties {
@@ -182,8 +191,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11DeviceManagerCore: X11DeviceManagerCoreClass
             }
             
@@ -192,13 +200,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends X11DeviceManagerCore.SignalSignatures {
                 }
 
-                interface ReadableProperties extends X11DeviceManagerCore.ReadableProperties {
-                    "major": number
-                    "minor": number
-                    "opcode": number
+                interface ReadWriteProperties extends X11DeviceManagerCore.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends X11DeviceManagerCore.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, X11DeviceManagerCore.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, X11DeviceManagerCore.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends X11DeviceManagerCore.ConstructOnlyProperties {
@@ -238,8 +246,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11DeviceManagerXI2: X11DeviceManagerXI2Class
             }
             
@@ -248,11 +255,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.Device.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Device.ReadableProperties {
-                    "device-id": number
+                interface ReadWriteProperties extends Gdk.Device.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Device.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Device.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Device.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Device.ConstructOnlyProperties {
@@ -280,8 +289,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11DeviceXI2: X11DeviceXI2Class
             }
             
@@ -290,10 +298,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.Display.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Display.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Display.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Display.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Display.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Display.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Display.ConstructOnlyProperties {
@@ -471,8 +482,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11Display: X11DisplayClass
             }
             
@@ -481,10 +491,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.DisplayManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.DisplayManager.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.DisplayManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.DisplayManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.DisplayManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.DisplayManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.DisplayManager.ConstructOnlyProperties {
@@ -506,8 +519,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11DisplayManager: X11DisplayManagerClass
             }
             
@@ -516,10 +528,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.DragContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.DragContext.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.DragContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.DragContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.DragContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.DragContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.DragContext.ConstructOnlyProperties {
@@ -541,8 +556,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11DragContext: X11DragContextClass
             }
             
@@ -551,10 +565,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.GLContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.GLContext.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.GLContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.GLContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.GLContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.GLContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.GLContext.ConstructOnlyProperties {
@@ -576,8 +593,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11GLContext: X11GLContextClass
             }
             
@@ -586,10 +602,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.Keymap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Keymap.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Keymap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Keymap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Keymap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Keymap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Keymap.ConstructOnlyProperties {
@@ -632,8 +651,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11Keymap: X11KeymapClass
             }
             
@@ -642,10 +660,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.Monitor.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Monitor.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Monitor.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Monitor.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Monitor.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Monitor.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Monitor.ConstructOnlyProperties {
@@ -671,23 +692,24 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11Monitor: X11MonitorClass
             }
             
 
             namespace X11Screen {
                 interface SignalSignatures extends Gdk.Screen.SignalSignatures {
-                    /**
-                     */
+                    
                     "window-manager-changed"(): void
                 }
 
-                interface ReadableProperties extends Gdk.Screen.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Screen.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Screen.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Screen.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Screen.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Screen.ConstructOnlyProperties {
@@ -779,8 +801,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11Screen: X11ScreenClass
             }
             
@@ -789,10 +810,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.Visual.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Visual.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Visual.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Visual.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Visual.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Visual.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Visual.ConstructOnlyProperties {
@@ -819,8 +843,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11Visual: X11VisualClass
             }
             
@@ -829,10 +852,13 @@ declare module "gi://GdkX11?version=3.0" {
                 interface SignalSignatures extends Gdk.Window.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Window.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Window.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Window.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Window.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Window.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Window.ConstructOnlyProperties {
@@ -976,8 +1002,7 @@ declare module "gi://GdkX11?version=3.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 X11Window: X11WindowClass
             }
 

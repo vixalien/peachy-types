@@ -30,21 +30,18 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends GstBase.Aggregator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.Aggregator.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.Aggregator.ReadWriteProperties {
                     "alignment-threshold": number
                     "discont-wait": number
-                    "force-live": boolean
                     "ignore-inactive-pads": boolean
                     "output-buffer-duration": number
                     "output-buffer-duration-fraction": Gst.Fraction
                 }
 
-                interface WritableProperties extends GstBase.Aggregator.WritableProperties {
-                    "alignment-threshold": number
-                    "discont-wait": number
-                    "ignore-inactive-pads": boolean
-                    "output-buffer-duration": number
-                    "output-buffer-duration-fraction": Gst.Fraction
+                interface ReadableProperties extends ReadWriteProperties, GstBase.Aggregator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.Aggregator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.Aggregator.ConstructOnlyProperties {
@@ -191,12 +188,14 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends AudioAggregatorPad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends AudioAggregatorPad.ReadableProperties {
+                interface ReadWriteProperties extends AudioAggregatorPad.ReadWriteProperties {
                     "converter-config": Gst.Structure
                 }
 
-                interface WritableProperties extends AudioAggregatorPad.WritableProperties {
-                    "converter-config": Gst.Structure
+                interface ReadableProperties extends ReadWriteProperties, AudioAggregatorPad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, AudioAggregatorPad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends AudioAggregatorPad.ConstructOnlyProperties {
@@ -208,8 +207,7 @@ declare module "gi://GstAudio?version=1.0" {
                 readonly $readableProperties: AudioAggregatorConvertPad.ReadableProperties
                 readonly $writableProperties: AudioAggregatorConvertPad.WritableProperties
                 readonly $constructOnlyProperties: AudioAggregatorConvertPad.ConstructOnlyProperties
-                /**
-                 */
+                
                 get converterConfig(): Gst.Structure
                 set converterConfig(value: Gst.Structure)
             }
@@ -236,12 +234,14 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends GstBase.AggregatorPad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.AggregatorPad.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.AggregatorPad.ReadWriteProperties {
                     "qos-messages": boolean
                 }
 
-                interface WritableProperties extends GstBase.AggregatorPad.WritableProperties {
-                    "qos-messages": boolean
+                interface ReadableProperties extends ReadWriteProperties, GstBase.AggregatorPad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.AggregatorPad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.AggregatorPad.ConstructOnlyProperties {
@@ -294,7 +294,7 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends GstBase.BaseSink.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.BaseSink.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.BaseSink.ReadWriteProperties {
                     "alignment-threshold": number
                     "buffer-time": number
                     "can-activate-pull": boolean
@@ -305,15 +305,10 @@ declare module "gi://GstAudio?version=1.0" {
                     "slave-method": AudioBaseSinkSlaveMethod
                 }
 
-                interface WritableProperties extends GstBase.BaseSink.WritableProperties {
-                    "alignment-threshold": number
-                    "buffer-time": number
-                    "can-activate-pull": boolean
-                    "discont-wait": number
-                    "drift-tolerance": number
-                    "latency-time": number
-                    "provide-clock": boolean
-                    "slave-method": AudioBaseSinkSlaveMethod
+                interface ReadableProperties extends ReadWriteProperties, GstBase.BaseSink.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.BaseSink.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.BaseSink.ConstructOnlyProperties {
@@ -490,7 +485,7 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends GstBase.PushSrc.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.PushSrc.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.PushSrc.ReadWriteProperties {
                     "actual-buffer-time": number
                     "actual-latency-time": number
                     "buffer-time": number
@@ -499,13 +494,10 @@ declare module "gi://GstAudio?version=1.0" {
                     "slave-method": AudioBaseSrcSlaveMethod
                 }
 
-                interface WritableProperties extends GstBase.PushSrc.WritableProperties {
-                    "actual-buffer-time": number
-                    "actual-latency-time": number
-                    "buffer-time": number
-                    "latency-time": number
-                    "provide-clock": boolean
-                    "slave-method": AudioBaseSrcSlaveMethod
+                interface ReadableProperties extends ReadWriteProperties, GstBase.PushSrc.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.PushSrc.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.PushSrc.ConstructOnlyProperties {
@@ -609,16 +601,16 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends GstBase.PushSrc.SignalSignatures, Gst.URIHandler.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.PushSrc.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.PushSrc.ReadWriteProperties, Gst.URIHandler.ReadWriteProperties {
                     "device": string
                     "mode": AudioCdSrcMode
                     "track": number
                 }
 
-                interface WritableProperties extends GstBase.PushSrc.WritableProperties, Gst.URIHandler.WritableProperties {
-                    "device": string
-                    "mode": AudioCdSrcMode
-                    "track": number
+                interface ReadableProperties extends ReadWriteProperties, GstBase.PushSrc.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.PushSrc.WritableProperties, Gst.URIHandler.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.PushSrc.ConstructOnlyProperties, Gst.URIHandler.ConstructOnlyProperties {
@@ -731,10 +723,13 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends Gst.SystemClock.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.SystemClock.ReadableProperties {
+                interface ReadWriteProperties extends Gst.SystemClock.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.SystemClock.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.SystemClock.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.SystemClock.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.SystemClock.ConstructOnlyProperties {
@@ -808,18 +803,17 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "max-errors": number
                     "min-latency": number
                     "plc": boolean
                     "tolerance": number
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "max-errors": number
-                    "min-latency": number
-                    "plc": boolean
-                    "tolerance": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -1340,18 +1334,17 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures, Gst.Preset.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties, Gst.Preset.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties, Gst.Preset.ReadWriteProperties {
                     "hard-resync": boolean
                     "mark-granule": boolean
                     "perfect-timestamp": boolean
                     "tolerance": number
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties, Gst.Preset.WritableProperties {
-                    "hard-resync": boolean
-                    "mark-granule": boolean
-                    "perfect-timestamp": boolean
-                    "tolerance": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties, Gst.Preset.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties, Gst.Preset.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties, Gst.Preset.ConstructOnlyProperties {
@@ -1440,8 +1433,7 @@ declare module "gi://GstAudio?version=1.0" {
                  * @returns TRUE if hard minimum handling is enabled.  MT safe.
                  */
                 get_hard_min(): boolean
-                /**
-                 */
+                
                 get_hard_resync(): boolean
                 /**
                  * Sets the variables pointed to by `min` and `max` to the currently configured
@@ -1854,10 +1846,13 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends GstBase.BaseTransform.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.BaseTransform.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.BaseTransform.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstBase.BaseTransform.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstBase.BaseTransform.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.BaseTransform.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.BaseTransform.ConstructOnlyProperties {
@@ -1915,10 +1910,13 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -2322,10 +2320,13 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends AudioBaseSink.SignalSignatures {
                 }
 
-                interface ReadableProperties extends AudioBaseSink.ReadableProperties {
+                interface ReadWriteProperties extends AudioBaseSink.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends AudioBaseSink.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, AudioBaseSink.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, AudioBaseSink.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends AudioBaseSink.ConstructOnlyProperties {
@@ -2429,10 +2430,13 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends AudioBaseSrc.SignalSignatures {
                 }
 
-                interface ReadableProperties extends AudioBaseSrc.ReadableProperties {
+                interface ReadWriteProperties extends AudioBaseSrc.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends AudioBaseSrc.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, AudioBaseSrc.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, AudioBaseSrc.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends AudioBaseSrc.ConstructOnlyProperties {
@@ -2509,14 +2513,15 @@ declare module "gi://GstAudio?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "mute": boolean
                     "volume": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "mute": boolean
-                    "volume": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2891,8 +2896,7 @@ declare module "gi://GstAudio?version=1.0" {
                     start?: number
                     end?: number
                 }): AudioClippingMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3085,8 +3089,7 @@ declare module "gi://GstAudio?version=1.0" {
                     to_channels?: number
                     matrix?: number
                 }): AudioDownmixMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3370,8 +3373,7 @@ declare module "gi://GstAudio?version=1.0" {
                     samples?: number
                     offsets?: number
                 }): AudioMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3828,8 +3830,7 @@ declare module "gi://GstAudio?version=1.0" {
                  * positions for each channel
                  */
                 positions: AudioChannelPosition[]
-                /**
-                 */
+                
                 flags: AudioFlags
                 /**
                  * Copy a GstDsdInfo structure.
@@ -3882,8 +3883,7 @@ declare module "gi://GstAudio?version=1.0" {
                     num_bytes_per_channel?: number
                     offsets?: number
                 }): DsdPlaneOffsetMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -5223,17 +5223,13 @@ declare module "gi://GstAudio?version=1.0" {
                  * @returns %TRUE if the channel positions are valid.
                  */
                 audio_check_valid_channel_positions(position: AudioChannelPosition[], force_order: boolean): boolean
-                /**
-                 */
+                
                 audio_clipping_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 audio_clipping_meta_get_info(): Gst.MetaInfo
-                /**
-                 */
+                
                 audio_downmix_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 audio_downmix_meta_get_info(): Gst.MetaInfo
                 /**
                  * Construct a #GstAudioFormat with given parameters.
@@ -5344,11 +5340,9 @@ declare module "gi://GstAudio?version=1.0" {
                  * @returns an audio `GstCaps`
                  */
                 audio_make_raw_caps(formats: AudioFormat[] | null, layout: AudioLayout): Gst.Caps
-                /**
-                 */
+                
                 audio_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 audio_meta_get_info(): Gst.MetaInfo
                 /**
                  * Reorders `data` from the channel positions `from` to the channel
@@ -5575,11 +5569,9 @@ declare module "gi://GstAudio?version=1.0" {
                  * @returns , a #GstDsdInfo
                  */
                 dsd_info_init(): DsdInfo
-                /**
-                 */
+                
                 dsd_plane_offset_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 dsd_plane_offset_meta_get_info(): Gst.MetaInfo
                 /**
                  * @param from #GstStreamVolumeFormat to convert from
