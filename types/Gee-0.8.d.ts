@@ -28,13 +28,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractList.SignalSignatures, Gee.BidirList.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractList.ReadableProperties, Gee.BidirList.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractList.ReadWriteProperties, Gee.BidirList.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractList.WritableProperties, Gee.BidirList.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractList.ReadableProperties, Gee.BidirList.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractList.WritableProperties, Gee.BidirList.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractList.ConstructOnlyProperties, Gee.BidirList.ConstructOnlyProperties {
@@ -49,77 +49,54 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractBidirList.ReadableProperties
                 readonly $writableProperties: AbstractBidirList.WritableProperties
                 readonly $constructOnlyProperties: AbstractBidirList.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
             }
 
@@ -131,8 +108,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractBidirList: AbstractBidirListClass
             }
             
@@ -141,13 +117,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractSortedSet.SignalSignatures, Gee.BidirSortedSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractSortedSet.ReadableProperties, Gee.BidirSortedSet.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractSortedSet.ReadWriteProperties, Gee.BidirSortedSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractSortedSet.WritableProperties, Gee.BidirSortedSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractSortedSet.ReadableProperties, Gee.BidirSortedSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractSortedSet.WritableProperties, Gee.BidirSortedSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractSortedSet.ConstructOnlyProperties, Gee.BidirSortedSet.ConstructOnlyProperties {
@@ -162,77 +138,54 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractBidirSortedSet.ReadableProperties
                 readonly $writableProperties: AbstractBidirSortedSet.WritableProperties
                 readonly $constructOnlyProperties: AbstractBidirSortedSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
             }
 
@@ -244,8 +197,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractBidirSortedSet: AbstractBidirSortedSetClass
             }
             
@@ -254,16 +206,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractSortedMap.SignalSignatures, Gee.BidirSortedMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractSortedMap.ReadableProperties, Gee.BidirSortedMap.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractSortedMap.ReadWriteProperties, Gee.BidirSortedMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractSortedMap.WritableProperties, Gee.BidirSortedMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractSortedMap.ReadableProperties, Gee.BidirSortedMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractSortedMap.WritableProperties, Gee.BidirSortedMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractSortedMap.ConstructOnlyProperties, Gee.BidirSortedMap.ConstructOnlyProperties {
@@ -281,89 +230,63 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractBidirSortedMap.ReadableProperties
                 readonly $writableProperties: AbstractBidirSortedMap.WritableProperties
                 readonly $constructOnlyProperties: AbstractBidirSortedMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
             }
 
@@ -375,8 +298,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractBidirSortedMap: AbstractBidirSortedMapClass
             }
             
@@ -385,17 +307,15 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gee.Traversable.SignalSignatures, Gee.Iterable.SignalSignatures, Gee.Collection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties, Gee.Iterable.ReadableProperties, Gee.Collection.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Traversable.ReadWriteProperties, Gee.Iterable.ReadWriteProperties, Gee.Collection.ReadWriteProperties {
                     "size": number
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gee.Traversable.WritableProperties, Gee.Iterable.WritableProperties, Gee.Collection.WritableProperties {
-                    "size": number
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties, Gee.Iterable.ReadableProperties, Gee.Collection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Traversable.WritableProperties, Gee.Iterable.WritableProperties, Gee.Collection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gee.Traversable.ConstructOnlyProperties, Gee.Iterable.ConstructOnlyProperties, Gee.Collection.ConstructOnlyProperties {
@@ -410,24 +330,19 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractCollection.ReadableProperties
                 readonly $writableProperties: AbstractCollection.WritableProperties
                 readonly $constructOnlyProperties: AbstractCollection.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get size(): number
                 set size(value: number)
-                /**
-                 */
+                
                 get readOnly(): boolean
                 set readOnly(value: boolean)
                 /**
@@ -442,48 +357,35 @@ declare module "gi://Gee?version=0.8" {
                  * @param item
                  */
                 remove(item: never): boolean
-                /**
-                 */
+                
                 clear(): void
                 /**
                  * @param f
                  */
                 foreach(f: Gee.ForallFunc): boolean
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 get_size(): number
-                /**
-                 */
+                
                 get_read_only(): boolean
                 /**
                  * @param item
@@ -497,48 +399,35 @@ declare module "gi://Gee?version=0.8" {
                  * @param item
                  */
                 vfunc_remove(item: never): boolean
-                /**
-                 */
+                
                 vfunc_clear(): void
                 /**
                  * @param f
                  */
                 vfunc_foreach(f: Gee.ForallFunc): boolean
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
-                /**
-                 */
+                
                 vfunc_get_size(): number
-                /**
-                 */
+                
                 vfunc_get_read_only(): boolean
             }
 
@@ -550,8 +439,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractCollection: AbstractCollectionClass
             }
             
@@ -560,13 +448,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractCollection.SignalSignatures, Gee.List.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractCollection.ReadableProperties, Gee.List.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractCollection.ReadWriteProperties, Gee.List.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractCollection.WritableProperties, Gee.List.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractCollection.ReadableProperties, Gee.List.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractCollection.WritableProperties, Gee.List.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractCollection.ConstructOnlyProperties, Gee.List.ConstructOnlyProperties {
@@ -581,16 +469,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractList.ReadableProperties
                 readonly $writableProperties: AbstractList.WritableProperties
                 readonly $constructOnlyProperties: AbstractList.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -615,35 +500,25 @@ declare module "gi://Gee?version=0.8" {
                  * @param index
                  */
                 remove_at(index: number): never
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
                 /**
                  * @param index
@@ -667,35 +542,25 @@ declare module "gi://Gee?version=0.8" {
                  * @param index
                  */
                 vfunc_remove_at(index: number): never
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
             }
 
@@ -707,8 +572,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractList: AbstractListClass
             }
             
@@ -717,20 +581,15 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gee.Traversable.SignalSignatures, Gee.Iterable.SignalSignatures, Gee.Map.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties, Gee.Iterable.ReadableProperties, Gee.Map.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Traversable.ReadWriteProperties, Gee.Iterable.ReadWriteProperties, Gee.Map.ReadWriteProperties {
                     "size": number
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gee.Traversable.WritableProperties, Gee.Iterable.WritableProperties, Gee.Map.WritableProperties {
-                    "size": number
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties, Gee.Iterable.ReadableProperties, Gee.Map.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Traversable.WritableProperties, Gee.Iterable.WritableProperties, Gee.Map.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gee.Traversable.ConstructOnlyProperties, Gee.Iterable.ConstructOnlyProperties, Gee.Map.ConstructOnlyProperties {
@@ -748,36 +607,28 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractMap.ReadableProperties
                 readonly $writableProperties: AbstractMap.WritableProperties
                 readonly $constructOnlyProperties: AbstractMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get size(): number
                 set size(value: number)
-                /**
-                 */
+                
                 get readOnly(): boolean
                 set readOnly(value: boolean)
                 /**
@@ -803,48 +654,35 @@ declare module "gi://Gee?version=0.8" {
                  * @returns , 
                  */
                 unset(key: never): [boolean, never]
-                /**
-                 */
+                
                 clear(): void
                 /**
                  * @param f
                  */
                 foreach(f: Gee.ForallFunc): boolean
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 get_size(): number
-                /**
-                 */
+                
                 get_read_only(): boolean
                 /**
                  * @param key
@@ -869,48 +707,35 @@ declare module "gi://Gee?version=0.8" {
                  * @returns , 
                  */
                 vfunc_unset(key: never): [boolean, never]
-                /**
-                 */
+                
                 vfunc_clear(): void
                 /**
                  * @param f
                  */
                 vfunc_foreach(f: Gee.ForallFunc): boolean
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
-                /**
-                 */
+                
                 vfunc_get_size(): number
-                /**
-                 */
+                
                 vfunc_get_read_only(): boolean
             }
 
@@ -922,8 +747,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractMap: AbstractMapClass
             }
             
@@ -932,16 +756,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gee.MultiMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gee.MultiMap.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.MultiMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gee.MultiMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.MultiMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.MultiMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gee.MultiMap.ConstructOnlyProperties {
@@ -959,91 +780,67 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractMultiMap.ReadableProperties
                 readonly $writableProperties: AbstractMultiMap.WritableProperties
                 readonly $constructOnlyProperties: AbstractMultiMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
                 /**
                  * @returns , , 
                  */
                 get_value_equal_func(): [Gee.EqualDataFunc, never, GLib.DestroyNotify]
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
                 /**
                  * @returns , , 
                  */
                 vfunc_get_value_equal_func(): [Gee.EqualDataFunc, never, GLib.DestroyNotify]
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
             }
 
@@ -1055,8 +852,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractMultiMap: AbstractMultiMapClass
             }
             
@@ -1065,13 +861,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractCollection.SignalSignatures, Gee.MultiSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractCollection.ReadableProperties, Gee.MultiSet.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractCollection.ReadWriteProperties, Gee.MultiSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractCollection.WritableProperties, Gee.MultiSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractCollection.ReadableProperties, Gee.MultiSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractCollection.WritableProperties, Gee.MultiSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractCollection.ConstructOnlyProperties, Gee.MultiSet.ConstructOnlyProperties {
@@ -1086,71 +882,50 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractMultiSet.ReadableProperties
                 readonly $writableProperties: AbstractMultiSet.WritableProperties
                 readonly $constructOnlyProperties: AbstractMultiSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
             }
 
@@ -1162,8 +937,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractMultiSet: AbstractMultiSetClass
             }
             
@@ -1172,19 +946,16 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractCollection.SignalSignatures, Gee.Queue.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractCollection.ReadableProperties, Gee.Queue.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractCollection.ReadWriteProperties, Gee.Queue.ReadWriteProperties {
                     "capacity": number
                     "remaining-capacity": number
                     "is-full": boolean
                 }
 
-                interface WritableProperties extends Gee.AbstractCollection.WritableProperties, Gee.Queue.WritableProperties {
-                    "capacity": number
-                    "remaining-capacity": number
-                    "is-full": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractCollection.ReadableProperties, Gee.Queue.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractCollection.WritableProperties, Gee.Queue.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractCollection.ConstructOnlyProperties, Gee.Queue.ConstructOnlyProperties {
@@ -1199,119 +970,83 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractQueue.ReadableProperties
                 readonly $writableProperties: AbstractQueue.WritableProperties
                 readonly $constructOnlyProperties: AbstractQueue.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get capacity(): number
                 set capacity(value: number)
-                /**
-                 */
+                
                 get remainingCapacity(): number
                 set remainingCapacity(value: number)
-                /**
-                 */
+                
                 get isFull(): boolean
                 set isFull(value: boolean)
-                /**
-                 */
+                
                 peek(): never | null
-                /**
-                 */
+                
                 poll(): never | null
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 get_capacity(): number
-                /**
-                 */
+                
                 get_remaining_capacity(): number
-                /**
-                 */
+                
                 get_is_full(): boolean
-                /**
-                 */
+                
                 vfunc_peek(): never | null
-                /**
-                 */
+                
                 vfunc_poll(): never | null
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
-                /**
-                 */
+                
                 vfunc_get_capacity(): number
-                /**
-                 */
+                
                 vfunc_get_remaining_capacity(): number
-                /**
-                 */
+                
                 vfunc_get_is_full(): boolean
             }
 
@@ -1323,8 +1058,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractQueue: AbstractQueueClass
             }
             
@@ -1333,13 +1067,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractCollection.SignalSignatures, Gee.Set.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractCollection.ReadableProperties, Gee.Set.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractCollection.ReadWriteProperties, Gee.Set.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractCollection.WritableProperties, Gee.Set.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractCollection.ReadableProperties, Gee.Set.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractCollection.WritableProperties, Gee.Set.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractCollection.ConstructOnlyProperties, Gee.Set.ConstructOnlyProperties {
@@ -1354,77 +1088,54 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractSet.ReadableProperties
                 readonly $writableProperties: AbstractSet.WritableProperties
                 readonly $constructOnlyProperties: AbstractSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
             }
 
@@ -1436,8 +1147,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractSet: AbstractSetClass
             }
             
@@ -1446,16 +1156,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractMap.SignalSignatures, Gee.SortedMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractMap.ReadableProperties, Gee.SortedMap.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractMap.ReadWriteProperties, Gee.SortedMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractMap.WritableProperties, Gee.SortedMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractMap.ReadableProperties, Gee.SortedMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractMap.WritableProperties, Gee.SortedMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractMap.ConstructOnlyProperties, Gee.SortedMap.ConstructOnlyProperties {
@@ -1473,89 +1180,63 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractSortedMap.ReadableProperties
                 readonly $writableProperties: AbstractSortedMap.WritableProperties
                 readonly $constructOnlyProperties: AbstractSortedMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
             }
 
@@ -1567,8 +1248,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractSortedMap: AbstractSortedMapClass
             }
             
@@ -1577,13 +1257,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractSet.SignalSignatures, Gee.SortedSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractSet.ReadableProperties, Gee.SortedSet.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractSet.ReadWriteProperties, Gee.SortedSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractSet.WritableProperties, Gee.SortedSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractSet.ReadableProperties, Gee.SortedSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractSet.WritableProperties, Gee.SortedSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractSet.ConstructOnlyProperties, Gee.SortedSet.ConstructOnlyProperties {
@@ -1598,23 +1278,18 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: AbstractSortedSet.ReadableProperties
                 readonly $writableProperties: AbstractSortedSet.WritableProperties
                 readonly $constructOnlyProperties: AbstractSortedSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 first(): never
-                /**
-                 */
+                
                 last(): never
                 /**
                  * @param element
@@ -1632,41 +1307,29 @@ declare module "gi://Gee?version=0.8" {
                  * @param element
                  */
                 ceil(element: never): never | null
-                /**
-                 */
+                
                 reserved0(): void
-                /**
-                 */
+                
                 reserved1(): void
-                /**
-                 */
+                
                 reserved2(): void
-                /**
-                 */
+                
                 reserved3(): void
-                /**
-                 */
+                
                 reserved4(): void
-                /**
-                 */
+                
                 reserved5(): void
-                /**
-                 */
+                
                 reserved6(): void
-                /**
-                 */
+                
                 reserved7(): void
-                /**
-                 */
+                
                 reserved8(): void
-                /**
-                 */
+                
                 reserved9(): void
-                /**
-                 */
+                
                 vfunc_first(): never
-                /**
-                 */
+                
                 vfunc_last(): never
                 /**
                  * @param element
@@ -1684,35 +1347,25 @@ declare module "gi://Gee?version=0.8" {
                  * @param element
                  */
                 vfunc_ceil(element: never): never | null
-                /**
-                 */
+                
                 vfunc_reserved0(): void
-                /**
-                 */
+                
                 vfunc_reserved1(): void
-                /**
-                 */
+                
                 vfunc_reserved2(): void
-                /**
-                 */
+                
                 vfunc_reserved3(): void
-                /**
-                 */
+                
                 vfunc_reserved4(): void
-                /**
-                 */
+                
                 vfunc_reserved5(): void
-                /**
-                 */
+                
                 vfunc_reserved6(): void
-                /**
-                 */
+                
                 vfunc_reserved7(): void
-                /**
-                 */
+                
                 vfunc_reserved8(): void
-                /**
-                 */
+                
                 vfunc_reserved9(): void
             }
 
@@ -1724,8 +1377,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AbstractSortedSet: AbstractSortedSetClass
             }
             
@@ -1734,13 +1386,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractBidirList.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractBidirList.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractBidirList.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractBidirList.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractBidirList.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractBidirList.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractBidirList.ConstructOnlyProperties {
@@ -1755,16 +1407,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: ArrayList.ReadableProperties
                 readonly $writableProperties: ArrayList.WritableProperties
                 readonly $constructOnlyProperties: ArrayList.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -1796,8 +1445,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ArrayList: ArrayListClass
             }
             
@@ -1806,15 +1454,14 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractQueue.SignalSignatures, Gee.Deque.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractQueue.ReadableProperties, Gee.Deque.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractQueue.ReadWriteProperties, Gee.Deque.ReadWriteProperties {
                     "is-empty": boolean
                 }
 
-                interface WritableProperties extends Gee.AbstractQueue.WritableProperties, Gee.Deque.WritableProperties {
-                    "is-empty": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractQueue.ReadableProperties, Gee.Deque.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractQueue.WritableProperties, Gee.Deque.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractQueue.ConstructOnlyProperties, Gee.Deque.ConstructOnlyProperties {
@@ -1829,28 +1476,23 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: ArrayQueue.ReadableProperties
                 readonly $writableProperties: ArrayQueue.WritableProperties
                 readonly $constructOnlyProperties: ArrayQueue.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get isEmpty(): boolean
                 set isEmpty(value: boolean)
                 /**
                  * @returns , 
                  */
                 get_equal_func(): [Gee.EqualDataFunc, never]
-                /**
-                 */
+                
                 get_is_empty(): boolean
             }
 
@@ -1869,8 +1511,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ArrayQueue: ArrayQueueClass
             }
             
@@ -1879,15 +1520,14 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractList.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractList.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractList.ReadWriteProperties {
                     "is-empty": boolean
                 }
 
-                interface WritableProperties extends Gee.AbstractList.WritableProperties {
-                    "is-empty": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractList.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractList.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractList.ConstructOnlyProperties {
@@ -1902,28 +1542,23 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: ConcurrentList.ReadableProperties
                 readonly $writableProperties: ConcurrentList.WritableProperties
                 readonly $constructOnlyProperties: ConcurrentList.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get isEmpty(): boolean
                 set isEmpty(value: boolean)
                 /**
                  * @returns , 
                  */
                 get_equal_func(): [Gee.EqualDataFunc, never]
-                /**
-                 */
+                
                 get_is_empty(): boolean
             }
 
@@ -1942,8 +1577,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ConcurrentList: ConcurrentListClass
             }
             
@@ -1952,13 +1586,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractSortedSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractSortedSet.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractSortedSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractSortedSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractSortedSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractSortedSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractSortedSet.ConstructOnlyProperties {
@@ -1973,16 +1607,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: ConcurrentSet.ReadableProperties
                 readonly $writableProperties: ConcurrentSet.WritableProperties
                 readonly $constructOnlyProperties: ConcurrentSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
             }
@@ -2002,8 +1633,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ConcurrentSet: ConcurrentSetClass
             }
             
@@ -2012,16 +1642,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractMap.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractMap.ConstructOnlyProperties {
@@ -2039,28 +1666,22 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: HashMap.ReadableProperties
                 readonly $writableProperties: HashMap.WritableProperties
                 readonly $constructOnlyProperties: HashMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2097,8 +1718,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 HashMap: HashMapClass
             }
             
@@ -2107,16 +1727,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractMultiMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractMultiMap.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractMultiMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractMultiMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractMultiMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractMultiMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractMultiMap.ConstructOnlyProperties {
@@ -2134,28 +1751,22 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: HashMultiMap.ReadableProperties
                 readonly $writableProperties: HashMultiMap.WritableProperties
                 readonly $constructOnlyProperties: HashMultiMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2197,8 +1808,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 HashMultiMap: HashMultiMapClass
             }
             
@@ -2207,13 +1817,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractMultiSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractMultiSet.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractMultiSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractMultiSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractMultiSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractMultiSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractMultiSet.ConstructOnlyProperties {
@@ -2228,16 +1838,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: HashMultiSet.ReadableProperties
                 readonly $writableProperties: HashMultiSet.WritableProperties
                 readonly $constructOnlyProperties: HashMultiSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2275,8 +1882,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 HashMultiSet: HashMultiSetClass
             }
             
@@ -2285,13 +1891,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractSet.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractSet.ConstructOnlyProperties {
@@ -2306,16 +1912,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: HashSet.ReadableProperties
                 readonly $writableProperties: HashSet.WritableProperties
                 readonly $constructOnlyProperties: HashSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2344,8 +1947,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 HashSet: HashSetClass
             }
             
@@ -2354,10 +1956,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -2369,14 +1974,11 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: Lazy.ReadableProperties
                 readonly $writableProperties: Lazy.WritableProperties
                 readonly $constructOnlyProperties: Lazy.ConstructOnlyProperties
-                /**
-                 */
+                
                 eval(): void
-                /**
-                 */
+                
                 get(): never
-                /**
-                 */
+                
                 get_value(): never
             }
 
@@ -2402,8 +2004,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Lazy: LazyClass
             }
             
@@ -2412,13 +2013,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractBidirList.SignalSignatures, Gee.Queue.SignalSignatures, Gee.Deque.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractBidirList.ReadableProperties, Gee.Queue.ReadableProperties, Gee.Deque.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractBidirList.ReadWriteProperties, Gee.Queue.ReadWriteProperties, Gee.Deque.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractBidirList.WritableProperties, Gee.Queue.WritableProperties, Gee.Deque.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractBidirList.ReadableProperties, Gee.Queue.ReadableProperties, Gee.Deque.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractBidirList.WritableProperties, Gee.Queue.WritableProperties, Gee.Deque.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractBidirList.ConstructOnlyProperties, Gee.Queue.ConstructOnlyProperties, Gee.Deque.ConstructOnlyProperties {
@@ -2433,23 +2034,18 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: LinkedList.ReadableProperties
                 readonly $writableProperties: LinkedList.WritableProperties
                 readonly $constructOnlyProperties: LinkedList.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 first(): never
-                /**
-                 */
+                
                 last(): never
                 /**
                  * @returns , 
@@ -2472,8 +2068,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 LinkedList: LinkedListClass
             }
             
@@ -2482,13 +2077,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractQueue.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractQueue.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractQueue.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractQueue.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractQueue.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractQueue.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractQueue.ConstructOnlyProperties {
@@ -2503,16 +2098,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: PriorityQueue.ReadableProperties
                 readonly $writableProperties: PriorityQueue.WritableProperties
                 readonly $constructOnlyProperties: PriorityQueue.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2540,8 +2132,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 PriorityQueue: PriorityQueueClass
             }
             
@@ -2550,10 +2141,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -2589,8 +2183,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Promise: PromiseClass
             }
             
@@ -2599,16 +2192,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractBidirSortedMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractBidirSortedMap.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractBidirSortedMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractBidirSortedMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractBidirSortedMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractBidirSortedMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractBidirSortedMap.ConstructOnlyProperties {
@@ -2626,28 +2216,22 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: TreeMap.ReadableProperties
                 readonly $writableProperties: TreeMap.WritableProperties
                 readonly $constructOnlyProperties: TreeMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2679,8 +2263,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TreeMap: TreeMapClass
             }
             
@@ -2689,16 +2272,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractMultiMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractMultiMap.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractMultiMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractMultiMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractMultiMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractMultiMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractMultiMap.ConstructOnlyProperties {
@@ -2716,28 +2296,22 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: TreeMultiMap.ReadableProperties
                 readonly $writableProperties: TreeMultiMap.WritableProperties
                 readonly $constructOnlyProperties: TreeMultiMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2769,8 +2343,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TreeMultiMap: TreeMultiMapClass
             }
             
@@ -2779,13 +2352,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractMultiSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractMultiSet.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractMultiSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractMultiSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractMultiSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractMultiSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractMultiSet.ConstructOnlyProperties {
@@ -2800,16 +2373,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: TreeMultiSet.ReadableProperties
                 readonly $writableProperties: TreeMultiSet.WritableProperties
                 readonly $constructOnlyProperties: TreeMultiSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2833,8 +2403,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TreeMultiSet: TreeMultiSetClass
             }
             
@@ -2843,13 +2412,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractBidirSortedSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractBidirSortedSet.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractBidirSortedSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractBidirSortedSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractBidirSortedSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractBidirSortedSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractBidirSortedSet.ConstructOnlyProperties {
@@ -2864,16 +2433,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: TreeSet.ReadableProperties
                 readonly $writableProperties: TreeSet.WritableProperties
                 readonly $constructOnlyProperties: TreeSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2897,8 +2463,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TreeSet: TreeSetClass
             }
             
@@ -2907,13 +2472,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.AbstractBidirList.SignalSignatures, Gee.Queue.SignalSignatures, Gee.Deque.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.AbstractBidirList.ReadableProperties, Gee.Queue.ReadableProperties, Gee.Deque.ReadableProperties {
-                    "g-type": GObject.GType
-                    "g-dup-func": GObject.BoxedCopyFunc
-                    "g-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends Gee.AbstractBidirList.ReadWriteProperties, Gee.Queue.ReadWriteProperties, Gee.Deque.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.AbstractBidirList.WritableProperties, Gee.Queue.WritableProperties, Gee.Deque.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.AbstractBidirList.ReadableProperties, Gee.Queue.ReadableProperties, Gee.Deque.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.AbstractBidirList.WritableProperties, Gee.Queue.WritableProperties, Gee.Deque.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.AbstractBidirList.ConstructOnlyProperties, Gee.Queue.ConstructOnlyProperties, Gee.Deque.ConstructOnlyProperties {
@@ -2928,16 +2493,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: UnrolledLinkedList.ReadableProperties
                 readonly $writableProperties: UnrolledLinkedList.WritableProperties
                 readonly $constructOnlyProperties: UnrolledLinkedList.ConstructOnlyProperties
-                /**
-                 */
+                
                 get gType(): GObject.GType
                 set gType(value: GObject.GType)
-                /**
-                 */
+                
                 get gDupFunc(): GObject.BoxedCopyFunc
                 set gDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get gDestroyFunc(): GLib.DestroyNotify
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 /**
@@ -2961,8 +2523,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 UnrolledLinkedList: UnrolledLinkedListClass
             }
             
@@ -2971,22 +2532,16 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "k-type": GObject.GType
-                    "k-dup-func": GObject.BoxedCopyFunc
-                    "k-destroy-func": GLib.DestroyNotify
-                    "v-type": GObject.GType
-                    "v-dup-func": GObject.BoxedCopyFunc
-                    "v-destroy-func": GLib.DestroyNotify
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "key": never
                     "value": never
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "key": never
-                    "value": never
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3004,67 +2559,52 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: MapEntry.ReadableProperties
                 readonly $writableProperties: MapEntry.WritableProperties
                 readonly $constructOnlyProperties: MapEntry.ConstructOnlyProperties
-                /**
-                 */
+                
                 get kType(): GObject.GType
                 set kType(value: GObject.GType)
-                /**
-                 */
+                
                 get kDupFunc(): GObject.BoxedCopyFunc
                 set kDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get kDestroyFunc(): GLib.DestroyNotify
                 set kDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get vType(): GObject.GType
                 set vType(value: GObject.GType)
-                /**
-                 */
+                
                 get vDupFunc(): GObject.BoxedCopyFunc
                 set vDupFunc(value: GObject.BoxedCopyFunc)
-                /**
-                 */
+                
                 get vDestroyFunc(): GLib.DestroyNotify
                 set vDestroyFunc(value: GLib.DestroyNotify)
-                /**
-                 */
+                
                 get key(): never
                 set key(value: never)
-                /**
-                 */
+                
                 get value(): never
                 set value(value: never)
-                /**
-                 */
+                
                 get readOnly(): boolean
                 set readOnly(value: boolean)
-                /**
-                 */
+                
                 get_key(): never
-                /**
-                 */
+                
                 get_value(): never
                 /**
                  * @param value
                  */
                 set_value(value: never): void
-                /**
-                 */
+                
                 get_read_only(): boolean
-                /**
-                 */
+                
                 vfunc_get_key(): never
-                /**
-                 */
+                
                 vfunc_get_value(): never
                 /**
                  * @param value
                  */
                 vfunc_set_value(value: never): void
-                /**
-                 */
+                
                 vfunc_get_read_only(): boolean
             }
 
@@ -3076,8 +2616,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 MapEntry: MapEntryClass
             }
             
@@ -3086,27 +2625,26 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Iterator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Iterator.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Iterator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.Iterator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.Iterator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Iterator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Iterator.ConstructOnlyProperties {
                 }
 
                 interface Interface extends Gee.Iterator {
-                    /**
-                     */
+                    
                     vfunc_previous(): boolean
-                    /**
-                     */
+                    
                     vfunc_has_previous(): boolean
-                    /**
-                     */
+                    
                     vfunc_first(): boolean
-                    /**
-                     */
+                    
                     vfunc_last(): boolean
                 }
             }
@@ -3116,17 +2654,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: BidirIterator.ReadableProperties
                 readonly $writableProperties: BidirIterator.WritableProperties
                 readonly $constructOnlyProperties: BidirIterator.ConstructOnlyProperties
-                /**
-                 */
+                
                 previous(): boolean
-                /**
-                 */
+                
                 has_previous(): boolean
-                /**
-                 */
+                
                 first(): boolean
-                /**
-                 */
+                
                 last(): boolean
             }
 
@@ -3137,8 +2671,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BidirIterator: BidirIteratorIface
             }
             
@@ -3147,10 +2680,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.List.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.List.ReadableProperties {
+                interface ReadWriteProperties extends Gee.List.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.List.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.List.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.List.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.List.ConstructOnlyProperties {
@@ -3174,8 +2710,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BidirList: BidirListIface
             }
             
@@ -3184,10 +2719,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.BidirIterator.SignalSignatures, Gee.ListIterator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.BidirIterator.ReadableProperties, Gee.ListIterator.ReadableProperties {
+                interface ReadWriteProperties extends Gee.BidirIterator.ReadWriteProperties, Gee.ListIterator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.BidirIterator.WritableProperties, Gee.ListIterator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.BidirIterator.ReadableProperties, Gee.ListIterator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.BidirIterator.WritableProperties, Gee.ListIterator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.BidirIterator.ConstructOnlyProperties, Gee.ListIterator.ConstructOnlyProperties {
@@ -3219,8 +2757,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BidirListIterator: BidirListIteratorIface
             }
             
@@ -3229,27 +2766,26 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.MapIterator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.MapIterator.ReadableProperties {
+                interface ReadWriteProperties extends Gee.MapIterator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.MapIterator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.MapIterator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.MapIterator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.MapIterator.ConstructOnlyProperties {
                 }
 
                 interface Interface extends Gee.MapIterator {
-                    /**
-                     */
+                    
                     vfunc_previous(): boolean
-                    /**
-                     */
+                    
                     vfunc_has_previous(): boolean
-                    /**
-                     */
+                    
                     vfunc_first(): boolean
-                    /**
-                     */
+                    
                     vfunc_last(): boolean
                 }
             }
@@ -3259,17 +2795,13 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: BidirMapIterator.ReadableProperties
                 readonly $writableProperties: BidirMapIterator.WritableProperties
                 readonly $constructOnlyProperties: BidirMapIterator.ConstructOnlyProperties
-                /**
-                 */
+                
                 previous(): boolean
-                /**
-                 */
+                
                 has_previous(): boolean
-                /**
-                 */
+                
                 first(): boolean
-                /**
-                 */
+                
                 last(): boolean
             }
 
@@ -3280,8 +2812,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BidirMapIterator: BidirMapIteratorIface
             }
             
@@ -3290,10 +2821,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.SortedSet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.SortedSet.ReadableProperties {
+                interface ReadWriteProperties extends Gee.SortedSet.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.SortedSet.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.SortedSet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.SortedSet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.SortedSet.ConstructOnlyProperties {
@@ -3317,8 +2851,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BidirSortedSet: BidirSortedSetIface
             }
             
@@ -3327,10 +2860,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.SortedMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.SortedMap.ReadableProperties {
+                interface ReadWriteProperties extends Gee.SortedMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.SortedMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.SortedMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.SortedMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.SortedMap.ConstructOnlyProperties {
@@ -3354,8 +2890,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 BidirSortedMap: BidirSortedMapIface
             }
             
@@ -3364,14 +2899,15 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Iterable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Iterable.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Iterable.ReadWriteProperties {
                     "size": number
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends Gee.Iterable.WritableProperties {
-                    "size": number
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gee.Iterable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Iterable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Iterable.ConstructOnlyProperties {
@@ -3390,11 +2926,9 @@ declare module "gi://Gee?version=0.8" {
                      * @param item
                      */
                     vfunc_remove(item: never): boolean
-                    /**
-                     */
+                    
                     vfunc_clear(): void
-                    /**
-                     */
+                    
                     vfunc_to_array(): never[]
                     /**
                      * @param array
@@ -3408,14 +2942,11 @@ declare module "gi://Gee?version=0.8" {
                      * @param array
                      */
                     vfunc_remove_all_array(array: never[]): boolean
-                    /**
-                     */
+                    
                     vfunc_get_size(): number
-                    /**
-                     */
+                    
                     vfunc_get_is_empty(): boolean
-                    /**
-                     */
+                    
                     vfunc_get_read_only(): boolean
                 }
             }
@@ -3425,12 +2956,10 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: Collection.ReadableProperties
                 readonly $writableProperties: Collection.WritableProperties
                 readonly $constructOnlyProperties: Collection.ConstructOnlyProperties
-                /**
-                 */
+                
                 get size(): number
                 set size(value: number)
-                /**
-                 */
+                
                 get readOnly(): boolean
                 set readOnly(value: boolean)
                 /**
@@ -3445,11 +2974,9 @@ declare module "gi://Gee?version=0.8" {
                  * @param item
                  */
                 remove(item: never): boolean
-                /**
-                 */
+                
                 clear(): void
-                /**
-                 */
+                
                 to_array(): never[]
                 /**
                  * @param array
@@ -3463,14 +2990,11 @@ declare module "gi://Gee?version=0.8" {
                  * @param array
                  */
                 remove_all_array(array: never[]): boolean
-                /**
-                 */
+                
                 get_size(): number
-                /**
-                 */
+                
                 get_is_empty(): boolean
-                /**
-                 */
+                
                 get_read_only(): boolean
             }
 
@@ -3481,8 +3005,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Collection: CollectionIface
             }
             
@@ -3491,10 +3014,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3526,8 +3052,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Comparable: ComparableIface
             }
             
@@ -3536,10 +3061,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Queue.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Queue.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Queue.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.Queue.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.Queue.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Queue.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Queue.ConstructOnlyProperties {
@@ -3550,21 +3078,17 @@ declare module "gi://Gee?version=0.8" {
                      * @param element
                      */
                     vfunc_offer_head(element: never): boolean
-                    /**
-                     */
+                    
                     vfunc_peek_head(): never | null
-                    /**
-                     */
+                    
                     vfunc_poll_head(): never | null
                     /**
                      * @param element
                      */
                     vfunc_offer_tail(element: never): boolean
-                    /**
-                     */
+                    
                     vfunc_peek_tail(): never | null
-                    /**
-                     */
+                    
                     vfunc_poll_tail(): never | null
                 }
             }
@@ -3578,21 +3102,17 @@ declare module "gi://Gee?version=0.8" {
                  * @param element
                  */
                 offer_head(element: never): boolean
-                /**
-                 */
+                
                 peek_head(): never | null
-                /**
-                 */
+                
                 poll_head(): never | null
                 /**
                  * @param element
                  */
                 offer_tail(element: never): boolean
-                /**
-                 */
+                
                 peek_tail(): never | null
-                /**
-                 */
+                
                 poll_tail(): never | null
             }
 
@@ -3603,8 +3123,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Deque: DequeIface
             }
             
@@ -3613,14 +3132,15 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "ready": boolean
                     "exception": GLib.Error
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "ready": boolean
-                    "exception": GLib.Error
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3646,14 +3166,11 @@ declare module "gi://Gee?version=0.8" {
                      * @param _res_
                      */
                     vfunc_wait_finish(_res_: Gio.AsyncResult): never
-                    /**
-                     */
+                    
                     vfunc_get_value(): never | null
-                    /**
-                     */
+                    
                     vfunc_get_ready(): boolean
-                    /**
-                     */
+                    
                     vfunc_get_exception(): GLib.Error | null
                 }
             }
@@ -3663,12 +3180,10 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: Future.ReadableProperties
                 readonly $writableProperties: Future.WritableProperties
                 readonly $constructOnlyProperties: Future.ConstructOnlyProperties
-                /**
-                 */
+                
                 get ready(): boolean
                 set ready(value: boolean)
-                /**
-                 */
+                
                 get exception(): GLib.Error
                 set exception(value: GLib.Error)
                 /**
@@ -3690,14 +3205,11 @@ declare module "gi://Gee?version=0.8" {
                  * @param _res_
                  */
                 wait_finish(_res_: Gio.AsyncResult): never
-                /**
-                 */
+                
                 get_value(): never | null
-                /**
-                 */
+                
                 get_ready(): boolean
-                /**
-                 */
+                
                 get_exception(): GLib.Error | null
             }
 
@@ -3708,8 +3220,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Future: FutureIface
             }
             
@@ -3718,18 +3229,20 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
                 }
 
                 interface Interface extends GObject.Object {
-                    /**
-                     */
+                    
                     vfunc_hash(): number
                     /**
                      * @param object
@@ -3743,8 +3256,7 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: Hashable.ReadableProperties
                 readonly $writableProperties: Hashable.WritableProperties
                 readonly $constructOnlyProperties: Hashable.ConstructOnlyProperties
-                /**
-                 */
+                
                 hash(): number
                 /**
                  * @param object
@@ -3759,8 +3271,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Hashable: HashableIface
             }
             
@@ -3769,10 +3280,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gee.Traversable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Traversable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gee.Traversable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Traversable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gee.Traversable.ConstructOnlyProperties {
@@ -3796,8 +3310,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Iterable: IterableIface
             }
             
@@ -3806,37 +3319,32 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gee.Traversable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Traversable.ReadWriteProperties {
                     "valid": boolean
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gee.Traversable.WritableProperties {
-                    "valid": boolean
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Traversable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gee.Traversable.ConstructOnlyProperties {
                 }
 
                 interface Interface extends GObject.Object, Gee.Traversable {
-                    /**
-                     */
+                    
                     vfunc_next(): boolean
-                    /**
-                     */
+                    
                     vfunc_has_next(): boolean
-                    /**
-                     */
+                    
                     vfunc_get(): never
-                    /**
-                     */
+                    
                     vfunc_remove(): void
-                    /**
-                     */
+                    
                     vfunc_get_valid(): boolean
-                    /**
-                     */
+                    
                     vfunc_get_read_only(): boolean
                 }
             }
@@ -3846,31 +3354,23 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: Iterator.ReadableProperties
                 readonly $writableProperties: Iterator.WritableProperties
                 readonly $constructOnlyProperties: Iterator.ConstructOnlyProperties
-                /**
-                 */
+                
                 get valid(): boolean
                 set valid(value: boolean)
-                /**
-                 */
+                
                 get readOnly(): boolean
                 set readOnly(value: boolean)
-                /**
-                 */
+                
                 next(): boolean
-                /**
-                 */
+                
                 has_next(): boolean
-                /**
-                 */
+                
                 get(): never
-                /**
-                 */
+                
                 remove(): void
-                /**
-                 */
+                
                 get_valid(): boolean
-                /**
-                 */
+                
                 get_read_only(): boolean
             }
 
@@ -3881,8 +3381,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Iterator: IteratorIface
             }
             
@@ -3891,10 +3390,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Collection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Collection.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Collection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.Collection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.Collection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Collection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Collection.ConstructOnlyProperties {
@@ -3923,11 +3425,9 @@ declare module "gi://Gee?version=0.8" {
                      * @param index
                      */
                     vfunc_remove_at(index: number): never
-                    /**
-                     */
+                    
                     vfunc_first(): never
-                    /**
-                     */
+                    
                     vfunc_last(): never
                     /**
                      * @param compare_func
@@ -3963,11 +3463,9 @@ declare module "gi://Gee?version=0.8" {
                  * @param index
                  */
                 remove_at(index: number): never
-                /**
-                 */
+                
                 first(): never
-                /**
-                 */
+                
                 last(): never
                 /**
                  * @param compare_func
@@ -3982,8 +3480,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 List: ListIface
             }
             
@@ -3992,10 +3489,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Iterator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Iterator.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Iterator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.Iterator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.Iterator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Iterator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Iterator.ConstructOnlyProperties {
@@ -4010,8 +3510,7 @@ declare module "gi://Gee?version=0.8" {
                      * @param item
                      */
                     vfunc_add(item: never): void
-                    /**
-                     */
+                    
                     vfunc_index(): number
                 }
             }
@@ -4029,8 +3528,7 @@ declare module "gi://Gee?version=0.8" {
                  * @param item
                  */
                 add(item: never): void
-                /**
-                 */
+                
                 index(): number
             }
 
@@ -4041,8 +3539,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ListIterator: ListIteratorIface
             }
             
@@ -4051,14 +3548,15 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gee.Iterable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gee.Iterable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Iterable.ReadWriteProperties {
                     "size": number
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gee.Iterable.WritableProperties {
-                    "size": number
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Iterable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Iterable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gee.Iterable.ConstructOnlyProperties {
@@ -4088,17 +3586,13 @@ declare module "gi://Gee?version=0.8" {
                      * @returns , 
                      */
                     vfunc_unset(key: never): [boolean, never]
-                    /**
-                     */
+                    
                     vfunc_clear(): void
-                    /**
-                     */
+                    
                     vfunc_get_size(): number
-                    /**
-                     */
+                    
                     vfunc_get_is_empty(): boolean
-                    /**
-                     */
+                    
                     vfunc_get_read_only(): boolean
                 }
             }
@@ -4108,12 +3602,10 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: Map.ReadableProperties
                 readonly $writableProperties: Map.WritableProperties
                 readonly $constructOnlyProperties: Map.ConstructOnlyProperties
-                /**
-                 */
+                
                 get size(): number
                 set size(value: number)
-                /**
-                 */
+                
                 get readOnly(): boolean
                 set readOnly(value: boolean)
                 /**
@@ -4150,23 +3642,17 @@ declare module "gi://Gee?version=0.8" {
                  * @returns , 
                  */
                 remove(key: never): [boolean, never]
-                /**
-                 */
+                
                 clear(): void
-                /**
-                 */
+                
                 get_size(): number
-                /**
-                 */
+                
                 get_is_empty(): boolean
-                /**
-                 */
+                
                 get_read_only(): boolean
-                /**
-                 */
+                
                 get_key_type(): GObject.GType
-                /**
-                 */
+                
                 get_value_type(): GObject.GType
             }
 
@@ -4177,8 +3663,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Map: MapIface
             }
             
@@ -4187,40 +3672,35 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "valid": boolean
                     "mutable": boolean
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "valid": boolean
-                    "mutable": boolean
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
                 }
 
                 interface Interface extends GObject.Object {
-                    /**
-                     */
+                    
                     vfunc_next(): boolean
-                    /**
-                     */
+                    
                     vfunc_has_next(): boolean
-                    /**
-                     */
+                    
                     vfunc_get_key(): never
-                    /**
-                     */
+                    
                     vfunc_get_value(): never
                     /**
                      * @param value
                      */
                     vfunc_set_value(value: never): void
-                    /**
-                     */
+                    
                     vfunc_unset(): void
                     /**
                      * @param a_type
@@ -4234,14 +3714,11 @@ declare module "gi://Gee?version=0.8" {
                      * @param f
                      */
                     vfunc_foreach(f: Gee.ForallMapFunc): boolean
-                    /**
-                     */
+                    
                     vfunc_get_valid(): boolean
-                    /**
-                     */
+                    
                     vfunc_get_mutable(): boolean
-                    /**
-                     */
+                    
                     vfunc_get_read_only(): boolean
                 }
             }
@@ -4251,36 +3728,28 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: MapIterator.ReadableProperties
                 readonly $writableProperties: MapIterator.WritableProperties
                 readonly $constructOnlyProperties: MapIterator.ConstructOnlyProperties
-                /**
-                 */
+                
                 get valid(): boolean
                 set valid(value: boolean)
-                /**
-                 */
+                
                 get mutable(): boolean
                 set mutable(value: boolean)
-                /**
-                 */
+                
                 get readOnly(): boolean
                 set readOnly(value: boolean)
-                /**
-                 */
+                
                 next(): boolean
-                /**
-                 */
+                
                 has_next(): boolean
-                /**
-                 */
+                
                 get_key(): never
-                /**
-                 */
+                
                 get_value(): never
                 /**
                  * @param value
                  */
                 set_value(value: never): void
-                /**
-                 */
+                
                 unset(): void
                 /**
                  * @param a_type
@@ -4294,14 +3763,11 @@ declare module "gi://Gee?version=0.8" {
                  * @param f
                  */
                 foreach(f: Gee.ForallMapFunc): boolean
-                /**
-                 */
+                
                 get_valid(): boolean
-                /**
-                 */
+                
                 get_mutable(): boolean
-                /**
-                 */
+                
                 get_read_only(): boolean
             }
 
@@ -4312,8 +3778,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 MapIterator: MapIteratorIface
             }
             
@@ -4322,14 +3787,15 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "size": number
                     "read-only": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "size": number
-                    "read-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4354,14 +3820,11 @@ declare module "gi://Gee?version=0.8" {
                      * @param key
                      */
                     vfunc_remove_all(key: never): boolean
-                    /**
-                     */
+                    
                     vfunc_clear(): void
-                    /**
-                     */
+                    
                     vfunc_get_size(): number
-                    /**
-                     */
+                    
                     vfunc_get_read_only(): boolean
                 }
             }
@@ -4371,12 +3834,10 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: MultiMap.ReadableProperties
                 readonly $writableProperties: MultiMap.WritableProperties
                 readonly $constructOnlyProperties: MultiMap.ConstructOnlyProperties
-                /**
-                 */
+                
                 get size(): number
                 set size(value: number)
-                /**
-                 */
+                
                 get readOnly(): boolean
                 set readOnly(value: boolean)
                 /**
@@ -4397,20 +3858,15 @@ declare module "gi://Gee?version=0.8" {
                  * @param key
                  */
                 remove_all(key: never): boolean
-                /**
-                 */
+                
                 clear(): void
-                /**
-                 */
+                
                 get_size(): number
-                /**
-                 */
+                
                 get_read_only(): boolean
-                /**
-                 */
+                
                 get_key_type(): GObject.GType
-                /**
-                 */
+                
                 get_value_type(): GObject.GType
             }
 
@@ -4421,8 +3877,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 MultiMap: MultiMapIface
             }
             
@@ -4431,10 +3886,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Collection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Collection.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Collection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.Collection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.Collection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Collection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Collection.ConstructOnlyProperties {
@@ -4466,8 +3924,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 MultiSet: MultiSetIface
             }
             
@@ -4476,16 +3933,16 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Collection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Collection.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Collection.ReadWriteProperties {
                     "capacity": number
                     "remaining-capacity": number
                     "is-full": boolean
                 }
 
-                interface WritableProperties extends Gee.Collection.WritableProperties {
-                    "capacity": number
-                    "remaining-capacity": number
-                    "is-full": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gee.Collection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Collection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Collection.ConstructOnlyProperties {
@@ -4496,20 +3953,15 @@ declare module "gi://Gee?version=0.8" {
                      * @param element
                      */
                     vfunc_offer(element: never): boolean
-                    /**
-                     */
+                    
                     vfunc_peek(): never | null
-                    /**
-                     */
+                    
                     vfunc_poll(): never | null
-                    /**
-                     */
+                    
                     vfunc_get_capacity(): number
-                    /**
-                     */
+                    
                     vfunc_get_remaining_capacity(): number
-                    /**
-                     */
+                    
                     vfunc_get_is_full(): boolean
                 }
             }
@@ -4519,36 +3971,28 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: Queue.ReadableProperties
                 readonly $writableProperties: Queue.WritableProperties
                 readonly $constructOnlyProperties: Queue.ConstructOnlyProperties
-                /**
-                 */
+                
                 get capacity(): number
                 set capacity(value: number)
-                /**
-                 */
+                
                 get remainingCapacity(): number
                 set remainingCapacity(value: number)
-                /**
-                 */
+                
                 get isFull(): boolean
                 set isFull(value: boolean)
                 /**
                  * @param element
                  */
                 offer(element: never): boolean
-                /**
-                 */
+                
                 peek(): never | null
-                /**
-                 */
+                
                 poll(): never | null
-                /**
-                 */
+                
                 get_capacity(): number
-                /**
-                 */
+                
                 get_remaining_capacity(): number
-                /**
-                 */
+                
                 get_is_full(): boolean
             }
 
@@ -4559,8 +4003,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Queue: QueueIface
             }
             
@@ -4569,10 +4012,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Collection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Collection.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Collection.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.Collection.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.Collection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Collection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Collection.ConstructOnlyProperties {
@@ -4596,8 +4042,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Set: SetIface
             }
             
@@ -4606,10 +4051,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Map.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Map.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Map.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.Map.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.Map.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Map.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Map.ConstructOnlyProperties {
@@ -4633,8 +4081,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 SortedMap: SortedMapIface
             }
             
@@ -4643,21 +4090,22 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends Gee.Set.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gee.Set.ReadableProperties {
+                interface ReadWriteProperties extends Gee.Set.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gee.Set.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gee.Set.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gee.Set.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gee.Set.ConstructOnlyProperties {
                 }
 
                 interface Interface extends Gee.Set {
-                    /**
-                     */
+                    
                     vfunc_first(): never
-                    /**
-                     */
+                    
                     vfunc_last(): never
                     /**
                      * @param element
@@ -4683,11 +4131,9 @@ declare module "gi://Gee?version=0.8" {
                 readonly $readableProperties: SortedSet.ReadableProperties
                 readonly $writableProperties: SortedSet.WritableProperties
                 readonly $constructOnlyProperties: SortedSet.ConstructOnlyProperties
-                /**
-                 */
+                
                 first(): never
-                /**
-                 */
+                
                 last(): never
                 /**
                  * @param element
@@ -4714,8 +4160,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 SortedSet: SortedSetIface
             }
             
@@ -4724,10 +4169,13 @@ declare module "gi://Gee?version=0.8" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4766,8 +4214,7 @@ declare module "gi://Gee?version=0.8" {
                      * @param compare
                      */
                     vfunc_min(compare: GLib.CompareDataFunc): never
-                    /**
-                     */
+                    
                     vfunc_get_element_type(): GObject.GType
                 }
             }
@@ -4809,8 +4256,7 @@ declare module "gi://Gee?version=0.8" {
                  * @param compare
                  */
                 min(compare: GLib.CompareDataFunc): never
-                /**
-                 */
+                
                 get_element_type(): GObject.GType
             }
 
@@ -4821,8 +4267,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Traversable: TraversableIface
             }
             
@@ -5169,8 +4614,7 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface HazardPointer {
-                /**
-                 */
+                
                 node: Gee.HazardPointerNode
                 /**
                  * @param other_thread
@@ -5200,23 +4644,17 @@ declare module "gi://Gee?version=0.8" {
             }
 
             interface HazardPointerContext {
-                /**
-                 */
+                
                 parent: never
-                /**
-                 */
+                
                 policy: Gee.HazardPointerPolicy
-                /**
-                 */
+                
                 try_free(): void
-                /**
-                 */
+                
                 free_all(): void
-                /**
-                 */
+                
                 try_release(): void
-                /**
-                 */
+                
                 release(): void
             }
 
@@ -5370,105 +4808,82 @@ declare module "gi://Gee?version=0.8" {
                 readonly $gtype: GObject.GType<FutureError>
 
                 new(props: { message: string, code: number }): FutureError
-                /**
-                 */
+                
                 readonly "ABANDON_PROMISE": 0
-                /**
-                 */
+                
                 readonly "EXCEPTION": 1
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 FutureError: FutureErrorEnum
             }
             
             interface ConcurrentSetRangeTypeEnum {
                 readonly $gtype: GObject.GType<ConcurrentSetRangeType>
-                /**
-                 */
+                
                 readonly "HEAD": 0
-                /**
-                 */
+                
                 readonly "TAIL": 1
-                /**
-                 */
+                
                 readonly "BOUNDED": 2
-                /**
-                 */
+                
                 readonly "EMPTY": 3
             }
             type ConcurrentSetRangeType = ConcurrentSetRangeTypeEnum[Exclude<keyof ConcurrentSetRangeTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ConcurrentSetRangeType: ConcurrentSetRangeTypeEnum
             }
             
             interface HazardPointerPolicyEnum {
                 readonly $gtype: GObject.GType<HazardPointerPolicy>
-                /**
-                 */
+                
                 readonly "DEFAULT": 0
-                /**
-                 */
+                
                 readonly "THREAD_EXIT": 1
-                /**
-                 */
+                
                 readonly "TRY_FREE": 2
-                /**
-                 */
+                
                 readonly "FREE": 3
-                /**
-                 */
+                
                 readonly "TRY_RELEASE": 4
-                /**
-                 */
+                
                 readonly "RELEASE": 5
             }
             type HazardPointerPolicy = HazardPointerPolicyEnum[Exclude<keyof HazardPointerPolicyEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 HazardPointerPolicy: HazardPointerPolicyEnum
             }
             
             interface HazardPointerReleasePolicyEnum {
                 readonly $gtype: GObject.GType<HazardPointerReleasePolicy>
-                /**
-                 */
+                
                 readonly "HELPER_THREAD": 0
-                /**
-                 */
+                
                 readonly "MAIN_LOOP": 1
             }
             type HazardPointerReleasePolicy = HazardPointerReleasePolicyEnum[Exclude<keyof HazardPointerReleasePolicyEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 HazardPointerReleasePolicy: HazardPointerReleasePolicyEnum
             }
             
             interface TraversableStreamEnum {
                 readonly $gtype: GObject.GType<TraversableStream>
-                /**
-                 */
+                
                 readonly "YIELD": 0
-                /**
-                 */
+                
                 readonly "CONTINUE": 1
-                /**
-                 */
+                
                 readonly "END": 2
-                /**
-                 */
+                
                 readonly "WAIT": 3
             }
             type TraversableStream = TraversableStreamEnum[Exclude<keyof TraversableStreamEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 TraversableStream: TraversableStreamEnum
             }
             /**

@@ -28,10 +28,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -80,10 +83,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -180,12 +186,13 @@ declare module "gi://IBus?version=1.0" {
                     "name-owner-changed"(name: string, old_owner: string, new_owner: string): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
-                    "client-only": boolean
-                    "connect-async": boolean
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -757,18 +764,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
-                    "author": string
-                    "command-line": string
-                    "description": string
-                    "homepage": string
-                    "license": string
-                    "name": string
-                    "textdomain": string
-                    "version": string
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -982,10 +984,13 @@ declare module "gi://IBus?version=1.0" {
                     "value-changed"(section: string, name: string, value: GLib.Variant): void
                 }
 
-                interface ReadableProperties extends Proxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Proxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Proxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Proxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Proxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Proxy.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -1153,10 +1158,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Service.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Service.ReadableProperties {
+                interface ReadWriteProperties extends Service.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Service.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Service.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Service.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Service.ConstructOnlyProperties {
@@ -1327,16 +1335,15 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                     "annotations": never
-                    "category": string
                     "description": string
-                    "emoji": string
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
-                    "annotations": never
-                    "description": string
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -1706,13 +1713,13 @@ declare module "gi://IBus?version=1.0" {
                     "set-surrounding-text"(text: GObject.Object, cursor_pos: number, anchor_pos: number): void
                 }
 
-                interface ReadableProperties extends Service.ReadableProperties {
-                    "active-surrounding-text": boolean
-                    "engine-name": string
-                    "has-focus-id": boolean
+                interface ReadWriteProperties extends Service.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Service.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Service.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Service.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Service.ConstructOnlyProperties {
@@ -1915,38 +1922,30 @@ declare module "gi://IBus?version=1.0" {
                  * @param state
                  */
                 vfunc_candidate_clicked(index: number, button: number, state: number): void
-                /**
-                 */
+                
                 vfunc_cursor_down(): void
-                /**
-                 */
+                
                 vfunc_cursor_up(): void
-                /**
-                 */
+                
                 vfunc_disable(): void
-                /**
-                 */
+                
                 vfunc_enable(): void
-                /**
-                 */
+                
                 vfunc_focus_in(): void
                 /**
                  * @param object_path
                  * @param client
                  */
                 vfunc_focus_in_id(object_path: string, client: string): void
-                /**
-                 */
+                
                 vfunc_focus_out(): void
                 /**
                  * @param object_path
                  */
                 vfunc_focus_out_id(object_path: string): void
-                /**
-                 */
+                
                 vfunc_page_down(): void
-                /**
-                 */
+                
                 vfunc_page_up(): void
                 /**
                  * @param coordinates
@@ -1972,8 +1971,7 @@ declare module "gi://IBus?version=1.0" {
                  * @param prop_name
                  */
                 vfunc_property_show(prop_name: string): void
-                /**
-                 */
+                
                 vfunc_reset(): void
                 /**
                  * @param caps
@@ -2038,27 +2036,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
-                    "author": string
-                    "description": string
-                    "hotkeys": string
-                    "icon": string
-                    "icon-prop-key": string
-                    "language": string
-                    "layout": string
-                    "layout-option": string
-                    "layout-variant": string
-                    "license": string
-                    "longname": string
-                    "name": string
-                    "rank": number
-                    "setup": string
-                    "symbol": string
-                    "textdomain": string
-                    "version": string
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -2325,10 +2309,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Engine.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Engine.ReadableProperties {
+                interface ReadWriteProperties extends Engine.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Engine.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Engine.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Engine.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Engine.ConstructOnlyProperties {
@@ -2388,16 +2375,14 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
-                    "is-enabled": boolean
-                    "is-extension": boolean
-                    "name": string
-                    "params": string
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                     "version": number
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
-                    "version": number
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -2445,8 +2430,7 @@ declare module "gi://IBus?version=1.0" {
                  */
                 get version(): number
                 set version(value: number)
-                /**
-                 */
+                
                 get_name(): string
                 /**
                  * @returns Parameters to enable the extension for #IBusXEvent
@@ -2495,10 +2479,13 @@ declare module "gi://IBus?version=1.0" {
                     "create-engine"(engine_name: string): Engine | null
                 }
 
-                interface ReadableProperties extends Service.ReadableProperties {
+                interface ReadWriteProperties extends Service.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Service.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Service.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Service.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Service.ConstructOnlyProperties {
@@ -2568,10 +2555,13 @@ declare module "gi://IBus?version=1.0" {
                     "trigger::{}"(event: number, user_data: never | null): void
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -2794,10 +2784,13 @@ declare module "gi://IBus?version=1.0" {
                     "update-property"(prop: Property): void
                 }
 
-                interface ReadableProperties extends Proxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Proxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Proxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Proxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Proxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Proxy.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -3081,10 +3074,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -3154,10 +3150,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -3346,10 +3345,13 @@ declare module "gi://IBus?version=1.0" {
                     "destroy"(): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -3405,10 +3407,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -3799,10 +3804,13 @@ declare module "gi://IBus?version=1.0" {
                     "update-property"(prop: Property): void
                 }
 
-                interface ReadableProperties extends Service.ReadableProperties {
+                interface ReadWriteProperties extends Service.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Service.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Service.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Service.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Service.ConstructOnlyProperties {
@@ -3931,11 +3939,9 @@ declare module "gi://IBus?version=1.0" {
                  * @param text
                  */
                 vfunc_commit_text_received(text: Text): void
-                /**
-                 */
+                
                 vfunc_cursor_down_lookup_table(): void
-                /**
-                 */
+                
                 vfunc_cursor_up_lookup_table(): void
                 /**
                  * @param input_context_path
@@ -3949,23 +3955,17 @@ declare module "gi://IBus?version=1.0" {
                  * @param input_context_path
                  */
                 vfunc_focus_out(input_context_path: string): void
-                /**
-                 */
+                
                 vfunc_hide_auxiliary_text(): void
-                /**
-                 */
+                
                 vfunc_hide_language_bar(): void
-                /**
-                 */
+                
                 vfunc_hide_lookup_table(): void
-                /**
-                 */
+                
                 vfunc_hide_preedit_text(): void
-                /**
-                 */
+                
                 vfunc_page_down_lookup_table(): void
-                /**
-                 */
+                
                 vfunc_page_up_lookup_table(): void
                 /**
                  * @param event
@@ -3981,8 +3981,7 @@ declare module "gi://IBus?version=1.0" {
                  * @param prop_list
                  */
                 vfunc_register_properties(prop_list: PropList): void
-                /**
-                 */
+                
                 vfunc_reset(): void
                 /**
                  * @param purpose
@@ -4003,23 +4002,17 @@ declare module "gi://IBus?version=1.0" {
                  * @param h
                  */
                 vfunc_set_cursor_location_relative(x: number, y: number, w: number, h: number): void
-                /**
-                 */
+                
                 vfunc_show_auxiliary_text(): void
-                /**
-                 */
+                
                 vfunc_show_language_bar(): void
-                /**
-                 */
+                
                 vfunc_show_lookup_table(): void
-                /**
-                 */
+                
                 vfunc_show_preedit_text(): void
-                /**
-                 */
+                
                 vfunc_start_setup(): void
-                /**
-                 */
+                
                 vfunc_state_changed(): void
                 /**
                  * @param text
@@ -4069,10 +4062,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -4127,11 +4123,9 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                     "icon": string
-                    "key": string
                     "label": Text
-                    "prop-type": PropType
                     "sensitive": boolean
                     "state": PropState
                     "sub-props": PropList
@@ -4140,15 +4134,10 @@ declare module "gi://IBus?version=1.0" {
                     "visible": boolean
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
-                    "icon": string
-                    "label": Text
-                    "sensitive": boolean
-                    "state": PropState
-                    "sub-props": PropList
-                    "symbol": Text
-                    "tooltip": Text
-                    "visible": boolean
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -4162,16 +4151,13 @@ declare module "gi://IBus?version=1.0" {
                 readonly $readableProperties: Property.ReadableProperties
                 readonly $writableProperties: Property.WritableProperties
                 readonly $constructOnlyProperties: Property.ConstructOnlyProperties
-                /**
-                 */
+                
                 get icon(): string
                 set icon(value: string)
-                /**
-                 */
+                
                 get key(): string
                 set key(value: string)
-                /**
-                 */
+                
                 get label(): Text
                 set label(value: Text)
                 /**
@@ -4189,16 +4175,13 @@ declare module "gi://IBus?version=1.0" {
                  */
                 get state(): PropState
                 set state(value: PropState)
-                /**
-                 */
+                
                 get subProps(): PropList
                 set subProps(value: PropList)
-                /**
-                 */
+                
                 get symbol(): Text
                 set symbol(value: Text)
-                /**
-                 */
+                
                 get tooltip(): Text
                 set tooltip(value: Text)
                 /**
@@ -4221,8 +4204,7 @@ declare module "gi://IBus?version=1.0" {
                  * @returns the label of #IBusProperty. Should not be freed.
                  */
                 get_label(): Text
-                /**
-                 */
+                
                 get_prop_type(): PropType
                 /**
                  * Get the sensitive of #IBusProperty.
@@ -4352,10 +4334,13 @@ declare module "gi://IBus?version=1.0" {
                     "destroy"(): void
                 }
 
-                interface ReadableProperties extends Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusProxy.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -4424,10 +4409,13 @@ declare module "gi://IBus?version=1.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -4532,10 +4520,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -4642,13 +4633,14 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "connection": Gio.DBusConnection
-                    "object-path": string
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "connection": Gio.DBusConnection
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -4780,10 +4772,13 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -4872,14 +4867,14 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
-                    "end": number
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                     "name": string
-                    "start": number
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -4946,8 +4941,7 @@ declare module "gi://IBus?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 UnicodeBlock: UnicodeBlockClass
             }
             
@@ -4956,17 +4950,16 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                     "alias": string
                     "block-name": string
-                    "code": number
                     "name": string
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
-                    "alias": string
-                    "block-name": string
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -5067,32 +5060,14 @@ declare module "gi://IBus?version=1.0" {
                 interface SignalSignatures extends Serializable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Serializable.ReadableProperties {
-                    "event-type": number
-                    "group": number
-                    "hardware-keycode": number
-                    "is-modifier": boolean
-                    "keyval": number
-                    "length": number
-                    "purpose": string
-                    "root": number
-                    "same-screen": boolean
-                    "send-event": number
-                    "serial": number
-                    "state": number
-                    "string": string
-                    "subwindow": number
-                    "time": number
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
                     "version": number
-                    "window": number
-                    "x": number
-                    "x-root": number
-                    "y": number
-                    "y-root": number
                 }
 
-                interface WritableProperties extends Serializable.WritableProperties {
-                    "version": number
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
@@ -5491,14 +5466,11 @@ declare module "gi://IBus?version=1.0" {
             }
 
             interface ProcessKeyEventData {
-                /**
-                 */
+                
                 keyval: number
-                /**
-                 */
+                
                 keycode: number
-                /**
-                 */
+                
                 state: number
             }
 
@@ -5869,8 +5841,7 @@ declare module "gi://IBus?version=1.0" {
             }
             type BusRequestNameReply = BusRequestNameReplyEnum[Exclude<keyof BusRequestNameReplyEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 BusRequestNameReply: BusRequestNameReplyEnum
             }
             
@@ -5887,8 +5858,7 @@ declare module "gi://IBus?version=1.0" {
             }
             type BusStartServiceByNameReply = BusStartServiceByNameReplyEnum[Exclude<keyof BusStartServiceByNameReplyEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 BusStartServiceByNameReply: BusStartServiceByNameReplyEnum
             }
             
@@ -5910,14 +5880,12 @@ declare module "gi://IBus?version=1.0" {
                  * General failure.
                  */
                 readonly "FAILED": 2
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Error: ErrorEnum
             }
             
@@ -6110,26 +6078,20 @@ declare module "gi://IBus?version=1.0" {
             
             interface XEventTypeEnum {
                 readonly $gtype: GObject.GType<XEventType>
-                /**
-                 */
+                
                 readonly "NOTHING": -1
-                /**
-                 */
+                
                 readonly "KEY_PRESS": 0
-                /**
-                 */
+                
                 readonly "KEY_RELEASE": 1
-                /**
-                 */
+                
                 readonly "OTHER": 2
-                /**
-                 */
+                
                 readonly "EVENT_LAST": 3
             }
             type XEventType = XEventTypeEnum[Exclude<keyof XEventTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 XEventType: XEventTypeEnum
             }
             
@@ -6150,8 +6112,7 @@ declare module "gi://IBus?version=1.0" {
             }
             type BusNameFlag = number
             interface $Exports {
-                /**
-                 */
+                
                 BusNameFlag: BusNameFlagBitfield
             }
             
@@ -6192,8 +6153,7 @@ declare module "gi://IBus?version=1.0" {
                  *  used for the return value of #IBusEngine::process_key_event().
                  */
                 readonly "SYNC_PROCESS_KEY": 128
-                /**
-                 */
+                
                 readonly "SYNC_PROCESS_KEY_V2": 128
             }
             type Capabilite = number
@@ -10830,8 +10790,7 @@ declare module "gi://IBus?version=1.0" {
                  * @param dict An Emoji dictionary
                  */
                 emoji_dict_save(path: string, dict: Record<string, never>): void
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
                 /**
                  * Free a list of strings.

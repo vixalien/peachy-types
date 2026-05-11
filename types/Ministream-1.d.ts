@@ -141,20 +141,16 @@ declare module "gi://Ministream?version=1" {
                 readonly $gtype: GObject.GType<Error>
 
                 new(props: { message: string, code: number }): Error
-                /**
-                 */
+                
                 readonly "NO_COMPONENT": 0
-                /**
-                 */
+                
                 readonly "NO_IDENTIFIER": 1
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Error: ErrorEnum
             }
 
@@ -163,8 +159,7 @@ declare module "gi://Ministream?version=1" {
                 __version__: "1"
                 MAJOR_VERSION: 0
                 MINOR_VERSION: 99
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
             }
         }

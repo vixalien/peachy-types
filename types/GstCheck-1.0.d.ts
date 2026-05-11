@@ -28,13 +28,14 @@ declare module "gi://GstCheck?version=1.0" {
                 interface SignalSignatures extends Gst.Clock.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Clock.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Clock.ReadWriteProperties {
                     "clock-type": Gst.ClockType
-                    "start-time": number
                 }
 
-                interface WritableProperties extends Gst.Clock.WritableProperties {
-                    "clock-type": Gst.ClockType
+                interface ReadableProperties extends ReadWriteProperties, Gst.Clock.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Clock.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Clock.ConstructOnlyProperties {

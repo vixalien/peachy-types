@@ -28,11 +28,13 @@ declare module "gi://GioUnix?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.AppInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.AppInfo.ReadableProperties {
-                    "filename": string | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AppInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.AppInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AppInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AppInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.AppInfo.ConstructOnlyProperties {
@@ -356,11 +358,13 @@ declare module "gi://GioUnix?version=2.0" {
                 interface SignalSignatures extends Gio.SocketControlMessage.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.SocketControlMessage.ReadableProperties {
-                    "fd-list": Gio.UnixFDList
+                interface ReadWriteProperties extends Gio.SocketControlMessage.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.SocketControlMessage.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.SocketControlMessage.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.SocketControlMessage.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.SocketControlMessage.ConstructOnlyProperties {
@@ -471,13 +475,14 @@ declare module "gi://GioUnix?version=2.0" {
                 interface SignalSignatures extends Gio.InputStream.SignalSignatures, Gio.PollableInputStream.SignalSignatures, FileDescriptorBased.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.InputStream.ReadableProperties, Gio.PollableInputStream.ReadableProperties, FileDescriptorBased.ReadableProperties {
+                interface ReadWriteProperties extends Gio.InputStream.ReadWriteProperties, Gio.PollableInputStream.ReadWriteProperties, FileDescriptorBased.ReadWriteProperties {
                     "close-fd": boolean
-                    "fd": number
                 }
 
-                interface WritableProperties extends Gio.InputStream.WritableProperties, Gio.PollableInputStream.WritableProperties, FileDescriptorBased.WritableProperties {
-                    "close-fd": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gio.InputStream.ReadableProperties, Gio.PollableInputStream.ReadableProperties, FileDescriptorBased.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.InputStream.WritableProperties, Gio.PollableInputStream.WritableProperties, FileDescriptorBased.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.InputStream.ConstructOnlyProperties, Gio.PollableInputStream.ConstructOnlyProperties, FileDescriptorBased.ConstructOnlyProperties {
@@ -571,10 +576,13 @@ declare module "gi://GioUnix?version=2.0" {
                     "mounts-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -650,13 +658,14 @@ declare module "gi://GioUnix?version=2.0" {
                 interface SignalSignatures extends Gio.OutputStream.SignalSignatures, Gio.PollableOutputStream.SignalSignatures, FileDescriptorBased.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.OutputStream.ReadableProperties, Gio.PollableOutputStream.ReadableProperties, FileDescriptorBased.ReadableProperties {
+                interface ReadWriteProperties extends Gio.OutputStream.ReadWriteProperties, Gio.PollableOutputStream.ReadWriteProperties, FileDescriptorBased.ReadWriteProperties {
                     "close-fd": boolean
-                    "fd": number
                 }
 
-                interface WritableProperties extends Gio.OutputStream.WritableProperties, Gio.PollableOutputStream.WritableProperties, FileDescriptorBased.WritableProperties {
-                    "close-fd": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gio.OutputStream.ReadableProperties, Gio.PollableOutputStream.ReadableProperties, FileDescriptorBased.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.OutputStream.WritableProperties, Gio.PollableOutputStream.WritableProperties, FileDescriptorBased.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.OutputStream.ConstructOnlyProperties, Gio.PollableOutputStream.ConstructOnlyProperties, FileDescriptorBased.ConstructOnlyProperties {
@@ -742,10 +751,13 @@ declare module "gi://GioUnix?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -812,10 +824,13 @@ declare module "gi://GioUnix?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {

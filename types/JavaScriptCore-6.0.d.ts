@@ -24,12 +24,13 @@ declare module "gi://JavaScriptCore?version=6.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "name": string
-                    "parent": Class
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -177,11 +178,13 @@ declare module "gi://JavaScriptCore?version=6.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "virtual-machine": VirtualMachine
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -371,10 +374,13 @@ declare module "gi://JavaScriptCore?version=6.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -463,11 +469,13 @@ declare module "gi://JavaScriptCore?version=6.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "context": Context
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -994,10 +1002,13 @@ declare module "gi://JavaScriptCore?version=6.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1044,10 +1055,13 @@ declare module "gi://JavaScriptCore?version=6.0" {
                     "cleared"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1395,7 +1409,7 @@ declare module "gi://JavaScriptCore?version=6.0" {
                 __name__: "JavaScriptCore"
                 __version__: "6.0"
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 1
+                MICRO_VERSION: 2
                 MINOR_VERSION: 53
                 OPTIONS_USE_DFG: "useDFGJIT"
                 OPTIONS_USE_FTL: "useFTLJIT"

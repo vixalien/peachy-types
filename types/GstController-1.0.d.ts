@@ -28,18 +28,17 @@ declare module "gi://GstController?version=1.0" {
                 interface SignalSignatures extends Gst.ControlBinding.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.ControlBinding.ReadableProperties {
+                interface ReadWriteProperties extends Gst.ControlBinding.ReadWriteProperties {
                     "control-source-a": Gst.ControlSource
                     "control-source-b": Gst.ControlSource
                     "control-source-g": Gst.ControlSource
                     "control-source-r": Gst.ControlSource
                 }
 
-                interface WritableProperties extends Gst.ControlBinding.WritableProperties {
-                    "control-source-a": Gst.ControlSource
-                    "control-source-b": Gst.ControlSource
-                    "control-source-g": Gst.ControlSource
-                    "control-source-r": Gst.ControlSource
+                interface ReadableProperties extends ReadWriteProperties, Gst.ControlBinding.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.ControlBinding.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.ControlBinding.ConstructOnlyProperties {
@@ -51,20 +50,16 @@ declare module "gi://GstController?version=1.0" {
                 readonly $readableProperties: ARGBControlBinding.ReadableProperties
                 readonly $writableProperties: ARGBControlBinding.WritableProperties
                 readonly $constructOnlyProperties: ARGBControlBinding.ConstructOnlyProperties
-                /**
-                 */
+                
                 get controlSourceA(): Gst.ControlSource
                 set controlSourceA(value: Gst.ControlSource)
-                /**
-                 */
+                
                 get controlSourceB(): Gst.ControlSource
                 set controlSourceB(value: Gst.ControlSource)
-                /**
-                 */
+                
                 get controlSourceG(): Gst.ControlSource
                 set controlSourceG(value: Gst.ControlSource)
-                /**
-                 */
+                
                 get controlSourceR(): Gst.ControlSource
                 set controlSourceR(value: Gst.ControlSource)
             }
@@ -102,13 +97,14 @@ declare module "gi://GstController?version=1.0" {
                 interface SignalSignatures extends Gst.ControlBinding.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.ControlBinding.ReadableProperties {
-                    "absolute": boolean
+                interface ReadWriteProperties extends Gst.ControlBinding.ReadWriteProperties {
                     "control-source": Gst.ControlSource
                 }
 
-                interface WritableProperties extends Gst.ControlBinding.WritableProperties {
-                    "control-source": Gst.ControlSource
+                interface ReadableProperties extends ReadWriteProperties, Gst.ControlBinding.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.ControlBinding.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.ControlBinding.ConstructOnlyProperties {
@@ -126,8 +122,7 @@ declare module "gi://GstController?version=1.0" {
                  */
                 get absolute(): boolean
                 set absolute(value: boolean)
-                /**
-                 */
+                
                 get controlSource(): Gst.ControlSource
                 set controlSource(value: Gst.ControlSource)
             }
@@ -177,12 +172,14 @@ declare module "gi://GstController?version=1.0" {
                 interface SignalSignatures extends TimedValueControlSource.SignalSignatures {
                 }
 
-                interface ReadableProperties extends TimedValueControlSource.ReadableProperties {
+                interface ReadWriteProperties extends TimedValueControlSource.ReadWriteProperties {
                     "mode": InterpolationMode
                 }
 
-                interface WritableProperties extends TimedValueControlSource.WritableProperties {
-                    "mode": InterpolationMode
+                interface ReadableProperties extends ReadWriteProperties, TimedValueControlSource.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TimedValueControlSource.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TimedValueControlSource.ConstructOnlyProperties {
@@ -232,7 +229,7 @@ declare module "gi://GstController?version=1.0" {
                 interface SignalSignatures extends Gst.ControlSource.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.ControlSource.ReadableProperties {
+                interface ReadWriteProperties extends Gst.ControlSource.ReadWriteProperties {
                     "amplitude": number
                     "frequency": number
                     "offset": number
@@ -240,12 +237,10 @@ declare module "gi://GstController?version=1.0" {
                     "waveform": LFOWaveform
                 }
 
-                interface WritableProperties extends Gst.ControlSource.WritableProperties {
-                    "amplitude": number
-                    "frequency": number
-                    "offset": number
-                    "timeshift": number
-                    "waveform": LFOWaveform
+                interface ReadableProperties extends ReadWriteProperties, Gst.ControlSource.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.ControlSource.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.ControlSource.ConstructOnlyProperties {
@@ -326,10 +321,13 @@ declare module "gi://GstController?version=1.0" {
                 interface SignalSignatures extends Gst.ControlBinding.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.ControlBinding.ReadableProperties {
+                interface ReadWriteProperties extends Gst.ControlBinding.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.ControlBinding.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.ControlBinding.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.ControlBinding.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.ControlBinding.ConstructOnlyProperties {
@@ -392,10 +390,13 @@ declare module "gi://GstController?version=1.0" {
                     "value-removed"(timed_value: ControlPoint): void
                 }
 
-                interface ReadableProperties extends Gst.ControlSource.ReadableProperties {
+                interface ReadWriteProperties extends Gst.ControlSource.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.ControlSource.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.ControlSource.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.ControlSource.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.ControlSource.ConstructOnlyProperties {
@@ -478,12 +479,14 @@ declare module "gi://GstController?version=1.0" {
                 interface SignalSignatures extends TimedValueControlSource.SignalSignatures {
                 }
 
-                interface ReadableProperties extends TimedValueControlSource.ReadableProperties {
+                interface ReadWriteProperties extends TimedValueControlSource.ReadWriteProperties {
                     "tolerance": number
                 }
 
-                interface WritableProperties extends TimedValueControlSource.WritableProperties {
-                    "tolerance": number
+                interface ReadableProperties extends ReadWriteProperties, TimedValueControlSource.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TimedValueControlSource.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TimedValueControlSource.ConstructOnlyProperties {

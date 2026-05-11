@@ -47,10 +47,13 @@ declare module "gi://Atspi?version=2.0" {
                     "region-changed"(arg1: number, arg2: number): void
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties, Action.ReadableProperties, Collection.ReadableProperties, Component.ReadableProperties, Document.ReadableProperties, EditableText.ReadableProperties, Hypertext.ReadableProperties, Image.ReadableProperties, Selection.ReadableProperties, Table.ReadableProperties, TableCell.ReadableProperties, Text.ReadableProperties, Value.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties, Action.ReadWriteProperties, Collection.ReadWriteProperties, Component.ReadWriteProperties, Document.ReadWriteProperties, EditableText.ReadWriteProperties, Hypertext.ReadWriteProperties, Image.ReadWriteProperties, Selection.ReadWriteProperties, Table.ReadWriteProperties, TableCell.ReadWriteProperties, Text.ReadWriteProperties, Value.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties, Action.WritableProperties, Collection.WritableProperties, Component.WritableProperties, Document.WritableProperties, EditableText.WritableProperties, Hypertext.WritableProperties, Image.WritableProperties, Selection.WritableProperties, Table.WritableProperties, TableCell.WritableProperties, Text.WritableProperties, Value.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties, Action.ReadableProperties, Collection.ReadableProperties, Component.ReadableProperties, Document.ReadableProperties, EditableText.ReadableProperties, Hypertext.ReadableProperties, Image.ReadableProperties, Selection.ReadableProperties, Table.ReadableProperties, TableCell.ReadableProperties, Text.ReadableProperties, Value.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties, Action.WritableProperties, Collection.WritableProperties, Component.WritableProperties, Document.WritableProperties, EditableText.WritableProperties, Hypertext.WritableProperties, Image.WritableProperties, Selection.WritableProperties, Table.WritableProperties, TableCell.WritableProperties, Text.WritableProperties, Value.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties, Action.ConstructOnlyProperties, Collection.ConstructOnlyProperties, Component.ConstructOnlyProperties, Document.ConstructOnlyProperties, EditableText.ConstructOnlyProperties, Hypertext.ConstructOnlyProperties, Image.ConstructOnlyProperties, Selection.ConstructOnlyProperties, Table.ConstructOnlyProperties, TableCell.ConstructOnlyProperties, Text.ConstructOnlyProperties, Value.ConstructOnlyProperties {
@@ -492,10 +495,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -553,11 +559,13 @@ declare module "gi://Atspi?version=2.0" {
                     "pointer-moved"(accessible: Accessible, x: number, y: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "app-id": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -588,8 +596,7 @@ declare module "gi://Atspi?version=2.0" {
                  * @param callback the   function to call when the given key is pressed.
                  */
                 add_key_watcher(callback: KeyCallback): void
-                /**
-                 */
+                
                 clear_key_grabs(): void
                 /**
                  * Synthesizes a mouse event at a specific screen coordinate.
@@ -850,8 +857,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Device: DeviceClass
             }
             
@@ -860,10 +866,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends Device.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Device.ReadableProperties {
+                interface ReadWriteProperties extends Device.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Device.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Device.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Device.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Device.ConstructOnlyProperties {
@@ -897,8 +906,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DeviceA11yManager: DeviceA11yManagerClass
             }
             
@@ -907,10 +915,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends Device.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Device.ReadableProperties {
+                interface ReadWriteProperties extends Device.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Device.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Device.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Device.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Device.ConstructOnlyProperties {
@@ -944,8 +955,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DeviceLegacy: DeviceLegacyClass
             }
             
@@ -954,10 +964,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1000,8 +1013,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DeviceListener: DeviceListenerClass
             }
             
@@ -1010,10 +1022,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends Device.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Device.ReadableProperties {
+                interface ReadWriteProperties extends Device.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Device.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Device.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Device.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Device.ConstructOnlyProperties {
@@ -1047,8 +1062,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DeviceX11: DeviceX11Class
             }
             
@@ -1057,10 +1071,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1254,10 +1271,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1350,10 +1370,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1402,10 +1425,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1427,8 +1453,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Object: ObjectClass
             }
             
@@ -1437,10 +1462,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1496,10 +1524,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1591,10 +1622,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1700,8 +1734,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Action: ActionIface
             }
             
@@ -1710,10 +1743,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1802,10 +1838,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1967,10 +2006,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2062,8 +2104,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Document: DocumentIface
             }
             
@@ -2072,10 +2113,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2160,8 +2204,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 EditableText: EditableTextIface
             }
             
@@ -2170,10 +2213,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2237,10 +2283,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2304,8 +2353,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Image: ImageIface
             }
             
@@ -2314,10 +2362,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2435,10 +2486,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2721,10 +2775,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2800,8 +2857,7 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 TableCell: TableCellIface
             }
             
@@ -2810,10 +2866,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3118,10 +3177,13 @@ declare module "gi://Atspi?version=2.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3224,26 +3286,19 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface DeviceEvent {
-                /**
-                 */
+                
                 type: EventType
-                /**
-                 */
+                
                 id: number
-                /**
-                 */
+                
                 hw_code: number
-                /**
-                 */
+                
                 modifiers: number
-                /**
-                 */
+                
                 timestamp: number
-                /**
-                 */
+                
                 event_string: string
-                /**
-                 */
+                
                 is_text: boolean
             }
 
@@ -3277,23 +3332,17 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface Event {
-                /**
-                 */
+                
                 type: string
-                /**
-                 */
+                
                 source: Accessible
-                /**
-                 */
+                
                 detail1: number
-                /**
-                 */
+                
                 detail2: number
-                /**
-                 */
+                
                 any_data: GObject.Value
-                /**
-                 */
+                
                 sender: Accessible
             }
 
@@ -3312,14 +3361,11 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface EventListenerMode {
-                /**
-                 */
+                
                 synchronous: boolean
-                /**
-                 */
+                
                 preemptive: boolean
-                /**
-                 */
+                
                 global: boolean
             }
 
@@ -3339,17 +3385,13 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface KeyDefinition {
-                /**
-                 */
+                
                 keycode: number
-                /**
-                 */
+                
                 keysym: number
-                /**
-                 */
+                
                 keystring: string
-                /**
-                 */
+                
                 modifiers: number
             }
 
@@ -3369,17 +3411,13 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface KeySet {
-                /**
-                 */
+                
                 keysyms: number
-                /**
-                 */
+                
                 keycodes: number
-                /**
-                 */
+                
                 keystrings: string
-                /**
-                 */
+                
                 len: number
             }
 
@@ -3397,14 +3435,11 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface Point {
-                /**
-                 */
+                
                 x: number
-                /**
-                 */
+                
                 y: number
-                /**
-                 */
+                
                 copy(): Point
             }
 
@@ -3422,11 +3457,9 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface Range {
-                /**
-                 */
+                
                 start_offset: number
-                /**
-                 */
+                
                 end_offset: number
                 /**
                  * Gets a copy of an #AtspiRange object.
@@ -3451,20 +3484,15 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface Rect {
-                /**
-                 */
+                
                 x: number
-                /**
-                 */
+                
                 y: number
-                /**
-                 */
+                
                 width: number
-                /**
-                 */
+                
                 height: number
-                /**
-                 */
+                
                 copy(): Rect
             }
 
@@ -3483,14 +3511,11 @@ declare module "gi://Atspi?version=2.0" {
             }
 
             interface TextRange {
-                /**
-                 */
+                
                 start_offset: number
-                /**
-                 */
+                
                 end_offset: number
-                /**
-                 */
+                
                 content: string
             }
 
@@ -3972,8 +3997,7 @@ declare module "gi://Atspi?version=2.0" {
             }
             type ModifierType = ModifierTypeEnum[Exclude<keyof ModifierTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ModifierType: ModifierTypeEnum
             }
             
@@ -4905,8 +4929,7 @@ declare module "gi://Atspi?version=2.0" {
                  * enumeration.
                  */
                 readonly "LAST_DEFINED": 131
-                /**
-                 */
+                
                 readonly "PUSH_BUTTON": 43
             }
             type Role = RoleEnum[Exclude<keyof RoleEnum, "$gtype">]
@@ -5428,47 +5451,34 @@ declare module "gi://Atspi?version=2.0" {
             
             interface CacheBitfield {
                 readonly $gtype: GObject.GType<Cache>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "PARENT": 1
-                /**
-                 */
+                
                 readonly "CHILDREN": 2
-                /**
-                 */
+                
                 readonly "NAME": 4
-                /**
-                 */
+                
                 readonly "DESCRIPTION": 8
-                /**
-                 */
+                
                 readonly "STATES": 16
-                /**
-                 */
+                
                 readonly "ROLE": 32
-                /**
-                 */
+                
                 readonly "INTERFACES": 64
-                /**
-                 */
+                
                 readonly "ATTRIBUTES": 128
-                /**
-                 */
+                
                 readonly "ALL": 1073741823
-                /**
-                 */
+                
                 readonly "DEFAULT": 127
-                /**
-                 */
+                
                 readonly "UNDEFINED": 1073741824
             }
             type Cache = number
             interface $Exports {
-                /**
-                 */
+                
                 Cache: CacheBitfield
             }
             
@@ -5576,8 +5586,7 @@ declare module "gi://Atspi?version=2.0" {
              * @param event The event for which notification is sent.
              */
             type EventListenerSimpleCB = (event: Event) => void
-            /**
-             */
+            
             type GenerateMouseEventCB = () => void
             /**
              * A callback that will be invoked when a key is pressed.
@@ -5589,20 +5598,15 @@ declare module "gi://Atspi?version=2.0" {
              * @param keystring the text corresponding to the keypress.
              */
             type KeyCallback = (device: Device, pressed: boolean, keycode: number, keysym: number, modifiers: number, keystring: string) => void
-            /**
-             */
+            
             type ControllerEventMask = number
-            /**
-             */
+            
             type DeviceEventMask = number
-            /**
-             */
+            
             type KeyEventMask = number
-            /**
-             */
+            
             type KeyMaskType = number
-            /**
-             */
+            
             type KeystrokeListener = void
 
             interface $Exports {

@@ -108,8 +108,7 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface AtscETT {
-                /**
-                 */
+                
                 ett_table_id_extension: number
                 /**
                  * The protocol version
@@ -138,8 +137,7 @@ declare module "gi://GstMpegts?version=1.0" {
                     tables?: AtscMGTTable[]
                     descriptors?: Descriptor[]
                 }): AtscMGT
-                /**
-                 */
+                
                 "new"(): AtscMGT
             }
 
@@ -191,8 +189,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * The version number
                  */
                 version_number: number
-                /**
-                 */
+                
                 number_bytes: number
                 /**
                  * descriptors
@@ -218,8 +215,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * The ISO639 language code
                  */
                 iso_639_langcode: number[]
-                /**
-                 */
+                
                 segments: AtscStringSegment[]
             }
 
@@ -237,8 +233,7 @@ declare module "gi://GstMpegts?version=1.0" {
                     dimensions?: AtscRRTDimension[]
                     descriptors?: never[]
                 }): AtscRRT
-                /**
-                 */
+                
                 "new"(): AtscRRT
             }
 
@@ -278,8 +273,7 @@ declare module "gi://GstMpegts?version=1.0" {
                     values_defined?: number
                     values?: AtscRRTDimensionValue[]
                 }): AtscRRTDimension
-                /**
-                 */
+                
                 "new"(): AtscRRTDimension
             }
 
@@ -313,8 +307,7 @@ declare module "gi://GstMpegts?version=1.0" {
                     abbrev_ratings?: AtscMultString[]
                     ratings?: AtscMultString[]
                 }): AtscRRTDimensionValue
-                /**
-                 */
+                
                 "new"(): AtscRRTDimensionValue
             }
 
@@ -346,8 +339,7 @@ declare module "gi://GstMpegts?version=1.0" {
                     descriptors?: Descriptor[]
                     utc_datetime?: Gst.DateTime
                 }): AtscSTT
-                /**
-                 */
+                
                 "new"(): AtscSTT
             }
 
@@ -364,8 +356,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * The GPS to UTC offset
                  */
                 gps_utc_offset: number
-                /**
-                 */
+                
                 ds_status: boolean
                 /**
                  * The day of month
@@ -383,8 +374,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * The UTC date and time
                  */
                 utc_datetime: Gst.DateTime
-                /**
-                 */
+                
                 get_datetime_utc(): Gst.DateTime
             }
 
@@ -421,11 +411,9 @@ declare module "gi://GstMpegts?version=1.0" {
                  * The compressed data
                  */
                 compressed_data: number
-                /**
-                 */
+                
                 cached_string: string
-                /**
-                 */
+                
                 get_string(): string
                 /**
                  * @param string
@@ -599,34 +587,27 @@ declare module "gi://GstMpegts?version=1.0" {
                  * visually impaired
                  */
                 audio_description: boolean
-                /**
-                 */
+                
                 spoken_subtitles: boolean
-                /**
-                 */
+                
                 dialogue_enhancement: boolean
-                /**
-                 */
+                
                 interactivity_enabled: boolean
-                /**
-                 */
+                
                 language_code_present: boolean
-                /**
-                 */
+                
                 text_label_present: boolean
                 /**
                  * indicates if this PID conveys a complete audio programme
                  */
                 multi_stream_info_present: boolean
-                /**
-                 */
+                
                 future_extension: boolean
                 /**
                  * NULL terminated ISO 639 language code.
                  */
                 language_code: string
-                /**
-                 */
+                
                 message_id: number
             }
 
@@ -644,11 +625,9 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface BAT {
-                /**
-                 */
+                
                 descriptors: Descriptor[]
-                /**
-                 */
+                
                 streams: BATStream[]
             }
 
@@ -667,14 +646,11 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface BATStream {
-                /**
-                 */
+                
                 transport_stream_id: number
-                /**
-                 */
+                
                 original_network_id: number
-                /**
-                 */
+                
                 descriptors: never[]
             }
 
@@ -715,8 +691,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * inner FEC scheme used
                  */
                 fec_inner: DVBCodeRate
-                /**
-                 */
+                
                 free(): void
             }
 
@@ -737,20 +712,15 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface ComponentDescriptor {
-                /**
-                 */
+                
                 stream_content: number
-                /**
-                 */
+                
                 component_type: number
-                /**
-                 */
+                
                 component_tag: number
-                /**
-                 */
+                
                 language_code: string
-                /**
-                 */
+                
                 text: string
             }
 
@@ -769,14 +739,11 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface Content {
-                /**
-                 */
+                
                 content_nibble_1: ContentNibbleHi
-                /**
-                 */
+                
                 content_nibble_2: number
-                /**
-                 */
+                
                 user_byte: number
             }
 
@@ -822,8 +789,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * additional data bytes
                  */
                 private_data_bytes: number
-                /**
-                 */
+                
                 free(): void
                 /**
                  * @returns The #GstMpegtsDVBLinkageEvent or %NULL if an error happened
@@ -854,14 +820,11 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface DVBLinkageEvent {
-                /**
-                 */
+                
                 target_event_id: number
-                /**
-                 */
+                
                 target_listed: boolean
-                /**
-                 */
+                
                 event_simulcast: boolean
             }
 
@@ -888,38 +851,27 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface DVBLinkageExtendedEvent {
-                /**
-                 */
+                
                 target_event_id: number
-                /**
-                 */
+                
                 target_listed: boolean
-                /**
-                 */
+                
                 event_simulcast: boolean
-                /**
-                 */
+                
                 link_type: number
-                /**
-                 */
+                
                 target_id_type: number
-                /**
-                 */
+                
                 original_network_id_flag: boolean
-                /**
-                 */
+                
                 service_id_flag: boolean
-                /**
-                 */
+                
                 user_defined_id: number
-                /**
-                 */
+                
                 target_transport_stream_id: number
-                /**
-                 */
+                
                 target_original_network_id: number
-                /**
-                 */
+                
                 target_service_id: number
             }
 
@@ -939,17 +891,13 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface DVBLinkageMobileHandOver {
-                /**
-                 */
+                
                 hand_over_type: DVBLinkageHandOverType
-                /**
-                 */
+                
                 origin_type: boolean
-                /**
-                 */
+                
                 network_id: number
-                /**
-                 */
+                
                 initial_service_id: number
             }
 
@@ -967,11 +915,9 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface DVBParentalRatingItem {
-                /**
-                 */
+                
                 country_code: string
-                /**
-                 */
+                
                 rating: number
             }
 
@@ -1025,8 +971,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * the component tag
                  */
                 component_tag: number
-                /**
-                 */
+                
                 length: number
                 /**
                  * the selector byte field
@@ -1040,8 +985,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * description of data broadcast
                  */
                 text: string
-                /**
-                 */
+                
                 free(): void
             }
 
@@ -1517,23 +1461,17 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface EIT {
-                /**
-                 */
+                
                 transport_stream_id: number
-                /**
-                 */
+                
                 original_network_id: number
-                /**
-                 */
+                
                 segment_last_section_number: number
-                /**
-                 */
+                
                 last_table_id: number
-                /**
-                 */
+                
                 actual_stream: boolean
-                /**
-                 */
+                
                 present_following: boolean
                 /**
                  * List of events
@@ -1559,20 +1497,15 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface EITEvent {
-                /**
-                 */
+                
                 event_id: number
-                /**
-                 */
+                
                 start_time: Gst.DateTime
-                /**
-                 */
+                
                 duration: number
-                /**
-                 */
+                
                 running_status: RunningStatus
-                /**
-                 */
+                
                 free_ca_mode: boolean
                 /**
                  * List of descriptors
@@ -1597,11 +1530,9 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface ExtendedEventDescriptor {
-                /**
-                 */
+                
                 descriptor_number: number
-                /**
-                 */
+                
                 last_descriptor_number: number
                 /**
                  * NULL terminated language code.
@@ -1611,11 +1542,9 @@ declare module "gi://GstMpegts?version=1.0" {
                  * the #GstMpegtsExtendedEventItem
                  */
                 items: ExtendedEventItem[]
-                /**
-                 */
+                
                 text: string
-                /**
-                 */
+                
                 free(): void
             }
 
@@ -1633,11 +1562,9 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface ExtendedEventItem {
-                /**
-                 */
+                
                 item_description: string
-                /**
-                 */
+                
                 item: string
             }
 
@@ -1656,17 +1583,13 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface ISO639LanguageDescriptor {
-                /**
-                 */
+                
                 nb_language: number
-                /**
-                 */
+                
                 language: string[]
-                /**
-                 */
+                
                 audio_type: Iso639AudioType[]
-                /**
-                 */
+                
                 descriptor_free(): void
             }
 
@@ -1710,89 +1633,61 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface JpegXsDescriptor {
-                /**
-                 */
+                
                 descriptor_version: number
-                /**
-                 */
+                
                 horizontal_size: number
-                /**
-                 */
+                
                 vertical_size: number
-                /**
-                 */
+                
                 brat: number
-                /**
-                 */
+                
                 frat: number
-                /**
-                 */
+                
                 schar: number
-                /**
-                 */
+                
                 ppih: number
-                /**
-                 */
+                
                 plev: number
-                /**
-                 */
+                
                 max_buffer_size: number
-                /**
-                 */
+                
                 buffer_model_type: number
-                /**
-                 */
+                
                 colour_primaries: number
-                /**
-                 */
+                
                 transfer_characteristics: number
-                /**
-                 */
+                
                 matrix_coefficients: number
-                /**
-                 */
+                
                 video_full_range_flag: boolean
-                /**
-                 */
+                
                 still_mode: boolean
-                /**
-                 */
+                
                 mdm_flag: boolean
-                /**
-                 */
+                
                 x_c0: number
-                /**
-                 */
+                
                 y_c0: number
-                /**
-                 */
+                
                 x_c1: number
-                /**
-                 */
+                
                 y_c1: number
-                /**
-                 */
+                
                 x_c2: number
-                /**
-                 */
+                
                 y_c2: number
-                /**
-                 */
+                
                 x_wp: number
-                /**
-                 */
+                
                 y_wp: number
-                /**
-                 */
+                
                 l_max: number
-                /**
-                 */
+                
                 l_min: number
-                /**
-                 */
+                
                 max_cll: number
-                /**
-                 */
+                
                 max_fall: number
             }
 
@@ -1811,14 +1706,11 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface LogicalChannel {
-                /**
-                 */
+                
                 service_id: number
-                /**
-                 */
+                
                 visible_service: boolean
-                /**
-                 */
+                
                 logical_channel_number: number
             }
 
@@ -1836,11 +1728,9 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface LogicalChannelDescriptor {
-                /**
-                 */
+                
                 nb_channels: number
-                /**
-                 */
+                
                 channels: LogicalChannel[]
             }
 
@@ -1986,14 +1876,11 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface NITStream {
-                /**
-                 */
+                
                 transport_stream_id: number
-                /**
-                 */
+                
                 original_network_id: number
-                /**
-                 */
+                
                 descriptors: Descriptor[]
             }
 
@@ -2167,38 +2054,27 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface SCTESIT {
-                /**
-                 */
+                
                 encrypted_packet: boolean
-                /**
-                 */
+                
                 encryption_algorithm: number
-                /**
-                 */
+                
                 pts_adjustment: number
-                /**
-                 */
+                
                 cw_index: number
-                /**
-                 */
+                
                 tier: number
-                /**
-                 */
+                
                 splice_command_length: number
-                /**
-                 */
+                
                 splice_command_type: SCTESpliceCommandType
-                /**
-                 */
+                
                 splice_time_specified: boolean
-                /**
-                 */
+                
                 splice_time: number
-                /**
-                 */
+                
                 splices: never[]
-                /**
-                 */
+                
                 descriptors: never[]
                 /**
                  * When encrypted, or when encountering an unknown command type,
@@ -2288,32 +2164,23 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface SCTESpliceEvent {
-                /**
-                 */
+                
                 insert_event: boolean
-                /**
-                 */
+                
                 splice_event_id: number
-                /**
-                 */
+                
                 splice_event_cancel_indicator: boolean
-                /**
-                 */
+                
                 out_of_network_indicator: boolean
-                /**
-                 */
+                
                 program_splice_flag: boolean
-                /**
-                 */
+                
                 duration_flag: boolean
-                /**
-                 */
+                
                 splice_immediate_flag: boolean
-                /**
-                 */
+                
                 program_splice_time_specified: boolean
-                /**
-                 */
+                
                 program_splice_time: number
                 /**
                  * The UTC time of the signaled splice event
@@ -2325,20 +2192,15 @@ declare module "gi://GstMpegts?version=1.0" {
                  * @since 1.20
                  */
                 components: never[]
-                /**
-                 */
+                
                 break_duration_auto_return: boolean
-                /**
-                 */
+                
                 break_duration: number
-                /**
-                 */
+                
                 unique_program_id: number
-                /**
-                 */
+                
                 avail_num: number
-                /**
-                 */
+                
                 avails_expected: number
             }
 
@@ -2813,8 +2675,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * centre frequencies in Hz
                  */
                 centre_frequencies: number[]
-                /**
-                 */
+                
                 sub_cells: T2DeliverySystemCellExtension[]
             }
 
@@ -2863,35 +2724,25 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface T2DeliverySystemDescriptor {
-                /**
-                 */
+                
                 plp_id: number
-                /**
-                 */
+                
                 t2_system_id: number
-                /**
-                 */
+                
                 siso_miso: number
-                /**
-                 */
+                
                 bandwidth: number
-                /**
-                 */
+                
                 guard_interval: TerrestrialGuardInterval
-                /**
-                 */
+                
                 transmission_mode: TerrestrialTransmissionMode
-                /**
-                 */
+                
                 other_frequency: boolean
-                /**
-                 */
+                
                 tfs: boolean
-                /**
-                 */
+                
                 cells: T2DeliverySystemCell[]
-                /**
-                 */
+                
                 free(): void
             }
 
@@ -2909,8 +2760,7 @@ declare module "gi://GstMpegts?version=1.0" {
             }
 
             interface TOT {
-                /**
-                 */
+                
                 utc_time: Gst.DateTime
                 /**
                  * List of descriptors
@@ -2970,17 +2820,13 @@ declare module "gi://GstMpegts?version=1.0" {
                  * the hierarchy
                  */
                 hierarchy: TerrestrialHierarchy
-                /**
-                 */
+                
                 code_rate_hp: DVBCodeRate
-                /**
-                 */
+                
                 code_rate_lp: DVBCodeRate
-                /**
-                 */
+                
                 guard_interval: TerrestrialGuardInterval
-                /**
-                 */
+                
                 transmission_mode: TerrestrialTransmissionMode
                 /**
                  * %TRUE more frequency are use, else not
@@ -2994,71 +2840,49 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface ATSCDescriptorTypeEnum {
                 readonly $gtype: GObject.GType<ATSCDescriptorType>
-                /**
-                 */
+                
                 readonly "STUFFING": 128
-                /**
-                 */
+                
                 readonly "AC3": 129
-                /**
-                 */
+                
                 readonly "CAPTION_SERVICE": 134
-                /**
-                 */
+                
                 readonly "CONTENT_ADVISORY": 135
-                /**
-                 */
+                
                 readonly "EXTENDED_CHANNEL_NAME": 160
-                /**
-                 */
+                
                 readonly "SERVICE_LOCATION": 161
-                /**
-                 */
+                
                 readonly "TIME_SHIFTED_SERVICE": 162
-                /**
-                 */
+                
                 readonly "COMPONENT_NAME": 163
-                /**
-                 */
+                
                 readonly "DCC_DEPARTING_REQUEST": 168
-                /**
-                 */
+                
                 readonly "DCC_ARRIVING_REQUEST": 169
-                /**
-                 */
+                
                 readonly "REDISTRIBUTION_CONTROL": 170
-                /**
-                 */
+                
                 readonly "GENRE": 171
-                /**
-                 */
+                
                 readonly "PRIVATE_INFORMATION": 173
-                /**
-                 */
+                
                 readonly "EAC3": 204
-                /**
-                 */
+                
                 readonly "ENHANCED_SIGNALING": 178
-                /**
-                 */
+                
                 readonly "DATA_SERVICE": 164
-                /**
-                 */
+                
                 readonly "PID_COUNT": 165
-                /**
-                 */
+                
                 readonly "DOWNLOAD_DESCRIPTOR": 166
-                /**
-                 */
+                
                 readonly "MULTIPROTOCOL_ENCAPSULATION": 167
-                /**
-                 */
+                
                 readonly "MODULE_LINK": 180
-                /**
-                 */
+                
                 readonly "CRC32": 181
-                /**
-                 */
+                
                 readonly "GROUP_LINK": 184
             }
             type ATSCDescriptorType = ATSCDescriptorTypeEnum[Exclude<keyof ATSCDescriptorTypeEnum, "$gtype">]
@@ -3116,277 +2940,198 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface AtscMGTTableTypeEnum {
                 readonly $gtype: GObject.GType<AtscMGTTableType>
-                /**
-                 */
+                
                 readonly "EIT0": 256
-                /**
-                 */
+                
                 readonly "EIT127": 383
-                /**
-                 */
+                
                 readonly "ETT0": 512
-                /**
-                 */
+                
                 readonly "ETT127": 639
             }
             type AtscMGTTableType = AtscMGTTableTypeEnum[Exclude<keyof AtscMGTTableTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 AtscMGTTableType: AtscMGTTableTypeEnum
             }
             
             interface CableOuterFECSchemeEnum {
                 readonly $gtype: GObject.GType<CableOuterFECScheme>
-                /**
-                 */
+                
                 readonly "UNDEFINED": 0
-                /**
-                 */
+                
                 readonly "NONE": 1
-                /**
-                 */
+                
                 readonly "RS_204_188": 2
             }
             type CableOuterFECScheme = CableOuterFECSchemeEnum[Exclude<keyof CableOuterFECSchemeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 CableOuterFECScheme: CableOuterFECSchemeEnum
             }
             
             interface ComponentStreamContentEnum {
                 readonly $gtype: GObject.GType<ComponentStreamContent>
-                /**
-                 */
+                
                 readonly "MPEG2_VIDEO": 1
-                /**
-                 */
+                
                 readonly "MPEG1_LAYER2_AUDIO": 2
-                /**
-                 */
+                
                 readonly "TELETEXT_OR_SUBTITLE": 3
-                /**
-                 */
+                
                 readonly "AC_3": 4
-                /**
-                 */
+                
                 readonly "AVC": 5
-                /**
-                 */
+                
                 readonly "AAC": 6
-                /**
-                 */
+                
                 readonly "DTS": 7
-                /**
-                 */
+                
                 readonly "SRM_CPCM": 8
             }
             type ComponentStreamContent = ComponentStreamContentEnum[Exclude<keyof ComponentStreamContentEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ComponentStreamContent: ComponentStreamContentEnum
             }
             
             interface ContentNibbleHiEnum {
                 readonly $gtype: GObject.GType<ContentNibbleHi>
-                /**
-                 */
+                
                 readonly "MOVIE_DRAMA": 1
-                /**
-                 */
+                
                 readonly "NEWS_CURRENT_AFFAIRS": 2
-                /**
-                 */
+                
                 readonly "SHOW_GAME_SHOW": 3
-                /**
-                 */
+                
                 readonly "SPORTS": 4
-                /**
-                 */
+                
                 readonly "CHILDREN_YOUTH_PROGRAM": 5
-                /**
-                 */
+                
                 readonly "MUSIC_BALLET_DANCE": 6
-                /**
-                 */
+                
                 readonly "ARTS_CULTURE": 7
-                /**
-                 */
+                
                 readonly "SOCIAL_POLITICAL_ECONOMICS": 8
-                /**
-                 */
+                
                 readonly "EDUCATION_SCIENCE_FACTUAL": 9
-                /**
-                 */
+                
                 readonly "LEISURE_HOBBIES": 10
-                /**
-                 */
+                
                 readonly "SPECIAL_CHARACTERISTICS": 11
             }
             type ContentNibbleHi = ContentNibbleHiEnum[Exclude<keyof ContentNibbleHiEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ContentNibbleHi: ContentNibbleHiEnum
             }
             
             interface DVBCodeRateEnum {
                 readonly $gtype: GObject.GType<DVBCodeRate>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "1_2": 1
-                /**
-                 */
+                
                 readonly "2_3": 2
-                /**
-                 */
+                
                 readonly "3_4": 3
-                /**
-                 */
+                
                 readonly "4_5": 4
-                /**
-                 */
+                
                 readonly "5_6": 5
-                /**
-                 */
+                
                 readonly "6_7": 6
-                /**
-                 */
+                
                 readonly "7_8": 7
-                /**
-                 */
+                
                 readonly "8_9": 8
-                /**
-                 */
+                
                 readonly "AUTO": 9
-                /**
-                 */
+                
                 readonly "3_5": 10
-                /**
-                 */
+                
                 readonly "9_10": 11
-                /**
-                 */
+                
                 readonly "2_5": 12
             }
             type DVBCodeRate = DVBCodeRateEnum[Exclude<keyof DVBCodeRateEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 DVBCodeRate: DVBCodeRateEnum
             }
             
             interface DVBDescriptorTypeEnum {
                 readonly $gtype: GObject.GType<DVBDescriptorType>
-                /**
-                 */
+                
                 readonly "NETWORK_NAME": 64
-                /**
-                 */
+                
                 readonly "SERVICE_LIST": 65
-                /**
-                 */
+                
                 readonly "STUFFING": 66
-                /**
-                 */
+                
                 readonly "SATELLITE_DELIVERY_SYSTEM": 67
-                /**
-                 */
+                
                 readonly "CABLE_DELIVERY_SYSTEM": 68
-                /**
-                 */
+                
                 readonly "VBI_DATA": 69
-                /**
-                 */
+                
                 readonly "VBI_TELETEXT": 70
-                /**
-                 */
+                
                 readonly "BOUQUET_NAME": 71
-                /**
-                 */
+                
                 readonly "SERVICE": 72
-                /**
-                 */
+                
                 readonly "COUNTRY_AVAILABILITY": 73
-                /**
-                 */
+                
                 readonly "LINKAGE": 74
-                /**
-                 */
+                
                 readonly "NVOD_REFERENCE": 75
-                /**
-                 */
+                
                 readonly "TIME_SHIFTED_SERVICE": 76
-                /**
-                 */
+                
                 readonly "SHORT_EVENT": 77
-                /**
-                 */
+                
                 readonly "EXTENDED_EVENT": 78
-                /**
-                 */
+                
                 readonly "TIME_SHIFTED_EVENT": 79
-                /**
-                 */
+                
                 readonly "COMPONENT": 80
-                /**
-                 */
+                
                 readonly "MOSAIC": 81
-                /**
-                 */
+                
                 readonly "STREAM_IDENTIFIER": 82
-                /**
-                 */
+                
                 readonly "CA_IDENTIFIER": 83
-                /**
-                 */
+                
                 readonly "CONTENT": 84
-                /**
-                 */
+                
                 readonly "PARENTAL_RATING": 85
-                /**
-                 */
+                
                 readonly "TELETEXT": 86
-                /**
-                 */
+                
                 readonly "TELEPHONE": 87
-                /**
-                 */
+                
                 readonly "LOCAL_TIME_OFFSET": 88
-                /**
-                 */
+                
                 readonly "SUBTITLING": 89
-                /**
-                 */
+                
                 readonly "TERRESTRIAL_DELIVERY_SYSTEM": 90
-                /**
-                 */
+                
                 readonly "MULTILINGUAL_NETWORK_NAME": 91
-                /**
-                 */
+                
                 readonly "MULTILINGUAL_BOUQUET_NAME": 92
-                /**
-                 */
+                
                 readonly "MULTILINGUAL_SERVICE_NAME": 93
-                /**
-                 */
+                
                 readonly "MULTILINGUAL_COMPONENT": 94
-                /**
-                 */
+                
                 readonly "PRIVATE_DATA_SPECIFIER": 95
-                /**
-                 */
+                
                 readonly "SERVICE_MOVE": 96
-                /**
-                 */
+                
                 readonly "SHORT_SMOOTHING_BUFFER": 97
-                /**
-                 */
+                
                 readonly "FREQUENCY_LIST": 98
                 /**
                  * Partial Transport Stream descriptor. Only present in SIT Sections.
@@ -3394,89 +3139,61 @@ declare module "gi://GstMpegts?version=1.0" {
                  * See also: %GST_MPEGTS_SECTION_SIT, %GstMpegtsSIT
                  */
                 readonly "PARTIAL_TRANSPORT_STREAM": 99
-                /**
-                 */
+                
                 readonly "DATA_BROADCAST": 100
-                /**
-                 */
+                
                 readonly "SCRAMBLING": 101
-                /**
-                 */
+                
                 readonly "DATA_BROADCAST_ID": 102
-                /**
-                 */
+                
                 readonly "TRANSPORT_STREAM": 103
-                /**
-                 */
+                
                 readonly "DSNG": 104
-                /**
-                 */
+                
                 readonly "PDC": 105
-                /**
-                 */
+                
                 readonly "AC3": 106
-                /**
-                 */
+                
                 readonly "ANCILLARY_DATA": 107
-                /**
-                 */
+                
                 readonly "CELL_LIST": 108
-                /**
-                 */
+                
                 readonly "CELL_FREQUENCY_LINK": 109
-                /**
-                 */
+                
                 readonly "ANNOUNCEMENT_SUPPORT": 110
-                /**
-                 */
+                
                 readonly "APPLICATION_SIGNALLING": 111
-                /**
-                 */
+                
                 readonly "ADAPTATION_FIELD_DATA": 112
-                /**
-                 */
+                
                 readonly "SERVICE_IDENTIFIER": 113
-                /**
-                 */
+                
                 readonly "SERVICE_AVAILABILITY": 114
-                /**
-                 */
+                
                 readonly "DEFAULT_AUTHORITY": 115
-                /**
-                 */
+                
                 readonly "RELATED_CONTENT": 116
-                /**
-                 */
+                
                 readonly "TVA_ID": 117
-                /**
-                 */
+                
                 readonly "CONTENT_IDENTIFIER": 118
-                /**
-                 */
+                
                 readonly "TIMESLICE_FEC_IDENTIFIER": 119
-                /**
-                 */
+                
                 readonly "ECM_REPETITION_RATE": 120
-                /**
-                 */
+                
                 readonly "S2_SATELLITE_DELIVERY_SYSTEM": 121
-                /**
-                 */
+                
                 readonly "ENHANCED_AC3": 122
-                /**
-                 */
+                
                 readonly "DTS": 123
-                /**
-                 */
+                
                 readonly "AAC": 124
-                /**
-                 */
+                
                 readonly "XAIT_LOCATION": 125
-                /**
-                 */
+                
                 readonly "FTA_CONTENT_MANAGEMENT": 126
-                /**
-                 */
+                
                 readonly "EXTENSION": 127
             }
             type DVBDescriptorType = DVBDescriptorTypeEnum[Exclude<keyof DVBDescriptorTypeEnum, "$gtype">]
@@ -3494,65 +3211,45 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface DVBExtendedDescriptorTypeEnum {
                 readonly $gtype: GObject.GType<DVBExtendedDescriptorType>
-                /**
-                 */
+                
                 readonly "IMAGE_ICON": 0
-                /**
-                 */
+                
                 readonly "CPCM_DELIVERY_SIGNALLING": 1
-                /**
-                 */
+                
                 readonly "CP": 2
-                /**
-                 */
+                
                 readonly "CP_IDENTIFIER": 3
-                /**
-                 */
+                
                 readonly "T2_DELIVERY_SYSTEM": 4
-                /**
-                 */
+                
                 readonly "SH_DELIVERY_SYSTEM": 5
-                /**
-                 */
+                
                 readonly "SUPPLEMENTARY_AUDIO": 6
-                /**
-                 */
+                
                 readonly "NETWORK_CHANGE_NOTIFY": 7
-                /**
-                 */
+                
                 readonly "MESSAGE": 8
-                /**
-                 */
+                
                 readonly "TARGET_REGION": 9
-                /**
-                 */
+                
                 readonly "TARGET_REGION_NAME": 10
-                /**
-                 */
+                
                 readonly "SERVICE_RELOCATED": 11
-                /**
-                 */
+                
                 readonly "XAIT_PID": 12
-                /**
-                 */
+                
                 readonly "C2_DELIVERY_SYSTEM": 13
-                /**
-                 */
+                
                 readonly "DTS_HD_AUDIO_STREAM": 14
-                /**
-                 */
+                
                 readonly "DTS_NEUTRAL": 15
-                /**
-                 */
+                
                 readonly "VIDEO_DEPTH_RANGE": 16
-                /**
-                 */
+                
                 readonly "T2MI": 17
-                /**
-                 */
+                
                 readonly "URI_LINKAGE": 19
-                /**
-                 */
+                
                 readonly "AC4": 21
                 /**
                  * Provide all avaliable audio programme for user selection
@@ -3575,72 +3272,52 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface DVBLinkageHandOverTypeEnum {
                 readonly $gtype: GObject.GType<DVBLinkageHandOverType>
-                /**
-                 */
+                
                 readonly "RESERVED": 0
-                /**
-                 */
+                
                 readonly "IDENTICAL": 1
-                /**
-                 */
+                
                 readonly "LOCAL_VARIATION": 2
-                /**
-                 */
+                
                 readonly "ASSOCIATED": 3
             }
             type DVBLinkageHandOverType = DVBLinkageHandOverTypeEnum[Exclude<keyof DVBLinkageHandOverTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 DVBLinkageHandOverType: DVBLinkageHandOverTypeEnum
             }
             
             interface DVBLinkageTypeEnum {
                 readonly $gtype: GObject.GType<DVBLinkageType>
-                /**
-                 */
+                
                 readonly "RESERVED_00": 0
-                /**
-                 */
+                
                 readonly "INFORMATION": 1
-                /**
-                 */
+                
                 readonly "EPG": 2
-                /**
-                 */
+                
                 readonly "CA_REPLACEMENT": 3
-                /**
-                 */
+                
                 readonly "TS_CONTAINING_COMPLETE_SI": 4
-                /**
-                 */
+                
                 readonly "SERVICE_REPLACEMENT": 5
-                /**
-                 */
+                
                 readonly "DATA_BROADCAST": 6
-                /**
-                 */
+                
                 readonly "RCS_MAP": 7
-                /**
-                 */
+                
                 readonly "MOBILE_HAND_OVER": 8
-                /**
-                 */
+                
                 readonly "SYSTEM_SOFTWARE_UPDATE": 9
-                /**
-                 */
+                
                 readonly "TS_CONTAINING_SSU": 10
-                /**
-                 */
+                
                 readonly "IP_MAC_NOTIFICATION": 11
-                /**
-                 */
+                
                 readonly "TS_CONTAINING_INT": 12
-                /**
-                 */
+                
                 readonly "EVENT": 13
-                /**
-                 */
+                
                 readonly "EXTENDED_EVENT": 14
             }
             type DVBLinkageType = DVBLinkageTypeEnum[Exclude<keyof DVBLinkageTypeEnum, "$gtype">]
@@ -3653,126 +3330,88 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface DVBScramblingModeTypeEnum {
                 readonly $gtype: GObject.GType<DVBScramblingModeType>
-                /**
-                 */
+                
                 readonly "RESERVED": 0
-                /**
-                 */
+                
                 readonly "CSA1": 1
-                /**
-                 */
+                
                 readonly "CSA2": 2
-                /**
-                 */
+                
                 readonly "CSA3_STANDARD": 3
-                /**
-                 */
+                
                 readonly "CSA3_MINIMAL_ENHANCED": 4
-                /**
-                 */
+                
                 readonly "CSA3_FULL_ENHANCED": 5
-                /**
-                 */
+                
                 readonly "CISSA": 16
-                /**
-                 */
+                
                 readonly "ATIS_0": 112
-                /**
-                 */
+                
                 readonly "ATIS_F": 127
             }
             type DVBScramblingModeType = DVBScramblingModeTypeEnum[Exclude<keyof DVBScramblingModeTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 DVBScramblingModeType: DVBScramblingModeTypeEnum
             }
             
             interface DVBServiceTypeEnum {
                 readonly $gtype: GObject.GType<DVBServiceType>
-                /**
-                 */
+                
                 readonly "RESERVED_00": 0
-                /**
-                 */
+                
                 readonly "DIGITAL_TELEVISION": 1
-                /**
-                 */
+                
                 readonly "DIGITAL_RADIO_SOUND": 2
-                /**
-                 */
+                
                 readonly "TELETEXT": 3
-                /**
-                 */
+                
                 readonly "NVOD_REFERENCE": 4
-                /**
-                 */
+                
                 readonly "NVOD_TIME_SHIFTED": 5
-                /**
-                 */
+                
                 readonly "MOSAIC": 6
-                /**
-                 */
+                
                 readonly "FM_RADIO": 7
-                /**
-                 */
+                
                 readonly "DVB_SRM": 8
-                /**
-                 */
+                
                 readonly "RESERVED_09": 9
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_DIGITAL_RADIO_SOUND": 10
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_MOSAIC": 11
-                /**
-                 */
+                
                 readonly "DATA_BROADCAST": 12
-                /**
-                 */
+                
                 readonly "RESERVED_0D_COMMON_INTERFACE": 13
-                /**
-                 */
+                
                 readonly "RCS_MAP": 14
-                /**
-                 */
+                
                 readonly "RCS_FLS": 15
-                /**
-                 */
+                
                 readonly "DVB_MHP": 16
-                /**
-                 */
+                
                 readonly "MPEG2_HD_DIGITAL_TELEVISION": 17
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_SD_DIGITAL_TELEVISION": 22
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_SD_NVOD_TIME_SHIFTED": 23
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_SD_NVOD_REFERENCE": 24
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_HD_DIGITAL_TELEVISION": 25
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_HD_NVOD_TIME_SHIFTED": 26
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_HD_NVOD_REFERENCE": 27
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_STEREO_HD_DIGITAL_TELEVISION": 28
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_STEREO_HD_NVOD_TIME_SHIFTED": 29
-                /**
-                 */
+                
                 readonly "ADVANCED_CODEC_STEREO_HD_NVOD_REFERENCE": 30
-                /**
-                 */
+                
                 readonly "RESERVED_FF": 31
             }
             type DVBServiceType = DVBServiceTypeEnum[Exclude<keyof DVBServiceTypeEnum, "$gtype">]
@@ -3787,20 +3426,15 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface DVBTeletextTypeEnum {
                 readonly $gtype: GObject.GType<DVBTeletextType>
-                /**
-                 */
+                
                 readonly "NITIAL_PAGE": 1
-                /**
-                 */
+                
                 readonly "UBTITLE_PAGE": 2
-                /**
-                 */
+                
                 readonly "DDITIONAL_INFO_PAGE": 3
-                /**
-                 */
+                
                 readonly "ROGRAMME_SCHEDULE_PAGE": 4
-                /**
-                 */
+                
                 readonly "EARING_IMPAIRED_PAGE": 5
             }
             type DVBTeletextType = DVBTeletextTypeEnum[Exclude<keyof DVBTeletextTypeEnum, "$gtype">]
@@ -3815,167 +3449,113 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface DescriptorTypeEnum {
                 readonly $gtype: GObject.GType<DescriptorType>
-                /**
-                 */
+                
                 readonly "RESERVED_00": 0
-                /**
-                 */
+                
                 readonly "RESERVED_01": 1
-                /**
-                 */
+                
                 readonly "VIDEO_STREAM": 2
-                /**
-                 */
+                
                 readonly "AUDIO_STREAM": 3
-                /**
-                 */
+                
                 readonly "HIERARCHY": 4
-                /**
-                 */
+                
                 readonly "REGISTRATION": 5
-                /**
-                 */
+                
                 readonly "DATA_STREAM_ALIGNMENT": 6
-                /**
-                 */
+                
                 readonly "TARGET_BACKGROUND_GRID": 7
-                /**
-                 */
+                
                 readonly "VIDEO_WINDOW": 8
-                /**
-                 */
+                
                 readonly "CA": 9
-                /**
-                 */
+                
                 readonly "ISO_639_LANGUAGE": 10
-                /**
-                 */
+                
                 readonly "SYSTEM_CLOCK": 11
-                /**
-                 */
+                
                 readonly "MULTIPLEX_BUFFER_UTILISATION": 12
-                /**
-                 */
+                
                 readonly "COPYRIGHT": 13
-                /**
-                 */
+                
                 readonly "MAXIMUM_BITRATE": 14
-                /**
-                 */
+                
                 readonly "PRIVATE_DATA_INDICATOR": 15
-                /**
-                 */
+                
                 readonly "SMOOTHING_BUFFER": 16
-                /**
-                 */
+                
                 readonly "STD": 17
-                /**
-                 */
+                
                 readonly "IBP": 18
-                /**
-                 */
+                
                 readonly "DSMCC_CAROUSEL_IDENTIFIER": 19
-                /**
-                 */
+                
                 readonly "DSMCC_ASSOCIATION_TAG": 20
-                /**
-                 */
+                
                 readonly "DSMCC_DEFERRED_ASSOCIATION_TAG": 21
-                /**
-                 */
+                
                 readonly "DSMCC_NPT_REFERENCE": 23
-                /**
-                 */
+                
                 readonly "DSMCC_NPT_ENDPOINT": 24
-                /**
-                 */
+                
                 readonly "DSMCC_STREAM_MODE": 25
-                /**
-                 */
+                
                 readonly "DSMCC_STREAM_EVENT": 26
-                /**
-                 */
+                
                 readonly "MPEG4_VIDEO": 27
-                /**
-                 */
+                
                 readonly "MPEG4_AUDIO": 28
-                /**
-                 */
+                
                 readonly "IOD": 29
-                /**
-                 */
+                
                 readonly "SL": 30
-                /**
-                 */
+                
                 readonly "FMC": 31
-                /**
-                 */
+                
                 readonly "EXTERNAL_ES_ID": 32
-                /**
-                 */
+                
                 readonly "MUX_CODE": 33
-                /**
-                 */
+                
                 readonly "FMX_BUFFER_SIZE": 34
-                /**
-                 */
+                
                 readonly "MULTIPLEX_BUFFER": 35
-                /**
-                 */
+                
                 readonly "CONTENT_LABELING": 36
-                /**
-                 */
+                
                 readonly "METADATA_POINTER": 37
-                /**
-                 */
+                
                 readonly "METADATA": 38
-                /**
-                 */
+                
                 readonly "METADATA_STD": 39
-                /**
-                 */
+                
                 readonly "AVC_VIDEO": 40
-                /**
-                 */
+                
                 readonly "IPMP": 41
-                /**
-                 */
+                
                 readonly "AVC_TIMING_AND_HRD": 42
-                /**
-                 */
+                
                 readonly "MPEG2_AAC_AUDIO": 43
-                /**
-                 */
+                
                 readonly "FLEX_MUX_TIMING": 44
-                /**
-                 */
+                
                 readonly "MPEG4_TEXT": 45
-                /**
-                 */
+                
                 readonly "MPEG4_AUDIO_EXTENSION": 46
-                /**
-                 */
+                
                 readonly "AUXILIARY_VIDEO_STREAM": 47
-                /**
-                 */
+                
                 readonly "SVC_EXTENSION": 48
-                /**
-                 */
+                
                 readonly "MVC_EXTENSION": 49
-                /**
-                 */
+                
                 readonly "J2K_VIDEO": 50
-                /**
-                 */
+                
                 readonly "MVC_OPERATION_POINT": 51
-                /**
-                 */
+                
                 readonly "MPEG2_STEREOSCOPIC_VIDEO_FORMAT": 52
-                /**
-                 */
+                
                 readonly "STEREOSCOPIC_PROGRAM_INFO": 53
-                /**
-                 */
+                
                 readonly "STEREOSCOPIC_VIDEO_INFO": 54
                 /**
                  * Extension Descriptor.
@@ -3998,8 +3578,7 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface ExtendedDescriptorTypeEnum {
                 readonly $gtype: GObject.GType<ExtendedDescriptorType>
-                /**
-                 */
+                
                 readonly "MTS_DESC_EXT_JXS_VIDEO": 20
             }
             type ExtendedDescriptorType = ExtendedDescriptorTypeEnum[Exclude<keyof ExtendedDescriptorTypeEnum, "$gtype">]
@@ -4018,44 +3597,31 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface HdmvStreamTypeEnum {
                 readonly $gtype: GObject.GType<HdmvStreamType>
-                /**
-                 */
+                
                 readonly "AUDIO_LPCM": 128
-                /**
-                 */
+                
                 readonly "AUDIO_AC3": 129
-                /**
-                 */
+                
                 readonly "AUDIO_DTS": 130
-                /**
-                 */
+                
                 readonly "AUDIO_AC3_TRUE_HD": 131
-                /**
-                 */
+                
                 readonly "AUDIO_AC3_PLUS": 132
-                /**
-                 */
+                
                 readonly "AUDIO_DTS_HD": 133
-                /**
-                 */
+                
                 readonly "AUDIO_DTS_HD_MASTER_AUDIO": 134
-                /**
-                 */
+                
                 readonly "AUDIO_EAC3": 135
-                /**
-                 */
+                
                 readonly "SUBPICTURE_PGS": 144
-                /**
-                 */
+                
                 readonly "IGS": 145
-                /**
-                 */
+                
                 readonly "SUBTITLE": 146
-                /**
-                 */
+                
                 readonly "AUDIO_AC3_PLUS_SECONDARY": 161
-                /**
-                 */
+                
                 readonly "AUDIO_DTS_HD_SECONDARY": 162
             }
             type HdmvStreamType = HdmvStreamTypeEnum[Exclude<keyof HdmvStreamTypeEnum, "$gtype">]
@@ -4070,101 +3636,69 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface ISDBDescriptorTypeEnum {
                 readonly $gtype: GObject.GType<ISDBDescriptorType>
-                /**
-                 */
+                
                 readonly "HIERARCHICAL_TRANSMISSION": 192
-                /**
-                 */
+                
                 readonly "DIGITAL_COPY_CONTROL": 193
-                /**
-                 */
+                
                 readonly "NETWORK_IDENTIFICATION": 194
-                /**
-                 */
+                
                 readonly "PARTIAL_TS_TIME": 195
-                /**
-                 */
+                
                 readonly "AUDIO_COMPONENT": 196
-                /**
-                 */
+                
                 readonly "HYPERLINK": 197
-                /**
-                 */
+                
                 readonly "TARGET_REGION": 198
-                /**
-                 */
+                
                 readonly "DATA_CONTENT": 199
-                /**
-                 */
+                
                 readonly "VIDEO_DECODE_CONTROL": 200
-                /**
-                 */
+                
                 readonly "DOWNLOAD_CONTENT": 201
-                /**
-                 */
+                
                 readonly "CA_EMM_TS": 202
-                /**
-                 */
+                
                 readonly "CA_CONTRACT_INFORMATION": 203
-                /**
-                 */
+                
                 readonly "CA_SERVICE": 204
-                /**
-                 */
+                
                 readonly "TS_INFORMATION": 205
-                /**
-                 */
+                
                 readonly "EXTENDED_BROADCASTER": 206
-                /**
-                 */
+                
                 readonly "LOGO_TRANSMISSION": 207
-                /**
-                 */
+                
                 readonly "BASIC_LOCAL_EVENT": 208
-                /**
-                 */
+                
                 readonly "REFERENCE": 209
-                /**
-                 */
+                
                 readonly "NODE_RELATION": 210
-                /**
-                 */
+                
                 readonly "SHORT_NODE_INFORMATION": 211
-                /**
-                 */
+                
                 readonly "STC_REFERENCE": 212
-                /**
-                 */
+                
                 readonly "SERIES": 213
-                /**
-                 */
+                
                 readonly "EVENT_GROUP": 214
-                /**
-                 */
+                
                 readonly "SI_PARAMETER": 215
-                /**
-                 */
+                
                 readonly "BROADCASTER_NAME": 216
-                /**
-                 */
+                
                 readonly "COMPONENT_GROUP": 217
-                /**
-                 */
+                
                 readonly "SI_PRIME_TS": 218
-                /**
-                 */
+                
                 readonly "BOARD_INFORMATION": 219
-                /**
-                 */
+                
                 readonly "LDT_LINKAGE": 220
-                /**
-                 */
+                
                 readonly "CONNECTED_TRANSMISSION": 221
-                /**
-                 */
+                
                 readonly "CONTENT_AVAILABILITY": 222
-                /**
-                 */
+                
                 readonly "SERVICE_GROUP": 224
             }
             type ISDBDescriptorType = ISDBDescriptorTypeEnum[Exclude<keyof ISDBDescriptorTypeEnum, "$gtype">]
@@ -4180,36 +3714,28 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface Iso639AudioTypeEnum {
                 readonly $gtype: GObject.GType<Iso639AudioType>
-                /**
-                 */
+                
                 readonly "UNDEFINED": 0
-                /**
-                 */
+                
                 readonly "CLEAN_EFFECTS": 1
-                /**
-                 */
+                
                 readonly "HEARING_IMPAIRED": 2
-                /**
-                 */
+                
                 readonly "VISUAL_IMPAIRED_COMMENTARY": 3
             }
             type Iso639AudioType = Iso639AudioTypeEnum[Exclude<keyof Iso639AudioTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 Iso639AudioType: Iso639AudioTypeEnum
             }
             
             interface MetadataApplicationFormatEnum {
                 readonly $gtype: GObject.GType<MetadataApplicationFormat>
-                /**
-                 */
+                
                 readonly "ISAN": 16
-                /**
-                 */
+                
                 readonly "VSAN": 17
-                /**
-                 */
+                
                 readonly "IDENTIFIER_FIELD": 65535
             }
             type MetadataApplicationFormat = MetadataApplicationFormatEnum[Exclude<keyof MetadataApplicationFormatEnum, "$gtype">]
@@ -4259,8 +3785,7 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface MiscDescriptorTypeEnum {
                 readonly $gtype: GObject.GType<MiscDescriptorType>
-                /**
-                 */
+                
                 readonly "MTS_DESC_DTG_LOGICAL_CHANNEL": 131
             }
             type MiscDescriptorType = MiscDescriptorTypeEnum[Exclude<keyof MiscDescriptorTypeEnum, "$gtype">]
@@ -4276,78 +3801,56 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface ModulationTypeEnum {
                 readonly $gtype: GObject.GType<ModulationType>
-                /**
-                 */
+                
                 readonly "QPSK": 0
-                /**
-                 */
+                
                 readonly "QAM_16": 1
-                /**
-                 */
+                
                 readonly "QAM_32": 2
-                /**
-                 */
+                
                 readonly "QAM_64": 3
-                /**
-                 */
+                
                 readonly "QAM_128": 4
-                /**
-                 */
+                
                 readonly "QAM_256": 5
-                /**
-                 */
+                
                 readonly "QAM_AUTO": 6
-                /**
-                 */
+                
                 readonly "VSB_8": 7
-                /**
-                 */
+                
                 readonly "VSB_16": 8
-                /**
-                 */
+                
                 readonly "PSK_8": 9
-                /**
-                 */
+                
                 readonly "APSK_16": 10
-                /**
-                 */
+                
                 readonly "APSK_32": 11
-                /**
-                 */
+                
                 readonly "DQPSK": 12
-                /**
-                 */
+                
                 readonly "QAM_4_NR_": 13
-                /**
-                 */
+                
                 readonly "NONE": 14
             }
             type ModulationType = ModulationTypeEnum[Exclude<keyof ModulationTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 ModulationType: ModulationTypeEnum
             }
             
             interface RunningStatusEnum {
                 readonly $gtype: GObject.GType<RunningStatus>
-                /**
-                 */
+                
                 readonly "UNDEFINED": 0
-                /**
-                 */
+                
                 readonly "NOT_RUNNING": 1
-                /**
-                 */
+                
                 readonly "STARTS_IN_FEW_SECONDS": 2
-                /**
-                 */
+                
                 readonly "PAUSING": 3
-                /**
-                 */
+                
                 readonly "RUNNING": 4
-                /**
-                 */
+                
                 readonly "OFF_AIR": 5
             }
             type RunningStatus = RunningStatusEnum[Exclude<keyof RunningStatusEnum, "$gtype">]
@@ -4362,29 +3865,21 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface SCTEDescriptorTypeEnum {
                 readonly $gtype: GObject.GType<SCTEDescriptorType>
-                /**
-                 */
+                
                 readonly "STUFFING": 128
-                /**
-                 */
+                
                 readonly "AC3": 129
-                /**
-                 */
+                
                 readonly "FRAME_RATE": 130
-                /**
-                 */
+                
                 readonly "EXTENDED_VIDEO": 131
-                /**
-                 */
+                
                 readonly "COMPONENT_NAME": 132
-                /**
-                 */
+                
                 readonly "FREQUENCY_SPEC": 144
-                /**
-                 */
+                
                 readonly "MODULATION_PARAMS": 145
-                /**
-                 */
+                
                 readonly "TRANSPORT_STREAM_ID": 146
             }
             type SCTEDescriptorType = SCTEDescriptorTypeEnum[Exclude<keyof SCTEDescriptorTypeEnum, "$gtype">]
@@ -4398,101 +3893,77 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface SCTESpliceCommandTypeEnum {
                 readonly $gtype: GObject.GType<SCTESpliceCommandType>
-                /**
-                 */
+                
                 readonly "NULL": 0
-                /**
-                 */
+                
                 readonly "SCHEDULE": 4
-                /**
-                 */
+                
                 readonly "INSERT": 5
-                /**
-                 */
+                
                 readonly "TIME": 6
-                /**
-                 */
+                
                 readonly "BANDWIDTH": 7
-                /**
-                 */
+                
                 readonly "PRIVATE": 255
             }
             type SCTESpliceCommandType = SCTESpliceCommandTypeEnum[Exclude<keyof SCTESpliceCommandTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 SCTESpliceCommandType: SCTESpliceCommandTypeEnum
             }
             
             interface SCTESpliceDescriptorEnum {
                 readonly $gtype: GObject.GType<SCTESpliceDescriptor>
-                /**
-                 */
+                
                 readonly "AVAIL": 0
-                /**
-                 */
+                
                 readonly "DTMF": 1
-                /**
-                 */
+                
                 readonly "SEGMENTATION": 2
-                /**
-                 */
+                
                 readonly "TIME": 3
-                /**
-                 */
+                
                 readonly "AUDIO": 4
             }
             type SCTESpliceDescriptor = SCTESpliceDescriptorEnum[Exclude<keyof SCTESpliceDescriptorEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 SCTESpliceDescriptor: SCTESpliceDescriptorEnum
             }
             
             interface SatellitePolarizationTypeEnum {
                 readonly $gtype: GObject.GType<SatellitePolarizationType>
-                /**
-                 */
+                
                 readonly "LINEAR_HORIZONTAL": 0
-                /**
-                 */
+                
                 readonly "LINEAR_VERTICAL": 1
-                /**
-                 */
+                
                 readonly "CIRCULAR_LEFT": 2
-                /**
-                 */
+                
                 readonly "CIRCULAR_RIGHT": 3
             }
             type SatellitePolarizationType = SatellitePolarizationTypeEnum[Exclude<keyof SatellitePolarizationTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 SatellitePolarizationType: SatellitePolarizationTypeEnum
             }
             
             interface SatelliteRolloffEnum {
                 readonly $gtype: GObject.GType<SatelliteRolloff>
-                /**
-                 */
+                
                 readonly "35": 0
-                /**
-                 */
+                
                 readonly "20": 1
-                /**
-                 */
+                
                 readonly "25": 2
-                /**
-                 */
+                
                 readonly "RESERVED": 3
-                /**
-                 */
+                
                 readonly "AUTO": 4
             }
             type SatelliteRolloff = SatelliteRolloffEnum[Exclude<keyof SatelliteRolloffEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 SatelliteRolloff: SatelliteRolloffEnum
             }
             
@@ -4602,14 +4073,11 @@ declare module "gi://GstMpegts?version=1.0" {
                  * Directed Channel Change Selection Code Table (DCCSCT)
                  */
                 readonly "DIRECTED_CHANNEL_CHANGE_SECTION_CODE": 212
-                /**
-                 */
+                
                 readonly "AGGREGATE_EVENT_INFORMATION": 214
-                /**
-                 */
+                
                 readonly "AGGREGATE_EXTENDED_TEXT": 215
-                /**
-                 */
+                
                 readonly "AGGREGATE_DATA_EVENT": 217
                 /**
                  * A/81: Satellite Virtual Channel Table
@@ -4758,35 +4226,25 @@ declare module "gi://GstMpegts?version=1.0" {
                  * ETSI TR 289: CA Message Table (CMT): CA System Private (Last)
                  */
                 readonly "CA_MESSAGE_SYSTEM_PRIVATE_N": 143
-                /**
-                 */
+                
                 readonly "SCT": 160
-                /**
-                 */
+                
                 readonly "FCT": 161
-                /**
-                 */
+                
                 readonly "TCT": 162
-                /**
-                 */
+                
                 readonly "SPT": 163
-                /**
-                 */
+                
                 readonly "CMT": 164
-                /**
-                 */
+                
                 readonly "TBTP": 165
-                /**
-                 */
+                
                 readonly "PCR_PACKET_PAYLOAD": 166
-                /**
-                 */
+                
                 readonly "TRANSMISSION_MODE_SUPPORT_PAYLOAD": 170
-                /**
-                 */
+                
                 readonly "TIM": 176
-                /**
-                 */
+                
                 readonly "LL_FEC_PARITY_DATA_TABLE": 177
             }
             type SectionDVBTableID = SectionDVBTableIDEnum[Exclude<keyof SectionDVBTableIDEnum, "$gtype">]
@@ -4812,8 +4270,7 @@ declare module "gi://GstMpegts?version=1.0" {
                  * CL-SP-ETV-AM 1.0.1 EBIF message
                  */
                 readonly "EBIF": 224
-                /**
-                 */
+                
                 readonly "RESERVED": 225
                 /**
                  * CL-SP-ETV-AM 1.0.1 EBIF Int. Signaling Sect.
@@ -5245,106 +4702,78 @@ declare module "gi://GstMpegts?version=1.0" {
             
             interface TerrestrialGuardIntervalEnum {
                 readonly $gtype: GObject.GType<TerrestrialGuardInterval>
-                /**
-                 */
+                
                 readonly "1_32": 0
-                /**
-                 */
+                
                 readonly "1_16": 1
-                /**
-                 */
+                
                 readonly "1_8": 2
-                /**
-                 */
+                
                 readonly "1_4": 3
-                /**
-                 */
+                
                 readonly "AUTO": 4
-                /**
-                 */
+                
                 readonly "1_128": 5
-                /**
-                 */
+                
                 readonly "19_128": 6
-                /**
-                 */
+                
                 readonly "19_256": 7
-                /**
-                 */
+                
                 readonly "PN420": 8
-                /**
-                 */
+                
                 readonly "PN595": 9
-                /**
-                 */
+                
                 readonly "PN945": 10
             }
             type TerrestrialGuardInterval = TerrestrialGuardIntervalEnum[Exclude<keyof TerrestrialGuardIntervalEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 TerrestrialGuardInterval: TerrestrialGuardIntervalEnum
             }
             
             interface TerrestrialHierarchyEnum {
                 readonly $gtype: GObject.GType<TerrestrialHierarchy>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "1": 1
-                /**
-                 */
+                
                 readonly "2": 2
-                /**
-                 */
+                
                 readonly "4": 3
-                /**
-                 */
+                
                 readonly "AUTO": 4
             }
             type TerrestrialHierarchy = TerrestrialHierarchyEnum[Exclude<keyof TerrestrialHierarchyEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 TerrestrialHierarchy: TerrestrialHierarchyEnum
             }
             
             interface TerrestrialTransmissionModeEnum {
                 readonly $gtype: GObject.GType<TerrestrialTransmissionMode>
-                /**
-                 */
+                
                 readonly "2K": 0
-                /**
-                 */
+                
                 readonly "8K": 1
-                /**
-                 */
+                
                 readonly "AUTO": 2
-                /**
-                 */
+                
                 readonly "4K": 3
-                /**
-                 */
+                
                 readonly "1K": 4
-                /**
-                 */
+                
                 readonly "16K": 5
-                /**
-                 */
+                
                 readonly "32K": 6
-                /**
-                 */
+                
                 readonly "C1": 7
-                /**
-                 */
+                
                 readonly "C3780": 8
             }
             type TerrestrialTransmissionMode = TerrestrialTransmissionModeEnum[Exclude<keyof TerrestrialTransmissionModeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 TerrestrialTransmissionMode: TerrestrialTransmissionModeEnum
             }
             

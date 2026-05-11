@@ -60,8 +60,7 @@ declare module "gi://freetype2?version=2.0" {
             interface $Exports {
                 Library: LibraryStruct
             }
-            /**
-             */
+            
             type Int32 = number
 
             interface $Exports {

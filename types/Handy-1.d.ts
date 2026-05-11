@@ -51,7 +51,7 @@ declare module "gi://Handy?version=1" {
                     "activated"(): void
                 }
 
-                interface ReadableProperties extends PreferencesRow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends PreferencesRow.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Actionable.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "activatable-widget": Gtk.Widget | null
                     "icon-name": string
                     "subtitle": string | null
@@ -60,13 +60,10 @@ declare module "gi://Handy?version=1" {
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends PreferencesRow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "activatable-widget": Gtk.Widget | null
-                    "icon-name": string
-                    "subtitle": string | null
-                    "subtitle-lines": number
-                    "title-lines": number
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, PreferencesRow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PreferencesRow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PreferencesRow.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Actionable.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -290,10 +287,13 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.ApplicationWindow.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gio.ActionGroup.SignalSignatures, Gio.ActionMap.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.ApplicationWindow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.ApplicationWindow.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.ApplicationWindow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties, Gtk.Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.ApplicationWindow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.ApplicationWindow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.ApplicationWindow.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gio.ActionGroup.ConstructOnlyProperties, Gio.ActionMap.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -342,7 +342,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.DrawingArea.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.DrawingArea.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.DrawingArea.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "icon-name": string | null
                     "loadable-icon": Gio.LoadableIcon | null
                     "show-initials": boolean
@@ -350,12 +350,10 @@ declare module "gi://Handy?version=1" {
                     "text": string | null
                 }
 
-                interface WritableProperties extends Gtk.DrawingArea.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "icon-name": string | null
-                    "loadable-icon": Gio.LoadableIcon | null
-                    "show-initials": boolean
-                    "size": number
-                    "text": string | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.DrawingArea.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.DrawingArea.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.DrawingArea.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -573,7 +571,7 @@ declare module "gi://Handy?version=1" {
                     "page-changed"(index: number): void
                 }
 
-                interface ReadableProperties extends Gtk.EventBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties, Swipeable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.EventBox.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties, Swipeable.ReadWriteProperties {
                     "allow-long-swipes": boolean
                     "allow-mouse-drag": boolean
                     "allow-scroll-wheel": boolean
@@ -585,16 +583,10 @@ declare module "gi://Handy?version=1" {
                     "spacing": number
                 }
 
-                interface WritableProperties extends Gtk.EventBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties, Swipeable.WritableProperties {
-                    "allow-long-swipes": boolean
-                    "allow-mouse-drag": boolean
-                    "allow-scroll-wheel": boolean
-                    "animation-duration": number
-                    "interactive": boolean
-                    "n-pages": number
-                    "position": number
-                    "reveal-duration": number
-                    "spacing": number
+                interface ReadableProperties extends ReadWriteProperties, Gtk.EventBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties, Swipeable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.EventBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties, Swipeable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.EventBox.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties, Swipeable.ConstructOnlyProperties {
@@ -863,12 +855,14 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.DrawingArea.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.DrawingArea.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.DrawingArea.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties {
                     "carousel": Carousel | null
                 }
 
-                interface WritableProperties extends Gtk.DrawingArea.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
-                    "carousel": Carousel | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.DrawingArea.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.DrawingArea.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.DrawingArea.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties {
@@ -938,12 +932,14 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.DrawingArea.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.DrawingArea.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.DrawingArea.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties {
                     "carousel": Carousel | null
                 }
 
-                interface WritableProperties extends Gtk.DrawingArea.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
-                    "carousel": Carousel | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.DrawingArea.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.DrawingArea.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.DrawingArea.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties {
@@ -1012,14 +1008,15 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties {
                     "maximum-size": number
                     "tightening-threshold": number
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
-                    "maximum-size": number
-                    "tightening-threshold": number
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties {
@@ -1129,14 +1126,15 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends ActionRow.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Actionable.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ActionRow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends ActionRow.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Actionable.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "selected-index": number
                     "use-subtitle": boolean
                 }
 
-                interface WritableProperties extends ActionRow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "selected-index": number
-                    "use-subtitle": boolean
+                interface ReadableProperties extends ReadWriteProperties, ActionRow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ActionRow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ActionRow.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Actionable.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -1307,7 +1305,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Orientable.SignalSignatures, Swipeable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties, Swipeable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties, Swipeable.ReadWriteProperties {
                     "can-swipe-back": boolean
                     "can-swipe-forward": boolean
                     "hhomogeneous": boolean
@@ -1320,17 +1318,10 @@ declare module "gi://Handy?version=1" {
                     "visible-child-name": string
                 }
 
-                interface WritableProperties extends Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties, Swipeable.WritableProperties {
-                    "can-swipe-back": boolean
-                    "can-swipe-forward": boolean
-                    "hhomogeneous": boolean
-                    "interpolate-size": boolean
-                    "transition-duration": number
-                    "transition-running": boolean
-                    "transition-type": DeckTransitionType
-                    "vhomogeneous": boolean
-                    "visible-child": Gtk.Widget
-                    "visible-child-name": string
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties, Swipeable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties, Swipeable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties, Swipeable.ConstructOnlyProperties {
@@ -1640,10 +1631,13 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1705,7 +1699,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends PreferencesRow.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Actionable.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PreferencesRow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends PreferencesRow.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Actionable.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "enable-expansion": boolean
                     "expanded": boolean
                     "icon-name": string
@@ -1714,13 +1708,10 @@ declare module "gi://Handy?version=1" {
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends PreferencesRow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "enable-expansion": boolean
-                    "expanded": boolean
-                    "icon-name": string
-                    "show-enable-switch": boolean
-                    "subtitle": string | null
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, PreferencesRow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PreferencesRow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PreferencesRow.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Actionable.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -1791,8 +1782,7 @@ declare module "gi://Handy?version=1" {
                  * @returns whether the expansion of `self` is enabled
                  */
                 get_enable_expansion(): boolean
-                /**
-                 */
+                
                 get_expanded(): boolean
                 /**
                  * Gets the icon name for `self`.
@@ -1908,7 +1898,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Orientable.SignalSignatures, Swipeable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties, Swipeable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties, Swipeable.ReadWriteProperties {
                     "content": Gtk.Widget | null
                     "flap": Gtk.Widget | null
                     "flap-position": Gtk.PackType
@@ -1926,22 +1916,10 @@ declare module "gi://Handy?version=1" {
                     "transition-type": FlapTransitionType
                 }
 
-                interface WritableProperties extends Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties, Swipeable.WritableProperties {
-                    "content": Gtk.Widget | null
-                    "flap": Gtk.Widget | null
-                    "flap-position": Gtk.PackType
-                    "fold-duration": number
-                    "fold-policy": FlapFoldPolicy
-                    "folded": boolean
-                    "locked": boolean
-                    "modal": boolean
-                    "reveal-duration": number
-                    "reveal-flap": boolean
-                    "reveal-progress": number
-                    "separator": Gtk.Widget | null
-                    "swipe-to-close": boolean
-                    "swipe-to-open": boolean
-                    "transition-type": FlapTransitionType
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties, Swipeable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties, Swipeable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties, Swipeable.ConstructOnlyProperties {
@@ -2349,7 +2327,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "centering-policy": CenteringPolicy
                     "custom-title": Gtk.Widget | null
                     "decoration-layout": string
@@ -2364,19 +2342,10 @@ declare module "gi://Handy?version=1" {
                     "transition-running": boolean
                 }
 
-                interface WritableProperties extends Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "centering-policy": CenteringPolicy
-                    "custom-title": Gtk.Widget | null
-                    "decoration-layout": string
-                    "decoration-layout-set": boolean
-                    "has-subtitle": boolean
-                    "interpolate-size": boolean
-                    "show-close-button": boolean
-                    "spacing": number
-                    "subtitle": string | null
-                    "title": string | null
-                    "transition-duration": number
-                    "transition-running": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -2696,12 +2665,14 @@ declare module "gi://Handy?version=1" {
                     "update-decoration-layouts"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "decorate-all": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "decorate-all": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -2853,10 +2824,13 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2920,7 +2894,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "column-spacing": number
                     "end-action": Gtk.Widget | null
                     "entry": Gtk.Entry
@@ -2930,14 +2904,10 @@ declare module "gi://Handy?version=1" {
                     "symbols-visible": boolean
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "column-spacing": number
-                    "end-action": Gtk.Widget | null
-                    "entry": Gtk.Entry
-                    "letters-visible": boolean
-                    "row-spacing": number
-                    "start-action": Gtk.Widget | null
-                    "symbols-visible": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -3122,7 +3092,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Orientable.SignalSignatures, Swipeable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties, Swipeable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties, Swipeable.ReadWriteProperties {
                     "can-swipe-back": boolean
                     "can-swipe-forward": boolean
                     "child-transition-duration": number
@@ -3139,21 +3109,10 @@ declare module "gi://Handy?version=1" {
                     "visible-child-name": string
                 }
 
-                interface WritableProperties extends Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties, Swipeable.WritableProperties {
-                    "can-swipe-back": boolean
-                    "can-swipe-forward": boolean
-                    "child-transition-duration": number
-                    "child-transition-running": boolean
-                    "folded": boolean
-                    "hhomogeneous-folded": boolean
-                    "hhomogeneous-unfolded": boolean
-                    "interpolate-size": boolean
-                    "mode-transition-duration": number
-                    "transition-type": LeafletTransitionType
-                    "vhomogeneous-folded": boolean
-                    "vhomogeneous-unfolded": boolean
-                    "visible-child": Gtk.Widget
-                    "visible-child-name": string
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties, Swipeable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties, Swipeable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties, Swipeable.ConstructOnlyProperties {
@@ -3531,16 +3490,16 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "description": string
                     "title": string
                     "use-markup": boolean
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "description": string
-                    "title": string
-                    "use-markup": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -3645,14 +3604,15 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "icon-name": string | null
                     "title": string | null
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "icon-name": string | null
-                    "title": string | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -3735,14 +3695,15 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.ListBoxRow.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Actionable.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.ListBoxRow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.ListBoxRow.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Actionable.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "title": string | null
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends Gtk.ListBoxRow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "title": string | null
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.ListBoxRow.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.ListBoxRow.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.ListBoxRow.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Actionable.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -3827,14 +3788,15 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Window.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "can-swipe-back": boolean
                     "search-enabled": boolean
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "can-swipe-back": boolean
-                    "search-enabled": boolean
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -3938,14 +3900,15 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "search-mode-enabled": boolean
                     "show-close-button": boolean
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "search-mode-enabled": boolean
-                    "show-close-button": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -4107,7 +4070,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Container.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures, Gtk.Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties {
                     "homogeneous": boolean
                     "interpolate-size": boolean
                     "transition-duration": number
@@ -4118,15 +4081,10 @@ declare module "gi://Handy?version=1" {
                     "yalign": number
                 }
 
-                interface WritableProperties extends Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
-                    "homogeneous": boolean
-                    "interpolate-size": boolean
-                    "transition-duration": number
-                    "transition-running": boolean
-                    "transition-type": SqueezerTransitionType
-                    "visible-child": Gtk.Widget | null
-                    "xalign": number
-                    "yalign": number
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Container.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties {
@@ -4371,16 +4329,16 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "description": string | null
                     "icon-name": string | null
                     "title": string | null
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "description": string | null
-                    "icon-name": string | null
-                    "title": string | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -4482,19 +4440,17 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "color-scheme": ColorScheme
                     "dark": boolean
-                    "display": Gdk.Display
                     "high-contrast": boolean
                     "system-supports-color-schemes": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "color-scheme": ColorScheme
-                    "dark": boolean
-                    "high-contrast": boolean
-                    "system-supports-color-schemes": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4687,10 +4643,13 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gtk.Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -4806,19 +4765,17 @@ declare module "gi://Handy?version=1" {
                     "update-swipe"(progress: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gtk.Orientable.ReadWriteProperties {
                     "allow-long-swipes": boolean
                     "allow-mouse-drag": boolean
                     "enabled": boolean
                     "reversed": boolean
-                    "swipeable": Swipeable
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gtk.Orientable.WritableProperties {
-                    "allow-long-swipes": boolean
-                    "allow-mouse-drag": boolean
-                    "enabled": boolean
-                    "reversed": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gtk.Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gtk.Orientable.ConstructOnlyProperties {
@@ -5000,7 +4957,7 @@ declare module "gi://Handy?version=1" {
                     "extra-drag-data-received"(page: TabPage, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "autohide": boolean
                     "end-action-widget": Gtk.Widget | null
                     "expand-tabs": boolean
@@ -5012,16 +4969,10 @@ declare module "gi://Handy?version=1" {
                     "view": TabView | null
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "autohide": boolean
-                    "end-action-widget": Gtk.Widget | null
-                    "expand-tabs": boolean
-                    "extra-drag-dest-targets": Gtk.TargetList | null
-                    "inverted": boolean
-                    "is-overflowing": boolean
-                    "start-action-widget": Gtk.Widget | null
-                    "tabs-revealed": boolean
-                    "view": TabView | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -5282,30 +5233,22 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "child": Gtk.Widget
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "icon": Gio.Icon | null
                     "indicator-activatable": boolean
                     "indicator-icon": Gio.Icon | null
                     "loading": boolean
                     "needs-attention": boolean
-                    "parent": TabPage | null
                     "pinned": boolean
                     "selected": boolean
                     "title": string | null
                     "tooltip": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "icon": Gio.Icon | null
-                    "indicator-activatable": boolean
-                    "indicator-icon": Gio.Icon | null
-                    "loading": boolean
-                    "needs-attention": boolean
-                    "pinned": boolean
-                    "selected": boolean
-                    "title": string | null
-                    "tooltip": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5658,7 +5601,7 @@ declare module "gi://Handy?version=1" {
                     "setup-menu"(page: TabPage): void
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "default-icon": Gio.Icon
                     "is-transferring-page": boolean
                     "menu-model": Gio.MenuModel | null
@@ -5668,14 +5611,10 @@ declare module "gi://Handy?version=1" {
                     "shortcut-widget": Gtk.Widget | null
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "default-icon": Gio.Icon
-                    "is-transferring-page": boolean
-                    "menu-model": Gio.MenuModel | null
-                    "n-pages": number
-                    "n-pinned-pages": number
-                    "selected-page": TabPage | null
-                    "shortcut-widget": Gtk.Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -6167,12 +6106,14 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "selection-mode": boolean
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "selection-mode": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -6251,11 +6192,13 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "value": GObject.Value
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -6330,16 +6273,16 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "narrow-ellipsize": Pango.EllipsizeMode
                     "policy": ViewSwitcherPolicy
                     "stack": Gtk.Stack | null
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "narrow-ellipsize": Pango.EllipsizeMode
-                    "policy": ViewSwitcherPolicy
-                    "stack": Gtk.Stack | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -6459,16 +6402,16 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "policy": ViewSwitcherPolicy
                     "reveal": boolean
                     "stack": Gtk.Stack | null
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "policy": ViewSwitcherPolicy
-                    "reveal": boolean
-                    "stack": Gtk.Stack | null
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -6613,7 +6556,7 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Bin.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "policy": ViewSwitcherPolicy
                     "stack": Gtk.Stack | null
                     "subtitle": string | null
@@ -6622,13 +6565,10 @@ declare module "gi://Handy?version=1" {
                     "view-switcher-enabled": boolean
                 }
 
-                interface WritableProperties extends Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
-                    "policy": ViewSwitcherPolicy
-                    "stack": Gtk.Stack | null
-                    "subtitle": string | null
-                    "title": string | null
-                    "title-visible": boolean
-                    "view-switcher-enabled": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -6838,10 +6778,13 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.Window.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Window.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -6935,10 +6878,13 @@ declare module "gi://Handy?version=1" {
                 interface SignalSignatures extends Gtk.EventBox.SignalSignatures, Atk.ImplementorIface.SignalSignatures, Gtk.Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gtk.EventBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.EventBox.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.EventBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.EventBox.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.EventBox.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.EventBox.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -7002,10 +6948,13 @@ declare module "gi://Handy?version=1" {
                     "child-switched"(index: number, duration: number): void
                 }
 
-                interface ReadableProperties extends Gtk.Widget.ReadableProperties {
+                interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gtk.Widget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gtk.Widget.ConstructOnlyProperties {

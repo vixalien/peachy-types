@@ -50,10 +50,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -238,10 +241,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -388,7 +394,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMNode.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "local-name": string
                     "name": string
                     "namespace-uri": string
@@ -398,14 +404,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "value": string
                 }
 
-                interface WritableProperties extends DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
-                    "local-name": string
-                    "name": string
-                    "namespace-uri": string
-                    "owner-element": DOMElement
-                    "prefix": string
-                    "specified": boolean
-                    "value": string
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMNode.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -417,24 +419,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMAttr.ReadableProperties
                 readonly $writableProperties: DOMAttr.WritableProperties
                 readonly $constructOnlyProperties: DOMAttr.ConstructOnlyProperties
-                /**
-                 */
+                
                 get localName(): string
                 set localName(value: string)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get namespaceUri(): string
                 set namespaceUri(value: string)
-                /**
-                 */
+                
                 get ownerElement(): DOMElement
                 set ownerElement(value: DOMElement)
-                /**
-                 */
+                
                 get prefix(): string
                 set prefix(value: string)
                 /**
@@ -442,8 +439,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get specified(): boolean
                 set specified(value: boolean)
-                /**
-                 */
+                
                 get value(): string
                 set value(value: string)
                 /**
@@ -500,8 +496,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMAttr: DOMAttrClass
             }
             
@@ -510,12 +505,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "size": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "size": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -547,8 +544,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMBlob: DOMBlobClass
             }
             
@@ -557,10 +553,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMText.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMText.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMText.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DOMText.WritableProperties, DOMEventTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DOMText.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMText.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMText.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -582,8 +581,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMCDATASection: DOMCDATASectionClass
             }
             
@@ -592,18 +590,17 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "css-text": string
                     "parent-rule": DOMCSSRule
                     "parent-style-sheet": DOMCSSStyleSheet
                     "type": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "css-text": string
-                    "parent-rule": DOMCSSRule
-                    "parent-style-sheet": DOMCSSStyleSheet
-                    "type": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -615,16 +612,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMCSSRule.ReadableProperties
                 readonly $writableProperties: DOMCSSRule.WritableProperties
                 readonly $constructOnlyProperties: DOMCSSRule.ConstructOnlyProperties
-                /**
-                 */
+                
                 get cssText(): string
                 set cssText(value: string)
-                /**
-                 */
+                
                 get parentRule(): DOMCSSRule
                 set parentRule(value: DOMCSSRule)
-                /**
-                 */
+                
                 get parentStyleSheet(): DOMCSSStyleSheet
                 set parentStyleSheet(value: DOMCSSStyleSheet)
                 /**
@@ -668,8 +662,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMCSSRule: DOMCSSRuleClass
             }
             
@@ -678,12 +671,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -721,8 +716,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMCSSRuleList: DOMCSSRuleListClass
             }
             
@@ -731,16 +725,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "css-text": string
                     "length": number
                     "parent-rule": DOMCSSRule
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "css-text": string
-                    "length": number
-                    "parent-rule": DOMCSSRule
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -752,8 +746,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMCSSStyleDeclaration.ReadableProperties
                 readonly $writableProperties: DOMCSSStyleDeclaration.WritableProperties
                 readonly $constructOnlyProperties: DOMCSSStyleDeclaration.ConstructOnlyProperties
-                /**
-                 */
+                
                 get cssText(): string
                 set cssText(value: string)
                 /**
@@ -761,8 +754,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get length(): number
                 set length(value: number)
-                /**
-                 */
+                
                 get parentRule(): DOMCSSRule
                 set parentRule(value: DOMCSSRule)
                 /**
@@ -841,8 +833,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMCSSStyleDeclaration: DOMCSSStyleDeclarationClass
             }
             
@@ -851,16 +842,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMStyleSheet.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMStyleSheet.ReadableProperties {
+                interface ReadWriteProperties extends DOMStyleSheet.ReadWriteProperties {
                     "css-rules": DOMCSSRuleList
                     "owner-rule": DOMCSSRule
                     "rules": DOMCSSRuleList
                 }
 
-                interface WritableProperties extends DOMStyleSheet.WritableProperties {
-                    "css-rules": DOMCSSRuleList
-                    "owner-rule": DOMCSSRule
-                    "rules": DOMCSSRuleList
+                interface ReadableProperties extends ReadWriteProperties, DOMStyleSheet.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMStyleSheet.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMStyleSheet.ConstructOnlyProperties {
@@ -872,16 +863,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMCSSStyleSheet.ReadableProperties
                 readonly $writableProperties: DOMCSSStyleSheet.WritableProperties
                 readonly $constructOnlyProperties: DOMCSSStyleSheet.ConstructOnlyProperties
-                /**
-                 */
+                
                 get cssRules(): DOMCSSRuleList
                 set cssRules(value: DOMCSSRuleList)
-                /**
-                 */
+                
                 get ownerRule(): DOMCSSRule
                 set ownerRule(value: DOMCSSRule)
-                /**
-                 */
+                
                 get rules(): DOMCSSRuleList
                 set rules(value: DOMCSSRuleList)
                 /**
@@ -938,8 +926,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMCSSStyleSheet: DOMCSSStyleSheetClass
             }
             
@@ -948,14 +935,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "css-text": string
                     "css-value-type": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "css-text": string
-                    "css-value-type": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -967,8 +955,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMCSSValue.ReadableProperties
                 readonly $writableProperties: DOMCSSValue.WritableProperties
                 readonly $constructOnlyProperties: DOMCSSValue.ConstructOnlyProperties
-                /**
-                 */
+                
                 get cssText(): string
                 set cssText(value: string)
                 /**
@@ -1002,8 +989,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMCSSValue: DOMCSSValueClass
             }
             
@@ -1012,14 +998,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMNode.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "data": string
                     "length": number
                 }
 
-                interface WritableProperties extends DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
-                    "data": string
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMNode.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -1031,8 +1018,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMCharacterData.ReadableProperties
                 readonly $writableProperties: DOMCharacterData.WritableProperties
                 readonly $constructOnlyProperties: DOMCharacterData.ConstructOnlyProperties
-                /**
-                 */
+                
                 get data(): string
                 set data(value: string)
                 /**
@@ -1102,8 +1088,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMCharacterData: DOMCharacterDataClass
             }
             
@@ -1112,7 +1097,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "bottom": number
                     "height": number
                     "left": number
@@ -1121,13 +1106,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "bottom": number
-                    "height": number
-                    "left": number
-                    "right": number
-                    "top": number
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -1221,8 +1203,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMClientRect: DOMClientRectClass
             }
             
@@ -1231,12 +1212,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -1278,8 +1261,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMClientRectList: DOMClientRectListClass
             }
             
@@ -1288,10 +1270,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMCharacterData.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMCharacterData.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMCharacterData.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DOMCharacterData.WritableProperties, DOMEventTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DOMCharacterData.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMCharacterData.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMCharacterData.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -1313,8 +1298,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMComment: DOMCommentClass
             }
             
@@ -1323,10 +1307,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -1387,8 +1374,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMDOMImplementation: DOMDOMImplementationClass
             }
             
@@ -1397,7 +1383,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "anchor-node": DOMNode
                     "anchor-offset": number
                     "base-node": DOMNode
@@ -1411,18 +1397,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "type": string
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "anchor-node": DOMNode
-                    "anchor-offset": number
-                    "base-node": DOMNode
-                    "base-offset": number
-                    "extent-node": DOMNode
-                    "extent-offset": number
-                    "focus-node": DOMNode
-                    "focus-offset": number
-                    "is-collapsed": boolean
-                    "range-count": number
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -1434,8 +1412,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMDOMSelection.ReadableProperties
                 readonly $writableProperties: DOMDOMSelection.WritableProperties
                 readonly $constructOnlyProperties: DOMDOMSelection.ConstructOnlyProperties
-                /**
-                 */
+                
                 get anchorNode(): DOMNode
                 set anchorNode(value: DOMNode)
                 /**
@@ -1443,8 +1420,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get anchorOffset(): number
                 set anchorOffset(value: number)
-                /**
-                 */
+                
                 get baseNode(): DOMNode
                 set baseNode(value: DOMNode)
                 /**
@@ -1452,8 +1428,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get baseOffset(): number
                 set baseOffset(value: number)
-                /**
-                 */
+                
                 get extentNode(): DOMNode
                 set extentNode(value: DOMNode)
                 /**
@@ -1461,8 +1436,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get extentOffset(): number
                 set extentOffset(value: number)
-                /**
-                 */
+                
                 get focusNode(): DOMNode
                 set focusNode(value: DOMNode)
                 /**
@@ -1480,8 +1454,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get rangeCount(): number
                 set rangeCount(value: number)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -1654,8 +1627,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMDOMSelection: DOMDOMSelectionClass
             }
             
@@ -1664,14 +1636,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                     "value": string
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
-                    "value": string
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -1688,8 +1661,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get length(): number
                 set length(value: number)
-                /**
-                 */
+                
                 get value(): string
                 set value(value: string)
                 /**
@@ -1751,8 +1723,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMDOMTokenList: DOMDOMTokenListClass
             }
             
@@ -1761,7 +1732,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "closed": boolean
                     "default-status": string
                     "device-pixel-ratio": number
@@ -1792,35 +1763,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "window": DOMDOMWindow
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties, DOMEventTarget.WritableProperties {
-                    "closed": boolean
-                    "default-status": string
-                    "device-pixel-ratio": number
-                    "document": DOMDocument
-                    "frame-element": DOMElement
-                    "frames": DOMDOMWindow
-                    "inner-height": number
-                    "inner-width": number
-                    "length": number
-                    "name": string
-                    "offscreen-buffering": boolean
-                    "opener": DOMDOMWindow
-                    "orientation": number
-                    "outer-height": number
-                    "outer-width": number
-                    "page-x-offset": number
-                    "page-y-offset": number
-                    "parent": DOMDOMWindow
-                    "screen-left": number
-                    "screen-top": number
-                    "screen-x": number
-                    "screen-y": number
-                    "scroll-x": number
-                    "scroll-y": number
-                    "self": DOMDOMWindow
-                    "status": string
-                    "top": DOMDOMWindow
-                    "window": DOMDOMWindow
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -1837,8 +1783,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get closed(): boolean
                 set closed(value: boolean)
-                /**
-                 */
+                
                 get defaultStatus(): string
                 set defaultStatus(value: string)
                 /**
@@ -1846,16 +1791,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get devicePixelRatio(): number
                 set devicePixelRatio(value: number)
-                /**
-                 */
+                
                 get document(): DOMDocument
                 set document(value: DOMDocument)
-                /**
-                 */
+                
                 get frameElement(): DOMElement
                 set frameElement(value: DOMElement)
-                /**
-                 */
+                
                 get frames(): DOMDOMWindow
                 set frames(value: DOMDOMWindow)
                 /**
@@ -1873,8 +1815,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get length(): number
                 set length(value: number)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
                 /**
@@ -1882,8 +1823,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get offscreenBuffering(): boolean
                 set offscreenBuffering(value: boolean)
-                /**
-                 */
+                
                 get opener(): DOMDOMWindow
                 set opener(value: DOMDOMWindow)
                 /**
@@ -1911,8 +1851,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get pageYOffset(): number
                 set pageYOffset(value: number)
-                /**
-                 */
+                
                 get parent(): DOMDOMWindow
                 set parent(value: DOMDOMWindow)
                 /**
@@ -1945,20 +1884,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get scrollY(): number
                 set scrollY(value: number)
-                /**
-                 */
+                
                 get self(): DOMDOMWindow
                 set self(value: DOMDOMWindow)
-                /**
-                 */
+                
                 get status(): string
                 set status(value: string)
-                /**
-                 */
+                
                 get top(): DOMDOMWindow
                 set top(value: DOMDOMWindow)
-                /**
-                 */
+                
                 get window(): DOMDOMWindow
                 set window(value: DOMDOMWindow)
                 /**
@@ -2287,8 +2222,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMDOMWindow: DOMDOMWindowClass
             }
             
@@ -2297,7 +2231,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMNode.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "active-element": DOMElement
                     "anchors": DOMHTMLCollection
                     "applets": DOMHTMLCollection
@@ -2351,58 +2285,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "xml-version": string
                 }
 
-                interface WritableProperties extends DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
-                    "active-element": DOMElement
-                    "anchors": DOMHTMLCollection
-                    "applets": DOMHTMLCollection
-                    "body": DOMHTMLElement
-                    "character-set": string
-                    "charset": string
-                    "child-element-count": number
-                    "children": DOMHTMLCollection
-                    "compat-mode": string
-                    "content-type": string
-                    "cookie": string
-                    "current-script": DOMHTMLScriptElement
-                    "default-view": DOMDOMWindow
-                    "design-mode": string
-                    "dir": string
-                    "doctype": DOMDocumentType
-                    "document-element": DOMElement
-                    "document-uri": string
-                    "domain": string
-                    "embeds": DOMHTMLCollection
-                    "first-element-child": DOMElement
-                    "forms": DOMHTMLCollection
-                    "head": DOMHTMLHeadElement
-                    "hidden": boolean
-                    "images": DOMHTMLCollection
-                    "implementation": DOMDOMImplementation
-                    "input-encoding": string
-                    "last-element-child": DOMElement
-                    "last-modified": string
-                    "links": DOMHTMLCollection
-                    "origin": string
-                    "plugins": DOMHTMLCollection
-                    "pointer-lock-element": DOMElement
-                    "preferred-stylesheet-set": string
-                    "ready-state": string
-                    "referrer": string
-                    "scripts": DOMHTMLCollection
-                    "scrolling-element": DOMElement
-                    "selected-stylesheet-set": string
-                    "style-sheets": DOMStyleSheetList
-                    "title": string
-                    "url": string
-                    "visibility-state": string
-                    "webkit-current-full-screen-element": DOMElement
-                    "webkit-full-screen-keyboard-input-allowed": boolean
-                    "webkit-fullscreen-element": DOMElement
-                    "webkit-fullscreen-enabled": boolean
-                    "webkit-is-full-screen": boolean
-                    "xml-encoding": string
-                    "xml-standalone": boolean
-                    "xml-version": string
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMNode.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -2414,28 +2300,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMDocument.ReadableProperties
                 readonly $writableProperties: DOMDocument.WritableProperties
                 readonly $constructOnlyProperties: DOMDocument.ConstructOnlyProperties
-                /**
-                 */
+                
                 get activeElement(): DOMElement
                 set activeElement(value: DOMElement)
-                /**
-                 */
+                
                 get anchors(): DOMHTMLCollection
                 set anchors(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get applets(): DOMHTMLCollection
                 set applets(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get body(): DOMHTMLElement
                 set body(value: DOMHTMLElement)
-                /**
-                 */
+                
                 get characterSet(): string
                 set characterSet(value: string)
-                /**
-                 */
+                
                 get charset(): string
                 set charset(value: string)
                 /**
@@ -2443,68 +2323,52 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get childElementCount(): number
                 set childElementCount(value: number)
-                /**
-                 */
+                
                 get children(): DOMHTMLCollection
                 set children(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get compatMode(): string
                 set compatMode(value: string)
-                /**
-                 */
+                
                 get contentType(): string
                 set contentType(value: string)
-                /**
-                 */
+                
                 get cookie(): string
                 set cookie(value: string)
-                /**
-                 */
+                
                 get currentScript(): DOMHTMLScriptElement
                 set currentScript(value: DOMHTMLScriptElement)
-                /**
-                 */
+                
                 get defaultView(): DOMDOMWindow
                 set defaultView(value: DOMDOMWindow)
-                /**
-                 */
+                
                 get designMode(): string
                 set designMode(value: string)
-                /**
-                 */
+                
                 get dir(): string
                 set dir(value: string)
-                /**
-                 */
+                
                 get doctype(): DOMDocumentType
                 set doctype(value: DOMDocumentType)
-                /**
-                 */
+                
                 get documentElement(): DOMElement
                 set documentElement(value: DOMElement)
-                /**
-                 */
+                
                 get documentUri(): string
                 set documentUri(value: string)
-                /**
-                 */
+                
                 get domain(): string
                 set domain(value: string)
-                /**
-                 */
+                
                 get embeds(): DOMHTMLCollection
                 set embeds(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get firstElementChild(): DOMElement
                 set firstElementChild(value: DOMElement)
-                /**
-                 */
+                
                 get forms(): DOMHTMLCollection
                 set forms(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get head(): DOMHTMLHeadElement
                 set head(value: DOMHTMLHeadElement)
                 /**
@@ -2512,84 +2376,64 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get hidden(): boolean
                 set hidden(value: boolean)
-                /**
-                 */
+                
                 get images(): DOMHTMLCollection
                 set images(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get implementation(): DOMDOMImplementation
                 set implementation(value: DOMDOMImplementation)
-                /**
-                 */
+                
                 get inputEncoding(): string
                 set inputEncoding(value: string)
-                /**
-                 */
+                
                 get lastElementChild(): DOMElement
                 set lastElementChild(value: DOMElement)
-                /**
-                 */
+                
                 get lastModified(): string
                 set lastModified(value: string)
-                /**
-                 */
+                
                 get links(): DOMHTMLCollection
                 set links(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get origin(): string
                 set origin(value: string)
-                /**
-                 */
+                
                 get plugins(): DOMHTMLCollection
                 set plugins(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get pointerLockElement(): DOMElement
                 set pointerLockElement(value: DOMElement)
-                /**
-                 */
+                
                 get preferredStylesheetSet(): string
                 set preferredStylesheetSet(value: string)
-                /**
-                 */
+                
                 get readyState(): string
                 set readyState(value: string)
-                /**
-                 */
+                
                 get referrer(): string
                 set referrer(value: string)
-                /**
-                 */
+                
                 get scripts(): DOMHTMLCollection
                 set scripts(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get scrollingElement(): DOMElement
                 set scrollingElement(value: DOMElement)
-                /**
-                 */
+                
                 get selectedStylesheetSet(): string
                 set selectedStylesheetSet(value: string)
-                /**
-                 */
+                
                 get styleSheets(): DOMStyleSheetList
                 set styleSheets(value: DOMStyleSheetList)
-                /**
-                 */
+                
                 get title(): string
                 set title(value: string)
-                /**
-                 */
+                
                 get url(): string
                 set url(value: string)
-                /**
-                 */
+                
                 get visibilityState(): string
                 set visibilityState(value: string)
-                /**
-                 */
+                
                 get webkitCurrentFullScreenElement(): DOMElement
                 set webkitCurrentFullScreenElement(value: DOMElement)
                 /**
@@ -2597,8 +2441,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get webkitFullScreenKeyboardInputAllowed(): boolean
                 set webkitFullScreenKeyboardInputAllowed(value: boolean)
-                /**
-                 */
+                
                 get webkitFullscreenElement(): DOMElement
                 set webkitFullscreenElement(value: DOMElement)
                 /**
@@ -2611,8 +2454,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get webkitIsFullScreen(): boolean
                 set webkitIsFullScreen(value: boolean)
-                /**
-                 */
+                
                 get xmlEncoding(): string
                 set xmlEncoding(value: string)
                 /**
@@ -2620,8 +2462,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get xmlStandalone(): boolean
                 set xmlStandalone(value: boolean)
-                /**
-                 */
+                
                 get xmlVersion(): string
                 set xmlVersion(value: string)
                 /**
@@ -3270,8 +3111,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMDocument: DOMDocumentClass
             }
             
@@ -3280,18 +3120,17 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMNode.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "child-element-count": number
                     "children": DOMHTMLCollection
                     "first-element-child": DOMElement
                     "last-element-child": DOMElement
                 }
 
-                interface WritableProperties extends DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
-                    "child-element-count": number
-                    "children": DOMHTMLCollection
-                    "first-element-child": DOMElement
-                    "last-element-child": DOMElement
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMNode.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -3308,16 +3147,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get childElementCount(): number
                 set childElementCount(value: number)
-                /**
-                 */
+                
                 get children(): DOMHTMLCollection
                 set children(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get firstElementChild(): DOMElement
                 set firstElementChild(value: DOMElement)
-                /**
-                 */
+                
                 get lastElementChild(): DOMElement
                 set lastElementChild(value: DOMElement)
                 /**
@@ -3377,8 +3213,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMDocumentFragment: DOMDocumentFragmentClass
             }
             
@@ -3387,7 +3222,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMNode.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "entities": DOMNamedNodeMap
                     "internal-subset": string
                     "name": string
@@ -3396,13 +3231,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "system-id": string
                 }
 
-                interface WritableProperties extends DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
-                    "entities": DOMNamedNodeMap
-                    "internal-subset": string
-                    "name": string
-                    "notations": DOMNamedNodeMap
-                    "public-id": string
-                    "system-id": string
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMNode.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -3414,28 +3246,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMDocumentType.ReadableProperties
                 readonly $writableProperties: DOMDocumentType.WritableProperties
                 readonly $constructOnlyProperties: DOMDocumentType.ConstructOnlyProperties
-                /**
-                 */
+                
                 get entities(): DOMNamedNodeMap
                 set entities(value: DOMNamedNodeMap)
-                /**
-                 */
+                
                 get internalSubset(): string
                 set internalSubset(value: string)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get notations(): DOMNamedNodeMap
                 set notations(value: DOMNamedNodeMap)
-                /**
-                 */
+                
                 get publicId(): string
                 set publicId(value: string)
-                /**
-                 */
+                
                 get systemId(): string
                 set systemId(value: string)
                 /**
@@ -3478,8 +3304,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMDocumentType: DOMDocumentTypeClass
             }
             
@@ -3488,7 +3313,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMNode.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "attributes": DOMNamedNodeMap
                     "child-element-count": number
                     "children": DOMHTMLCollection
@@ -3522,38 +3347,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "webkit-region-overset": string
                 }
 
-                interface WritableProperties extends DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
-                    "attributes": DOMNamedNodeMap
-                    "child-element-count": number
-                    "children": DOMHTMLCollection
-                    "class-list": DOMDOMTokenList
-                    "class-name": string
-                    "client-height": number
-                    "client-left": number
-                    "client-top": number
-                    "client-width": number
-                    "first-element-child": DOMElement
-                    "id": string
-                    "inner-html": string
-                    "last-element-child": DOMElement
-                    "local-name": string
-                    "namespace-uri": string
-                    "next-element-sibling": DOMElement
-                    "offset-height": number
-                    "offset-left": number
-                    "offset-parent": DOMElement
-                    "offset-top": number
-                    "offset-width": number
-                    "outer-html": string
-                    "prefix": string
-                    "previous-element-sibling": DOMElement
-                    "scroll-height": number
-                    "scroll-left": number
-                    "scroll-top": number
-                    "scroll-width": number
-                    "style": DOMCSSStyleDeclaration
-                    "tag-name": string
-                    "webkit-region-overset": string
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMNode.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -3565,8 +3362,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMElement.ReadableProperties
                 readonly $writableProperties: DOMElement.WritableProperties
                 readonly $constructOnlyProperties: DOMElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get attributes(): DOMNamedNodeMap
                 set attributes(value: DOMNamedNodeMap)
                 /**
@@ -3574,16 +3370,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get childElementCount(): number
                 set childElementCount(value: number)
-                /**
-                 */
+                
                 get children(): DOMHTMLCollection
                 set children(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get classList(): DOMDOMTokenList
                 set classList(value: DOMDOMTokenList)
-                /**
-                 */
+                
                 get className(): string
                 set className(value: string)
                 /**
@@ -3606,32 +3399,25 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get clientWidth(): number
                 set clientWidth(value: number)
-                /**
-                 */
+                
                 get firstElementChild(): DOMElement
                 set firstElementChild(value: DOMElement)
-                /**
-                 */
+                
                 get id(): string
                 set id(value: string)
-                /**
-                 */
+                
                 get innerHtml(): string
                 set innerHtml(value: string)
-                /**
-                 */
+                
                 get lastElementChild(): DOMElement
                 set lastElementChild(value: DOMElement)
-                /**
-                 */
+                
                 get localName(): string
                 set localName(value: string)
-                /**
-                 */
+                
                 get namespaceUri(): string
                 set namespaceUri(value: string)
-                /**
-                 */
+                
                 get nextElementSibling(): DOMElement
                 set nextElementSibling(value: DOMElement)
                 /**
@@ -3644,8 +3430,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get offsetLeft(): number
                 set offsetLeft(value: number)
-                /**
-                 */
+                
                 get offsetParent(): DOMElement
                 set offsetParent(value: DOMElement)
                 /**
@@ -3658,16 +3443,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get offsetWidth(): number
                 set offsetWidth(value: number)
-                /**
-                 */
+                
                 get outerHtml(): string
                 set outerHtml(value: string)
-                /**
-                 */
+                
                 get prefix(): string
                 set prefix(value: string)
-                /**
-                 */
+                
                 get previousElementSibling(): DOMElement
                 set previousElementSibling(value: DOMElement)
                 /**
@@ -3690,16 +3472,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get scrollWidth(): number
                 set scrollWidth(value: number)
-                /**
-                 */
+                
                 get style(): DOMCSSStyleDeclaration
                 set style(value: DOMCSSStyleDeclaration)
-                /**
-                 */
+                
                 get tagName(): string
                 set tagName(value: string)
-                /**
-                 */
+                
                 get webkitRegionOverset(): string
                 set webkitRegionOverset(value: string)
                 /**
@@ -4195,8 +3974,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMElement: DOMElementClass
             }
             
@@ -4205,10 +3983,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMNode.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMNode.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -4230,8 +4011,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMEntityReference: DOMEntityReferenceClass
             }
             
@@ -4240,7 +4020,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "bubbles": boolean
                     "cancel-bubble": boolean
                     "cancelable": boolean
@@ -4253,17 +4033,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "type": string
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "bubbles": boolean
-                    "cancel-bubble": boolean
-                    "cancelable": boolean
-                    "current-target": DOMEventTarget
-                    "event-phase": number
-                    "return-value": boolean
-                    "src-element": DOMEventTarget
-                    "target": DOMEventTarget
-                    "time-stamp": number
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -4290,8 +4063,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get cancelable(): boolean
                 set cancelable(value: boolean)
-                /**
-                 */
+                
                 get currentTarget(): DOMEventTarget
                 set currentTarget(value: DOMEventTarget)
                 /**
@@ -4304,12 +4076,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get returnValue(): boolean
                 set returnValue(value: boolean)
-                /**
-                 */
+                
                 get srcElement(): DOMEventTarget
                 set srcElement(value: DOMEventTarget)
-                /**
-                 */
+                
                 get target(): DOMEventTarget
                 set target(value: DOMEventTarget)
                 /**
@@ -4317,8 +4087,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get timeStamp(): number
                 set timeStamp(value: number)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -4406,8 +4175,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMEvent: DOMEventClass
             }
             
@@ -4416,12 +4184,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMBlob.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMBlob.ReadableProperties {
+                interface ReadWriteProperties extends DOMBlob.ReadWriteProperties {
                     "name": string
                 }
 
-                interface WritableProperties extends DOMBlob.WritableProperties {
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, DOMBlob.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMBlob.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMBlob.ConstructOnlyProperties {
@@ -4433,8 +4203,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMFile.ReadableProperties
                 readonly $writableProperties: DOMFile.WritableProperties
                 readonly $constructOnlyProperties: DOMFile.ConstructOnlyProperties
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
                 /**
@@ -4452,8 +4221,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMFile: DOMFileClass
             }
             
@@ -4462,12 +4230,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -4505,8 +4275,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMFileList: DOMFileListClass
             }
             
@@ -4515,7 +4284,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "charset": string
                     "coords": string
                     "hash": string
@@ -4536,25 +4305,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "type": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "charset": string
-                    "coords": string
-                    "hash": string
-                    "host": string
-                    "hostname": string
-                    "href": string
-                    "hreflang": string
-                    "name": string
-                    "pathname": string
-                    "port": string
-                    "protocol": string
-                    "rel": string
-                    "rev": string
-                    "search": string
-                    "shape": string
-                    "target": string
-                    "text": string
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -4566,76 +4320,58 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLAnchorElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLAnchorElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLAnchorElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get charset(): string
                 set charset(value: string)
-                /**
-                 */
+                
                 get coords(): string
                 set coords(value: string)
-                /**
-                 */
+                
                 get hash(): string
                 set hash(value: string)
-                /**
-                 */
+                
                 get host(): string
                 set host(value: string)
-                /**
-                 */
+                
                 get hostname(): string
                 set hostname(value: string)
-                /**
-                 */
+                
                 get href(): string
                 set href(value: string)
-                /**
-                 */
+                
                 get hreflang(): string
                 set hreflang(value: string)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get pathname(): string
                 set pathname(value: string)
-                /**
-                 */
+                
                 get port(): string
                 set port(value: string)
-                /**
-                 */
+                
                 get protocol(): string
                 set protocol(value: string)
-                /**
-                 */
+                
                 get rel(): string
                 set rel(value: string)
-                /**
-                 */
+                
                 get rev(): string
                 set rev(value: string)
-                /**
-                 */
+                
                 get search(): string
                 set search(value: string)
-                /**
-                 */
+                
                 get shape(): string
                 set shape(value: string)
-                /**
-                 */
+                
                 get target(): string
                 set target(value: string)
-                /**
-                 */
+                
                 get text(): string
                 set text(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -4829,8 +4565,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLAnchorElement: DOMHTMLAnchorElementClass
             }
             
@@ -4839,7 +4574,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "alt": string
                     "archive": string
@@ -4853,18 +4588,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "alt": string
-                    "archive": string
-                    "code": string
-                    "code-base": string
-                    "height": string
-                    "hspace": number
-                    "name": string
-                    "object": string
-                    "vspace": number
-                    "width": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -4876,28 +4603,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLAppletElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLAppletElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLAppletElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get alt(): string
                 set alt(value: string)
-                /**
-                 */
+                
                 get archive(): string
                 set archive(value: string)
-                /**
-                 */
+                
                 get code(): string
                 set code(value: string)
-                /**
-                 */
+                
                 get codeBase(): string
                 set codeBase(value: string)
-                /**
-                 */
+                
                 get height(): string
                 set height(value: string)
                 /**
@@ -4905,12 +4626,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get hspace(): number
                 set hspace(value: number)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get object(): string
                 set object(value: string)
                 /**
@@ -4918,8 +4637,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get vspace(): number
                 set vspace(value: number)
-                /**
-                 */
+                
                 get width(): string
                 set width(value: string)
                 /**
@@ -5042,8 +4760,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLAppletElement: DOMHTMLAppletElementClass
             }
             
@@ -5052,7 +4769,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "alt": string
                     "coords": string
                     "hash": string
@@ -5068,20 +4785,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "target": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "alt": string
-                    "coords": string
-                    "hash": string
-                    "host": string
-                    "hostname": string
-                    "href": string
-                    "no-href": boolean
-                    "pathname": string
-                    "port": string
-                    "protocol": string
-                    "search": string
-                    "shape": string
-                    "target": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5093,28 +4800,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLAreaElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLAreaElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLAreaElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get alt(): string
                 set alt(value: string)
-                /**
-                 */
+                
                 get coords(): string
                 set coords(value: string)
-                /**
-                 */
+                
                 get hash(): string
                 set hash(value: string)
-                /**
-                 */
+                
                 get host(): string
                 set host(value: string)
-                /**
-                 */
+                
                 get hostname(): string
                 set hostname(value: string)
-                /**
-                 */
+                
                 get href(): string
                 set href(value: string)
                 /**
@@ -5122,28 +4823,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get noHref(): boolean
                 set noHref(value: boolean)
-                /**
-                 */
+                
                 get pathname(): string
                 set pathname(value: string)
-                /**
-                 */
+                
                 get port(): string
                 set port(value: string)
-                /**
-                 */
+                
                 get protocol(): string
                 set protocol(value: string)
-                /**
-                 */
+                
                 get search(): string
                 set search(value: string)
-                /**
-                 */
+                
                 get shape(): string
                 set shape(value: string)
-                /**
-                 */
+                
                 get target(): string
                 set target(value: string)
                 /**
@@ -5292,8 +4987,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLAreaElement: DOMHTMLAreaElementClass
             }
             
@@ -5302,12 +4996,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "clear": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "clear": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5319,8 +5015,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLBRElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLBRElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLBRElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get clear(): string
                 set clear(value: string)
                 /**
@@ -5343,8 +5038,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLBRElement: DOMHTMLBRElementClass
             }
             
@@ -5353,14 +5047,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "href": string
                     "target": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "href": string
-                    "target": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5372,12 +5067,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLBaseElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLBaseElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLBaseElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get href(): string
                 set href(value: string)
-                /**
-                 */
+                
                 get target(): string
                 set target(value: string)
                 /**
@@ -5410,8 +5103,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLBaseElement: DOMHTMLBaseElementClass
             }
             
@@ -5420,10 +5112,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5481,8 +5176,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLBaseFontElement: DOMHTMLBaseFontElementClass
             }
             
@@ -5491,7 +5185,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "a-link": string
                     "background": string
                     "bg-color": string
@@ -5500,13 +5194,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "v-link": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "a-link": string
-                    "background": string
-                    "bg-color": string
-                    "link": string
-                    "text": string
-                    "v-link": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5518,28 +5209,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLBodyElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLBodyElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLBodyElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get aLink(): string
                 set aLink(value: string)
-                /**
-                 */
+                
                 get background(): string
                 set background(value: string)
-                /**
-                 */
+                
                 get bgColor(): string
                 set bgColor(value: string)
-                /**
-                 */
+                
                 get link(): string
                 set link(value: string)
-                /**
-                 */
+                
                 get text(): string
                 set text(value: string)
-                /**
-                 */
+                
                 get vLink(): string
                 set vLink(value: string)
                 /**
@@ -5612,8 +5297,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLBodyElement: DOMHTMLBodyElementClass
             }
             
@@ -5622,7 +5306,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "autofocus": boolean
                     "disabled": boolean
                     "form": DOMHTMLFormElement
@@ -5632,14 +5316,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "will-validate": boolean
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "autofocus": boolean
-                    "disabled": boolean
-                    "form": DOMHTMLFormElement
-                    "name": string
-                    "type": string
-                    "value": string
-                    "will-validate": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5661,20 +5341,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
-                /**
-                 */
+                
                 get value(): string
                 set value(value: string)
                 /**
@@ -5752,8 +5428,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLButtonElement: DOMHTMLButtonElementClass
             }
             
@@ -5762,14 +5437,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "height": number
                     "width": number
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "height": number
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5821,8 +5497,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLCanvasElement: DOMHTMLCanvasElementClass
             }
             
@@ -5831,12 +5506,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -5880,8 +5557,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLCollection: DOMHTMLCollectionClass
             }
             
@@ -5890,12 +5566,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "compact": boolean
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "compact": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5932,8 +5610,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLDListElement: DOMHTMLDListElementClass
             }
             
@@ -5942,12 +5619,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "compact": boolean
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "compact": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -5984,8 +5663,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLDirectoryElement: DOMHTMLDirectoryElementClass
             }
             
@@ -5994,12 +5672,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -6011,8 +5691,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLDivElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLDivElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLDivElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
                 /**
@@ -6035,8 +5714,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLDivElement: DOMHTMLDivElementClass
             }
             
@@ -6045,7 +5723,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMDocument.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMDocument.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMDocument.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "alink-color": string
                     "bg-color": string
                     "dir": string
@@ -6056,15 +5734,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": number
                 }
 
-                interface WritableProperties extends DOMDocument.WritableProperties, DOMEventTarget.WritableProperties {
-                    "alink-color": string
-                    "bg-color": string
-                    "dir": string
-                    "fg-color": string
-                    "height": number
-                    "link-color": string
-                    "vlink-color": string
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, DOMDocument.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMDocument.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMDocument.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -6076,20 +5749,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLDocument.ReadableProperties
                 readonly $writableProperties: DOMHTMLDocument.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLDocument.ConstructOnlyProperties
-                /**
-                 */
+                
                 get alinkColor(): string
                 set alinkColor(value: string)
-                /**
-                 */
+                
                 get bgColor(): string
                 set bgColor(value: string)
-                /**
-                 */
+                
                 get dir(): string
                 set dir(value: string)
-                /**
-                 */
+                
                 get fgColor(): string
                 set fgColor(value: string)
                 /**
@@ -6097,12 +5766,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get height(): number
                 set height(value: number)
-                /**
-                 */
+                
                 get linkColor(): string
                 set linkColor(value: string)
-                /**
-                 */
+                
                 get vlinkColor(): string
                 set vlinkColor(value: string)
                 /**
@@ -6236,8 +5903,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLDocument: DOMHTMLDocumentClass
             }
             
@@ -6246,7 +5912,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "access-key": string
                     "content-editable": string
                     "dir": string
@@ -6263,21 +5929,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "webkitdropzone": string
                 }
 
-                interface WritableProperties extends DOMElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "access-key": string
-                    "content-editable": string
-                    "dir": string
-                    "draggable": boolean
-                    "hidden": boolean
-                    "inner-text": string
-                    "is-content-editable": boolean
-                    "lang": string
-                    "outer-text": string
-                    "spellcheck": boolean
-                    "tab-index": number
-                    "title": string
-                    "translate": boolean
-                    "webkitdropzone": string
+                interface ReadableProperties extends ReadWriteProperties, DOMElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -6289,16 +5944,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get accessKey(): string
                 set accessKey(value: string)
-                /**
-                 */
+                
                 get contentEditable(): string
                 set contentEditable(value: string)
-                /**
-                 */
+                
                 get dir(): string
                 set dir(value: string)
                 /**
@@ -6311,8 +5963,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get hidden(): boolean
                 set hidden(value: boolean)
-                /**
-                 */
+                
                 get innerText(): string
                 set innerText(value: string)
                 /**
@@ -6320,12 +5971,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get isContentEditable(): boolean
                 set isContentEditable(value: boolean)
-                /**
-                 */
+                
                 get lang(): string
                 set lang(value: string)
-                /**
-                 */
+                
                 get outerText(): string
                 set outerText(value: string)
                 /**
@@ -6338,8 +5987,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get tabIndex(): number
                 set tabIndex(value: number)
-                /**
-                 */
+                
                 get title(): string
                 set title(value: string)
                 /**
@@ -6347,8 +5995,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get translate(): boolean
                 set translate(value: boolean)
-                /**
-                 */
+                
                 get webkitdropzone(): string
                 set webkitdropzone(value: string)
                 /**
@@ -6540,8 +6187,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLElement: DOMHTMLElementClass
             }
             
@@ -6550,7 +6196,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "height": number
                     "name": string
@@ -6559,13 +6205,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": number
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "height": number
-                    "name": string
-                    "src": string
-                    "type": string
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -6577,8 +6220,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLEmbedElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLEmbedElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLEmbedElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
                 /**
@@ -6586,16 +6228,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get height(): number
                 set height(value: number)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get src(): string
                 set src(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -6673,8 +6312,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLEmbedElement: DOMHTMLEmbedElementClass
             }
             
@@ -6683,12 +6321,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "form": DOMHTMLFormElement
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "form": DOMHTMLFormElement
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -6700,8 +6340,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLFieldSetElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLFieldSetElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLFieldSetElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
                 /**
@@ -6719,8 +6358,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLFieldSetElement: DOMHTMLFieldSetElementClass
             }
             
@@ -6729,16 +6367,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "color": string
                     "face": string
                     "size": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "color": string
-                    "face": string
-                    "size": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -6750,16 +6388,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLFontElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLFontElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLFontElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get color(): string
                 set color(value: string)
-                /**
-                 */
+                
                 get face(): string
                 set face(value: string)
-                /**
-                 */
+                
                 get size(): string
                 set size(value: string)
                 /**
@@ -6802,8 +6437,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLFontElement: DOMHTMLFontElementClass
             }
             
@@ -6812,7 +6446,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "accept-charset": string
                     "action": string
                     "elements": DOMHTMLCollection
@@ -6824,16 +6458,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "target": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "accept-charset": string
-                    "action": string
-                    "elements": DOMHTMLCollection
-                    "encoding": string
-                    "enctype": string
-                    "length": number
-                    "method": string
-                    "name": string
-                    "target": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -6845,24 +6473,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLFormElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLFormElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLFormElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get acceptCharset(): string
                 set acceptCharset(value: string)
-                /**
-                 */
+                
                 get action(): string
                 set action(value: string)
-                /**
-                 */
+                
                 get elements(): DOMHTMLCollection
                 set elements(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get encoding(): string
                 set encoding(value: string)
-                /**
-                 */
+                
                 get enctype(): string
                 set enctype(value: string)
                 /**
@@ -6870,16 +6493,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get length(): number
                 set length(value: number)
-                /**
-                 */
+                
                 get method(): string
                 set method(value: string)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get target(): string
                 set target(value: string)
                 /**
@@ -6980,8 +6600,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLFormElement: DOMHTMLFormElementClass
             }
             
@@ -6990,7 +6609,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "content-document": DOMDocument
                     "content-window": DOMDOMWindow
                     "frame-border": string
@@ -7005,19 +6624,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": number
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "content-document": DOMDocument
-                    "content-window": DOMDOMWindow
-                    "frame-border": string
-                    "height": number
-                    "long-desc": string
-                    "margin-height": string
-                    "margin-width": string
-                    "name": string
-                    "no-resize": boolean
-                    "scrolling": string
-                    "src": string
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -7029,16 +6639,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLFrameElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLFrameElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLFrameElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get contentDocument(): DOMDocument
                 set contentDocument(value: DOMDocument)
-                /**
-                 */
+                
                 get contentWindow(): DOMDOMWindow
                 set contentWindow(value: DOMDOMWindow)
-                /**
-                 */
+                
                 get frameBorder(): string
                 set frameBorder(value: string)
                 /**
@@ -7046,20 +6653,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get height(): number
                 set height(value: number)
-                /**
-                 */
+                
                 get longDesc(): string
                 set longDesc(value: string)
-                /**
-                 */
+                
                 get marginHeight(): string
                 set marginHeight(value: string)
-                /**
-                 */
+                
                 get marginWidth(): string
                 set marginWidth(value: string)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
                 /**
@@ -7067,12 +6670,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get noResize(): boolean
                 set noResize(value: boolean)
-                /**
-                 */
+                
                 get scrolling(): string
                 set scrolling(value: string)
-                /**
-                 */
+                
                 get src(): string
                 set src(value: string)
                 /**
@@ -7190,8 +6791,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLFrameElement: DOMHTMLFrameElementClass
             }
             
@@ -7200,14 +6800,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "cols": string
                     "rows": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "cols": string
-                    "rows": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -7219,12 +6820,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLFrameSetElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLFrameSetElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLFrameSetElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get cols(): string
                 set cols(value: string)
-                /**
-                 */
+                
                 get rows(): string
                 set rows(value: string)
                 /**
@@ -7257,8 +6856,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLFrameSetElement: DOMHTMLFrameSetElementClass
             }
             
@@ -7267,18 +6865,17 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "no-shade": boolean
                     "size": string
                     "width": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "no-shade": boolean
-                    "size": string
-                    "width": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -7290,8 +6887,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLHRElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLHRElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLHRElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
                 /**
@@ -7299,12 +6895,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get noShade(): boolean
                 set noShade(value: boolean)
-                /**
-                 */
+                
                 get size(): string
                 set size(value: string)
-                /**
-                 */
+                
                 get width(): string
                 set width(value: string)
                 /**
@@ -7357,8 +6951,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLHRElement: DOMHTMLHRElementClass
             }
             
@@ -7367,12 +6960,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "profile": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "profile": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -7384,8 +6979,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLHeadElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLHeadElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLHeadElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get profile(): string
                 set profile(value: string)
                 /**
@@ -7408,8 +7002,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLHeadElement: DOMHTMLHeadElementClass
             }
             
@@ -7418,12 +7011,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -7435,8 +7030,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLHeadingElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLHeadingElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLHeadingElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
                 /**
@@ -7459,8 +7053,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLHeadingElement: DOMHTMLHeadingElementClass
             }
             
@@ -7469,12 +7062,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "version": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "version": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -7486,8 +7081,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLHtmlElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLHtmlElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLHtmlElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get version(): string
                 set version(value: string)
                 /**
@@ -7510,8 +7104,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLHtmlElement: DOMHTMLHtmlElementClass
             }
             
@@ -7520,7 +7113,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "content-document": DOMDocument
                     "content-window": DOMDOMWindow
@@ -7535,19 +7128,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "content-document": DOMDocument
-                    "content-window": DOMDOMWindow
-                    "frame-border": string
-                    "height": string
-                    "long-desc": string
-                    "margin-height": string
-                    "margin-width": string
-                    "name": string
-                    "scrolling": string
-                    "src": string
-                    "width": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -7559,52 +7143,40 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLIFrameElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLIFrameElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLIFrameElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get contentDocument(): DOMDocument
                 set contentDocument(value: DOMDocument)
-                /**
-                 */
+                
                 get contentWindow(): DOMDOMWindow
                 set contentWindow(value: DOMDOMWindow)
-                /**
-                 */
+                
                 get frameBorder(): string
                 set frameBorder(value: string)
-                /**
-                 */
+                
                 get height(): string
                 set height(value: string)
-                /**
-                 */
+                
                 get longDesc(): string
                 set longDesc(value: string)
-                /**
-                 */
+                
                 get marginHeight(): string
                 set marginHeight(value: string)
-                /**
-                 */
+                
                 get marginWidth(): string
                 set marginWidth(value: string)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get scrolling(): string
                 set scrolling(value: string)
-                /**
-                 */
+                
                 get src(): string
                 set src(value: string)
-                /**
-                 */
+                
                 get width(): string
                 set width(value: string)
                 /**
@@ -7727,8 +7299,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLIFrameElement: DOMHTMLIFrameElementClass
             }
             
@@ -7737,7 +7308,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "alt": string
                     "border": string
@@ -7758,25 +7329,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "y": number
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "alt": string
-                    "border": string
-                    "complete": boolean
-                    "height": number
-                    "hspace": number
-                    "is-map": boolean
-                    "long-desc": string
-                    "lowsrc": string
-                    "name": string
-                    "natural-height": number
-                    "natural-width": number
-                    "src": string
-                    "use-map": string
-                    "vspace": number
-                    "width": number
-                    "x": number
-                    "y": number
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -7788,16 +7344,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLImageElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLImageElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLImageElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get alt(): string
                 set alt(value: string)
-                /**
-                 */
+                
                 get border(): string
                 set border(value: string)
                 /**
@@ -7820,16 +7373,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get isMap(): boolean
                 set isMap(value: boolean)
-                /**
-                 */
+                
                 get longDesc(): string
                 set longDesc(value: string)
-                /**
-                 */
+                
                 get lowsrc(): string
                 set lowsrc(value: string)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
                 /**
@@ -7842,12 +7392,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get naturalWidth(): number
                 set naturalWidth(value: number)
-                /**
-                 */
+                
                 get src(): string
                 set src(value: string)
-                /**
-                 */
+                
                 get useMap(): string
                 set useMap(value: string)
                 /**
@@ -8035,8 +7583,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLImageElement: DOMHTMLImageElementClass
             }
             
@@ -8045,7 +7592,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "accept": string
                     "align": string
                     "alt": string
@@ -8072,31 +7619,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "will-validate": boolean
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "accept": string
-                    "align": string
-                    "alt": string
-                    "autofocus": boolean
-                    "capture": string
-                    "checked": boolean
-                    "default-checked": boolean
-                    "default-value": string
-                    "disabled": boolean
-                    "files": DOMFileList
-                    "form": DOMHTMLFormElement
-                    "height": number
-                    "indeterminate": boolean
-                    "max-length": number
-                    "multiple": boolean
-                    "name": string
-                    "read-only": boolean
-                    "size": number
-                    "src": string
-                    "type": string
-                    "use-map": string
-                    "value": string
-                    "width": number
-                    "will-validate": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -8108,16 +7634,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLInputElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLInputElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLInputElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get accept(): string
                 set accept(value: string)
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get alt(): string
                 set alt(value: string)
                 /**
@@ -8125,8 +7648,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get autofocus(): boolean
                 set autofocus(value: boolean)
-                /**
-                 */
+                
                 get capture(): string
                 set capture(value: string)
                 /**
@@ -8139,8 +7661,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get defaultChecked(): boolean
                 set defaultChecked(value: boolean)
-                /**
-                 */
+                
                 get defaultValue(): string
                 set defaultValue(value: string)
                 /**
@@ -8148,12 +7669,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get files(): DOMFileList
                 set files(value: DOMFileList)
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
                 /**
@@ -8176,8 +7695,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get multiple(): boolean
                 set multiple(value: boolean)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
                 /**
@@ -8190,20 +7708,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get size(): number
                 set size(value: number)
-                /**
-                 */
+                
                 get src(): string
                 set src(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
-                /**
-                 */
+                
                 get useMap(): string
                 set useMap(value: string)
-                /**
-                 */
+                
                 get value(): string
                 set value(value: string)
                 /**
@@ -8494,8 +8008,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLInputElement: DOMHTMLInputElementClass
             }
             
@@ -8504,14 +8017,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "type": string
                     "value": number
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "type": string
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -8523,8 +8037,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLLIElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLLIElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLLIElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -8562,8 +8075,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLLIElement: DOMHTMLLIElementClass
             }
             
@@ -8572,14 +8084,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "form": DOMHTMLFormElement
                     "html-for": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "form": DOMHTMLFormElement
-                    "html-for": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -8591,12 +8104,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLLabelElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLLabelElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLLabelElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
-                /**
-                 */
+                
                 get htmlFor(): string
                 set htmlFor(value: string)
                 /**
@@ -8624,8 +8135,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLLabelElement: DOMHTMLLabelElementClass
             }
             
@@ -8634,14 +8144,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "form": DOMHTMLFormElement
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "form": DOMHTMLFormElement
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -8653,12 +8164,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLLegendElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLLegendElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLLegendElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
                 /**
@@ -8686,8 +8195,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLLegendElement: DOMHTMLLegendElementClass
             }
             
@@ -8696,7 +8204,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "charset": string
                     "disabled": boolean
                     "href": string
@@ -8710,18 +8218,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "type": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "charset": string
-                    "disabled": boolean
-                    "href": string
-                    "hreflang": string
-                    "media": string
-                    "rel": string
-                    "rev": string
-                    "sheet": DOMStyleSheet
-                    "sizes": DOMDOMTokenList
-                    "target": string
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -8733,8 +8233,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLLinkElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLLinkElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLLinkElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get charset(): string
                 set charset(value: string)
                 /**
@@ -8742,40 +8241,31 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get href(): string
                 set href(value: string)
-                /**
-                 */
+                
                 get hreflang(): string
                 set hreflang(value: string)
-                /**
-                 */
+                
                 get media(): string
                 set media(value: string)
-                /**
-                 */
+                
                 get rel(): string
                 set rel(value: string)
-                /**
-                 */
+                
                 get rev(): string
                 set rev(value: string)
-                /**
-                 */
+                
                 get sheet(): DOMStyleSheet
                 set sheet(value: DOMStyleSheet)
-                /**
-                 */
+                
                 get sizes(): DOMDOMTokenList
                 set sizes(value: DOMDOMTokenList)
-                /**
-                 */
+                
                 get target(): string
                 set target(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -8895,8 +8385,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLLinkElement: DOMHTMLLinkElementClass
             }
             
@@ -8905,14 +8394,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "areas": DOMHTMLCollection
                     "name": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "areas": DOMHTMLCollection
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -8924,12 +8414,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLMapElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLMapElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLMapElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get areas(): DOMHTMLCollection
                 set areas(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
                 /**
@@ -8957,8 +8445,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLMapElement: DOMHTMLMapElementClass
             }
             
@@ -8967,10 +8454,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9000,8 +8490,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLMarqueeElement: DOMHTMLMarqueeElementClass
             }
             
@@ -9010,12 +8499,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "compact": boolean
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "compact": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9052,8 +8543,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLMenuElement: DOMHTMLMenuElementClass
             }
             
@@ -9062,18 +8552,17 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "content": string
                     "http-equiv": string
                     "name": string
                     "scheme": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "content": string
-                    "http-equiv": string
-                    "name": string
-                    "scheme": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9085,20 +8574,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLMetaElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLMetaElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLMetaElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get content(): string
                 set content(value: string)
-                /**
-                 */
+                
                 get httpEquiv(): string
                 set httpEquiv(value: string)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get scheme(): string
                 set scheme(value: string)
                 /**
@@ -9151,8 +8636,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLMetaElement: DOMHTMLMetaElementClass
             }
             
@@ -9161,14 +8645,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "cite": string
                     "date-time": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "cite": string
-                    "date-time": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9180,12 +8665,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLModElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLModElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLModElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get cite(): string
                 set cite(value: string)
-                /**
-                 */
+                
                 get dateTime(): string
                 set dateTime(value: string)
                 /**
@@ -9218,8 +8701,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLModElement: DOMHTMLModElementClass
             }
             
@@ -9228,16 +8710,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "compact": boolean
                     "start": number
                     "type": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "compact": boolean
-                    "start": number
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9259,8 +8741,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get start(): number
                 set start(value: number)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -9303,8 +8784,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLOListElement: DOMHTMLOListElementClass
             }
             
@@ -9313,7 +8793,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "archive": string
                     "border": string
@@ -9334,25 +8814,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "archive": string
-                    "border": string
-                    "code": string
-                    "code-base": string
-                    "code-type": string
-                    "content-document": DOMDocument
-                    "data": string
-                    "declare": boolean
-                    "form": DOMHTMLFormElement
-                    "height": string
-                    "hspace": number
-                    "name": string
-                    "standby": string
-                    "type": string
-                    "use-map": string
-                    "vspace": number
-                    "width": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9364,36 +8829,28 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLObjectElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLObjectElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLObjectElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get archive(): string
                 set archive(value: string)
-                /**
-                 */
+                
                 get border(): string
                 set border(value: string)
-                /**
-                 */
+                
                 get code(): string
                 set code(value: string)
-                /**
-                 */
+                
                 get codeBase(): string
                 set codeBase(value: string)
-                /**
-                 */
+                
                 get codeType(): string
                 set codeType(value: string)
-                /**
-                 */
+                
                 get contentDocument(): DOMDocument
                 set contentDocument(value: DOMDocument)
-                /**
-                 */
+                
                 get data(): string
                 set data(value: string)
                 /**
@@ -9401,12 +8858,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get declare(): boolean
                 set declare(value: boolean)
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
-                /**
-                 */
+                
                 get height(): string
                 set height(value: string)
                 /**
@@ -9414,20 +8869,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get hspace(): number
                 set hspace(value: number)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get standby(): string
                 set standby(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
-                /**
-                 */
+                
                 get useMap(): string
                 set useMap(value: string)
                 /**
@@ -9435,8 +8886,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get vspace(): number
                 set vspace(value: number)
-                /**
-                 */
+                
                 get width(): string
                 set width(value: string)
                 /**
@@ -9619,8 +9069,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLObjectElement: DOMHTMLObjectElementClass
             }
             
@@ -9629,14 +9078,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "disabled": boolean
                     "label": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "disabled": boolean
-                    "label": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9653,8 +9103,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get label(): string
                 set label(value: string)
                 /**
@@ -9687,8 +9136,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLOptGroupElement: DOMHTMLOptGroupElementClass
             }
             
@@ -9697,7 +9145,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "default-selected": boolean
                     "disabled": boolean
                     "form": DOMHTMLFormElement
@@ -9708,15 +9156,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "value": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "default-selected": boolean
-                    "disabled": boolean
-                    "form": DOMHTMLFormElement
-                    "index": number
-                    "label": string
-                    "selected": boolean
-                    "text": string
-                    "value": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9738,8 +9181,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
                 /**
@@ -9747,8 +9189,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get index(): number
                 set index(value: number)
-                /**
-                 */
+                
                 get label(): string
                 set label(value: string)
                 /**
@@ -9756,12 +9197,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get selected(): boolean
                 set selected(value: boolean)
-                /**
-                 */
+                
                 get text(): string
                 set text(value: string)
-                /**
-                 */
+                
                 get value(): string
                 set value(value: string)
                 /**
@@ -9839,8 +9278,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLOptionElement: DOMHTMLOptionElementClass
             }
             
@@ -9849,14 +9287,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLCollection.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLCollection.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLCollection.ReadWriteProperties {
                     "length": number
                     "selected-index": number
                 }
 
-                interface WritableProperties extends DOMHTMLCollection.WritableProperties {
-                    "length": number
-                    "selected-index": number
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLCollection.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLCollection.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLCollection.ConstructOnlyProperties {
@@ -9909,8 +9348,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLOptionsCollection: DOMHTMLOptionsCollectionClass
             }
             
@@ -9919,12 +9357,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9936,8 +9376,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLParagraphElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLParagraphElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLParagraphElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
                 /**
@@ -9960,8 +9399,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLParagraphElement: DOMHTMLParagraphElementClass
             }
             
@@ -9970,18 +9408,17 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "name": string
                     "type": string
                     "value": string
                     "value-type": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "name": string
-                    "type": string
-                    "value": string
-                    "value-type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -9993,20 +9430,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLParamElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLParamElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLParamElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
-                /**
-                 */
+                
                 get value(): string
                 set value(value: string)
-                /**
-                 */
+                
                 get valueType(): string
                 set valueType(value: string)
                 /**
@@ -10059,8 +9492,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLParamElement: DOMHTMLParamElementClass
             }
             
@@ -10069,14 +9501,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "width": number
                     "wrap": boolean
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "width": number
-                    "wrap": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -10128,8 +9561,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLPreElement: DOMHTMLPreElementClass
             }
             
@@ -10138,12 +9570,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "cite": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "cite": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -10155,8 +9589,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLQuoteElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLQuoteElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLQuoteElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get cite(): string
                 set cite(value: string)
                 /**
@@ -10179,8 +9612,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLQuoteElement: DOMHTMLQuoteElementClass
             }
             
@@ -10189,7 +9621,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "charset": string
                     "defer": boolean
                     "event": string
@@ -10199,14 +9631,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "type": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "charset": string
-                    "defer": boolean
-                    "event": string
-                    "html-for": string
-                    "src": string
-                    "text": string
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -10218,8 +9646,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLScriptElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLScriptElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLScriptElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get charset(): string
                 set charset(value: string)
                 /**
@@ -10227,24 +9654,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get defer(): boolean
                 set defer(value: boolean)
-                /**
-                 */
+                
                 get event(): string
                 set event(value: string)
-                /**
-                 */
+                
                 get htmlFor(): string
                 set htmlFor(value: string)
-                /**
-                 */
+                
                 get src(): string
                 set src(value: string)
-                /**
-                 */
+                
                 get text(): string
                 set text(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -10328,8 +9750,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLScriptElement: DOMHTMLScriptElementClass
             }
             
@@ -10338,7 +9759,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "autofocus": boolean
                     "disabled": boolean
                     "form": DOMHTMLFormElement
@@ -10353,19 +9774,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "will-validate": boolean
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "autofocus": boolean
-                    "disabled": boolean
-                    "form": DOMHTMLFormElement
-                    "length": number
-                    "multiple": boolean
-                    "name": string
-                    "options": DOMHTMLOptionsCollection
-                    "selected-index": number
-                    "size": number
-                    "type": string
-                    "value": string
-                    "will-validate": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -10387,8 +9799,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
                 /**
@@ -10401,12 +9812,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get multiple(): boolean
                 set multiple(value: boolean)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
-                /**
-                 */
+                
                 get options(): DOMHTMLOptionsCollection
                 set options(value: DOMHTMLOptionsCollection)
                 /**
@@ -10419,12 +9828,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get size(): number
                 set size(value: number)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
-                /**
-                 */
+                
                 get value(): string
                 set value(value: string)
                 /**
@@ -10567,8 +9974,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLSelectElement: DOMHTMLSelectElementClass
             }
             
@@ -10577,18 +9983,17 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "disabled": boolean
                     "media": string
                     "sheet": DOMStyleSheet
                     "type": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "disabled": boolean
-                    "media": string
-                    "sheet": DOMStyleSheet
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -10605,16 +10010,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get media(): string
                 set media(value: string)
-                /**
-                 */
+                
                 get sheet(): DOMStyleSheet
                 set sheet(value: DOMStyleSheet)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -10662,8 +10064,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLStyleElement: DOMHTMLStyleElementClass
             }
             
@@ -10672,12 +10073,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -10689,8 +10092,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLTableCaptionElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLTableCaptionElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLTableCaptionElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
                 /**
@@ -10713,8 +10115,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLTableCaptionElement: DOMHTMLTableCaptionElementClass
             }
             
@@ -10723,7 +10124,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "abbr": string
                     "align": string
                     "axis": string
@@ -10741,22 +10142,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "abbr": string
-                    "align": string
-                    "axis": string
-                    "bg-color": string
-                    "cell-index": number
-                    "ch": string
-                    "ch-off": string
-                    "col-span": number
-                    "headers": string
-                    "height": string
-                    "no-wrap": boolean
-                    "row-span": number
-                    "scope": string
-                    "v-align": string
-                    "width": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -10768,20 +10157,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLTableCellElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLTableCellElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLTableCellElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get abbr(): string
                 set abbr(value: string)
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get axis(): string
                 set axis(value: string)
-                /**
-                 */
+                
                 get bgColor(): string
                 set bgColor(value: string)
                 /**
@@ -10789,12 +10174,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get cellIndex(): number
                 set cellIndex(value: number)
-                /**
-                 */
+                
                 get ch(): string
                 set ch(value: string)
-                /**
-                 */
+                
                 get chOff(): string
                 set chOff(value: string)
                 /**
@@ -10802,12 +10185,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get colSpan(): number
                 set colSpan(value: number)
-                /**
-                 */
+                
                 get headers(): string
                 set headers(value: string)
-                /**
-                 */
+                
                 get height(): string
                 set height(value: string)
                 /**
@@ -10820,16 +10201,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get rowSpan(): number
                 set rowSpan(value: number)
-                /**
-                 */
+                
                 get scope(): string
                 set scope(value: string)
-                /**
-                 */
+                
                 get vAlign(): string
                 set vAlign(value: string)
-                /**
-                 */
+                
                 get width(): string
                 set width(value: string)
                 /**
@@ -10987,8 +10365,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLTableCellElement: DOMHTMLTableCellElementClass
             }
             
@@ -10997,7 +10374,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "ch": string
                     "ch-off": string
@@ -11006,13 +10383,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "ch": string
-                    "ch-off": string
-                    "span": number
-                    "v-align": string
-                    "width": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -11024,16 +10398,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLTableColElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLTableColElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLTableColElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get ch(): string
                 set ch(value: string)
-                /**
-                 */
+                
                 get chOff(): string
                 set chOff(value: string)
                 /**
@@ -11041,12 +10412,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get span(): number
                 set span(value: number)
-                /**
-                 */
+                
                 get vAlign(): string
                 set vAlign(value: string)
-                /**
-                 */
+                
                 get width(): string
                 set width(value: string)
                 /**
@@ -11119,8 +10488,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLTableColElement: DOMHTMLTableColElementClass
             }
             
@@ -11129,7 +10497,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "bg-color": string
                     "border": string
@@ -11145,20 +10513,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "width": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "bg-color": string
-                    "border": string
-                    "caption": DOMHTMLTableCaptionElement
-                    "cell-padding": string
-                    "cell-spacing": string
-                    "rows": DOMHTMLCollection
-                    "rules": string
-                    "summary": string
-                    "t-bodies": DOMHTMLCollection
-                    "t-foot": DOMHTMLTableSectionElement
-                    "t-head": DOMHTMLTableSectionElement
-                    "width": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -11170,56 +10528,43 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLTableElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLTableElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLTableElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get bgColor(): string
                 set bgColor(value: string)
-                /**
-                 */
+                
                 get border(): string
                 set border(value: string)
-                /**
-                 */
+                
                 get caption(): DOMHTMLTableCaptionElement
                 set caption(value: DOMHTMLTableCaptionElement)
-                /**
-                 */
+                
                 get cellPadding(): string
                 set cellPadding(value: string)
-                /**
-                 */
+                
                 get cellSpacing(): string
                 set cellSpacing(value: string)
-                /**
-                 */
+                
                 get rows(): DOMHTMLCollection
                 set rows(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get rules(): string
                 set rules(value: string)
-                /**
-                 */
+                
                 get summary(): string
                 set summary(value: string)
-                /**
-                 */
+                
                 get tBodies(): DOMHTMLCollection
                 set tBodies(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get tFoot(): DOMHTMLTableSectionElement
                 set tFoot(value: DOMHTMLTableSectionElement)
-                /**
-                 */
+                
                 get tHead(): DOMHTMLTableSectionElement
                 set tHead(value: DOMHTMLTableSectionElement)
-                /**
-                 */
+                
                 get width(): string
                 set width(value: string)
                 /**
@@ -11395,8 +10740,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLTableElement: DOMHTMLTableElementClass
             }
             
@@ -11405,7 +10749,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "bg-color": string
                     "cells": DOMHTMLCollection
@@ -11416,15 +10760,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "v-align": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "bg-color": string
-                    "cells": DOMHTMLCollection
-                    "ch": string
-                    "ch-off": string
-                    "row-index": number
-                    "section-row-index": number
-                    "v-align": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -11436,24 +10775,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLTableRowElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLTableRowElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLTableRowElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get bgColor(): string
                 set bgColor(value: string)
-                /**
-                 */
+                
                 get cells(): DOMHTMLCollection
                 set cells(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get ch(): string
                 set ch(value: string)
-                /**
-                 */
+                
                 get chOff(): string
                 set chOff(value: string)
                 /**
@@ -11466,8 +10800,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get sectionRowIndex(): number
                 set sectionRowIndex(value: number)
-                /**
-                 */
+                
                 get vAlign(): string
                 set vAlign(value: string)
                 /**
@@ -11558,8 +10891,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLTableRowElement: DOMHTMLTableRowElementClass
             }
             
@@ -11568,7 +10900,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "ch": string
                     "ch-off": string
@@ -11576,12 +10908,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "v-align": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "align": string
-                    "ch": string
-                    "ch-off": string
-                    "rows": DOMHTMLCollection
-                    "v-align": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -11593,24 +10923,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLTableSectionElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLTableSectionElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLTableSectionElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get align(): string
                 set align(value: string)
-                /**
-                 */
+                
                 get ch(): string
                 set ch(value: string)
-                /**
-                 */
+                
                 get chOff(): string
                 set chOff(value: string)
-                /**
-                 */
+                
                 get rows(): DOMHTMLCollection
                 set rows(value: DOMHTMLCollection)
-                /**
-                 */
+                
                 get vAlign(): string
                 set vAlign(value: string)
                 /**
@@ -11681,8 +11006,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLTableSectionElement: DOMHTMLTableSectionElementClass
             }
             
@@ -11691,7 +11015,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "autofocus": boolean
                     "cols": number
                     "default-value": string
@@ -11707,20 +11031,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "will-validate": boolean
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "autofocus": boolean
-                    "cols": number
-                    "default-value": string
-                    "disabled": boolean
-                    "form": DOMHTMLFormElement
-                    "name": string
-                    "read-only": boolean
-                    "rows": number
-                    "selection-end": number
-                    "selection-start": number
-                    "type": string
-                    "value": string
-                    "will-validate": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -11742,8 +11056,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get cols(): number
                 set cols(value: number)
-                /**
-                 */
+                
                 get defaultValue(): string
                 set defaultValue(value: string)
                 /**
@@ -11751,12 +11064,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get form(): DOMHTMLFormElement
                 set form(value: DOMHTMLFormElement)
-                /**
-                 */
+                
                 get name(): string
                 set name(value: string)
                 /**
@@ -11779,12 +11090,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get selectionStart(): number
                 set selectionStart(value: number)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
-                /**
-                 */
+                
                 get value(): string
                 set value(value: string)
                 /**
@@ -11933,8 +11242,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLTextAreaElement: DOMHTMLTextAreaElementClass
             }
             
@@ -11943,12 +11251,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "text": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "text": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -11960,8 +11270,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMHTMLTitleElement.ReadableProperties
                 readonly $writableProperties: DOMHTMLTitleElement.WritableProperties
                 readonly $constructOnlyProperties: DOMHTMLTitleElement.ConstructOnlyProperties
-                /**
-                 */
+                
                 get text(): string
                 set text(value: string)
                 /**
@@ -11984,8 +11293,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLTitleElement: DOMHTMLTitleElementClass
             }
             
@@ -11994,14 +11302,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMHTMLElement.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "compact": boolean
                     "type": string
                 }
 
-                interface WritableProperties extends DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
-                    "compact": boolean
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMHTMLElement.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -12018,8 +11327,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get compact(): boolean
                 set compact(value: boolean)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -12052,8 +11360,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMHTMLUListElement: DOMHTMLUListElementClass
             }
             
@@ -12062,7 +11369,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMUIEvent.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMUIEvent.ReadableProperties {
+                interface ReadWriteProperties extends DOMUIEvent.ReadWriteProperties {
                     "alt-graph-key": boolean
                     "alt-key": boolean
                     "ctrl-key": boolean
@@ -12072,14 +11379,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "shift-key": boolean
                 }
 
-                interface WritableProperties extends DOMUIEvent.WritableProperties {
-                    "alt-graph-key": boolean
-                    "alt-key": boolean
-                    "ctrl-key": boolean
-                    "key-identifier": string
-                    "key-location": number
-                    "meta-key": boolean
-                    "shift-key": boolean
+                interface ReadableProperties extends ReadWriteProperties, DOMUIEvent.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMUIEvent.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMUIEvent.ConstructOnlyProperties {
@@ -12106,8 +11409,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get ctrlKey(): boolean
                 set ctrlKey(value: boolean)
-                /**
-                 */
+                
                 get keyIdentifier(): string
                 set keyIdentifier(value: string)
                 /**
@@ -12191,8 +11493,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMKeyboardEvent: DOMKeyboardEventClass
             }
             
@@ -12201,14 +11502,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                     "media-text": string
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
-                    "media-text": string
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -12225,8 +11527,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get length(): number
                 set length(value: number)
-                /**
-                 */
+                
                 get mediaText(): string
                 set mediaText(value: string)
                 /**
@@ -12273,8 +11574,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMMediaList: DOMMediaListClass
             }
             
@@ -12283,7 +11583,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMUIEvent.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMUIEvent.ReadableProperties {
+                interface ReadWriteProperties extends DOMUIEvent.ReadWriteProperties {
                     "alt-key": boolean
                     "button": number
                     "client-x": number
@@ -12302,23 +11602,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "y": number
                 }
 
-                interface WritableProperties extends DOMUIEvent.WritableProperties {
-                    "alt-key": boolean
-                    "button": number
-                    "client-x": number
-                    "client-y": number
-                    "ctrl-key": boolean
-                    "from-element": DOMNode
-                    "meta-key": boolean
-                    "offset-x": number
-                    "offset-y": number
-                    "related-target": DOMEventTarget
-                    "screen-x": number
-                    "screen-y": number
-                    "shift-key": boolean
-                    "to-element": DOMNode
-                    "x": number
-                    "y": number
+                interface ReadableProperties extends ReadWriteProperties, DOMUIEvent.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMUIEvent.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMUIEvent.ConstructOnlyProperties {
@@ -12355,8 +11642,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get ctrlKey(): boolean
                 set ctrlKey(value: boolean)
-                /**
-                 */
+                
                 get fromElement(): DOMNode
                 set fromElement(value: DOMNode)
                 /**
@@ -12374,8 +11660,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get offsetY(): number
                 set offsetY(value: number)
-                /**
-                 */
+                
                 get relatedTarget(): DOMEventTarget
                 set relatedTarget(value: DOMEventTarget)
                 /**
@@ -12393,8 +11678,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get shiftKey(): boolean
                 set shiftKey(value: boolean)
-                /**
-                 */
+                
                 get toElement(): DOMNode
                 set toElement(value: DOMNode)
                 /**
@@ -12516,8 +11800,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMMouseEvent: DOMMouseEventClass
             }
             
@@ -12526,12 +11809,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -12611,8 +11896,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMNamedNodeMap: DOMNamedNodeMapClass
             }
             
@@ -12621,7 +11905,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "base-uri": string
                     "child-nodes": DOMNodeList
                     "first-child": DOMNode
@@ -12637,20 +11921,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "text-content": string
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties, DOMEventTarget.WritableProperties {
-                    "base-uri": string
-                    "child-nodes": DOMNodeList
-                    "first-child": DOMNode
-                    "last-child": DOMNode
-                    "next-sibling": DOMNode
-                    "node-name": string
-                    "node-type": number
-                    "node-value": string
-                    "owner-document": DOMDocument
-                    "parent-element": DOMElement
-                    "parent-node": DOMNode
-                    "previous-sibling": DOMNode
-                    "text-content": string
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -12662,28 +11936,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMNode.ReadableProperties
                 readonly $writableProperties: DOMNode.WritableProperties
                 readonly $constructOnlyProperties: DOMNode.ConstructOnlyProperties
-                /**
-                 */
+                
                 get baseUri(): string
                 set baseUri(value: string)
-                /**
-                 */
+                
                 get childNodes(): DOMNodeList
                 set childNodes(value: DOMNodeList)
-                /**
-                 */
+                
                 get firstChild(): DOMNode
                 set firstChild(value: DOMNode)
-                /**
-                 */
+                
                 get lastChild(): DOMNode
                 set lastChild(value: DOMNode)
-                /**
-                 */
+                
                 get nextSibling(): DOMNode
                 set nextSibling(value: DOMNode)
-                /**
-                 */
+                
                 get nodeName(): string
                 set nodeName(value: string)
                 /**
@@ -12691,28 +11959,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get nodeType(): number
                 set nodeType(value: number)
-                /**
-                 */
+                
                 get nodeValue(): string
                 set nodeValue(value: string)
-                /**
-                 */
+                
                 get ownerDocument(): DOMDocument
                 set ownerDocument(value: DOMDocument)
-                /**
-                 */
+                
                 get parentElement(): DOMElement
                 set parentElement(value: DOMElement)
-                /**
-                 */
+                
                 get parentNode(): DOMNode
                 set parentNode(value: DOMNode)
-                /**
-                 */
+                
                 get previousSibling(): DOMNode
                 set previousSibling(value: DOMNode)
-                /**
-                 */
+                
                 get textContent(): string
                 set textContent(value: string)
                 /**
@@ -12934,8 +12196,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMNode: DOMNodeClass
             }
             
@@ -12944,7 +12205,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "filter": DOMNodeFilter
                     "pointer-before-reference-node": boolean
                     "reference-node": DOMNode
@@ -12952,12 +12213,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "what-to-show": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "filter": DOMNodeFilter
-                    "pointer-before-reference-node": boolean
-                    "reference-node": DOMNode
-                    "root": DOMNode
-                    "what-to-show": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -12969,8 +12228,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMNodeIterator.ReadableProperties
                 readonly $writableProperties: DOMNodeIterator.WritableProperties
                 readonly $constructOnlyProperties: DOMNodeIterator.ConstructOnlyProperties
-                /**
-                 */
+                
                 get filter(): DOMNodeFilter
                 set filter(value: DOMNodeFilter)
                 /**
@@ -12978,12 +12236,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get pointerBeforeReferenceNode(): boolean
                 set pointerBeforeReferenceNode(value: boolean)
-                /**
-                 */
+                
                 get referenceNode(): DOMNode
                 set referenceNode(value: DOMNode)
-                /**
-                 */
+                
                 get root(): DOMNode
                 set root(value: DOMNode)
                 /**
@@ -13048,8 +12304,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMNodeIterator: DOMNodeIteratorClass
             }
             
@@ -13058,12 +12313,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -13101,8 +12358,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMNodeList: DOMNodeListClass
             }
             
@@ -13111,10 +12367,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -13127,8 +12386,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMObject.ReadableProperties
                 readonly $writableProperties: DOMObject.WritableProperties
                 readonly $constructOnlyProperties: DOMObject.ConstructOnlyProperties
-                /**
-                 */
+                
                 set coreObject(value: never)
             }
 
@@ -13140,8 +12398,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMObject: DOMObjectClass
             }
             
@@ -13150,14 +12407,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMCharacterData.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMCharacterData.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMCharacterData.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "sheet": DOMStyleSheet
                     "target": string
                 }
 
-                interface WritableProperties extends DOMCharacterData.WritableProperties, DOMEventTarget.WritableProperties {
-                    "sheet": DOMStyleSheet
-                    "target": string
+                interface ReadableProperties extends ReadWriteProperties, DOMCharacterData.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMCharacterData.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMCharacterData.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -13169,12 +12427,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMProcessingInstruction.ReadableProperties
                 readonly $writableProperties: DOMProcessingInstruction.WritableProperties
                 readonly $constructOnlyProperties: DOMProcessingInstruction.ConstructOnlyProperties
-                /**
-                 */
+                
                 get sheet(): DOMStyleSheet
                 set sheet(value: DOMStyleSheet)
-                /**
-                 */
+                
                 get target(): string
                 set target(value: string)
                 /**
@@ -13197,8 +12453,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMProcessingInstruction: DOMProcessingInstructionClass
             }
             
@@ -13207,7 +12462,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "collapsed": boolean
                     "common-ancestor-container": DOMNode
                     "end-container": DOMNode
@@ -13217,14 +12472,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "text": string
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "collapsed": boolean
-                    "common-ancestor-container": DOMNode
-                    "end-container": DOMNode
-                    "end-offset": number
-                    "start-container": DOMNode
-                    "start-offset": number
-                    "text": string
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -13241,12 +12492,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get collapsed(): boolean
                 set collapsed(value: boolean)
-                /**
-                 */
+                
                 get commonAncestorContainer(): DOMNode
                 set commonAncestorContainer(value: DOMNode)
-                /**
-                 */
+                
                 get endContainer(): DOMNode
                 set endContainer(value: DOMNode)
                 /**
@@ -13254,8 +12503,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get endOffset(): number
                 set endOffset(value: number)
-                /**
-                 */
+                
                 get startContainer(): DOMNode
                 set startContainer(value: DOMNode)
                 /**
@@ -13263,8 +12511,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get startOffset(): number
                 set startOffset(value: number)
-                /**
-                 */
+                
                 get text(): string
                 set text(value: string)
                 /**
@@ -13472,8 +12719,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMRange: DOMRangeClass
             }
             
@@ -13482,7 +12728,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "disabled": boolean
                     "href": string
                     "media": DOMMediaList
@@ -13492,14 +12738,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "type": string
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "disabled": boolean
-                    "href": string
-                    "media": DOMMediaList
-                    "owner-node": DOMNode
-                    "parent-style-sheet": DOMStyleSheet
-                    "title": string
-                    "type": string
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -13516,28 +12758,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get disabled(): boolean
                 set disabled(value: boolean)
-                /**
-                 */
+                
                 get href(): string
                 set href(value: string)
-                /**
-                 */
+                
                 get media(): DOMMediaList
                 set media(value: DOMMediaList)
-                /**
-                 */
+                
                 get ownerNode(): DOMNode
                 set ownerNode(value: DOMNode)
-                /**
-                 */
+                
                 get parentStyleSheet(): DOMStyleSheet
                 set parentStyleSheet(value: DOMStyleSheet)
-                /**
-                 */
+                
                 get title(): string
                 set title(value: string)
-                /**
-                 */
+                
                 get type(): string
                 set type(value: string)
                 /**
@@ -13590,8 +12826,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMStyleSheet: DOMStyleSheetClass
             }
             
@@ -13600,12 +12835,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "length": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "length": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -13643,8 +12880,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMStyleSheetList: DOMStyleSheetListClass
             }
             
@@ -13653,12 +12889,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMCharacterData.SignalSignatures, DOMEventTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMCharacterData.ReadableProperties, DOMEventTarget.ReadableProperties {
+                interface ReadWriteProperties extends DOMCharacterData.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "whole-text": string
                 }
 
-                interface WritableProperties extends DOMCharacterData.WritableProperties, DOMEventTarget.WritableProperties {
-                    "whole-text": string
+                interface ReadableProperties extends ReadWriteProperties, DOMCharacterData.ReadableProperties, DOMEventTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMCharacterData.WritableProperties, DOMEventTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMCharacterData.ConstructOnlyProperties, DOMEventTarget.ConstructOnlyProperties {
@@ -13670,8 +12908,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMText.ReadableProperties
                 readonly $writableProperties: DOMText.WritableProperties
                 readonly $constructOnlyProperties: DOMText.ConstructOnlyProperties
-                /**
-                 */
+                
                 get wholeText(): string
                 set wholeText(value: string)
                 /**
@@ -13703,8 +12940,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMText: DOMTextClass
             }
             
@@ -13713,18 +12949,17 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "current-node": DOMNode
                     "filter": DOMNodeFilter
                     "root": DOMNode
                     "what-to-show": number
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "current-node": DOMNode
-                    "filter": DOMNodeFilter
-                    "root": DOMNode
-                    "what-to-show": number
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -13736,16 +12971,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $readableProperties: DOMTreeWalker.ReadableProperties
                 readonly $writableProperties: DOMTreeWalker.WritableProperties
                 readonly $constructOnlyProperties: DOMTreeWalker.ConstructOnlyProperties
-                /**
-                 */
+                
                 get currentNode(): DOMNode
                 set currentNode(value: DOMNode)
-                /**
-                 */
+                
                 get filter(): DOMNodeFilter
                 set filter(value: DOMNodeFilter)
-                /**
-                 */
+                
                 get root(): DOMNode
                 set root(value: DOMNode)
                 /**
@@ -13830,8 +13062,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMTreeWalker: DOMTreeWalkerClass
             }
             
@@ -13840,7 +13071,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMEvent.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMEvent.ReadableProperties {
+                interface ReadWriteProperties extends DOMEvent.ReadWriteProperties {
                     "char-code": number
                     "detail": number
                     "key-code": number
@@ -13851,15 +13082,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "view": DOMDOMWindow
                 }
 
-                interface WritableProperties extends DOMEvent.WritableProperties {
-                    "char-code": number
-                    "detail": number
-                    "key-code": number
-                    "layer-x": number
-                    "layer-y": number
-                    "page-x": number
-                    "page-y": number
-                    "view": DOMDOMWindow
+                interface ReadableProperties extends ReadWriteProperties, DOMEvent.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMEvent.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMEvent.ConstructOnlyProperties {
@@ -13906,8 +13132,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get pageY(): number
                 set pageY(value: number)
-                /**
-                 */
+                
                 get view(): DOMDOMWindow
                 set view(value: DOMDOMWindow)
                 /**
@@ -13969,8 +13194,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMUIEvent: DOMUIEventClass
             }
             
@@ -13979,16 +13203,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMMouseEvent.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMMouseEvent.ReadableProperties {
+                interface ReadWriteProperties extends DOMMouseEvent.ReadWriteProperties {
                     "wheel-delta": number
                     "wheel-delta-x": number
                     "wheel-delta-y": number
                 }
 
-                interface WritableProperties extends DOMMouseEvent.WritableProperties {
-                    "wheel-delta": number
-                    "wheel-delta-x": number
-                    "wheel-delta-y": number
+                interface ReadableProperties extends ReadWriteProperties, DOMMouseEvent.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMMouseEvent.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMMouseEvent.ConstructOnlyProperties {
@@ -14055,8 +13279,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMWheelEvent: DOMWheelEventClass
             }
             
@@ -14065,10 +13288,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -14099,8 +13325,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMXPathExpression: DOMXPathExpressionClass
             }
             
@@ -14109,7 +13334,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends DOMObject.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DOMObject.ReadableProperties {
+                interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "boolean-value": boolean
                     "invalid-iterator-state": boolean
                     "number-value": number
@@ -14119,14 +13344,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "string-value": string
                 }
 
-                interface WritableProperties extends DOMObject.WritableProperties {
-                    "boolean-value": boolean
-                    "invalid-iterator-state": boolean
-                    "number-value": number
-                    "result-type": number
-                    "single-node-value": DOMNode
-                    "snapshot-length": number
-                    "string-value": string
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DOMObject.ConstructOnlyProperties {
@@ -14158,8 +13379,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get resultType(): number
                 set resultType(value: number)
-                /**
-                 */
+                
                 get singleNodeValue(): DOMNode
                 set singleNodeValue(value: DOMNode)
                 /**
@@ -14167,8 +13387,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get snapshotLength(): number
                 set snapshotLength(value: number)
-                /**
-                 */
+                
                 get stringValue(): string
                 set stringValue(value: string)
                 /**
@@ -14234,8 +13453,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMXPathResult: DOMXPathResultClass
             }
             
@@ -14244,10 +13462,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14337,16 +13558,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "context": number
-                    "image-uri": string
-                    "link-label": string
-                    "link-title": string
-                    "link-uri": string
-                    "media-uri": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14524,10 +13742,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "window-object-cleared"(page: WebPage, frame: Frame): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14588,8 +13809,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 ScriptWorld: ScriptWorldClass
             }
             
@@ -14598,12 +13818,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "uri": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "uri": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14673,7 +13895,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "content-length": number
                     "http-headers": Soup.MessageHeaders
                     "mime-type": string
@@ -14682,13 +13904,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "uri": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "content-length": number
-                    "http-headers": Soup.MessageHeaders
-                    "mime-type": string
-                    "status-code": number
-                    "suggested-filename": string
-                    "uri": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14803,13 +14022,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
-                    "fd-list": Gio.UnixFDList | null
-                    "name": string
-                    "parameters": GLib.Variant | null
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -14931,10 +14150,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "selection-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -14993,10 +14215,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "user-message-received"(message: UserMessage): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15171,10 +14396,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "will-submit-form"(form: JavaScriptCore.Value, source_frame: Frame, target_frame: Frame): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15231,11 +14459,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends HitTestResult.SignalSignatures {
                 }
 
-                interface ReadableProperties extends HitTestResult.ReadableProperties {
-                    "node": DOMNode
+                interface ReadWriteProperties extends HitTestResult.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends HitTestResult.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, HitTestResult.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, HitTestResult.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends HitTestResult.ConstructOnlyProperties {
@@ -15427,12 +14657,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "will-submit-form"(form: DOMElement, step: FormSubmissionStep, source_frame: Frame, target_frame: Frame, text_field_names: string[], text_field_values: string[]): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "uri": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "uri": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15530,10 +14762,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15621,8 +14856,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMEventTarget: DOMEventTargetIface
             }
             
@@ -15631,10 +14865,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15670,8 +14907,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMNodeFilter: DOMNodeFilterIface
             }
             
@@ -15680,10 +14916,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -15719,8 +14958,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 DOMXPathNSResolver: DOMXPathNSResolverIface
             }
             

@@ -28,14 +28,15 @@ declare module "gi://Gck?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "chained": Enumerator | null
                     "interaction": Gio.TlsInteraction | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "chained": Enumerator | null
-                    "interaction": Gio.TlsInteraction | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -184,12 +185,13 @@ declare module "gi://Gck?version=1" {
                     "authenticate-slot"(slot: Slot, string: string, password: never | null): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "functions": never
-                    "path": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -318,13 +320,13 @@ declare module "gi://Gck?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "handle": number
-                    "module": Module
-                    "session": Session
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -646,14 +648,14 @@ declare module "gi://Gck?version=1" {
                 interface SignalSignatures extends Gio.TlsPassword.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.TlsPassword.ReadableProperties {
-                    "key": Object
+                interface ReadWriteProperties extends Gio.TlsPassword.ReadWriteProperties {
                     "module": Module
-                    "token": Slot
                 }
 
-                interface WritableProperties extends Gio.TlsPassword.WritableProperties {
-                    "module": Module
+                interface ReadableProperties extends ReadWriteProperties, Gio.TlsPassword.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.TlsPassword.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.TlsPassword.ConstructOnlyProperties {
@@ -735,17 +737,15 @@ declare module "gi://Gck?version=1" {
                     "discard-handle"(handle: number): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
-                    "handle": number
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                     "interaction": Gio.TlsInteraction | null
                     "module": Module
-                    "options": SessionOptions
-                    "slot": Slot
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
-                    "interaction": Gio.TlsInteraction | null
-                    "module": Module
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.AsyncInitable.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -1469,12 +1469,13 @@ declare module "gi://Gck?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "handle": number
-                    "module": Module
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1629,12 +1630,14 @@ declare module "gi://Gck?version=1" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                     "attributes": Attributes | null
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
-                    "attributes": Attributes | null
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -2912,8 +2915,7 @@ declare module "gi://Gck?version=1" {
                  * member of the error then contains the raw PKCS#11 `CK_RV` result value.
                  */
                 Error: ErrorEnum
-                /**
-             */
+                
             get_quark: () => GLib.Quark
             }
             
@@ -2946,8 +2948,7 @@ declare module "gi://Gck?version=1" {
                  * Various error codes used with PKCS#11 URIs
                  */
                 UriError: UriErrorEnum
-                /**
-             */
+                
             get_quark: () => GLib.Quark
             }
             
@@ -3042,11 +3043,9 @@ declare module "gi://Gck?version=1" {
                  * @param builder the builder
                  */
                 builder_unref(builder: never | null): void
-                /**
-                 */
+                
                 error_get_quark(): GLib.Quark
-                /**
-                 */
+                
                 list_get_boxed_type(): GObject.GType
                 /**
                  * Get a message for a PKCS#11 return value or error code. Do not
@@ -3175,8 +3174,7 @@ declare module "gi://Gck?version=1" {
                  * @returns a newly allocated string containing a PKCS#11 URI.
                  */
                 uri_build(uri_data: UriData, flags: UriFlags): string
-                /**
-                 */
+                
                 uri_error_get_quark(): GLib.Quark
                 /**
                  * Parse a PKCS#11 URI for use in a given context.

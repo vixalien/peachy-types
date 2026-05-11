@@ -32,12 +32,14 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GstBase.BaseTransform.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.BaseTransform.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.BaseTransform.ReadWriteProperties {
                     "context": GLContext
                 }
 
-                interface WritableProperties extends GstBase.BaseTransform.WritableProperties {
-                    "context": GLContext
+                interface ReadableProperties extends ReadWriteProperties, GstBase.BaseTransform.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.BaseTransform.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.BaseTransform.ConstructOnlyProperties {
@@ -49,8 +51,7 @@ declare module "gi://GstGL?version=1.0" {
                 readonly $readableProperties: GLBaseFilter.ReadableProperties
                 readonly $writableProperties: GLBaseFilter.WritableProperties
                 readonly $constructOnlyProperties: GLBaseFilter.ConstructOnlyProperties
-                /**
-                 */
+                
                 get context(): GLContext
                 set context(value: GLContext)
                 /**
@@ -103,10 +104,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -146,12 +150,14 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoAggregator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoAggregator.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoAggregator.ReadWriteProperties {
                     "context": GLContext
                 }
 
-                interface WritableProperties extends GstVideo.VideoAggregator.WritableProperties {
-                    "context": GLContext
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoAggregator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoAggregator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoAggregator.ConstructOnlyProperties {
@@ -209,10 +215,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GstVideo.VideoAggregatorPad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVideo.VideoAggregatorPad.ReadableProperties {
+                interface ReadWriteProperties extends GstVideo.VideoAggregatorPad.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstVideo.VideoAggregatorPad.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoAggregatorPad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVideo.VideoAggregatorPad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVideo.VideoAggregatorPad.ConstructOnlyProperties {
@@ -245,12 +254,14 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GstBase.PushSrc.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.PushSrc.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.PushSrc.ReadWriteProperties {
                     "timestamp-offset": number
                 }
 
-                interface WritableProperties extends GstBase.PushSrc.WritableProperties {
-                    "timestamp-offset": number
+                interface ReadableProperties extends ReadWriteProperties, GstBase.PushSrc.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.PushSrc.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.PushSrc.ConstructOnlyProperties {
@@ -305,10 +316,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GLBaseMemoryAllocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GLBaseMemoryAllocator.ReadableProperties {
+                interface ReadWriteProperties extends GLBaseMemoryAllocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GLBaseMemoryAllocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GLBaseMemoryAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GLBaseMemoryAllocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GLBaseMemoryAllocator.ConstructOnlyProperties {
@@ -341,10 +355,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.BufferPool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.BufferPool.ReadableProperties {
+                interface ReadWriteProperties extends Gst.BufferPool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.BufferPool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.BufferPool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.BufferPool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.BufferPool.ConstructOnlyProperties {
@@ -398,10 +415,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -509,10 +529,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -988,10 +1011,13 @@ declare module "gi://GstGL?version=1.0" {
                     "create-context"(context: GLContext): GLContext | null
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1053,8 +1079,7 @@ declare module "gi://GstGL?version=1.0" {
                  * @returns the #GstGLAPI configured for `display`
                  */
                 get_gl_api(): GLAPI
-                /**
-                 */
+                
                 get_gl_api_unlocked(): GLAPI
                 /**
                  * @since 1.6
@@ -1157,10 +1182,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GLBaseFilter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GLBaseFilter.ReadableProperties {
+                interface ReadWriteProperties extends GLBaseFilter.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GLBaseFilter.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GLBaseFilter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GLBaseFilter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GLBaseFilter.ConstructOnlyProperties {
@@ -1268,10 +1296,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1378,10 +1409,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GLBaseMemoryAllocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GLBaseMemoryAllocator.ReadableProperties {
+                interface ReadWriteProperties extends GLBaseMemoryAllocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GLBaseMemoryAllocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GLBaseMemoryAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GLBaseMemoryAllocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GLBaseMemoryAllocator.ConstructOnlyProperties {
@@ -1420,10 +1454,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GLMemoryAllocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GLMemoryAllocator.ReadableProperties {
+                interface ReadWriteProperties extends GLMemoryAllocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GLMemoryAllocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GLMemoryAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GLMemoryAllocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GLMemoryAllocator.ConstructOnlyProperties {
@@ -1456,10 +1493,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GLBaseMixer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GLBaseMixer.ReadableProperties {
+                interface ReadWriteProperties extends GLBaseMixer.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GLBaseMixer.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GLBaseMixer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GLBaseMixer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GLBaseMixer.ConstructOnlyProperties {
@@ -1531,10 +1571,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GLBaseMixerPad.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GLBaseMixerPad.ReadableProperties {
+                interface ReadWriteProperties extends GLBaseMixerPad.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GLBaseMixerPad.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GLBaseMixerPad.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GLBaseMixerPad.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GLBaseMixerPad.ConstructOnlyProperties {
@@ -1567,12 +1610,14 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "yinvert": boolean
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "yinvert": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1589,11 +1634,9 @@ declare module "gi://GstGL?version=1.0" {
                  */
                 get yinvert(): boolean
                 set yinvert(value: boolean)
-                /**
-                 */
+                
                 draw_overlays(): void
-                /**
-                 */
+                
                 free_overlays(): void
                 /**
                  * @param buf
@@ -1628,10 +1671,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends GLBaseMemoryAllocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GLBaseMemoryAllocator.ReadableProperties {
+                interface ReadWriteProperties extends GLBaseMemoryAllocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GLBaseMemoryAllocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GLBaseMemoryAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GLBaseMemoryAllocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GLBaseMemoryAllocator.ConstructOnlyProperties {
@@ -1664,10 +1710,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1773,12 +1822,14 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "linked": boolean
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "linked": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -2137,8 +2188,7 @@ declare module "gi://GstGL?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 GLShader: GLShaderClass
             }
             
@@ -2147,10 +2197,13 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -2218,8 +2271,7 @@ declare module "gi://GstGL?version=1.0" {
                  * @returns a new #GstGLUpload object
                  */
                 "new"(context: GLContext): GLUpload
-                /**
-                 */
+                
                 get_input_template_caps(): Gst.Caps
             }
 
@@ -2237,7 +2289,7 @@ declare module "gi://GstGL?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "downmix-mode": GLStereoDownmix
                     "input-flags-override": GstVideo.VideoMultiviewFlags
                     "input-mode-override": GstVideo.VideoMultiviewMode
@@ -2245,12 +2297,10 @@ declare module "gi://GstGL?version=1.0" {
                     "output-mode-override": GstVideo.VideoMultiviewMode
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "downmix-mode": GLStereoDownmix
-                    "input-flags-override": GstVideo.VideoMultiviewFlags
-                    "input-mode-override": GstVideo.VideoMultiviewMode
-                    "output-flags-override": GstVideo.VideoMultiviewFlags
-                    "output-mode-override": GstVideo.VideoMultiviewMode
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -2405,10 +2455,13 @@ declare module "gi://GstGL?version=1.0" {
                     "window-handle-changed"(): void
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -2889,23 +2942,17 @@ declare module "gi://GstGL?version=1.0" {
                  * the #GstGLContext to use for GL operations
                  */
                 context: GLContext
-                /**
-                 */
+                
                 lock: GLib.Mutex
-                /**
-                 */
+                
                 map_flags: Gst.MapFlags
-                /**
-                 */
+                
                 map_count: number
-                /**
-                 */
+                
                 gl_map_count: number
-                /**
-                 */
+                
                 data: never
-                /**
-                 */
+                
                 query: GLQuery
                 /**
                  * Note: only intended for subclass usage to allocate the system memory buffer
@@ -3180,14 +3227,11 @@ declare module "gi://GstGL?version=1.0" {
                  * GL shader scaling parameters for `valign` and/or width/height
                  */
                 tex_scaling: number[]
-                /**
-                 */
+                
                 texture_wrapped: boolean
-                /**
-                 */
+                
                 unpack_length: number
-                /**
-                 */
+                
                 tex_width: number
                 /**
                  * Copies `gl_mem` into the texture specified by `tex_id`.  The format of `tex_id`
@@ -3285,8 +3329,7 @@ declare module "gi://GstGL?version=1.0" {
                 readonly $gtype: GObject.GType<GLMemoryPBO>
                 new (fields?: {
                 }): GLMemoryPBO
-                /**
-                 */
+                
                 init_once(): void
             }
 
@@ -3439,8 +3482,7 @@ declare module "gi://GstGL?version=1.0" {
                  * the height
                  */
                 height: number
-                /**
-                 */
+                
                 renderbuffer_wrapped: boolean
                 /**
                  * @since 1.12
@@ -3554,8 +3596,7 @@ declare module "gi://GstGL?version=1.0" {
                     context?: GLContext
                     data?: never
                 }): GLSyncMeta
-                /**
-                 */
+                
                 get_info(): Gst.MetaInfo
             }
 
@@ -3781,8 +3822,7 @@ declare module "gi://GstGL?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 GLBaseMemoryError: GLBaseMemoryErrorEnum
             }
             
@@ -3932,8 +3972,7 @@ declare module "gi://GstGL?version=1.0" {
                  *                           a 8-bit component for stencil informat.
                  */
                 readonly "DEPTH24_STENCIL8": 35056
-                /**
-                 */
+                
                 readonly "RGB10_A2": 32857
                 /**
                  * Single 16-bit component stored in the R texture component
@@ -3946,8 +3985,7 @@ declare module "gi://GstGL?version=1.0" {
             }
             type GLFormat = GLFormatEnum[Exclude<keyof GLFormatEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 GLFormat: GLFormatEnum
                 /**
              * @param context a #GstGLContext
@@ -4002,8 +4040,7 @@ declare module "gi://GstGL?version=1.0" {
             }
             type GLQueryType = GLQueryTypeEnum[Exclude<keyof GLQueryTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 GLQueryType: GLQueryTypeEnum
             }
             
@@ -4249,8 +4286,7 @@ declare module "gi://GstGL?version=1.0" {
             }
             type GLUploadReturn = GLUploadReturnEnum[Exclude<keyof GLUploadReturnEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 GLUploadReturn: GLUploadReturnEnum
             }
             
@@ -4279,8 +4315,7 @@ declare module "gi://GstGL?version=1.0" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 GLWindowError: GLWindowErrorEnum
             }
             
@@ -4314,8 +4349,7 @@ declare module "gi://GstGL?version=1.0" {
             }
             type GLAPI = number
             interface $Exports {
-                /**
-                 */
+                
                 GLAPI: GLAPIBitfield
                 /**
              * @param api_s a space separated string of OpenGL apis
@@ -4344,8 +4378,7 @@ declare module "gi://GstGL?version=1.0" {
             }
             type GLBaseMemoryTransfer = number
             interface $Exports {
-                /**
-                 */
+                
                 GLBaseMemoryTransfer: GLBaseMemoryTransferBitfield
             }
             
@@ -4453,8 +4486,7 @@ declare module "gi://GstGL?version=1.0" {
             }
             type GLDisplayType = number
             interface $Exports {
-                /**
-                 */
+                
                 GLDisplayType: GLDisplayTypeBitfield
             }
             
@@ -4518,8 +4550,7 @@ declare module "gi://GstGL?version=1.0" {
             }
             type GLPlatform = number
             interface $Exports {
-                /**
-                 */
+                
                 GLPlatform: GLPlatformBitfield
                 /**
              * @param platform_s a space separated string of OpenGL platformss
@@ -4587,8 +4618,7 @@ declare module "gi://GstGL?version=1.0" {
              * @param params a #GstGLAllocationParams
              */
             type GLAllocationParamsFreeFunc = (params: never | null) => void
-            /**
-             */
+            
             type GLAsyncDebugLogGetMessage = () => string
             /**
              * Note: not called with a GL context current
@@ -4958,8 +4988,7 @@ declare module "gi://GstGL?version=1.0" {
                  * @since 1.4
                  */
                 gl_memory_init_once(): void
-                /**
-                 */
+                
                 gl_memory_pbo_init_once(): void
                 /**
                  * Multiplies two 4x4 matrices, `a` and `b`, and stores the result, a
@@ -5010,8 +5039,7 @@ declare module "gi://GstGL?version=1.0" {
                  * @returns the sized internal format specified by `format` and `type` that can          be used in `context`
                  */
                 gl_sized_gl_format_from_gl_format_type(context: GLContext, format: number, type: number): number
-                /**
-                 */
+                
                 gl_stereo_downmix_mode_get_type(): GObject.GType
                 /**
                  * Given `swizzle`, produce `inversion` such that:
@@ -5024,11 +5052,9 @@ declare module "gi://GstGL?version=1.0" {
                  * @returns , resulting inversion
                  */
                 gl_swizzle_invert(swizzle: number[]): number[]
-                /**
-                 */
+                
                 gl_sync_meta_api_get_type(): GObject.GType
-                /**
-                 */
+                
                 gl_sync_meta_get_info(): Gst.MetaInfo
                 /**
                  * @param target an OpenGL texture binding target

@@ -48,8 +48,7 @@ declare module "gi://GModule?version=2.0" {
                  * @returns a string describing the last module error
                  */
                 error(): string
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
                 /**
                  * Checks if modules are supported on the current platform.
@@ -192,8 +191,7 @@ declare module "gi://GModule?version=2.0" {
                  * @returns a string describing the last module error
                  */
                 module_error(): string
-                /**
-                 */
+                
                 module_error_quark(): GLib.Quark
                 /**
                  * Checks if modules are supported on the current platform.

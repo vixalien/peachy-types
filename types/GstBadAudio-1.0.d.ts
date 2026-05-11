@@ -32,14 +32,15 @@ declare module "gi://GstBadAudio?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "current-subsong": number
                     "num-loops": number
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "current-subsong": number
-                    "num-loops": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -257,8 +258,7 @@ declare module "gi://GstBadAudio?version=1.0" {
                  * @param initial_num_loops
                  */
                 vfunc_load_from_custom(initial_subsong: number, initial_subsong_mode: NonstreamAudioSubsongMode, initial_position: Gst.ClockTime, initial_output_mode: NonstreamAudioOutputMode, initial_num_loops: number): boolean
-                /**
-                 */
+                
                 vfunc_negotiate(): boolean
                 /**
                  * Optional.
@@ -491,10 +491,13 @@ declare module "gi://GstBadAudio?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -523,8 +526,7 @@ declare module "gi://GstBadAudio?version=1.0" {
                  * @param info a #GstAudioInfo describing the format of the audio data
                  */
                 configure(info: GstAudio.AudioInfo): void
-                /**
-                 */
+                
                 distance_from_discont(): number
                 /**
                  * Get the DTS that was on the last buffer with the GST_BUFFER_FLAG_DISCONT

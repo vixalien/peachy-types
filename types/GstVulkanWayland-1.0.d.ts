@@ -36,10 +36,13 @@ declare module "gi://GstVulkanWayland?version=1.0" {
                 interface SignalSignatures extends GstVulkan.VulkanDisplay.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstVulkan.VulkanDisplay.ReadableProperties {
+                interface ReadWriteProperties extends GstVulkan.VulkanDisplay.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstVulkan.VulkanDisplay.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstVulkan.VulkanDisplay.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstVulkan.VulkanDisplay.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstVulkan.VulkanDisplay.ConstructOnlyProperties {

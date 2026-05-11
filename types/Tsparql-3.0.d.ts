@@ -28,11 +28,13 @@ declare module "gi://Tsparql?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "connection": SparqlConnection
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -186,17 +188,16 @@ declare module "gi://Tsparql?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "allowed-graphs": string[]
                     "allowed-services": string[]
                     "readonly": boolean
-                    "sparql-connection": SparqlConnection
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "allowed-graphs": string[]
-                    "allowed-services": string[]
-                    "readonly": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -366,12 +367,13 @@ declare module "gi://Tsparql?version=3.0" {
                     "block-call"(object: string): boolean
                 }
 
-                interface ReadableProperties extends Endpoint.ReadableProperties, Gio.Initable.ReadableProperties {
-                    "dbus-connection": Gio.DBusConnection
-                    "object-path": string
+                interface ReadWriteProperties extends Endpoint.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Endpoint.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Endpoint.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Endpoint.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Endpoint.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -478,12 +480,13 @@ declare module "gi://Tsparql?version=3.0" {
                     "block-remote-address"(address: Gio.SocketAddress): boolean
                 }
 
-                interface ReadableProperties extends Endpoint.ReadableProperties, Gio.Initable.ReadableProperties {
-                    "http-certificate": Gio.TlsCertificate
-                    "http-port": number
+                interface ReadWriteProperties extends Endpoint.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Endpoint.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Endpoint.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Endpoint.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Endpoint.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -581,10 +584,13 @@ declare module "gi://Tsparql?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -701,11 +707,13 @@ declare module "gi://Tsparql?version=3.0" {
                     "events"(service: string, graph: string, events: NotifierEvent[]): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "connection": SparqlConnection
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -805,12 +813,14 @@ declare module "gi://Tsparql?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "identifier": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "identifier": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1282,10 +1292,13 @@ declare module "gi://Tsparql?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1914,13 +1927,14 @@ declare module "gi://Tsparql?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "connection": SparqlConnection
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "n-columns": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "n-columns": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2137,12 +2151,13 @@ declare module "gi://Tsparql?version=3.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "connection": SparqlConnection
-                    "sparql": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2576,8 +2591,7 @@ declare module "gi://Tsparql?version=3.0" {
                  * The total number of error codes.
                  */
                 readonly "LAST": 15
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -2728,8 +2742,7 @@ declare module "gi://Tsparql?version=3.0" {
                  * @returns %NULL if the Tracker library is compatible with the   given version, or a string describing the version mismatch.
                  */
                 check_version(required_major: number, required_minor: number, required_micro: number): string
-                /**
-                 */
+                
                 sparql_error_quark(): GLib.Quark
                 /**
                  * Escapes `literal` so it is suitable for insertion in

@@ -64,8 +64,7 @@ declare module "gi://fontconfig?version=2.0" {
             interface $Exports {
                 __name__: "fontconfig"
                 __version__: "2.0"
-                /**
-                 */
+                
                 init(): void
             }
         }

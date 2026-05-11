@@ -32,10 +32,13 @@ declare module "gi://GstVa?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -138,13 +141,14 @@ declare module "gi://GstVa?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "description": string
-                    "va-display": never
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "description": string
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -162,8 +166,7 @@ declare module "gi://GstVa?version=1.0" {
                  */
                 get description(): string
                 set description(value: string)
-                /**
-                 */
+                
                 get vaDisplay(): never
                 set vaDisplay(value: never)
                 /**
@@ -234,11 +237,13 @@ declare module "gi://GstVa?version=1.0" {
                 interface SignalSignatures extends VaDisplay.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VaDisplay.ReadableProperties {
-                    "path": string
+                interface ReadWriteProperties extends VaDisplay.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends VaDisplay.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, VaDisplay.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VaDisplay.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VaDisplay.ConstructOnlyProperties {
@@ -286,10 +291,13 @@ declare module "gi://GstVa?version=1.0" {
                 interface SignalSignatures extends VaDisplay.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VaDisplay.ReadableProperties {
+                interface ReadWriteProperties extends VaDisplay.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends VaDisplay.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, VaDisplay.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VaDisplay.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VaDisplay.ConstructOnlyProperties {
@@ -336,10 +344,13 @@ declare module "gi://GstVa?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -428,10 +439,13 @@ declare module "gi://GstVa?version=1.0" {
                 interface SignalSignatures extends Gst.BufferPool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.BufferPool.ReadableProperties {
+                interface ReadWriteProperties extends Gst.BufferPool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.BufferPool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.BufferPool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.BufferPool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.BufferPool.ConstructOnlyProperties {

@@ -204,8 +204,7 @@ declare module "gi://GL?version=1.0" {
             interface $Exports {
                 __name__: "GL"
                 __version__: "1.0"
-                /**
-                 */
+                
                 InitNames(): void
             }
         }

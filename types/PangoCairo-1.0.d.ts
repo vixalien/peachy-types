@@ -36,10 +36,13 @@ declare module "gi://PangoCairo?version=1.0" {
                 interface SignalSignatures extends Pango.Font.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Pango.Font.ReadableProperties {
+                interface ReadWriteProperties extends Pango.Font.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Pango.Font.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Pango.Font.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Pango.Font.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Pango.Font.ConstructOnlyProperties {
@@ -87,10 +90,13 @@ declare module "gi://PangoCairo?version=1.0" {
                 interface SignalSignatures extends Pango.FontMap.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Pango.FontMap.ReadableProperties {
+                interface ReadWriteProperties extends Pango.FontMap.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Pango.FontMap.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Pango.FontMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Pango.FontMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Pango.FontMap.ConstructOnlyProperties {

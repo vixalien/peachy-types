@@ -91,20 +91,16 @@ declare module "gi://DBus?version=1.0" {
             
             interface BusTypeEnum {
                 readonly $gtype: GObject.GType<BusType>
-                /**
-                 */
+                
                 readonly "SESSION": 0
-                /**
-                 */
+                
                 readonly "SYSTEM": 1
-                /**
-                 */
+                
                 readonly "STARTER": 2
             }
             type BusType = BusTypeEnum[Exclude<keyof BusTypeEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 BusType: BusTypeEnum
             }
 

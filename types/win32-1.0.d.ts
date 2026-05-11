@@ -32,17 +32,13 @@ declare module "gi://win32?version=1.0" {
             interface $Exports {
                 MSG: MSGStruct
             }
-            /**
-             */
+            
             type HWND = number
-            /**
-             */
+            
             type HICON = number
-            /**
-             */
+            
             type HCURSOR = number
-            /**
-             */
+            
             type HGDIOBJ = number
 
             interface $Exports {

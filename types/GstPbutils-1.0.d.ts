@@ -34,14 +34,15 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends Gst.Element.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Element.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "shade-amount": number
                     "shader": AudioVisualizerShader
                 }
 
-                interface WritableProperties extends Gst.Element.WritableProperties {
-                    "shade-amount": number
-                    "shader": AudioVisualizerShader
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Element.ConstructOnlyProperties {
@@ -72,8 +73,7 @@ declare module "gi://GstPbutils?version=1.0" {
                  * @param video
                  */
                 vfunc_render(audio: Gst.Buffer, video: GstVideo.VideoFrame): boolean
-                /**
-                 */
+                
                 vfunc_setup(): boolean
             }
 
@@ -140,14 +140,15 @@ declare module "gi://GstPbutils?version=1.0" {
                     "starting"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "timeout": number
                     "use-cache": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "timeout": number
-                    "use-cache": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -211,8 +212,7 @@ declare module "gi://GstPbutils?version=1.0" {
                  * @param err
                  */
                 vfunc_discovered(info: DiscovererInfo, err: GLib.Error): void
-                /**
-                 */
+                
                 vfunc_finished(): void
                 /**
                  * Loads the serialized info from the given uri.
@@ -225,8 +225,7 @@ declare module "gi://GstPbutils?version=1.0" {
                  * @param source
                  */
                 vfunc_source_setup(source: Gst.Element): void
-                /**
-                 */
+                
                 vfunc_starting(): void
             }
 
@@ -271,10 +270,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends DiscovererStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DiscovererStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends DiscovererStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DiscovererStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DiscovererStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DiscovererStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DiscovererStreamInfo.ConstructOnlyProperties {
@@ -336,10 +338,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends DiscovererStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DiscovererStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends DiscovererStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DiscovererStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DiscovererStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DiscovererStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DiscovererStreamInfo.ConstructOnlyProperties {
@@ -381,10 +386,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -516,10 +524,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -610,10 +621,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends DiscovererStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DiscovererStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends DiscovererStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DiscovererStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DiscovererStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DiscovererStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DiscovererStreamInfo.ConstructOnlyProperties {
@@ -651,10 +665,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends DiscovererStreamInfo.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DiscovererStreamInfo.ReadableProperties {
+                interface ReadWriteProperties extends DiscovererStreamInfo.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DiscovererStreamInfo.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DiscovererStreamInfo.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DiscovererStreamInfo.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DiscovererStreamInfo.ConstructOnlyProperties {
@@ -731,10 +748,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends EncodingProfile.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EncodingProfile.ReadableProperties {
+                interface ReadWriteProperties extends EncodingProfile.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EncodingProfile.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EncodingProfile.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EncodingProfile.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EncodingProfile.ConstructOnlyProperties {
@@ -779,10 +799,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends EncodingProfile.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EncodingProfile.ReadableProperties {
+                interface ReadWriteProperties extends EncodingProfile.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EncodingProfile.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EncodingProfile.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EncodingProfile.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EncodingProfile.ConstructOnlyProperties {
@@ -844,14 +867,15 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "element-properties": Gst.Structure | null
                     "restriction-caps": Gst.Caps
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "element-properties": Gst.Structure | null
-                    "restriction-caps": Gst.Caps
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -876,8 +900,7 @@ declare module "gi://GstPbutils?version=1.0" {
                  */
                 get elementProperties(): Gst.Structure | null
                 set elementProperties(value: Gst.Structure | null)
-                /**
-                 */
+                
                 get restrictionCaps(): Gst.Caps
                 set restrictionCaps(value: Gst.Caps)
                 /**
@@ -942,8 +965,7 @@ declare module "gi://GstPbutils?version=1.0" {
                  * @returns the human-readable name of the type of `profile`.
                  */
                 get_type_nick(): string
-                /**
-                 */
+                
                 is_enabled(): boolean
                 /**
                  * Checks whether the two #GstEncodingProfile are equal
@@ -1109,10 +1131,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1235,10 +1260,13 @@ declare module "gi://GstPbutils?version=1.0" {
                 interface SignalSignatures extends EncodingProfile.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EncodingProfile.ReadableProperties {
+                interface ReadWriteProperties extends EncodingProfile.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EncodingProfile.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EncodingProfile.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EncodingProfile.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EncodingProfile.ConstructOnlyProperties {
@@ -1704,26 +1732,19 @@ declare module "gi://GstPbutils?version=1.0" {
              * @param result whether the installation of the requested plugins succeeded or not
              */
             type InstallPluginsResultFunc = (result: InstallPluginsReturn) => void
-            /**
-             */
+            
             type DiscovererAudioInfoClass = GObject.ObjectClass
-            /**
-             */
+            
             type DiscovererContainerInfoClass = GObject.ObjectClass
-            /**
-             */
+            
             type DiscovererInfoClass = GObject.ObjectClass
-            /**
-             */
+            
             type DiscovererStreamInfoClass = GObject.ObjectClass
-            /**
-             */
+            
             type DiscovererSubtitleInfoClass = GObject.ObjectClass
-            /**
-             */
+            
             type DiscovererVideoInfoClass = GObject.ObjectClass
-            /**
-             */
+            
             type EncodingTargetClass = GObject.ObjectClass
 
             interface $Exports {

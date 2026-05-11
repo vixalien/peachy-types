@@ -80,8 +80,7 @@ declare module "gi://xft?version=2.0" {
             interface $Exports {
                 __name__: "xft"
                 __version__: "2.0"
-                /**
-                 */
+                
                 init(): void
             }
         }

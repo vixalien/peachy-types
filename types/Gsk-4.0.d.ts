@@ -44,10 +44,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -104,10 +107,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -157,10 +163,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -219,10 +228,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends Renderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Renderer.ReadableProperties {
+                interface ReadWriteProperties extends Renderer.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Renderer.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Renderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Renderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Renderer.ConstructOnlyProperties {
@@ -270,10 +282,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -329,10 +344,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends Renderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Renderer.ReadableProperties {
+                interface ReadWriteProperties extends Renderer.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Renderer.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Renderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Renderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Renderer.ConstructOnlyProperties {
@@ -380,10 +398,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -434,10 +455,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -501,10 +525,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -553,10 +580,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -616,10 +646,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -687,10 +720,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -767,10 +803,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -822,10 +861,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -874,10 +916,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -933,10 +978,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -990,10 +1038,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -1057,10 +1108,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends Renderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Renderer.ReadableProperties {
+                interface ReadWriteProperties extends Renderer.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Renderer.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Renderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Renderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Renderer.ConstructOnlyProperties {
@@ -1101,12 +1155,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "resource": string | null
-                    "source": GLib.Bytes
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1434,10 +1489,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -1520,10 +1578,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -1601,10 +1662,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -1666,10 +1730,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -1732,10 +1799,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -1800,10 +1870,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends Renderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Renderer.ReadableProperties {
+                interface ReadWriteProperties extends Renderer.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Renderer.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Renderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Renderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Renderer.ConstructOnlyProperties {
@@ -1844,10 +1917,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -1898,10 +1974,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -1979,10 +2058,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2030,10 +2112,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2117,10 +2202,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -2258,14 +2346,15 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "realized": boolean
                     "surface": Gdk.Surface | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "realized": boolean
-                    "surface": Gdk.Surface | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2403,10 +2492,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2458,10 +2550,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2505,10 +2600,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2557,10 +2655,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2611,10 +2712,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2671,10 +2775,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2744,10 +2851,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2787,10 +2897,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2869,10 +2982,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2922,10 +3038,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -2991,10 +3110,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends RenderNode.SignalSignatures {
                 }
 
-                interface ReadableProperties extends RenderNode.ReadableProperties {
+                interface ReadWriteProperties extends RenderNode.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends RenderNode.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, RenderNode.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, RenderNode.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends RenderNode.ConstructOnlyProperties {
@@ -3045,10 +3167,13 @@ declare module "gi://Gsk?version=4.0" {
                 interface SignalSignatures extends Renderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Renderer.ReadableProperties {
+                interface ReadWriteProperties extends Renderer.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Renderer.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Renderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Renderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Renderer.ConstructOnlyProperties {
@@ -5451,41 +5576,29 @@ declare module "gi://Gsk?version=4.0" {
             
             interface PorterDuffEnum {
                 readonly $gtype: GObject.GType<PorterDuff>
-                /**
-                 */
+                
                 readonly "SOURCE": 0
-                /**
-                 */
+                
                 readonly "DEST": 1
-                /**
-                 */
+                
                 readonly "SOURCE_OVER_DEST": 2
-                /**
-                 */
+                
                 readonly "DEST_OVER_SOURCE": 3
-                /**
-                 */
+                
                 readonly "SOURCE_IN_DEST": 4
-                /**
-                 */
+                
                 readonly "DEST_IN_SOURCE": 5
-                /**
-                 */
+                
                 readonly "SOURCE_OUT_DEST": 6
-                /**
-                 */
+                
                 readonly "DEST_OUT_SOURCE": 7
-                /**
-                 */
+                
                 readonly "SOURCE_ATOP_DEST": 8
-                /**
-                 */
+                
                 readonly "DEST_ATOP_SOURCE": 9
-                /**
-                 */
+                
                 readonly "XOR": 10
-                /**
-                 */
+                
                 readonly "CLEAR": 11
             }
             type PorterDuff = PorterDuffEnum[Exclude<keyof PorterDuffEnum, "$gtype">]

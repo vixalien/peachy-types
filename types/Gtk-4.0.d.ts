@@ -58,17 +58,16 @@ declare module "gi://Gtk?version=4.0" {
                     "state-change"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "accessible": Accessible
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accessible-role": AccessibleRole
                     "display": Gdk.Display
                     "realized": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accessible-role": AccessibleRole
-                    "display": Gdk.Display
-                    "realized": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -163,7 +162,7 @@ declare module "gi://Gtk?version=4.0" {
                     "activate-link"(uri: string): boolean
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "artists": string[]
                     "authors": string[]
                     "comments": string | null
@@ -182,23 +181,10 @@ declare module "gi://Gtk?version=4.0" {
                     "wrap-license": boolean
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
-                    "artists": string[]
-                    "authors": string[]
-                    "comments": string | null
-                    "copyright": string | null
-                    "documenters": string[]
-                    "license": string | null
-                    "license-type": License
-                    "logo": Gdk.Paintable | null
-                    "logo-icon-name": string | null
-                    "program-name": string | null
-                    "system-information": string | null
-                    "translator-credits": string | null
-                    "version": string | null
-                    "website": string | null
-                    "website-label": string | null
-                    "wrap-license": boolean
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -657,10 +643,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Accessible.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Accessible.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Accessible.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Accessible.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Accessible.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Accessible.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Accessible.ConstructOnlyProperties {
@@ -717,12 +706,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "revealed": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "revealed": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -847,10 +838,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutAction.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutAction.ReadableProperties {
+                interface ReadWriteProperties extends ShortcutAction.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutAction.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutAction.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutAction.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutAction.ConstructOnlyProperties {
@@ -905,7 +899,7 @@ declare module "gi://Gtk?version=4.0" {
                     "value-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
                     "lower": number
                     "page-increment": number
                     "page-size": number
@@ -914,13 +908,10 @@ declare module "gi://Gtk?version=4.0" {
                     "value": number
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
-                    "lower": number
-                    "page-increment": number
-                    "page-size": number
-                    "step-increment": number
-                    "upper": number
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -1109,11 +1100,9 @@ declare module "gi://Gtk?version=4.0" {
                  * @param value the new value
                  */
                 set_value(value: number): void
-                /**
-                 */
+                
                 vfunc_changed(): void
-                /**
-                 */
+                
                 vfunc_value_changed(): void
             }
 
@@ -1157,7 +1146,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "buttons": string[] | null
                     "cancel-button": number
                     "default-button": number
@@ -1166,13 +1155,10 @@ declare module "gi://Gtk?version=4.0" {
                     "modal": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "buttons": string[] | null
-                    "cancel-button": number
-                    "default-button": number
-                    "detail": string
-                    "message": string
-                    "modal": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1388,12 +1374,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutTrigger.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutTrigger.ReadableProperties {
-                    "first": ShortcutTrigger
-                    "second": ShortcutTrigger
+                interface ReadWriteProperties extends ShortcutTrigger.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutTrigger.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutTrigger.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutTrigger.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutTrigger.ConstructOnlyProperties {
@@ -1471,10 +1458,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends MultiFilter.SignalSignatures, Gio.ListModel.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MultiFilter.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends MultiFilter.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends MultiFilter.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, MultiFilter.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MultiFilter.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MultiFilter.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -1540,18 +1530,17 @@ declare module "gi://Gtk?version=4.0" {
                     "custom-item-activated::{}"(item_name: string): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AppChooser.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "heading": string | null
                     "modal": boolean
                     "show-default-item": boolean
                     "show-dialog-item": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "heading": string | null
-                    "modal": boolean
-                    "show-default-item": boolean
-                    "show-dialog-item": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AppChooser.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -1738,13 +1727,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Accessible.SignalSignatures, AppChooser.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures, ShortcutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Accessible.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
-                    "gfile": Gio.File
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Accessible.ReadWriteProperties, AppChooser.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "heading": string | null
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Accessible.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
-                    "heading": string | null
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Accessible.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Accessible.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AppChooser.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -1870,7 +1860,7 @@ declare module "gi://Gtk?version=4.0" {
                     "application-selected"(application: Gio.AppInfo): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AppChooser.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "default-text": string | null
                     "show-all": boolean
                     "show-default": boolean
@@ -1879,13 +1869,10 @@ declare module "gi://Gtk?version=4.0" {
                     "show-recommended": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "default-text": string | null
-                    "show-all": boolean
-                    "show-default": boolean
-                    "show-fallback": boolean
-                    "show-other": boolean
-                    "show-recommended": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AppChooser.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AppChooser.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AppChooser.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -2169,7 +2156,7 @@ declare module "gi://Gtk?version=4.0" {
                     "window-removed"(window: Window): void
                 }
 
-                interface ReadableProperties extends Gio.Application.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties {
+                interface ReadWriteProperties extends Gio.Application.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties {
                     "active-window": Window | null
                     "autosave-interval": number
                     "menubar": Gio.MenuModel | null
@@ -2178,13 +2165,10 @@ declare module "gi://Gtk?version=4.0" {
                     "support-save": boolean
                 }
 
-                interface WritableProperties extends Gio.Application.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties {
-                    "active-window": Window | null
-                    "autosave-interval": number
-                    "menubar": Gio.MenuModel | null
-                    "register-session": boolean
-                    "screensaver-active": boolean
-                    "support-save": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gio.Application.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.Application.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.Application.ConstructOnlyProperties, Gio.ActionGroup.ConstructOnlyProperties, Gio.ActionMap.ConstructOnlyProperties {
@@ -2656,12 +2640,14 @@ declare module "gi://Gtk?version=4.0" {
                     "save-state"(dict: GLib.VariantDict): boolean
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "show-menubar": boolean
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
-                    "show-menubar": boolean
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Gio.ActionGroup.ConstructOnlyProperties, Gio.ActionMap.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -2825,7 +2811,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                     "obey-child": boolean
                     "ratio": number
@@ -2833,12 +2819,10 @@ declare module "gi://Gtk?version=4.0" {
                     "yalign": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
-                    "obey-child": boolean
-                    "ratio": number
-                    "xalign": number
-                    "yalign": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -3024,13 +3008,14 @@ declare module "gi://Gtk?version=4.0" {
                     "prepare"(page: Widget): void
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "pages": Gio.ListModel
-                    "use-header-bar": number
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
-                    "pages": Gio.ListModel
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -3318,17 +3303,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "child": Widget
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "complete": boolean
                     "page-type": AssistantPageType
                     "title": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "complete": boolean
-                    "page-type": AssistantPageType
-                    "title": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3399,10 +3383,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutManager.ReadableProperties {
+                interface ReadWriteProperties extends LayoutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends LayoutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, LayoutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutManager.ConstructOnlyProperties {
@@ -3445,21 +3432,18 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "attributes": string | null
-                    "filename": string
                     "io-priority": number
                     "item-type": GObject.GType
                     "loading": boolean
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "attributes": string | null
-                    "io-priority": number
-                    "item-type": GObject.GType
-                    "loading": boolean
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -3584,14 +3568,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Filter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Filter.ReadableProperties {
+                interface ReadWriteProperties extends Filter.ReadWriteProperties {
                     "expression": Expression | null
                     "invert": boolean
                 }
 
-                interface WritableProperties extends Filter.WritableProperties {
-                    "expression": Expression | null
-                    "invert": boolean
+                interface ReadableProperties extends ReadWriteProperties, Filter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Filter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Filter.ConstructOnlyProperties {
@@ -3665,18 +3650,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "baseline-child": number
                     "baseline-position": BaselinePosition
                     "homogeneous": boolean
                     "spacing": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "baseline-child": number
-                    "baseline-position": BaselinePosition
-                    "homogeneous": boolean
-                    "spacing": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -3872,18 +3856,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutManager.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutManager.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends LayoutManager.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "baseline-child": number
                     "baseline-position": BaselinePosition
                     "homogeneous": boolean
                     "spacing": number
                 }
 
-                interface WritableProperties extends LayoutManager.WritableProperties, Orientable.WritableProperties {
-                    "baseline-child": number
-                    "baseline-position": BaselinePosition
-                    "homogeneous": boolean
-                    "spacing": number
+                interface ReadableProperties extends ReadWriteProperties, LayoutManager.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutManager.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutManager.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -4019,16 +4002,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "current-object": GObject.Object | null
                     "scope": BuilderScope
                     "translation-domain": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "current-object": GObject.Object | null
-                    "scope": BuilderScope
-                    "translation-domain": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4744,10 +4727,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, BuilderScope.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, BuilderScope.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, BuilderScope.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, BuilderScope.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, BuilderScope.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, BuilderScope.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, BuilderScope.ConstructOnlyProperties {
@@ -4817,13 +4803,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ListItemFactory.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ListItemFactory.ReadableProperties {
-                    "bytes": GLib.Bytes
-                    "resource": string | null
-                    "scope": BuilderScope | null
+                interface ReadWriteProperties extends ListItemFactory.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ListItemFactory.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ListItemFactory.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ListItemFactory.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ListItemFactory.ConstructOnlyProperties {
@@ -4951,7 +4937,7 @@ declare module "gi://Gtk?version=4.0" {
                     "clicked"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Actionable.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "can-shrink": boolean
                     "child": Widget | null
                     "has-frame": boolean
@@ -4960,13 +4946,10 @@ declare module "gi://Gtk?version=4.0" {
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "can-shrink": boolean
-                    "child": Widget | null
-                    "has-frame": boolean
-                    "icon-name": string | null
-                    "label": string | null
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -5218,10 +5201,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Expression.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Expression.ReadableProperties {
+                interface ReadWriteProperties extends Expression.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Expression.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Expression.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Expression.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Expression.ConstructOnlyProperties {
@@ -5287,7 +5273,7 @@ declare module "gi://Gtk?version=4.0" {
                     "prev-year"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "date": GLib.DateTime
                     "day": number
                     "month": number
@@ -5297,14 +5283,10 @@ declare module "gi://Gtk?version=4.0" {
                     "year": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "date": GLib.DateTime
-                    "day": number
-                    "month": number
-                    "show-day-names": boolean
-                    "show-heading": boolean
-                    "show-week-numbers": boolean
-                    "year": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -5576,10 +5558,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutAction.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutAction.ReadableProperties {
+                interface ReadWriteProperties extends ShortcutAction.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutAction.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutAction.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutAction.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutAction.ConstructOnlyProperties {
@@ -5656,16 +5641,16 @@ declare module "gi://Gtk?version=4.0" {
                     "remove-editable"(renderer: CellRenderer, editable: CellEditable): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                     "edit-widget": CellEditable | null
                     "edited-cell": CellRenderer | null
                     "focus-cell": CellRenderer | null
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
-                    "edit-widget": CellEditable | null
-                    "edited-cell": CellRenderer | null
-                    "focus-cell": CellRenderer | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -6686,12 +6671,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends CellArea.SignalSignatures, Buildable.SignalSignatures, CellLayout.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellArea.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends CellArea.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "spacing": number
                 }
 
-                interface WritableProperties extends CellArea.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Orientable.WritableProperties {
-                    "spacing": number
+                interface ReadableProperties extends ReadWriteProperties, CellArea.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellArea.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellArea.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -6791,19 +6778,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "area": CellArea
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "minimum-height": number
                     "minimum-width": number
                     "natural-height": number
                     "natural-width": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "minimum-height": number
-                    "minimum-width": number
-                    "natural-height": number
-                    "natural-width": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7133,7 +7118,8 @@ declare module "gi://Gtk?version=4.0" {
                     "editing-started"(editable: CellEditable, path: string): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
+                    "cell-background": string
                     "cell-background-rgba": Gdk.RGBA
                     "cell-background-set": boolean
                     "editing": boolean
@@ -7150,22 +7136,10 @@ declare module "gi://Gtk?version=4.0" {
                     "ypad": number
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties {
-                    "cell-background": string
-                    "cell-background-rgba": Gdk.RGBA
-                    "cell-background-set": boolean
-                    "editing": boolean
-                    "height": number
-                    "is-expanded": boolean
-                    "is-expander": boolean
-                    "mode": CellRendererMode
-                    "sensitive": boolean
-                    "visible": boolean
-                    "width": number
-                    "xalign": number
-                    "xpad": number
-                    "yalign": number
-                    "ypad": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -7639,18 +7613,17 @@ declare module "gi://Gtk?version=4.0" {
                     "accel-edited"(path_string: string, accel_key: number, accel_mods: Gdk.ModifierType, hardware_keycode: number): void
                 }
 
-                interface ReadableProperties extends CellRendererText.ReadableProperties {
+                interface ReadWriteProperties extends CellRendererText.ReadWriteProperties {
                     "accel-key": number
                     "accel-mode": CellRendererAccelMode
                     "accel-mods": Gdk.ModifierType
                     "keycode": number
                 }
 
-                interface WritableProperties extends CellRendererText.WritableProperties {
-                    "accel-key": number
-                    "accel-mode": CellRendererAccelMode
-                    "accel-mods": Gdk.ModifierType
-                    "keycode": number
+                interface ReadableProperties extends ReadWriteProperties, CellRendererText.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRendererText.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRendererText.ConstructOnlyProperties {
@@ -7739,16 +7712,16 @@ declare module "gi://Gtk?version=4.0" {
                     "changed"(path_string: string, new_iter: TreeIter): void
                 }
 
-                interface ReadableProperties extends CellRendererText.ReadableProperties {
+                interface ReadWriteProperties extends CellRendererText.ReadWriteProperties {
                     "has-entry": boolean
                     "model": TreeModel
                     "text-column": number
                 }
 
-                interface WritableProperties extends CellRendererText.WritableProperties {
-                    "has-entry": boolean
-                    "model": TreeModel
-                    "text-column": number
+                interface ReadableProperties extends ReadWriteProperties, CellRendererText.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRendererText.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRendererText.ConstructOnlyProperties {
@@ -7832,16 +7805,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends CellRenderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties {
-                    "gicon": Gio.Icon
-                    "icon-name": string
-                    "icon-size": IconSize
-                    "pixbuf-expander-closed": GdkPixbuf.Pixbuf
-                    "pixbuf-expander-open": GdkPixbuf.Pixbuf
-                    "texture": Gdk.Texture
-                }
-
-                interface WritableProperties extends CellRenderer.WritableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties {
                     "gicon": Gio.Icon
                     "icon-name": string
                     "icon-size": IconSize
@@ -7849,6 +7813,12 @@ declare module "gi://Gtk?version=4.0" {
                     "pixbuf-expander-closed": GdkPixbuf.Pixbuf
                     "pixbuf-expander-open": GdkPixbuf.Pixbuf
                     "texture": Gdk.Texture
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
@@ -7880,19 +7850,15 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get iconSize(): IconSize
                 set iconSize(value: IconSize)
-                /**
-                 */
+                
                 set pixbuf(value: GdkPixbuf.Pixbuf)
-                /**
-                 */
+                
                 get pixbufExpanderClosed(): GdkPixbuf.Pixbuf
                 set pixbufExpanderClosed(value: GdkPixbuf.Pixbuf)
-                /**
-                 */
+                
                 get pixbufExpanderOpen(): GdkPixbuf.Pixbuf
                 set pixbufExpanderOpen(value: GdkPixbuf.Pixbuf)
-                /**
-                 */
+                
                 get texture(): Gdk.Texture
                 set texture(value: Gdk.Texture)
             }
@@ -7942,7 +7908,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends CellRenderer.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "inverted": boolean
                     "pulse": number
                     "text": string
@@ -7951,13 +7917,10 @@ declare module "gi://Gtk?version=4.0" {
                     "value": number
                 }
 
-                interface WritableProperties extends CellRenderer.WritableProperties, Orientable.WritableProperties {
-                    "inverted": boolean
-                    "pulse": number
-                    "text": string
-                    "text-xalign": number
-                    "text-yalign": number
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -8053,16 +8016,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends CellRendererText.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellRendererText.ReadableProperties {
+                interface ReadWriteProperties extends CellRendererText.ReadWriteProperties {
                     "adjustment": Adjustment
                     "climb-rate": number
                     "digits": number
                 }
 
-                interface WritableProperties extends CellRendererText.WritableProperties {
-                    "adjustment": Adjustment
-                    "climb-rate": number
-                    "digits": number
+                interface ReadableProperties extends ReadWriteProperties, CellRendererText.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRendererText.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRendererText.ConstructOnlyProperties {
@@ -8132,16 +8095,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends CellRenderer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties {
                     "active": boolean
                     "pulse": number
                     "size": IconSize
                 }
 
-                interface WritableProperties extends CellRenderer.WritableProperties {
-                    "active": boolean
-                    "pulse": number
-                    "size": IconSize
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
@@ -8224,53 +8187,7 @@ declare module "gi://Gtk?version=4.0" {
                     "edited"(path: string, new_text: string): void
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties {
-                    "align-set": boolean
-                    "alignment": Pango.Alignment
-                    "attributes": Pango.AttrList
-                    "background-rgba": Gdk.RGBA
-                    "background-set": boolean
-                    "editable": boolean
-                    "editable-set": boolean
-                    "ellipsize": Pango.EllipsizeMode
-                    "ellipsize-set": boolean
-                    "family": string
-                    "family-set": boolean
-                    "font": string
-                    "font-desc": Pango.FontDescription
-                    "foreground-rgba": Gdk.RGBA
-                    "foreground-set": boolean
-                    "language": string
-                    "language-set": boolean
-                    "max-width-chars": number
-                    "placeholder-text": string
-                    "rise": number
-                    "rise-set": boolean
-                    "scale": number
-                    "scale-set": boolean
-                    "single-paragraph-mode": boolean
-                    "size": number
-                    "size-points": number
-                    "size-set": boolean
-                    "stretch": Pango.Stretch
-                    "stretch-set": boolean
-                    "strikethrough": boolean
-                    "strikethrough-set": boolean
-                    "style": Pango.Style
-                    "style-set": boolean
-                    "text": string
-                    "underline": Pango.Underline
-                    "underline-set": boolean
-                    "variant": Pango.Variant
-                    "variant-set": boolean
-                    "weight": number
-                    "weight-set": boolean
-                    "width-chars": number
-                    "wrap-mode": Pango.WrapMode
-                    "wrap-width": number
-                }
-
-                interface WritableProperties extends CellRenderer.WritableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties {
                     "align-set": boolean
                     "alignment": Pango.Alignment
                     "attributes": Pango.AttrList
@@ -8319,6 +8236,12 @@ declare module "gi://Gtk?version=4.0" {
                     "wrap-width": number
                 }
 
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
+                }
+
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
                 }
             }
@@ -8343,8 +8266,7 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get alignment(): Pango.Alignment
                 set alignment(value: Pango.Alignment)
-                /**
-                 */
+                
                 get attributes(): Pango.AttrList
                 set attributes(value: Pango.AttrList)
                 /**
@@ -8400,8 +8322,7 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get font(): string
                 set font(value: string)
-                /**
-                 */
+                
                 get fontDesc(): Pango.FontDescription
                 set fontDesc(value: Pango.FontDescription)
                 /**
@@ -8648,18 +8569,17 @@ declare module "gi://Gtk?version=4.0" {
                     "toggled"(path: string): void
                 }
 
-                interface ReadableProperties extends CellRenderer.ReadableProperties {
+                interface ReadWriteProperties extends CellRenderer.ReadWriteProperties {
                     "activatable": boolean
                     "active": boolean
                     "inconsistent": boolean
                     "radio": boolean
                 }
 
-                interface WritableProperties extends CellRenderer.WritableProperties {
-                    "activatable": boolean
-                    "active": boolean
-                    "inconsistent": boolean
-                    "radio": boolean
+                interface ReadableProperties extends ReadWriteProperties, CellRenderer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
@@ -8774,18 +8694,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, CellLayout.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
-                    "cell-area": CellArea
-                    "cell-area-context": CellAreaContext
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "draw-sensitive": boolean
                     "fit-model": boolean
                     "model": TreeModel | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "draw-sensitive": boolean
-                    "fit-model": boolean
-                    "model": TreeModel | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -9005,7 +8923,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "baseline-position": BaselinePosition
                     "center-widget": Widget | null
                     "end-widget": Widget | null
@@ -9013,12 +8931,10 @@ declare module "gi://Gtk?version=4.0" {
                     "start-widget": Widget | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "baseline-position": BaselinePosition
-                    "center-widget": Widget | null
-                    "end-widget": Widget | null
-                    "shrink-center-last": boolean
-                    "start-widget": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -9212,12 +9128,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutManager.ReadableProperties {
+                interface ReadWriteProperties extends LayoutManager.ReadWriteProperties {
                     "shrink-center-last": boolean
                 }
 
-                interface WritableProperties extends LayoutManager.WritableProperties {
-                    "shrink-center-last": boolean
+                interface ReadableProperties extends ReadWriteProperties, LayoutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutManager.ConstructOnlyProperties {
@@ -9369,21 +9287,19 @@ declare module "gi://Gtk?version=4.0" {
                     "toggled"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
-                    "active": boolean
-                    "child": Widget | null
-                    "inconsistent": boolean
-                    "label": string | null
-                    "use-underline": boolean
-                }
-
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Actionable.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "active": boolean
                     "child": Widget | null
                     "group": CheckButton
                     "inconsistent": boolean
                     "label": string | null
                     "use-underline": boolean
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -9524,11 +9440,9 @@ declare module "gi://Gtk?version=4.0" {
                  * @param setting the new value to set
                  */
                 set_use_underline(setting: boolean): void
-                /**
-                 */
+                
                 vfunc_activate(): void
-                /**
-                 */
+                
                 vfunc_toggled(): void
             }
 
@@ -9636,10 +9550,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Expression.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Expression.ReadableProperties {
+                interface ReadWriteProperties extends Expression.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Expression.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Expression.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Expression.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Expression.ConstructOnlyProperties {
@@ -9703,16 +9620,16 @@ declare module "gi://Gtk?version=4.0" {
                     "color-set"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ColorChooser.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "modal": boolean
                     "show-editor": boolean
                     "title": string
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties, ConstraintTarget.WritableProperties {
-                    "modal": boolean
-                    "show-editor": boolean
-                    "title": string
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ColorChooser.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -9830,12 +9747,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ColorChooser.SignalSignatures, ConstraintTarget.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures, ShortcutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ColorChooser.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "show-editor": boolean
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
-                    "show-editor": boolean
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ColorChooser.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -9906,12 +9825,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ColorChooser.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ColorChooser.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "show-editor": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties, ConstraintTarget.WritableProperties {
-                    "show-editor": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ColorChooser.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ColorChooser.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ColorChooser.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -9989,16 +9910,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "modal": boolean
                     "title": string
                     "with-alpha": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "modal": boolean
-                    "title": string
-                    "with-alpha": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -10142,14 +10063,15 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "dialog": ColorDialog | null
                     "rgba": Gdk.RGBA
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "dialog": ColorDialog | null
-                    "rgba": Gdk.RGBA
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -10273,7 +10195,7 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(position: number): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "columns": Gio.ListModel
                     "enable-rubberband": boolean
                     "header-factory": ListItemFactory | null
@@ -10287,18 +10209,10 @@ declare module "gi://Gtk?version=4.0" {
                     "tab-behavior": ListTabBehavior
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
-                    "columns": Gio.ListModel
-                    "enable-rubberband": boolean
-                    "header-factory": ListItemFactory | null
-                    "model": SelectionModel | null
-                    "reorderable": boolean
-                    "row-factory": ListItemFactory | null
-                    "show-column-separators": boolean
-                    "show-row-separators": boolean
-                    "single-click-activate": boolean
-                    "sorter": Sorter | null
-                    "tab-behavior": ListTabBehavior
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -10668,7 +10582,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ListItem.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ListItem.ReadableProperties {
+                interface ReadWriteProperties extends ListItem.ReadWriteProperties {
                     "child": Widget | null
                     "focusable": boolean
                     "item": GObject.Object | null
@@ -10676,12 +10590,10 @@ declare module "gi://Gtk?version=4.0" {
                     "selected": boolean
                 }
 
-                interface WritableProperties extends ListItem.WritableProperties {
-                    "child": Widget | null
-                    "focusable": boolean
-                    "item": GObject.Object | null
-                    "position": number
-                    "selected": boolean
+                interface ReadableProperties extends ReadWriteProperties, ListItem.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ListItem.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ListItem.ConstructOnlyProperties {
@@ -10825,7 +10737,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "column-view": ColumnView | null
                     "expand": boolean
                     "factory": ListItemFactory | null
@@ -10838,17 +10750,10 @@ declare module "gi://Gtk?version=4.0" {
                     "visible": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "column-view": ColumnView | null
-                    "expand": boolean
-                    "factory": ListItemFactory | null
-                    "fixed-width": number
-                    "header-menu": Gio.MenuModel | null
-                    "id": string | null
-                    "resizable": boolean
-                    "sorter": Sorter | null
-                    "title": string | null
-                    "visible": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -11104,7 +11009,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accessible-description": string
                     "accessible-label": string
                     "activatable": boolean
@@ -11115,15 +11020,10 @@ declare module "gi://Gtk?version=4.0" {
                     "selected": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accessible-description": string
-                    "accessible-label": string
-                    "activatable": boolean
-                    "focusable": boolean
-                    "item": GObject.Object | null
-                    "position": number
-                    "selectable": boolean
-                    "selected": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -11332,14 +11232,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Sorter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Sorter.ReadableProperties {
+                interface ReadWriteProperties extends Sorter.ReadWriteProperties {
                     "primary-sort-column": ColumnViewColumn | null
                     "primary-sort-order": SortType
                 }
 
-                interface WritableProperties extends Sorter.WritableProperties {
-                    "primary-sort-column": ColumnViewColumn | null
-                    "primary-sort-order": SortType
+                interface ReadableProperties extends ReadWriteProperties, Sorter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Sorter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Sorter.ConstructOnlyProperties {
@@ -11544,13 +11445,12 @@ declare module "gi://Gtk?version=4.0" {
                     "popup"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, CellLayout.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "active": number
                     "active-id": string | null
                     "button-sensitivity": SensitivityType
                     "child": Widget | null
                     "entry-text-column": number
-                    "has-entry": boolean
                     "has-frame": boolean
                     "id-column": number
                     "model": TreeModel | null
@@ -11558,17 +11458,10 @@ declare module "gi://Gtk?version=4.0" {
                     "popup-shown": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties, ConstraintTarget.WritableProperties {
-                    "active": number
-                    "active-id": string | null
-                    "button-sensitivity": SensitivityType
-                    "child": Widget | null
-                    "entry-text-column": number
-                    "has-frame": boolean
-                    "id-column": number
-                    "model": TreeModel | null
-                    "popup-fixed-width": boolean
-                    "popup-shown": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -11870,8 +11763,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @param func a `GtkTreeViewRowSeparatorFunc`
                  */
                 set_row_separator_func(func: TreeViewRowSeparatorFunc | null): void
-                /**
-                 */
+                
                 vfunc_activate(): void
                 /**
                  * Signal is emitted when the active item is changed.
@@ -11999,10 +11891,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ComboBox.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, CellEditable.SignalSignatures, CellLayout.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ComboBox.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends ComboBox.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, CellLayout.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ComboBox.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties, ConstraintTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ComboBox.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ComboBox.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ComboBox.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -12194,10 +12089,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Expression.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Expression.ReadableProperties {
+                interface ReadWriteProperties extends Expression.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Expression.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Expression.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Expression.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Expression.ConstructOnlyProperties {
@@ -12241,18 +12139,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "constant": number
-                    "multiplier": number
-                    "relation": ConstraintRelation
-                    "source": ConstraintTarget | null
-                    "source-attribute": ConstraintAttribute
-                    "strength": number
-                    "target": ConstraintTarget | null
-                    "target-attribute": ConstraintAttribute
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -12459,7 +12352,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "max-height": number
                     "max-width": number
                     "min-height": number
@@ -12470,15 +12363,10 @@ declare module "gi://Gtk?version=4.0" {
                     "strength": ConstraintStrength
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, ConstraintTarget.WritableProperties {
-                    "max-height": number
-                    "max-width": number
-                    "min-height": number
-                    "min-width": number
-                    "name": string | null
-                    "nat-height": number
-                    "nat-width": number
-                    "strength": ConstraintStrength
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -12640,10 +12528,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutManager.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutManager.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends LayoutManager.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends LayoutManager.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, LayoutManager.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutManager.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutManager.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -12999,10 +12890,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutChild.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutChild.ReadableProperties {
+                interface ReadWriteProperties extends LayoutChild.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends LayoutChild.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, LayoutChild.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutChild.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutChild.ConstructOnlyProperties {
@@ -13059,16 +12953,16 @@ declare module "gi://Gtk?version=4.0" {
                     "parsing-error"(section: CssSection, error: GLib.Error): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, StyleProvider.ReadWriteProperties {
                     "prefers-color-scheme": InterfaceColorScheme
                     "prefers-contrast": InterfaceContrast
                     "prefers-reduced-motion": ReducedMotion
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, StyleProvider.WritableProperties {
-                    "prefers-color-scheme": InterfaceColorScheme
-                    "prefers-contrast": InterfaceContrast
-                    "prefers-reduced-motion": ReducedMotion
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, StyleProvider.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, StyleProvider.ConstructOnlyProperties {
@@ -13270,10 +13164,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Filter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Filter.ReadableProperties {
+                interface ReadWriteProperties extends Filter.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Filter.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Filter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Filter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Filter.ConstructOnlyProperties {
@@ -13330,10 +13227,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutManager.ReadableProperties {
+                interface ReadWriteProperties extends LayoutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends LayoutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, LayoutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutManager.ConstructOnlyProperties {
@@ -13383,10 +13283,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Sorter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Sorter.ReadableProperties {
+                interface ReadWriteProperties extends Sorter.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Sorter.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Sorter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Sorter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Sorter.ConstructOnlyProperties {
@@ -13461,11 +13364,13 @@ declare module "gi://Gtk?version=4.0" {
                     "response"(response_id: number): void
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
-                    "use-header-bar": number
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -13754,7 +13659,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "attributes": string | null
                     "error": GLib.Error | null
                     "file": Gio.File | null
@@ -13765,15 +13670,10 @@ declare module "gi://Gtk?version=4.0" {
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "attributes": string | null
-                    "error": GLib.Error | null
-                    "file": Gio.File | null
-                    "io-priority": number
-                    "item-type": GObject.GType
-                    "loading": boolean
-                    "monitored": boolean
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -13970,12 +13870,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties {
                     "child": Widget | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties {
-                    "child": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties {
@@ -14110,14 +14012,15 @@ declare module "gi://Gtk?version=4.0" {
                     "prepare"(x: number, y: number): Gdk.ContentProvider | null
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                     "actions": Gdk.DragAction
                     "content": Gdk.ContentProvider | null
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
-                    "actions": Gdk.DragAction
-                    "content": Gdk.ContentProvider | null
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -14316,14 +14219,15 @@ declare module "gi://Gtk?version=4.0" {
                     "resize"(width: number, height: number): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "content-height": number
                     "content-width": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "content-height": number
-                    "content-width": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -14526,16 +14430,16 @@ declare module "gi://Gtk?version=4.0" {
                     "motion"(x: number, y: number): void
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                     "contains-pointer": boolean
                     "drop": Gdk.Drop | null
                     "is-pointer": boolean
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
-                    "contains-pointer": boolean
-                    "drop": Gdk.Drop | null
-                    "is-pointer": boolean
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -14647,7 +14551,7 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "enable-search": boolean
                     "expression": Expression | null
                     "factory": ListItemFactory | null
@@ -14660,17 +14564,10 @@ declare module "gi://Gtk?version=4.0" {
                     "show-arrow": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "enable-search": boolean
-                    "expression": Expression | null
-                    "factory": ListItemFactory | null
-                    "header-factory": ListItemFactory | null
-                    "list-factory": ListItemFactory | null
-                    "model": Gio.ListModel | null
-                    "search-match-mode": StringFilterMatchMode
-                    "selected": number
-                    "selected-item": GObject.Object | null
-                    "show-arrow": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -15021,21 +14918,18 @@ declare module "gi://Gtk?version=4.0" {
                     "motion"(x: number, y: number): Gdk.DragAction
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                     "actions": Gdk.DragAction
                     "current-drop": Gdk.Drop | null
                     "drop": Gdk.Drop | null
-                    "formats": Gdk.ContentFormats | null
                     "preload": boolean
                     "value": GObject.Value | null
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
-                    "actions": Gdk.DragAction
-                    "current-drop": Gdk.Drop | null
-                    "drop": Gdk.Drop | null
-                    "preload": boolean
-                    "value": GObject.Value | null
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -15347,14 +15241,15 @@ declare module "gi://Gtk?version=4.0" {
                     "drop"(drop: Gdk.Drop, x: number, y: number): boolean
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                     "actions": Gdk.DragAction
                     "formats": Gdk.ContentFormats | null
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
-                    "actions": Gdk.DragAction
-                    "formats": Gdk.ContentFormats | null
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -15468,12 +15363,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Editable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Editable.ReadWriteProperties {
                     "editing": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
-                    "editing": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Editable.ConstructOnlyProperties {
@@ -15585,10 +15482,13 @@ declare module "gi://Gtk?version=4.0" {
                     "emoji-picked"(text: string): void
                 }
 
-                interface ReadableProperties extends Popover.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Popover.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Popover.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, ShortcutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Popover.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Popover.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Popover.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -15686,7 +15586,7 @@ declare module "gi://Gtk?version=4.0" {
                     "icon-release"(icon_pos: EntryIconPosition): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Editable.ReadWriteProperties {
                     "activates-default": boolean
                     "attributes": Pango.AttrList | null
                     "buffer": EntryBuffer
@@ -15730,48 +15630,10 @@ declare module "gi://Gtk?version=4.0" {
                     "visibility": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
-                    "activates-default": boolean
-                    "attributes": Pango.AttrList | null
-                    "buffer": EntryBuffer
-                    "completion": EntryCompletion | null
-                    "enable-emoji-completion": boolean
-                    "extra-menu": Gio.MenuModel | null
-                    "has-frame": boolean
-                    "im-module": string
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
-                    "invisible-char": number
-                    "invisible-char-set": boolean
-                    "max-length": number
-                    "menu-entry-icon-primary-text": string
-                    "menu-entry-icon-secondary-text": string
-                    "overwrite-mode": boolean
-                    "placeholder-text": string | null
-                    "primary-icon-activatable": boolean
-                    "primary-icon-gicon": Gio.Icon
-                    "primary-icon-name": string
-                    "primary-icon-paintable": Gdk.Paintable
-                    "primary-icon-sensitive": boolean
-                    "primary-icon-storage-type": ImageType
-                    "primary-icon-tooltip-markup": string
-                    "primary-icon-tooltip-text": string
-                    "progress-fraction": number
-                    "progress-pulse-step": number
-                    "scroll-offset": number
-                    "secondary-icon-activatable": boolean
-                    "secondary-icon-gicon": Gio.Icon
-                    "secondary-icon-name": string
-                    "secondary-icon-paintable": Gdk.Paintable
-                    "secondary-icon-sensitive": boolean
-                    "secondary-icon-storage-type": ImageType
-                    "secondary-icon-tooltip-markup": string
-                    "secondary-icon-tooltip-text": string
-                    "show-emoji-icon": boolean
-                    "tabs": Pango.TabArray | null
-                    "text-length": number
-                    "truncate-multiline": boolean
-                    "visibility": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Editable.ConstructOnlyProperties {
@@ -16754,16 +16616,16 @@ declare module "gi://Gtk?version=4.0" {
                     "inserted-text"(position: number, chars: string, n_chars: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "length": number
                     "max-length": number
                     "text": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "length": number
-                    "max-length": number
-                    "text": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -17024,8 +16886,7 @@ declare module "gi://Gtk?version=4.0" {
                     "no-matches"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
-                    "cell-area": CellArea
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                     "inline-completion": boolean
                     "inline-selection": boolean
                     "minimum-key-length": number
@@ -17036,15 +16897,10 @@ declare module "gi://Gtk?version=4.0" {
                     "text-column": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
-                    "inline-completion": boolean
-                    "inline-selection": boolean
-                    "minimum-key-length": number
-                    "model": TreeModel | null
-                    "popup-completion": boolean
-                    "popup-set-width": boolean
-                    "popup-single-match": boolean
-                    "text-column": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -17376,15 +17232,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
-                    "enum-type": GObject.GType
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "item-type": GObject.GType
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -17473,16 +17329,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "name": string
                     "nick": string
                     "value": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "name": string
-                    "nick": string
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -17552,18 +17408,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "name": string | null
                     "propagation-limit": PropagationLimit
                     "propagation-phase": PropagationPhase
                     "widget": Widget | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "name": string | null
-                    "propagation-limit": PropagationLimit
-                    "propagation-phase": PropagationPhase
-                    "widget": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -17738,14 +17593,15 @@ declare module "gi://Gtk?version=4.0" {
                     "leave"(): void
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                     "contains-focus": boolean
                     "is-focus": boolean
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
-                    "contains-focus": boolean
-                    "is-focus": boolean
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -17855,10 +17711,13 @@ declare module "gi://Gtk?version=4.0" {
                     "modifiers"(state: Gdk.ModifierType): boolean
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -17930,10 +17789,13 @@ declare module "gi://Gtk?version=4.0" {
                     "event"(event: Gdk.Event): boolean
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -17990,14 +17852,15 @@ declare module "gi://Gtk?version=4.0" {
                     "motion"(x: number, y: number): void
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                     "contains-pointer": boolean
                     "is-pointer": boolean
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
-                    "contains-pointer": boolean
-                    "is-pointer": boolean
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -18111,12 +17974,14 @@ declare module "gi://Gtk?version=4.0" {
                     "scroll-end"(): void
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                     "flags": EventControllerScrollFlags
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
-                    "flags": EventControllerScrollFlags
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -18213,10 +18078,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends MultiFilter.SignalSignatures, Gio.ListModel.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MultiFilter.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends MultiFilter.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends MultiFilter.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, MultiFilter.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MultiFilter.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MultiFilter.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -18266,7 +18134,7 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                     "expanded": boolean
                     "label": string | null
@@ -18276,14 +18144,10 @@ declare module "gi://Gtk?version=4.0" {
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
-                    "expanded": boolean
-                    "label": string | null
-                    "label-widget": Widget | null
-                    "resize-toplevel": boolean
-                    "use-markup": boolean
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -18552,10 +18416,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -18849,10 +18716,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, FileChooser.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures, ShortcutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FileChooser.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, FileChooser.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FileChooser.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FileChooser.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FileChooser.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, FileChooser.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -19057,14 +18927,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends NativeDialog.SignalSignatures, FileChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends NativeDialog.ReadableProperties, FileChooser.ReadableProperties {
+                interface ReadWriteProperties extends NativeDialog.ReadWriteProperties, FileChooser.ReadWriteProperties {
                     "accept-label": string | null
                     "cancel-label": string | null
                 }
 
-                interface WritableProperties extends NativeDialog.WritableProperties, FileChooser.WritableProperties {
-                    "accept-label": string | null
-                    "cancel-label": string | null
+                interface ReadableProperties extends ReadWriteProperties, NativeDialog.ReadableProperties, FileChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, NativeDialog.WritableProperties, FileChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends NativeDialog.ConstructOnlyProperties, FileChooser.ConstructOnlyProperties {
@@ -19452,16 +19323,16 @@ declare module "gi://Gtk?version=4.0" {
                     "up-folder"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FileChooser.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, FileChooser.ReadWriteProperties {
                     "search-mode": boolean
                     "show-time": boolean
                     "subtitle": string
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FileChooser.WritableProperties {
-                    "search-mode": boolean
-                    "show-time": boolean
-                    "subtitle": string
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FileChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FileChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, FileChooser.ConstructOnlyProperties {
@@ -19553,7 +19424,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accept-label": string | null
                     "default-filter": FileFilter | null
                     "filters": Gio.ListModel | null
@@ -19564,15 +19435,10 @@ declare module "gi://Gtk?version=4.0" {
                     "title": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accept-label": string | null
-                    "default-filter": FileFilter | null
-                    "filters": Gio.ListModel | null
-                    "initial-file": Gio.File | null
-                    "initial-folder": Gio.File | null
-                    "initial-name": string | null
-                    "modal": boolean
-                    "title": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -20039,12 +19905,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Filter.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Filter.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Filter.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "name": string | null
                 }
 
-                interface WritableProperties extends Filter.WritableProperties, Buildable.WritableProperties {
-                    "name": string | null
+                interface ReadableProperties extends ReadWriteProperties, Filter.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Filter.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Filter.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -20256,16 +20124,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "always-ask": boolean
                     "file": Gio.File | null
                     "writable": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "always-ask": boolean
-                    "file": Gio.File | null
-                    "writable": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -20429,10 +20297,13 @@ declare module "gi://Gtk?version=4.0" {
                     "changed"(change: FilterChange): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -20535,7 +20406,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, SectionModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, SectionModel.ReadWriteProperties {
                     "filter": Filter | null
                     "incremental": boolean
                     "item-type": GObject.GType
@@ -20545,14 +20416,10 @@ declare module "gi://Gtk?version=4.0" {
                     "watch-items": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
-                    "filter": Filter | null
-                    "incremental": boolean
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel | null
-                    "n-items": number
-                    "pending": number
-                    "watch-items": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, SectionModel.ConstructOnlyProperties {
@@ -20736,10 +20603,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -20859,10 +20729,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutManager.ReadableProperties {
+                interface ReadWriteProperties extends LayoutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends LayoutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, LayoutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutManager.ConstructOnlyProperties {
@@ -20929,12 +20802,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutChild.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutChild.ReadableProperties {
+                interface ReadWriteProperties extends LayoutChild.ReadWriteProperties {
                     "transform": Gsk.Transform | null
                 }
 
-                interface WritableProperties extends LayoutChild.WritableProperties {
-                    "transform": Gsk.Transform | null
+                interface ReadableProperties extends ReadWriteProperties, LayoutChild.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutChild.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutChild.ConstructOnlyProperties {
@@ -20982,16 +20857,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, SectionModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, SectionModel.ReadWriteProperties {
                     "item-type": GObject.GType
                     "model": Gio.ListModel | null
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel | null
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, SectionModel.ConstructOnlyProperties {
@@ -21136,7 +21011,7 @@ declare module "gi://Gtk?version=4.0" {
                     "unselect-all"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "accept-unpaired-release": boolean
                     "activate-on-single-click": boolean
                     "column-spacing": number
@@ -21147,15 +21022,10 @@ declare module "gi://Gtk?version=4.0" {
                     "selection-mode": SelectionMode
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "accept-unpaired-release": boolean
-                    "activate-on-single-click": boolean
-                    "column-spacing": number
-                    "homogeneous": boolean
-                    "max-children-per-line": number
-                    "min-children-per-line": number
-                    "row-spacing": number
-                    "selection-mode": SelectionMode
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -21593,12 +21463,14 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -21658,8 +21530,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @param child the child widget
                  */
                 set_child(child: Widget | null): void
-                /**
-                 */
+                
                 vfunc_activate(): void
             }
 
@@ -21711,18 +21582,17 @@ declare module "gi://Gtk?version=4.0" {
                     "font-set"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FontChooser.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, FontChooser.ReadWriteProperties {
                     "modal": boolean
                     "title": string
                     "use-font": boolean
                     "use-size": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FontChooser.WritableProperties {
-                    "modal": boolean
-                    "title": string
-                    "use-font": boolean
-                    "use-size": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FontChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FontChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, FontChooser.ConstructOnlyProperties {
@@ -21862,10 +21732,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, FontChooser.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures, ShortcutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FontChooser.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, FontChooser.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FontChooser.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FontChooser.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FontChooser.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, FontChooser.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -21928,12 +21801,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, FontChooser.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FontChooser.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, FontChooser.ReadWriteProperties {
                     "tweak-action": Gio.Action
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FontChooser.WritableProperties {
-                    "tweak-action": Gio.Action
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, FontChooser.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, FontChooser.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, FontChooser.ConstructOnlyProperties {
@@ -21999,7 +21874,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "filter": Filter | null
                     "font-map": Pango.FontMap | null
                     "language": Pango.Language | null
@@ -22007,12 +21882,10 @@ declare module "gi://Gtk?version=4.0" {
                     "title": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "filter": Filter | null
-                    "font-map": Pango.FontMap | null
-                    "language": Pango.Language | null
-                    "modal": boolean
-                    "title": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -22276,7 +22149,7 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "dialog": FontDialog | null
                     "font-desc": Pango.FontDescription | null
                     "font-features": string | null
@@ -22286,14 +22159,10 @@ declare module "gi://Gtk?version=4.0" {
                     "use-size": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "dialog": FontDialog | null
-                    "font-desc": Pango.FontDescription | null
-                    "font-features": string | null
-                    "language": Pango.Language | null
-                    "level": FontLevel
-                    "use-font": boolean
-                    "use-size": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -22521,18 +22390,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                     "label": string | null
                     "label-widget": Widget | null
                     "label-xalign": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
-                    "label": string | null
-                    "label-widget": Widget | null
-                    "label-xalign": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -22729,7 +22597,7 @@ declare module "gi://Gtk?version=4.0" {
                     "resize"(width: number, height: number): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "allowed-apis": Gdk.GLAPI
                     "api": Gdk.GLAPI
                     "auto-render": boolean
@@ -22739,14 +22607,10 @@ declare module "gi://Gtk?version=4.0" {
                     "use-es": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "allowed-apis": Gdk.GLAPI
-                    "api": Gdk.GLAPI
-                    "auto-render": boolean
-                    "context": Gdk.GLContext | null
-                    "has-depth-buffer": boolean
-                    "has-stencil-buffer": boolean
-                    "use-es": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -23190,11 +23054,13 @@ declare module "gi://Gtk?version=4.0" {
                     "update"(sequence: Gdk.EventSequence | null): void
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
-                    "n-points": number
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -23584,10 +23450,13 @@ declare module "gi://Gtk?version=4.0" {
                     "unpaired-release"(x: number, y: number, button: number, sequence: Gdk.EventSequence | null): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -23650,10 +23519,13 @@ declare module "gi://Gtk?version=4.0" {
                     "drag-update"(offset_x: number, offset_y: number): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -23729,12 +23601,14 @@ declare module "gi://Gtk?version=4.0" {
                     "pressed"(x: number, y: number): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                     "delay-factor": number
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
-                    "delay-factor": number
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -23811,12 +23685,14 @@ declare module "gi://Gtk?version=4.0" {
                     "pan"(direction: PanDirection, offset: number): void
                 }
 
-                interface ReadableProperties extends GestureDrag.ReadableProperties {
+                interface ReadWriteProperties extends GestureDrag.ReadWriteProperties {
                     "orientation": Orientation
                 }
 
-                interface WritableProperties extends GestureDrag.WritableProperties {
-                    "orientation": Orientation
+                interface ReadableProperties extends ReadWriteProperties, GestureDrag.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureDrag.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureDrag.ConstructOnlyProperties {
@@ -23890,10 +23766,13 @@ declare module "gi://Gtk?version=4.0" {
                     "angle-changed"(angle: number, angle_delta: number): void
                 }
 
-                interface ReadableProperties extends Gesture.ReadableProperties {
+                interface ReadWriteProperties extends Gesture.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gesture.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gesture.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gesture.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gesture.ConstructOnlyProperties {
@@ -23944,16 +23823,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Gesture.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gesture.ReadableProperties {
+                interface ReadWriteProperties extends Gesture.ReadWriteProperties {
                     "button": number
                     "exclusive": boolean
                     "touch-only": boolean
                 }
 
-                interface WritableProperties extends Gesture.WritableProperties {
-                    "button": number
-                    "exclusive": boolean
-                    "touch-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, Gesture.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gesture.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gesture.ConstructOnlyProperties {
@@ -24102,12 +23981,14 @@ declare module "gi://Gtk?version=4.0" {
                     "up"(x: number, y: number): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                     "stylus-only": boolean
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
-                    "stylus-only": boolean
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -24230,10 +24111,13 @@ declare module "gi://Gtk?version=4.0" {
                     "swipe"(velocity_x: number, velocity_y: number): void
                 }
 
-                interface ReadableProperties extends GestureSingle.ReadableProperties {
+                interface ReadWriteProperties extends GestureSingle.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GestureSingle.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GestureSingle.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GestureSingle.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GestureSingle.ConstructOnlyProperties {
@@ -24296,10 +24180,13 @@ declare module "gi://Gtk?version=4.0" {
                     "scale-changed"(scale: number): void
                 }
 
-                interface ReadableProperties extends Gesture.ReadableProperties {
+                interface ReadWriteProperties extends Gesture.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gesture.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gesture.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gesture.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gesture.ConstructOnlyProperties {
@@ -24352,16 +24239,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "black-background": boolean
                     "child": Widget | null
                     "enabled": GraphicsOffloadEnabled
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "black-background": boolean
-                    "child": Widget | null
-                    "enabled": GraphicsOffloadEnabled
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -24508,7 +24395,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "baseline-row": number
                     "column-homogeneous": boolean
                     "column-spacing": number
@@ -24516,12 +24403,10 @@ declare module "gi://Gtk?version=4.0" {
                     "row-spacing": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "baseline-row": number
-                    "column-homogeneous": boolean
-                    "column-spacing": number
-                    "row-homogeneous": boolean
-                    "row-spacing": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -24846,7 +24731,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutManager.ReadableProperties {
+                interface ReadWriteProperties extends LayoutManager.ReadWriteProperties {
                     "baseline-row": number
                     "column-homogeneous": boolean
                     "column-spacing": number
@@ -24854,12 +24739,10 @@ declare module "gi://Gtk?version=4.0" {
                     "row-spacing": number
                 }
 
-                interface WritableProperties extends LayoutManager.WritableProperties {
-                    "baseline-row": number
-                    "column-homogeneous": boolean
-                    "column-spacing": number
-                    "row-homogeneous": boolean
-                    "row-spacing": number
+                interface ReadableProperties extends ReadWriteProperties, LayoutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutManager.ConstructOnlyProperties {
@@ -25012,18 +24895,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutChild.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutChild.ReadableProperties {
+                interface ReadWriteProperties extends LayoutChild.ReadWriteProperties {
                     "column": number
                     "column-span": number
                     "row": number
                     "row-span": number
                 }
 
-                interface WritableProperties extends LayoutChild.WritableProperties {
-                    "column": number
-                    "column-span": number
-                    "row": number
-                    "row-span": number
+                interface ReadableProperties extends ReadWriteProperties, LayoutChild.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutChild.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutChild.ConstructOnlyProperties {
@@ -25130,7 +25012,7 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(position: number): void
                 }
 
-                interface ReadableProperties extends ListBase.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends ListBase.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "enable-rubberband": boolean
                     "factory": ListItemFactory | null
                     "max-columns": number
@@ -25140,14 +25022,10 @@ declare module "gi://Gtk?version=4.0" {
                     "tab-behavior": ListTabBehavior
                 }
 
-                interface WritableProperties extends ListBase.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties, Scrollable.WritableProperties {
-                    "enable-rubberband": boolean
-                    "factory": ListItemFactory | null
-                    "max-columns": number
-                    "min-columns": number
-                    "model": SelectionModel | null
-                    "single-click-activate": boolean
-                    "tab-behavior": ListTabBehavior
+                interface ReadableProperties extends ReadWriteProperties, ListBase.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ListBase.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ListBase.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -25380,18 +25258,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "decoration-layout": string | null
                     "show-title-buttons": boolean
                     "title-widget": Widget | null
                     "use-native-controls": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "decoration-layout": string | null
-                    "show-title-buttons": boolean
-                    "title-widget": Widget | null
-                    "use-native-controls": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -25693,14 +25570,15 @@ declare module "gi://Gtk?version=4.0" {
                     "retrieve-surrounding"(): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "input-hints": InputHints
                     "input-purpose": InputPurpose
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -25909,8 +25787,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @param use_preedit whether the IM context should use the preedit string.
                  */
                 set_use_preedit(use_preedit: boolean): void
-                /**
-                 */
+                
                 vfunc_activate_osk(): void
                 /**
                  * @param event
@@ -26150,10 +26027,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends IMContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends IMContext.ReadableProperties {
+                interface ReadWriteProperties extends IMContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends IMContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, IMContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, IMContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends IMContext.ConstructOnlyProperties {
@@ -26233,10 +26113,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends IMContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends IMContext.ReadableProperties {
+                interface ReadWriteProperties extends IMContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends IMContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, IMContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, IMContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends IMContext.ConstructOnlyProperties {
@@ -26295,18 +26178,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gdk.Paintable.SignalSignatures, SymbolicPaintable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gdk.Paintable.ReadableProperties, SymbolicPaintable.ReadableProperties {
-                    "file": Gio.File | null
-                    "icon-name": string | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gdk.Paintable.ReadWriteProperties, SymbolicPaintable.ReadWriteProperties {
                     "is-symbolic": boolean
                     "scale": number
                     "size": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gdk.Paintable.WritableProperties, SymbolicPaintable.WritableProperties {
-                    "is-symbolic": boolean
-                    "scale": number
-                    "size": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gdk.Paintable.ReadableProperties, SymbolicPaintable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gdk.Paintable.WritableProperties, SymbolicPaintable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gdk.Paintable.ConstructOnlyProperties, SymbolicPaintable.ConstructOnlyProperties {
@@ -26421,7 +26302,7 @@ declare module "gi://Gtk?version=4.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "display": Gdk.Display | null
                     "icon-names": string[]
                     "resource-path": string[] | null
@@ -26429,12 +26310,10 @@ declare module "gi://Gtk?version=4.0" {
                     "theme-name": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "display": Gdk.Display | null
-                    "icon-names": string[]
-                    "resource-path": string[] | null
-                    "search-path": string[] | null
-                    "theme-name": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -26817,9 +26696,8 @@ declare module "gi://Gtk?version=4.0" {
                     "unselect-all"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "activate-on-single-click": boolean
-                    "cell-area": CellArea
                     "column-spacing": number
                     "columns": number
                     "item-orientation": Orientation
@@ -26837,23 +26715,10 @@ declare module "gi://Gtk?version=4.0" {
                     "tooltip-column": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
-                    "activate-on-single-click": boolean
-                    "column-spacing": number
-                    "columns": number
-                    "item-orientation": Orientation
-                    "item-padding": number
-                    "item-width": number
-                    "margin": number
-                    "markup-column": number
-                    "model": TreeModel | null
-                    "pixbuf-column": number
-                    "reorderable": boolean
-                    "row-spacing": number
-                    "selection-mode": SelectionMode
-                    "spacing": number
-                    "text-column": number
-                    "tooltip-column": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -27564,7 +27429,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "file": string
                     "gicon": Gio.Icon | null
                     "icon-name": string | null
@@ -27576,16 +27441,10 @@ declare module "gi://Gtk?version=4.0" {
                     "use-fallback": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "file": string
-                    "gicon": Gio.Icon | null
-                    "icon-name": string | null
-                    "icon-size": IconSize
-                    "paintable": Gdk.Paintable | null
-                    "pixel-size": number
-                    "resource": string
-                    "storage-type": ImageType
-                    "use-fallback": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -27959,16 +27818,16 @@ declare module "gi://Gtk?version=4.0" {
                     "response"(response_id: number): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "message-type": MessageType
                     "revealed": boolean
                     "show-close-button": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "message-type": MessageType
-                    "revealed": boolean
-                    "show-close-button": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -28225,20 +28084,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, AccessibleText.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleText.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
-                    "attributes": Pango.AttrList | null
-                    "min-chars": number
-                    "min-lines": number
-                    "nat-chars": number
-                    "nat-lines": number
-                    "text": string | null
-                    "text-overflow": InscriptionOverflow
-                    "wrap-mode": Pango.WrapMode
-                    "xalign": number
-                    "yalign": number
-                }
-
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleText.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleText.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "attributes": Pango.AttrList | null
                     "markup": string
                     "min-chars": number
@@ -28250,6 +28096,12 @@ declare module "gi://Gtk?version=4.0" {
                     "wrap-mode": Pango.WrapMode
                     "xalign": number
                     "yalign": number
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleText.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleText.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleText.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -28583,12 +28435,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutTrigger.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutTrigger.ReadableProperties {
-                    "keyval": number
-                    "modifiers": Gdk.ModifierType
+                interface ReadWriteProperties extends ShortcutTrigger.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutTrigger.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutTrigger.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutTrigger.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutTrigger.ConstructOnlyProperties {
@@ -28708,7 +28561,7 @@ declare module "gi://Gtk?version=4.0" {
                     "move-cursor"(step: MovementStep, count: number, extend_selection: boolean): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleHypertext.ReadableProperties, AccessibleText.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleHypertext.ReadWriteProperties, AccessibleText.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "attributes": Pango.AttrList | null
                     "ellipsize": Pango.EllipsizeMode
                     "extra-menu": Gio.MenuModel | null
@@ -28731,27 +28584,10 @@ declare module "gi://Gtk?version=4.0" {
                     "yalign": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleHypertext.WritableProperties, AccessibleText.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "attributes": Pango.AttrList | null
-                    "ellipsize": Pango.EllipsizeMode
-                    "extra-menu": Gio.MenuModel | null
-                    "justify": Justification
-                    "label": string
-                    "lines": number
-                    "max-width-chars": number
-                    "mnemonic-keyval": number
-                    "mnemonic-widget": Widget | null
-                    "natural-wrap-mode": NaturalWrapMode
-                    "selectable": boolean
-                    "single-line-mode": boolean
-                    "tabs": Pango.TabArray | null
-                    "use-markup": boolean
-                    "use-underline": boolean
-                    "width-chars": number
-                    "wrap": boolean
-                    "wrap-mode": Pango.WrapMode
-                    "xalign": number
-                    "yalign": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleHypertext.ReadableProperties, AccessibleText.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleHypertext.WritableProperties, AccessibleText.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleHypertext.ConstructOnlyProperties, AccessibleText.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -29661,12 +29497,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "child-widget": Widget
-                    "layout-manager": LayoutManager
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -29729,10 +29566,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -29921,7 +29761,7 @@ declare module "gi://Gtk?version=4.0" {
                     "offset-changed::{}"(name: string): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "inverted": boolean
                     "max-value": number
                     "min-value": number
@@ -29929,12 +29769,10 @@ declare module "gi://Gtk?version=4.0" {
                     "value": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "inverted": boolean
-                    "max-value": number
-                    "min-value": number
-                    "mode": LevelBarMode
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -30216,14 +30054,15 @@ declare module "gi://Gtk?version=4.0" {
                     "activate-link"(): boolean
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Accessible.ReadWriteProperties, Actionable.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "uri": string
                     "visited": boolean
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "uri": string
-                    "visited": boolean
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -30353,12 +30192,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures, Scrollable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "orientation": Orientation
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties, Scrollable.WritableProperties {
-                    "orientation": Orientation
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -30507,7 +30348,7 @@ declare module "gi://Gtk?version=4.0" {
                     "unselect-all"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "accept-unpaired-release": boolean
                     "activate-on-single-click": boolean
                     "selection-mode": SelectionMode
@@ -30515,12 +30356,10 @@ declare module "gi://Gtk?version=4.0" {
                     "tab-behavior": ListTabBehavior
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "accept-unpaired-release": boolean
-                    "activate-on-single-click": boolean
-                    "selection-mode": SelectionMode
-                    "show-separators": boolean
-                    "tab-behavior": ListTabBehavior
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -30955,16 +30794,16 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Actionable.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "activatable": boolean
                     "child": Widget | null
                     "selectable": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "activatable": boolean
-                    "child": Widget | null
-                    "selectable": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -31076,8 +30915,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @param selectable %TRUE to mark the row as selectable
                  */
                 set_selectable(selectable: boolean): void
-                /**
-                 */
+                
                 vfunc_activate(): void
             }
 
@@ -31108,7 +30946,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "child": Widget | null
                     "end": number
                     "item": GObject.Object | null
@@ -31116,12 +30954,10 @@ declare module "gi://Gtk?version=4.0" {
                     "start": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "child": Widget | null
-                    "end": number
-                    "item": GObject.Object | null
-                    "n-items": number
-                    "start": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -31245,7 +31081,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accessible-description": string
                     "accessible-label": string
                     "activatable": boolean
@@ -31257,16 +31093,10 @@ declare module "gi://Gtk?version=4.0" {
                     "selected": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accessible-description": string
-                    "accessible-label": string
-                    "activatable": boolean
-                    "child": Widget | null
-                    "focusable": boolean
-                    "item": GObject.Object | null
-                    "position": number
-                    "selectable": boolean
-                    "selected": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -31496,10 +31326,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -31578,10 +31411,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Buildable.SignalSignatures, TreeDragDest.SignalSignatures, TreeDragSource.SignalSignatures, TreeModel.SignalSignatures, TreeSortable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties, TreeDragDest.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties, TreeDragDest.ReadWriteProperties, TreeDragSource.ReadWriteProperties, TreeModel.ReadWriteProperties, TreeSortable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties, TreeDragDest.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties, TreeDragDest.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties, TreeDragDest.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, TreeDragDest.ConstructOnlyProperties, TreeDragSource.ConstructOnlyProperties, TreeModel.ConstructOnlyProperties, TreeSortable.ConstructOnlyProperties {
@@ -31930,7 +31766,7 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(position: number): void
                 }
 
-                interface ReadableProperties extends ListBase.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends ListBase.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "enable-rubberband": boolean
                     "factory": ListItemFactory | null
                     "header-factory": ListItemFactory | null
@@ -31940,14 +31776,10 @@ declare module "gi://Gtk?version=4.0" {
                     "tab-behavior": ListTabBehavior
                 }
 
-                interface WritableProperties extends ListBase.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties, Scrollable.WritableProperties {
-                    "enable-rubberband": boolean
-                    "factory": ListItemFactory | null
-                    "header-factory": ListItemFactory | null
-                    "model": SelectionModel | null
-                    "show-separators": boolean
-                    "single-click-activate": boolean
-                    "tab-behavior": ListTabBehavior
+                interface ReadableProperties extends ReadWriteProperties, ListBase.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ListBase.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ListBase.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -32243,7 +32075,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Button.SignalSignatures, Accessible.SignalSignatures, Actionable.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Accessible.ReadWriteProperties, Actionable.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "permission": Gio.Permission | null
                     "text-lock": string
                     "text-unlock": string
@@ -32252,13 +32084,10 @@ declare module "gi://Gtk?version=4.0" {
                     "tooltip-unlock": string
                 }
 
-                interface WritableProperties extends Button.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "permission": Gio.Permission | null
-                    "text-lock": string
-                    "text-unlock": string
-                    "tooltip-lock": string
-                    "tooltip-not-authorized": string
-                    "tooltip-unlock": string
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -32400,18 +32229,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, SectionModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, SectionModel.ReadWriteProperties {
                     "has-map": boolean
                     "item-type": GObject.GType
                     "model": Gio.ListModel | null
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
-                    "has-map": boolean
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel | null
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, SectionModel.ConstructOnlyProperties {
@@ -32537,12 +32365,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "media-stream": MediaStream | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "media-stream": MediaStream | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -32603,14 +32433,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends MediaStream.SignalSignatures, Gdk.Paintable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends MediaStream.ReadableProperties, Gdk.Paintable.ReadableProperties {
+                interface ReadWriteProperties extends MediaStream.ReadWriteProperties, Gdk.Paintable.ReadWriteProperties {
                     "file": Gio.File | null
                     "input-stream": Gio.InputStream | null
                 }
 
-                interface WritableProperties extends MediaStream.WritableProperties, Gdk.Paintable.WritableProperties {
-                    "file": Gio.File | null
-                    "input-stream": Gio.InputStream | null
+                interface ReadableProperties extends ReadWriteProperties, MediaStream.ReadableProperties, Gdk.Paintable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, MediaStream.WritableProperties, Gdk.Paintable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends MediaStream.ConstructOnlyProperties, Gdk.Paintable.ConstructOnlyProperties {
@@ -32687,11 +32518,9 @@ declare module "gi://Gtk?version=4.0" {
                  * @param resource_path path to resource to play
                  */
                 set_resource(resource_path: string | null): void
-                /**
-                 */
+                
                 vfunc_close(): void
-                /**
-                 */
+                
                 vfunc_open(): void
             }
 
@@ -32759,7 +32588,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gdk.Paintable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gdk.Paintable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gdk.Paintable.ReadWriteProperties {
                     "duration": number
                     "ended": boolean
                     "error": GLib.Error | null
@@ -32775,20 +32604,10 @@ declare module "gi://Gtk?version=4.0" {
                     "volume": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gdk.Paintable.WritableProperties {
-                    "duration": number
-                    "ended": boolean
-                    "error": GLib.Error | null
-                    "has-audio": boolean
-                    "has-video": boolean
-                    "loop": boolean
-                    "muted": boolean
-                    "playing": boolean
-                    "prepared": boolean
-                    "seekable": boolean
-                    "seeking": boolean
-                    "timestamp": number
-                    "volume": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gdk.Paintable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gdk.Paintable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gdk.Paintable.ConstructOnlyProperties {
@@ -33164,8 +32983,7 @@ declare module "gi://Gtk?version=4.0" {
                  * If the stream is not playing, do nothing.
                  */
                 vfunc_pause(): void
-                /**
-                 */
+                
                 vfunc_play(): boolean
                 /**
                  * Called by users to attach the media stream to a `GdkSurface` they manage.
@@ -33260,7 +33078,7 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "active": boolean
                     "always-show-arrow": boolean
                     "can-shrink": boolean
@@ -33275,19 +33093,10 @@ declare module "gi://Gtk?version=4.0" {
                     "use-underline": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "active": boolean
-                    "always-show-arrow": boolean
-                    "can-shrink": boolean
-                    "child": Widget | null
-                    "direction": ArrowType
-                    "has-frame": boolean
-                    "icon-name": string | null
-                    "label": string | null
-                    "menu-model": Gio.MenuModel | null
-                    "popover": Popover | null
-                    "primary": boolean
-                    "use-underline": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -33685,7 +33494,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures, ShortcutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "message-area": Widget
                     "message-type": MessageType
                     "secondary-text": string
@@ -33694,13 +33503,10 @@ declare module "gi://Gtk?version=4.0" {
                     "use-markup": boolean
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
-                    "message-area": Widget
-                    "message-type": MessageType
-                    "secondary-text": string
-                    "secondary-use-markup": boolean
-                    "text": string
-                    "use-markup": boolean
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -33858,10 +33664,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutAction.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutAction.ReadableProperties {
+                interface ReadWriteProperties extends ShortcutAction.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutAction.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutAction.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutAction.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutAction.ConstructOnlyProperties {
@@ -33904,11 +33713,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutTrigger.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutTrigger.ReadableProperties {
-                    "keyval": number
+                interface ReadWriteProperties extends ShortcutTrigger.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutTrigger.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutTrigger.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutTrigger.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutTrigger.ConstructOnlyProperties {
@@ -33966,16 +33777,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Gio.MountOperation.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.MountOperation.ReadableProperties {
+                interface ReadWriteProperties extends Gio.MountOperation.ReadWriteProperties {
                     "display": Gdk.Display
                     "is-showing": boolean
                     "parent": Window | null
                 }
 
-                interface WritableProperties extends Gio.MountOperation.WritableProperties {
-                    "display": Gdk.Display
-                    "is-showing": boolean
-                    "parent": Window | null
+                interface ReadableProperties extends ReadWriteProperties, Gio.MountOperation.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.MountOperation.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.MountOperation.ConstructOnlyProperties {
@@ -34070,14 +33881,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Filter.SignalSignatures, Gio.ListModel.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Filter.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Filter.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "item-type": GObject.GType
                     "n-items": number
                 }
 
-                interface WritableProperties extends Filter.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, Filter.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Filter.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Filter.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -34140,16 +33952,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, SectionModel.SignalSignatures, SelectionModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties, SelectionModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, SectionModel.ReadWriteProperties, SelectionModel.ReadWriteProperties {
                     "item-type": GObject.GType
                     "model": Gio.ListModel | null
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties, SelectionModel.WritableProperties {
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel | null
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties, SelectionModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties, SelectionModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, SectionModel.ConstructOnlyProperties, SelectionModel.ConstructOnlyProperties {
@@ -34218,14 +34030,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Sorter.SignalSignatures, Gio.ListModel.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Sorter.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends Sorter.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "item-type": GObject.GType
                     "n-items": number
                 }
 
-                interface WritableProperties extends Sorter.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, Sorter.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Sorter.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Sorter.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -34300,11 +34113,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutAction.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutAction.ReadableProperties {
-                    "action-name": string
+                interface ReadWriteProperties extends ShortcutAction.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutAction.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutAction.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutAction.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutAction.ConstructOnlyProperties {
@@ -34375,18 +34190,17 @@ declare module "gi://Gtk?version=4.0" {
                     "response"(response_id: number): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "modal": boolean
                     "title": string | null
                     "transient-for": Window | null
                     "visible": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "modal": boolean
-                    "title": string | null
-                    "transient-for": Window | null
-                    "visible": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -34564,10 +34378,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutTrigger.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutTrigger.ReadableProperties {
+                interface ReadWriteProperties extends ShortcutTrigger.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutTrigger.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutTrigger.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutTrigger.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutTrigger.ConstructOnlyProperties {
@@ -34609,16 +34426,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, SectionModel.SignalSignatures, SelectionModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties, SelectionModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, SectionModel.ReadWriteProperties, SelectionModel.ReadWriteProperties {
                     "item-type": GObject.GType
                     "model": Gio.ListModel | null
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties, SelectionModel.WritableProperties {
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel | null
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties, SelectionModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties, SelectionModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, SectionModel.ConstructOnlyProperties, SelectionModel.ConstructOnlyProperties {
@@ -34781,7 +34598,7 @@ declare module "gi://Gtk?version=4.0" {
                     "switch-page"(page: Widget, page_num: number): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "enable-popup": boolean
                     "group-name": string | null
                     "page": number
@@ -34792,15 +34609,10 @@ declare module "gi://Gtk?version=4.0" {
                     "tab-pos": PositionType
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "enable-popup": boolean
-                    "group-name": string | null
-                    "page": number
-                    "pages": Gio.ListModel
-                    "scrollable": boolean
-                    "show-border": boolean
-                    "show-tabs": boolean
-                    "tab-pos": PositionType
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -35351,27 +35163,20 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "child": Widget
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "detachable": boolean
-                    "menu": Widget
                     "menu-label": string
                     "position": number
                     "reorderable": boolean
-                    "tab": Widget
                     "tab-expand": boolean
                     "tab-fill": boolean
                     "tab-label": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "detachable": boolean
-                    "menu-label": string
-                    "position": number
-                    "reorderable": boolean
-                    "tab-expand": boolean
-                    "tab-fill": boolean
-                    "tab-label": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -35469,10 +35274,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutAction.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutAction.ReadableProperties {
+                interface ReadWriteProperties extends ShortcutAction.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutAction.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutAction.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutAction.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutAction.ConstructOnlyProperties {
@@ -35513,14 +35321,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Sorter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Sorter.ReadableProperties {
+                interface ReadWriteProperties extends Sorter.ReadWriteProperties {
                     "expression": Expression | null
                     "sort-order": SortType
                 }
 
-                interface WritableProperties extends Sorter.WritableProperties {
-                    "expression": Expression | null
-                    "sort-order": SortType
+                interface ReadableProperties extends ReadWriteProperties, Sorter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Sorter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Sorter.ConstructOnlyProperties {
@@ -35602,10 +35411,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Expression.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Expression.ReadableProperties {
+                interface ReadWriteProperties extends Expression.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Expression.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Expression.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Expression.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Expression.ConstructOnlyProperties {
@@ -35674,12 +35486,14 @@ declare module "gi://Gtk?version=4.0" {
                     "get-child-position"(widget: Widget): [boolean, Gdk.Rectangle]
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -35811,10 +35625,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutManager.ReadableProperties {
+                interface ReadWriteProperties extends LayoutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends LayoutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, LayoutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutManager.ConstructOnlyProperties {
@@ -35858,14 +35675,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends LayoutChild.SignalSignatures {
                 }
 
-                interface ReadableProperties extends LayoutChild.ReadableProperties {
+                interface ReadWriteProperties extends LayoutChild.ReadWriteProperties {
                     "clip-overlay": boolean
                     "measure": boolean
                 }
 
-                interface WritableProperties extends LayoutChild.WritableProperties {
-                    "clip-overlay": boolean
-                    "measure": boolean
+                interface ReadableProperties extends ReadWriteProperties, LayoutChild.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, LayoutChild.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends LayoutChild.ConstructOnlyProperties {
@@ -35931,12 +35749,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends EventController.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties {
-                    "action-group": Gio.ActionGroup
-                    "pad": Gdk.Device
+                interface ReadWriteProperties extends EventController.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EventController.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties {
@@ -36078,10 +35897,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -36350,10 +36172,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures, ShortcutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -36500,7 +36325,7 @@ declare module "gi://Gtk?version=4.0" {
                     "toggle-handle-focus"(): boolean
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "end-child": Widget | null
                     "max-position": number
                     "min-position": number
@@ -36514,18 +36339,10 @@ declare module "gi://Gtk?version=4.0" {
                     "wide-handle": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "end-child": Widget | null
-                    "max-position": number
-                    "min-position": number
-                    "position": number
-                    "position-set": boolean
-                    "resize-end-child": boolean
-                    "resize-start-child": boolean
-                    "shrink-end-child": boolean
-                    "shrink-start-child": boolean
-                    "start-child": Widget | null
-                    "wide-handle": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -36807,10 +36624,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.ParamSpec.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.ParamSpec.ReadableProperties {
+                interface ReadWriteProperties extends GObject.ParamSpec.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.ParamSpec.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.ParamSpec.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.ParamSpec.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.ParamSpec.ConstructOnlyProperties {
@@ -36849,18 +36669,17 @@ declare module "gi://Gtk?version=4.0" {
                     "activate"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Editable.ReadWriteProperties {
                     "activates-default": boolean
                     "extra-menu": Gio.MenuModel | null
                     "placeholder-text": string
                     "show-peek-icon": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
-                    "activates-default": boolean
-                    "extra-menu": Gio.MenuModel | null
-                    "placeholder-text": string
-                    "show-peek-icon": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Editable.ConstructOnlyProperties {
@@ -36982,10 +36801,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends EntryBuffer.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EntryBuffer.ReadableProperties {
+                interface ReadWriteProperties extends EntryBuffer.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends EntryBuffer.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, EntryBuffer.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EntryBuffer.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EntryBuffer.ConstructOnlyProperties {
@@ -37027,7 +36849,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "alternative-text": string | null
                     "can-shrink": boolean
                     "content-fit": ContentFit
@@ -37037,14 +36859,10 @@ declare module "gi://Gtk?version=4.0" {
                     "paintable": Gdk.Paintable | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "alternative-text": string | null
-                    "can-shrink": boolean
-                    "content-fit": ContentFit
-                    "file": Gio.File | null
-                    "isolate-contents": boolean
-                    "keep-aspect-ratio": boolean
-                    "paintable": Gdk.Paintable | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -37397,7 +37215,7 @@ declare module "gi://Gtk?version=4.0" {
                     "closed"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "autohide": boolean
                     "cascade-popdown": boolean
                     "child": Widget | null
@@ -37408,15 +37226,10 @@ declare module "gi://Gtk?version=4.0" {
                     "position": PositionType
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, ShortcutManager.WritableProperties {
-                    "autohide": boolean
-                    "cascade-popdown": boolean
-                    "child": Widget | null
-                    "default-widget": Widget
-                    "has-arrow": boolean
-                    "mnemonics-visible": boolean
-                    "pointing-to": Gdk.Rectangle
-                    "position": PositionType
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -37620,11 +37433,9 @@ declare module "gi://Gtk?version=4.0" {
                  * @param position preferred popover position
                  */
                 set_position(position: PositionType): void
-                /**
-                 */
+                
                 vfunc_activate_default(): void
-                /**
-                 */
+                
                 vfunc_closed(): void
             }
 
@@ -37747,18 +37558,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                     "handle-input": boolean
                     "menu-model": Gio.MenuModel | null
                     "popover": Popover | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
-                    "handle-input": boolean
-                    "menu-model": Gio.MenuModel | null
-                    "popover": Popover | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -37806,8 +37616,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @returns the child widget
                  */
                 get_child(): Widget | null
-                /**
-                 */
+                
                 get_handle_input(): boolean
                 /**
                  * Retrieves the menu model set using {@link Gtk.PopoverBin.set_menu_model}.
@@ -37926,16 +37735,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Popover.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Native.SignalSignatures, ShortcutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Popover.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Popover.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "flags": PopoverMenuFlags
                     "menu-model": Gio.MenuModel | null
                     "visible-submenu": string
                 }
 
-                interface WritableProperties extends Popover.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, ShortcutManager.WritableProperties {
-                    "flags": PopoverMenuFlags
-                    "menu-model": Gio.MenuModel | null
-                    "visible-submenu": string
+                interface ReadableProperties extends ReadWriteProperties, Popover.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Popover.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Popover.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -38184,12 +37993,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "menu-model": Gio.MenuModel | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "menu-model": Gio.MenuModel | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -38293,10 +38104,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -38467,7 +38281,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accept-label": string
                     "modal": boolean
                     "page-setup": PageSetup | null
@@ -38475,12 +38289,10 @@ declare module "gi://Gtk?version=4.0" {
                     "title": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accept-label": string
-                    "modal": boolean
-                    "page-setup": PageSetup | null
-                    "print-settings": PrintSettings | null
-                    "title": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -38734,16 +38546,14 @@ declare module "gi://Gtk?version=4.0" {
                     "status-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "page-setup": PageSetup
-                    "printer": Printer
-                    "settings": PrintSettings
-                    "title": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "track-print-status": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "track-print-status": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -39195,7 +39005,7 @@ declare module "gi://Gtk?version=4.0" {
                     "update-custom-widget"(widget: Widget, setup: PageSetup, settings: PrintSettings): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, PrintOperationPreview.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PrintOperationPreview.ReadWriteProperties {
                     "allow-async": boolean
                     "current-page": number
                     "custom-tab-label": string
@@ -39216,25 +39026,10 @@ declare module "gi://Gtk?version=4.0" {
                     "use-full-page": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, PrintOperationPreview.WritableProperties {
-                    "allow-async": boolean
-                    "current-page": number
-                    "custom-tab-label": string
-                    "default-page-setup": PageSetup
-                    "embed-page-setup": boolean
-                    "export-filename": string
-                    "has-selection": boolean
-                    "job-name": string
-                    "n-pages": number
-                    "n-pages-to-print": number
-                    "print-settings": PrintSettings | null
-                    "show-progress": boolean
-                    "status": PrintStatus
-                    "status-string": string
-                    "support-selection": boolean
-                    "track-print-status": boolean
-                    "unit": Unit
-                    "use-full-page": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PrintOperationPreview.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PrintOperationPreview.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, PrintOperationPreview.ConstructOnlyProperties {
@@ -39900,10 +39695,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -40416,7 +40214,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Dialog.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures, ShortcutManager.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Dialog.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "current-page": number
                     "embed-page-setup": boolean
                     "has-selection": boolean
@@ -40427,15 +40225,10 @@ declare module "gi://Gtk?version=4.0" {
                     "support-selection": boolean
                 }
 
-                interface WritableProperties extends Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
-                    "current-page": number
-                    "embed-page-setup": boolean
-                    "has-selection": boolean
-                    "manual-capabilities": PrintCapabilities
-                    "page-setup": PageSetup
-                    "print-settings": PrintSettings
-                    "selected-printer": Printer | null
-                    "support-selection": boolean
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Dialog.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -40690,26 +40483,19 @@ declare module "gi://Gtk?version=4.0" {
                     "details-acquired"(success: boolean): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accepting-jobs": boolean
-                    "accepts-pdf": boolean
-                    "accepts-ps": boolean
                     "icon-name": string
-                    "is-virtual": boolean
                     "job-count": number
                     "location": string
-                    "name": string
                     "paused": boolean
                     "state-message": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accepting-jobs": boolean
-                    "icon-name": string
-                    "job-count": number
-                    "location": string
-                    "paused": boolean
-                    "state-message": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -40972,7 +40758,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, AccessibleRange.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "ellipsize": Pango.EllipsizeMode
                     "fraction": number
                     "inverted": boolean
@@ -40981,13 +40767,10 @@ declare module "gi://Gtk?version=4.0" {
                     "text": string | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "ellipsize": Pango.EllipsizeMode
-                    "fraction": number
-                    "inverted": boolean
-                    "pulse-step": number
-                    "show-text": boolean
-                    "text": string | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -41236,10 +41019,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Expression.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Expression.ReadableProperties {
+                interface ReadWriteProperties extends Expression.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Expression.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Expression.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Expression.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Expression.ConstructOnlyProperties {
@@ -41350,7 +41136,7 @@ declare module "gi://Gtk?version=4.0" {
                     "value-changed"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "adjustment": Adjustment
                     "fill-level": number
                     "inverted": boolean
@@ -41359,13 +41145,10 @@ declare module "gi://Gtk?version=4.0" {
                     "show-fill-level": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "adjustment": Adjustment
-                    "fill-level": number
-                    "inverted": boolean
-                    "restrict-to-fill-level": boolean
-                    "round-digits": number
-                    "show-fill-level": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -41619,8 +41402,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @param scroll
                  */
                 vfunc_move_slider(scroll: ScrollType): void
-                /**
-                 */
+                
                 vfunc_value_changed(): void
             }
 
@@ -41664,13 +41446,14 @@ declare module "gi://Gtk?version=4.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "filename": string
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "size": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "size": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -41781,8 +41564,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @returns %TRUE if the item pointed by `uri` has been successfully   removed by the recently used resources list, and %FALSE otherwise
                  */
                 remove_item(uri: string): boolean
-                /**
-                 */
+                
                 vfunc_changed(): void
             }
 
@@ -41880,7 +41662,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                     "child-revealed": boolean
                     "reveal-child": boolean
@@ -41888,12 +41670,10 @@ declare module "gi://Gtk?version=4.0" {
                     "transition-type": RevealerTransitionType
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
-                    "child-revealed": boolean
-                    "reveal-child": boolean
-                    "transition-duration": number
-                    "transition-type": RevealerTransitionType
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -42041,18 +41821,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Range.SignalSignatures, Accessible.SignalSignatures, AccessibleRange.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Range.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Range.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "digits": number
                     "draw-value": boolean
                     "has-origin": boolean
                     "value-pos": PositionType
                 }
 
-                interface WritableProperties extends Range.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "digits": number
-                    "draw-value": boolean
-                    "has-origin": boolean
-                    "value-pos": PositionType
+                interface ReadableProperties extends ReadWriteProperties, Range.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Range.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Range.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -42368,7 +42147,7 @@ declare module "gi://Gtk?version=4.0" {
                     "value-changed"(value: number): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "active": boolean
                     "adjustment": Adjustment
                     "has-frame": boolean
@@ -42376,12 +42155,10 @@ declare module "gi://Gtk?version=4.0" {
                     "value": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "active": boolean
-                    "adjustment": Adjustment
-                    "has-frame": boolean
-                    "icons": string[]
-                    "value": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -42568,12 +42345,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, AccessibleRange.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "adjustment": Adjustment
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "adjustment": Adjustment
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -42722,7 +42501,7 @@ declare module "gi://Gtk?version=4.0" {
                     "scroll-child"(scroll: ScrollType, horizontal: boolean): boolean
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                     "hadjustment": Adjustment
                     "has-frame": boolean
@@ -42740,22 +42519,10 @@ declare module "gi://Gtk?version=4.0" {
                     "window-placement": CornerType
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
-                    "hadjustment": Adjustment
-                    "has-frame": boolean
-                    "hscrollbar-policy": PolicyType
-                    "kinetic-scrolling": boolean
-                    "max-content-height": number
-                    "max-content-width": number
-                    "min-content-height": number
-                    "min-content-width": number
-                    "overlay-scrolling": boolean
-                    "propagate-natural-height": boolean
-                    "propagate-natural-width": boolean
-                    "vadjustment": Adjustment
-                    "vscrollbar-policy": PolicyType
-                    "window-placement": CornerType
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -43208,18 +42975,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                     "key-capture-widget": Widget | null
                     "search-mode-enabled": boolean
                     "show-close-button": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
-                    "key-capture-widget": Widget | null
-                    "search-mode-enabled": boolean
-                    "show-close-button": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -43451,7 +43217,7 @@ declare module "gi://Gtk?version=4.0" {
                     "stop-search"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Editable.ReadWriteProperties {
                     "activates-default": boolean
                     "input-hints": InputHints
                     "input-purpose": InputPurpose
@@ -43460,13 +43226,10 @@ declare module "gi://Gtk?version=4.0" {
                     "search-delay": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
-                    "activates-default": boolean
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
-                    "key-capture-widget": Widget | null
-                    "placeholder-text": string | null
-                    "search-delay": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Editable.ConstructOnlyProperties {
@@ -43679,16 +43442,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "item-type": GObject.GType
                     "model": SelectionModel | null
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "item-type": GObject.GType
-                    "model": SelectionModel | null
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -43761,10 +43524,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -43821,7 +43587,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, StyleProvider.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, StyleProvider.ReadWriteProperties {
                     "gtk-alternative-button-order": boolean
                     "gtk-alternative-sort-arrows": boolean
                     "gtk-application-prefer-dark-theme": boolean
@@ -43879,62 +43645,10 @@ declare module "gi://Gtk?version=4.0" {
                     "gtk-xft-rgba": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, StyleProvider.WritableProperties {
-                    "gtk-alternative-button-order": boolean
-                    "gtk-alternative-sort-arrows": boolean
-                    "gtk-application-prefer-dark-theme": boolean
-                    "gtk-cursor-aspect-ratio": number
-                    "gtk-cursor-blink": boolean
-                    "gtk-cursor-blink-time": number
-                    "gtk-cursor-blink-timeout": number
-                    "gtk-cursor-theme-name": string
-                    "gtk-cursor-theme-size": number
-                    "gtk-decoration-layout": string
-                    "gtk-dialogs-use-header": boolean
-                    "gtk-dnd-drag-threshold": number
-                    "gtk-double-click-distance": number
-                    "gtk-double-click-time": number
-                    "gtk-enable-accels": boolean
-                    "gtk-enable-animations": boolean
-                    "gtk-enable-event-sounds": boolean
-                    "gtk-enable-input-feedback-sounds": boolean
-                    "gtk-enable-primary-paste": boolean
-                    "gtk-entry-password-hint-timeout": number
-                    "gtk-entry-select-on-focus": boolean
-                    "gtk-error-bell": boolean
-                    "gtk-font-name": string
-                    "gtk-font-rendering": FontRendering
-                    "gtk-fontconfig-timestamp": number
-                    "gtk-hint-font-metrics": boolean
-                    "gtk-icon-theme-name": string
-                    "gtk-im-module": string
-                    "gtk-interface-color-scheme": InterfaceColorScheme
-                    "gtk-interface-contrast": InterfaceContrast
-                    "gtk-interface-reduced-motion": ReducedMotion
-                    "gtk-keynav-use-caret": boolean
-                    "gtk-label-select-on-focus": boolean
-                    "gtk-long-press-time": number
-                    "gtk-overlay-scrolling": boolean
-                    "gtk-primary-button-warps-slider": boolean
-                    "gtk-print-backends": string
-                    "gtk-print-preview-command": string
-                    "gtk-recent-files-enabled": boolean
-                    "gtk-recent-files-max-age": number
-                    "gtk-shell-shows-app-menu": boolean
-                    "gtk-shell-shows-desktop": boolean
-                    "gtk-shell-shows-menubar": boolean
-                    "gtk-show-status-shapes": boolean
-                    "gtk-sound-theme-name": string
-                    "gtk-split-cursor": boolean
-                    "gtk-theme-name": string
-                    "gtk-titlebar-double-click": string
-                    "gtk-titlebar-middle-click": string
-                    "gtk-titlebar-right-click": string
-                    "gtk-xft-antialias": number
-                    "gtk-xft-dpi": number
-                    "gtk-xft-hinting": number
-                    "gtk-xft-hintstyle": string
-                    "gtk-xft-rgba": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, StyleProvider.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, StyleProvider.ConstructOnlyProperties {
@@ -44553,16 +44267,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "action": ShortcutAction | null
                     "arguments": GLib.Variant | null
                     "trigger": ShortcutTrigger | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "action": ShortcutAction | null
-                    "arguments": GLib.Variant | null
-                    "trigger": ShortcutTrigger | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -44662,10 +44376,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -44772,18 +44489,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends EventController.SignalSignatures, Gio.ListModel.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends EventController.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends EventController.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "item-type": GObject.GType
                     "mnemonic-modifiers": Gdk.ModifierType
                     "n-items": number
                     "scope": ShortcutScope
                 }
 
-                interface WritableProperties extends EventController.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
-                    "item-type": GObject.GType
-                    "mnemonic-modifiers": Gdk.ModifierType
-                    "n-items": number
-                    "scope": ShortcutScope
+                interface ReadableProperties extends ReadWriteProperties, EventController.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, EventController.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends EventController.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -44959,14 +44675,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "accelerator": string | null
                     "disabled-text": string | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "accelerator": string | null
-                    "disabled-text": string | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -45050,10 +44767,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -45206,18 +44926,18 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Box.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
-                    "height": number
-                    "title": string
-                    "view": string
-                }
-
-                interface WritableProperties extends Box.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "accel-size-group": SizeGroup
                     "height": number
                     "title": string
                     "title-size-group": SizeGroup
                     "view": string
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -45329,18 +45049,17 @@ declare module "gi://Gtk?version=4.0" {
                     "change-current-page"(offset: number): boolean
                 }
 
-                interface ReadableProperties extends Box.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Box.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "max-height": number
                     "section-name": string
                     "title": string
                     "view-name": string
                 }
 
-                interface WritableProperties extends Box.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "max-height": number
-                    "section-name": string
-                    "title": string
-                    "view-name": string
+                interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -45462,19 +45181,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
-                    "accelerator": string
-                    "action-name": string
-                    "direction": TextDirection
-                    "icon": Gio.Icon
-                    "icon-set": boolean
-                    "shortcut-type": ShortcutType
-                    "subtitle": string
-                    "subtitle-set": boolean
-                    "title": string
-                }
-
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "accel-size-group": SizeGroup
                     "accelerator": string
                     "action-name": string
@@ -45486,6 +45193,12 @@ declare module "gi://Gtk?version=4.0" {
                     "subtitle-set": boolean
                     "title": string
                     "title-size-group": SizeGroup
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -45660,14 +45373,15 @@ declare module "gi://Gtk?version=4.0" {
                     "search"(): void
                 }
 
-                interface ReadableProperties extends Window.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                interface ReadWriteProperties extends Window.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "section-name": string
                     "view-name": string
                 }
 
-                interface WritableProperties extends Window.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
-                    "section-name": string
-                    "view-name": string
+                interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Window.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -45803,11 +45517,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ShortcutAction.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ShortcutAction.ReadableProperties {
-                    "signal-name": string
+                interface ReadWriteProperties extends ShortcutAction.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ShortcutAction.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutAction.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ShortcutAction.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ShortcutAction.ConstructOnlyProperties {
@@ -45914,10 +45630,13 @@ declare module "gi://Gtk?version=4.0" {
                     "unbind"(object: GObject.Object): void
                 }
 
-                interface ReadableProperties extends ListItemFactory.ReadableProperties {
+                interface ReadWriteProperties extends ListItemFactory.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends ListItemFactory.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ListItemFactory.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ListItemFactory.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ListItemFactory.ConstructOnlyProperties {
@@ -45995,7 +45714,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, SectionModel.SignalSignatures, SelectionModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties, SelectionModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, SectionModel.ReadWriteProperties, SelectionModel.ReadWriteProperties {
                     "autoselect": boolean
                     "can-unselect": boolean
                     "item-type": GObject.GType
@@ -46005,14 +45724,10 @@ declare module "gi://Gtk?version=4.0" {
                     "selected-item": GObject.Object | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties, SelectionModel.WritableProperties {
-                    "autoselect": boolean
-                    "can-unselect": boolean
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel | null
-                    "n-items": number
-                    "selected": number
-                    "selected-item": GObject.Object | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties, SelectionModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties, SelectionModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, SectionModel.ConstructOnlyProperties, SelectionModel.ConstructOnlyProperties {
@@ -46167,12 +45882,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "mode": SizeGroupMode
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties {
-                    "mode": SizeGroupMode
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -46361,7 +46078,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, SectionModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, SectionModel.ReadWriteProperties {
                     "item-type": GObject.GType
                     "model": Gio.ListModel | null
                     "n-items": number
@@ -46369,12 +46086,10 @@ declare module "gi://Gtk?version=4.0" {
                     "size": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel | null
-                    "n-items": number
-                    "offset": number
-                    "size": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, SectionModel.ConstructOnlyProperties {
@@ -46493,10 +46208,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Gdk.Snapshot.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Snapshot.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Snapshot.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Snapshot.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Snapshot.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Snapshot.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Snapshot.ConstructOnlyProperties {
@@ -47119,7 +46837,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, SectionModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, SectionModel.ReadWriteProperties {
                     "incremental": boolean
                     "item-type": GObject.GType
                     "model": Gio.ListModel | null
@@ -47129,14 +46847,10 @@ declare module "gi://Gtk?version=4.0" {
                     "sorter": Sorter | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
-                    "incremental": boolean
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel | null
-                    "n-items": number
-                    "pending": number
-                    "section-sorter": Sorter | null
-                    "sorter": Sorter | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, SectionModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, SectionModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, SectionModel.ConstructOnlyProperties {
@@ -47341,10 +47055,13 @@ declare module "gi://Gtk?version=4.0" {
                     "changed"(change: SorterChange): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -47537,7 +47254,7 @@ declare module "gi://Gtk?version=4.0" {
                     "wrapped"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, CellEditable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Editable.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "activates-default": boolean
                     "adjustment": Adjustment
                     "climb-rate": number
@@ -47549,16 +47266,10 @@ declare module "gi://Gtk?version=4.0" {
                     "wrap": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties, Orientable.WritableProperties {
-                    "activates-default": boolean
-                    "adjustment": Adjustment
-                    "climb-rate": number
-                    "digits": number
-                    "numeric": boolean
-                    "snap-to-ticks": boolean
-                    "update-policy": SpinButtonUpdatePolicy
-                    "value": number
-                    "wrap": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellEditable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Editable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -47965,12 +47676,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "spinning": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "spinning": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -48053,7 +47766,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "hhomogeneous": boolean
                     "interpolate-size": boolean
                     "pages": SelectionModel
@@ -48065,16 +47778,10 @@ declare module "gi://Gtk?version=4.0" {
                     "visible-child-name": string | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "hhomogeneous": boolean
-                    "interpolate-size": boolean
-                    "pages": SelectionModel
-                    "transition-duration": number
-                    "transition-running": boolean
-                    "transition-type": StackTransitionType
-                    "vhomogeneous": boolean
-                    "visible-child": Widget | null
-                    "visible-child-name": string | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -48400,8 +48107,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Accessible.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Accessible.ReadableProperties {
-                    "child": Widget
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Accessible.ReadWriteProperties {
                     "icon-name": string | null
                     "name": string | null
                     "needs-attention": boolean
@@ -48410,13 +48116,10 @@ declare module "gi://Gtk?version=4.0" {
                     "visible": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Accessible.WritableProperties {
-                    "icon-name": string | null
-                    "name": string | null
-                    "needs-attention": boolean
-                    "title": string | null
-                    "use-underline": boolean
-                    "visible": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Accessible.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Accessible.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Accessible.ConstructOnlyProperties {
@@ -48563,12 +48266,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "stack": Stack | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "stack": Stack | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -48643,12 +48348,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "stack": Stack | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "stack": Stack | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -48749,10 +48456,13 @@ declare module "gi://Gtk?version=4.0" {
                     "text-pushed"(context_id: number, text: string): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -48874,18 +48584,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Filter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Filter.ReadableProperties {
+                interface ReadWriteProperties extends Filter.ReadWriteProperties {
                     "expression": Expression | null
                     "ignore-case": boolean
                     "match-mode": StringFilterMatchMode
                     "search": string | null
                 }
 
-                interface WritableProperties extends Filter.WritableProperties {
-                    "expression": Expression | null
-                    "ignore-case": boolean
-                    "match-mode": StringFilterMatchMode
-                    "search": string | null
+                interface ReadableProperties extends ReadWriteProperties, Filter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Filter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Filter.ConstructOnlyProperties {
@@ -49006,14 +48715,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures, Buildable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "item-type": GObject.GType
                     "n-items": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -49164,12 +48874,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "string": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "string": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -49223,16 +48935,16 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Sorter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Sorter.ReadableProperties {
+                interface ReadWriteProperties extends Sorter.ReadWriteProperties {
                     "collation": Collation
                     "expression": Expression | null
                     "ignore-case": boolean
                 }
 
-                interface WritableProperties extends Sorter.WritableProperties {
-                    "collation": Collation
-                    "expression": Expression | null
-                    "ignore-case": boolean
+                interface ReadableProperties extends ReadWriteProperties, Sorter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Sorter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Sorter.ConstructOnlyProperties {
@@ -49340,12 +49052,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "display": Gdk.Display
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "display": Gdk.Display
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -49535,8 +49249,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @returns a newly allocated string representing `context`
                  */
                 to_string(flags: StyleContextPrintFlags): string
-                /**
-                 */
+                
                 vfunc_changed(): void
             }
 
@@ -49642,7 +49355,7 @@ declare module "gi://Gtk?version=4.0" {
                     "error"(error: GLib.Error): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gdk.Paintable.ReadableProperties, SymbolicPaintable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gdk.Paintable.ReadWriteProperties, SymbolicPaintable.ReadWriteProperties {
                     "features": SvgFeatures
                     "overflow": Overflow
                     "playing": boolean
@@ -49652,14 +49365,10 @@ declare module "gi://Gtk?version=4.0" {
                     "weight": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gdk.Paintable.WritableProperties, SymbolicPaintable.WritableProperties {
-                    "features": SvgFeatures
-                    "overflow": Overflow
-                    "playing": boolean
-                    "resource": string
-                    "state": number
-                    "stylesheet": GLib.Bytes | null
-                    "weight": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gdk.Paintable.ReadableProperties, SymbolicPaintable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gdk.Paintable.WritableProperties, SymbolicPaintable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gdk.Paintable.ConstructOnlyProperties, SymbolicPaintable.ConstructOnlyProperties {
@@ -50099,16 +49808,16 @@ declare module "gi://Gtk?version=4.0" {
                     "error"(error: GLib.Error): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "resource": string
                     "state": number
                     "stylesheet": GLib.Bytes | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "resource": string
-                    "state": number
-                    "stylesheet": GLib.Bytes | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -50261,14 +49970,15 @@ declare module "gi://Gtk?version=4.0" {
                     "state-set"(state: boolean): boolean
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Actionable.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "active": boolean
                     "state": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "active": boolean
-                    "state": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -50515,7 +50225,7 @@ declare module "gi://Gtk?version=4.0" {
                     "toggle-overwrite"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleText.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleText.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Editable.ReadWriteProperties {
                     "activates-default": boolean
                     "attributes": Pango.AttrList | null
                     "buffer": EntryBuffer
@@ -50536,25 +50246,10 @@ declare module "gi://Gtk?version=4.0" {
                     "visibility": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleText.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
-                    "activates-default": boolean
-                    "attributes": Pango.AttrList | null
-                    "buffer": EntryBuffer
-                    "enable-emoji-completion": boolean
-                    "extra-menu": Gio.MenuModel | null
-                    "im-module": string
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
-                    "invisible-char": number
-                    "invisible-char-set": boolean
-                    "max-length": number
-                    "overwrite-mode": boolean
-                    "placeholder-text": string | null
-                    "propagate-text-width": boolean
-                    "scroll-offset": number
-                    "tabs": Pango.TabArray | null
-                    "truncate-multiline": boolean
-                    "visibility": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleText.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Editable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleText.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Editable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleText.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Editable.ConstructOnlyProperties {
@@ -51274,23 +50969,19 @@ declare module "gi://Gtk?version=4.0" {
                     "undo"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "can-redo": boolean
                     "can-undo": boolean
                     "cursor-position": number
                     "enable-undo": boolean
                     "has-selection": boolean
-                    "tag-table": TextTagTable
                     "text": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "can-redo": boolean
-                    "can-undo": boolean
-                    "cursor-position": number
-                    "enable-undo": boolean
-                    "has-selection": boolean
-                    "text": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -52295,10 +51986,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -52372,12 +52066,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "left-gravity": boolean
-                    "name": string | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -52523,96 +52218,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "accumulative-margin": boolean
-                    "allow-breaks": boolean
-                    "allow-breaks-set": boolean
-                    "background-full-height": boolean
-                    "background-full-height-set": boolean
-                    "background-rgba": Gdk.RGBA
-                    "background-set": boolean
-                    "direction": TextDirection
-                    "editable": boolean
-                    "editable-set": boolean
-                    "fallback": boolean
-                    "fallback-set": boolean
-                    "family": string
-                    "family-set": boolean
-                    "font": string
-                    "font-desc": Pango.FontDescription
-                    "font-features": string
-                    "font-features-set": boolean
-                    "foreground-rgba": Gdk.RGBA
-                    "foreground-set": boolean
-                    "indent": number
-                    "indent-set": boolean
-                    "insert-hyphens": boolean
-                    "insert-hyphens-set": boolean
-                    "invisible": boolean
-                    "invisible-set": boolean
-                    "justification": Justification
-                    "justification-set": boolean
-                    "language": string
-                    "language-set": boolean
-                    "left-margin": number
-                    "left-margin-set": boolean
-                    "letter-spacing": number
-                    "letter-spacing-set": boolean
-                    "line-height": number
-                    "line-height-set": boolean
-                    "name": string
-                    "overline": Pango.Overline
-                    "overline-rgba": Gdk.RGBA
-                    "overline-rgba-set": boolean
-                    "overline-set": boolean
-                    "paragraph-background-rgba": Gdk.RGBA
-                    "paragraph-background-set": boolean
-                    "pixels-above-lines": number
-                    "pixels-above-lines-set": boolean
-                    "pixels-below-lines": number
-                    "pixels-below-lines-set": boolean
-                    "pixels-inside-wrap": number
-                    "pixels-inside-wrap-set": boolean
-                    "right-margin": number
-                    "right-margin-set": boolean
-                    "rise": number
-                    "rise-set": boolean
-                    "scale": number
-                    "scale-set": boolean
-                    "sentence": boolean
-                    "sentence-set": boolean
-                    "show-spaces": Pango.ShowFlags
-                    "show-spaces-set": boolean
-                    "size": number
-                    "size-points": number
-                    "size-set": boolean
-                    "stretch": Pango.Stretch
-                    "stretch-set": boolean
-                    "strikethrough": boolean
-                    "strikethrough-rgba": Gdk.RGBA
-                    "strikethrough-rgba-set": boolean
-                    "strikethrough-set": boolean
-                    "style": Pango.Style
-                    "style-set": boolean
-                    "tabs": Pango.TabArray
-                    "tabs-set": boolean
-                    "text-transform": Pango.TextTransform
-                    "text-transform-set": boolean
-                    "underline": Pango.Underline
-                    "underline-rgba": Gdk.RGBA
-                    "underline-rgba-set": boolean
-                    "underline-set": boolean
-                    "variant": Pango.Variant
-                    "variant-set": boolean
-                    "weight": number
-                    "weight-set": boolean
-                    "word": boolean
-                    "word-set": boolean
-                    "wrap-mode": WrapMode
-                    "wrap-mode-set": boolean
-                }
-
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accumulative-margin": boolean
                     "allow-breaks": boolean
                     "allow-breaks-set": boolean
@@ -52701,6 +52307,12 @@ declare module "gi://Gtk?version=4.0" {
                     "word-set": boolean
                     "wrap-mode": WrapMode
                     "wrap-mode-set": boolean
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -53382,10 +52994,13 @@ declare module "gi://Gtk?version=4.0" {
                     "tag-removed"(tag: TextTag): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -53666,7 +53281,7 @@ declare module "gi://Gtk?version=4.0" {
                     "toggle-overwrite"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleText.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleText.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "accepts-tab": boolean
                     "bottom-margin": number
                     "buffer": TextBuffer
@@ -53690,28 +53305,10 @@ declare module "gi://Gtk?version=4.0" {
                     "wrap-mode": WrapMode
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, AccessibleText.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
-                    "accepts-tab": boolean
-                    "bottom-margin": number
-                    "buffer": TextBuffer
-                    "cursor-visible": boolean
-                    "editable": boolean
-                    "extra-menu": Gio.MenuModel | null
-                    "im-module": string
-                    "indent": number
-                    "input-hints": InputHints
-                    "input-purpose": InputPurpose
-                    "justification": Justification
-                    "left-margin": number
-                    "monospace": boolean
-                    "overwrite": boolean
-                    "pixels-above-lines": number
-                    "pixels-below-lines": number
-                    "pixels-inside-wrap": number
-                    "right-margin": number
-                    "tabs": Pango.TabArray | null
-                    "top-margin": number
-                    "wrap-mode": WrapMode
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, AccessibleText.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, AccessibleText.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleText.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -54777,13 +54374,15 @@ declare module "gi://Gtk?version=4.0" {
                     "toggled"(): void
                 }
 
-                interface ReadableProperties extends Button.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
-                    "active": boolean
-                }
-
-                interface WritableProperties extends Button.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
+                interface ReadWriteProperties extends Button.ReadWriteProperties, Accessible.ReadWriteProperties, Actionable.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "active": boolean
                     "group": ToggleButton
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Button.ReadableProperties, Accessible.ReadableProperties, Actionable.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Button.WritableProperties, Accessible.WritableProperties, Actionable.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Button.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -54967,10 +54566,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -55087,7 +54689,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                     "hide-expander": boolean
                     "indent-for-depth": boolean
@@ -55096,13 +54698,10 @@ declare module "gi://Gtk?version=4.0" {
                     "list-row": TreeListRow | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
-                    "hide-expander": boolean
-                    "indent-for-depth": boolean
-                    "indent-for-icon": boolean
-                    "item": GObject.Object | null
-                    "list-row": TreeListRow | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -55323,19 +54922,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                     "autoexpand": boolean
                     "item-type": GObject.GType
                     "model": Gio.ListModel
                     "n-items": number
-                    "passthrough": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
-                    "autoexpand": boolean
-                    "item-type": GObject.GType
-                    "model": Gio.ListModel
-                    "n-items": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -55484,7 +55081,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "children": Gio.ListModel | null
                     "depth": number
                     "expandable": boolean
@@ -55492,12 +55089,10 @@ declare module "gi://Gtk?version=4.0" {
                     "item": GObject.Object | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "children": Gio.ListModel | null
-                    "depth": number
-                    "expandable": boolean
-                    "expanded": boolean
-                    "item": GObject.Object | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -55651,12 +55246,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Sorter.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Sorter.ReadableProperties {
+                interface ReadWriteProperties extends Sorter.ReadWriteProperties {
                     "sorter": Sorter | null
                 }
 
-                interface WritableProperties extends Sorter.WritableProperties {
-                    "sorter": Sorter | null
+                interface ReadableProperties extends ReadWriteProperties, Sorter.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Sorter.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Sorter.ConstructOnlyProperties {
@@ -55728,12 +55325,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, TreeDragSource.SignalSignatures, TreeModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties {
-                    "child-model": TreeModel
-                    "virtual-root": TreePath
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, TreeDragSource.ReadWriteProperties, TreeModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, TreeDragSource.ConstructOnlyProperties, TreeModel.ConstructOnlyProperties {
@@ -55985,11 +55583,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, TreeDragSource.SignalSignatures, TreeModel.SignalSignatures, TreeSortable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
-                    "model": TreeModel
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, TreeDragSource.ReadWriteProperties, TreeModel.ReadWriteProperties, TreeSortable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, TreeDragSource.ConstructOnlyProperties, TreeModel.ConstructOnlyProperties, TreeSortable.ConstructOnlyProperties {
@@ -56207,12 +55807,14 @@ declare module "gi://Gtk?version=4.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "mode": SelectionMode
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "mode": SelectionMode
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -56414,10 +56016,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Buildable.SignalSignatures, TreeDragDest.SignalSignatures, TreeDragSource.SignalSignatures, TreeModel.SignalSignatures, TreeSortable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Buildable.ReadableProperties, TreeDragDest.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties, TreeDragDest.ReadWriteProperties, TreeDragSource.ReadWriteProperties, TreeModel.ReadWriteProperties, TreeSortable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Buildable.WritableProperties, TreeDragDest.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties, TreeDragDest.ReadableProperties, TreeDragSource.ReadableProperties, TreeModel.ReadableProperties, TreeSortable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties, TreeDragDest.WritableProperties, TreeDragSource.WritableProperties, TreeModel.WritableProperties, TreeSortable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, TreeDragDest.ConstructOnlyProperties, TreeDragSource.ConstructOnlyProperties, TreeModel.ConstructOnlyProperties, TreeSortable.ConstructOnlyProperties {
@@ -56764,18 +56369,15 @@ declare module "gi://Gtk?version=4.0" {
                      * @param path a tree path that points to the row
                      */
                     "row-expanded"(iter: TreeIter, path: TreePath): void
-                    /**
-                     */
+                    
                     "select-all"(): boolean
-                    /**
-                     */
+                    
                     "select-cursor-parent"(): boolean
                     /**
                      * @param object
                      */
                     "select-cursor-row"(object: boolean): boolean
-                    /**
-                     */
+                    
                     "start-interactive-search"(): boolean
                     /**
                      * The given row is about to be collapsed (hide its children nodes). Use this
@@ -56793,15 +56395,13 @@ declare module "gi://Gtk?version=4.0" {
                      * @returns %FALSE to allow expansion, %TRUE to reject
                      */
                     "test-expand-row"(iter: TreeIter, path: TreePath): boolean
-                    /**
-                     */
+                    
                     "toggle-cursor-row"(): boolean
-                    /**
-                     */
+                    
                     "unselect-all"(): boolean
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "activate-on-single-click": boolean
                     "enable-grid-lines": TreeViewGridLines
                     "enable-search": boolean
@@ -56821,24 +56421,10 @@ declare module "gi://Gtk?version=4.0" {
                     "tooltip-column": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
-                    "activate-on-single-click": boolean
-                    "enable-grid-lines": TreeViewGridLines
-                    "enable-search": boolean
-                    "enable-tree-lines": boolean
-                    "expander-column": TreeViewColumn | null
-                    "fixed-height-mode": boolean
-                    "headers-clickable": boolean
-                    "headers-visible": boolean
-                    "hover-expand": boolean
-                    "hover-selection": boolean
-                    "level-indentation": number
-                    "model": TreeModel | null
-                    "reorderable": boolean
-                    "rubber-banding": boolean
-                    "search-column": number
-                    "show-expanders": boolean
-                    "tooltip-column": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -56872,8 +56458,7 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get enableTreeLines(): boolean
                 set enableTreeLines(value: boolean)
-                /**
-                 */
+                
                 get expanderColumn(): TreeViewColumn | null
                 set expanderColumn(value: TreeViewColumn | null)
                 /**
@@ -56925,8 +56510,7 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get levelIndentation(): number
                 set levelIndentation(value: number)
-                /**
-                 */
+                
                 get model(): TreeModel | null
                 set model(value: TreeModel | null)
                 /**
@@ -57771,11 +57355,9 @@ declare module "gi://Gtk?version=4.0" {
                  * @deprecated since 4.10 Use {@link Gtk.ListView} or {@link Gtk.ColumnView} instead
                  */
                 unset_rows_drag_source(): void
-                /**
-                 */
+                
                 vfunc_columns_changed(): void
-                /**
-                 */
+                
                 vfunc_cursor_changed(): void
                 /**
                  * @param logical
@@ -57807,18 +57389,15 @@ declare module "gi://Gtk?version=4.0" {
                  * @param path
                  */
                 vfunc_row_expanded(iter: TreeIter, path: TreePath): void
-                /**
-                 */
+                
                 vfunc_select_all(): boolean
-                /**
-                 */
+                
                 vfunc_select_cursor_parent(): boolean
                 /**
                  * @param start_editing
                  */
                 vfunc_select_cursor_row(start_editing: boolean): boolean
-                /**
-                 */
+                
                 vfunc_start_interactive_search(): boolean
                 /**
                  * @param iter
@@ -57830,11 +57409,9 @@ declare module "gi://Gtk?version=4.0" {
                  * @param path
                  */
                 vfunc_test_expand_row(iter: TreeIter, path: TreePath): boolean
-                /**
-                 */
+                
                 vfunc_toggle_cursor_row(): boolean
-                /**
-                 */
+                
                 vfunc_unselect_all(): boolean
             }
 
@@ -57965,9 +57542,8 @@ declare module "gi://Gtk?version=4.0" {
                     "clicked"(): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties {
                     "alignment": number
-                    "cell-area": CellArea
                     "clickable": boolean
                     "expand": boolean
                     "fixed-width": number
@@ -57987,25 +57563,10 @@ declare module "gi://Gtk?version=4.0" {
                     "x-offset": number
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
-                    "alignment": number
-                    "clickable": boolean
-                    "expand": boolean
-                    "fixed-width": number
-                    "max-width": number
-                    "min-width": number
-                    "reorderable": boolean
-                    "resizable": boolean
-                    "sizing": TreeViewColumnSizing
-                    "sort-column-id": number
-                    "sort-indicator": boolean
-                    "sort-order": SortType
-                    "spacing": number
-                    "title": string
-                    "visible": boolean
-                    "widget": Widget | null
-                    "width": number
-                    "x-offset": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties {
@@ -58093,8 +57654,7 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get spacing(): number
                 set spacing(value: number)
-                /**
-                 */
+                
                 get title(): string
                 set title(value: string)
                 /**
@@ -58102,8 +57662,7 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get visible(): boolean
                 set visible(value: boolean)
-                /**
-                 */
+                
                 get widget(): Widget | null
                 set widget(value: Widget | null)
                 /**
@@ -58547,10 +58106,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Expression.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Expression.ReadableProperties {
+                interface ReadWriteProperties extends Expression.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Expression.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Expression.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Expression.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Expression.ConstructOnlyProperties {
@@ -58598,12 +58160,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "uri": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "uri": string | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -58703,7 +58267,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "autoplay": boolean
                     "file": Gio.File | null
                     "graphics-offload": GraphicsOffloadEnabled
@@ -58711,12 +58275,10 @@ declare module "gi://Gtk?version=4.0" {
                     "media-stream": MediaStream | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "autoplay": boolean
-                    "file": Gio.File | null
-                    "graphics-offload": GraphicsOffloadEnabled
-                    "loop": boolean
-                    "media-stream": MediaStream | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -58908,14 +58470,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Scrollable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Scrollable.ReadWriteProperties {
                     "child": Widget | null
                     "scroll-to-focus": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
-                    "child": Widget | null
-                    "scroll-to-focus": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Scrollable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Scrollable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Scrollable.ConstructOnlyProperties {
@@ -59022,12 +58585,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends ScaleButton.SignalSignatures, Accessible.SignalSignatures, AccessibleRange.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Orientable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends ScaleButton.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                interface ReadWriteProperties extends ScaleButton.ReadWriteProperties, Accessible.ReadWriteProperties, AccessibleRange.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "use-symbolic": boolean
                 }
 
-                interface WritableProperties extends ScaleButton.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
-                    "use-symbolic": boolean
+                interface ReadableProperties extends ReadWriteProperties, ScaleButton.ReadableProperties, Accessible.ReadableProperties, AccessibleRange.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Orientable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, ScaleButton.WritableProperties, Accessible.WritableProperties, AccessibleRange.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Orientable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends ScaleButton.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, AccessibleRange.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -59200,11 +58765,10 @@ declare module "gi://Gtk?version=4.0" {
                     "unrealize"(): void
                 }
 
-                interface ReadableProperties extends GObject.InitiallyUnowned.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "can-focus": boolean
                     "can-target": boolean
                     "css-classes": string[]
-                    "css-name": string
                     "cursor": Gdk.Cursor | null
                     "focus-on-click": boolean
                     "focusable": boolean
@@ -59238,41 +58802,10 @@ declare module "gi://Gtk?version=4.0" {
                     "width-request": number
                 }
 
-                interface WritableProperties extends GObject.InitiallyUnowned.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "can-focus": boolean
-                    "can-target": boolean
-                    "css-classes": string[]
-                    "cursor": Gdk.Cursor | null
-                    "focus-on-click": boolean
-                    "focusable": boolean
-                    "halign": Align
-                    "has-default": boolean
-                    "has-focus": boolean
-                    "has-tooltip": boolean
-                    "height-request": number
-                    "hexpand": boolean
-                    "hexpand-set": boolean
-                    "layout-manager": LayoutManager | null
-                    "limit-events": boolean
-                    "margin-bottom": number
-                    "margin-end": number
-                    "margin-start": number
-                    "margin-top": number
-                    "name": string
-                    "opacity": number
-                    "overflow": Overflow
-                    "parent": Widget | null
-                    "receives-default": boolean
-                    "root": Root | null
-                    "scale-factor": number
-                    "sensitive": boolean
-                    "tooltip-markup": string | null
-                    "tooltip-text": string | null
-                    "valign": Align
-                    "vexpand": boolean
-                    "vexpand-set": boolean
-                    "visible": boolean
-                    "width-request": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -62337,12 +61870,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gdk.Paintable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gdk.Paintable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gdk.Paintable.ReadWriteProperties {
                     "widget": Widget | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gdk.Paintable.WritableProperties {
-                    "widget": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gdk.Paintable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gdk.Paintable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gdk.Paintable.ConstructOnlyProperties {
@@ -62465,35 +62000,7 @@ declare module "gi://Gtk?version=4.0" {
                     "keys-changed"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
-                    "application": Application | null
-                    "child": Widget | null
-                    "decorated": boolean
-                    "default-height": number
-                    "default-widget": Widget | null
-                    "default-width": number
-                    "deletable": boolean
-                    "destroy-with-parent": boolean
-                    "display": Gdk.Display
-                    "focus-visible": boolean
-                    "focus-widget": Widget | null
-                    "fullscreened": boolean
-                    "gravity": WindowGravity
-                    "handle-menubar-accel": boolean
-                    "hide-on-close": boolean
-                    "icon-name": string | null
-                    "is-active": boolean
-                    "maximized": boolean
-                    "mnemonics-visible": boolean
-                    "modal": boolean
-                    "resizable": boolean
-                    "suspended": boolean
-                    "title": string | null
-                    "titlebar": Widget | null
-                    "transient-for": Window | null
-                }
-
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
                     "application": Application | null
                     "child": Widget | null
                     "decorated": boolean
@@ -62520,6 +62027,12 @@ declare module "gi://Gtk?version=4.0" {
                     "title": string | null
                     "titlebar": Widget | null
                     "transient-for": Window | null
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties, Native.ReadableProperties, Root.ReadableProperties, ShortcutManager.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties, Native.WritableProperties, Root.WritableProperties, ShortcutManager.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties, Native.ConstructOnlyProperties, Root.ConstructOnlyProperties, ShortcutManager.ConstructOnlyProperties {
@@ -63513,18 +63026,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "decoration-layout": string | null
                     "empty": boolean
                     "side": PackType
                     "use-native-controls": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "decoration-layout": string | null
-                    "empty": boolean
-                    "side": PackType
-                    "use-native-controls": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -63711,10 +63223,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -63785,12 +63300,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties {
                     "child": Widget | null
                 }
 
-                interface WritableProperties extends Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
-                    "child": Widget | null
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Accessible.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, ConstraintTarget.ConstructOnlyProperties {
@@ -63858,12 +63375,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accessible-role": AccessibleRole
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "accessible-role": AccessibleRole
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -64155,10 +63674,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Accessible.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Accessible.ReadableProperties {
+                interface ReadWriteProperties extends Accessible.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Accessible.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Accessible.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Accessible.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Accessible.ConstructOnlyProperties {
@@ -64217,10 +63739,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Accessible.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Accessible.ReadableProperties {
+                interface ReadWriteProperties extends Accessible.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Accessible.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Accessible.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Accessible.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Accessible.ConstructOnlyProperties {
@@ -64290,10 +63815,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Accessible.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Accessible.ReadableProperties {
+                interface ReadWriteProperties extends Accessible.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Accessible.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Accessible.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Accessible.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Accessible.ConstructOnlyProperties {
@@ -64480,14 +64008,15 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                     "action-name": string | null
                     "action-target": GLib.Variant
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
-                    "action-name": string | null
-                    "action-target": GLib.Variant
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
@@ -64651,11 +64180,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
-                    "content-type": string
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
@@ -64736,10 +64267,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -64866,10 +64400,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -64982,12 +64519,14 @@ declare module "gi://Gtk?version=4.0" {
                     "remove-widget"(): void
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                     "editing-canceled": boolean
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
-                    "editing-canceled": boolean
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
@@ -65081,10 +64620,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -65409,14 +64951,15 @@ declare module "gi://Gtk?version=4.0" {
                     "color-activated"(color: Gdk.RGBA): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "rgba": Gdk.RGBA
                     "use-alpha": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "rgba": Gdk.RGBA
-                    "use-alpha": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -65570,10 +65113,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -65648,7 +65194,7 @@ declare module "gi://Gtk?version=4.0" {
                     "insert-text"(text: string, length: number, position: number): number
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                     "complete-text": string
                     "cursor-position": number
                     "editable": boolean
@@ -65660,24 +65206,17 @@ declare module "gi://Gtk?version=4.0" {
                     "xalign": number
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
-                    "complete-text": string
-                    "cursor-position": number
-                    "editable": boolean
-                    "enable-undo": boolean
-                    "max-width-chars": number
-                    "selection-bound": number
-                    "text": string
-                    "width-chars": number
-                    "xalign": number
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
                 }
 
                 interface Interface extends Widget {
-                    /**
-                     */
+                    
                     vfunc_changed(): void
                     /**
                      * Deletes a sequence of characters.
@@ -66186,7 +65725,7 @@ declare module "gi://Gtk?version=4.0" {
                  * {
                  *   ...
                  *   g_object_class_install_properties (object_class, NUM_PROPERTIES, props);
-                 *   gtk_editable_install_properties (object_clas, NUM_PROPERTIES);
+                 *   gtk_editable_install_properties (object_class, NUM_PROPERTIES);
                  *   ...
                  * }
                  * ```
@@ -66269,7 +65808,7 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "action": FileChooserAction
                     "create-folders": boolean
                     "filter": FileFilter | null
@@ -66278,13 +65817,10 @@ declare module "gi://Gtk?version=4.0" {
                     "shortcut-folders": Gio.ListModel
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "action": FileChooserAction
-                    "create-folders": boolean
-                    "filter": FileFilter | null
-                    "filters": Gio.ListModel
-                    "select-multiple": boolean
-                    "shortcut-folders": Gio.ListModel
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -66692,7 +66228,7 @@ declare module "gi://Gtk?version=4.0" {
                     "font-activated"(fontname: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "font": string | null
                     "font-desc": Pango.FontDescription | null
                     "font-features": string
@@ -66702,14 +66238,10 @@ declare module "gi://Gtk?version=4.0" {
                     "show-preview-entry": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "font": string | null
-                    "font-desc": Pango.FontDescription | null
-                    "font-features": string
-                    "language": string
-                    "level": FontChooserLevel
-                    "preview-text": string
-                    "show-preview-entry": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -67043,10 +66575,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Widget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Widget.ReadableProperties {
+                interface ReadWriteProperties extends Widget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Widget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties {
@@ -67130,12 +66665,14 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "orientation": Orientation
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "orientation": Orientation
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -67213,10 +66750,13 @@ declare module "gi://Gtk?version=4.0" {
                     "ready"(context: PrintContext): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -67320,10 +66860,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Native.SignalSignatures, Widget.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Native.ReadableProperties, Widget.ReadableProperties {
+                interface ReadWriteProperties extends Native.ReadWriteProperties, Widget.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Native.WritableProperties, Widget.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Native.ReadableProperties, Widget.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Native.WritableProperties, Widget.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Native.ConstructOnlyProperties, Widget.ConstructOnlyProperties {
@@ -67397,18 +66940,17 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "hadjustment": Adjustment | null
                     "hscroll-policy": ScrollablePolicy
                     "vadjustment": Adjustment | null
                     "vscroll-policy": ScrollablePolicy
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "hadjustment": Adjustment | null
-                    "hscroll-policy": ScrollablePolicy
-                    "vadjustment": Adjustment | null
-                    "vscroll-policy": ScrollablePolicy
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -67578,10 +67120,13 @@ declare module "gi://Gtk?version=4.0" {
                     "sections-changed"(position: number, n_items: number): void
                 }
 
-                interface ReadableProperties extends Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.ListModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.ListModel.ConstructOnlyProperties {
@@ -67691,10 +67236,13 @@ declare module "gi://Gtk?version=4.0" {
                     "selection-changed"(position: number, n_items: number): void
                 }
 
-                interface ReadableProperties extends Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.ListModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.ListModel.ConstructOnlyProperties {
@@ -67975,10 +67523,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -68032,15 +67583,17 @@ declare module "gi://Gtk?version=4.0" {
 
             namespace StyleProvider {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
-                    /**
-                     */
+                    
                     "gtk-private-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -68082,10 +67635,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends Gdk.Paintable.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gdk.Paintable.ReadableProperties {
+                interface ReadWriteProperties extends Gdk.Paintable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gdk.Paintable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gdk.Paintable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gdk.Paintable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gdk.Paintable.ConstructOnlyProperties {
@@ -68182,10 +67738,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -68271,10 +67830,13 @@ declare module "gi://Gtk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -68404,10 +67966,13 @@ declare module "gi://Gtk?version=4.0" {
                     "row-inserted"(path: TreePath, iter: TreeIter): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -69130,10 +68695,13 @@ declare module "gi://Gtk?version=4.0" {
                     "sort-column-changed"(): void
                 }
 
-                interface ReadableProperties extends TreeModel.ReadableProperties {
+                interface ReadWriteProperties extends TreeModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends TreeModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, TreeModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, TreeModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends TreeModel.ConstructOnlyProperties {
@@ -69886,20 +69454,15 @@ declare module "gi://Gtk?version=4.0" {
             }
 
             interface CssLocation {
-                /**
-                 */
+                
                 bytes: number
-                /**
-                 */
+                
                 chars: number
-                /**
-                 */
+                
                 lines: number
-                /**
-                 */
+                
                 line_bytes: number
-                /**
-                 */
+                
                 line_chars: number
             }
 
@@ -76551,8 +76114,7 @@ declare module "gi://Gtk?version=4.0" {
                  *   a different SVG renderer.
                  */
                 readonly "NOT_IMPLEMENTED": 9
-                /**
-                 */
+                
                 readonly "FEATURE_DISABLED": 10
                 /**
              * Returns context information about what XML attribute
@@ -76594,8 +76156,7 @@ declare module "gi://Gtk?version=4.0" {
              * @returns the {@link Gtk.SvgLocation}
              */
             get_start: (error: GLib.Error) => SvgLocation | null
-                /**
-             */
+                
             quark: () => GLib.Quark
             }
 
@@ -79266,8 +78827,7 @@ declare module "gi://Gtk?version=4.0" {
                  * @returns the {@link Gtk.SvgLocation}
                  */
                 svg_error_get_start(error: GLib.Error): SvgLocation | null
-                /**
-                 */
+                
                 svg_error_quark(): GLib.Quark
                 /**
                  * Prints an assertion message for gtk_test_accessible_assert_role().

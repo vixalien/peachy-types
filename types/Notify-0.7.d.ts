@@ -42,7 +42,7 @@ declare module "gi://Notify?version=0.7" {
                     "closed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "app-icon": string
                     "app-name": string
                     "body": string
@@ -52,14 +52,10 @@ declare module "gi://Notify?version=0.7" {
                     "summary": string
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "app-icon": string
-                    "app-name": string
-                    "body": string
-                    "closed-reason": number
-                    "icon-name": string
-                    "id": number
-                    "summary": string
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -302,8 +298,7 @@ declare module "gi://Notify?version=0.7" {
                  * @returns %TRUE, unless an invalid parameter was passed.
                  */
                 update(summary: string, body: string | null, icon: string | null): boolean
-                /**
-                 */
+                
                 vfunc_closed(): void
             }
 

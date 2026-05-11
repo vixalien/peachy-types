@@ -28,10 +28,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -116,8 +119,7 @@ declare module "gi://Dex?version=1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 AsyncPair: AsyncPairClass
             }
             
@@ -126,10 +128,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.AsyncResult.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.AsyncResult.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncResult.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.AsyncResult.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncResult.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncResult.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.AsyncResult.ConstructOnlyProperties {
@@ -153,8 +158,7 @@ declare module "gi://Dex?version=1" {
                  * @returns a {@link Dex.Future} or %NULL
                  */
                 dup_future(): Future | null
-                /**
-                 */
+                
                 get_name(): string
                 /**
                  * @throws {GLib.Error}
@@ -219,10 +223,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -273,10 +280,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -333,10 +343,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -348,17 +361,13 @@ declare module "gi://Dex?version=1" {
                 readonly $readableProperties: Channel.ReadableProperties
                 readonly $writableProperties: Channel.WritableProperties
                 readonly $constructOnlyProperties: Channel.ConstructOnlyProperties
-                /**
-                 */
+                
                 can_receive(): boolean
-                /**
-                 */
+                
                 can_send(): boolean
-                /**
-                 */
+                
                 close_receive(): void
-                /**
-                 */
+                
                 close_send(): void
                 /**
                  * Receives the next item from the channel.
@@ -419,8 +428,7 @@ declare module "gi://Dex?version=1" {
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Channel: ChannelClass
             }
             
@@ -429,10 +437,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Gio.DBusInterfaceSkeleton.SignalSignatures, Gio.DBusInterface.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.DBusInterfaceSkeleton.ReadableProperties, Gio.DBusInterface.ReadableProperties {
+                interface ReadWriteProperties extends Gio.DBusInterfaceSkeleton.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.DBusInterfaceSkeleton.WritableProperties, Gio.DBusInterface.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.DBusInterfaceSkeleton.ReadableProperties, Gio.DBusInterface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.DBusInterfaceSkeleton.WritableProperties, Gio.DBusInterface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.DBusInterfaceSkeleton.ConstructOnlyProperties, Gio.DBusInterface.ConstructOnlyProperties {
@@ -486,10 +497,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -544,10 +558,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -597,10 +614,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -752,11 +772,9 @@ declare module "gi://Dex?version=1" {
                  * @since 0.4
                  */
                 disown(): void
-                /**
-                 */
+                
                 get_name(): string
-                /**
-                 */
+                
                 get_status(): FutureStatus
                 /**
                  * @throws {GLib.Error}
@@ -1020,10 +1038,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
@@ -1065,10 +1086,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -1134,10 +1158,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Scheduler.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Scheduler.ReadableProperties {
+                interface ReadWriteProperties extends Scheduler.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Scheduler.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Scheduler.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Scheduler.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Scheduler.ConstructOnlyProperties {
@@ -1176,10 +1203,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -1229,10 +1259,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -1379,10 +1412,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Object.ReadableProperties {
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
@@ -1499,10 +1535,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -1542,10 +1581,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Scheduler.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Scheduler.ReadableProperties {
+                interface ReadWriteProperties extends Scheduler.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Scheduler.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Scheduler.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Scheduler.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Scheduler.ConstructOnlyProperties {
@@ -1606,10 +1648,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -1670,10 +1715,13 @@ declare module "gi://Dex?version=1" {
                 interface SignalSignatures extends Future.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Future.ReadableProperties {
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Future.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
@@ -1748,14 +1796,11 @@ declare module "gi://Dex?version=1" {
             }
 
             interface AsyncPairInfo {
-                /**
-                 */
+                
                 async: never
-                /**
-                 */
+                
                 finish: never
-                /**
-                 */
+                
                 return_type: GObject.GType
             }
 
@@ -1765,20 +1810,16 @@ declare module "gi://Dex?version=1" {
             
             interface BlockKindEnum {
                 readonly $gtype: GObject.GType<BlockKind>
-                /**
-                 */
+                
                 readonly "THEN": 1
-                /**
-                 */
+                
                 readonly "CATCH": 2
-                /**
-                 */
+                
                 readonly "FINALLY": 3
             }
             type BlockKind = BlockKindEnum[Exclude<keyof BlockKindEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 BlockKind: BlockKindEnum
             }
             
@@ -1788,63 +1829,47 @@ declare module "gi://Dex?version=1" {
                 readonly $gtype: GObject.GType<Error>
 
                 new(props: { message: string, code: number }): Error
-                /**
-                 */
+                
                 readonly "UNKNOWN": 0
-                /**
-                 */
+                
                 readonly "CHANNEL_CLOSED": 1
-                /**
-                 */
+                
                 readonly "DEPENDENCY_FAILED": 2
-                /**
-                 */
+                
                 readonly "FIBER_EXITED": 3
-                /**
-                 */
+                
                 readonly "NO_FIBER": 4
-                /**
-                 */
+                
                 readonly "PENDING": 5
-                /**
-                 */
+                
                 readonly "SEMAPHORE_CLOSED": 6
-                /**
-                 */
+                
                 readonly "TIMED_OUT": 7
-                /**
-                 */
+                
                 readonly "TYPE_MISMATCH": 8
-                /**
-                 */
+                
                 readonly "TYPE_NOT_SUPPORTED": 9
-                /**
-                 */
+                
                 readonly "FIBER_CANCELLED": 10
             }
 
             interface $Exports {
-                /**
-                 */
+                
                 Error: ErrorEnum
             }
             
             interface FutureStatusEnum {
                 readonly $gtype: GObject.GType<FutureStatus>
-                /**
-                 */
+                
                 readonly "PENDING": 0
-                /**
-                 */
+                
                 readonly "RESOLVED": 1
-                /**
-                 */
+                
                 readonly "REJECTED": 2
             }
             type FutureStatus = FutureStatusEnum[Exclude<keyof FutureStatusEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 FutureStatus: FutureStatusEnum
             }
             
@@ -1900,8 +1925,7 @@ declare module "gi://Dex?version=1" {
              * @returns a {@link Dex.Future} or %NULL
              */
             type FutureCallback = (future: Future) => Future | null
-            /**
-             */
+            
             type SchedulerFunc = () => void
             /**
              * A function which will be run on a dedicated thread.
@@ -2030,8 +2054,7 @@ declare module "gi://Dex?version=1" {
                  * @returns a {@link Dex.Future} that will resolve to a   {@link Gio.DBusMessage} or reject with failure., a location for the message serial number
                  */
                 dbus_connection_send_message_with_reply(connection: Gio.DBusConnection, message: Gio.DBusMessage, flags: Gio.DBusSendMessageFlags, timeout_msec: number): [Future, number]
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
                 /**
                  * Creates a new GSource that will fire when `events` is satisfied.
@@ -2207,8 +2230,7 @@ declare module "gi://Dex?version=1" {
                  * @since 1.1
                  */
                 get_micro_version(): number
-                /**
-                 */
+                
                 get_min_stack_size(): number
                 /**
                  * Gets the minor version number equivalent to `DEX_MINOR_VERSION`
@@ -2216,11 +2238,9 @@ declare module "gi://Dex?version=1" {
                  * @since 1.1
                  */
                 get_minor_version(): number
-                /**
-                 */
+                
                 get_page_size(): number
-                /**
-                 */
+                
                 init(): void
                 /**
                  * @param self a {@link Gio.InputStream}

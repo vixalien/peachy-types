@@ -34,10 +34,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -71,10 +74,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.BufferPool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.BufferPool.ReadableProperties {
+                interface ReadWriteProperties extends Gst.BufferPool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.BufferPool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.BufferPool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.BufferPool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.BufferPool.ConstructOnlyProperties {
@@ -122,10 +128,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -185,10 +194,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends VulkanHandlePool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VulkanHandlePool.ReadableProperties {
+                interface ReadWriteProperties extends VulkanHandlePool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends VulkanHandlePool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, VulkanHandlePool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VulkanHandlePool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VulkanHandlePool.ConstructOnlyProperties {
@@ -234,10 +246,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -295,13 +310,14 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "instance": VulkanInstance | null
-                    "physical-device": VulkanPhysicalDevice
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "instance": VulkanInstance | null
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -314,12 +330,10 @@ declare module "gi://GstVulkan?version=1.0" {
                 readonly $readableProperties: VulkanDevice.ReadableProperties
                 readonly $writableProperties: VulkanDevice.WritableProperties
                 readonly $constructOnlyProperties: VulkanDevice.ConstructOnlyProperties
-                /**
-                 */
+                
                 get instance(): VulkanInstance | null
                 set instance(value: VulkanInstance | null)
-                /**
-                 */
+                
                 get physicalDevice(): VulkanPhysicalDevice
                 set physicalDevice(value: VulkanPhysicalDevice)
                 /**
@@ -462,10 +476,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -585,10 +602,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends VulkanHandlePool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VulkanHandlePool.ReadableProperties {
+                interface ReadWriteProperties extends VulkanHandlePool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends VulkanHandlePool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, VulkanHandlePool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VulkanHandlePool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VulkanHandlePool.ConstructOnlyProperties {
@@ -625,10 +645,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -675,8 +698,7 @@ declare module "gi://GstVulkan?version=1.0" {
                  * @returns whether `cmd` could be filled with the necessary commands
                  */
                 fill_command_buffer(cmd: VulkanCommandBuffer, fence: VulkanFence): boolean
-                /**
-                 */
+                
                 get_last_fence(): VulkanFence
                 /**
                  * @since 1.26
@@ -796,10 +818,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -864,10 +889,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.BufferPool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.BufferPool.ReadableProperties {
+                interface ReadWriteProperties extends Gst.BufferPool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.BufferPool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.BufferPool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.BufferPool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.BufferPool.ConstructOnlyProperties {
@@ -944,10 +972,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -989,14 +1020,15 @@ declare module "gi://GstVulkan?version=1.0" {
                     "create-device"(device_index: number): VulkanDevice
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "requested-api-major": number
                     "requested-api-minor": number
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "requested-api-major": number
-                    "requested-api-minor": number
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1201,10 +1233,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Allocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Allocator.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Allocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Allocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Allocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Allocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Allocator.ConstructOnlyProperties {
@@ -1238,11 +1273,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
-                    "command-pool": VulkanCommandPool
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1255,8 +1292,7 @@ declare module "gi://GstVulkan?version=1.0" {
                 readonly $readableProperties: VulkanOperation.ReadableProperties
                 readonly $writableProperties: VulkanOperation.WritableProperties
                 readonly $constructOnlyProperties: VulkanOperation.ConstructOnlyProperties
-                /**
-                 */
+                
                 get commandPool(): VulkanCommandPool
                 set commandPool(value: VulkanCommandPool)
                 /**
@@ -1414,14 +1450,14 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
-                    "device-index": number
-                    "instance": VulkanInstance
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "name": string
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "name": string
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1440,8 +1476,7 @@ declare module "gi://GstVulkan?version=1.0" {
                  */
                 get deviceIndex(): number
                 set deviceIndex(value: number)
-                /**
-                 */
+                
                 get instance(): VulkanInstance
                 set instance(value: VulkanInstance)
                 /**
@@ -1527,10 +1562,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1612,14 +1650,15 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "force-aspect-ratio": boolean
                     "pixel-aspect-ratio": Gst.Fraction
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "force-aspect-ratio": boolean
-                    "pixel-aspect-ratio": Gst.Fraction
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1691,10 +1730,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends VulkanTrashList.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VulkanTrashList.ReadableProperties {
+                interface ReadWriteProperties extends VulkanTrashList.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends VulkanTrashList.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, VulkanTrashList.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VulkanTrashList.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VulkanTrashList.ConstructOnlyProperties {
@@ -1731,10 +1773,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends VulkanHandlePool.SignalSignatures {
                 }
 
-                interface ReadableProperties extends VulkanHandlePool.ReadableProperties {
+                interface ReadWriteProperties extends VulkanHandlePool.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends VulkanHandlePool.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, VulkanHandlePool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VulkanHandlePool.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends VulkanHandlePool.ConstructOnlyProperties {
@@ -1808,10 +1853,13 @@ declare module "gi://GstVulkan?version=1.0" {
                 interface SignalSignatures extends GstBase.BaseTransform.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstBase.BaseTransform.ReadableProperties {
+                interface ReadWriteProperties extends GstBase.BaseTransform.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstBase.BaseTransform.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstBase.BaseTransform.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstBase.BaseTransform.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstBase.BaseTransform.ConstructOnlyProperties {
@@ -1857,11 +1905,9 @@ declare module "gi://GstVulkan?version=1.0" {
 
             namespace VulkanWindow {
                 interface SignalSignatures extends Gst.Object.SignalSignatures {
-                    /**
-                     */
+                    
                     "close"(): boolean
-                    /**
-                     */
+                    
                     "draw"(): void
                     /**
                      * Will be emitted when a key event is received by the #GstVulkanWindow.
@@ -1886,12 +1932,14 @@ declare module "gi://GstVulkan?version=1.0" {
                     "resize"(object: number, p0: number): void
                 }
 
-                interface ReadableProperties extends Gst.Object.ReadableProperties {
+                interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "display": VulkanDisplay
                 }
 
-                interface WritableProperties extends Gst.Object.WritableProperties {
-                    "display": VulkanDisplay
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gst.Object.ConstructOnlyProperties {
@@ -1903,8 +1951,7 @@ declare module "gi://GstVulkan?version=1.0" {
                 readonly $readableProperties: VulkanWindow.ReadableProperties
                 readonly $writableProperties: VulkanWindow.WritableProperties
                 readonly $constructOnlyProperties: VulkanWindow.ConstructOnlyProperties
-                /**
-                 */
+                
                 get display(): VulkanDisplay
                 set display(value: VulkanDisplay)
                 /**
@@ -2118,8 +2165,7 @@ declare module "gi://GstVulkan?version=1.0" {
                  *  `flags` the #GstVulkanBarrierFlags of the barrier
                  */
                 type: VulkanBarrierType
-                /**
-                 */
+                
                 flags: VulkanBarrierFlags
                 /**
                  * the #GstVulkanQueue this barrier is to execute with
@@ -2480,8 +2526,7 @@ declare module "gi://GstVulkan?version=1.0" {
                  * @returns whether `fence` has been signalled
                  */
                 is_signaled(): boolean
-                /**
-                 */
+                
                 reset(): void
             }
 
@@ -2536,8 +2581,7 @@ declare module "gi://GstVulkan?version=1.0" {
                  *  `n_components`; number of components in this format
                  */
                 bits: number
-                /**
-                 */
+                
                 n_components: number
                 /**
                  * the number of bits to shift away to get the component data
@@ -2547,8 +2591,7 @@ declare module "gi://GstVulkan?version=1.0" {
                  * the depth in bits for each component
                  */
                 depth: Uint8Array
-                /**
-                 */
+                
                 pixel_stride: Uint8Array
                 /**
                  * the number of planes for this format. The number of planes can
@@ -2689,11 +2732,9 @@ declare module "gi://GstVulkan?version=1.0" {
                  * the handle value
                  */
                 handle: VulkanHandleTypedef
-                /**
-                 */
+                
                 notify: VulkanHandleDestroyNotify
-                /**
-                 */
+                
                 user_data: never
                 /**
                  * Frees the descriptor set layout in `handle`
@@ -3151,20 +3192,15 @@ declare module "gi://GstVulkan?version=1.0" {
             }
 
             interface VulkanTrash {
-                /**
-                 */
+                
                 parent: Gst.MiniObject
-                /**
-                 */
+                
                 cache: VulkanTrashList
-                /**
-                 */
+                
                 fence: VulkanFence
-                /**
-                 */
+                
                 notify: VulkanTrashNotify
-                /**
-                 */
+                
                 user_data: never
             }
 
@@ -3195,8 +3231,7 @@ declare module "gi://GstVulkan?version=1.0" {
             }
 
             interface VulkanVideoProfile {
-                /**
-                 */
+                
                 reserved: never[]
                 /**
                  * @param b another #GstVulkanVideoProfile
@@ -3224,8 +3259,7 @@ declare module "gi://GstVulkan?version=1.0" {
             
             interface VulkanBarrierFlagsEnum {
                 readonly $gtype: GObject.GType<VulkanBarrierFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type VulkanBarrierFlags = VulkanBarrierFlagsEnum[Exclude<keyof VulkanBarrierFlagsEnum, "$gtype">]
@@ -3242,14 +3276,11 @@ declare module "gi://GstVulkan?version=1.0" {
                  * no barrier type
                  */
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "TYPE_MEMORY": 1
-                /**
-                 */
+                
                 readonly "TYPE_BUFFER": 2
-                /**
-                 */
+                
                 readonly "TYPE_IMAGE": 3
             }
             type VulkanBarrierType = VulkanBarrierTypeEnum[Exclude<keyof VulkanBarrierTypeEnum, "$gtype">]
@@ -3457,8 +3488,7 @@ declare module "gi://GstVulkan?version=1.0" {
                  * win32 display
                  */
                 readonly "WIN32": 16
-                /**
-                 */
+                
                 readonly "ANDROID": 32
                 /**
                  * any display type
@@ -3558,8 +3588,7 @@ declare module "gi://GstVulkan?version=1.0" {
              * @param device the #GstVulkanDevice
              */
             type VulkanTrashNotify = (device: VulkanDevice) => void
-            /**
-             */
+            
             type VulkanHandleTypedef = number
 
             interface $Exports {

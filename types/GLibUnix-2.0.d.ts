@@ -92,8 +92,7 @@ declare module "gi://GLibUnix?version=2.0" {
                  * @returns 0 on success, -1 with errno set on error
                  */
                 closefrom(lowfd: number): number
-                /**
-                 */
+                
                 error_quark(): GLib.Quark
                 /**
                  * Sets a function to be called when the IO condition, as specified by

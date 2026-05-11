@@ -28,17 +28,14 @@ declare module "gi://Xdp?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "id": number
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "is-active": boolean
-                    "x1": number
-                    "x2": number
-                    "y1": number
-                    "y2": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "is-active": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -150,10 +147,13 @@ declare module "gi://Xdp?version=1.0" {
                     "zones-changed"(options: GLib.Variant): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -270,17 +270,14 @@ declare module "gi://Xdp?version=1.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "height": number
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "is-valid": boolean
-                    "width": number
-                    "x": number
-                    "y": number
-                    "zone-set": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "is-valid": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -424,10 +421,13 @@ declare module "gi://Xdp?version=1.0" {
                     "update-progress"(n_ops: number, op: number, progress: number, status: UpdateStatus, error: string, error_message: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.Initable.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.Initable.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.Initable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.Initable.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties {
@@ -1384,10 +1384,13 @@ declare module "gi://Xdp?version=1.0" {
                     "closed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1637,10 +1640,13 @@ declare module "gi://Xdp?version=1.0" {
                     "changed"(namespace: string, key: string, value: GLib.Variant): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1754,14 +1760,12 @@ declare module "gi://Xdp?version=1.0" {
             
             interface CameraFlagsEnum {
                 readonly $gtype: GObject.GType<CameraFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type CameraFlags = CameraFlagsEnum[Exclude<keyof CameraFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 CameraFlags: CameraFlagsEnum
             }
             
@@ -1787,14 +1791,12 @@ declare module "gi://Xdp?version=1.0" {
             
             interface EmailFlagsEnum {
                 readonly $gtype: GObject.GType<EmailFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type EmailFlags = EmailFlagsEnum[Exclude<keyof EmailFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 EmailFlags: EmailFlagsEnum
             }
             
@@ -1856,14 +1858,12 @@ declare module "gi://Xdp?version=1.0" {
             
             interface LocationMonitorFlagsEnum {
                 readonly $gtype: GObject.GType<LocationMonitorFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type LocationMonitorFlags = LocationMonitorFlagsEnum[Exclude<keyof LocationMonitorFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 LocationMonitorFlags: LocationMonitorFlagsEnum
             }
             
@@ -1895,14 +1895,12 @@ declare module "gi://Xdp?version=1.0" {
             
             interface NotificationFlagsEnum {
                 readonly $gtype: GObject.GType<NotificationFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type NotificationFlags = NotificationFlagsEnum[Exclude<keyof NotificationFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 NotificationFlags: NotificationFlagsEnum
             }
             
@@ -1931,40 +1929,34 @@ declare module "gi://Xdp?version=1.0" {
             
             interface PrintFlagsEnum {
                 readonly $gtype: GObject.GType<PrintFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type PrintFlags = PrintFlagsEnum[Exclude<keyof PrintFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 PrintFlags: PrintFlagsEnum
             }
             
             interface SaveFileFlagsEnum {
                 readonly $gtype: GObject.GType<SaveFileFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type SaveFileFlags = SaveFileFlagsEnum[Exclude<keyof SaveFileFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 SaveFileFlags: SaveFileFlagsEnum
             }
             
             interface SessionMonitorFlagsEnum {
                 readonly $gtype: GObject.GType<SessionMonitorFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type SessionMonitorFlags = SessionMonitorFlagsEnum[Exclude<keyof SessionMonitorFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 SessionMonitorFlags: SessionMonitorFlagsEnum
             }
             
@@ -2016,27 +2008,23 @@ declare module "gi://Xdp?version=1.0" {
             
             interface UpdateInstallFlagsEnum {
                 readonly $gtype: GObject.GType<UpdateInstallFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type UpdateInstallFlags = UpdateInstallFlagsEnum[Exclude<keyof UpdateInstallFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 UpdateInstallFlags: UpdateInstallFlagsEnum
             }
             
             interface UpdateMonitorFlagsEnum {
                 readonly $gtype: GObject.GType<UpdateMonitorFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type UpdateMonitorFlags = UpdateMonitorFlagsEnum[Exclude<keyof UpdateMonitorFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 UpdateMonitorFlags: UpdateMonitorFlagsEnum
             }
             
@@ -2071,14 +2059,12 @@ declare module "gi://Xdp?version=1.0" {
             
             interface UserInformationFlagsEnum {
                 readonly $gtype: GObject.GType<UserInformationFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
             }
             type UserInformationFlags = UserInformationFlagsEnum[Exclude<keyof UserInformationFlagsEnum, "$gtype">]
             interface $Exports {
-                /**
-                 */
+                
                 UserInformationFlags: UserInformationFlagsEnum
             }
             
@@ -2337,17 +2323,14 @@ declare module "gi://Xdp?version=1.0" {
             
             interface ScreenshotFlagsBitfield {
                 readonly $gtype: GObject.GType<ScreenshotFlags>
-                /**
-                 */
+                
                 readonly "NONE": 0
-                /**
-                 */
+                
                 readonly "INTERACTIVE": 1
             }
             type ScreenshotFlags = number
             interface $Exports {
-                /**
-                 */
+                
                 ScreenshotFlags: ScreenshotFlagsBitfield
             }
             

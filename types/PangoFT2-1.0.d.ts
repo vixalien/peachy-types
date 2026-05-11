@@ -40,10 +40,13 @@ declare module "gi://PangoFT2?version=1.0" {
                 interface SignalSignatures extends PangoFc.FontMap.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadableProperties extends PangoFc.FontMap.ReadableProperties, Gio.ListModel.ReadableProperties {
+                interface ReadWriteProperties extends PangoFc.FontMap.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends PangoFc.FontMap.WritableProperties, Gio.ListModel.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, PangoFc.FontMap.ReadableProperties, Gio.ListModel.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PangoFc.FontMap.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends PangoFc.FontMap.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {

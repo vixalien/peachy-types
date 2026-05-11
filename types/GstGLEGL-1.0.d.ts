@@ -34,10 +34,13 @@ declare module "gi://GstGLEGL?version=1.0" {
                 interface SignalSignatures extends GstGL.GLDisplay.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstGL.GLDisplay.ReadableProperties {
+                interface ReadWriteProperties extends GstGL.GLDisplay.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstGL.GLDisplay.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstGL.GLDisplay.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstGL.GLDisplay.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstGL.GLDisplay.ConstructOnlyProperties {
@@ -135,10 +138,13 @@ declare module "gi://GstGLEGL?version=1.0" {
                 interface SignalSignatures extends GstGL.GLDisplay.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstGL.GLDisplay.ReadableProperties {
+                interface ReadWriteProperties extends GstGL.GLDisplay.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstGL.GLDisplay.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstGL.GLDisplay.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstGL.GLDisplay.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstGL.GLDisplay.ConstructOnlyProperties {
@@ -188,10 +194,13 @@ declare module "gi://GstGLEGL?version=1.0" {
                 interface SignalSignatures extends GstGL.GLMemoryAllocator.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GstGL.GLMemoryAllocator.ReadableProperties {
+                interface ReadWriteProperties extends GstGL.GLMemoryAllocator.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GstGL.GLMemoryAllocator.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GstGL.GLMemoryAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GstGL.GLMemoryAllocator.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GstGL.GLMemoryAllocator.ConstructOnlyProperties {

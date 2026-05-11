@@ -40,11 +40,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Gio.AppLaunchContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Gio.AppLaunchContext.ReadableProperties {
-                    "display": Display
+                interface ReadWriteProperties extends Gio.AppLaunchContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Gio.AppLaunchContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Gio.AppLaunchContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Gio.AppLaunchContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Gio.AppLaunchContext.ConstructOnlyProperties {
@@ -160,10 +162,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -201,10 +206,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends DrawContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DrawContext.ReadableProperties {
+                interface ReadWriteProperties extends DrawContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DrawContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DrawContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DrawContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DrawContext.ConstructOnlyProperties {
@@ -254,18 +262,17 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "color-primaries": number
                     "matrix-coefficients": number
                     "range": CicpRange
                     "transfer-function": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "color-primaries": number
-                    "matrix-coefficients": number
-                    "range": CicpRange
-                    "transfer-function": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -449,17 +456,16 @@ declare module "gi://Gdk?version=4.0" {
                     "changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "content": ContentProvider | null
-                    "display": Display
                     "formats": ContentFormats
                     "local": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "content": ContentProvider | null
-                    "formats": ContentFormats
-                    "local": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -689,10 +695,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.AsyncResult.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.AsyncResult.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncResult.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.AsyncResult.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncResult.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncResult.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.AsyncResult.ConstructOnlyProperties {
@@ -803,14 +812,15 @@ declare module "gi://Gdk?version=4.0" {
                     "content-changed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "formats": ContentFormats
                     "storable-formats": ContentFormats
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "formats": ContentFormats
-                    "storable-formats": ContentFormats
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1015,10 +1025,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Gio.AsyncResult.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Gio.AsyncResult.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncResult.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Gio.AsyncResult.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncResult.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncResult.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Gio.AsyncResult.ConstructOnlyProperties {
@@ -1126,10 +1139,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -1177,15 +1193,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "fallback": Cursor | null
-                    "hotspot-x": number
-                    "hotspot-y": number
-                    "name": string | null
-                    "texture": Texture | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1406,10 +1420,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -1447,10 +1464,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -1498,39 +1518,24 @@ declare module "gi://Gdk?version=4.0" {
                     "tool-changed"(tool: DeviceTool): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "active-layout-index": number
                     "caps-lock-state": boolean
                     "direction": Pango.Direction
-                    "display": Display
                     "has-bidi-layouts": boolean
-                    "has-cursor": boolean
                     "layout-names": string[] | null
                     "modifier-state": ModifierType
                     "n-axes": number
-                    "name": string
                     "num-lock-state": boolean
-                    "num-touches": number
-                    "product-id": string | null
                     "scroll-lock-state": boolean
                     "seat": Seat
-                    "source": InputSource
                     "tool": DeviceTool | null
-                    "vendor-id": string | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "active-layout-index": number
-                    "caps-lock-state": boolean
-                    "direction": Pango.Direction
-                    "has-bidi-layouts": boolean
-                    "layout-names": string[] | null
-                    "modifier-state": ModifierType
-                    "n-axes": number
-                    "num-lock-state": boolean
-                    "scroll-lock-state": boolean
-                    "seat": Seat
-                    "tool": DeviceTool | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1870,14 +1875,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "axes": AxisFlags
-                    "hardware-id": number
-                    "serial": number
-                    "tool-type": DeviceToolType
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -1995,7 +1999,7 @@ declare module "gi://Gdk?version=4.0" {
                     "setting-changed"(setting: string): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "composited": boolean
                     "dmabuf-formats": DmabufFormats
                     "input-shapes": boolean
@@ -2003,12 +2007,10 @@ declare module "gi://Gdk?version=4.0" {
                     "shadow-width": boolean
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "composited": boolean
-                    "dmabuf-formats": DmabufFormats
-                    "input-shapes": boolean
-                    "rgba": boolean
-                    "shadow-width": boolean
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2401,12 +2403,14 @@ declare module "gi://Gdk?version=4.0" {
                     "display-opened"(display: Display): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "default-display": Display | null
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "default-display": Display | null
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2520,10 +2524,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Texture.SignalSignatures, Paintable.SignalSignatures, Gio.Icon.SignalSignatures, Gio.LoadableIcon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Texture.ReadableProperties, Paintable.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
+                interface ReadWriteProperties extends Texture.ReadWriteProperties, Paintable.ReadWriteProperties, Gio.Icon.ReadWriteProperties, Gio.LoadableIcon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Texture.WritableProperties, Paintable.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Texture.ReadableProperties, Paintable.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Texture.WritableProperties, Paintable.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Texture.ConstructOnlyProperties, Paintable.ConstructOnlyProperties, Gio.Icon.ConstructOnlyProperties, Gio.LoadableIcon.ConstructOnlyProperties {
@@ -2562,7 +2569,7 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "color-state": ColorState | null
                     "display": Display
                     "fourcc": number
@@ -2575,17 +2582,10 @@ declare module "gi://Gdk?version=4.0" {
                     "width": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "color-state": ColorState | null
-                    "display": Display
-                    "fourcc": number
-                    "height": number
-                    "modifier": number
-                    "n-planes": number
-                    "premultiplied": boolean
-                    "update-region": cairo.Region | null
-                    "update-texture": Texture | null
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -2993,20 +2993,16 @@ declare module "gi://Gdk?version=4.0" {
                     "drop-performed"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "actions": DragAction
-                    "content": ContentProvider
-                    "device": Device
                     "display": Display
-                    "formats": ContentFormats
                     "selected-action": DragAction
-                    "surface": Surface
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "actions": DragAction
-                    "display": Display
-                    "selected-action": DragAction
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3183,12 +3179,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "display": Display | null
-                    "surface": Surface | null
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3315,17 +3312,14 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "actions": DragAction
-                    "device": Device
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "display": Display
-                    "drag": Drag | null
-                    "formats": ContentFormats
-                    "surface": Surface
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "display": Display
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3525,10 +3519,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures  {
                 }
 
-                interface ReadableProperties  {
+                interface ReadWriteProperties  {
                 }
 
-                interface WritableProperties  {
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
                 }
 
                 interface ConstructOnlyProperties  {
@@ -3729,10 +3726,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -3825,10 +3825,13 @@ declare module "gi://Gdk?version=4.0" {
                     "update"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -3986,15 +3989,15 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends DrawContext.SignalSignatures {
                 }
 
-                interface ReadableProperties extends DrawContext.ReadableProperties {
+                interface ReadWriteProperties extends DrawContext.ReadWriteProperties {
                     "allowed-apis": GLAPI
                     "api": GLAPI
-                    "shared-context": GLContext | null
                 }
 
-                interface WritableProperties extends DrawContext.WritableProperties {
-                    "allowed-apis": GLAPI
-                    "api": GLAPI
+                interface ReadableProperties extends ReadWriteProperties, DrawContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DrawContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DrawContext.ConstructOnlyProperties {
@@ -4296,10 +4299,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Texture.SignalSignatures, Paintable.SignalSignatures, Gio.Icon.SignalSignatures, Gio.LoadableIcon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Texture.ReadableProperties, Paintable.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
+                interface ReadWriteProperties extends Texture.ReadWriteProperties, Paintable.ReadWriteProperties, Gio.Icon.ReadWriteProperties, Gio.LoadableIcon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Texture.WritableProperties, Paintable.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Texture.ReadableProperties, Paintable.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Texture.WritableProperties, Paintable.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Texture.ConstructOnlyProperties, Paintable.ConstructOnlyProperties, Gio.Icon.ConstructOnlyProperties, Gio.LoadableIcon.ConstructOnlyProperties {
@@ -4356,7 +4362,7 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "color-state": ColorState
                     "context": GLContext | null
                     "format": MemoryFormat
@@ -4369,17 +4375,10 @@ declare module "gi://Gdk?version=4.0" {
                     "width": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "color-state": ColorState
-                    "context": GLContext | null
-                    "format": MemoryFormat
-                    "has-mipmap": boolean
-                    "height": number
-                    "id": number
-                    "sync": never | null
-                    "update-region": cairo.Region | null
-                    "update-texture": Texture | null
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -4690,10 +4689,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -4736,10 +4738,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -4824,10 +4829,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Texture.SignalSignatures, Paintable.SignalSignatures, Gio.Icon.SignalSignatures, Gio.LoadableIcon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Texture.ReadableProperties, Paintable.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
+                interface ReadWriteProperties extends Texture.ReadWriteProperties, Paintable.ReadWriteProperties, Gio.Icon.ReadWriteProperties, Gio.LoadableIcon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Texture.WritableProperties, Paintable.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Texture.ReadableProperties, Paintable.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Texture.WritableProperties, Paintable.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Texture.ConstructOnlyProperties, Paintable.ConstructOnlyProperties, Gio.Icon.ConstructOnlyProperties, Gio.LoadableIcon.ConstructOnlyProperties {
@@ -4873,7 +4881,7 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "bytes": GLib.Bytes | null
                     "color-state": ColorState
                     "format": MemoryFormat
@@ -4884,15 +4892,10 @@ declare module "gi://Gdk?version=4.0" {
                     "width": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "bytes": GLib.Bytes | null
-                    "color-state": ColorState
-                    "format": MemoryFormat
-                    "height": number
-                    "stride": number
-                    "update-region": cairo.Region | null
-                    "update-texture": Texture | null
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5169,10 +5172,9 @@ declare module "gi://Gdk?version=4.0" {
                     "invalidate"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "connector": string | null
                     "description": string | null
-                    "display": Display
                     "geometry": Rectangle
                     "height-mm": number
                     "manufacturer": string | null
@@ -5185,19 +5187,10 @@ declare module "gi://Gdk?version=4.0" {
                     "width-mm": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "connector": string | null
-                    "description": string | null
-                    "geometry": Rectangle
-                    "height-mm": number
-                    "manufacturer": string | null
-                    "model": string | null
-                    "refresh-rate": number
-                    "scale": number
-                    "scale-factor": number
-                    "subpixel-layout": SubpixelLayout
-                    "valid": boolean
-                    "width-mm": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5421,10 +5414,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -5457,10 +5453,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -5509,10 +5508,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -5545,10 +5547,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -5651,11 +5656,13 @@ declare module "gi://Gdk?version=4.0" {
                     "tool-removed"(tool: DeviceTool): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
-                    "display": Display
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5725,10 +5732,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -5795,10 +5805,8 @@ declare module "gi://Gdk?version=4.0" {
                     "render"(region: cairo.Region): boolean
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "cursor": Cursor | null
-                    "display": Display
-                    "frame-clock": FrameClock
                     "height": number
                     "mapped": boolean
                     "scale": number
@@ -5806,13 +5814,10 @@ declare module "gi://Gdk?version=4.0" {
                     "width": number
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
-                    "cursor": Cursor | null
-                    "height": number
-                    "mapped": boolean
-                    "scale": number
-                    "scale-factor": number
-                    "width": number
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -6185,13 +6190,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, Paintable.SignalSignatures, Gio.Icon.SignalSignatures, Gio.LoadableIcon.SignalSignatures {
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties, Paintable.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
-                    "color-state": ColorState
-                    "height": number
-                    "width": number
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Paintable.ReadWriteProperties, Gio.Icon.ReadWriteProperties, Gio.LoadableIcon.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties, Paintable.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Paintable.ReadableProperties, Gio.Icon.ReadableProperties, Gio.LoadableIcon.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Paintable.WritableProperties, Gio.Icon.WritableProperties, Gio.LoadableIcon.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, Paintable.ConstructOnlyProperties, Gio.Icon.ConstructOnlyProperties, Gio.LoadableIcon.ConstructOnlyProperties {
@@ -6478,10 +6483,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -6519,10 +6527,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Event.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Event.ReadableProperties {
+                interface ReadWriteProperties extends Event.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Event.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Event.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Event.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Event.ConstructOnlyProperties {
@@ -6592,10 +6603,13 @@ declare module "gi://Gdk?version=4.0" {
                     "images-updated"(): void
                 }
 
-                interface ReadableProperties extends DrawContext.ReadableProperties {
+                interface ReadWriteProperties extends DrawContext.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends DrawContext.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, DrawContext.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DrawContext.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends DrawContext.ConstructOnlyProperties {
@@ -6636,10 +6650,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Device.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Device.ReadableProperties {
+                interface ReadWriteProperties extends Device.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Device.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Device.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Device.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Device.ConstructOnlyProperties {
@@ -6737,10 +6754,13 @@ declare module "gi://Gdk?version=4.0" {
                     "compute-size"(size: DragSurfaceSize): void
                 }
 
-                interface ReadableProperties extends Surface.ReadableProperties {
+                interface ReadWriteProperties extends Surface.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Surface.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Surface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Surface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Surface.ConstructOnlyProperties {
@@ -6802,10 +6822,13 @@ declare module "gi://Gdk?version=4.0" {
                     "invalidate-size"(): void
                 }
 
-                interface ReadableProperties extends GObject.Object.ReadableProperties {
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends GObject.Object.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -7098,12 +7121,13 @@ declare module "gi://Gdk?version=4.0" {
                 interface SignalSignatures extends Surface.SignalSignatures {
                 }
 
-                interface ReadableProperties extends Surface.ReadableProperties {
-                    "autohide": boolean
-                    "parent": Surface | null
+                interface ReadWriteProperties extends Surface.ReadWriteProperties {
                 }
 
-                interface WritableProperties extends Surface.WritableProperties {
+                interface ReadableProperties extends ReadWriteProperties, Surface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Surface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Surface.ConstructOnlyProperties {
@@ -7232,7 +7256,7 @@ declare module "gi://Gdk?version=4.0" {
                     "compute-size"(size: ToplevelSize): void
                 }
 
-                interface ReadableProperties extends Surface.ReadableProperties {
+                interface ReadWriteProperties extends Surface.ReadWriteProperties {
                     "capabilities": ToplevelCapabilities
                     "decorated": boolean
                     "deletable": boolean
@@ -7247,19 +7271,10 @@ declare module "gi://Gdk?version=4.0" {
                     "transient-for": Surface
                 }
 
-                interface WritableProperties extends Surface.WritableProperties {
-                    "capabilities": ToplevelCapabilities
-                    "decorated": boolean
-                    "deletable": boolean
-                    "fullscreen-mode": FullscreenMode
-                    "gravity": Gravity
-                    "icon-list": never
-                    "modal": boolean
-                    "shortcuts-inhibited": boolean
-                    "startup-id": string
-                    "state": ToplevelState
-                    "title": string
-                    "transient-for": Surface
+                interface ReadableProperties extends ReadWriteProperties, Surface.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Surface.WritableProperties {
                 }
 
                 interface ConstructOnlyProperties extends Surface.ConstructOnlyProperties {
@@ -10240,8 +10255,7 @@ declare module "gi://Gdk?version=4.0" {
                  * @since 4.24
                  */
                 readonly "XRGB2101010": 67
-                /**
-                 */
+                
                 readonly "ABGR2101010_PREMULTIPLIED": 68
                 /**
                  * 4 bytes per pixel

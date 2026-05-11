@@ -97,44 +97,31 @@ declare module "gi://HarfBuzz?version=0.0" {
             }
 
             interface color_line_t {
-                /**
-                 */
+                
                 data: never
-                /**
-                 */
+                
                 get_color_stops: never
-                /**
-                 */
+                
                 get_color_stops_user_data: never
-                /**
-                 */
+                
                 get_extend: never
-                /**
-                 */
+                
                 get_extend_user_data: never
-                /**
-                 */
+                
                 reserved0: never
-                /**
-                 */
+                
                 reserved1: never
-                /**
-                 */
+                
                 reserved2: never
-                /**
-                 */
+                
                 reserved3: never
-                /**
-                 */
+                
                 reserved5: never
-                /**
-                 */
+                
                 reserved6: never
-                /**
-                 */
+                
                 reserved7: never
-                /**
-                 */
+                
                 reserved8: never
             }
 
@@ -837,23 +824,17 @@ declare module "gi://HarfBuzz?version=0.0" {
             }
 
             interface var_int_t {
-                /**
-                 */
+                
                 u32: number
-                /**
-                 */
+                
                 i32: number
-                /**
-                 */
+                
                 u16: number[]
-                /**
-                 */
+                
                 i16: number[]
-                /**
-                 */
+                
                 u8: Uint8Array
-                /**
-                 */
+                
                 i8: Uint8Array
             }
 
@@ -868,26 +849,19 @@ declare module "gi://HarfBuzz?version=0.0" {
             }
 
             interface var_num_t {
-                /**
-                 */
+                
                 f: number
-                /**
-                 */
+                
                 u32: number
-                /**
-                 */
+                
                 i32: number
-                /**
-                 */
+                
                 u16: number[]
-                /**
-                 */
+                
                 i16: number[]
-                /**
-                 */
+                
                 u8: Uint8Array
-                /**
-                 */
+                
                 i8: Uint8Array
             }
 
