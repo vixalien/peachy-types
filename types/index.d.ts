@@ -27,11 +27,8 @@ import "./GLibUnix-2.0.d.ts"
 import "./GModule-2.0.d.ts"
 import "./GObject-2.0.d.ts"
 import "./GUdev-1.0.d.ts"
-import "./Gck-1.d.ts"
 import "./Gck-2.d.ts"
-import "./Gcr-3.d.ts"
 import "./Gcr-4.d.ts"
-import "./GcrUi-3.d.ts"
 import "./Gdk-3.0.d.ts"
 import "./Gdk-4.0.d.ts"
 import "./GdkPixbuf-2.0.d.ts"
@@ -84,7 +81,6 @@ import "./GstWebRTC-1.0.d.ts"
 import "./Gtk-3.0.d.ts"
 import "./Gtk-4.0.d.ts"
 import "./GtkSource-5.d.ts"
-import "./Handy-1.d.ts"
 import "./HarfBuzz-0.0.d.ts"
 import "./IBus-1.0.d.ts"
 import "./JavaScriptCore-4.1.d.ts"
@@ -147,9 +143,8 @@ declare global {
         GModule:| typeof import("gi://GModule?version=2.0").default
         GObject:| typeof import("gi://GObject?version=2.0").default
         GUdev:| typeof import("gi://GUdev?version=1.0").default
-        Gck:| typeof import("gi://Gck?version=1").default| typeof import("gi://Gck?version=2").default
-        Gcr:| typeof import("gi://Gcr?version=3").default| typeof import("gi://Gcr?version=4").default
-        GcrUi:| typeof import("gi://GcrUi?version=3").default
+        Gck:| typeof import("gi://Gck?version=2").default
+        Gcr:| typeof import("gi://Gcr?version=4").default
         Gdk:| typeof import("gi://Gdk?version=3.0").default| typeof import("gi://Gdk?version=4.0").default
         GdkPixbuf:| typeof import("gi://GdkPixbuf?version=2.0").default
         GdkPixdata:| typeof import("gi://GdkPixdata?version=2.0").default
@@ -199,7 +194,6 @@ declare global {
         GstWebRTC:| typeof import("gi://GstWebRTC?version=1.0").default
         Gtk:| typeof import("gi://Gtk?version=3.0").default| typeof import("gi://Gtk?version=4.0").default
         GtkSource:| typeof import("gi://GtkSource?version=5").default
-        Handy:| typeof import("gi://Handy?version=1").default
         HarfBuzz:| typeof import("gi://HarfBuzz?version=0.0").default
         IBus:| typeof import("gi://IBus?version=1.0").default
         JavaScriptCore:| typeof import("gi://JavaScriptCore?version=4.1").default| typeof import("gi://JavaScriptCore?version=6.0").default
@@ -279,14 +273,10 @@ interface Gi {
     require(namespace: "GObject"):| typeof import("gi://GObject?version=2.0").default
     require(namespace: "GUdev", version: "1.0"): typeof import("gi://GUdev?version=1.0").default
     require(namespace: "GUdev"):| typeof import("gi://GUdev?version=1.0").default
-    require(namespace: "Gck", version: "1"): typeof import("gi://Gck?version=1").default
     require(namespace: "Gck", version: "2"): typeof import("gi://Gck?version=2").default
-    require(namespace: "Gck"):| typeof import("gi://Gck?version=1").default| typeof import("gi://Gck?version=2").default
-    require(namespace: "Gcr", version: "3"): typeof import("gi://Gcr?version=3").default
+    require(namespace: "Gck"):| typeof import("gi://Gck?version=2").default
     require(namespace: "Gcr", version: "4"): typeof import("gi://Gcr?version=4").default
-    require(namespace: "Gcr"):| typeof import("gi://Gcr?version=3").default| typeof import("gi://Gcr?version=4").default
-    require(namespace: "GcrUi", version: "3"): typeof import("gi://GcrUi?version=3").default
-    require(namespace: "GcrUi"):| typeof import("gi://GcrUi?version=3").default
+    require(namespace: "Gcr"):| typeof import("gi://Gcr?version=4").default
     require(namespace: "Gdk", version: "3.0"): typeof import("gi://Gdk?version=3.0").default
     require(namespace: "Gdk", version: "4.0"): typeof import("gi://Gdk?version=4.0").default
     require(namespace: "Gdk"):| typeof import("gi://Gdk?version=3.0").default| typeof import("gi://Gdk?version=4.0").default
@@ -388,8 +378,6 @@ interface Gi {
     require(namespace: "Gtk"):| typeof import("gi://Gtk?version=3.0").default| typeof import("gi://Gtk?version=4.0").default
     require(namespace: "GtkSource", version: "5"): typeof import("gi://GtkSource?version=5").default
     require(namespace: "GtkSource"):| typeof import("gi://GtkSource?version=5").default
-    require(namespace: "Handy", version: "1"): typeof import("gi://Handy?version=1").default
-    require(namespace: "Handy"):| typeof import("gi://Handy?version=1").default
     require(namespace: "HarfBuzz", version: "0.0"): typeof import("gi://HarfBuzz?version=0.0").default
     require(namespace: "HarfBuzz"):| typeof import("gi://HarfBuzz?version=0.0").default
     require(namespace: "IBus", version: "1.0"): typeof import("gi://IBus?version=1.0").default

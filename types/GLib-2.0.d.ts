@@ -17509,9 +17509,14 @@ declare module "gi://GLib?version=2.0" {
                  */
                 readonly "DIRECTORY_VIDEOS": 7
                 /**
+                 * The user's Projects directory.
+                 * @since 2.90
+                 */
+                readonly "DIRECTORY_PROJECTS": 8
+                /**
                  * the number of enum values
                  */
-                readonly "N_DIRECTORIES": 8
+                readonly "N_DIRECTORIES": 9
             }
             type UserDirectory = UserDirectoryEnum[Exclude<keyof UserDirectoryEnum, "$gtype">]
             interface $Exports {
@@ -19991,8 +19996,10 @@ declare module "gi://GLib?version=2.0" {
                  *
                  * If the correct value would cause overflow, plus or minus `HUGE_VAL`
                  * is returned (according to the sign of the value), and `ERANGE` is
-                 * stored in `errno`. If the correct value would cause underflow,
-                 * zero is returned and `ERANGE` is stored in `errno`.
+                 * stored in `errno`. If the correct value would cause underflow, a value
+                 * whose magnitude is no greater than the smallest normalised positive number
+                 * is returned; whether `ERANGE` is set is implementation-defined (it may
+                 * not be set for gradual underflow where a subnormal value is returned).
                  *
                  * This function resets `errno` before calling `strtod()` so that
                  * you can reliably detect overflow and underflow.
@@ -25283,6 +25290,9 @@ declare module "gi://GLib?version=2.0" {
                  * guaranteed that `argvp` will be a non-empty array if this function returns
                  * successfully.
                  *
+                 * When constructing `command_line`, quote any filenames or potentially
+                 * untrusted input using {@link GLib.shell_quote}.
+                 *
                  * Free the returned vector with g_strfreev().
                  * @throws {GLib.Error}
                  * @param command_line command line to parse
@@ -25293,8 +25303,11 @@ declare module "gi://GLib?version=2.0" {
                  * Quotes a string so that the shell (/bin/sh) will interpret the
                  * quoted string to mean `unquoted_string`.
                  *
-                 * If you pass a filename to the shell, for example, you should first
-                 * quote it with this function.
+                 * If you pass a filename or other untrusted input to {@link GLib.shell_parse_argv},
+                 * you should first quote it with this function. This is sufficient to ensure
+                 * untrusted input cannot ‘break out’ of the quotes. Beware: this only works
+                 * because {@link GLib.shell_parse_argv} is not a real Unix shell. Quoting untrusted
+                 * input is not an adequate security mechanism when using a real shell.
                  *
                  * The return value must be freed with g_free().
                  *
@@ -25858,6 +25871,9 @@ declare module "gi://GLib?version=2.0" {
                  * A simple version of g_spawn_async() that parses a command line with
                  * g_shell_parse_argv() and passes it to g_spawn_async().
                  *
+                 * Filenames and potentially untrusted input in `command_line` should be quoted
+                 * using {@link GLib.shell_quote}.
+                 *
                  * Runs a command line in the background. Unlike g_spawn_async(), the
                  * %G_SPAWN_SEARCH_PATH flag is enabled, other flags are not. Note
                  * that %G_SPAWN_SEARCH_PATH can have security implications, so
@@ -25876,7 +25892,9 @@ declare module "gi://GLib?version=2.0" {
                  *
                  * See g_spawn_sync() for full details.
                  *
-                 * The `command_line` argument will be parsed by g_shell_parse_argv().
+                 * The `command_line` argument will be parsed by {@link GLib.shell_parse_argv}.
+                 * Filenames and potentially untrusted input should be quoted using
+                 * {@link GLib.shell_quote}.
                  *
                  * Unlike g_spawn_sync(), the %G_SPAWN_SEARCH_PATH flag is enabled.
                  * Note that %G_SPAWN_SEARCH_PATH can have security implications, so

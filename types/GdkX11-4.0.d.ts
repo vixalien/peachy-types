@@ -229,6 +229,7 @@ declare module "gi://GdkX11?version=4.0" {
                  *
                  * If you don’t need to use the return value,
                  * gdk_x11_display_error_trap_pop_ignored() would be more efficient.
+                 * @deprecated since 4.18
                  * @returns X error code or 0 on success
                  */
                 error_trap_pop(): number
@@ -237,6 +238,7 @@ declare module "gi://GdkX11?version=4.0" {
                  * Does not block to see if an error occurred; merely records the
                  * range of requests to ignore errors for, and ignores those errors
                  * if they arrive asynchronously.
+                 * @deprecated since 4.18
                  */
                 error_trap_pop_ignored(): void
                 /**
@@ -245,12 +247,14 @@ declare module "gi://GdkX11?version=4.0" {
                  * the application. Use gdk_x11_display_error_trap_pop() or
                  * gdk_x11_display_error_trap_pop_ignored()to lift a trap pushed
                  * with this function.
+                 * @deprecated since 4.18
                  */
                 error_trap_push(): void
                 /**
                  * Returns the default group leader surface for all toplevel surfaces
                  * on `display`. This surface is implicitly created by GDK.
                  * See gdk_x11_surface_set_group().
+                 * @deprecated since 4.18
                  * @returns The default group leader surface for `display`
                  */
                 get_default_group(): Gdk.Surface
@@ -286,11 +290,13 @@ declare module "gi://GdkX11?version=4.0" {
                  *
                  * If no monitor is the designated primary monitor, any monitor
                  * (usually the first) may be returned.
+                 * @deprecated since 4.18
                  * @returns the primary monitor, or any monitor if no   primary monitor is configured by the user
                  */
                 get_primary_monitor(): Gdk.Monitor
                 /**
                  * Retrieves the `GdkX11Screen` of the `display`.
+                 * @deprecated since 4.18
                  * @returns the `GdkX11Screen`
                  */
                 get_screen(): X11Screen
@@ -305,6 +311,7 @@ declare module "gi://GdkX11?version=4.0" {
                  *  `display`. The timestamp is taken from events caused
                  * by user interaction such as key presses or pointer
                  * movements. See gdk_x11_surface_set_user_time().
+                 * @deprecated since 4.18
                  * @returns the timestamp of the last user interaction
                  */
                 get_user_time(): number
@@ -323,16 +330,19 @@ declare module "gi://GdkX11?version=4.0" {
                 get_xcursor(cursor: Gdk.Cursor): xlib.Cursor
                 /**
                  * Returns the X display of a `GdkDisplay`.
+                 * @deprecated since 4.18
                  * @returns an X display
                  */
                 get_xdisplay(): xlib.Display
                 /**
                  * Returns the root X window used by `GdkDisplay`.
+                 * @deprecated since 4.18
                  * @returns an X Window
                  */
                 get_xrootwindow(): xlib.Window
                 /**
                  * Returns the X Screen used by `GdkDisplay`.
+                 * @deprecated since 4.18
                  * @returns an X Screen
                  */
                 get_xscreen(): xlib.Screen
@@ -341,6 +351,7 @@ declare module "gi://GdkX11?version=4.0" {
                  * To ungrab the display again, use gdk_x11_display_ungrab().
                  *
                  * gdk_x11_display_grab()/gdk_x11_display_ungrab() calls can be nested.
+                 * @deprecated since 4.18
                  */
                 grab(): void
                 /**
@@ -385,6 +396,7 @@ declare module "gi://GdkX11?version=4.0" {
                  *
                  * Once the scale is set by this call it will not change in response
                  * to later user configuration changes.
+                 * @deprecated since 4.18
                  * @param scale The new scale value
                  */
                 set_surface_scale(scale: number): void
@@ -413,6 +425,7 @@ declare module "gi://GdkX11?version=4.0" {
                 /**
                  * Ungrab `display` after it has been grabbed with
                  * gdk_x11_display_grab().
+                 * @deprecated since 4.18
                  */
                 ungrab(): void
                 /**
@@ -443,6 +456,7 @@ declare module "gi://GdkX11?version=4.0" {
                  *
                  * The X11 backend uses the program class to set the class name part
                  * of the `WM_CLASS` property on toplevel windows; see the ICCCM.
+                 * @deprecated since 4.18
                  * @param display a `GdkDisplay`
                  * @param program_class a string
                  */
@@ -917,6 +931,7 @@ declare module "gi://GdkX11?version=4.0" {
                 x11_get_xatom_name_for_display(display: X11Display, xatom: xlib.Atom): string
                 /**
                  * Find the `GdkDisplay` corresponding to `xdisplay`, if any exists.
+                 * @deprecated since 4.18
                  * @param xdisplay a pointer to an X Display
                  * @returns the `GdkDisplay`, if found, otherwise %NULL.
                  */
@@ -928,6 +943,7 @@ declare module "gi://GdkX11?version=4.0" {
                  *
                  * See the X Session Management Library documentation for more information on
                  * session management and the Inter-Client Communication Conventions Manual
+                 * @deprecated since 4.18
                  * @param sm_client_id the client id assigned by the session manager    when the connection was opened, or %NULL to remove the property.
                  */
                 x11_set_sm_client_id(sm_client_id: string | null): void

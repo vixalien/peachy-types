@@ -28870,7 +28870,9 @@ declare module "gi://Gio?version=2.0" {
                 /**
                  * Creates a new {@link Gio.AppInfo} from the given information.
                  *
-                 * Note that for `commandline`, the quoting rules of the `Exec` key of the
+                 * When constructing `commandline`, quote any filenames or potentially-
+                 * untrusted input using {@link GLib.shell_quote}, and note that the
+                 * quoting rules of the `Exec` key of the
                  * [freedesktop.org Desktop Entry Specification](http://freedesktop.org/Standards/desktop-entry-spec)
                  * are applied. For example, if the `commandline` contains
                  * percent-encoded URIs, the percent-character must be doubled in order to prevent it from
@@ -46428,7 +46430,9 @@ declare module "gi://Gio?version=2.0" {
                 /**
                  * Creates a new {@link Gio.AppInfo} from the given information.
                  *
-                 * Note that for `commandline`, the quoting rules of the `Exec` key of the
+                 * When constructing `commandline`, quote any filenames or potentially-
+                 * untrusted input using {@link GLib.shell_quote}, and note that the
+                 * quoting rules of the `Exec` key of the
                  * [freedesktop.org Desktop Entry Specification](http://freedesktop.org/Standards/desktop-entry-spec)
                  * are applied. For example, if the `commandline` contains
                  * percent-encoded URIs, the percent-character must be doubled in order to prevent it from

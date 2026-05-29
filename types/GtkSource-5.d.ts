@@ -1578,6 +1578,7 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                    "max-size": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
@@ -1625,6 +1626,14 @@ declare module "gi://GtkSource?version=5" {
                 get location(): Gio.File | null
                 set location(value: Gio.File | null)
                 /**
+                 * The maximum expanded size, in bytes, that the loader will insert into
+                 * the buffer. A value of 0 disables the limit.
+                 * @since 5.22
+                 * @default 1073741824
+                 */
+                get maxSize(): number
+                set maxSize(value: number)
+                /**
                  * @returns the #GtkSourceBuffer to load the contents into.
                  */
                 get_buffer(): Buffer
@@ -1648,6 +1657,12 @@ declare module "gi://GtkSource?version=5" {
                  * @returns the #GFile to load, or %NULL if an input stream is used.
                  */
                 get_location(): Gio.File | null
+                /**
+                 * Gets the maximum expanded size that `loader` will insert into the buffer.
+                 * @since 5.22
+                 * @returns the maximum expanded size in bytes, or 0 if the limit is disabled.
+                 */
+                get_max_size(): number
                 /**
                  * @returns the detected newline type.
                  */
@@ -1689,6 +1704,15 @@ declare module "gi://GtkSource?version=5" {
                  * @param candidate_encodings a list of   #GtkSourceEncoding<!-- -->s.
                  */
                 set_candidate_encodings(candidate_encodings: Encoding[]): void
+                /**
+                 * Sets the maximum expanded size that `loader` will insert into the buffer.
+                 *
+                 * The limit is checked after decompression, so compressed files are limited by
+                 * the size of their uncompressed contents rather than their on-disk size.
+                 * @since 5.22
+                 * @param max_size maximum expanded size in bytes, or 0 to disable the limit.
+                 */
+                set_max_size(max_size: number): void
             }
 
             interface FileLoaderClass extends Omit<GObject.ObjectClass, "new"> {
@@ -1703,6 +1727,10 @@ declare module "gi://GtkSource?version=5" {
                  * If not already done, call {@link File.set_location} before calling this constructor.
                  * The previous location is anyway not needed, because as soon as the file loading begins,
                  * the `buffer` is emptied.
+                 *
+                 * For path-based {@link Gio.File} instances, the regular-file safety check is
+                 * subject to time-of-check/time-of-use races if the path is replaced while the
+                 * load operation is running.
                  * @param buffer the #GtkSourceBuffer to load the contents into.
                  * @param file the #GtkSourceFile.
                  * @returns a new #GtkSourceFileLoader object.
@@ -8422,8 +8450,8 @@ declare module "gi://GtkSource?version=5" {
                 __name__: "GtkSource"
                 __version__: "5"
                 MAJOR_VERSION: 5
-                MICRO_VERSION: 1
-                MINOR_VERSION: 20
+                MICRO_VERSION: 0
+                MINOR_VERSION: 21
                 /**
                  * Like GTK_SOURCE_CHECK_VERSION, but the check for gtk_source_check_version is
                  * at runtime instead of compile time. This is useful for compiling

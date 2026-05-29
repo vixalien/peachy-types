@@ -4216,6 +4216,7 @@ declare module "gi://Gdk?version=4.0" {
                  * You should check the return value of {@link Gdk.GLContext.get_use_es}
                  * after calling {@link Gdk.GLContext.realize} to decide whether to use
                  * the OpenGL or OpenGL ES API, extensions, or shaders.
+                 * @deprecated since 4.6
                  * @param use_es whether the context should use OpenGL ES instead of OpenGL,   or -1 to allow auto-detection
                  */
                 set_use_es(use_es: number): void
@@ -8491,7 +8492,10 @@ declare module "gi://Gdk?version=4.0" {
                  */
                 parse(spec: string): boolean
                 /**
-                 * @param string
+                 * Appends a representation of `rgba` to `string`.
+                 * @since 4.22
+                 * @param string the string to print to
+                 * @returns A newly allocated text string
                  */
                 print(string: GLib.String): GLib.String
                 /**

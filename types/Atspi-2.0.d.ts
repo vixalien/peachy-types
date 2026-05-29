@@ -5671,7 +5671,7 @@ declare module "gi://Atspi?version=2.0" {
                 MATCHTYPES_COUNT: 6
                 MAX_CHILDREN: 65536
                 MODIFIERTYPE_COUNT: 8
-                REGISTRY_VERSION: 1
+                REGISTRY_VERSION: 2
                 RELATIONTYPE_COUNT: 24
                 ROLE_COUNT: 132
                 SCROLLTYPE_COUNT: 7
