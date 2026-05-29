@@ -5842,6 +5842,7 @@ declare module "gi://Gtk?version=4.0" {
                 /**
                  * Calls `callback` for every `GtkCellRenderer` in `area` with the
                  * allocated rectangle inside `cell_area`.
+                 * @deprecated since 4.10
                  * @param context the `GtkCellArea`Context for this row of data.
                  * @param widget the `GtkWidget` that `area` is rendering to
                  * @param cell_area the `widget` relative coordinates and size for `area`
@@ -5878,6 +5879,7 @@ declare module "gi://Gtk?version=4.0" {
                  * gtk_cell_area_apply_attributes() is called and can be
                  * used to interact with renderers from `GtkCellArea`
                  * subclasses.
+                 * @deprecated since 4.10
                  * @returns The current `GtkTreePath` string for the current attributes applied to `area`. This string belongs to the area and should not be freed.
                  */
                 get_current_path_string(): string
@@ -5996,6 +5998,7 @@ declare module "gi://Gtk?version=4.0" {
                 /**
                  * Gets whether the area prefers a height-for-width layout
                  * or a width-for-height layout.
+                 * @deprecated since 4.10
                  * @returns The `GtkSizeRequestMode` preferred by `area`.
                  */
                 get_request_mode(): SizeRequestMode
@@ -6187,6 +6190,7 @@ declare module "gi://Gtk?version=4.0" {
                 /**
                  * Calls `callback` for every `GtkCellRenderer` in `area` with the
                  * allocated rectangle inside `cell_area`.
+                 * @deprecated since 4.10
                  * @param context the `GtkCellArea`Context for this row of data.
                  * @param widget the `GtkWidget` that `area` is rendering to
                  * @param cell_area the `widget` relative coordinates and size for `area`
@@ -6278,6 +6282,7 @@ declare module "gi://Gtk?version=4.0" {
                 /**
                  * Gets whether the area prefers a height-for-width layout
                  * or a width-for-height layout.
+                 * @deprecated since 4.10
                  * @returns The `GtkSizeRequestMode` preferred by `area`.
                  */
                 vfunc_get_request_mode(): SizeRequestMode
@@ -9708,6 +9713,7 @@ declare module "gi://Gtk?version=4.0" {
                 "new"(): ColorButton
                 /**
                  * Creates a new color button showing the given color.
+                 * @deprecated since 4.10
                  * @param rgba A `GdkRGBA` to set the current color with
                  * @returns a new color button
                  */
@@ -9861,6 +9867,7 @@ declare module "gi://Gtk?version=4.0" {
                 new (props?: Partial<GObject.ConstructorProps<ColorChooserWidget>>): ColorChooserWidget
                 /**
                  * Creates a new `GtkColorChooserWidget`.
+                 * @deprecated since 4.10
                  * @returns a new `GtkColorChooserWidget`
                  */
                 "new"(): ColorChooserWidget
@@ -18594,7 +18601,7 @@ declare module "gi://Gtk?version=4.0" {
                  *                              "Expression",
                  *                              "The expression used by the widget",
                  *                              G_PARAM_READWRITE |
-                 *                              G_PARAM_STATIC_STRINGS |
+                 *                              G_PARAM_STATIC_NAME |
                  *                              G_PARAM_EXPLICIT_NOTIFY);
                  * ```
                  *
@@ -49562,6 +49569,13 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 set_overflow(overflow: Overflow): void
                 /**
+                 * Sets a settings object holding settinsg used when
+                 * rendering the SVG.
+                 * @since 4.24
+                 * @param settings the settings object
+                 */
+                set_settings(settings: Settings | null): void
+                /**
                  * Sets the state of the paintable.
                  *
                  * If the paintable is currently playing, the state change
@@ -55656,6 +55670,7 @@ declare module "gi://Gtk?version=4.0" {
                 convert_path_to_child_path(sorted_path: TreePath): TreePath | null
                 /**
                  * Returns the model the `GtkTreeModelSort` is sorting.
+                 * @deprecated since 4.10
                  * @returns the "child model" being sorted
                  */
                 get_model(): TreeModel
@@ -55686,6 +55701,7 @@ declare module "gi://Gtk?version=4.0" {
                 new (props?: Partial<GObject.ConstructorProps<TreeModelSort>>): TreeModelSort
                 /**
                  * Creates a new `GtkTreeModelSort`, with `child_model` as the child model.
+                 * @deprecated since 4.10
                  * @param child_model A `GtkTreeModel`
                  * @returns A new `GtkTreeModelSort`.
                  */
@@ -59210,7 +59226,9 @@ declare module "gi://Gtk?version=4.0" {
                  * don't have to worry about when a frame clock is assigned to a widget.
                  *
                  * To remove a tick callback, pass the ID that is returned by this function
-                 * to {@link Gtk.Widget.remove_tick_callback}.
+                 * to {@link Gtk.Widget.remove_tick_callback}. Tick callbacks will be
+                 * removed automatically when the widget is destroyed, so you do not have
+                 * to remove it yourself.
                  * @param callback function   to call for updating animations
                  * @returns an ID for this callback
                  */
@@ -63665,6 +63683,7 @@ declare module "gi://Gtk?version=4.0" {
                  * it is necessary to ensure the correct shape of the a11y tree
                  * by calling {@link Gtk.Accessible.set_accessible_parent} and
                  * updating the sibling by {@link Gtk.Accessible.update_next_accessible_sibling}.
+                 * @since 4.10
                  */
                 Accessible: AccessibleInterface
             }
@@ -64554,6 +64573,7 @@ declare module "gi://Gtk?version=4.0" {
                      *
                      * Note that the `cell_editable` is created on-demand for the current edit; its
                      * lifetime is temporary and does not persist across other edits and/or cells.
+                     * @deprecated since 4.10
                      * @param event The `GdkEvent` that began the editing process, or   %NULL if editing was initiated programmatically
                      */
                     vfunc_start_editing(event: Gdk.Event | null): void
@@ -64592,6 +64612,7 @@ declare module "gi://Gtk?version=4.0" {
                  *
                  * Note that the `cell_editable` is created on-demand for the current edit; its
                  * lifetime is temporary and does not persist across other edits and/or cells.
+                 * @deprecated since 4.10
                  * @param event The `GdkEvent` that began the editing process, or   %NULL if editing was initiated programmatically
                  */
                 start_editing(event: Gdk.Event | null): void
@@ -66257,7 +66278,7 @@ declare module "gi://Gtk?version=4.0" {
                      * details (i.e. family, slant, weight, width, etc).
                      *
                      * If the selected font is not installed, returns %NULL.
-                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                      * @returns A `PangoFontFace` representing the   selected font group details
                      */
                     vfunc_get_font_face(): Pango.FontFace | null
@@ -66267,27 +66288,27 @@ declare module "gi://Gtk?version=4.0" {
                      * Font families are a collection of font faces.
                      *
                      * If the selected font is not installed, returns %NULL.
-                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                      * @returns A `PangoFontFamily` representing the   selected font family
                      */
                     vfunc_get_font_family(): Pango.FontFamily | null
                     /**
                      * Gets the custom font map of this font chooser widget,
                      * or %NULL if it does not have one.
-                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                      * @returns a `PangoFontMap`
                      */
                     vfunc_get_font_map(): Pango.FontMap | null
                     /**
                      * The selected font size.
-                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                      * @returns A n integer representing the selected font size,   or -1 if no font size is selected.
                      */
                     vfunc_get_font_size(): number
                     /**
                      * Adds a filter function that decides which fonts to display
                      * in the font chooser.
-                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                      * @param filter a `GtkFontFilterFunc`
                      */
                     vfunc_set_filter_func(filter: FontFilterFunc | null): void
@@ -66317,7 +66338,7 @@ declare module "gi://Gtk?version=4.0" {
                      * context = gtk_widget_get_pango_context (label);
                      * pango_context_set_font_map (context, fontmap);
                      * ```
-                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                     * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                      * @param fontmap a `PangoFontMap`
                      */
                     vfunc_set_font_map(fontmap: Pango.FontMap | null): void
@@ -66389,7 +66410,7 @@ declare module "gi://Gtk?version=4.0" {
                  *
                  * Use {@link Pango.FontDescription.equal} if you want to compare two
                  * font descriptions.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns A string with the name   of the current font
                  */
                 get_font(): string | null
@@ -66404,7 +66425,7 @@ declare module "gi://Gtk?version=4.0" {
                  *
                  * Use {@link Pango.FontDescription.equal} if you want to compare two
                  * font descriptions.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns A `PangoFontDescription` for the   current font
                  */
                 get_font_desc(): Pango.FontDescription | null
@@ -66413,7 +66434,7 @@ declare module "gi://Gtk?version=4.0" {
                  * details (i.e. family, slant, weight, width, etc).
                  *
                  * If the selected font is not installed, returns %NULL.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns A `PangoFontFace` representing the   selected font group details
                  */
                 get_font_face(): Pango.FontFace | null
@@ -66423,7 +66444,7 @@ declare module "gi://Gtk?version=4.0" {
                  * Font families are a collection of font faces.
                  *
                  * If the selected font is not installed, returns %NULL.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns A `PangoFontFamily` representing the   selected font family
                  */
                 get_font_family(): Pango.FontFamily | null
@@ -66433,63 +66454,63 @@ declare module "gi://Gtk?version=4.0" {
                  * The format of the returned string is compatible with the
                  * [CSS font-feature-settings property](https://www.w3.org/TR/css-fonts-4/#font-rend-desc).
                  * It can be passed to {@link Pango.AttrFontFeatures.new}.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns the currently selected font features
                  */
                 get_font_features(): string
                 /**
                  * Gets the custom font map of this font chooser widget,
                  * or %NULL if it does not have one.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns a `PangoFontMap`
                  */
                 get_font_map(): Pango.FontMap | null
                 /**
                  * The selected font size.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns A n integer representing the selected font size,   or -1 if no font size is selected.
                  */
                 get_font_size(): number
                 /**
                  * Gets the language that is used for font features.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns the currently selected language
                  */
                 get_language(): string
                 /**
                  * Returns the current level of granularity for selecting fonts.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns the current granularity level
                  */
                 get_level(): FontChooserLevel
                 /**
                  * Gets the text displayed in the preview area.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns the text displayed in the preview area
                  */
                 get_preview_text(): string
                 /**
                  * Returns whether the preview entry is shown or not.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @returns %TRUE if the preview entry is shown or %FALSE if it is hidden.
                  */
                 get_show_preview_entry(): boolean
                 /**
                  * Adds a filter function that decides which fonts to display
                  * in the font chooser.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @param filter a `GtkFontFilterFunc`
                  */
                 set_filter_func(filter: FontFilterFunc | null): void
                 /**
                  * Sets the currently-selected font.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @param fontname a font name like “Helvetica 12” or “Times Bold 18”
                  */
                 set_font(fontname: string): void
                 /**
                  * Sets the currently-selected font from `font_desc`.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @param font_desc a `PangoFontDescription`
                  */
                 set_font_desc(font_desc: Pango.FontDescription): void
@@ -66519,19 +66540,19 @@ declare module "gi://Gtk?version=4.0" {
                  * context = gtk_widget_get_pango_context (label);
                  * pango_context_set_font_map (context, fontmap);
                  * ```
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @param fontmap a `PangoFontMap`
                  */
                 set_font_map(fontmap: Pango.FontMap | null): void
                 /**
                  * Sets the language to use for font features.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @param language a language
                  */
                 set_language(language: string): void
                 /**
                  * Sets the desired level of granularity for selecting fonts.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @param level the desired level of granularity
                  */
                 set_level(level: FontChooserLevel): void
@@ -66539,13 +66560,13 @@ declare module "gi://Gtk?version=4.0" {
                  * Sets the text displayed in the preview area.
                  *
                  * The `text` is used to show how the selected font looks.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @param text the text to display in the preview area
                  */
                 set_preview_text(text: string): void
                 /**
                  * Shows or hides the editable preview entry.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  * @param show_preview_entry whether to show the editable preview entry or not
                  */
                 set_show_preview_entry(show_preview_entry: boolean): void
@@ -66565,7 +66586,7 @@ declare module "gi://Gtk?version=4.0" {
                  * In GTK, the main objects that implement this interface are
                  * {@link Gtk.FontChooserWidget}, {@link Gtk.FontChooserDialog} and
                  * {@link Gtk.FontButton}.
-                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton} instead
+                 * @deprecated since 4.10 Use {@link Gtk.FontDialog} and {@link Gtk.FontDialogButton}   instead
                  */
                 FontChooser: FontChooserIface
             }
@@ -72843,7 +72864,7 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 readonly "CENTER": 3
                 /**
-                 * a different name for `GTK_ALIGN_BASELINE`.
+                 * stretch to fill all space, but align the baseline.
                  * @since 4.12
                  */
                 readonly "BASELINE_FILL": 4
@@ -72853,7 +72874,7 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 readonly "BASELINE": 4
                 /**
-                 * stretch to fill all space, but align the baseline.
+                 * align the baseline.
                  * @since 4.12
                  */
                 readonly "BASELINE_CENTER": 5
@@ -76763,6 +76784,12 @@ declare module "gi://Gtk?version=4.0" {
                  * @since 4.22
                  */
                 readonly "SESSION": 4194304
+                /**
+                 * Print information from the GTK inspector 'general' page,
+                 * in markdown format.
+                 * @since 4.24
+                 */
+                readonly "GENERAL_INFO": 8388608
             }
             type DebugFlags = number
             interface $Exports {

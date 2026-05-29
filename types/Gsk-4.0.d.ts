@@ -1528,6 +1528,7 @@ declare module "gi://Gsk?version=4.0" {
                 get_n_children(): number
                 /**
                  * Gets shader code for the node.
+                 * @deprecated since 4.16
                  * @returns the `GskGLShader` shader
                  */
                 get_shader(): GLShader
@@ -4553,6 +4554,7 @@ declare module "gi://Gsk?version=4.0" {
                  * Sets the value of the uniform `idx`.
                  *
                  * The uniform must be of float type.
+                 * @deprecated since 4.16
                  * @param idx index of the uniform
                  * @param value value to set the uniform to
                  */
