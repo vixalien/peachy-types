@@ -435,6 +435,51 @@ declare module "gi://Dex?version=1" {
             }
             
 
+            namespace Coroutine {
+                interface SignalSignatures extends Future.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
+                }
+            }
+
+            interface Coroutine extends Future {
+                readonly $signals: Coroutine.SignalSignatures
+                readonly $readableProperties: Coroutine.ReadableProperties
+                readonly $writableProperties: Coroutine.WritableProperties
+                readonly $constructOnlyProperties: Coroutine.ConstructOnlyProperties
+            }
+
+            interface CoroutineClass extends Omit<FutureClass, "new"> {
+                readonly $gtype: GObject.GType<Coroutine>
+                readonly prototype: Coroutine
+
+                new (props?: Partial<GObject.ConstructorProps<Coroutine>>): Coroutine
+            }
+
+            interface $Exports {
+                /**
+                 * `DexCoroutine` is a {@link Dex.Future} implemented as a stateful stackless
+                 * coroutine cooperatively scheduled on a {@link Dex.Scheduler}.
+                 *
+                 * Each coroutine stores stackful suspension state and optionally accepts user
+                 * data via `user_data`.
+                 *
+                 * Use user data passed at spawn time for stateful data.
+                 */
+                Coroutine: CoroutineClass
+            }
+            
+
             namespace DBusInterfaceSkeleton {
                 interface SignalSignatures extends Gio.DBusInterfaceSkeleton.SignalSignatures, Gio.DBusInterface.SignalSignatures {
                 }
@@ -585,6 +630,16 @@ declare module "gi://Dex?version=1" {
                 readonly prototype: Fiber
 
                 new (props?: Partial<GObject.ConstructorProps<Fiber>>): Fiber
+                /**
+                 * Cooperatively yields execution back to the current scheduler.
+                 *
+                 * This may only be called from within a {@link Dex.Fiber}. If it is called
+                 * from any other context, `error` is set to %DEX_ERROR_NO_FIBER.
+                 * @throws {GLib.Error}
+                 * @since 1.2
+                 * @returns %TRUE if execution was yielded and the fiber resumed successfully;   otherwise %FALSE and `error` is set.
+                 */
+                yield(): boolean
             }
 
             interface $Exports {
@@ -884,6 +939,13 @@ declare module "gi://Dex?version=1" {
                  * @returns a {@link Dex.Future}
                  */
                 first(futures: Future[]): Future
+                /**
+                 * Creates a new {@link Dex.Future} and resolves it with `enum_value`.
+                 * @param enum_type a `GType` of %G_TYPE_ENUM
+                 * @param enum_value the enum value for the future
+                 * @returns a resolved {@link Dex.Future}
+                 */
+                new_enum(enum_type: (GObject.GType | { $gtype: GObject.GType }), enum_value: number): Future
                 /**
                  * Creates a new {@link Dex.Future} and resolves it with `v_bool`.
                  * @param v_bool the resolved value for the future
@@ -1246,6 +1308,19 @@ declare module "gi://Dex?version=1" {
                  */
                 close(): void
                 /**
+                 * Closes `limiter` and waits for all queued and running work to complete.
+                 *
+                 * After this function is called, new acquire attempts are rejected with
+                 * %DEX_ERROR_SEMAPHORE_CLOSED.
+                 *
+                 * The returned future resolves to `%TRUE` once all outstanding pending acquire
+                 * futures and held permits are complete. Existing permit holders must still
+                 * eventually release.
+                 * @since 1.2
+                 * @returns a {@link Dex.Future} that resolves to `true`
+                 */
+                close_after_drain(): Future
+                /**
                  * Gets the maximum number of permits available from `limiter`.
                  * @since 1.2
                  * @returns the maximum number of concurrent operations
@@ -1274,6 +1349,36 @@ declare module "gi://Dex?version=1" {
                  * @returns a future representing the spawned fiber
                  */
                 run(scheduler: Scheduler | null, stack_size: number, func: FiberFunc): Future
+                /**
+                 * Runs `func` while holding one permit from `limiter`.
+                 *
+                 * The returned future resolves or rejects with the result of the spawned
+                 * coroutine. The permit is released automatically after the coroutine resolves
+                 * or rejects. If the returned future is discarded after the coroutine starts,
+                 * the coroutine is allowed to complete so that the permit can be released.
+                 * @since 1.2
+                 * @param scheduler scheduler to spawn `func` on, or %NULL for the thread default
+                 * @param func coroutine function to run after a permit is acquired
+                 * @returns a future representing the spawned coroutine
+                 */
+                run_coroutine(scheduler: Scheduler | null, func: CoroutineFunc): Future
+                /**
+                 * Runs `thread_func` on `pool` while holding one permit from `limiter`.
+                 *
+                 * The returned future resolves or rejects with the result of the submitted
+                 * thread-pool work. The permit is released automatically after the work
+                 * resolves or rejects. If the returned future is discarded after the work is
+                 * submitted to `pool`, the work is allowed to complete so that the permit can be
+                 * released.
+                 *
+                 * Workers in `DexThreadPool` are not scheduler threads, so `thread_func` must
+                 * not use `dex_await()`.
+                 * @since 1.2
+                 * @param pool a `DexThreadPool`
+                 * @param thread_func    function to run on `pool` after a permit is acquired
+                 * @returns a future representing the submitted work
+                 */
+                run_on_pool(pool: ThreadPool, thread_func: ThreadFunc): Future
             }
 
             interface LimiterClass extends Omit<ObjectClass, "new"> {
@@ -1299,8 +1404,9 @@ declare module "gi://Dex?version=1" {
                  *
                  * A limiter starts with a fixed number of permits. Use {@link Dex.Limiter.acquire}
                  * and {@link Dex.Limiter.release} directly when a permit must cover a custom
-                 * scope, or use {@link Dex.Limiter.run} to acquire a permit, spawn a fiber, and
-                 * release the permit automatically when that fiber completes.
+                 * scope, or use {@link Dex.Limiter.run} or
+                 * {@link Dex.Limiter.run_on_pool} to acquire a permit and release it
+                 * automatically when the work completes.
                  * @since 1.2
                  */
                 Limiter: LimiterClass
@@ -1615,6 +1721,9 @@ declare module "gi://Dex?version=1" {
                  * The fiber will have its own stack and cooperatively schedules among other
                  * fibers sharing the scheduler.
                  *
+                 * This can be called from any thread. The resulting fiber runs on the thread
+                 * associated with the `scheduler`.
+                 *
                  * If `stack_size` is 0, it will set to a sensible default. Otherwise, it is
                  * rounded up to the nearest page size.
                  *
@@ -1623,11 +1732,11 @@ declare module "gi://Dex?version=1" {
                  * fiber_func (gpointer data)
                  * {
                  *   GInputStream *stream = data;
-                 *   g_autoptr(GError) error = NULL;
-                 *   g_autoptr(GBytes) bytes = NULL;
+                 *   GError *error = NULL;
+                 *   GBytes *bytes = NULL;
                  *
                  *   if (!(bytes = dex_await_boxed (dex_input_stream_read_bytes (stream, 4096, 0), &error)))
-                 *     return dex_future_new_for_error (g_steal_pointer (&error));
+                 *     return dex_future_new_for_error (error);
                  *
                  *   ...
                  *
@@ -1647,6 +1756,17 @@ declare module "gi://Dex?version=1" {
                  * @returns a {@link Dex.Future} that will resolve or reject when   `func` completes (or its resulting `DexFuture` completes).
                  */
                 spawn(stack_size: number, func: FiberFunc): Future
+                /**
+                 * Request `scheduler` to spawn a {@link Dex.Coroutine} and execute
+                 *  `func` with user data.
+                 *
+                 * If the function returns %NULL while suspended, it should have set an awaited
+                 * future in its context using one of the `DEX_COROUTINE_SUSPEND_*` helpers.
+                 * @since 1.2
+                 * @param func coroutine entrypoint
+                 * @returns a {@link Dex.Future} that will resolve or reject   when `func` finishes or returns an error.
+                 */
+                spawn_coroutine(func: CoroutineFunc): Future
             }
 
             interface SchedulerClass extends Omit<ObjectClass, "new"> {
@@ -1688,6 +1808,68 @@ declare module "gi://Dex?version=1" {
                  * for a number of threads and dispatch new work between them.
                  */
                 Scheduler: SchedulerClass
+            }
+            
+
+            namespace StateMachine {
+                interface SignalSignatures extends Object.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
+                }
+            }
+
+            interface StateMachine extends Object {
+                readonly $signals: StateMachine.SignalSignatures
+                readonly $readableProperties: StateMachine.ReadableProperties
+                readonly $writableProperties: StateMachine.WritableProperties
+                readonly $constructOnlyProperties: StateMachine.ConstructOnlyProperties
+                /**
+                 * Gets the current state of `state_machine`.
+                 * @returns the current state
+                 */
+                get_state(): number
+                /**
+                 * Requests a transition to `target`.
+                 *
+                 * Transition requests are serialized. The matching callback is run from a
+                 * fiber and may use `dex_await()` to wait for asynchronous work. If the
+                 * callback succeeds, the state machine commits the possibly modified inout
+                 * `to` argument and the returned future resolves to that enum value.
+                 * @param target the target state
+                 * @returns a future resolving to the final enum state
+                 */
+                transition(target: number): Future
+            }
+
+            interface StateMachineClass extends Omit<ObjectClass, "new"> {
+                readonly $gtype: GObject.GType<StateMachine>
+                readonly prototype: StateMachine
+
+                new (props?: Partial<GObject.ConstructorProps<StateMachine>>): StateMachine
+            }
+
+            interface $Exports {
+                /**
+                 * `DexStateMachine` provides a serialized asynchronous state machine.
+                 *
+                 * Transitions are declared up front with a static table of
+                 * {@link Dex.StateTransition} entries. Requests made with
+                 * {@link Dex.StateMachine.transition} are serialized through an internal
+                 * {@link Dex.Limiter} with a max concurrency of one. Transition callbacks run
+                 * from a fiber, so they may use `dex_await()` and related APIs while still
+                 * appearing as synchronous functions.
+                 */
+                StateMachine: StateMachineClass
             }
             
 
@@ -1734,6 +1916,174 @@ declare module "gi://Dex?version=1" {
                  * {@link Dex.Future.new_for_boolean} and similar.
                  */
                 StaticFuture: StaticFutureClass
+            }
+            
+
+            namespace TaskGroup {
+                interface SignalSignatures extends Future.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends Future.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Future.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Future.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends Future.ConstructOnlyProperties {
+                }
+            }
+
+            interface TaskGroup extends Future {
+                readonly $signals: TaskGroup.SignalSignatures
+                readonly $readableProperties: TaskGroup.ReadableProperties
+                readonly $writableProperties: TaskGroup.WritableProperties
+                readonly $constructOnlyProperties: TaskGroup.ConstructOnlyProperties
+                /**
+                 * Adds `future` to `group`.
+                 *
+                 * If `group` is `null`, then the future will be disowned.
+                 * Otherwise, `future` will be added to `group`.
+                 * @since 1.2
+                 * @param future a {@link Dex.Future}
+                 * @returns `false` if the group is closed or cancelled;   otherwise `true`.
+                 */
+                add(future: Future): boolean
+                
+                cancel(): void
+                /**
+                 * Close the group to new tasks.
+                 * @since 1.2
+                 * @returns a {@link Dex.Future} that resolves when all the   collected futures have resolved or rejected.
+                 */
+                close(): Future
+                
+                pop_thread_default(): void
+                
+                push_thread_default(): void
+            }
+
+            interface TaskGroupClass extends Omit<FutureClass, "new"> {
+                readonly $gtype: GObject.GType<TaskGroup>
+                readonly prototype: TaskGroup
+
+                new (props?: Partial<GObject.ConstructorProps<TaskGroup>>): TaskGroup
+                /**
+                 * @param flags
+                 */
+                "new"(flags: TaskGroupFlags): TaskGroup
+            }
+
+            interface $Exports {
+                /**
+                 * A structured scope for related {@link Dex.Future} instances.
+                 *
+                 * A task group owns the futures added to it until the group is closed or
+                 * cancelled. The group itself is also a {@link Dex.Future}, so callers can
+                 * await the scope to learn when all tracked futures have finished.
+                 *
+                 * Use {@link Dex.TaskGroup.add} to attach futures explicitly, or pass `NULL`
+                 * to {@link Dex.TaskGroup.add} after pushing a thread-default group with
+                 * {@link Dex.TaskGroup.push_thread_default}. Close the group with
+                 * {@link Dex.TaskGroup.close} once no more futures will be added.
+                 *
+                 * Cancellation is stronger than ordinary discard-driven cleanup: calling
+                 * {@link Dex.TaskGroup.cancel} cancels all tracked children, including nested
+                 * task groups, and completes the task group with a cancellation error. When
+                 * {@link Dex.TaskGroup.close} is used instead, the task group resolves only
+                 * after every tracked future has resolved or rejected.
+                 *
+                 * Developer note: always pair {@link Dex.TaskGroup.push_thread_default} with
+                 * {@link Dex.TaskGroup.pop_thread_default} on the same thread, and prefer
+                 * {@link Dex.TaskGroup.close} over relying on finalization to finish work.
+                 * @since 1.2
+                 */
+                TaskGroup: TaskGroupClass
+            }
+            
+
+            namespace ThreadPool {
+                interface SignalSignatures extends Object.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends Object.ConstructOnlyProperties {
+                }
+            }
+
+            interface ThreadPool extends Object {
+                readonly $signals: ThreadPool.SignalSignatures
+                readonly $readableProperties: ThreadPool.ReadableProperties
+                readonly $writableProperties: ThreadPool.WritableProperties
+                readonly $constructOnlyProperties: ThreadPool.ConstructOnlyProperties
+                /**
+                 * Begins shutting down the pool and prevents new submissions.
+                 * @param mode shutdown policy for queued work
+                 * @returns a future that resolves when shutdown completes
+                 */
+                close(mode: ThreadPoolShutdownMode): Future
+                /**
+                 * Gets the fixed number of threads owned by the pool.
+                 * @since 1.2
+                 * @returns the number of threads in the pool
+                 */
+                get_n_threads(): number
+                /**
+                 * Queues blocking work to run on one of the pool's reusable threads.
+                 *
+                 * The provided `thread_name` is applied to the returned future using
+                 * `dex_future_set_static_name()` so that tracing and debugging tools can
+                 * identify the work item. It does not rename the underlying OS worker thread.
+                 * @since 1.2
+                 * @param thread_name the name to use for debugging the returned future
+                 * @param thread_func the function to run on a pooled thread
+                 * @returns a future that resolves when the work completes
+                 */
+                submit(thread_name: string | null, thread_func: ThreadFunc): Future
+            }
+
+            interface ThreadPoolClass extends Omit<ObjectClass, "new"> {
+                readonly $gtype: GObject.GType<ThreadPool>
+                readonly prototype: ThreadPool
+
+                new (props?: Partial<GObject.ConstructorProps<ThreadPool>>): ThreadPool
+                /**
+                 * Creates a fixed-size pool of reusable operating system threads.
+                 * @since 1.2
+                 * @param n_threads the number of threads to create
+                 * @returns a new `DexThreadPool`
+                 */
+                "new"(n_threads: number): ThreadPool
+            }
+
+            interface $Exports {
+                /**
+                 * `DexThreadPool` is a thread pool for managing native OS threads similar
+                 * to {@link GLib.ThreadPool}.
+                 *
+                 * The threads managed by `DexThreadPool` do not contain a
+                 * {@link Dex.Scheduler} which means that you cannot await
+                 * futures or schedule {@link Dex.Block} from a worker thread.
+                 *
+                 * Threads are created up-front from {@link Dex.ThreadPool.new}.
+                 *
+                 * `DexThreadPool` primarily exists for situations where you are
+                 * using blocking external libraries and want to avoid calling
+                 * {@link Dex.thread_spawn} without any sort of queuing or bounding
+                 * on the permitted concurrency.
+                 * @since 1.2
+                 */
+                ThreadPool: ThreadPoolClass
             }
             
 
@@ -1968,6 +2318,58 @@ declare module "gi://Dex?version=1" {
                 AsyncPairInfo: AsyncPairInfoStruct
             }
             
+
+            interface CoroutineContextStruct {
+                readonly $gtype: GObject.GType<CoroutineContext>
+                [Symbol.hasInstance](instance: unknown): instance is CoroutineContext
+            }
+
+            interface CoroutineContext {
+                /**
+                 * @param pc
+                 * @param future
+                 */
+                resume(pc: number, future: Future): void
+                /**
+                 * @param pc
+                 * @param future
+                 */
+                suspend(pc: number, future: Future): void
+            }
+
+            interface $Exports {
+                CoroutineContext: CoroutineContextStruct
+            }
+            
+
+            interface StateTransitionStruct {
+                readonly $gtype: GObject.GType<StateTransition>
+                new (fields?: {
+                    from?: number
+                    to?: number
+                    func?: StateTransitionFunc
+                }): StateTransition
+            }
+
+            interface StateTransition {
+                /**
+                 * the state this edge may start from
+                 */
+                from: number
+                /**
+                 * the state this edge transitions to
+                 */
+                to: number
+                /**
+                 * callback used to execute the edge
+                 */
+                func: StateTransitionFunc
+            }
+
+            interface $Exports {
+                StateTransition: StateTransitionStruct
+            }
+            
             interface BlockKindEnum {
                 readonly $gtype: GObject.GType<BlockKind>
                 
@@ -2011,6 +2413,8 @@ declare module "gi://Dex?version=1" {
                 readonly "TYPE_NOT_SUPPORTED": 9
                 
                 readonly "FIBER_CANCELLED": 10
+                
+                readonly "INVALID_TRANSITION": 11
             }
 
             interface $Exports {
@@ -2031,6 +2435,19 @@ declare module "gi://Dex?version=1" {
             interface $Exports {
                 
                 FutureStatus: FutureStatusEnum
+            }
+            
+            interface ThreadPoolShutdownModeEnum {
+                readonly $gtype: GObject.GType<ThreadPoolShutdownMode>
+                
+                readonly "DRAIN": 0
+                
+                readonly "CANCEL_QUEUED": 1
+            }
+            type ThreadPoolShutdownMode = ThreadPoolShutdownModeEnum[Exclude<keyof ThreadPoolShutdownModeEnum, "$gtype">]
+            interface $Exports {
+                
+                ThreadPoolShutdownMode: ThreadPoolShutdownModeEnum
             }
             
             interface DBusInterfaceSkeletonFlagsBitfield {
@@ -2056,6 +2473,32 @@ declare module "gi://Dex?version=1" {
                  */
                 DBusInterfaceSkeletonFlags: DBusInterfaceSkeletonFlagsBitfield
             }
+            
+            interface TaskGroupFlagsBitfield {
+                readonly $gtype: GObject.GType<TaskGroupFlags>
+                
+                readonly "NONE": 0
+                
+                readonly "CANCEL_ON_ERROR": 1
+            }
+            type TaskGroupFlags = number
+            interface $Exports {
+                
+                TaskGroupFlags: TaskGroupFlagsBitfield
+            }
+            /**
+             * This function prototype is used for spawning stackless coroutines.
+             *
+             * A coroutine function receives a {@link Dex.CoroutineContext} and optional user
+             * data and returns the next future for completion.
+             *
+             * If the function returns %NULL to indicate suspension, it must have stashed the
+             * currently awaited future in `coroutine` using the
+             * `DEX_COROUTINE_SUSPEND_*` helpers.
+             * @param context
+             * @returns a {@link Dex.Future}
+             */
+            type CoroutineFunc = (context: CoroutineContext) => Future | null
             /**
              * This function prototype is used for spawning fibers. A fiber
              * is a lightweight, cooperative-multitasking feature where the
@@ -2088,6 +2531,19 @@ declare module "gi://Dex?version=1" {
             
             type SchedulerFunc = () => void
             /**
+             * Callback used to execute a transition edge.
+             *
+             * On entry, `to` contains the declared target for the edge being executed. If
+             * the callback succeeds and leaves `to` unchanged, the transition completes at
+             * that state. If the callback changes `to`, {@link Dex.StateMachine} commits
+             * the changed state instead. The changed state must be a valid value in the
+             * state enum.
+             * @throws {GLib.Error}
+             * @param from the current state
+             * @returns %TRUE if the transition succeeded; otherwise %FALSE and `error` is set, the target state for the current edge
+             */
+            type StateTransitionFunc = (from: number, to: number) => [boolean, number]
+            /**
              * A function which will be run on a dedicated thread.
              *
              * It must return a {@link Dex.Future} that will eventually resolve
@@ -2100,6 +2556,35 @@ declare module "gi://Dex?version=1" {
             interface $Exports {
                 __name__: "Dex"
                 __version__: "1"
+                /**
+                 * An asynchronous `close()` wrapper.
+                 *
+                 * This function takes ownership of `fd` and will close it asynchronously.
+                 *
+                 * Generally you want to provide `NULL` for the `aio_context` as that
+                 * will get the default aio context for your scheduler.
+                 * @since 1.2
+                 * @param aio_context
+                 * @param fd the file descriptor to close
+                 * @returns a future that will resolve to %TRUE when the   close completes or rejects with error.
+                 */
+                aio_close(aio_context: AioContext | null, fd: number): Future
+                /**
+                 * An asynchronous `open()` wrapper.
+                 *
+                 * Generally you want to provide `NULL` for the `aio_context` as that
+                 * will get the default aio context for your scheduler.
+                 *
+                 * The resulting future resolves to a file descriptor which can be consumed
+                 * with {@link Dex.Future.await_fd}.
+                 * @since 1.2
+                 * @param aio_context
+                 * @param path the path to open
+                 * @param flags flags for `open()`
+                 * @param mode permissions to use when creating the file
+                 * @returns a future that will resolve when the   open completes or rejects with error.
+                 */
+                aio_open(aio_context: AioContext | null, path: string, flags: number, mode: number): Future
                 /**
                  * An asynchronous `pread()` wrapper.
                  *
@@ -2948,6 +3433,18 @@ declare module "gi://Dex?version=1" {
                  * @returns a {@link Dex.Future} that will resolve when `subprocess`   exits cleanly or reject upon signal or non-successful exit.
                  */
                 subprocess_wait_check(subprocess: Gio.Subprocess): Future
+                /**
+                 * Adds a test function like g_test_add_func(), but runs `test_func` from a
+                 * {@link Dex.Fiber}. The calling thread is given a thread-default
+                 * {@link Dex.Scheduler} if it does not already have one, allowing tests to use
+                 * dex_await() and related APIs directly.
+                 *
+                 * After `test_func` completes, the scheduler's main context is iterated until no
+                 * immediately pending sources remain.
+                 * @param testpath test case path
+                 * @param test_func test function to execute from a fiber
+                 */
+                test_add_func(testpath: string, test_func: GLib.TestFunc): void
                 /**
                  * Spawns a new thread named `thread_name` running `thread_func` with
                  *  `user_data` passed to it.

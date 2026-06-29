@@ -563,9 +563,9 @@ declare module "gi://Gly?version=2" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "apply-transformation": boolean
+                    "accepted-memory-formats": MemoryFormatSelection
+                    "apply-transformations": boolean
                     "cancellable": Gio.Cancellable
-                    "memory-format-selection": MemoryFormatSelection
                     "sandbox-selector": SandboxSelector
                 }
 
@@ -588,31 +588,25 @@ declare module "gi://Gly?version=2" {
                 readonly $writableProperties: Loader.WritableProperties
                 readonly $constructOnlyProperties: Loader.ConstructOnlyProperties
                 /**
+                 * @default 0
+                 */
+                set acceptedMemoryFormats(value: MemoryFormatSelection)
+                /**
                  * @default FALSE
                  */
-                get applyTransformation(): boolean
-                set applyTransformation(value: boolean)
+                set applyTransformations(value: boolean)
                 
-                get bytes(): GLib.Bytes
                 set bytes(value: GLib.Bytes)
                 
                 get cancellable(): Gio.Cancellable
                 set cancellable(value: Gio.Cancellable)
                 
-                get file(): Gio.File
                 set file(value: Gio.File)
-                /**
-                 * @default 0
-                 */
-                get memoryFormatSelection(): MemoryFormatSelection
-                set memoryFormatSelection(value: MemoryFormatSelection)
                 /**
                  * @default Auto
                  */
-                get sandboxSelector(): SandboxSelector
                 set sandboxSelector(value: SandboxSelector)
                 
-                get stream(): Gio.InputStream
                 set stream(value: Gio.InputStream)
                 /**
                  * Synchronously loads an image and returns an {@link Image} when successful.
@@ -753,6 +747,7 @@ declare module "gi://Gly?version=2" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                    "color-icc-profile": GLib.Bytes
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
@@ -762,6 +757,11 @@ declare module "gi://Gly?version=2" {
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
+                    "height": number
+                    "memory-format": MemoryFormat
+                    "stride": number
+                    "texture": GLib.Bytes
+                    "width": number
                 }
             }
 
@@ -770,6 +770,32 @@ declare module "gi://Gly?version=2" {
                 readonly $readableProperties: NewFrame.ReadableProperties
                 readonly $writableProperties: NewFrame.WritableProperties
                 readonly $constructOnlyProperties: NewFrame.ConstructOnlyProperties
+                
+                get colorIccProfile(): GLib.Bytes
+                set colorIccProfile(value: GLib.Bytes)
+                /**
+                 * @default 0
+                 */
+                get height(): number
+                set height(value: number)
+                /**
+                 * @default R8g8b8
+                 */
+                get memoryFormat(): MemoryFormat
+                set memoryFormat(value: MemoryFormat)
+                /**
+                 * @default 0
+                 */
+                get stride(): number
+                set stride(value: number)
+                
+                get texture(): GLib.Bytes
+                set texture(value: GLib.Bytes)
+                /**
+                 * @default 0
+                 */
+                get width(): number
+                set width(value: number)
                 /**
                  * @since 2.0
                  * @param icc_profile ICC profile

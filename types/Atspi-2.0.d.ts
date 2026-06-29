@@ -3766,6 +3766,8 @@ declare module "gi://Atspi?version=2.0" {
                  * immediate parent.
                  */
                 readonly "PARENT": 2
+                
+                readonly "LAST_DEFINED": 3
             }
             type CoordType = CoordTypeEnum[Exclude<keyof CoordTypeEnum, "$gtype">]
             interface $Exports {
@@ -3798,6 +3800,8 @@ declare module "gi://Atspi?version=2.0" {
                  * human interface device (HID) was released.
                  */
                 readonly "BUTTON_RELEASED_EVENT": 3
+                
+                readonly "EVENT_LAST_DEFINED": 4
             }
             type EventType = EventTypeEnum[Exclude<keyof EventTypeEnum, "$gtype">]
             interface $Exports {
@@ -3819,6 +3823,8 @@ declare module "gi://Atspi?version=2.0" {
                  * Key release event
                  */
                 readonly "RELEASED": 1
+                
+                readonly "EVENT_LAST_DEFINED": 2
             }
             type KeyEventType = KeyEventTypeEnum[Exclude<keyof KeyEventTypeEnum, "$gtype">]
             interface $Exports {
@@ -3874,6 +3880,8 @@ declare module "gi://Atspi?version=2.0" {
                  * Emulates unlocking a set of modifiers.
                  */
                 readonly "UNLOCKMODIFIERS": 6
+                
+                readonly "SYNTH_LAST_DEFINED": 7
             }
             type KeySynthType = KeySynthTypeEnum[Exclude<keyof KeySynthTypeEnum, "$gtype">]
             interface $Exports {
@@ -3940,6 +3948,8 @@ declare module "gi://Atspi?version=2.0" {
                  * For time and date formatting.
                  */
                 readonly "TIME": 5
+                
+                readonly "LAST_DEFINED": 6
             }
             type LocaleType = LocaleTypeEnum[Exclude<keyof LocaleTypeEnum, "$gtype">]
             interface $Exports {
@@ -4989,6 +4999,8 @@ declare module "gi://Atspi?version=2.0" {
                  * on the window.
                  */
                 readonly "ANYWHERE": 6
+                
+                readonly "LAST_DEFINED": 7
             }
             type ScrollType = ScrollTypeEnum[Exclude<keyof ScrollTypeEnum, "$gtype">]
             interface $Exports {
@@ -5363,6 +5375,8 @@ declare module "gi://Atspi?version=2.0" {
                  * range.
                  */
                 readonly "LINE_END": 6
+                
+                readonly "LAST_DEFINED": 7
             }
             type TextBoundaryType = TextBoundaryTypeEnum[Exclude<keyof TextBoundaryTypeEnum, "$gtype">]
             interface $Exports {
@@ -5398,6 +5412,8 @@ declare module "gi://Atspi?version=2.0" {
                  * bounded by min and max are retained.
                  */
                 readonly "BOTH": 3
+                
+                readonly "LAST_DEFINED": 4
             }
             type TextClipType = TextClipTypeEnum[Exclude<keyof TextClipTypeEnum, "$gtype">]
             interface $Exports {
@@ -5619,7 +5635,7 @@ declare module "gi://Atspi?version=2.0" {
                 COLLECTION_VERSION: 1
                 COMPONENTLAYER_COUNT: 9
                 COMPONENT_VERSION: 1
-                COORD_TYPE_COUNT: 3
+                COORD_TYPE_COUNT: 4
                 DBUS_INTERFACE_ACCESSIBLE: "org.a11y.atspi.Accessible"
                 DBUS_INTERFACE_ACTION: "org.a11y.atspi.Action"
                 DBUS_INTERFACE_APPLICATION: "org.a11y.atspi.Application"
@@ -5660,29 +5676,29 @@ declare module "gi://Atspi?version=2.0" {
                 DEVICE_EVENT_LISTENER_VERSION: 1
                 DOCUMENT_VERSION: 1
                 EDITABLE_TEXT_VERSION: 1
-                EVENTTYPE_COUNT: 4
+                EVENTTYPE_COUNT: 5
                 EVENT_VERSION: 1
                 HYPERLINK_VERSION: 1
                 HYPERTEXT_VERSION: 1
                 IMAGE_VERSION: 1
-                KEYEVENTTYPE_COUNT: 2
-                KEYSYNTHTYPE_COUNT: 5
-                LOCALE_TYPE_COUNT: 6
+                KEYEVENTTYPE_COUNT: 3
+                KEYSYNTHTYPE_COUNT: 8
+                LOCALE_TYPE_COUNT: 7
                 MATCHTYPES_COUNT: 6
                 MAX_CHILDREN: 65536
                 MODIFIERTYPE_COUNT: 8
                 REGISTRY_VERSION: 2
                 RELATIONTYPE_COUNT: 24
                 ROLE_COUNT: 132
-                SCROLLTYPE_COUNT: 7
+                SCROLLTYPE_COUNT: 8
                 SELECTION_VERSION: 1
                 SOCKET_VERSION: 1
                 SORTORDER_COUNT: 8
                 STATETYPE_COUNT: 45
                 TABLE_CELL_VERSION: 1
                 TABLE_VERSION: 1
-                TEXT_BOUNDARY_TYPE_COUNT: 7
-                TEXT_CLIP_TYPE_COUNT: 4
+                TEXT_BOUNDARY_TYPE_COUNT: 8
+                TEXT_CLIP_TYPE_COUNT: 5
                 TEXT_VERSION: 1
                 TREETRAVERSALTYPE_COUNT: 4
                 VALUE_VERSION: 1

@@ -2908,7 +2908,7 @@ declare module "gi://Adw?version=1" {
                 get_heading_use_markup(): boolean
                 /**
                  * Gets whether `self` prefers horizontal button layout.
-                 * @since 1.5
+                 * @since 1.6
                  * @returns whether to prefer wide layout
                  */
                 get_prefer_wide_layout(): boolean
@@ -6763,6 +6763,182 @@ declare module "gi://Adw?version=1" {
                  * `AdwComboRow` uses the {@link Gtk.AccessibleRole.combo-box} role.
                  */
                 ComboRow: ComboRowClass
+            }
+            
+
+            namespace CssClassBinding {
+                interface SignalSignatures extends GObject.Object.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
+                    "flags": GObject.BindingFlags
+                    "source": GObject.Object | null
+                    "source-property": string
+                    "target": Gtk.Widget | null
+                    "target-css-class": string
+                }
+            }
+
+            interface CssClassBinding extends GObject.Object {
+                readonly $signals: CssClassBinding.SignalSignatures
+                readonly $readableProperties: CssClassBinding.ReadableProperties
+                readonly $writableProperties: CssClassBinding.WritableProperties
+                readonly $constructOnlyProperties: CssClassBinding.ConstructOnlyProperties
+                /**
+                 * Flags to be used to control the binding.
+                 * @since 1.10
+                 * @default G_BINDING_DEFAULT
+                 */
+                get flags(): GObject.BindingFlags
+                set flags(value: GObject.BindingFlags)
+                /**
+                 * The object to use as the source of the CSS class binding.
+                 * @since 1.10
+                 */
+                get source(): GObject.Object | null
+                set source(value: GObject.Object | null)
+                /**
+                 * The name of the property that shoudl be used as the source of the binding.
+                 * @since 1.10
+                 * @default NULL
+                 */
+                get sourceProperty(): string
+                set sourceProperty(value: string)
+                /**
+                 * The widget to use as the target of the CSS class binding.
+                 * @since 1.10
+                 */
+                get target(): Gtk.Widget | null
+                set target(value: Gtk.Widget | null)
+                /**
+                 * The name of the CSS class that should be toggled on the target object.
+                 * @since 1.10
+                 * @default NULL
+                 */
+                get targetCssClass(): string
+                set targetCssClass(value: string)
+                /**
+                 * Gets the flags passed when constructing the binding.
+                 * @since 1.10
+                 * @returns the binding flags
+                 */
+                get_flags(): GObject.BindingFlags
+                /**
+                 * Gets the object instance passed as the source of the binding.
+                 *
+                 * While a binding can outlive the source as the binding doesn't hold a strong
+                 * reference to the source, the binding will try to finalize itself when it does
+                 * not have a valid source. If the source, however, is destroyed before the
+                 * binding is fully finalized then this function will return `NULL`.
+                 * @since 1.10
+                 * @returns the source, or `NULL` if it doesn't   exist anymore
+                 */
+                get_source(): GObject.Object | null
+                /**
+                 * Gets the name of the property bound from {@link CssClassBinding.source}.
+                 * @since 1.10
+                 * @returns the name of the source property
+                 */
+                get_source_property(): string
+                /**
+                 * Gets the widget instance passed as the target of the binding.
+                 *
+                 * While a binding can outlive the target as the binding doesn't hold a strong
+                 * reference to the target, the binding will try to finalize itself when it does
+                 * not have a valid target. If the target, however, is destroyed before the
+                 * binding is fully finalized then this function will return `NULL`.
+                 * @since 1.10
+                 * @returns the target, or `NULL` if it doesn't   exist anymore
+                 */
+                get_target(): Gtk.Widget | null
+                /**
+                 * Gets the CSS class to toggle on {@link CssClassBinding.target}.
+                 * @since 1.10
+                 * @returns the name of the target CSS class
+                 */
+                get_target_css_class(): string
+                /**
+                 * Explicitly releases the binding between the source and the target.
+                 *
+                 * This function will release the reference that is being held on `self` if the
+                 * binding is still bound; if you want to hold on to the binding instance after
+                 * calling this method, you will need to manually hold a reference to it.
+                 *
+                 * Note that this function does not take ownership of `self`, it only unrefs the
+                 * instance that was initially created by {@link Adw.bind_property_to_css_class}
+                 * and is owned by the binding.
+                 * @since 1.10
+                 */
+                unbind(): void
+            }
+
+            interface CssClassBindingClass extends Omit<GObject.ObjectClass, "new"> {
+                readonly $gtype: GObject.GType<CssClassBinding>
+                readonly prototype: CssClassBinding
+
+                new (props?: Partial<GObject.ConstructorProps<CssClassBinding>>): CssClassBinding
+            }
+
+            interface $Exports {
+                /**
+                 * A binding between a {@link GObject.Object} property and a CSS class on a
+                 * {@link Gtk.Widget}.
+                 *
+                 * To create a binding, use {@link Adw.bind_property_to_css_class}.
+                 *
+                 * Whenever the source property changes, a CSS class is toggled on the target
+                 * object; for instance, given the following binding:
+                 *
+                 * ```c
+                 * adw_bind_property_to_css_class (source, "property",
+                 *                                 target, "css-class",
+                 *                                 G_BINDING_DEFAULT);
+                 * ```
+                 *
+                 * when `property` is a boolean property, `css-class` will be set every time the
+                 * value of `property` is changed to `TRUE`, and vice versa.
+                 *
+                 * Using {@link Adw.bind_property_to_css_class_full}, it's possible to define a
+                 * custom mapping between a property and the boolean enable state, that is,
+                 * defining a mapping between any arbitrary property type and a boolean type.
+                 * This allows for any property, not just boolean properties, to be bound to a
+                 * CSS class; for instance, the following binding
+                 *
+                 * ```c
+                 * adw_bind_property_to_css_class_full (source, "property",
+                 *                                      target, "css-class",
+                 *                                      G_BINDING_DEFAULT,
+                 *                                      int_to_bool,
+                 *                                      bool_to_int,
+                 *                                      NULL, NULL);
+                 * ```
+                 *
+                 * will map an integer-typed `property` to a boolean value, and use the value of
+                 * that boolean to toggle the CSS class.
+                 *
+                 * It is possible to invert the type of a boolean without using a custom map
+                 * function by using the {@link GObject.BindingFlags.INVERT_BOOLEAN} flag.
+                 *
+                 * A binding will be removed, and any allocated resources freed, whenever either
+                 * one of the source or target instances are finalized, or when the binding
+                 * instances loses its last reference.
+                 *
+                 * Languages with garbage collection, or developers wanting to fully control the
+                 * lifecycle of a binding may use {@link CssClassBinding.unbind} to expliticly
+                 * release a binding, instead of relying on the last reference on the binding,
+                 * source, and target instances to drop.
+                 * @since 1.10
+                 */
+                CssClassBinding: CssClassBindingClass
             }
             
 
@@ -12291,12 +12467,12 @@ declare module "gi://Adw?version=1" {
                  *     ╰── [content child]
                  * ```
                  *
-                 * When collapsed, the one containing the sidebar child has the `.background`
+                 * When collapsed, the one containing the sidebar child has the `.overlay-pane`
                  * style class and the other one has no style classes.
                  *
                  * ```
                  * overlay-split-view
-                 * ├── widget.background
+                 * ├── widget.overlay-pane
                  * │   ╰── [sidebar child]
                  * ╰── widget
                  *     ╰── [content child]
@@ -25769,6 +25945,22 @@ declare module "gi://Adw?version=1" {
              */
             type AnimationTargetFunc = (value: number) => void
             /**
+             * Prototype for mapping properties to CSS classes for a {@link CssClassBinding}.
+             * @since 1.10
+             * @param self The binding class
+             * @param property_value the source property value
+             * @returns whether to apply the target CSS class
+             */
+            type CssClassBindingMapToClassFunc = (self: CssClassBinding, property_value: (GObject.Value | unknown)) => boolean
+            /**
+             * Prototype for mapping CSS classes to properties for a {@link CssClassBinding}.
+             * @since 1.10
+             * @param self The binding class
+             * @param class_applied whether the target CSS class is applied
+             * @param property_value The value to use for the source property
+             */
+            type CssClassBindingMapToPropertyFunc = (self: CssClassBinding, class_applied: boolean, property_value: (GObject.Value | unknown)) => void
+            /**
              * Called for sidebars that are bound to a {@link Gio.ListModel} with
              * {@link SidebarSection.bind_model} for each
              * item that gets added to the model.
@@ -25806,6 +25998,67 @@ declare module "gi://Adw?version=1" {
                  * @returns , return location for the color
                  */
                 accent_color_to_standalone_rgba(self: AccentColor, dark: boolean): Gdk.RGBA
+                /**
+                 * Creates a binding between a property on `source` and a CSS class on `target`.
+                 *
+                 * Whenever `source_property` is changed the `target_css_class` is toggled either
+                 * on or off on `target` using the boolean value of `source_property`.
+                 *
+                 * For instance:
+                 *
+                 * ```c
+                 * adw_bind_property_to_css_class (action, "active", widget, "active-widget", 0);
+                 * ```
+                 *
+                 * will result in the `active-widget` CSS class on the widget instance being
+                 * applied when `active` is `TRUE`, and `active-widget` being removed when
+                 * `active` is `FALSE`.
+                 *
+                 * The binding will automatically be removed when either the `source` or `target`
+                 * instances are finalized. To remove the binding without affecting the `source`
+                 * or `target`, call {@link GObject.Object.unref} on the returned binding. It is
+                 * recommended to only call {@link GObject.Object.unref} when it is clear that
+                 * both `source` and `target` will outlive the binding.
+                 *
+                 * This function is not thread safe. A source can have multiple bindings.
+                 *
+                 * See also: {@link Adw.bind_property_to_css_class_full}.
+                 * @since 1.10
+                 * @param source the source object
+                 * @param source_property the property on `source` to bind
+                 * @param target the target widget
+                 * @param target_css_class the CSS class on `target` to bind
+                 * @param flags flags to pass to `self`
+                 * @returns the new binding
+                 */
+                bind_property_to_css_class(source: GObject.Object, source_property: string, target: Gtk.Widget, target_css_class: string, flags: GObject.BindingFlags): CssClassBinding
+                /**
+                 * Creates a binding between a property on `source` and a CSS class on `target`
+                 * with a custom mapping using closures.
+                 *
+                 * This function is the language bindings friendly version of
+                 * {@link Adw.bind_property_to_css_class_full}.
+                 *
+                 * The binding will automatically be removed when either the `source` or `target`
+                 * instances are finalized. To remove the binding without affecting the `source`
+                 * or `target`, call {@link GObject.Object.unref} on the returned binding. It is
+                 * recommended to only call {@link GObject.Object.unref} when it is clear that
+                 * both `source` and `target` will outlive the binding.
+                 *
+                 * This function is not thread safe. A source can have multiple bindings.
+                 *
+                 * See also: {@link Adw.bind_property_to_css_class}.
+                 * @since 1.10
+                 * @param source the source object
+                 * @param source_property the property on `source` to bind
+                 * @param target the target widget
+                 * @param target_css_class the CSS class on `target` to bind
+                 * @param flags flags to pass to `self`
+                 * @param map_to_class a closure wrapping the `source_property` to   boolean value map, or `NULL` to use the default
+                 * @param map_to_property a closure wrapping the `target_css_class` to   {@link GObject.Value} map, or `NULL` to use the default
+                 * @returns the new binding
+                 */
+                bind_property_to_css_class_full(source: GObject.Object, source_property: string, target: Gtk.Widget, target_css_class: string, flags: GObject.BindingFlags, map_to_class: ((...args: unknown[]) => unknown) | null, map_to_property: ((...args: unknown[]) => unknown) | null): CssClassBinding
                 /**
                  * Parses a condition from a string.
                  *

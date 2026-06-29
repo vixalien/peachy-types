@@ -182,6 +182,12 @@ declare module "gi://Gsk?version=4.0" {
                 readonly $writableProperties: BorderNode.WritableProperties
                 readonly $constructOnlyProperties: BorderNode.ConstructOnlyProperties
                 /**
+                 * Retrieves the snap value for the border
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_border_snap(): RectSnap
+                /**
                  * Retrieves the colors of the border.
                  * @returns an array of 4 `GdkRGBA`   structs for the top, right, bottom and left color of the border
                  */
@@ -191,6 +197,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns the outline of the border
                  */
                 get_outline(): RoundedRect
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
                 /**
                  * Retrieves the stroke widths of the border.
                  * @returns an array of 4 floats   for the top, right, bottom and left stroke width of the border,   respectively
@@ -426,6 +438,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns a clip rectangle
                  */
                 get_clip(): Graphene.Rect
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
             }
 
             interface ClipNodeClass extends Omit<RenderNodeClass, "new"> {
@@ -488,6 +506,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns a color vector
                  */
                 get_color_offset(): Graphene.Vec4
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
             }
 
             interface ColorMatrixNodeClass extends Omit<RenderNodeClass, "new"> {
@@ -551,6 +575,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns the color of the node
                  */
                 get_color(): Gdk.RGBA
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
             }
 
             interface ColorNodeClass extends Omit<RenderNodeClass, "new"> {
@@ -769,6 +799,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns the rotation for the gradient
                  */
                 get_rotation(): number
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
             }
 
             interface ConicGradientNodeClass extends Omit<RenderNodeClass, "new"> {
@@ -1626,6 +1662,12 @@ declare module "gi://Gsk?version=4.0" {
                  */
                 get_outline(): RoundedRect
                 /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
+                /**
                  * Retrieves how much the shadow spreads inwards.
                  * @returns the size of the shadow, in pixels
                  */
@@ -1764,6 +1806,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns the number of color stops
                  */
                 get_n_color_stops(): number
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
                 /**
                  * Retrieves the initial point of the linear gradient.
                  * @returns the initial point
@@ -2022,6 +2070,12 @@ declare module "gi://Gsk?version=4.0" {
                  */
                 get_outline(): RoundedRect
                 /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
+                /**
                  * Retrieves how much the shadow spreads outwards.
                  * @returns the size of the shadow, in pixels
                  */
@@ -2083,6 +2137,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns the index of the copy to paste.
                  */
                 get_depth(): number
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
             }
 
             interface PasteNodeClass extends Omit<RenderNodeClass, "new"> {
@@ -2156,6 +2216,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns the number of color stops
                  */
                 get_n_color_stops(): number
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
                 /**
                  * Retrieves the start value for the gradient.
                  * @returns the start value for the gradient
@@ -2521,6 +2587,19 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns a bounding rectangle
                  */
                 get_child_bounds(): Graphene.Rect
+                /**
+                 * Retrieves the snap value for the child's bounding
+                 * rectangle.
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_child_snap(): RectSnap
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
             }
 
             interface RepeatNodeClass extends Omit<RenderNodeClass, "new"> {
@@ -2684,6 +2763,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns a rounded rectangle
                  */
                 get_clip(): RoundedRect
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
             }
 
             interface RoundedClipNodeClass extends Omit<RenderNodeClass, "new"> {
@@ -3002,6 +3087,12 @@ declare module "gi://Gsk?version=4.0" {
                 readonly $writableProperties: TextureNode.WritableProperties
                 readonly $constructOnlyProperties: TextureNode.ConstructOnlyProperties
                 /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
+                /**
                  * Retrieves the `GdkTexture` used when creating this `GskRenderNode`.
                  * @returns the `GdkTexture`
                  */
@@ -3063,6 +3154,12 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns the `GskScalingFilter`
                  */
                 get_filter(): ScalingFilter
+                /**
+                 * Retrieves the snap value for this node
+                 * @since 4.24
+                 * @returns the snap value
+                 */
+                get_snap(): RectSnap
                 /**
                  * Retrieves the `GdkTexture` used when creating this `GskRenderNode`.
                  * @since 4.10
@@ -5794,6 +5891,11 @@ declare module "gi://Gsk?version=4.0" {
                  * @since 4.22
                  */
                 readonly "ARITHMETIC_NODE": 37
+                /**
+                 * A node that generates a Perlin noise or fractal Brownian motion pattern.
+                 * @since 4.24
+                 */
+                readonly "TURBULENCE_NODE": 38
             }
             type RenderNodeType = RenderNodeTypeEnum[Exclude<keyof RenderNodeTypeEnum, "$gtype">]
             interface $Exports {
@@ -5863,6 +5965,68 @@ declare module "gi://Gsk?version=4.0" {
                  * Errors that can happen during (de)serialization.
                  */
                 SerializationError: SerializationErrorEnum
+            }
+            
+            interface SideEnum {
+                readonly $gtype: GObject.GType<Side>
+                /**
+                 * The top side
+                 */
+                readonly "TOP": 0
+                /**
+                 * The right side
+                 */
+                readonly "RIGHT": 1
+                /**
+                 * The bottom side
+                 */
+                readonly "BOTTOM": 2
+                /**
+                 * The left side
+                 */
+                readonly "LEFT": 3
+            }
+            type Side = SideEnum[Exclude<keyof SideEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * The sides of a rectangle as used by `GskRectSnap` or `GskBorderNode`.
+                 *
+                 * This is the order used by CSS shorthand arguments.
+                 * @since 4.24
+                 */
+                Side: SideEnum
+            }
+            
+            interface SnapDirectionEnum {
+                readonly $gtype: GObject.GType<SnapDirection>
+                /**
+                 * Don't snap the value
+                 */
+                readonly "NONE": 0
+                /**
+                 * Use floor() to snap
+                 */
+                readonly "FLOOR": 1
+                /**
+                 * Use ceil() to snap
+                 */
+                readonly "CEIL": 2
+                /**
+                 * Use round() to snap
+                 */
+                readonly "ROUND": 3
+            }
+            type SnapDirection = SnapDirectionEnum[Exclude<keyof SnapDirectionEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * Specifies how a coordinate should be snapped to the pixel grid.
+                 *
+                 * Note that the top and left sides of rectangles need to be snapped
+                 * in the opposite direction from the bottom and right sides to make
+                 * the rectangle grow or shrink.
+                 * @since 4.24
+                 */
+                SnapDirection: SnapDirectionEnum
             }
             
             interface TransformCategoryEnum {
@@ -6071,10 +6235,18 @@ declare module "gi://Gsk?version=4.0" {
              * @returns The filtered texture
              */
             type RenderReplayTextureFilter = (replay: RenderReplay, texture: Gdk.Texture) => Gdk.Texture
+            /**
+             * The ways a rectangle can be snapped to a grid.
+             */
+            type RectSnap = number
 
             interface $Exports {
                 __name__: "Gsk"
                 __version__: "4.0"
+                RECT_SNAP_GROW: 16908801
+                RECT_SNAP_NONE: 0
+                RECT_SNAP_ROUND: 50529027
+                RECT_SNAP_SHRINK: 33620226
                 /**
                  * Compares two component transfers for equality.
                  * @since 4.20
@@ -6113,6 +6285,24 @@ declare module "gi://Gsk?version=4.0" {
                  * @returns a new `GskPath`, or `NULL` if `string` could not be parsed
                  */
                 path_parse(string: string): Path | null
+                /**
+                 * Queries the way a given border is snapped.
+                 * @since 4.24
+                 * @param snap a rectangle snap
+                 * @param side the border to query
+                 * @returns the direction the given border is snapped
+                 */
+                rect_snap_get_direction(snap: RectSnap, side: Side): SnapDirection
+                /**
+                 * Creates a new way to snap rectangles for the 4 given sides.
+                 * @since 4.24
+                 * @param top How to snap the top edge
+                 * @param right How to snap the right edge
+                 * @param bottom How to snap the bottom edge
+                 * @param left How to snap the left edge
+                 * @returns a description for how to snap rectangles
+                 */
+                rect_snap_new(top: SnapDirection, right: SnapDirection, bottom: SnapDirection, left: SnapDirection): RectSnap
                 /**
                  * Registers an error quark for {@link Gsk.RenderNode} errors.
                  * @returns the error quark

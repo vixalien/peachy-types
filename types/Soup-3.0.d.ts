@@ -1429,24 +1429,25 @@ declare module "gi://Soup?version=3.0" {
             
 
             namespace CookieJarDB {
-                interface SignalSignatures extends CookieJar.SignalSignatures, SessionFeature.SignalSignatures {
+                interface SignalSignatures extends CookieJar.SignalSignatures, Gio.Initable.SignalSignatures, SessionFeature.SignalSignatures {
                 }
 
-                interface ReadWriteProperties extends CookieJar.ReadWriteProperties, SessionFeature.ReadWriteProperties {
+                interface ReadWriteProperties extends CookieJar.ReadWriteProperties, Gio.Initable.ReadWriteProperties, SessionFeature.ReadWriteProperties {
                 }
 
-                interface ReadableProperties extends ReadWriteProperties, CookieJar.ReadableProperties, SessionFeature.ReadableProperties {
+                interface ReadableProperties extends ReadWriteProperties, CookieJar.ReadableProperties, Gio.Initable.ReadableProperties, SessionFeature.ReadableProperties {
                 }
 
-                interface WritableProperties extends ReadWriteProperties, CookieJar.WritableProperties, SessionFeature.WritableProperties {
+                interface WritableProperties extends ReadWriteProperties, CookieJar.WritableProperties, Gio.Initable.WritableProperties, SessionFeature.WritableProperties {
                 }
 
-                interface ConstructOnlyProperties extends CookieJar.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
+                interface ConstructOnlyProperties extends CookieJar.ConstructOnlyProperties, Gio.Initable.ConstructOnlyProperties, SessionFeature.ConstructOnlyProperties {
                     "filename": string
+                    "max-size": number
                 }
             }
 
-            interface CookieJarDB extends CookieJar, SessionFeature {
+            interface CookieJarDB extends CookieJar, Gio.Initable, SessionFeature {
                 readonly $signals: CookieJarDB.SignalSignatures
                 readonly $readableProperties: CookieJarDB.ReadableProperties
                 readonly $writableProperties: CookieJarDB.WritableProperties
@@ -1457,6 +1458,47 @@ declare module "gi://Soup?version=3.0" {
                  */
                 get filename(): string
                 set filename(value: string)
+                /**
+                 * Cookie-storage maximum database size.
+                 * @since 3.8
+                 * @default 0
+                 */
+                get maxSize(): number
+                set maxSize(value: number)
+                /**
+                 * Get the maximum size for the database file storage
+                 *
+                 * This method returns the currently configured max database file size. A return value of zero
+                 * indicates that no limit is configured.
+                 * @since 3.8
+                 * @returns Database max file size
+                 */
+                get_max_size(): number
+                /**
+                 * Set the maximum size for the database file storage
+                 *
+                 * If `max_size` is 0, it means "no limit", in which case the database file size will be limited only
+                 * by the database capabilities / intrinsic limits.
+                 *
+                 * If `max_size` has a higher limit than supported by the database, the max_size will be internally
+                 * set to the limit supported by the database.
+                 *
+                 * The `max_size` will be internally truncated to a multiple of the database page size. If the page
+                 * size is, for example, 4K, setting a max size of 10K will effectively limit the database size to
+                 * 8K to ensure it does not grow beyond the specified limit.
+                 *
+                 * Attempting to set a limit that is less than the already used database file storage will NOT
+                 * truncate the database, but won't allow the database to grow further in size (although writes
+                 * might be still accepted within the already allocated space).
+                 *
+                 * This value does not persist in the database. Each construction of this class must set
+                 * the property again or it will use the default value.
+                 * @throws {GLib.Error}
+                 * @since 3.8
+                 * @param max_size Max database file size, in bytes `error` A #GError
+                 * @returns %TRUE is configuration was successful, otherwise %FALSE and `error` will be set.
+                 */
+                set_max_size(max_size: number): boolean
             }
 
             interface CookieJarDBClass extends Omit<CookieJarClass, "new"> {
@@ -1477,6 +1519,16 @@ declare module "gi://Soup?version=3.0" {
                  * @returns the new #SoupCookieJar
                  */
                 "new"(filename: string, read_only: boolean): CookieJarDB
+                /**
+                 * Creates a {@link CookieJarDB}, returning %NULL and setting `error` if the
+                 * database file cannot be opened.
+                 * @throws {GLib.Error}
+                 * @since 3.8
+                 * @param filename the filename to read to/write from
+                 * @param read_only %TRUE if `filename` is read-only
+                 * @returns the new #SoupCookieJar, or %NULL on error
+                 */
+                new_with_error(filename: string, read_only: boolean): CookieJarDB
             }
 
             interface $Exports {
@@ -1489,6 +1541,9 @@ declare module "gi://Soup?version=3.0" {
                  * (This is identical to `SoupCookieJarSqlite` in
                  * libsoup-gnome; it has just been moved into libsoup proper, and
                  * renamed to avoid conflicting.)
+                 *
+                 * Since 3.8 this class implements {@link Gio.Initable} to track failures
+                 * opening the database. See {@link SoupCookieJarDB.new_with_error}.
                  */
                 CookieJarDB: CookieJarDBClass
             }
@@ -6208,6 +6263,31 @@ declare module "gi://Soup?version=3.0" {
                 CookieJarAcceptPolicy: CookieJarAcceptPolicyEnum
             }
             
+            interface CookieJarError extends GLib.Error {}
+
+            interface CookieJarErrorEnum {
+                readonly $gtype: GObject.GType<CookieJarError>
+
+                new(props: { message: string, code: number }): CookieJarError
+                /**
+                 * an error from a database operation
+                 */
+                readonly "DB": 0
+                /**
+             * Registers error quark for SoupCookieJar.
+             * @since 3.8
+             * @returns Error quark for SoupCookieJar.
+             */
+            quark: () => GLib.Quark
+            }
+
+            interface $Exports {
+                /**
+                 * A {@link SoupCookieJar} error.
+                 */
+                CookieJarError: CookieJarErrorEnum
+            }
+            
             interface DateFormatEnum {
                 readonly $gtype: GObject.GType<DateFormat>
                 /**
@@ -7309,7 +7389,7 @@ declare module "gi://Soup?version=3.0" {
                 HSTS_POLICY_MAX_AGE_PAST: 0
                 HTTP_URI_FLAGS: 482
                 MAJOR_VERSION: 3
-                MICRO_VERSION: 0
+                MICRO_VERSION: 1
                 MINOR_VERSION: 7
                 VERSION_MIN_REQUIRED: 2
                 /**
@@ -7324,6 +7404,12 @@ declare module "gi://Soup?version=3.0" {
                  * @returns %TRUE if the version of the libsoup currently loaded   is the same as or newer than the passed-in version.
                  */
                 check_version(major: number, minor: number, micro: number): boolean
+                /**
+                 * Registers error quark for SoupCookieJar.
+                 * @since 3.8
+                 * @returns Error quark for SoupCookieJar.
+                 */
+                cookie_jar_error_quark(): GLib.Quark
                 /**
                  * Parses `header` and returns a {@link Cookie}.
                  *

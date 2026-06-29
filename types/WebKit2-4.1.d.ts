@@ -13460,6 +13460,11 @@ declare module "gi://WebKit2?version=4.1" {
                  * Editable element expects a password
                  */
                 readonly "PASSWORD": 6
+                /**
+                 * Edited field contents will be used for searching data.
+                 * @since 2.54
+                 */
+                readonly "SEARCH": 7
             }
             type InputPurpose = InputPurposeEnum[Exclude<keyof InputPurposeEnum, "$gtype">]
             interface $Exports {
@@ -14583,7 +14588,7 @@ declare module "gi://WebKit2?version=4.1" {
                 EDITING_COMMAND_SELECT_ALL: "SelectAll"
                 EDITING_COMMAND_UNDO: "Undo"
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 2
+                MICRO_VERSION: 4
                 MINOR_VERSION: 53
                 /**
                  * Gets the quark for the domain of download errors.
