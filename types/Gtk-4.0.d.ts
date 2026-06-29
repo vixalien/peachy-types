@@ -1371,25 +1371,25 @@ declare module "gi://Gtk?version=4.0" {
             
 
             namespace AlternativeTrigger {
-                interface SignalSignatures extends ShortcutTrigger.SignalSignatures {
+                interface SignalSignatures extends ShortcutTrigger.SignalSignatures, Gio.ListModel.SignalSignatures {
                 }
 
-                interface ReadWriteProperties extends ShortcutTrigger.ReadWriteProperties {
+                interface ReadWriteProperties extends ShortcutTrigger.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
                 }
 
-                interface ReadableProperties extends ReadWriteProperties, ShortcutTrigger.ReadableProperties {
+                interface ReadableProperties extends ReadWriteProperties, ShortcutTrigger.ReadableProperties, Gio.ListModel.ReadableProperties {
                 }
 
-                interface WritableProperties extends ReadWriteProperties, ShortcutTrigger.WritableProperties {
+                interface WritableProperties extends ReadWriteProperties, ShortcutTrigger.WritableProperties, Gio.ListModel.WritableProperties {
                 }
 
-                interface ConstructOnlyProperties extends ShortcutTrigger.ConstructOnlyProperties {
+                interface ConstructOnlyProperties extends ShortcutTrigger.ConstructOnlyProperties, Gio.ListModel.ConstructOnlyProperties {
                     "first": ShortcutTrigger
                     "second": ShortcutTrigger
                 }
             }
 
-            interface AlternativeTrigger extends ShortcutTrigger {
+            interface AlternativeTrigger extends ShortcutTrigger, Gio.ListModel {
                 readonly $signals: AlternativeTrigger.SignalSignatures
                 readonly $readableProperties: AlternativeTrigger.ReadableProperties
                 readonly $writableProperties: AlternativeTrigger.WritableProperties
@@ -1440,6 +1440,14 @@ declare module "gi://Gtk?version=4.0" {
                  * @returns a new `GtkShortcutTrigger`
                  */
                 "new"(first: ShortcutTrigger, second: ShortcutTrigger): AlternativeTrigger
+                /**
+                 * Creates a `GtkShortcutTrigger` that will trigger whenever
+                 * any of the given triggers gets triggered.
+                 * @since 4.24
+                 * @param triggers the triggers
+                 * @returns a new `GtkShortcutTrigger`
+                 */
+                newv(triggers: ShortcutTrigger[]): AlternativeTrigger
             }
 
             interface $Exports {
@@ -41804,7 +41812,7 @@ declare module "gi://Gtk?version=4.0" {
                  * {@link Gtk.Revealer.set_transition_type}.
                  *
                  * These animations respect the {@link Gtk.Settings.gtkEnableAnimations}
-                 * setting.
+                 * and {@link GTk.Settings.gtkInterfaceReducedMotion} settings.
                  *
                  * # CSS nodes
                  *
@@ -44899,7 +44907,7 @@ declare module "gi://Gtk?version=4.0" {
                  *   - `never`, for `GtkNeverTrigger`
                  *   - a string parsed by gtk_accelerator_parse(), for a `GtkKeyvalTrigger`, e.g. `<Control>C`
                  *   - underscore, followed by a single character, for `GtkMnemonicTrigger`, e.g. `_l`
-                 *   - two valid trigger strings, separated by a `|` character, for a
+                 *   - two or more valid trigger strings, separated by a `|` character, for a
                  *     `GtkAlternativeTrigger`: `<Control>q|<Control>w`
                  *
                  * Note that you will have to escape the `<` and `>` characters when specifying
@@ -44909,6 +44917,27 @@ declare module "gi://Gtk?version=4.0" {
                  * @returns a new `GtkShortcutTrigger`
                  */
                 parse_string(string: string): ShortcutTrigger | null
+                /**
+                 * Creates a shortcut trigger that will trigger for
+                 * the usual key combinations that trigger a context
+                 * menu, such as <kbd>Menu</kbd> or
+                 * <kbd>Shift</kbd>+<kbd>F10</kbd>.
+                 * @since 4.24
+                 * @returns a new `GtkShortcutTrigger`
+                 */
+                create_for_menu(): ShortcutTrigger
+                /**
+                 * Creates a shortcut trigger that will trigger for
+                 * any alias of the given key.
+                 *
+                 * See {@link Gdk.keyval_get_aliases} for more information
+                 * on aliases.
+                 * @since 4.24
+                 * @param keyval The keyval to trigger for
+                 * @param modifiers the modifiers that need to be present
+                 * @returns a new `GtkShortcutTrigger`
+                 */
+                create_with_aliases(keyval: number, modifiers: Gdk.ModifierType): ShortcutTrigger
             }
 
             interface $Exports {
@@ -46758,6 +46787,16 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 scale_3d(factor_x: number, factor_y: number, factor_z: number): void
                 /**
+                 * Sets the snapping mode to use when appending snappable content
+                 * to the snapshot.
+                 *
+                 * The snap mode is part of the current state, so {@link Snapshot.save}
+                 * and {@link Snapshot.restore} can be used to remember a snap mode.
+                 * @since 4.24
+                 * @param snap the snapping mode to use
+                 */
+                set_snap(snap: Gsk.RectSnap): void
+                /**
                  * Returns the render node that was constructed
                  * by `snapshot`.
                  *
@@ -48068,8 +48107,9 @@ declare module "gi://Gtk?version=4.0" {
                  *
                  * Transitions between pages can be animated as slides or fades. This
                  * can be controlled with {@link Gtk.Stack.set_transition_type}.
+                 *
                  * These animations respect the {@link Gtk.Settings.gtkEnableAnimations}
-                 * setting.
+                 * and {@link Gtk.Settings.gtkInterfaceReducedMotion} settings.
                  *
                  * `GtkStack` maintains a {@link Gtk.StackPage} object for each added
                  * child, which holds additional per-child properties. You
@@ -49693,8 +49733,7 @@ declare module "gi://Gtk?version=4.0" {
                  * not supported.
                  *
                  * In the `<filter>` element, the following primitives are not supported:
-                 * feConvolveMatrix, feDiffuseLighting, feMorphology, feSpecularLighting
-                 * and feTurbulence.
+                 * feConvolveMatrix, feDiffuseLighting, feMorphology, feSpecularLighting.
                  *
                  * Support for the `mask` attribute is limited to just a url referring to
                  * the `<mask>` element by ID.
@@ -49758,6 +49797,10 @@ declare module "gi://Gtk?version=4.0" {
                  *
                  * will start a fade-out of path1 300ms before a transition from state
                  * 0 to 1, 2 or 3.
+                 *
+                 * States can be specified numerically, or by name. It is also possible
+                 * to say `not STATE` instead of explictly listing all states that are
+                 * different from `STATE`.
                  *
                  * In addition to the `gpa:fill` and `gpa:stroke` attributes, symbolic
                  * colors can also be specified as a custom paint server reference,
@@ -49944,9 +49987,9 @@ declare module "gi://Gtk?version=4.0" {
                  * classes such as `:focus`, `:active`, `:hover` or `:visited`.
                  *
                  * If {@link Gtk.Widget.hasTooltip} is set, then the content
-                 * of \<title\> elements will be shown as tooltips.
+                 * of `<title>` elements will be shown as tooltips.
                  *
-                 * SVG animations and different \<view\>s can be triggered by input
+                 * SVG animations and different `<view>`s can be triggered by input
                  * events as well. The following events are supported: focus, blur,
                  * mouseenter, mouseleave, click.
                  * See the [SVG animation](https://svgwg.org/specs/animations/)

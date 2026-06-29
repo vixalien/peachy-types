@@ -2367,6 +2367,12 @@ declare module "gi://Pango?version=1.0" {
                  */
                 get_color(part: RenderPart): Color | null
                 /**
+                 * Gets the components that are included in the output of the renderer.
+                 * @since 1.58
+                 * @returns the components
+                 */
+                get_components(): RenderComponent
+                /**
                  * Gets the layout currently being rendered using `renderer`.
                  *
                  * Calling this function only makes sense from inside a subclass's
@@ -2438,6 +2444,12 @@ declare module "gi://Pango?version=1.0" {
                  * @param color the new color or %NULL to unset the current color
                  */
                 set_color(part: RenderPart, color: Color | null): void
+                /**
+                 * Sets the components to include in the output of the renderer.
+                 * @since 1.58
+                 * @param components the components to include
+                 */
+                set_components(components: RenderComponent): void
                 /**
                  * Sets the transformation matrix that will be applied when rendering.
                  * @since 1.8
@@ -3538,7 +3550,7 @@ declare module "gi://Pango?version=1.0" {
                  * for `desc` than those of `old_match` are, or if `old_match` is %NULL,
                  * determines if `new_match` is a match at all.
                  *
-                 * Approximate matching is done for weight and style; other style attributes
+                 * Approximate matching is done for weight, width and style; other style attributes
                  * must match exactly. Style attributes are all attributes other than family
                  * and size-related attributes. Approximate matching for style considers
                  * %PANGO_STYLE_OBLIQUE and %PANGO_STYLE_ITALIC as matches, but not as good
@@ -3670,6 +3682,14 @@ declare module "gi://Pango?version=1.0" {
                  * @returns the weight field for the font description.   Use {@link Pango.FontDescription.get_set_fields} to find   out if the field was explicitly set or not.
                  */
                 get_weight(): Weight
+                /**
+                 * Gets the width field of a font description.
+                 *
+                 * See {@link Pango.FontDescription.set_width}.
+                 * @since 1.58
+                 * @returns the width field for the font description.   Use {@link Pango.FontDescription.get_set_fields} to find   out if the field was explicitly set or not.
+                 */
+                get_width(): Width
                 /**
                  * Computes a hash of a `PangoFontDescription` structure.
                  *
@@ -3881,6 +3901,17 @@ declare module "gi://Pango?version=1.0" {
                  * @param weight the weight for the font description.
                  */
                 set_weight(weight: Weight): void
+                /**
+                 * Sets the width field of a font description.
+                 *
+                 * The width field specifies how narrow or wide the
+                 * font should be. In addition to the values of the
+                 * {@link Pango.Width} enumeration, other
+                 * intermediate numeric values are possible.
+                 * @since 1.58
+                 * @param width the width for the font description
+                 */
+                set_width(width: Width): void
                 /**
                  * Creates a filename representation of a font description.
                  *
@@ -5818,6 +5849,10 @@ declare module "gi://Pango?version=1.0" {
                  * font-relative size change ({@link Pango.AttrInt}). Since 1.50
                  */
                 readonly "FONT_SCALE": 37
+                /**
+                 * font width ({@link Pango.AttrInt}). Since: 1.58
+                 */
+                readonly "WIDTH": 38
             }
             type AttrType = AttrTypeEnum[Exclude<keyof AttrTypeEnum, "$gtype">]
             interface $Exports {
@@ -7257,6 +7292,59 @@ declare module "gi://Pango?version=1.0" {
                 Weight: WeightEnum
             }
             
+            interface WidthEnum {
+                readonly $gtype: GObject.GType<Width>
+                /**
+                 * ultra condensed width
+                 */
+                readonly "ULTRA_CONDENSED": 500
+                /**
+                 * extra condensed width
+                 */
+                readonly "EXTRA_CONDENSED": 625
+                /**
+                 * condensed width
+                 */
+                readonly "CONDENSED": 750
+                /**
+                 * semi condensed width
+                 */
+                readonly "SEMI_CONDENSED": 875
+                /**
+                 * the normal width
+                 */
+                readonly "NORMAL": 1000
+                /**
+                 * semi expanded width
+                 */
+                readonly "SEMI_EXPANDED": 1125
+                /**
+                 * expanded width
+                 */
+                readonly "EXPANDED": 1250
+                /**
+                 * extra expanded width
+                 */
+                readonly "EXTRA_EXPANDED": 1500
+                /**
+                 * ultra expanded width
+                 */
+                readonly "ULTRA_EXPANDED": 2000
+            }
+            type Width = WidthEnum[Exclude<keyof WidthEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * An enumeration specifying the width of the font relative to other designs
+                 * within a family.
+                 *
+                 * The enumeration values match {@link PangoStretch}, but
+                 * the numeric values are expanded to allow intermediate
+                 * values.
+                 * @since 1.58
+                 */
+                Width: WidthEnum
+            }
+            
             interface WrapModeEnum {
                 readonly $gtype: GObject.GType<WrapMode>
                 /**
@@ -7311,7 +7399,15 @@ declare module "gi://Pango?version=1.0" {
                  */
                 readonly "WEIGHT": 8
                 /**
-                 * the font stretch is specified.
+                 * Font width is specified.
+                 *
+                 * This is an alias for {@link Pango.FontMask.STRETCH}.
+                 *
+                 * 1.58
+                 */
+                readonly "WIDTH": 16
+                /**
+                 * the font stretch/width is specified.
                  */
                 readonly "STRETCH": 16
                 /**
@@ -7395,6 +7491,51 @@ declare module "gi://Pango?version=1.0" {
                  * @since 1.50
                  */
                 LayoutSerializeFlags: LayoutSerializeFlagsBitfield
+            }
+            
+            interface RenderComponentBitfield {
+                readonly $gtype: GObject.GType<RenderComponent>
+                /**
+                 * No components
+                 */
+                readonly "NONE": 0
+                /**
+                 * The plain glyphs of the layout
+                 */
+                readonly "PLAIN_GLYPH": 2
+                /**
+                 * The color glyphs of the layout
+                 */
+                readonly "COLOR_GLYPH": 4
+                /**
+                 * Background of the layout
+                 */
+                readonly "BACKGROUND": 8
+                /**
+                 * Underlines of the layout
+                 */
+                readonly "UNDERLINE": 8
+                /**
+                 * Strikethrough lines of the layout
+                 */
+                readonly "STRIKETHROUGH": 16
+                /**
+                 * Overlines of the layout
+                 */
+                readonly "OVERLINE": 32
+            }
+            type RenderComponent = number
+            interface $Exports {
+                /**
+                 * Flags that specify which components of a layout to include
+                 * in renderer output.
+                 *
+                 * This is more or less parallel to the {@link Pango.RenderPart} enum,
+                 * but allows separating plain and color glyphs, and specifying more
+                 * than one component.
+                 * @since 1.58
+                 */
+                RenderComponent: RenderComponentBitfield
             }
             
             interface ShapeFlagsBitfield {
@@ -7507,11 +7648,12 @@ declare module "gi://Pango?version=1.0" {
                 GLYPH_EMPTY: Glyph
                 GLYPH_INVALID_INPUT: Glyph
                 GLYPH_UNKNOWN_FLAG: Glyph
+                RENDER_COMPONENT_ALL: 62
                 SCALE: 1024
                 VERSION_MAJOR: 1
-                VERSION_MICRO: 2
-                VERSION_MINOR: 57
-                VERSION_STRING: "1.57.2"
+                VERSION_MICRO: 0
+                VERSION_MINOR: 58
+                VERSION_STRING: "1.58.0"
                 /**
                  * Create a new allow-breaks attribute.
                  *
@@ -7879,6 +8021,13 @@ declare module "gi://Pango?version=1.0" {
                  * @returns the newly allocated   `PangoAttribute`, which should be freed with   {@link Pango.Attribute.destroy}
                  */
                 attr_weight_new(weight: Weight): Attribute
+                /**
+                 * Create a new font width attribute.
+                 * @since 1.58
+                 * @param width the width
+                 * @returns the newly allocated   `PangoAttribute`, which should be freed with   {@link Pango.Attribute.destroy}
+                 */
+                attr_width_new(width: Width): Attribute
                 /**
                  * Marks the range of the attribute as a single word.
                  *

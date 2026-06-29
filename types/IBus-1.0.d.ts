@@ -120,7 +120,8 @@ declare module "gi://IBus?version=1.0" {
                  * Gets an unsigned int value relative with #IBusAttrType.
                  * If the type is %IBUS_ATTR_TYPE_UNDERLINE, the return value is
                  * #IBusAttrUnderline. If the type is %IBUS_ATTR_TYPE_FOREGROUND,
-                 * the return value is the color RGB.
+                 * the return value is the color RGB. if the type is %IBUS_ATTR_TYPE_HINT,
+                 * the return value is the value of #IBusAttrPreedit.
                  * @returns An unsigned int value relative with #IBusAttrType.
                  */
                 get_value(): number
@@ -1829,6 +1830,13 @@ declare module "gi://IBus?version=1.0" {
                  */
                 register_properties(prop_list: PropList): void
                 /**
+                 * Send a message to the Engine for the focus-less notification popup.
+                 * This is used for the user errors in Wayland mainly but in Xorg too.
+                 * @since 1.5.33
+                 * @param message An #IBusMessage.
+                 */
+                send_message(message: Message): void
+                /**
                  * Show the auxiliary bar.
                  */
                 show_auxiliary_text(): void
@@ -2666,7 +2674,7 @@ declare module "gi://IBus?version=1.0" {
                     "cursor-up-lookup-table"(): void
                     /**
                      * Emitted to delete surrounding text event from IME to client of IME.
-                     * @param offset the character offset from the cursor position of the text to be deleted.   A negative value indicates a position before the cursor.
+                     * @param offset the character offset from the cursor position of the text to          be deleted. A negative value indicates a position before the          cursor.
                      * @param n_chars the number of characters to be deleted.
                      */
                     "delete-surrounding-text"(offset: number, n_chars: number): void
@@ -2995,6 +3003,19 @@ declare module "gi://IBus?version=1.0" {
                  * @param enable Can use ibus_input_context_post_process_key_event() to retrieve commit-text and forwar-key-event signals during calling ibus_input_context_process_key_event() if it's %TRUE.
                  */
                 set_post_process_key_event(enable: boolean): void
+                /**
+                 * The pre-edit attributes follows the format and the default is
+                 * #IBUS_PREEDIT_FORMAT_RGBA and the types of all #IBusAttribute are should be
+                 * one of  #IBUS_ATTR_TYPE_UNDERLINE, #IBUS_ATTR_TYPE_FOREGROUND,
+                 * #IBUS_ATTR_TYPE_BACKGROUND.
+                 * In case that the format is #IBUS_PREEDIT_FORMAT_HINT, the types of all
+                 * #IBusAttribute are #IBUS_ATTR_TYPE_HINT.
+                 *
+                 * See also ibus_text_get_attributes();
+                 * @since 1.5.33
+                 * @param format An #IBusPreeditFormat.
+                 */
+                set_preedit_format(format: PreeditFormat): void
                 /**
                  * @param text An #IBusText surrounding the current cursor on the application.
                  * @param cursor_pos Current cursor position in characters in `text`.
@@ -3333,6 +3354,139 @@ declare module "gi://IBus?version=1.0" {
             }
             
 
+            namespace Message {
+                interface SignalSignatures extends Serializable.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends Serializable.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends Serializable.ConstructOnlyProperties {
+                    "code": number
+                    "description": string
+                    "domain": number
+                    "progress": number
+                    "serial": number
+                    "timeout": number
+                    "title": string
+                }
+            }
+
+            interface Message extends Serializable {
+                readonly $signals: Message.SignalSignatures
+                readonly $readableProperties: Message.ReadableProperties
+                readonly $writableProperties: Message.WritableProperties
+                readonly $constructOnlyProperties: Message.ConstructOnlyProperties
+                /**
+                 * The code of message
+                 * @default 0
+                 */
+                get code(): number
+                set code(value: number)
+                /**
+                 * The description of message
+                 */
+                get description(): string
+                set description(value: string)
+                /**
+                 * The domain of message
+                 * @default 0
+                 */
+                get domain(): number
+                set domain(value: number)
+                /**
+                 * The progress of message
+                 * @default -1
+                 */
+                get progress(): number
+                set progress(value: number)
+                /**
+                 * The serial of message
+                 * @default 0
+                 */
+                get serial(): number
+                set serial(value: number)
+                /**
+                 * The timeout of message
+                 * @default -1
+                 */
+                get timeout(): number
+                set timeout(value: number)
+                /**
+                 * The title of message
+                 * @default NULL
+                 */
+                get title(): string
+                set title(value: string)
+                /**
+                 * Gets the code property in #IBusMessage.
+                 * @since 1.5.33
+                 * @returns code property in #IBusMessage
+                 */
+                get_code(): number
+                /**
+                 * Gets the description property in #IBusMessage. It should not be freed.
+                 * @since 1.5.33
+                 * @returns description property in #IBuaMessage
+                 */
+                get_description(): string
+                /**
+                 * Gets the domain property in #IBusMessage.
+                 * @since 1.5.33
+                 * @returns domain property in #IBusMessage
+                 */
+                get_domain(): number
+                /**
+                 * Gets the progress property in #IBusMessage.
+                 * @since 1.5.33
+                 * @returns progress property in #IBusMessage
+                 */
+                get_progress(): number
+                /**
+                 * Gets the serial property in #IBusMessage.
+                 * @since 1.5.33
+                 * @returns serial property in #IBusMessage
+                 */
+                get_serial(): number
+                /**
+                 * Gets the timeout property in #IBusMessage.
+                 * @since 1.5.33
+                 * @returns timeout property in #IBusMessage
+                 */
+                get_timeout(): number
+                /**
+                 * Gets the title property in #IBusMessage. It should not be freed.
+                 * @since 1.5.33
+                 * @returns title property in #IBuaMessage
+                 */
+                get_title(): string
+            }
+
+            interface MessageClass extends Omit<SerializableClass, "new"> {
+                readonly $gtype: GObject.GType<Message>
+                readonly prototype: Message
+
+                new (props?: Partial<GObject.ConstructorProps<Message>>): Message
+            }
+
+            interface $Exports {
+                /**
+                 * An IBusMessage stores the message type, description, timeout.
+                 * The message data can generated by ibus_message_new(),
+                 *
+                 * see_also: #IBusEngine, #IBuPanels
+                 * @since 1.5.33
+                 */
+                Message: MessageClass
+            }
+            
+
             namespace Object {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures {
                     /**
@@ -3481,11 +3635,19 @@ declare module "gi://IBus?version=1.0" {
             namespace PanelService {
                 interface SignalSignatures extends Service.SignalSignatures {
                     /**
-                     * @param object
-                     * @param p0
-                     * @param p1
+                     * Emitted when the client application get the
+                     * ::candidate-clicked-lookup-table.
+                     * Implement the member function
+                     * IBusPanelServiceClass::candidate_cllicked_lookup_table in extended class
+                     * to receive this signal.
+                     *
+                     * <note><para>Argument `user_data` is ignored in this function.</para>
+                     * </note>
+                     * @param index Index in the Lookup table
+                     * @param button GdkEventButton::button (1: left button, etc.)
+                     * @param state GdkEventButton::state (key modifier flags)
                      */
-                    "candidate-clicked-lookup-table"(object: number, p0: number, p1: number): void
+                    "candidate-clicked-lookup-table"(index: number, button: number, state: number): void
                     /**
                      * Emitted when the client application get the ::commit-text-received.
                      * Implement the member function
@@ -3494,7 +3656,7 @@ declare module "gi://IBus?version=1.0" {
                      *
                      * <note><para>Argument `user_data` is ignored in this function.</para>
                      * </note>
-                     * @param text A #IBusText
+                     * @param text An #IBusText
                      */
                     "commit-text-received"(text: Text): void
                     /**
@@ -3655,6 +3817,16 @@ declare module "gi://IBus?version=1.0" {
                      * </note>
                      */
                     "reset"(): void
+                    /**
+                     * Emitted when the client application get the ::send-meeeage-received.
+                     * Implement the member function
+                     *
+                     * <note><para>Argument `user_data` is ignored in this function.</para>
+                     * </note>
+                     * @since 1.5.33
+                     * @param message An #IBusMessage
+                     */
+                    "send-message-received"(message: Message): void
                     /**
                      * Emitted when the client application get the ::set-content-type.
                      * Implement the member function
@@ -3849,6 +4021,7 @@ declare module "gi://IBus?version=1.0" {
                 /**
                  * Forward key events when an IBus popup takes the focus and the events
                  * needs to be forwared to the target IBus engine.
+                 * @since 1.5.32
                  * @param keyval Key symbol of a key event.
                  * @param keycode Keycode of a key event.
                  * @param state Key modifier flags.
@@ -3894,6 +4067,26 @@ declare module "gi://IBus?version=1.0" {
                  * @param prop_name A property name
                  */
                 property_show(prop_name: string): void
+                /**
+                 * Send a message to the Panel for the focus-less notification popup.
+                 * This is used for the emoji component in Wayland mainly but in Xorg too.
+                 * @since 1.5.33
+                 * @param message An #IBusMessage.
+                 */
+                send_message(message: Message): void
+                /**
+                 * The pre-edit attributes follows the format and the default is
+                 * #IBUS_PREEDIT_FORMAT_RGBA and the types of all #IBusAttribute are should be
+                 * one of  #IBUS_ATTR_TYPE_UNDERLINE, #IBUS_ATTR_TYPE_FOREGROUND,
+                 * #IBUS_ATTR_TYPE_BACKGROUND.
+                 * In case that the format is #IBUS_PREEDIT_FORMAT_HINT, the types of all
+                 * #IBusAttribute are #IBUS_ATTR_TYPE_HINT.
+                 *
+                 * See also ibus_text_get_attributes();
+                 * @since 1.5.33
+                 * @param format An #IBusPreeditFormat.
+                 */
+                set_preedit_format(format: PreeditFormat): void
                 /**
                  * Notify that the preedit is shown by the panel extension
                  */
@@ -5443,6 +5636,19 @@ declare module "gi://IBus?version=1.0" {
             }
             
 
+            interface MessagePrivateStruct {
+                readonly $gtype: GObject.GType<MessagePrivate>
+                [Symbol.hasInstance](instance: unknown): instance is MessagePrivate
+            }
+
+            interface MessagePrivate {
+            }
+
+            interface $Exports {
+                MessagePrivate: MessagePrivateStruct
+            }
+            
+
             interface ObjectPrivateStruct {
                 readonly $gtype: GObject.GType<ObjectPrivate>
                 [Symbol.hasInstance](instance: unknown): instance is ObjectPrivate
@@ -5489,6 +5695,40 @@ declare module "gi://IBus?version=1.0" {
 
             interface $Exports {
                 PropertyPrivate: PropertyPrivateStruct
+            }
+            
+
+            interface RGBAStruct {
+                readonly $gtype: GObject.GType<RGBA>
+                new (fields?: {
+                    red?: number
+                    green?: number
+                    blue?: number
+                    alpha?: number
+                }): RGBA
+            }
+
+            interface RGBA {
+                /**
+                 * Red value.
+                 */
+                red: number
+                /**
+                 * Green value.
+                 */
+                green: number
+                /**
+                 * Blue value.
+                 */
+                blue: number
+                /**
+                 * Alpha value.
+                 */
+                alpha: number
+            }
+
+            interface $Exports {
+                RGBA: RGBAStruct
             }
             
 
@@ -5667,73 +5907,6 @@ declare module "gi://IBus?version=1.0" {
                 XML: XMLStruct
             }
             
-            interface AttrPreeditEnum {
-                readonly $gtype: GObject.GType<AttrPreedit>
-                /**
-                 * Default style for composing text.
-                 */
-                readonly "DEFAULT": 0
-                /**
-                 * Style should be the same as in non-composing text.
-                 */
-                readonly "NONE": 1
-                /**
-                 * Most language engines wish to draw underline in
-                 *                           the typed whole preedit string except for the
-                 *                           prediction string. (Chinese, Japanese,
-                 *                           Typing-booster)
-                 */
-                readonly "WHOLE": 2
-                /**
-                 * Modifying an active segment is distinguished
-                 *                               against whole the preedit text. (Hangul,
-                 *                               Japanese)
-                 */
-                readonly "SELECTION": 3
-                /**
-                 * A prediction string can be appended after the
-                 *                                typed string. (Typing-booster)
-                 */
-                readonly "PREDICTION": 4
-                /**
-                 * A prefix string can be an informative color.
-                 *                            (Table)
-                 */
-                readonly "PREFIX": 5
-                /**
-                 * A suffix string can be an informative color.
-                 *                            (Table)
-                 */
-                readonly "SUFFIX": 6
-                /**
-                 * An detected typo could be an error color
-                 *                                    with a spelling check or the word could
-                 *                                    not be found in a dictionary. The
-                 *                                    underline color also might be more
-                 *                                    visible. (Typing-booster, Table)
-                 */
-                readonly "ERROR_SPELLING": 7
-                /**
-                 * A wrong compose key could be an error
-                 *                                   color. (Typing-booster)
-                 */
-                readonly "ERROR_COMPOSE": 8
-            }
-            type AttrPreedit = AttrPreeditEnum[Exclude<keyof AttrPreeditEnum, "$gtype">]
-            interface $Exports {
-                /**
-                 * Type of Pre-edit style as the semantic name.
-                 * The Wayland specs prefers to express the semantic values rather than RGB
-                 * values and text-input protocol version 1 defines some values:
-                 * https://gitlab.freedesktop.org/wayland/wayland-protocols/-/blob/main/unstable/text-input/text-input-unstable-v1.xml?ref_type=heads#L251
-                 *
-                 * IBus compiled the values for major input method engines:
-                 * https://github.com/ibus/ibus/wiki/Wayland-Colors
-                 * @since 1.5.29
-                 */
-                AttrPreedit: AttrPreeditEnum
-            }
-            
             interface AttrTypeEnum {
                 readonly $gtype: GObject.GType<AttrType>
                 /**
@@ -5748,6 +5921,13 @@ declare module "gi://IBus?version=1.0" {
                  * Background color.
                  */
                 readonly "BACKGROUND": 3
+                /**
+                 * Use the preedit hint and each engine does not
+                 *                             specify the RGBA values but IBus panel or the
+                 *                             Wayland panel decides the actual values.
+                 *                             Since: 1.5.33
+                 */
+                readonly "HINT": 4
             }
             type AttrType = AttrTypeEnum[Exclude<keyof AttrTypeEnum, "$gtype">]
             interface $Exports {
@@ -5788,6 +5968,8 @@ declare module "gi://IBus?version=1.0" {
                 AttrUnderline: AttrUnderlineEnum
                 /**
              * Creates a new underline #IBusAttribute.
+             * Workaround of "transfer none" for ibus_attr_list_append().
+             * @deprecated since 1.5.33 Use ibus_attr_hint_new().
              * @param underline_type Type of underline.
              * @param start_index Where attribute starts.
              * @param end_index Where attribute ends.
@@ -5860,6 +6042,33 @@ declare module "gi://IBus?version=1.0" {
             interface $Exports {
                 
                 BusStartServiceByNameReply: BusStartServiceByNameReplyEnum
+            }
+            
+            interface EngineMsgCodeEnum {
+                readonly $gtype: GObject.GType<EngineMsgCode>
+                /**
+                 * Generic message for Engine
+                 */
+                readonly "GENERAL": 0
+                /**
+                 * User's typing failure
+                 *         against the definition of the compose files.
+                 */
+                readonly "INVALID_COMPOSE_SEQUENCE": 1
+                /**
+                 * Notification about new
+                 * behaviors or attentions when the compose table version is changed.
+                 */
+                readonly "UPDATE_COMPOSE_TABLE": 2
+            }
+            type EngineMsgCode = EngineMsgCodeEnum[Exclude<keyof EngineMsgCodeEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * Message codes in the `IBusMessageDomain` domain for Engine
+                 * See also #IBusMessage, ibus_engine_send_message()
+                 * @since 1.5.33
+                 */
+                EngineMsgCode: EngineMsgCodeEnum
             }
             
             interface Error extends GLib.Error {}
@@ -5938,6 +6147,21 @@ declare module "gi://IBus?version=1.0" {
                  *     codes. Since 1.5.24
                  */
                 readonly "TERMINAL": 10
+                /**
+                 * Input a date for the Wayland text-input protocol
+                 *     V1/V3. Since 1.5.34
+                 */
+                readonly "DATE": 11
+                /**
+                 * Input a time for the Wayland text-input protocol
+                 *     V1/V3. Since 1.5.34
+                 */
+                readonly "TIME": 12
+                /**
+                 * Input a date and time for the Wayland
+                 *     text-input protocol V1/V3. Since 1.5.34
+                 */
+                readonly "DATETIME": 13
             }
             type InputPurpose = InputPurposeEnum[Exclude<keyof InputPurposeEnum, "$gtype">]
             interface $Exports {
@@ -5965,6 +6189,23 @@ declare module "gi://IBus?version=1.0" {
                 InputPurpose: InputPurposeEnum
             }
             
+            interface MessageDomainEnum {
+                readonly $gtype: GObject.GType<MessageDomain>
+                
+                readonly "NONE": 0
+                
+                readonly "ENGINE": 1
+                
+                readonly "PANEL": 2
+            }
+            type MessageDomain = MessageDomainEnum[Exclude<keyof MessageDomainEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * @since 1.5.33
+                 */
+                MessageDomain: MessageDomainEnum
+            }
+            
             interface OrientationEnum {
                 readonly $gtype: GObject.GType<Orientation>
                 /**
@@ -5988,6 +6229,27 @@ declare module "gi://IBus?version=1.0" {
                 Orientation: OrientationEnum
             }
             
+            interface PanelServiceMsgCodeEnum {
+                readonly $gtype: GObject.GType<PanelServiceMsgCode>
+                /**
+                 * Generic message for Panel
+                 */
+                readonly "GENERAL": 0
+                /**
+                 * Progress message when the
+                 *         Unicode data is loading.
+                 */
+                readonly "LOADING_UNICODE": 1
+            }
+            type PanelServiceMsgCode = PanelServiceMsgCodeEnum[Exclude<keyof PanelServiceMsgCodeEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * Message codes in the `IBusMessageDomain` domain for Panel.
+                 * @since 1.5.33
+                 */
+                PanelServiceMsgCode: PanelServiceMsgCodeEnum
+            }
+            
             interface PreeditFocusModeEnum {
                 readonly $gtype: GObject.GType<PreeditFocusMode>
                 /**
@@ -6005,6 +6267,33 @@ declare module "gi://IBus?version=1.0" {
                  * Pre-edit commit mode when the focus is lost.
                  */
                 PreeditFocusMode: PreeditFocusModeEnum
+            }
+            
+            interface PreeditFormatEnum {
+                readonly $gtype: GObject.GType<PreeditFormat>
+                /**
+                 * Use #IBusAttribute with the RGBA.
+                 *         This has been a default usage and ibus_attribute_get_attr_type()
+                 *         returns `IBUS_ATTR_TYPE_UNDERLINE`, `IBUS_ATTR_TYPE_FOREGROUND`,
+                 *         `IBUS_ATTR_TYPE_BACKGROUND`.
+                 */
+                readonly "RGBA": 0
+                /**
+                 * Use #IBusAttribute with the hints.
+                 *         This let #IBusPanelService decides the actual RGBA values to follow
+                 *         the current desktop theme and ibus_attribute_get_attr_type()
+                 *         returns `IBUS_ATTR_TYPE_HINT`.
+                 */
+                readonly "HINT": 1
+            }
+            type PreeditFormat = PreeditFormatEnum[Exclude<keyof PreeditFormatEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * You can set the "preedit-format" property of the constructor of
+                 * #IBusInputContext or #IBusPanelService.
+                 * @since 1.5.33
+                 */
+                PreeditFormat: PreeditFormatEnum
             }
             
             interface PropStateEnum {
@@ -6093,6 +6382,77 @@ declare module "gi://IBus?version=1.0" {
             interface $Exports {
                 
                 XEventType: XEventTypeEnum
+            }
+            
+            interface AttrPreeditBitfield {
+                readonly $gtype: GObject.GType<AttrPreedit>
+                /**
+                 * Default style for composing text and used in
+                 *                             the internal logic only with the Wayland
+                 *                             text-input protocol V1. Each #IBusEngine
+                 *                             should not use it with ibus_attr_hint_new().
+                 */
+                readonly "DEFAULT": 0
+                /**
+                 * Most language engines wish to draw underline in
+                 *                           the typed whole preedit string except for the
+                 *                           prediction string. (Chinese, Japanese,
+                 *                           Typing-booster)
+                 */
+                readonly "WHOLE": 1
+                /**
+                 * Modifying an active segment is distinguished
+                 *                               against whole the preedit text. (Hangul,
+                 *                               Japanese)
+                 */
+                readonly "SELECTION": 2
+                /**
+                 * A prediction string can be appended after the
+                 *                                typed string. (Typing-booster)
+                 */
+                readonly "PREDICTION": 3
+                /**
+                 * A prefix string can be an informative color.
+                 *                            (Table)
+                 */
+                readonly "PREFIX": 4
+                /**
+                 * A suffix string can be an informative color.
+                 *                            (Table)
+                 */
+                readonly "SUFFIX": 5
+                /**
+                 * An detected typo could be an error color
+                 *                                    with a spelling check or the word could
+                 *                                    not be found in a dictionary. The
+                 *                                    underline color also might be more
+                 *                                    visible. (Typing-booster, Table)
+                 */
+                readonly "ERROR_SPELLING": 6
+                /**
+                 * A wrong compose key could be an error
+                 *                                   color. (Typing-booster)
+                 */
+                readonly "ERROR_COMPOSE": 7
+                /**
+                 * Designed for non-composing text with the Wayland
+                 *                             text-input protocol V1 but this is deprecated.
+                 */
+                readonly "NONE": 256
+            }
+            type AttrPreedit = number
+            interface $Exports {
+                /**
+                 * Type of Pre-edit style as the semantic name.
+                 * The Wayland specs prefers to express the semantic values rather than RGB
+                 * values and text-input protocol version 1 defines some values:
+                 * https://gitlab.freedesktop.org/wayland/wayland-protocols/-/blob/main/unstable/text-input/text-input-unstable-v1.xml?ref_type=heads#L251
+                 *
+                 * IBus compiled the values for major input method engines:
+                 * https://github.com/ibus/ibus/wiki/Wayland-Colors
+                 * @since 1.5.29
+                 */
+                AttrPreedit: AttrPreeditBitfield
             }
             
             interface BusNameFlagBitfield {
@@ -6222,6 +6582,21 @@ declare module "gi://IBus?version=1.0" {
                  *     update personalized data (like typing history). Since 1.5.26
                  */
                 readonly "PRIVATE": 2048
+                /**
+                 * The text is hidden (e.g. password fields).
+                 *     Since 1.5.34
+                 */
+                readonly "HIDDEN_TEXT": 4096
+                /**
+                 * Just latin characters should be entered for the
+                 *     text-input protocol V1/V3. Since 1.5.34
+                 */
+                readonly "LATIN": 8192
+                /**
+                 * Suggest the text input is multiline for the
+                 *     text-input protocol V1/V3. Since 1.5.34
+                 */
+                readonly "MULTILINE": 16384
             }
             type InputHints = number
             interface $Exports {
@@ -9507,7 +9882,7 @@ declare module "gi://IBus?version=1.0" {
                 M: 77
                 MAJOR_VERSION: 1
                 MAX_COMPOSE_LEN: 255
-                MICRO_VERSION: 32
+                MICRO_VERSION: 35
                 MINOR_VERSION: 5
                 MODIFIER_FILTER: 1124073709
                 Mabovedot: 16784960
@@ -10747,6 +11122,8 @@ declare module "gi://IBus?version=1.0" {
                 accelerator_valid(keyval: number, modifiers: ModifierType): boolean
                 /**
                  * Creates a new background #IBusAttribute.
+                 * Workaround of "transfer none" for ibus_attr_list_append().
+                 * @deprecated since 1.5.33 Use ibus_attr_hint_new().
                  * @param color Color in RGB.
                  * @param start_index Where attribute starts.
                  * @param end_index Where attribute ends.
@@ -10755,6 +11132,8 @@ declare module "gi://IBus?version=1.0" {
                 attr_background_new(color: number, start_index: number, end_index: number): Attribute
                 /**
                  * Creates a new foreground #IBusAttribute.
+                 * Workaround of "transfer none" for ibus_attr_list_append().
+                 * @deprecated since 1.5.33 Use ibus_attr_hint_new().
                  * @param color Color in RGB.
                  * @param start_index Where attribute starts.
                  * @param end_index Where attribute ends.
@@ -10762,7 +11141,19 @@ declare module "gi://IBus?version=1.0" {
                  */
                 attr_foreground_new(color: number, start_index: number, end_index: number): Attribute
                 /**
+                 * Creates a new hint attribute #IBusAttribute.
+                 * Workaround of "transfer none" for ibus_attr_list_append().
+                 * @since 1.5.33
+                 * @param hint Only #IBusAttrPreedit is supported at present.
+                 * @param start_index Where attribute starts.
+                 * @param end_index Where attribute ends.
+                 * @returns A newly allocated #IBusAttribute.
+                 */
+                attr_hint_new(hint: number, start_index: number, end_index: number): Attribute
+                /**
                  * Creates a new underline #IBusAttribute.
+                 * Workaround of "transfer none" for ibus_attr_list_append().
+                 * @deprecated since 1.5.33 Use ibus_attr_hint_new().
                  * @param underline_type Type of underline.
                  * @param start_index Where attribute starts.
                  * @param end_index Where attribute ends.
@@ -10815,18 +11206,24 @@ declare module "gi://IBus?version=1.0" {
                  */
                 get_daemon_uid(): number
                 /**
+                 * Get the current user group name.
+                 * @since 1.5.34
+                 * @returns A const string that stores current user group name.
+                 */
+                get_group_name(): string
+                /**
                  * @param _locale A const locale name.
                  * @returns translated language name
                  */
                 get_language_name(_locale: string): string
                 /**
                  * Obtains the machine UUID of the machine this process is running on.
-                 * @returns A newly allocated string that shows the UUID of the machine.
+                 * @returns A const string that shows the UUID of the machine.
                  */
                 get_local_machine_id(): string
                 /**
                  * Get the path of socket file.
-                 * @returns A newly allocated string that stores the path of socket file.
+                 * @returns A const string that stores the path of socket file.
                  */
                 get_socket_path(): string
                 /**
@@ -10854,7 +11251,7 @@ declare module "gi://IBus?version=1.0" {
                  *    <listitem><para>Environment variable USER</para></listitem>
                  *    <listitem><para>Environment variable LNAME</para></listitem>
                  * </orderedlist>
-                 * @returns A newly allocated string that stores current user name.
+                 * @returns A const string that stores current user name.
                  */
                 get_user_name(): string
                 /**

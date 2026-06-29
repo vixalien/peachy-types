@@ -429,6 +429,18 @@ declare module "gi://PangoCairo?version=1.0" {
                  */
                 layout_path(cr: cairo.Context, layout: Pango.Layout): void
                 /**
+                 * Adds components of a `PangoLayout` to the current path
+                 * in the specified cairo context.
+                 *
+                 * The top-left corner of the `PangoLayout` will be at the
+                 * current point of the cairo context.
+                 * @since 1.58
+                 * @param cr a Cairo context
+                 * @param layout a Pango layout
+                 * @param components the components to include
+                 */
+                layout_path_for_components(cr: cairo.Context, layout: Pango.Layout, components: Pango.RenderComponent): void
+                /**
                  * Draw a squiggly line in the specified cairo context that approximately
                  * covers the given rectangle in the style of an underline used to indicate a
                  * spelling error.

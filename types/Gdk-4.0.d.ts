@@ -8197,6 +8197,21 @@ declare module "gi://Gdk?version=4.0" {
                  */
                 get_refresh_interval(): number
                 /**
+                 * Gets the result of the frame cycle that recorded these timings.
+                 *
+                 * The timing information in a `GdkFrameTimings` is filled in
+                 * incrementally as the frame as drawn and passed off to the
+                 * window system for processing and display to the user. The
+                 * accessor functions for `GdkFrameTimings` can return 0 to
+                 * indicate an unavailable value for two reasons: either because
+                 * the information is not yet available, or because it isn't
+                 * available at all. Looking at the result of the timings gives
+                 * an explanation for why a value is not available.
+                 * @since 4.24
+                 * @returns The result of the frame these timings have been recorded for.
+                 */
+                get_result(): FrameResult
+                /**
                  * Increases the reference count of `timings`.
                  * @returns  `timings`
                  */
@@ -9341,6 +9356,83 @@ declare module "gi://Gdk?version=4.0" {
                 EventType: EventTypeEnum
             }
             
+            interface FrameResultEnum {
+                readonly $gtype: GObject.GType<FrameResult>
+                /**
+                 * The frame is currently being prepared and rendered by GTK.
+                 * This is the initial state.
+                 * @since 4.24
+                 */
+                readonly "PREPARING": 0
+                /**
+                 * GTK has determined that nothing needs to be rendered because
+                 * there are no visual changes. No rendering will be submitted to
+                 * the display server and because of that no information will
+                 * be forthcoming from the display server.
+                 *
+                 * The frame is complete.
+                 * @since 4.24
+                 */
+                readonly "SKIPPED": 1
+                /**
+                 * GTK has determined that nothing needs to be rendered because
+                 * there are no visual changes. This information has been submitted
+                 * to the display server. The presentation time has been updated to
+                 * reflect when this frame would have been displayed.
+                 *
+                 * The frame is complete.
+                 * @since 4.24
+                 */
+                readonly "EMPTY": 2
+                /**
+                 * A frame has been drawn and submitted to the display server, but
+                 * the display server will not provide any further feedback about when
+                 * or how the frame is going to be displayed.
+                 *
+                 * The frame is complete.
+                 * @since 4.24
+                 */
+                readonly "SUBMITTED": 3
+                /**
+                 * The frame has been drawn and submitted to the display server, but the
+                 * display server has not yet replied what is going to happen with the
+                 * rendered image.
+                 * @since 4.24
+                 */
+                readonly "OUTSTANDING": 4
+                /**
+                 * The frame has been drawn and submitted to the display server, but the
+                 * display server has not displayed it. No presentation time will be available.
+                 *
+                 * The frame is complete.
+                 * @since 4.24
+                 */
+                readonly "DISCARDED": 5
+                /**
+                 * The frame has been drawn and submitted to the display server, and the
+                 * display server has rendered it and displayed the result. The presentation
+                 * time is accurately reflecting when that happened.
+                 *
+                 * The frame is complete.
+                 * @since 4.24
+                 */
+                readonly "PRESENTED": 6
+            }
+            type FrameResult = FrameResultEnum[Exclude<keyof FrameResultEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * An enumeration describing the process of rendering a frame.
+                 * Rendering a frame starts with the frame clock cycle and then follows
+                 * the rendered frame (if there was one) through the display server
+                 * until it appears on screen.
+                 *
+                 * It is relevant in particular for {@link Gdk.FrameTimings} which
+                 * may still be waiting for values to be filled in.
+                 * @since 4.24
+                 */
+                FrameResult: FrameResultEnum
+            }
+            
             interface FullscreenModeEnum {
                 readonly $gtype: GObject.GType<FullscreenMode>
                 /**
@@ -10259,7 +10351,15 @@ declare module "gi://Gdk?version=4.0" {
                  * @since 4.24
                  */
                 readonly "XRGB2101010": 67
-                
+                /**
+                 * 4 bytes per pixel
+                 *
+                 * Bits 31..30 contain the alpha channel, 29..20 blue, 19..10 green
+                 * and 9..0 red.
+                 *
+                 * The color values are premultiplied with the alpha value.
+                 * @since 4.24
+                 */
                 readonly "ABGR2101010_PREMULTIPLIED": 68
                 /**
                  * 4 bytes per pixel
@@ -13990,6 +14090,19 @@ declare module "gi://Gdk?version=4.0" {
                  * @returns the corresponding key value, or `GDK_KEY_VoidSymbol`   if the key name is not a valid key
                  */
                 keyval_from_name(keyval_name: string): number
+                /**
+                 * Gets keyvals that are 'aliases' for `keyval`.
+                 *
+                 * Aliases are meant to be functionally equivalent and
+                 * should be treated the same with respect to keyboard
+                 * shortcuts, etc. An example are keypad keys that are
+                 * aliases for their normal counterpart, such as
+                 * `GDK_KEY_KP_Left` and `GDK_KEY_Left`.
+                 * @since 4.24
+                 * @param keyval the keyval to get aliases for
+                 * @returns      an array of keyvals
+                 */
+                keyval_get_aliases(keyval: number): number[] | null
                 /**
                  * Returns true if the given key value is in lower case.
                  * @param keyval a key value.

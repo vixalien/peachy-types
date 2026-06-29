@@ -1294,9 +1294,9 @@ declare module "gi://Rsvg?version=2.0" {
                 HAVE_PIXBUF: 1
                 HAVE_SVGZ: true
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 1
+                MICRO_VERSION: 90
                 MINOR_VERSION: 62
-                VERSION: "2.62.1"
+                VERSION: "2.62.90"
                 /**
                  * This function does nothing.
                  * @since 2.36

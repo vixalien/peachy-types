@@ -4646,20 +4646,30 @@ declare module "gi://GLib?version=2.0" {
                  */
                 add_years(years: number): DateTime | null
                 /**
-                 * A comparison function for #GDateTimes that is suitable
-                 * as a #GCompareFunc. Both #GDateTimes must be non-%NULL.
+                 * A comparison function for date-times that is suitable
+                 * as a {@link GLib.CompareFunc}.
+                 *
+                 * This effectively converts both date-times to the same time zone before
+                 * comparing, so date-times in different time zones can compare equal if they
+                 * refer to the same instant. See {@link GLib.DateTime.difference}.
+                 *
+                 * Both date-times must be non-`NULL`.
                  * @since 2.26
-                 * @param dt2 second #GDateTime to compare
-                 * @returns -1, 0 or 1 if `dt1` is less than, equal to or greater   than `dt2`.
+                 * @param dt2 second date-time to compare
+                 * @returns `-1`, `0` or `1` if `dt1` is less than, equal to or greater than `dt2`
                  */
                 compare(dt2: DateTime): number
                 /**
-                 * Calculates the difference in time between `end` and `begin`.  The
-                 * #GTimeSpan that is returned is effectively `end` - `begin` (ie:
-                 * positive if the first parameter is larger).
+                 * Calculates the difference in time between `end` and `begin`.
+                 *
+                 * The time span that is returned is effectively `end` - `begin` (positive if the
+                 * first parameter is larger).
+                 *
+                 * This effectively converts both date-times to the same time zone before
+                 * calculating the difference.
                  * @since 2.26
-                 * @param begin a #GDateTime
-                 * @returns the difference between the two #GDateTime, as a time   span expressed in microseconds.
+                 * @param begin another date-time
+                 * @returns the difference between the two date-times, as a time   span expressed in microseconds
                  */
                 difference(begin: DateTime): TimeSpan
                 /**
@@ -4667,6 +4677,11 @@ declare module "gi://GLib?version=2.0" {
                  *
                  * Equal here means that they represent the same moment after converting
                  * them to the same time zone.
+                 *
+                 * If you need to check that the date-times are in the same time zone as well
+                 * as referring to the same instant in time, additionally compare the values
+                 * returned by {@link GLib.TimeZone.get_offset} for the time zones for the two
+                 * date-times.
                  * @since 2.26
                  * @param dt2 a #GDateTime
                  * @returns %TRUE if `dt1` and `dt2` are equal
@@ -8003,6 +8018,8 @@ declare module "gi://GLib?version=2.0" {
                  * If `match_num` is a valid sub pattern but it didn't match anything
                  * (e.g. sub pattern 1, matching "b" against "(a)?b") then an empty
                  * string is returned.
+                 * When a partial match is reported via g_match_info_is_partial_match()
+                 * only the full text of the match can be queried (@match_num must be `0`).
                  *
                  * If the match was obtained using the DFA algorithm, that is using
                  * g_regex_match_all() or g_regex_match_all_full(), the retrieved
@@ -8025,6 +8042,9 @@ declare module "gi://GLib?version=2.0" {
                  *
                  * If a sub pattern didn't match anything (e.g. sub pattern 1, matching
                  * "b" against "(a)?b") then an empty string is inserted.
+                 *
+                 * When a partial match is reported via g_match_info_is_partial_match()
+                 * only the full text of the match will be returned, i.e. an array of size 1.
                  *
                  * If the last match was obtained using the DFA algorithm, that is using
                  * g_regex_match_all() or g_regex_match_all_full(), the retrieved
@@ -8072,6 +8092,8 @@ declare module "gi://GLib?version=2.0" {
                  *
                  * Valid values for `match_num` are `0` for the full text of the match,
                  * `1` for the first paren set, `2` for the second, and so on.
+                 * When a partial match is reported via g_match_info_is_partial_match()
+                 * only the full text of the match can be queried (@match_num must be `0`).
                  *
                  * As `end_pos` is set to the byte after the final byte of the match (on success),
                  * the length of the match can be calculated as `end_pos - start_pos`.
@@ -8342,6 +8364,10 @@ declare module "gi://GLib?version=2.0" {
                  *
                  * There were formerly some restrictions on the pattern for partial matching.
                  * The restrictions no longer apply.
+                 *
+                 * If the match was partial g_match_info_fetch(), g_match_info_fetch_pos()
+                 * and g_match_info_fetch_all() can be called to retrieve the text and positions
+                 * of the entire match, i.e. only for sub expression `0`.
                  *
                  * See pcrepartial(3) for more information on partial matching.
                  * @since 2.14
@@ -10229,11 +10255,12 @@ declare module "gi://GLib?version=2.0" {
                  * @throws {GLib.Error}
                  * @since 2.14
                  * @param string the string to scan for matches
+                 * @param string_len the length of `string`, in bytes, or -1 if `string` is nul-terminated
                  * @param start_position starting index of the string to match, in bytes
                  * @param match_options match options
                  * @returns %TRUE is the string matched, %FALSE otherwise, pointer to location where to store     the #GMatchInfo, or %NULL if you do not need it
                  */
-                match_all_full(string: string[], start_position: number, match_options: RegexMatchFlags): [boolean, MatchInfo]
+                match_all_full(string: string, string_len: number, start_position: number, match_options: RegexMatchFlags): [boolean, MatchInfo]
                 /**
                  * Scans for a match in `string` for the pattern in `regex`.
                  * The `match_options` are combined with the match options specified
@@ -10289,11 +10316,12 @@ declare module "gi://GLib?version=2.0" {
                  * @throws {GLib.Error}
                  * @since 2.14
                  * @param string the string to scan for matches
+                 * @param string_len the length of `string`, in bytes, or -1 if `string` is nul-terminated
                  * @param start_position starting index of the string to match, in bytes
                  * @param match_options match options
                  * @returns %TRUE is the string matched, %FALSE otherwise, pointer to location where to store     the #GMatchInfo, or %NULL if you do not need it
                  */
-                match_full(string: string[], start_position: number, match_options: RegexMatchFlags): [boolean, MatchInfo]
+                match_full(string: string, string_len: number, start_position: number, match_options: RegexMatchFlags): [boolean, MatchInfo]
                 /**
                  * Increases reference count of `regex` by 1.
                  * @since 2.14
@@ -10330,12 +10358,13 @@ declare module "gi://GLib?version=2.0" {
                  * @throws {GLib.Error}
                  * @since 2.14
                  * @param string the string to perform matches against
+                 * @param string_len the length of `string`, in bytes, or -1 if `string` is nul-terminated
                  * @param start_position starting index of the string to match, in bytes
                  * @param replacement text to replace each match with
                  * @param match_options options for the match
                  * @returns a newly allocated string containing the replacements
                  */
-                replace(string: string[], start_position: number, replacement: string, match_options: RegexMatchFlags): string
+                replace(string: string, string_len: number, start_position: number, replacement: string, match_options: RegexMatchFlags): string
                 /**
                  * Replaces occurrences of the pattern in regex with the output of
                  *  `eval` for that occurrence.
@@ -10385,12 +10414,13 @@ declare module "gi://GLib?version=2.0" {
                  * @throws {GLib.Error}
                  * @since 2.14
                  * @param string string to perform matches against
+                 * @param string_len the length of `string`, in bytes, or -1 if `string` is nul-terminated
                  * @param start_position starting index of the string to match, in bytes
                  * @param match_options options for the match
                  * @param eval a function to call for each match
                  * @returns a newly allocated string containing the replacements
                  */
-                replace_eval(string: string[], start_position: number, match_options: RegexMatchFlags, eval: RegexEvalCallback): string
+                replace_eval(string: string, string_len: number, start_position: number, match_options: RegexMatchFlags, eval: RegexEvalCallback): string
                 /**
                  * Replaces all occurrences of the pattern in `regex` with the
                  * replacement text. `replacement` is replaced literally, to
@@ -10403,12 +10433,13 @@ declare module "gi://GLib?version=2.0" {
                  * @throws {GLib.Error}
                  * @since 2.14
                  * @param string the string to perform matches against
+                 * @param string_len the length of `string`, in bytes, or -1 if `string` is nul-terminated
                  * @param start_position starting index of the string to match, in bytes
                  * @param replacement text to replace each match with
                  * @param match_options options for the match
                  * @returns a newly allocated string containing the replacements
                  */
-                replace_literal(string: string[], start_position: number, replacement: string, match_options: RegexMatchFlags): string
+                replace_literal(string: string, string_len: number, start_position: number, replacement: string, match_options: RegexMatchFlags): string
                 /**
                  * Breaks the string on the pattern, and returns an array of the tokens.
                  * If the pattern contains capturing parentheses, then the text for each
@@ -10458,12 +10489,13 @@ declare module "gi://GLib?version=2.0" {
                  * @throws {GLib.Error}
                  * @since 2.14
                  * @param string the string to split with the pattern
+                 * @param string_len the length of `string`, in bytes, or -1 if `string` is nul-terminated
                  * @param start_position starting index of the string to match, in bytes
                  * @param match_options match time option flags
                  * @param max_tokens the maximum number of tokens to split `string` into.   If this is less than 1, the string is split completely
                  * @returns a %NULL-terminated gchar ** array. Free it using g_strfreev()
                  */
-                split_full(string: string[], start_position: number, match_options: RegexMatchFlags, max_tokens: number): string[]
+                split_full(string: string, string_len: number, start_position: number, match_options: RegexMatchFlags, max_tokens: number): string[]
                 /**
                  * Decreases reference count of `regex` by 1. When reference count drops
                  * to zero, it frees all the memory associated with the regex structure.
@@ -19695,7 +19727,7 @@ declare module "gi://GLib?version=2.0" {
                 MAXUINT32: 4294967295
                 MAXUINT64: 18446744073709551615
                 MAXUINT8: 255
-                MICRO_VERSION: 0
+                MICRO_VERSION: 1
                 MININT16: -32768
                 MININT32: -2147483648
                 MININT64: -9223372036854775808
