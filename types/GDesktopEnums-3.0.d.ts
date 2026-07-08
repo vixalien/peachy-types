@@ -340,6 +340,21 @@ declare module "gi://GDesktopEnums?version=3.0" {
                 MouseDwellMode: MouseDwellModeEnum
             }
             
+            interface MouseScrollMethodEnum {
+                readonly $gtype: GObject.GType<MouseScrollMethod>
+                
+                readonly "DEFAULT": 0
+                
+                readonly "NONE": 1
+                
+                readonly "ON_BUTTON_DOWN": 2
+            }
+            type MouseScrollMethod = MouseScrollMethodEnum[Exclude<keyof MouseScrollMethodEnum, "$gtype">]
+            interface $Exports {
+                
+                MouseScrollMethod: MouseScrollMethodEnum
+            }
+            
             interface PadButtonActionEnum {
                 readonly $gtype: GObject.GType<PadButtonAction>
                 

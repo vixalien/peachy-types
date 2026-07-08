@@ -2642,9 +2642,9 @@ declare module "gi://GdkPixbuf?version=2.0" {
                 __name__: "GdkPixbuf"
                 __version__: "2.0"
                 PIXBUF_MAJOR: 2
-                PIXBUF_MICRO: 6
+                PIXBUF_MICRO: 7
                 PIXBUF_MINOR: 44
-                PIXBUF_VERSION: "2.44.6"
+                PIXBUF_VERSION: "2.44.7"
                 
                 pixbuf_error_quark(): GLib.Quark
             }

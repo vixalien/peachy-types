@@ -17751,6 +17751,7 @@ declare module "gi://Gtk?version=4.0" {
                  * {@link Gtk.EventControllerKey.SignalSignatures["key-pressed"]},
                  * {@link Gtk.EventControllerKey.SignalSignatures["key-released"]}
                  * or {@link Gtk.EventControllerKey.SignalSignatures["modifiers"]} signals.
+                 * @deprecated since 4.24 Use {@link Gtk.Editable.set_input_interceptor} instead
                  * @param widget a `GtkWidget`
                  * @returns whether the `widget` handled the event
                  */
@@ -65245,6 +65246,17 @@ declare module "gi://Gtk?version=4.0" {
                      */
                     "delete-text"(start_pos: number, end_pos: number): void
                     /**
+                     * Emitted whenever keyboard input has been handled through the
+                     * input interceptor widget set through {@link Gtk.Editable.set_input_interceptor}
+                     *
+                     * A typical reaction to this event would be to show and focus `editable`, so
+                     * that input is handled directly. In that case keyboard input will no longer
+                     * be handled through the input interceptor and this signal will stop being
+                     * emitted.
+                     * @since 4.24
+                     */
+                    "input-intercepted"(): void
+                    /**
                      * Emitted when text is inserted into the widget by the user.
                      *
                      * The default handler for this signal will normally be responsible
@@ -65263,6 +65275,7 @@ declare module "gi://Gtk?version=4.0" {
                     "cursor-position": number
                     "editable": boolean
                     "enable-undo": boolean
+                    "input-interceptor": Widget | null
                     "max-width-chars": number
                     "selection-bound": number
                     "text": string
@@ -65412,6 +65425,12 @@ declare module "gi://Gtk?version=4.0" {
                 get enableUndo(): boolean
                 set enableUndo(value: boolean)
                 /**
+                 * The widget used to intercept input for this editable
+                 * @since 4.24
+                 */
+                get inputInterceptor(): Widget | null
+                set inputInterceptor(value: Widget | null)
+                /**
                  * The desired maximum width of the entry, in characters.
                  * @default -1
                  */
@@ -65551,6 +65570,13 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get_enable_undo(): boolean
                 /**
+                 * Retrieves the widget that was previously set up as input interceptor
+                 * for `editable`. See {@link Gtk.Editable.set_input_interceptor}.
+                 * @since 4.24
+                 * @returns The editable widget
+                 */
+                get_input_interceptor(): Widget | null
+                /**
                  * Retrieves the desired maximum width of `editable`, in characters.
                  * @returns the maximum width of the entry, in characters
                  */
@@ -65645,6 +65671,21 @@ declare module "gi://Gtk?version=4.0" {
                  * @param enable_undo if undo/redo should be enabled
                  */
                 set_enable_undo(enable_undo: boolean): void
+                /**
+                 * Sets `interceptor` as the widget that `editable` will intercept key events from.
+                 *
+                 * A typical usecase for this is implementing auto-showing search entries, so
+                 * that textual input may be intercepted from another widget and handled first
+                 * hand by the given editable. The events will be handled in the bubble phase
+                 * of `interceptor`, which means that editable child widgets of `interceptor` will
+                 * receive the text input before it can be captured.
+                 *
+                 * Only those events that would be handled by an input method will be handled,
+                 * this excludes combinations of Ctrl/Alt/Mod, and other shortcuts.
+                 * @since 4.24
+                 * @param interceptor the input interceptor widget
+                 */
+                set_input_interceptor(interceptor: Widget | null): void
                 /**
                  * Sets the desired maximum width in characters of `editable`.
                  * @param n_chars the new desired maximum width, in characters
@@ -73784,9 +73825,13 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 readonly "PROP_COMPLETE_TEXT": 8
                 /**
+                 * the property id for {@link Gtk.Editable.inputInterceptor}
+                 */
+                readonly "PROP_INPUT_INTERCEPTOR": 9
+                /**
                  * the number of properties
                  */
-                readonly "NUM_PROPERTIES": 9
+                readonly "NUM_PROPERTIES": 10
             }
             type EditableProperties = EditablePropertiesEnum[Exclude<keyof EditablePropertiesEnum, "$gtype">]
             interface $Exports {
@@ -77986,7 +78031,7 @@ declare module "gi://Gtk?version=4.0" {
                 ACCESSIBLE_ATTRIBUTE_VARIANT_UNICASE: "unicase"
                 ACCESSIBLE_ATTRIBUTE_WEIGHT: "weight"
                 ACCESSIBLE_VALUE_UNDEFINED: -1
-                BINARY_AGE: 2301
+                BINARY_AGE: 2302
                 IM_MODULE_EXTENSION_POINT_NAME: "gtk-im-module"
                 INPUT_ERROR: -1
                 INTERFACE_AGE: 0
@@ -77997,7 +78042,7 @@ declare module "gi://Gtk?version=4.0" {
                 MAJOR_VERSION: 4
                 MAX_COMPOSE_LEN: 7
                 MEDIA_FILE_EXTENSION_POINT_NAME: "gtk-media-file"
-                MICRO_VERSION: 1
+                MICRO_VERSION: 2
                 MINOR_VERSION: 23
                 PAPER_NAME_A3: "iso_a3"
                 PAPER_NAME_A4: "iso_a4"

@@ -25977,7 +25977,7 @@ declare module "gi://Adw?version=1" {
                 MAJOR_VERSION: 1
                 MICRO_VERSION: 0
                 MINOR_VERSION: 10
-                VERSION_S: "1.10.alpha"
+                VERSION_S: "1.10.beta"
                 /**
                  * Converts `self` to a `GdkRGBA` representing its background color.
                  *

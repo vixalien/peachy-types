@@ -72306,6 +72306,10 @@ declare module "gi://Gtk?version=3.0" {
                  */
                 add_uri_targets(info: number): void
                 /**
+                 * Removes all targets in the list.
+                 */
+                clear(): void
+                /**
                  * Looks up a given target in a #GtkTargetList.
                  * @param target an interned atom representing the target to search for
                  * @returns %TRUE if the target was found, otherwise %FALSE, a pointer to the location to store        application info for target, or %NULL
@@ -81885,6 +81889,18 @@ declare module "gi://Gtk?version=3.0" {
                  * @param widget a #GtkWidget
                  */
                 selection_remove_all(widget: Widget): void
+                /**
+                 * Set a list of supported targets for a given widget and selection.
+                 *
+                 * The main difference between gtk_selection_add_targets() and
+                 * gtk_selection_set_targets() is that the former only appends
+                 * targets while the latter clears the old targets and adds new
+                 * targets in a single step.
+                 * @param widget a #GtkWidget
+                 * @param selection the selection
+                 * @param targets a table of targets to set
+                 */
+                selection_set_targets(widget: Widget, selection: Gdk.Atom, targets: TargetEntry[]): void
                 /**
                  * Sets the GTK+ debug flags.
                  * @param flags
