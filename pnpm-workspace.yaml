@@ -2,3 +2,4 @@ packageExtensions:
   "@ts-for-gir/cli":
     dependencies:
       "@ts-for-gir/reporter": "*"
+minimumReleaseAge: 0

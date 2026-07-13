@@ -11,34 +11,34 @@ importers:
   .:
     devDependencies:
       girgen:
-        specifier: ^0.3.16
-        version: 0.3.16
+        specifier: ^0.3.20
+        version: 0.3.20
 
 packages:
 
-  '@girgen/linux-arm64@0.3.16':
-    resolution: {integrity: sha512-8qCNPILoCRRWxkqhBtigHRPE9dD/MbELrSRYkbRycjH+vUZe8oLwVKWrqldS61Qcuu1++WmlXUUKTtnxjLiX/A==}
+  '@girgen/linux-arm64@0.3.20':
+    resolution: {integrity: sha512-B4bkmjmQWBMgW7HXsziRKLSF0d4y7Pi4ZT6KnG9hoq2Y4Ac/DlXre4u4rC8pyDMyrwNqRcpAWOXobqW8CRshzQ==}
     cpu: [arm64]
     os: [linux]
 
-  '@girgen/linux-x64@0.3.16':
-    resolution: {integrity: sha512-veMH9+FDCa1CFBxQTco8UcdQN594LbjhF0QPQadLkvjBy5/Xkj1rdDm6+Qj/B6BkYPMXX+GpOJbmzyYNGbe2kQ==}
+  '@girgen/linux-x64@0.3.20':
+    resolution: {integrity: sha512-Nyt++1eLGoPkgftzX/tmQ7/gbxWnx84hGR9nCLiIpUQelTOuKkzkxJPkbbM48HlyHxE4EP9qNeIbjHKNaP4ckg==}
     cpu: [x64]
     os: [linux]
 
-  girgen@0.3.16:
-    resolution: {integrity: sha512-G6HtMIGIJWchB1eRgWqk9CwBcOZJtnrlnFVBHdconXosooNDy8fREeKgX8SsjdgfzboIGt/HJu4DurpioZOJdA==}
+  girgen@0.3.20:
+    resolution: {integrity: sha512-INPqwzJ6GTa7fObxl+HS3EdXvGvVL/8FhhhAnItc+664jpN1g6Gy/RWvt8Gw96yZkV36UFLk3aKaenUEatpgCA==}
     hasBin: true
 
 snapshots:
 
-  '@girgen/linux-arm64@0.3.16':
+  '@girgen/linux-arm64@0.3.20':
     optional: true
 
-  '@girgen/linux-x64@0.3.16':
+  '@girgen/linux-x64@0.3.20':
     optional: true
 
-  girgen@0.3.16:
+  girgen@0.3.20:
     optionalDependencies:
-      '@girgen/linux-arm64': 0.3.16
-      '@girgen/linux-x64': 0.3.16
+      '@girgen/linux-arm64': 0.3.20
+      '@girgen/linux-x64': 0.3.20
