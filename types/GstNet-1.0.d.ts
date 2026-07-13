@@ -33,7 +33,6 @@ declare module "gi://GstNet?version=1.0" {
                 interface ReadWriteProperties extends Gst.SystemClock.ReadWriteProperties {
                     "address": string
                     "bus": Gst.Bus
-                    "internal-clock": Gst.Clock
                     "minimum-update-interval": number
                     "port": number
                     "qos-dscp": number
@@ -41,6 +40,7 @@ declare module "gi://GstNet?version=1.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.SystemClock.ReadableProperties {
+                    "internal-clock": Gst.Clock
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.SystemClock.WritableProperties {
@@ -71,7 +71,6 @@ declare module "gi://GstNet?version=1.0" {
                 set bus(value: Gst.Bus)
                 
                 get internalClock(): Gst.Clock
-                set internalClock(value: Gst.Clock)
                 /**
                  * @default 50000000
                  */
@@ -277,12 +276,12 @@ declare module "gi://GstNet?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.SystemClock.ReadWriteProperties {
-                    "grandmaster-clock-id": number
-                    "internal-clock": Gst.Clock
-                    "master-clock-id": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.SystemClock.ReadableProperties {
+                    "grandmaster-clock-id": number
+                    "internal-clock": Gst.Clock
+                    "master-clock-id": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.SystemClock.WritableProperties {
@@ -307,15 +306,12 @@ declare module "gi://GstNet?version=1.0" {
                  * @default 0
                  */
                 get grandmasterClockId(): number
-                set grandmasterClockId(value: number)
                 
                 get internalClock(): Gst.Clock
-                set internalClock(value: Gst.Clock)
                 /**
                  * @default 0
                  */
                 get masterClockId(): number
-                set masterClockId(value: number)
             }
 
             interface PtpClockClass extends Omit<Gst.SystemClockClass, "new"> {

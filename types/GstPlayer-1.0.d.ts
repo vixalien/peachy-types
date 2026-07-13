@@ -87,14 +87,7 @@ declare module "gi://GstPlayer?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "audio-video-offset": number
-                    "current-audio-track": PlayerAudioInfo | null
-                    "current-subtitle-track": PlayerSubtitleInfo | null
-                    "current-video-track": PlayerVideoInfo | null
-                    "duration": number
-                    "media-info": PlayerMediaInfo | null
                     "mute": boolean
-                    "pipeline": Gst.Element
-                    "position": number
                     "rate": number
                     "subtitle-video-offset": number
                     "suburi": string
@@ -105,6 +98,13 @@ declare module "gi://GstPlayer?version=1.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "current-audio-track": PlayerAudioInfo | null
+                    "current-subtitle-track": PlayerSubtitleInfo | null
+                    "current-video-track": PlayerVideoInfo | null
+                    "duration": number
+                    "media-info": PlayerMediaInfo | null
+                    "pipeline": Gst.Element
+                    "position": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -128,21 +128,16 @@ declare module "gi://GstPlayer?version=1.0" {
                 set audioVideoOffset(value: number)
                 
                 get currentAudioTrack(): PlayerAudioInfo | null
-                set currentAudioTrack(value: PlayerAudioInfo | null)
                 
                 get currentSubtitleTrack(): PlayerSubtitleInfo | null
-                set currentSubtitleTrack(value: PlayerSubtitleInfo | null)
                 
                 get currentVideoTrack(): PlayerVideoInfo | null
-                set currentVideoTrack(value: PlayerVideoInfo | null)
                 /**
                  * @default 18446744073709551615
                  */
                 get duration(): number
-                set duration(value: number)
                 
                 get mediaInfo(): PlayerMediaInfo | null
-                set mediaInfo(value: PlayerMediaInfo | null)
                 /**
                  * @default FALSE
                  */
@@ -150,12 +145,10 @@ declare module "gi://GstPlayer?version=1.0" {
                 set mute(value: boolean)
                 
                 get pipeline(): Gst.Element
-                set pipeline(value: Gst.Element)
                 /**
                  * @default 18446744073709551615
                  */
                 get position(): number
-                set position(value: number)
                 /**
                  * @default 1.000000
                  */

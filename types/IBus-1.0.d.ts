@@ -2384,10 +2384,10 @@ declare module "gi://IBus?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Serializable.ReadWriteProperties {
-                    "version": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                    "version": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
@@ -2437,7 +2437,6 @@ declare module "gi://IBus?version=1.0" {
                  * @default 1
                  */
                 get version(): number
-                set version(value: number)
                 
                 get_name(): string
                 /**
@@ -5254,10 +5253,10 @@ declare module "gi://IBus?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Serializable.ReadWriteProperties {
-                    "version": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Serializable.ReadableProperties {
+                    "version": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Serializable.WritableProperties {
@@ -5385,7 +5384,6 @@ declare module "gi://IBus?version=1.0" {
                  * @default 1
                  */
                 get version(): number
-                set version(value: number)
                 /**
                  * window of this IBusXEvent.
                  * @default 0

@@ -33,10 +33,10 @@ declare module "gi://GstGL?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GstBase.BaseTransform.ReadWriteProperties {
-                    "context": GLContext
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GstBase.BaseTransform.ReadableProperties {
+                    "context": GLContext
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GstBase.BaseTransform.WritableProperties {
@@ -53,7 +53,6 @@ declare module "gi://GstGL?version=1.0" {
                 readonly $constructOnlyProperties: GLBaseFilter.ConstructOnlyProperties
                 
                 get context(): GLContext
-                set context(value: GLContext)
                 /**
                  * @since 1.16
                  * @returns Whether an OpenGL context could be retrieved or created successfully
@@ -151,10 +150,10 @@ declare module "gi://GstGL?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GstVideo.VideoAggregator.ReadWriteProperties {
-                    "context": GLContext
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GstVideo.VideoAggregator.ReadableProperties {
+                    "context": GLContext
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GstVideo.VideoAggregator.WritableProperties {
@@ -174,7 +173,6 @@ declare module "gi://GstGL?version=1.0" {
                  * @since 1.24
                  */
                 get context(): GLContext
-                set context(value: GLContext)
                 /**
                  * @since 1.24
                  * @returns the #GstGLContext found by `mix`
@@ -1823,10 +1821,10 @@ declare module "gi://GstGL?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "linked": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "linked": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -1845,7 +1843,6 @@ declare module "gi://GstGL?version=1.0" {
                  * @default FALSE
                  */
                 get linked(): boolean
-                set linked(value: boolean)
                 /**
                  * Attaches `stage` to `shader`.  `stage` must have been successfully compiled
                  * with gst_glsl_stage_compile().

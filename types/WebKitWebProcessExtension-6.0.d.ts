@@ -798,15 +798,15 @@ declare module "gi://WebKitWebProcessExtension?version=6.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "content-length": number
                     "http-headers": Soup.MessageHeaders
                     "mime-type": string
                     "status-code": number
                     "suggested-filename": string
                     "uri": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -826,37 +826,31 @@ declare module "gi://WebKitWebProcessExtension?version=6.0" {
                  * @default 0
                  */
                 get contentLength(): number
-                set contentLength(value: number)
                 /**
                  * The HTTP headers of the response, or %NULL if the response is not an HTTP response.
                  * @since 2.6
                  */
                 get httpHeaders(): Soup.MessageHeaders
-                set httpHeaders(value: Soup.MessageHeaders)
                 /**
                  * The MIME type of the response.
                  * @default NULL
                  */
                 get mimeType(): string
-                set mimeType(value: string)
                 /**
                  * The status code of the response as returned by the server.
                  * @default 0
                  */
                 get statusCode(): number
-                set statusCode(value: number)
                 /**
                  * The suggested filename for the URI response.
                  * @default NULL
                  */
                 get suggestedFilename(): string
-                set suggestedFilename(value: string)
                 /**
                  * The URI for which the response was made.
                  * @default NULL
                  */
                 get uri(): string
-                set uri(value: string)
                 /**
                  * Get the expected content length of the #WebKitURIResponse.
                  *
@@ -1405,10 +1399,10 @@ declare module "gi://WebKitWebProcessExtension?version=6.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "uri": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "uri": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1428,7 +1422,6 @@ declare module "gi://WebKitWebProcessExtension?version=6.0" {
                  * @default NULL
                  */
                 get uri(): string
-                set uri(value: string)
                 /**
                  * Gets the #WebKitWebEditor of a #WebKitWebPage.
                  * @since 2.10

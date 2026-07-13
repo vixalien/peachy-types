@@ -308,11 +308,11 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Traversable.ReadWriteProperties, Gee.Iterable.ReadWriteProperties, Gee.Collection.ReadWriteProperties {
-                    "size": number
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties, Gee.Iterable.ReadableProperties, Gee.Collection.ReadableProperties {
+                    "size": number
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Traversable.WritableProperties, Gee.Iterable.WritableProperties, Gee.Collection.WritableProperties {
@@ -341,10 +341,8 @@ declare module "gi://Gee?version=0.8" {
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 
                 get size(): number
-                set size(value: number)
                 
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 /**
                  * @param item
                  */
@@ -582,11 +580,11 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Traversable.ReadWriteProperties, Gee.Iterable.ReadWriteProperties, Gee.Map.ReadWriteProperties {
-                    "size": number
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties, Gee.Iterable.ReadableProperties, Gee.Map.ReadableProperties {
+                    "size": number
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Traversable.WritableProperties, Gee.Iterable.WritableProperties, Gee.Map.WritableProperties {
@@ -627,10 +625,8 @@ declare module "gi://Gee?version=0.8" {
                 set vDestroyFunc(value: GLib.DestroyNotify)
                 
                 get size(): number
-                set size(value: number)
                 
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 /**
                  * @param key
                  */
@@ -947,12 +943,12 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends Gee.AbstractCollection.ReadWriteProperties, Gee.Queue.ReadWriteProperties {
-                    "capacity": number
-                    "remaining-capacity": number
-                    "is-full": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gee.AbstractCollection.ReadableProperties, Gee.Queue.ReadableProperties {
+                    "capacity": number
+                    "remaining-capacity": number
+                    "is-full": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gee.AbstractCollection.WritableProperties, Gee.Queue.WritableProperties {
@@ -981,13 +977,10 @@ declare module "gi://Gee?version=0.8" {
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 
                 get capacity(): number
-                set capacity(value: number)
                 
                 get remainingCapacity(): number
-                set remainingCapacity(value: number)
                 
                 get isFull(): boolean
-                set isFull(value: boolean)
                 
                 peek(): never | null
                 
@@ -1455,10 +1448,10 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends Gee.AbstractQueue.ReadWriteProperties, Gee.Deque.ReadWriteProperties {
-                    "is-empty": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gee.AbstractQueue.ReadableProperties, Gee.Deque.ReadableProperties {
+                    "is-empty": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gee.AbstractQueue.WritableProperties, Gee.Deque.WritableProperties {
@@ -1487,7 +1480,6 @@ declare module "gi://Gee?version=0.8" {
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 
                 get isEmpty(): boolean
-                set isEmpty(value: boolean)
                 /**
                  * @returns , 
                  */
@@ -1521,10 +1513,10 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends Gee.AbstractList.ReadWriteProperties {
-                    "is-empty": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gee.AbstractList.ReadableProperties {
+                    "is-empty": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gee.AbstractList.WritableProperties {
@@ -1553,7 +1545,6 @@ declare module "gi://Gee?version=0.8" {
                 set gDestroyFunc(value: GLib.DestroyNotify)
                 
                 get isEmpty(): boolean
-                set isEmpty(value: boolean)
                 /**
                  * @returns , 
                  */
@@ -2533,12 +2524,12 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "key": never
                     "value": never
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "key": never
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2579,13 +2570,11 @@ declare module "gi://Gee?version=0.8" {
                 set vDestroyFunc(value: GLib.DestroyNotify)
                 
                 get key(): never
-                set key(value: never)
                 
                 get value(): never
                 set value(value: never)
                 
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 
                 get_key(): never
                 
@@ -2900,11 +2889,11 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends Gee.Iterable.ReadWriteProperties {
-                    "size": number
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gee.Iterable.ReadableProperties {
+                    "size": number
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gee.Iterable.WritableProperties {
@@ -2958,10 +2947,8 @@ declare module "gi://Gee?version=0.8" {
                 readonly $constructOnlyProperties: Collection.ConstructOnlyProperties
                 
                 get size(): number
-                set size(value: number)
                 
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 /**
                  * @param item
                  */
@@ -3133,11 +3120,11 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "ready": boolean
-                    "exception": GLib.Error
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "ready": boolean
+                    "exception": GLib.Error
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3182,10 +3169,8 @@ declare module "gi://Gee?version=0.8" {
                 readonly $constructOnlyProperties: Future.ConstructOnlyProperties
                 
                 get ready(): boolean
-                set ready(value: boolean)
                 
                 get exception(): GLib.Error
-                set exception(value: GLib.Error)
                 /**
                  * @throws {GLib.Error}
                  */
@@ -3320,11 +3305,11 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Traversable.ReadWriteProperties {
-                    "valid": boolean
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Traversable.ReadableProperties {
+                    "valid": boolean
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Traversable.WritableProperties {
@@ -3356,10 +3341,8 @@ declare module "gi://Gee?version=0.8" {
                 readonly $constructOnlyProperties: Iterator.ConstructOnlyProperties
                 
                 get valid(): boolean
-                set valid(value: boolean)
                 
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 
                 next(): boolean
                 
@@ -3549,11 +3532,11 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gee.Iterable.ReadWriteProperties {
-                    "size": number
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gee.Iterable.ReadableProperties {
+                    "size": number
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gee.Iterable.WritableProperties {
@@ -3604,10 +3587,8 @@ declare module "gi://Gee?version=0.8" {
                 readonly $constructOnlyProperties: Map.ConstructOnlyProperties
                 
                 get size(): number
-                set size(value: number)
                 
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 /**
                  * @param key
                  */
@@ -3673,12 +3654,12 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "valid": boolean
-                    "mutable": boolean
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "valid": boolean
+                    "mutable": boolean
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3730,13 +3711,10 @@ declare module "gi://Gee?version=0.8" {
                 readonly $constructOnlyProperties: MapIterator.ConstructOnlyProperties
                 
                 get valid(): boolean
-                set valid(value: boolean)
                 
                 get mutable(): boolean
-                set mutable(value: boolean)
                 
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 
                 next(): boolean
                 
@@ -3788,11 +3766,11 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "size": number
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "size": number
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3836,10 +3814,8 @@ declare module "gi://Gee?version=0.8" {
                 readonly $constructOnlyProperties: MultiMap.ConstructOnlyProperties
                 
                 get size(): number
-                set size(value: number)
                 
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 /**
                  * @param key
                  */
@@ -3934,12 +3910,12 @@ declare module "gi://Gee?version=0.8" {
                 }
 
                 interface ReadWriteProperties extends Gee.Collection.ReadWriteProperties {
-                    "capacity": number
-                    "remaining-capacity": number
-                    "is-full": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gee.Collection.ReadableProperties {
+                    "capacity": number
+                    "remaining-capacity": number
+                    "is-full": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gee.Collection.WritableProperties {
@@ -3973,13 +3949,10 @@ declare module "gi://Gee?version=0.8" {
                 readonly $constructOnlyProperties: Queue.ConstructOnlyProperties
                 
                 get capacity(): number
-                set capacity(value: number)
                 
                 get remainingCapacity(): number
-                set remainingCapacity(value: number)
                 
                 get isFull(): boolean
-                set isFull(value: boolean)
                 /**
                  * @param element
                  */

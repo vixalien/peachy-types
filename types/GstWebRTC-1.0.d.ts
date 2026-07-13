@@ -33,12 +33,12 @@ declare module "gi://GstWebRTC?version=1.0" {
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "certificate": string
                     "client": boolean
-                    "remote-certificate": string
-                    "state": WebRTCDTLSTransportState
-                    "transport": WebRTCICETransport
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "remote-certificate": string
+                    "state": WebRTCDTLSTransportState
+                    "transport": WebRTCICETransport
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -68,7 +68,6 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default NULL
                  */
                 get remoteCertificate(): string
-                set remoteCertificate(value: string)
                 /**
                  * @default 0
                  */
@@ -78,10 +77,8 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default GST_WEBRTC_DTLS_TRANSPORT_STATE_NEW
                  */
                 get state(): WebRTCDTLSTransportState
-                set state(value: WebRTCDTLSTransportState)
                 
                 get transport(): WebRTCICETransport
-                set transport(value: WebRTCICETransport)
             }
 
             interface WebRTCDTLSTransportClass extends Omit<Gst.ObjectClass, "new"> {
@@ -132,12 +129,12 @@ declare module "gi://GstWebRTC?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "buffered-amount": number
                     "buffered-amount-low-threshold": number
-                    "ready-state": WebRTCDataChannelState
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "buffered-amount": number
+                    "ready-state": WebRTCDataChannelState
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -164,7 +161,6 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default 0
                  */
                 get bufferedAmount(): number
-                set bufferedAmount(value: number)
                 /**
                  * @default 0
                  */
@@ -212,7 +208,6 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default GST_WEBRTC_DATA_CHANNEL_STATE_CONNECTING
                  */
                 get readyState(): WebRTCDataChannelState
-                set readyState(value: WebRTCDataChannelState)
                 /**
                  * Close the `channel`.
                  */
@@ -646,11 +641,11 @@ declare module "gi://GstWebRTC?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "gathering-state": WebRTCICEGatheringState
-                    "state": WebRTCICEConnectionState
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "gathering-state": WebRTCICEGatheringState
+                    "state": WebRTCICEConnectionState
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -675,12 +670,10 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default GST_WEBRTC_ICE_GATHERING_STATE_NEW
                  */
                 get gatheringState(): WebRTCICEGatheringState
-                set gatheringState(value: WebRTCICEGatheringState)
                 /**
                  * @default GST_WEBRTC_ICE_CONNECTION_STATE_NEW
                  */
                 get state(): WebRTCICEConnectionState
-                set state(value: WebRTCICEConnectionState)
                 /**
                  * @param new_state
                  */
@@ -719,10 +712,10 @@ declare module "gi://GstWebRTC?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "transport": WebRTCDTLSTransport
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "transport": WebRTCDTLSTransport
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -742,7 +735,6 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @since 1.20
                  */
                 get transport(): WebRTCDTLSTransport
-                set transport(value: WebRTCDTLSTransport)
             }
 
             interface WebRTCRTPReceiverClass extends Omit<Gst.ObjectClass, "new"> {
@@ -768,10 +760,10 @@ declare module "gi://GstWebRTC?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "priority": WebRTCPriorityType
-                    "transport": WebRTCDTLSTransport
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "transport": WebRTCDTLSTransport
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -798,7 +790,6 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @since 1.20
                  */
                 get transport(): WebRTCDTLSTransport
-                set transport(value: WebRTCDTLSTransport)
                 /**
                  * Sets the content of the IPv4 Type of Service (ToS), also known as DSCP
                  * (Differentiated Services Code Point).
@@ -832,13 +823,13 @@ declare module "gi://GstWebRTC?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "codec-preferences": Gst.Caps
-                    "current-direction": WebRTCRTPTransceiverDirection
                     "direction": WebRTCRTPTransceiverDirection
-                    "kind": WebRTCKind
-                    "mid": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "current-direction": WebRTCRTPTransceiverDirection
+                    "kind": WebRTCKind
+                    "mid": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -871,7 +862,6 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default GST_WEBRTC_RTP_TRANSCEIVER_DIRECTION_NONE
                  */
                 get currentDirection(): WebRTCRTPTransceiverDirection
-                set currentDirection(value: WebRTCRTPTransceiverDirection)
                 /**
                  * Direction of the transceiver.
                  * @since 1.18
@@ -885,7 +875,6 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default GST_WEBRTC_KIND_UNKNOWN
                  */
                 get kind(): WebRTCKind
-                set kind(value: WebRTCKind)
                 /**
                  * The media ID of the m-line associated with this transceiver. This
                  * association is established, when possible, whenever either a
@@ -897,7 +886,6 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default NULL
                  */
                 get mid(): string
-                set mid(value: string)
                 /**
                  * @default 0
                  */
@@ -931,13 +919,13 @@ declare module "gi://GstWebRTC?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
                     "max-channels": number
                     "max-message-size": number
                     "state": WebRTCSCTPTransportState
                     "transport": WebRTCDTLSTransport
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -956,20 +944,16 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @default 0
                  */
                 get maxChannels(): number
-                set maxChannels(value: number)
                 /**
                  * @default 0
                  */
                 get maxMessageSize(): number
-                set maxMessageSize(value: number)
                 /**
                  * @default GST_WEBRTC_SCTP_TRANSPORT_STATE_NEW
                  */
                 get state(): WebRTCSCTPTransportState
-                set state(value: WebRTCSCTPTransportState)
                 
                 get transport(): WebRTCDTLSTransport
-                set transport(value: WebRTCDTLSTransport)
             }
 
             interface WebRTCSCTPTransportClass extends Omit<Gst.ObjectClass, "new"> {

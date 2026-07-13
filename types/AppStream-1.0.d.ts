@@ -464,14 +464,14 @@ declare module "gi://AppStream?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "children": never
                     "icon": string
                     "id": string
                     "name": string
-                    "summary": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "children": never
+                    "summary": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -488,7 +488,6 @@ declare module "gi://AppStream?version=1.0" {
                 readonly $constructOnlyProperties: Category.ConstructOnlyProperties
                 
                 get children(): never
-                set children(value: never)
                 /**
                  * @default NULL
                  */
@@ -508,7 +507,6 @@ declare module "gi://AppStream?version=1.0" {
                  * @default NULL
                  */
                 get summary(): string
-                set summary(value: string)
                 /**
                  * Add a subcategory to this category.
                  * @param subcat A subcategory to add.
@@ -686,9 +684,7 @@ declare module "gi://AppStream?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "categories": never[]
                     "description": string
-                    "icons": Icon[]
                     "id": string
                     "keywords": string[]
                     "kind": ComponentKind
@@ -696,12 +692,14 @@ declare module "gi://AppStream?version=1.0" {
                     "pkgnames": string[]
                     "project-group": string
                     "project-license": string
-                    "screenshots": Screenshot[]
                     "summary": string
-                    "urls": Record<UrlKind, string>
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "categories": never[]
+                    "icons": Icon[]
+                    "screenshots": Screenshot[]
+                    "urls": Record<UrlKind, string>
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -720,7 +718,6 @@ declare module "gi://AppStream?version=1.0" {
                  * string array of categories
                  */
                 get categories(): never[]
-                set categories(value: never[])
                 /**
                  * the description
                  * @default NULL
@@ -731,7 +728,6 @@ declare module "gi://AppStream?version=1.0" {
                  * hash map of icon urls and sizes
                  */
                 get icons(): Icon[]
-                set icons(value: Icon[])
                 /**
                  * the unique identifier
                  * @default NULL
@@ -776,7 +772,6 @@ declare module "gi://AppStream?version=1.0" {
                  * An array of #AsScreenshot instances
                  */
                 get screenshots(): Screenshot[]
-                set screenshots(value: Screenshot[])
                 /**
                  * the summary
                  * @default NULL
@@ -787,7 +782,6 @@ declare module "gi://AppStream?version=1.0" {
                  * the urls associated with this component
                  */
                 get urls(): Record<UrlKind, string>
-                set urls(value: Record<UrlKind, string>)
                 /**
                  * Add a reference to the addon that is enhancing this component.
                  * @since 0.9.2

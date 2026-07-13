@@ -135,13 +135,13 @@ declare module "gi://Polkit?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
                     "backend-features": AuthorityFeatures
                     "backend-name": string
                     "backend-version": string
                     "owner": string | null
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
@@ -161,18 +161,15 @@ declare module "gi://Polkit?version=1.0" {
                  * @default POLKIT_AUTHORITY_FEATURES_NONE
                  */
                 get backendFeatures(): AuthorityFeatures
-                set backendFeatures(value: AuthorityFeatures)
                 /**
                  * The name of the currently used Authority backend.
                  * @default NULL
                  */
                 get backendName(): string
-                set backendName(value: string)
                 /**
                  * @default NULL
                  */
                 get backendVersion(): string
-                set backendVersion(value: string)
                 /**
                  * The unique name of the owner of the org.freedesktop.PolicyKit1
                  * D-Bus service or %NULL if there is no owner. Connect to the
@@ -180,7 +177,6 @@ declare module "gi://Polkit?version=1.0" {
                  * @default NULL
                  */
                 get owner(): string | null
-                set owner(value: string | null)
                 /**
                  * Asynchronously provide response that `identity` successfully authenticated
                  * for the authentication request identified by `cookie`.
@@ -1225,18 +1221,18 @@ declare module "gi://Polkit?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Subject.ReadWriteProperties {
-                    "cgroupid": number
-                    "ctty": number
                     "gids": never[] | null
                     "pid": number
                     "pidfd": number
-                    "pidfd-is-safe": boolean
-                    "ppidfd": number
                     "start-time": number
                     "uid": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Subject.ReadableProperties {
+                    "cgroupid": number
+                    "ctty": number
+                    "pidfd-is-safe": boolean
+                    "ppidfd": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Subject.WritableProperties {
@@ -1256,13 +1252,11 @@ declare module "gi://Polkit?version=1.0" {
                  * @default 0
                  */
                 get cgroupid(): number
-                set cgroupid(value: number)
                 /**
                  * The UNIX process controlling TTY.
                  * @default 0
                  */
                 get ctty(): number
-                set ctty(value: number)
                 /**
                  * The UNIX group ids of the process.
                  */
@@ -1284,13 +1278,11 @@ declare module "gi://Polkit?version=1.0" {
                  * @default FALSE
                  */
                 get pidfdIsSafe(): boolean
-                set pidfdIsSafe(value: boolean)
                 /**
                  * The UNIX process' parent id file descriptor.
                  * @default -1
                  */
                 get ppidfd(): number
-                set ppidfd(value: number)
                 /**
                  * The start time of the process.
                  * @default 0

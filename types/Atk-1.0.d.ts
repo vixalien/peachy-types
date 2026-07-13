@@ -84,13 +84,13 @@ declare module "gi://Atk?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Action.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Action.ReadableProperties {
                     "end-index": number
                     "number-of-anchors": number
                     "selected-link": boolean
                     "start-index": number
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Action.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Action.WritableProperties {
@@ -109,24 +109,20 @@ declare module "gi://Atk?version=1.0" {
                  * @default 0
                  */
                 get endIndex(): number
-                set endIndex(value: number)
                 /**
                  * @default 0
                  */
                 get numberOfAnchors(): number
-                set numberOfAnchors(value: number)
                 /**
                  * Selected link
                  * @deprecated since 1.8 Please use ATK_STATE_FOCUSABLE for all links, and ATK_STATE_FOCUSED for focused links.
                  * @default FALSE
                  */
                 get selectedLink(): boolean
-                set selectedLink(value: boolean)
                 /**
                  * @default 0
                  */
                 get startIndex(): number
-                set startIndex(value: number)
                 /**
                  * Gets the index with the hypertext document at which this link ends.
                  * @returns the index with the hypertext document at which this link ends
@@ -539,11 +535,8 @@ declare module "gi://Atk?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "accessible-component-layer": number
-                    "accessible-component-mdi-zorder": number
                     "accessible-description": string
                     "accessible-help-text": string
-                    "accessible-hypertext-nlinks": number
                     "accessible-id": string
                     "accessible-name": string
                     "accessible-parent": Object
@@ -559,6 +552,9 @@ declare module "gi://Atk?version=1.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "accessible-component-layer": number
+                    "accessible-component-mdi-zorder": number
+                    "accessible-hypertext-nlinks": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -577,12 +573,10 @@ declare module "gi://Atk?version=1.0" {
                  * @default 0
                  */
                 get accessibleComponentLayer(): number
-                set accessibleComponentLayer(value: number)
                 /**
                  * @default -2147483648
                  */
                 get accessibleComponentMdiZorder(): number
-                set accessibleComponentMdiZorder(value: number)
                 /**
                  * @default NULL
                  */
@@ -597,7 +591,6 @@ declare module "gi://Atk?version=1.0" {
                  * @default 0
                  */
                 get accessibleHypertextNlinks(): number
-                set accessibleHypertextNlinks(value: number)
                 /**
                  * @default NULL
                  */

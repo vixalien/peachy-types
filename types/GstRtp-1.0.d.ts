@@ -177,13 +177,13 @@ declare module "gi://GstRtp?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "auto-header-extension": boolean
-                    "extensions": Gst.ValueArray
                     "max-reorder": number
                     "source-info": boolean
-                    "stats": Gst.Structure
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                    "extensions": Gst.ValueArray
+                    "stats": Gst.Structure
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
@@ -223,7 +223,6 @@ declare module "gi://GstRtp?version=1.0" {
                  * @default <  >
                  */
                 get extensions(): Gst.ValueArray
-                set extensions(value: Gst.ValueArray)
                 /**
                  * Max seqnum reorder before the sender is assumed to have restarted.
                  *
@@ -260,7 +259,6 @@ declare module "gi://GstRtp?version=1.0" {
                  *   * `timestamp`: #G_TYPE_UINT, the last seen RTP timestamp
                  */
                 get stats(): Gst.Structure
-                set stats(value: Gst.Structure)
                 /**
                  * Called from `GstRTPBaseDepayload`.process or
                  *  `GstRTPBaseDepayload`.process_rtp_packet when the depayloader needs
@@ -467,7 +465,6 @@ declare module "gi://GstRtp?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
                     "auto-header-extension": boolean
-                    "extensions": Gst.ValueArray
                     "max-ptime": number
                     "min-ptime": number
                     "mtu": number
@@ -476,16 +473,17 @@ declare module "gi://GstRtp?version=1.0" {
                     "pt": number
                     "ptime-multiple": number
                     "scale-rtptime": boolean
-                    "seqnum": number
                     "seqnum-offset": number
                     "source-info": boolean
                     "ssrc": number
-                    "stats": Gst.Structure
-                    "timestamp": number
                     "timestamp-offset": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                    "extensions": Gst.ValueArray
+                    "seqnum": number
+                    "stats": Gst.Structure
+                    "timestamp": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
@@ -525,7 +523,6 @@ declare module "gi://GstRtp?version=1.0" {
                  * @default <  >
                  */
                 get extensions(): Gst.ValueArray
-                set extensions(value: Gst.ValueArray)
                 /**
                  * @default -1
                  */
@@ -599,7 +596,6 @@ declare module "gi://GstRtp?version=1.0" {
                  * @default 0
                  */
                 get seqnum(): number
-                set seqnum(value: number)
                 /**
                  * @default -1
                  */
@@ -635,12 +631,10 @@ declare module "gi://GstRtp?version=1.0" {
                  *   * `timestamp-offset` :#G_TYPE_UINT, The current offset added to the timestamp
                  */
                 get stats(): Gst.Structure
-                set stats(value: Gst.Structure)
                 /**
                  * @default 0
                  */
                 get timestamp(): number
-                set timestamp(value: number)
                 /**
                  * @default 4294967295
                  */

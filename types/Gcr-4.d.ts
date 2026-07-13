@@ -90,10 +90,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -113,7 +113,6 @@ declare module "gi://Gcr?version=4" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * Add `certificate` to the chain. The order of certificates in the chain are
                  * important. The first certificate should be the endpoint certificate, and
@@ -304,10 +303,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "oid": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "oid": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -335,7 +334,6 @@ declare module "gi://Gcr?version=4" {
                  * @default NULL
                  */
                 get oid(): string
-                set oid(value: string)
                 /**
                  * The raw value in bytes of the extension.
                  */
@@ -395,10 +393,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
-                    "n-items": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
@@ -418,7 +416,6 @@ declare module "gi://Gcr?version=4" {
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * Returns the description at a given position
                  * @param position
@@ -575,10 +572,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
-                    "n-items": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
@@ -598,7 +595,6 @@ declare module "gi://Gcr?version=4" {
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * Returns the policy at a given position
                  * @param position
@@ -631,10 +627,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends CertificateExtension.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
-                    "n-items": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, CertificateExtension.ReadableProperties, Gio.ListModel.ReadableProperties {
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, CertificateExtension.WritableProperties, Gio.ListModel.WritableProperties {
@@ -654,7 +650,6 @@ declare module "gi://Gcr?version=4" {
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * Returns the CRL distribution point at a given position.
                  *
@@ -796,10 +791,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
-                    "n-items": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
@@ -818,7 +813,6 @@ declare module "gi://Gcr?version=4" {
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * Looks for an extension with the given OID.
                  * @since 4.3.90
@@ -953,10 +947,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "value": GObject.Value
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "value": GObject.Value
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -983,7 +977,6 @@ declare module "gi://Gcr?version=4" {
                 set section(value: CertificateSection)
                 
                 get value(): GObject.Value
-                set value(value: GObject.Value)
                 /**
                  * Get the display label of the field.
                  * @returns the display label of the field
@@ -1274,10 +1267,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "fields": Gio.ListModel
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "fields": Gio.ListModel
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1295,7 +1288,6 @@ declare module "gi://Gcr?version=4" {
                 readonly $constructOnlyProperties: CertificateSection.ConstructOnlyProperties
                 
                 get fields(): Gio.ListModel
-                set fields(value: Gio.ListModel)
                 /**
                  * @default NULL
                  */
@@ -1523,12 +1515,12 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "parsed-attributes": Gck.Attributes | null
-                    "parsed-description": string | null
-                    "parsed-label": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "parsed-attributes": Gck.Attributes | null
+                    "parsed-description": string | null
+                    "parsed-label": string | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1548,19 +1540,16 @@ declare module "gi://Gcr?version=4" {
                  * generally only valid during a {@link Parser.SignalSignatures["parsed"]} signal.
                  */
                 get parsedAttributes(): Gck.Attributes | null
-                set parsedAttributes(value: Gck.Attributes | null)
                 /**
                  * The description of the type of the currently parsed item. This is generally
                  * only valid during a {@link Parser.SignalSignatures["parsed"]} signal.
                  */
                 get parsedDescription(): string | null
-                set parsedDescription(value: string | null)
                 /**
                  * The label of the currently parsed item. This is generally
                  * only valid during a {@link Parser.SignalSignatures["parsed"]} signal.
                  */
                 get parsedLabel(): string | null
-                set parsedLabel(value: string | null)
                 /**
                  * Add a password to the set of passwords to try when parsing locked or encrypted
                  * items. This is usually called from the {@link Parser.SignalSignatures["authenticate"]} signal.
@@ -2318,10 +2307,10 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "prompting": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "prompting": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2348,7 +2337,6 @@ declare module "gi://Gcr?version=4" {
                  * @default FALSE
                  */
                 get prompting(): boolean
-                set prompting(value: boolean)
                 /**
                  * Get the mode for this prompter.
                  *
@@ -2433,14 +2421,14 @@ declare module "gi://Gcr?version=4" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "description": string
                     "expiry-date": GLib.DateTime | null
                     "issuer-name": string | null
                     "label": string
                     "subject-name": string | null
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2467,25 +2455,20 @@ declare module "gi://Gcr?version=4" {
                  * A readable description for this certificate
                  */
                 get description(): string
-                set description(value: string)
                 /**
                  * The expiry date of the certificate
                  */
                 get expiryDate(): GLib.DateTime | null
-                set expiryDate(value: GLib.DateTime | null)
                 /**
                  * Common name part of the certificate issuer
                  */
                 get issuerName(): string | null
-                set issuerName(value: string | null)
                 /**
                  * A readable label for this certificate.
                  */
                 get label(): string
-                set label(value: string)
                 
                 get subjectName(): string | null
-                set subjectName(value: string | null)
                 /**
                  * Get the basic constraints for the certificate if present. If %FALSE is
                  * returned then no basic constraints are present and the `is_ca` and
@@ -2848,11 +2831,11 @@ declare module "gi://Gcr?version=4" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "interaction": Gio.TlsInteraction | null
-                    "label": string
-                    "uri": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "label": string
+                    "uri": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2903,13 +2886,11 @@ declare module "gi://Gcr?version=4" {
                  * The label for the importer.
                  */
                 get label(): string
-                set label(value: string)
                 /**
                  * The URI of the location imported to.
                  * @default NULL
                  */
                 get uri(): string
-                set uri(value: string)
                 /**
                  * Get the interaction used to prompt the user when needed by this
                  * importer.
@@ -3028,12 +3009,12 @@ declare module "gi://Gcr?version=4" {
                     "description": string
                     "message": string
                     "password-new": boolean
-                    "password-strength": number
                     "title": string
                     "warning": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "password-strength": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3183,7 +3164,6 @@ declare module "gi://Gcr?version=4" {
                  * @default 0
                  */
                 get passwordStrength(): number
-                set passwordStrength(value: number)
                 /**
                  * The title of the prompt.
                  *

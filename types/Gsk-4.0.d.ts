@@ -2414,11 +2414,11 @@ declare module "gi://Gsk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "realized": boolean
-                    "surface": Gdk.Surface | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "realized": boolean
+                    "surface": Gdk.Surface | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2438,12 +2438,10 @@ declare module "gi://Gsk?version=4.0" {
                  * @default FALSE
                  */
                 get realized(): boolean
-                set realized(value: boolean)
                 /**
                  * The surface associated with renderer.
                  */
                 get surface(): Gdk.Surface | null
-                set surface(value: Gdk.Surface | null)
                 /**
                  * Retrieves the surface that the renderer is associated with.
                  *

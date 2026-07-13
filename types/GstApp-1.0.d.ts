@@ -212,7 +212,6 @@ declare module "gi://GstApp?version=1.0" {
                     "caps": Gst.Caps | null
                     "drop": boolean
                     "emit-signals": boolean
-                    "eos": boolean
                     "max-buffers": number
                     "max-bytes": number
                     "max-time": number
@@ -220,6 +219,7 @@ declare module "gi://GstApp?version=1.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GstBase.BaseSink.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                    "eos": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GstBase.BaseSink.WritableProperties, Gst.URIHandler.WritableProperties {
@@ -256,7 +256,6 @@ declare module "gi://GstApp?version=1.0" {
                  * @default TRUE
                  */
                 get eos(): boolean
-                set eos(value: boolean)
                 /**
                  * Maximum amount of buffers in the queue (0 = unlimited).
                  * @default 0
@@ -776,9 +775,6 @@ declare module "gi://GstApp?version=1.0" {
                 interface ReadWriteProperties extends GstBase.BaseSrc.ReadWriteProperties, Gst.URIHandler.ReadWriteProperties {
                     "block": boolean
                     "caps": Gst.Caps | null
-                    "current-level-buffers": number
-                    "current-level-bytes": number
-                    "current-level-time": number
                     "duration": number
                     "emit-signals": boolean
                     "format": Gst.Format
@@ -796,6 +792,9 @@ declare module "gi://GstApp?version=1.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GstBase.BaseSrc.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                    "current-level-buffers": number
+                    "current-level-bytes": number
+                    "current-level-time": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GstBase.BaseSrc.WritableProperties, Gst.URIHandler.WritableProperties {
@@ -830,21 +829,18 @@ declare module "gi://GstApp?version=1.0" {
                  * @default 0
                  */
                 get currentLevelBuffers(): number
-                set currentLevelBuffers(value: number)
                 /**
                  * The number of currently queued bytes inside appsrc.
                  * @since 1.2
                  * @default 0
                  */
                 get currentLevelBytes(): number
-                set currentLevelBytes(value: number)
                 /**
                  * The amount of currently queued time inside appsrc.
                  * @since 1.20
                  * @default 0
                  */
                 get currentLevelTime(): number
-                set currentLevelTime(value: number)
                 /**
                  * The total duration in nanoseconds of the data stream. If the total duration is known, it
                  * is recommended to configure it with this property.

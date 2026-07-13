@@ -1928,10 +1928,10 @@ declare module "gi://Tsparql?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "n-columns": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "n-columns": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1957,7 +1957,6 @@ declare module "gi://Tsparql?version=3.0" {
                  * @default 0
                  */
                 get nColumns(): number
-                set nColumns(value: number)
                 /**
                  * Closes the cursor. The object can only be freed after this call.
                  */

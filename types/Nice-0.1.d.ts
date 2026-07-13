@@ -1276,10 +1276,10 @@ declare module "gi://Nice?version=0.1" {
                     "no-delay": boolean
                     "rcv-buf": number
                     "snd-buf": number
-                    "state": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "state": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1328,7 +1328,6 @@ declare module "gi://Nice?version=0.1" {
                  * @default 0
                  */
                 get state(): number
-                set state(value: number)
                 /**
                  * Whether to support the FIN–ACK extension to the pseudo-TCP protocol for
                  * this socket. The extension is only compatible with other libnice pseudo-TCP

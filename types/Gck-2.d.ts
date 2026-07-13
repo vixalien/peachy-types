@@ -629,10 +629,10 @@ declare module "gi://Gck?version=2" {
                 }
 
                 interface ReadWriteProperties extends Gio.TlsPassword.ReadWriteProperties {
-                    "module": Module
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gio.TlsPassword.ReadableProperties {
+                    "module": Module
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gio.TlsPassword.WritableProperties {
@@ -659,7 +659,6 @@ declare module "gi://Gck?version=2" {
                  * The PKCS#11 module that is requesting the password
                  */
                 get module(): Module
-                set module(value: Module)
                 /**
                  * The PKCS#11 token the password is for, if this is set then
                  * the GckPassword:object property will be %NULL
@@ -719,10 +718,10 @@ declare module "gi://Gck?version=2" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                     "interaction": Gio.TlsInteraction | null
-                    "module": Module
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.Initable.ReadableProperties {
+                    "module": Module
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.Initable.WritableProperties {
@@ -763,7 +762,6 @@ declare module "gi://Gck?version=2" {
                  * The GckModule that this session is opened on.
                  */
                 get module(): Module
-                set module(value: Module)
                 /**
                  * Raw PKCS#11 flags used to open the PKCS#11 session.
                  * @default 0

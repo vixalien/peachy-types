@@ -1265,10 +1265,10 @@ declare module "gi://Xmlb?version=2.0" {
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "enable-node-cache": boolean
                     "guid": string
-                    "valid": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "valid": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1313,7 +1313,6 @@ declare module "gi://Xmlb?version=2.0" {
                  * @default TRUE
                  */
                 get valid(): boolean
-                set valid(value: boolean)
                 /**
                  * Exports the silo back to XML.
                  * @throws {GLib.Error}

@@ -29,10 +29,10 @@ declare module "gi://Xdp?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "is-active": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "is-active": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -65,7 +65,6 @@ declare module "gi://Xdp?version=1.0" {
                  * @default FALSE
                  */
                 get isActive(): boolean
-                set isActive(value: boolean)
                 /**
                  * The pointer barrier x offset in logical pixels
                  * @default 0

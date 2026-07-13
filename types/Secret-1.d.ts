@@ -31,11 +31,11 @@ declare module "gi://Secret?version=1" {
                 interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties {
                     "created": number
                     "label": string
-                    "locked": boolean
                     "modified": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties {
+                    "locked": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties {
@@ -84,7 +84,6 @@ declare module "gi://Secret?version=1" {
                  * @default TRUE
                  */
                 get locked(): boolean
-                set locked(value: boolean)
                 /**
                  * The date and time (in seconds since the UNIX epoch) that this
                  * collection was last modified.
@@ -427,10 +426,10 @@ declare module "gi://Secret?version=1" {
                 }
 
                 interface ReadWriteProperties extends Gio.DBusProxy.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties, Gio.DBusInterface.ReadWriteProperties, Gio.Initable.ReadWriteProperties, Retrievable.ReadWriteProperties {
-                    "locked": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gio.DBusProxy.ReadableProperties, Gio.AsyncInitable.ReadableProperties, Gio.DBusInterface.ReadableProperties, Gio.Initable.ReadableProperties, Retrievable.ReadableProperties {
+                    "locked": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gio.DBusProxy.WritableProperties, Gio.AsyncInitable.WritableProperties, Gio.DBusInterface.WritableProperties, Gio.Initable.WritableProperties, Retrievable.WritableProperties {
@@ -465,7 +464,6 @@ declare module "gi://Secret?version=1" {
                  * @default TRUE
                  */
                 get locked(): boolean
-                set locked(value: boolean)
                 /**
                  * The {@link Service} object that this item is associated with and
                  * uses to interact with the actual D-Bus Secret Service.

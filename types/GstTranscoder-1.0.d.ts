@@ -38,13 +38,13 @@ declare module "gi://GstTranscoder?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "avoid-reencoding": boolean
-                    "duration": number
-                    "pipeline": Gst.Element
-                    "position": number
                     "position-update-interval": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "duration": number
+                    "pipeline": Gst.Element
+                    "position": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -77,15 +77,12 @@ declare module "gi://GstTranscoder?version=1.0" {
                  * @default 18446744073709551615
                  */
                 get duration(): number
-                set duration(value: number)
                 
                 get pipeline(): Gst.Element
-                set pipeline(value: Gst.Element)
                 /**
                  * @default 18446744073709551615
                  */
                 get position(): number
-                set position(value: number)
                 /**
                  * @default 100
                  */
@@ -260,10 +257,10 @@ declare module "gi://GstTranscoder?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "transcoder": Transcoder | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "transcoder": Transcoder | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -283,7 +280,6 @@ declare module "gi://GstTranscoder?version=1.0" {
                  * @since 1.20
                  */
                 get transcoder(): Transcoder | null
-                set transcoder(value: Transcoder | null)
                 /**
                  * @since 1.20
                  * @returns The #GstTranscoder `self` is tracking

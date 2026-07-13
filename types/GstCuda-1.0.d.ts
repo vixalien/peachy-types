@@ -185,14 +185,14 @@ declare module "gi://GstCuda?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "default-gpu-stack-size": number
-                    "external-resource-interop": boolean
-                    "os-handle": boolean
                     "prefer-stream-ordered-alloc": boolean
-                    "stream-ordered-alloc": boolean
-                    "virtual-memory": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "external-resource-interop": boolean
+                    "os-handle": boolean
+                    "stream-ordered-alloc": boolean
+                    "virtual-memory": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -226,14 +226,12 @@ declare module "gi://GstCuda?version=1.0" {
                  * @default FALSE
                  */
                 get externalResourceInterop(): boolean
-                set externalResourceInterop(value: boolean)
                 /**
                  * OS handle supportability in virtual memory management
                  * @since 1.24
                  * @default FALSE
                  */
                 get osHandle(): boolean
-                set osHandle(value: boolean)
                 /**
                  * @since 1.26
                  * @default FALSE
@@ -245,14 +243,12 @@ declare module "gi://GstCuda?version=1.0" {
                  * @default FALSE
                  */
                 get streamOrderedAlloc(): boolean
-                set streamOrderedAlloc(value: boolean)
                 /**
                  * Virtual memory management supportability
                  * @since 1.24
                  * @default FALSE
                  */
                 get virtualMemory(): boolean
-                set virtualMemory(value: boolean)
                 /**
                  * Query whether `ctx` can access any memory which belongs to `peer` directly.
                  * @since 1.22

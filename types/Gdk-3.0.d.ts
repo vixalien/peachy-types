@@ -409,15 +409,15 @@ declare module "gi://Gdk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "associated-device": Device | null
-                    "axes": AxisFlags
                     "input-mode": InputMode
-                    "n-axes": number
                     "seat": Seat
-                    "tool": DeviceTool
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "associated-device": Device | null
+                    "axes": AxisFlags
+                    "n-axes": number
+                    "tool": DeviceTool
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -447,14 +447,12 @@ declare module "gi://Gdk?version=3.0" {
                  * @since 3.0
                  */
                 get associatedDevice(): Device | null
-                set associatedDevice(value: Device | null)
                 /**
                  * The axes currently available for this device.
                  * @since 3.22
                  * @default 0
                  */
                 get axes(): AxisFlags
-                set axes(value: AxisFlags)
                 /**
                  * The #GdkDeviceManager the #GdkDevice pertains to.
                  * @since 3.0
@@ -493,7 +491,6 @@ declare module "gi://Gdk?version=3.0" {
                  * @default 0
                  */
                 get nAxes(): number
-                set nAxes(value: number)
                 /**
                  * The device name.
                  * @since 3.0
@@ -525,7 +522,6 @@ declare module "gi://Gdk?version=3.0" {
                 set seat(value: Seat)
                 
                 get tool(): DeviceTool
-                set tool(value: DeviceTool)
                 /**
                  * Device role in the device manager.
                  * @since 3.0
@@ -2746,6 +2742,9 @@ declare module "gi://Gdk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "geometry": Rectangle
                     "height-mm": number
                     "manufacturer": string | null
@@ -2755,9 +2754,6 @@ declare module "gi://Gdk?version=3.0" {
                     "subpixel-layout": SubpixelLayout
                     "width-mm": number
                     "workarea": Rectangle
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2778,45 +2774,36 @@ declare module "gi://Gdk?version=3.0" {
                 set display(value: Display)
                 
                 get geometry(): Rectangle
-                set geometry(value: Rectangle)
                 /**
                  * @default 0
                  */
                 get heightMm(): number
-                set heightMm(value: number)
                 /**
                  * @default NULL
                  */
                 get manufacturer(): string | null
-                set manufacturer(value: string | null)
                 /**
                  * @default NULL
                  */
                 get model(): string | null
-                set model(value: string | null)
                 /**
                  * @default 0
                  */
                 get refreshRate(): number
-                set refreshRate(value: number)
                 /**
                  * @default 1
                  */
                 get scaleFactor(): number
-                set scaleFactor(value: number)
                 /**
                  * @default GDK_SUBPIXEL_LAYOUT_UNKNOWN
                  */
                 get subpixelLayout(): SubpixelLayout
-                set subpixelLayout(value: SubpixelLayout)
                 /**
                  * @default 0
                  */
                 get widthMm(): number
-                set widthMm(value: number)
                 
                 get workarea(): Rectangle
-                set workarea(value: Rectangle)
                 /**
                  * Gets the display that this monitor belongs to.
                  * @since 3.22

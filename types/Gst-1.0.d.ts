@@ -4897,12 +4897,12 @@ declare module "gi://Gst?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Object.ReadWriteProperties {
-                    "caps": Caps
                     "offset": number
                     "template": PadTemplate
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Object.ReadableProperties {
+                    "caps": Caps
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Object.WritableProperties {
@@ -4920,7 +4920,6 @@ declare module "gi://Gst?version=1.0" {
                 readonly $constructOnlyProperties: Pad.ConstructOnlyProperties
                 
                 get caps(): Caps
-                set caps(value: Caps)
                 /**
                  * @default GST_PAD_UNKNOWN
                  */

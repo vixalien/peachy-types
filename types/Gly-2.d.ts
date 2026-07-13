@@ -197,10 +197,10 @@ declare module "gi://Gly?version=2" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "data": GLib.Bytes
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "data": GLib.Bytes
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -217,7 +217,6 @@ declare module "gi://Gly?version=2" {
                 readonly $constructOnlyProperties: EncodedImage.ConstructOnlyProperties
                 
                 get data(): GLib.Bytes
-                set data(value: GLib.Bytes)
                 /**
                  * @since 2.0
                  * @returns The encoded image data
@@ -332,11 +331,11 @@ declare module "gi://Gly?version=2" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "loop-animation": boolean
-                    "scale-height": number
-                    "scale-width": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "scale-height": number
+                    "scale-width": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -360,12 +359,10 @@ declare module "gi://Gly?version=2" {
                  * @default 0
                  */
                 get scaleHeight(): number
-                set scaleHeight(value: number)
                 /**
                  * @default 0
                  */
                 get scaleWidth(): number
-                set scaleWidth(value: number)
                 /**
                  * Controls if first frame is returned after last frame
                  *
@@ -563,16 +560,16 @@ declare module "gi://Gly?version=2" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "accepted-memory-formats": MemoryFormatSelection
-                    "apply-transformations": boolean
                     "cancellable": Gio.Cancellable
-                    "sandbox-selector": SandboxSelector
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
+                    "accepted-memory-formats": MemoryFormatSelection
+                    "apply-transformations": boolean
+                    "sandbox-selector": SandboxSelector
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {

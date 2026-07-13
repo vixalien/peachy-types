@@ -77,7 +77,7 @@ declare module "gi://GObject?version=2.0" {
             accumulator?: GObject.AccumulatorType
         }
 
-        type GObjectConstructor = { new (...args: any[]): GObject.Object }
+        type GObjectConstructor = abstract new (...args: any[]) => GObject.Object
 
         type PascalCase<S> = S extends `${infer Head}${"-" | "_"}${infer Tail}`
             ? `${Capitalize<Head>}${PascalCase<Tail>}`
@@ -110,7 +110,7 @@ declare module "gi://GObject?version=2.0" {
         }
 
         type PrimitiveConstructor<T, Input = unknown> = {
-            $gtype: GObject.GType<T>
+            $gtype: GObject.GType<T>;
             (v: Input): T
         }
 
@@ -223,7 +223,7 @@ declare module "gi://GObject?version=2.0" {
                  * @param properties Object containing the properties to set
                  */
                 set<T extends Array<keyof this>>(params: {
-                    [K in T[number]]: this[K]
+                    [K in T[number]]?: this[K]
                 }): void
 
                 /**

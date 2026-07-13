@@ -46,13 +46,13 @@ declare module "gi://Notify?version=0.7" {
                     "app-icon": string
                     "app-name": string
                     "body": string
-                    "closed-reason": number
                     "icon-name": string
                     "id": number
                     "summary": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "closed-reason": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -94,7 +94,6 @@ declare module "gi://Notify?version=0.7" {
                  * @default -1
                  */
                 get closedReason(): number
-                set closedReason(value: number)
                 /**
                  * The icon-name of the icon to be displayed on the notification.
                  * @default NULL

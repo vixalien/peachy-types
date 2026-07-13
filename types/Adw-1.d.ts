@@ -3268,12 +3268,12 @@ declare module "gi://Adw?version=1" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "follow-enable-animations-setting": boolean
-                    "state": AnimationState
                     "target": AnimationTarget
-                    "value": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "state": AnimationState
+                    "value": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3312,7 +3312,6 @@ declare module "gi://Adw?version=1" {
                  * @default ADW_ANIMATION_IDLE
                  */
                 get state(): AnimationState
-                set state(value: AnimationState)
                 /**
                  * The target to animate.
                  */
@@ -3323,7 +3322,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0.000000
                  */
                 get value(): number
-                set value(value: number)
                 /**
                  * The animation widget.
                  *
@@ -3548,10 +3546,10 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadWriteProperties extends Gtk.Application.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties {
-                    "style-manager": StyleManager
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Application.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties {
+                    "style-manager": StyleManager
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Application.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties {
@@ -3573,7 +3571,6 @@ declare module "gi://Adw?version=1" {
                  * property bindings or expressions.
                  */
                 get styleManager(): StyleManager
-                set styleManager(value: StyleManager)
                 /**
                  * Gets the style manager for `self`.
                  *
@@ -3663,12 +3660,12 @@ declare module "gi://Adw?version=1" {
                 interface ReadWriteProperties extends Gtk.ApplicationWindow.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties, Gtk.Native.ReadWriteProperties, Gtk.Root.ReadWriteProperties, Gtk.ShortcutManager.ReadWriteProperties {
                     "adaptive-preview": boolean
                     "content": Gtk.Widget | null
-                    "current-breakpoint": Breakpoint | null
-                    "dialogs": Gio.ListModel
-                    "visible-dialog": Dialog | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.ApplicationWindow.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Native.ReadableProperties, Gtk.Root.ReadableProperties, Gtk.ShortcutManager.ReadableProperties {
+                    "current-breakpoint": Breakpoint | null
+                    "dialogs": Gio.ListModel
+                    "visible-dialog": Dialog | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.ApplicationWindow.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Native.WritableProperties, Gtk.Root.WritableProperties, Gtk.ShortcutManager.WritableProperties {
@@ -3710,19 +3707,16 @@ declare module "gi://Adw?version=1" {
                  * @since 1.4
                  */
                 get currentBreakpoint(): Breakpoint | null
-                set currentBreakpoint(value: Breakpoint | null)
                 /**
                  * The open dialogs.
                  * @since 1.5
                  */
                 get dialogs(): Gio.ListModel
-                set dialogs(value: Gio.ListModel)
                 /**
                  * The currently visible dialog
                  * @since 1.5
                  */
                 get visibleDialog(): Dialog | null
-                set visibleDialog(value: Dialog | null)
                 /**
                  * Adds `breakpoint` to `self`.
                  * @since 1.4
@@ -4317,7 +4311,6 @@ declare module "gi://Adw?version=1" {
                 interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Swipeable.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "align": number
                     "bottom-bar": Gtk.Widget | null
-                    "bottom-bar-height": number
                     "can-close": boolean
                     "can-open": boolean
                     "content": Gtk.Widget | null
@@ -4326,11 +4319,12 @@ declare module "gi://Adw?version=1" {
                     "open": boolean
                     "reveal-bottom-bar": boolean
                     "sheet": Gtk.Widget | null
-                    "sheet-height": number
                     "show-drag-handle": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Swipeable.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "bottom-bar-height": number
+                    "sheet-height": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Swipeable.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -4378,7 +4372,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get bottomBarHeight(): number
-                set bottomBarHeight(value: number)
                 /**
                  * Whether the bottom sheet can be closed by user.
                  *
@@ -4469,7 +4462,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get sheetHeight(): number
-                set sheetHeight(value: number)
                 /**
                  * Whether to overlay a drag handle in the bottom sheet.
                  *
@@ -4964,10 +4956,10 @@ declare module "gi://Adw?version=1" {
 
                 interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "child": Gtk.Widget | null
-                    "current-breakpoint": Breakpoint | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "current-breakpoint": Breakpoint | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -4993,7 +4985,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.4
                  */
                 get currentBreakpoint(): Breakpoint | null
-                set currentBreakpoint(value: Breakpoint | null)
                 /**
                  * Adds `breakpoint` to `self`.
                  * @since 1.4
@@ -5536,14 +5527,14 @@ declare module "gi://Adw?version=1" {
                     "allow-mouse-drag": boolean
                     "allow-scroll-wheel": boolean
                     "interactive": boolean
-                    "n-pages": number
-                    "position": number
                     "reveal-duration": number
                     "scroll-params": SpringParams
                     "spacing": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Swipeable.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                    "n-pages": number
+                    "position": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Swipeable.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Orientable.WritableProperties {
@@ -5596,7 +5587,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get nPages(): number
-                set nPages(value: number)
                 /**
                  * Current scrolling position, unitless.
                  *
@@ -5604,7 +5594,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0.000000
                  */
                 get position(): number
-                set position(value: number)
                 /**
                  * Page reveal duration, in milliseconds.
                  *
@@ -6465,11 +6454,11 @@ declare module "gi://Adw?version=1" {
                     "model": Gio.ListModel | null
                     "search-match-mode": Gtk.StringFilterMatchMode
                     "selected": number
-                    "selected-item": GObject.Object | null
                     "use-subtitle": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, ActionRow.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "selected-item": GObject.Object | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, ActionRow.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -6553,7 +6542,6 @@ declare module "gi://Adw?version=1" {
                  * The selected item.
                  */
                 get selectedItem(): GObject.Object | null
-                set selectedItem(value: GObject.Object | null)
                 /**
                  * Whether to use the current value as the subtitle.
                  *
@@ -6963,7 +6951,6 @@ declare module "gi://Adw?version=1" {
                     "child": Gtk.Widget | null
                     "content-height": number
                     "content-width": number
-                    "current-breakpoint": Breakpoint | null
                     "default-widget": Gtk.Widget | null
                     "focus-widget": Gtk.Widget | null
                     "follows-content-size": boolean
@@ -6972,6 +6959,7 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.ShortcutManager.ReadableProperties {
+                    "current-breakpoint": Breakpoint | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.ShortcutManager.WritableProperties {
@@ -7031,7 +7019,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.5
                  */
                 get currentBreakpoint(): Breakpoint | null
-                set currentBreakpoint(value: Breakpoint | null)
                 /**
                  * The default widget.
                  *
@@ -7379,10 +7366,10 @@ declare module "gi://Adw?version=1" {
                     "input-purpose": Gtk.InputPurpose
                     "max-length": number
                     "show-apply-button": boolean
-                    "text-length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, PreferencesRow.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Actionable.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Editable.ReadableProperties {
+                    "text-length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, PreferencesRow.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Actionable.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Editable.WritableProperties {
@@ -7470,7 +7457,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get textLength(): number
-                set textLength(value: number)
                 /**
                  * Adds a prefix widget to `self`.
                  * @since 1.2
@@ -7668,12 +7654,12 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "name": string
-                    "nick": string
-                    "value": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "name": string
+                    "nick": string
+                    "value": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -7694,21 +7680,18 @@ declare module "gi://Adw?version=1" {
                  * @default NULL
                  */
                 get name(): string
-                set name(value: string)
                 /**
                  * The enum value nick.
                  * @deprecated since 1.10 Use {@link Gtk.EnumListItem}.
                  * @default NULL
                  */
                 get nick(): string
-                set nick(value: string)
                 /**
                  * The enum value.
                  * @deprecated since 1.10 Use {@link Gtk.EnumListItem}.
                  * @default 0
                  */
                 get value(): number
-                set value(value: number)
                 /**
                  * Gets the enum value name.
                  * @deprecated since 1.10 Use {@link Gtk.EnumListItem}.
@@ -7750,11 +7733,11 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                    "item-type": GObject.GType
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
@@ -7782,7 +7765,6 @@ declare module "gi://Adw?version=1" {
                  * @deprecated since 1.10 Use {@link Gtk.EnumList}.
                  */
                 get itemType(): GObject.GType
-                set itemType(value: GObject.GType)
                 /**
                  * The number of items. See {@link Gio.ListModel.get_n_items}.
                  * @since 1.9
@@ -7790,7 +7772,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * Finds the position of a given enum value in `self`.
                  *
@@ -8098,12 +8079,10 @@ declare module "gi://Adw?version=1" {
                     "fold-duration": number
                     "fold-policy": FlapFoldPolicy
                     "fold-threshold-policy": FoldThresholdPolicy
-                    "folded": boolean
                     "locked": boolean
                     "modal": boolean
                     "reveal-flap": boolean
                     "reveal-params": SpringParams
-                    "reveal-progress": number
                     "separator": Gtk.Widget | null
                     "swipe-to-close": boolean
                     "swipe-to-open": boolean
@@ -8111,6 +8090,8 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Swipeable.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                    "folded": boolean
+                    "reveal-progress": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Swipeable.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Orientable.WritableProperties {
@@ -8187,7 +8168,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get folded(): boolean
-                set folded(value: boolean)
                 /**
                  * Whether the flap is locked.
                  *
@@ -8239,7 +8219,6 @@ declare module "gi://Adw?version=1" {
                  * @default 1.000000
                  */
                 get revealProgress(): number
-                set revealProgress(value: number)
                 /**
                  * The separator widget.
                  *
@@ -9299,18 +9278,18 @@ declare module "gi://Adw?version=1" {
                     "can-navigate-forward": boolean
                     "can-unfold": boolean
                     "child-transition-params": SpringParams
-                    "child-transition-running": boolean
                     "fold-threshold-policy": FoldThresholdPolicy
-                    "folded": boolean
                     "homogeneous": boolean
                     "mode-transition-duration": number
-                    "pages": Gtk.SelectionModel
                     "transition-type": LeafletTransitionType
                     "visible-child": Gtk.Widget | null
                     "visible-child-name": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Swipeable.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                    "child-transition-running": boolean
+                    "folded": boolean
+                    "pages": Gtk.SelectionModel
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Swipeable.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Orientable.WritableProperties {
@@ -9396,7 +9375,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get childTransitionRunning(): boolean
-                set childTransitionRunning(value: boolean)
                 /**
                  * Determines when the leaflet will fold.
                  *
@@ -9421,7 +9399,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get folded(): boolean
-                set folded(value: boolean)
                 /**
                  * Whether the leaflet allocates the same size for all children when folded.
                  *
@@ -9448,7 +9425,6 @@ declare module "gi://Adw?version=1" {
                  * @deprecated since 1.4 See [the migration guide](migrating-to-breakpoints.html#replace-adwleaflet)
                  */
                 get pages(): Gtk.SelectionModel
-                set pages(value: Gtk.SelectionModel)
                 /**
                  * The type of animation used for transitions between modes and children.
                  *
@@ -11440,14 +11416,14 @@ declare module "gi://Adw?version=1" {
                 interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Swipeable.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "animate-transitions": boolean
                     "hhomogeneous": boolean
-                    "navigation-stack": Gio.ListModel
                     "pop-on-escape": boolean
                     "vhomogeneous": boolean
-                    "visible-page": NavigationPage | null
-                    "visible-page-tag": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Swipeable.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "navigation-stack": Gio.ListModel
+                    "visible-page": NavigationPage | null
+                    "visible-page-tag": string | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Swipeable.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -11493,7 +11469,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.4
                  */
                 get navigationStack(): Gio.ListModel
-                set navigationStack(value: Gio.ListModel)
                 /**
                  * Whether pressing Escape pops the current page.
                  *
@@ -11522,14 +11497,12 @@ declare module "gi://Adw?version=1" {
                  * @since 1.4
                  */
                 get visiblePage(): NavigationPage | null
-                set visiblePage(value: NavigationPage | null)
                 /**
                  * The tag of the currently visible page.
                  * @since 1.7
                  * @default NULL
                  */
                 get visiblePageTag(): string | null
-                set visiblePageTag(value: string | null)
                 /**
                  * Permanently adds `page` to `self`.
                  *
@@ -14051,12 +14024,12 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
                     "title": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                    "item-type": GObject.GType
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, Gtk.Buildable.WritableProperties {
@@ -14076,14 +14049,12 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get itemType(): GObject.GType
-                set itemType(value: GObject.GType)
                 /**
                  * The number of items. See {@link Gio.ListModel.get_n_items}.
                  * @since 1.9
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * The title of the section, can be `NULL`.
                  * @since 1.8
@@ -14208,18 +14179,18 @@ declare module "gi://Adw?version=1" {
                 interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "drop-preload": boolean
                     "filter": Gtk.Filter | null
-                    "items": Gtk.SelectionModel
                     "menu-model": Gio.MenuModel | null
                     "mode": SidebarMode
                     "placeholder": Gtk.Widget | null
                     "prefix": Gtk.Widget | null
-                    "sections": Gio.ListModel
                     "selected": number
-                    "selected-item": SidebarItem | null
                     "suffix": Gtk.Widget | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "items": Gtk.SelectionModel
+                    "sections": Gio.ListModel
+                    "selected-item": SidebarItem | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -14268,7 +14239,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get items(): Gtk.SelectionModel
-                set items(value: Gtk.SelectionModel)
                 /**
                  * Context menu model for the items.
                  *
@@ -14330,7 +14300,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get sections(): Gio.ListModel
-                set sections(value: Gio.ListModel)
                 /**
                  * The index of the currently selected item.
                  *
@@ -14357,7 +14326,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get selectedItem(): SidebarItem | null
-                set selectedItem(value: SidebarItem | null)
                 /**
                  * A widget to be displayed after the sidebar items.
                  * @since 1.10
@@ -14859,7 +14827,6 @@ declare module "gi://Adw?version=1" {
                     "enabled": boolean
                     "icon-name": string | null
                     "icon-paintable": Gdk.Paintable | null
-                    "section": SidebarSection | null
                     "subtitle": string | null
                     "suffix": Gtk.Widget | null
                     "title": string | null
@@ -14869,6 +14836,7 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "section": SidebarSection | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -14925,7 +14893,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get section(): SidebarSection | null
-                set section(value: SidebarSection | null)
                 /**
                  * Subtitle of the item.
                  * @since 1.9
@@ -15200,13 +15167,13 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
-                    "items": Gio.ListModel
                     "menu-model": Gio.MenuModel | null
-                    "sidebar": Sidebar | null
                     "title": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                    "items": Gio.ListModel
+                    "sidebar": Sidebar | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gtk.Buildable.WritableProperties {
@@ -15228,7 +15195,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get items(): Gio.ListModel
-                set items(value: Gio.ListModel)
                 /**
                  * Context menu model for the section items.
                  *
@@ -15246,7 +15212,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get sidebar(): Sidebar | null
-                set sidebar(value: Sidebar | null)
                 /**
                  * Title of the section.
                  *
@@ -16310,15 +16275,15 @@ declare module "gi://Adw?version=1" {
                 interface ReadWriteProperties extends Animation.ReadWriteProperties {
                     "clamp": boolean
                     "epsilon": number
-                    "estimated-duration": number
                     "initial-velocity": number
                     "spring-params": SpringParams
                     "value-from": number
                     "value-to": number
-                    "velocity": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Animation.ReadableProperties {
+                    "estimated-duration": number
+                    "velocity": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Animation.WritableProperties {
@@ -16369,7 +16334,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get estimatedDuration(): number
-                set estimatedDuration(value: number)
                 /**
                  * The initial velocity to start the animation with.
                  *
@@ -16406,7 +16370,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0.000000
                  */
                 get velocity(): number
-                set velocity(value: number)
                 /**
                  * Calculates the value `self` will have at `time`.
                  *
@@ -16596,17 +16559,17 @@ declare module "gi://Adw?version=1" {
                     "allow-none": boolean
                     "homogeneous": boolean
                     "interpolate-size": boolean
-                    "pages": Gtk.SelectionModel
                     "switch-threshold-policy": FoldThresholdPolicy
                     "transition-duration": number
-                    "transition-running": boolean
                     "transition-type": SqueezerTransitionType
-                    "visible-child": Gtk.Widget | null
                     "xalign": number
                     "yalign": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                    "pages": Gtk.SelectionModel
+                    "transition-running": boolean
+                    "visible-child": Gtk.Widget | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Orientable.WritableProperties {
@@ -16663,7 +16626,6 @@ declare module "gi://Adw?version=1" {
                  * @deprecated since 1.4 See [the migration guide](migrating-to-breakpoints.html#replace-adwsqueezer)
                  */
                 get pages(): Gtk.SelectionModel
-                set pages(value: Gtk.SelectionModel)
                 /**
                  * The switch threshold policy.
                  *
@@ -16697,7 +16659,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get transitionRunning(): boolean
-                set transitionRunning(value: boolean)
                 /**
                  * The type of animation used for transitions between children.
                  * @deprecated since 1.4 See [the migration guide](migrating-to-breakpoints.html#replace-adwsqueezer)
@@ -16710,7 +16671,6 @@ declare module "gi://Adw?version=1" {
                  * @deprecated since 1.4 See [the migration guide](migrating-to-breakpoints.html#replace-adwsqueezer)
                  */
                 get visibleChild(): Gtk.Widget | null
-                set visibleChild(value: Gtk.Widget | null)
                 /**
                  * The horizontal alignment, from 0 (start) to 1 (end).
                  *
@@ -17220,18 +17180,18 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                    "color-scheme": ColorScheme
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "accent-color": AccentColor
                     "accent-color-rgba": Gdk.RGBA
-                    "color-scheme": ColorScheme
                     "dark": boolean
                     "document-font-name": string
                     "high-contrast": boolean
                     "monospace-font-name": string
                     "system-supports-accent-colors": boolean
                     "system-supports-color-schemes": boolean
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -17255,7 +17215,6 @@ declare module "gi://Adw?version=1" {
                  * @default ADW_ACCENT_COLOR_BLUE
                  */
                 get accentColor(): AccentColor
-                set accentColor(value: AccentColor)
                 /**
                  * The current system accent color as a `GdkRGBA`.
                  *
@@ -17266,7 +17225,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.6
                  */
                 get accentColorRgba(): Gdk.RGBA
-                set accentColorRgba(value: Gdk.RGBA)
                 /**
                  * The requested application color scheme.
                  *
@@ -17312,7 +17270,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get dark(): boolean
-                set dark(value: boolean)
                 /**
                  * The display the style manager is associated with.
                  *
@@ -17332,7 +17289,6 @@ declare module "gi://Adw?version=1" {
                  * @default Sans 10
                  */
                 get documentFontName(): string
-                set documentFontName(value: string)
                 /**
                  * Whether the application is using high contrast appearance.
                  *
@@ -17340,7 +17296,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get highContrast(): boolean
-                set highContrast(value: boolean)
                 /**
                  * The system monospace font.
                  *
@@ -17352,7 +17307,6 @@ declare module "gi://Adw?version=1" {
                  * @default Monospace 10
                  */
                 get monospaceFontName(): string
-                set monospaceFontName(value: string)
                 /**
                  * Whether the system supports accent colors.
                  *
@@ -17365,7 +17319,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get systemSupportsAccentColors(): boolean
-                set systemSupportsAccentColors(value: boolean)
                 /**
                  * Whether the system supports color schemes.
                  *
@@ -17377,7 +17330,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get systemSupportsColorSchemes(): boolean
-                set systemSupportsColorSchemes(value: boolean)
                 /**
                  * Gets the current system accent color.
                  *
@@ -17934,16 +17886,16 @@ declare module "gi://Adw?version=1" {
                     "autohide": boolean
                     "end-action-widget": Gtk.Widget | null
                     "expand-tabs": boolean
-                    "extra-drag-preferred-action": Gdk.DragAction
                     "extra-drag-preload": boolean
                     "inverted": boolean
-                    "is-overflowing": boolean
                     "start-action-widget": Gtk.Widget | null
-                    "tabs-revealed": boolean
                     "view": TabView | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "extra-drag-preferred-action": Gdk.DragAction
+                    "is-overflowing": boolean
+                    "tabs-revealed": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -17995,7 +17947,6 @@ declare module "gi://Adw?version=1" {
                  * @default GDK_ACTION_NONE
                  */
                 get extraDragPreferredAction(): Gdk.DragAction
-                set extraDragPreferredAction(value: Gdk.DragAction)
                 /**
                  * Whether the drop data should be preloaded on hover.
                  *
@@ -18021,7 +17972,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get isOverflowing(): boolean
-                set isOverflowing(value: boolean)
                 /**
                  * The widget shown before the tabs.
                  */
@@ -18034,7 +17984,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get tabsRevealed(): boolean
-                set tabsRevealed(value: boolean)
                 /**
                  * The tab view the tab bar controls.
                  */
@@ -18391,11 +18340,9 @@ declare module "gi://Adw?version=1" {
                     "child": Gtk.Widget | null
                     "enable-new-tab": boolean
                     "enable-search": boolean
-                    "extra-drag-preferred-action": Gdk.DragAction
                     "extra-drag-preload": boolean
                     "inverted": boolean
                     "open": boolean
-                    "search-active": boolean
                     "secondary-menu": Gio.MenuModel | null
                     "show-end-title-buttons": boolean
                     "show-start-title-buttons": boolean
@@ -18403,6 +18350,8 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "extra-drag-preferred-action": Gdk.DragAction
+                    "search-active": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -18460,7 +18409,6 @@ declare module "gi://Adw?version=1" {
                  * @default GDK_ACTION_NONE
                  */
                 get extraDragPreferredAction(): Gdk.DragAction
-                set extraDragPreferredAction(value: Gdk.DragAction)
                 /**
                  * Whether the drop data should be preloaded on hover.
                  *
@@ -18495,7 +18443,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get searchActive(): boolean
-                set searchActive(value: boolean)
                 /**
                  * The secondary menu model.
                  *
@@ -18822,8 +18769,6 @@ declare module "gi://Adw?version=1" {
                     "live-thumbnail": boolean
                     "loading": boolean
                     "needs-attention": boolean
-                    "pinned": boolean
-                    "selected": boolean
                     "thumbnail-xalign": number
                     "thumbnail-yalign": number
                     "title": string
@@ -18831,6 +18776,8 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gtk.Accessible.ReadableProperties {
+                    "pinned": boolean
+                    "selected": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gtk.Accessible.WritableProperties {
@@ -18973,13 +18920,11 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get pinned(): boolean
-                set pinned(value: boolean)
                 /**
                  * Whether the page is selected.
                  * @default FALSE
                  */
                 get selected(): boolean
-                set selected(value: boolean)
                 /**
                  * The horizontal alignment of the page thumbnail.
                  *
@@ -19404,16 +19349,16 @@ declare module "gi://Adw?version=1" {
 
                 interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "default-icon": Gio.Icon
-                    "is-transferring-page": boolean
                     "menu-model": Gio.MenuModel | null
-                    "n-pages": number
-                    "n-pinned-pages": number
-                    "pages": Gtk.SelectionModel
                     "selected-page": TabPage | null
                     "shortcuts": TabViewShortcuts
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "is-transferring-page": boolean
+                    "n-pages": number
+                    "n-pinned-pages": number
+                    "pages": Gtk.SelectionModel
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -19457,7 +19402,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get isTransferringPage(): boolean
-                set isTransferringPage(value: boolean)
                 /**
                  * Tab context menu model.
                  *
@@ -19472,7 +19416,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get nPages(): number
-                set nPages(value: number)
                 /**
                  * The number of pinned pages in the tab view.
                  *
@@ -19480,7 +19423,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get nPinnedPages(): number
-                set nPinnedPages(value: number)
                 /**
                  * A list model with the tab view's pages.
                  *
@@ -19493,7 +19435,6 @@ declare module "gi://Adw?version=1" {
                  * change the selected page.
                  */
                 get pages(): Gtk.SelectionModel
-                set pages(value: Gtk.SelectionModel)
                 /**
                  * The currently selected page.
                  */
@@ -20960,11 +20901,11 @@ declare module "gi://Adw?version=1" {
                     "active-name": string | null
                     "can-shrink": boolean
                     "homogeneous": boolean
-                    "n-toggles": number
-                    "toggles": Gtk.SelectionModel
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Orientable.ReadableProperties {
+                    "n-toggles": number
+                    "toggles": Gtk.SelectionModel
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Orientable.WritableProperties {
@@ -21028,7 +20969,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get nToggles(): number
-                set nToggles(value: number)
                 /**
                  * A selection model with the groups's toggles.
                  *
@@ -21038,7 +20978,6 @@ declare module "gi://Adw?version=1" {
                  * @since 1.7
                  */
                 get toggles(): Gtk.SelectionModel
-                set toggles(value: Gtk.SelectionModel)
                 /**
                  * Adds a toggle to `self`.
                  * @since 1.7
@@ -21276,18 +21215,18 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
-                    "bottom-bar-height": number
                     "bottom-bar-style": ToolbarStyle
                     "content": Gtk.Widget | null
                     "extend-content-to-bottom-edge": boolean
                     "extend-content-to-top-edge": boolean
                     "reveal-bottom-bars": boolean
                     "reveal-top-bars": boolean
-                    "top-bar-height": number
                     "top-bar-style": ToolbarStyle
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "bottom-bar-height": number
+                    "top-bar-height": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -21313,7 +21252,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get bottomBarHeight(): number
-                set bottomBarHeight(value: number)
                 /**
                  * Appearance of the bottom bars.
                  *
@@ -21416,7 +21354,6 @@ declare module "gi://Adw?version=1" {
                  * @default 0
                  */
                 get topBarHeight(): number
-                set topBarHeight(value: number)
                 /**
                  * Appearance of the top bars.
                  *
@@ -21771,15 +21708,15 @@ declare module "gi://Adw?version=1" {
                 interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "enable-transitions": boolean
                     "hhomogeneous": boolean
-                    "pages": Gtk.SelectionModel
                     "transition-duration": number
-                    "transition-running": boolean
                     "vhomogeneous": boolean
                     "visible-child": Gtk.Widget | null
                     "visible-child-name": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "pages": Gtk.SelectionModel
+                    "transition-running": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -21829,7 +21766,6 @@ declare module "gi://Adw?version=1" {
                  * track and change the visible page.
                  */
                 get pages(): Gtk.SelectionModel
-                set pages(value: Gtk.SelectionModel)
                 /**
                  * The transition animation duration, in milliseconds.
                  *
@@ -21849,7 +21785,6 @@ declare module "gi://Adw?version=1" {
                  * @default FALSE
                  */
                 get transitionRunning(): boolean
-                set transitionRunning(value: boolean)
                 /**
                  * Whether the stack is vertically homogeneous.
                  *
@@ -22374,12 +22309,12 @@ declare module "gi://Adw?version=1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties, Gtk.SectionModel.ReadWriteProperties, Gtk.SelectionModel.ReadWriteProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
                     "selected-page": ViewStackPage | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties, Gtk.SectionModel.ReadableProperties, Gtk.SelectionModel.ReadableProperties {
+                    "item-type": GObject.GType
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties, Gtk.SectionModel.WritableProperties, Gtk.SelectionModel.WritableProperties {
@@ -22399,14 +22334,12 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get itemType(): GObject.GType
-                set itemType(value: GObject.GType)
                 /**
                  * The number of items. See {@link Gio.ListModel.get_n_items}.
                  * @since 1.9
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * The selected {@link ViewStackPage} within the {@link ViewStackPages}.
                  *
@@ -23031,11 +22964,11 @@ declare module "gi://Adw?version=1" {
                     "stack": ViewStack | null
                     "subtitle": string
                     "title": string
-                    "title-visible": boolean
                     "view-switcher-enabled": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "title-visible": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -23082,7 +23015,6 @@ declare module "gi://Adw?version=1" {
                  * @default TRUE
                  */
                 get titleVisible(): boolean
-                set titleVisible(value: boolean)
                 /**
                  * Whether the view switcher is enabled.
                  *
@@ -23255,12 +23187,12 @@ declare module "gi://Adw?version=1" {
                 interface ReadWriteProperties extends Gtk.Window.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties, Gtk.Native.ReadWriteProperties, Gtk.Root.ReadWriteProperties, Gtk.ShortcutManager.ReadWriteProperties {
                     "adaptive-preview": boolean
                     "content": Gtk.Widget | null
-                    "current-breakpoint": Breakpoint | null
-                    "dialogs": Gio.ListModel
-                    "visible-dialog": Dialog | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Window.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Native.ReadableProperties, Gtk.Root.ReadableProperties, Gtk.ShortcutManager.ReadableProperties {
+                    "current-breakpoint": Breakpoint | null
+                    "dialogs": Gio.ListModel
+                    "visible-dialog": Dialog | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Window.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Native.WritableProperties, Gtk.Root.WritableProperties, Gtk.ShortcutManager.WritableProperties {
@@ -23302,19 +23234,16 @@ declare module "gi://Adw?version=1" {
                  * @since 1.4
                  */
                 get currentBreakpoint(): Breakpoint | null
-                set currentBreakpoint(value: Breakpoint | null)
                 /**
                  * The open dialogs.
                  * @since 1.5
                  */
                 get dialogs(): Gio.ListModel
-                set dialogs(value: Gio.ListModel)
                 /**
                  * The currently visible dialog
                  * @since 1.5
                  */
                 get visibleDialog(): Dialog | null
-                set visibleDialog(value: Dialog | null)
                 /**
                  * Adds `breakpoint` to `self`.
                  * @since 1.4

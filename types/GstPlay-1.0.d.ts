@@ -40,14 +40,7 @@ declare module "gi://GstPlay?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "audio-video-offset": number
-                    "current-audio-track": PlayAudioInfo | null
-                    "current-subtitle-track": PlaySubtitleInfo | null
-                    "current-video-track": PlayVideoInfo | null
-                    "duration": number
-                    "media-info": PlayMediaInfo | null
                     "mute": boolean
-                    "pipeline": Gst.Element
-                    "position": number
                     "rate": number
                     "subtitle-video-offset": number
                     "suburi": string
@@ -59,6 +52,13 @@ declare module "gi://GstPlay?version=1.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "current-audio-track": PlayAudioInfo | null
+                    "current-subtitle-track": PlaySubtitleInfo | null
+                    "current-video-track": PlayVideoInfo | null
+                    "duration": number
+                    "media-info": PlayMediaInfo | null
+                    "pipeline": Gst.Element
+                    "position": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -80,21 +80,16 @@ declare module "gi://GstPlay?version=1.0" {
                 set audioVideoOffset(value: number)
                 
                 get currentAudioTrack(): PlayAudioInfo | null
-                set currentAudioTrack(value: PlayAudioInfo | null)
                 
                 get currentSubtitleTrack(): PlaySubtitleInfo | null
-                set currentSubtitleTrack(value: PlaySubtitleInfo | null)
                 
                 get currentVideoTrack(): PlayVideoInfo | null
-                set currentVideoTrack(value: PlayVideoInfo | null)
                 /**
                  * @default 18446744073709551615
                  */
                 get duration(): number
-                set duration(value: number)
                 
                 get mediaInfo(): PlayMediaInfo | null
-                set mediaInfo(value: PlayMediaInfo | null)
                 /**
                  * @default FALSE
                  */
@@ -102,12 +97,10 @@ declare module "gi://GstPlay?version=1.0" {
                 set mute(value: boolean)
                 
                 get pipeline(): Gst.Element
-                set pipeline(value: Gst.Element)
                 /**
                  * @default 18446744073709551615
                  */
                 get position(): number
-                set position(value: number)
                 /**
                  * @default 1.000000
                  */
@@ -890,10 +883,10 @@ declare module "gi://GstPlay?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "play": Play
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "play": Play
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -910,7 +903,6 @@ declare module "gi://GstPlay?version=1.0" {
                 readonly $constructOnlyProperties: PlaySignalAdapter.ConstructOnlyProperties
                 
                 get play(): Play
-                set play(value: Play)
                 /**
                  * @since 1.20
                  * @returns The #GstPlay owning this signal adapter.

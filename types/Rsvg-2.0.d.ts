@@ -34,18 +34,18 @@ declare module "gi://Rsvg?version=2.0" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "base-uri": string
-                    "desc": string | null
                     "dpi-x": number
                     "dpi-y": number
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "desc": string | null
                     "em": number
                     "ex": number
                     "height": number
                     "metadata": string | null
                     "title": string | null
                     "width": number
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -74,7 +74,6 @@ declare module "gi://Rsvg?version=2.0" {
                  * @default NULL
                  */
                 get desc(): string | null
-                set desc(value: string | null)
                 /**
                  * Horizontal resolution in dots per inch.
                  *
@@ -100,7 +99,6 @@ declare module "gi://Rsvg?version=2.0" {
                  * @default 0.000000
                  */
                 get em(): number
-                set em(value: number)
                 /**
                  * Exact height, in pixels, of the rendered SVG before calling the size callback
                  * as specified by {@link Rsvg.Handle.set_size_callback}.
@@ -108,7 +106,6 @@ declare module "gi://Rsvg?version=2.0" {
                  * @default 0.000000
                  */
                 get ex(): number
-                set ex(value: number)
                 /**
                  * Flags from {@link Rsvg.HandleFlags}.
                  * @since 2.36
@@ -123,21 +120,18 @@ declare module "gi://Rsvg?version=2.0" {
                  * @default 0
                  */
                 get height(): number
-                set height(value: number)
                 /**
                  * SVG's metadata
                  * @deprecated since 2.36. Reading this property always returns `NULL`.
                  * @default NULL
                  */
                 get metadata(): string | null
-                set metadata(value: string | null)
                 /**
                  * SVG's title.
                  * @deprecated since 2.36. Reading this property always returns `NULL`.
                  * @default NULL
                  */
                 get title(): string | null
-                set title(value: string | null)
                 /**
                  * Width, in pixels, of the rendered SVG after calling the size callback
                  * as specified by {@link Rsvg.Handle.set_size_callback}.
@@ -145,7 +139,6 @@ declare module "gi://Rsvg?version=2.0" {
                  * @default 0
                  */
                 get width(): number
-                set width(value: number)
                 /**
                  * This is used after calling {@link Rsvg.Handle.write} to indicate that there is no more data
                  * to consume, and to start the actual parsing of the SVG document.  The only reason to

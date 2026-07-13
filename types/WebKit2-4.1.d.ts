@@ -1337,12 +1337,12 @@ declare module "gi://WebKit2?version=4.1" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "allow-overwrite": boolean
-                    "destination": string | null
-                    "estimated-progress": number
-                    "response": URIResponse
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "destination": string | null
+                    "estimated-progress": number
+                    "response": URIResponse
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1371,7 +1371,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default NULL
                  */
                 get destination(): string | null
-                set destination(value: string | null)
                 /**
                  * An estimate of the percent completion for the download operation.
                  * This value will range from 0.0 to 1.0. The value is an estimate
@@ -1382,12 +1381,10 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 1.000000
                  */
                 get estimatedProgress(): number
-                set estimatedProgress(value: number)
                 /**
                  * The #WebKitURIResponse associated with this download.
                  */
                 get response(): URIResponse
-                set response(value: URIResponse)
                 /**
                  * Cancels the download.
                  *
@@ -1526,10 +1523,10 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "typing-attributes": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "typing-attributes": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1551,7 +1548,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 0
                  */
                 get typingAttributes(): number
-                set typingAttributes(value: number)
                 /**
                  * Gets the typing attributes at the current cursor position.
                  *
@@ -1712,13 +1708,13 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "filter": Gtk.FileFilter
                     "mime-types": string[]
                     "select-multiple": boolean
                     "selected-files": string[]
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1739,14 +1735,12 @@ declare module "gi://WebKit2?version=4.1" {
                  * details.
                  */
                 get filter(): Gtk.FileFilter
-                set filter(value: Gtk.FileFilter)
                 /**
                  * A %NULL-terminated array of strings containing the list of MIME
                  * types the file chooser dialog should handle. See
                  * webkit_file_chooser_request_get_mime_types() for more details.
                  */
                 get mimeTypes(): string[]
-                set mimeTypes(value: string[])
                 /**
                  * Whether the file chooser should allow selecting multiple
                  * files. See
@@ -1755,14 +1749,12 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default FALSE
                  */
                 get selectMultiple(): boolean
-                set selectMultiple(value: boolean)
                 /**
                  * A %NULL-terminated array of strings containing the list of
                  * selected files associated to the current request. See
                  * webkit_file_chooser_request_get_selected_files() for more details.
                  */
                 get selectedFiles(): string[]
-                set selectedFiles(value: string[])
                 /**
                  * Ask WebKit to cancel the request.
                  *
@@ -1892,12 +1884,12 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "max-match-count": number
-                    "options": FindOptions
-                    "text": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "max-match-count": number
+                    "options": FindOptions
+                    "text": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1918,19 +1910,16 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 0
                  */
                 get maxMatchCount(): number
-                set maxMatchCount(value: number)
                 /**
                  * The options to be used in the search operation.
                  * @default WEBKIT_FIND_OPTIONS_NONE
                  */
                 get options(): FindOptions
-                set options(value: FindOptions)
                 /**
                  * The current search text for this #WebKitFindController.
                  * @default NULL
                  */
                 get text(): string
-                set text(value: string)
                 /**
                  * The #WebKitWebView this controller is associated to.
                  */
@@ -2162,10 +2151,10 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "enable-high-accuracy": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "enable-high-accuracy": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2188,7 +2177,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default FALSE
                  */
                 get enableHighAccuracy(): boolean
-                set enableHighAccuracy(value: boolean)
                 /**
                  * Notify `manager` that determining the position failed.
                  * @since 2.26
@@ -2833,15 +2821,15 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends PolicyDecision.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, PolicyDecision.ReadableProperties {
                     "frame-name": string
                     "modifiers": number
                     "mouse-button": number
                     "navigation-action": NavigationAction
                     "navigation-type": NavigationType
                     "request": URIRequest
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, PolicyDecision.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, PolicyDecision.WritableProperties {
@@ -2865,7 +2853,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default NULL
                  */
                 get frameName(): string
-                set frameName(value: string)
                 /**
                  * If the navigation associated with this policy decision was originally
                  * triggered by a mouse event, this property contains a bitmask of various
@@ -2876,7 +2863,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 0
                  */
                 get modifiers(): number
-                set modifiers(value: number)
                 /**
                  * If the navigation associated with this policy decision was originally
                  * triggered by a mouse event, this property contains non-zero button number
@@ -2887,13 +2873,11 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 0
                  */
                 get mouseButton(): number
-                set mouseButton(value: number)
                 /**
                  * The #WebKitNavigationAction that triggered this policy decision.
                  * @since 2.6
                  */
                 get navigationAction(): NavigationAction
-                set navigationAction(value: NavigationAction)
                 /**
                  * The type of navigation that triggered this policy decision. This is
                  * useful for enacting different policies depending on what type of user
@@ -2902,14 +2886,12 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default WEBKIT_NAVIGATION_TYPE_LINK_CLICKED
                  */
                 get navigationType(): NavigationType
-                set navigationType(value: NavigationType)
                 /**
                  * This property contains the #WebKitURIRequest associated with this
                  * navigation.
                  * @deprecated since 2.6 Use #WebKitNavigationPolicyDecision:navigation-action instead
                  */
                 get request(): URIRequest
-                set request(value: URIRequest)
                 /**
                  * Gets the value of the #WebKitNavigationPolicyDecision:frame-name property.
                  * @deprecated since 2.40 Use webkit_navigation_policy_decision_get_navigation_action() instead.
@@ -2985,13 +2967,13 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "body": string
                     "id": number
                     "tag": string | null
                     "title": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3012,28 +2994,24 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default NULL
                  */
                 get body(): string
-                set body(value: string)
                 /**
                  * The unique id for the notification.
                  * @since 2.8
                  * @default 0
                  */
                 get id(): number
-                set id(value: number)
                 /**
                  * The tag identifier for the notification.
                  * @since 2.16
                  * @default NULL
                  */
                 get tag(): string | null
-                set tag(value: string | null)
                 /**
                  * The title for the notification.
                  * @since 2.8
                  * @default NULL
                  */
                 get title(): string
-                set title(value: string)
                 /**
                  * Tells WebKit the notification has been clicked.
                  *
@@ -3742,11 +3720,11 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends PolicyDecision.ReadWriteProperties {
-                    "request": URIRequest
-                    "response": URIResponse
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, PolicyDecision.ReadableProperties {
+                    "request": URIRequest
+                    "response": URIResponse
                 }
 
                 interface WritableProperties extends ReadWriteProperties, PolicyDecision.WritableProperties {
@@ -3766,13 +3744,11 @@ declare module "gi://WebKit2?version=4.1" {
                  * policy decision.
                  */
                 get request(): URIRequest
-                set request(value: URIRequest)
                 /**
                  * This property contains the #WebKitURIResponse associated with this
                  * policy decision.
                  */
                 get response(): URIResponse
-                set response(value: URIResponse)
                 /**
                  * Return the #WebKitURIRequest associated with the response decision.
                  *
@@ -5535,15 +5511,15 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "content-length": number
                     "http-headers": Soup.MessageHeaders
                     "mime-type": string
                     "status-code": number
                     "suggested-filename": string
                     "uri": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -5563,37 +5539,31 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 0
                  */
                 get contentLength(): number
-                set contentLength(value: number)
                 /**
                  * The HTTP headers of the response, or %NULL if the response is not an HTTP response.
                  * @since 2.6
                  */
                 get httpHeaders(): Soup.MessageHeaders
-                set httpHeaders(value: Soup.MessageHeaders)
                 /**
                  * The MIME type of the response.
                  * @default NULL
                  */
                 get mimeType(): string
-                set mimeType(value: string)
                 /**
                  * The status code of the response as returned by the server.
                  * @default 0
                  */
                 get statusCode(): number
-                set statusCode(value: number)
                 /**
                  * The suggested filename for the URI response.
                  * @default NULL
                  */
                 get suggestedFilename(): string
-                set suggestedFilename(value: string)
                 /**
                  * The URI for which the response was made.
                  * @default NULL
                  */
                 get uri(): string
-                set uri(value: string)
                 /**
                  * Get the expected content length of the #WebKitURIResponse.
                  *
@@ -6313,11 +6283,11 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, PermissionRequest.ReadWriteProperties {
-                    "is-for-audio-device": boolean
-                    "is-for-video-device": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PermissionRequest.ReadableProperties {
+                    "is-for-audio-device": boolean
+                    "is-for-video-device": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PermissionRequest.WritableProperties {
@@ -6338,14 +6308,12 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default FALSE
                  */
                 get isForAudioDevice(): boolean
-                set isForAudioDevice(value: boolean)
                 /**
                  * Whether the media device to which the permission was requested has a video capture capability or not.
                  * @since 2.8
                  * @default FALSE
                  */
                 get isForVideoDevice(): boolean
-                set isForVideoDevice(value: boolean)
             }
 
             interface UserMediaPermissionRequestClass extends Omit<GObject.ObjectClass, "new"> {
@@ -7231,12 +7199,12 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "attached-height": number
-                    "can-attach": boolean
-                    "inspected-uri": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "attached-height": number
+                    "can-attach": boolean
+                    "inspected-uri": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -7256,7 +7224,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 0
                  */
                 get attachedHeight(): number
-                set attachedHeight(value: number)
                 /**
                  * Whether the `inspector` can be attached to the same window that contains
                  * the inspected view.
@@ -7264,13 +7231,11 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default FALSE
                  */
                 get canAttach(): boolean
-                set canAttach(value: boolean)
                 /**
                  * The URI that is currently being inspected.
                  * @default NULL
                  */
                 get inspectedUri(): string
-                set inspectedUri(value: string)
                 /**
                  * Request `inspector` to be attached.
                  *
@@ -7417,11 +7382,11 @@ declare module "gi://WebKit2?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "response": URIResponse
-                    "uri": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "response": URIResponse
+                    "uri": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -7440,14 +7405,12 @@ declare module "gi://WebKit2?version=4.1" {
                  * The #WebKitURIResponse associated with this resource.
                  */
                 get response(): URIResponse
-                set response(value: URIResponse)
                 /**
                  * The current active URI of the #WebKitWebResource.
                  * See webkit_web_resource_get_uri() for more details.
                  * @default NULL
                  */
                 get uri(): string
-                set uri(value: string)
                 /**
                  * Asynchronously get the raw data for `resource`.
                  *
@@ -8050,26 +8013,26 @@ declare module "gi://WebKit2?version=4.1" {
                     "camera-capture-state": MediaCaptureState
                     "display-capture-state": MediaCaptureState
                     "editable": boolean
-                    "estimated-load-progress": number
-                    "favicon": never
-                    "is-immersive-mode-enabled": boolean
-                    "is-loading": boolean
                     "is-muted": boolean
-                    "is-playing-audio": boolean
-                    "is-web-process-responsive": boolean
                     "microphone-capture-state": MediaCaptureState
-                    "page-id": number
-                    "settings": Settings
-                    "theme-color": Gdk.RGBA
-                    "title": string
-                    "uri": string
                     "zoom-level": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, WebViewBase.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Gtk.Buildable.ReadableProperties {
+                    "estimated-load-progress": number
+                    "favicon": never
+                    "is-immersive-mode-enabled": boolean
+                    "is-loading": boolean
+                    "is-playing-audio": boolean
+                    "is-web-process-responsive": boolean
+                    "page-id": number
+                    "theme-color": Gdk.RGBA
+                    "title": string
+                    "uri": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, WebViewBase.WritableProperties, Atk.ImplementorIface.WritableProperties, Gtk.Buildable.WritableProperties {
+                    "settings": Settings
                 }
 
                 interface ConstructOnlyProperties extends WebViewBase.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Gtk.Buildable.ConstructOnlyProperties {
@@ -8169,13 +8132,11 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 0.000000
                  */
                 get estimatedLoadProgress(): number
-                set estimatedLoadProgress(value: number)
                 /**
                  * The favicon currently associated to the #WebKitWebView.
                  * See webkit_web_view_get_favicon() for more details.
                  */
                 get favicon(): never
-                set favicon(value: never)
                 /**
                  * Whether the #WebKitWebView is controlled by automation tools (e.g. WebDriver, Selenium). This is
                  * required for views returned as a response to #WebKitAutomationSession::create-web-view signal,
@@ -8216,7 +8177,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default FALSE
                  */
                 get isImmersiveModeEnabled(): boolean
-                set isImmersiveModeEnabled(value: boolean)
                 /**
                  * Whether the #WebKitWebView is currently loading a page. This property becomes
                  * %TRUE as soon as a new load operation is requested and before the
@@ -8227,7 +8187,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default FALSE
                  */
                 get isLoading(): boolean
-                set isLoading(value: boolean)
                 /**
                  * Whether the #WebKitWebView audio is muted. When %TRUE, audio is silenced.
                  * It may still be playing, i.e. #WebKitWebView:is-playing-audio may be %TRUE.
@@ -8245,14 +8204,12 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default FALSE
                  */
                 get isPlayingAudio(): boolean
-                set isPlayingAudio(value: boolean)
                 /**
                  * Whether the web process currently associated to the #WebKitWebView is responsive.
                  * @since 2.34
                  * @default TRUE
                  */
                 get isWebProcessResponsive(): boolean
-                set isWebProcessResponsive(value: boolean)
                 /**
                  * Capture state of the microphone device. Whenever the user grants a media-request sent by the web
                  * page, requesting audio capture capabilities (`navigator.mediaDevices.getUserMedia({audio:
@@ -8276,7 +8233,6 @@ declare module "gi://WebKit2?version=4.1" {
                  * @default 0
                  */
                 get pageId(): number
-                set pageId(value: number)
                 /**
                  * The related #WebKitWebView used when creating the view to share the
                  * same web process and network session. This property is not readable
@@ -8294,21 +8250,18 @@ declare module "gi://WebKit2?version=4.1" {
                  * @since 2.50
                  */
                 get themeColor(): Gdk.RGBA
-                set themeColor(value: Gdk.RGBA)
                 /**
                  * The main frame document title of this #WebKitWebView. If
                  * the title has not been received yet, it will be %NULL.
                  * @default NULL
                  */
                 get title(): string
-                set title(value: string)
                 /**
                  * The current active URI of the #WebKitWebView.
                  * See webkit_web_view_get_uri() for more details.
                  * @default NULL
                  */
                 get uri(): string
-                set uri(value: string)
                 /**
                  * The #WebKitUserContentManager of the view.
                  * @since 2.6

@@ -30,14 +30,14 @@ declare module "gi://Soup?version=3.0" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "authority": string
-                    "is-authenticated": boolean
-                    "is-cancelled": boolean
                     "is-for-proxy": boolean
                     "realm": string
-                    "scheme-name": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "is-authenticated": boolean
+                    "is-cancelled": boolean
+                    "scheme-name": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -63,13 +63,11 @@ declare module "gi://Soup?version=3.0" {
                  * @default FALSE
                  */
                 get isAuthenticated(): boolean
-                set isAuthenticated(value: boolean)
                 /**
                  * Whether or not the auth has been cancelled.
                  * @default FALSE
                  */
                 get isCancelled(): boolean
-                set isCancelled(value: boolean)
                 /**
                  * Whether or not the auth is for a proxy server.
                  * @default FALSE
@@ -87,7 +85,6 @@ declare module "gi://Soup?version=3.0" {
                  * @default NULL
                  */
                 get schemeName(): string
-                set schemeName(value: string)
                 /**
                  * Call this on an auth to authenticate it.
                  *
@@ -2159,25 +2156,25 @@ declare module "gi://Soup?version=3.0" {
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "first-party": GLib.Uri
                     "flags": MessageFlags
-                    "http-version": HTTPVersion
                     "is-options-ping": boolean
                     "is-top-level-navigation": boolean
                     "method": string
                     "priority": MessagePriority
+                    "site-for-cookies": GLib.Uri
+                    "uri": GLib.Uri
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "http-version": HTTPVersion
                     "reason-phrase": string | null
                     "remote-address": Gio.SocketAddress | null
                     "request-headers": MessageHeaders
                     "response-headers": MessageHeaders
-                    "site-for-cookies": GLib.Uri
                     "status-code": number
                     "tls-ciphersuite-name": string
                     "tls-peer-certificate": Gio.TlsCertificate | null
                     "tls-peer-certificate-errors": Gio.TlsCertificateFlags
                     "tls-protocol-version": Gio.TlsProtocolVersion
-                    "uri": GLib.Uri
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2209,7 +2206,6 @@ declare module "gi://Soup?version=3.0" {
                  * @default SOUP_HTTP_1_1
                  */
                 get httpVersion(): HTTPVersion
-                set httpVersion(value: HTTPVersion)
                 /**
                  * Whether the message is an OPTIONS ping.
                  *
@@ -2245,23 +2241,19 @@ declare module "gi://Soup?version=3.0" {
                  * @default NULL
                  */
                 get reasonPhrase(): string | null
-                set reasonPhrase(value: string | null)
                 /**
                  * The remote {@link Gio.SocketAddress} of the connection associated
                  * with the message.
                  */
                 get remoteAddress(): Gio.SocketAddress | null
-                set remoteAddress(value: Gio.SocketAddress | null)
                 /**
                  * The HTTP request headers.
                  */
                 get requestHeaders(): MessageHeaders
-                set requestHeaders(value: MessageHeaders)
                 /**
                  * The HTTP response headers.
                  */
                 get responseHeaders(): MessageHeaders
-                set responseHeaders(value: MessageHeaders)
                 /**
                  * Site used to compare cookies against. Used for SameSite cookie support.
                  */
@@ -2272,30 +2264,25 @@ declare module "gi://Soup?version=3.0" {
                  * @default 0
                  */
                 get statusCode(): number
-                set statusCode(value: number)
                 /**
                  * The Name of TLS ciphersuite negotiated for this message connection.
                  * @default NULL
                  */
                 get tlsCiphersuiteName(): string
-                set tlsCiphersuiteName(value: string)
                 /**
                  * The peer's {@link Gio.TlsCertificate} associated with the message.
                  */
                 get tlsPeerCertificate(): Gio.TlsCertificate | null
-                set tlsPeerCertificate(value: Gio.TlsCertificate | null)
                 /**
                  * The verification errors on {@link Message.tlsPeerCertificate}.
                  * @default G_TLS_CERTIFICATE_NO_FLAGS
                  */
                 get tlsPeerCertificateErrors(): Gio.TlsCertificateFlags
-                set tlsPeerCertificateErrors(value: Gio.TlsCertificateFlags)
                 /**
                  * The TLS protocol version negotiated for the message connection.
                  * @default G_TLS_PROTOCOL_VERSION_UNKNOWN
                  */
                 get tlsProtocolVersion(): Gio.TlsProtocolVersion
-                set tlsProtocolVersion(value: Gio.TlsProtocolVersion)
                 /**
                  * The message's Request-URI.
                  */
@@ -3453,11 +3440,11 @@ declare module "gi://Soup?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "tls-peer-certificate": Gio.TlsCertificate | null
-                    "tls-peer-certificate-errors": Gio.TlsCertificateFlags
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "tls-peer-certificate": Gio.TlsCertificate | null
+                    "tls-peer-certificate-errors": Gio.TlsCertificateFlags
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3477,14 +3464,12 @@ declare module "gi://Soup?version=3.0" {
                  * @since 3.2
                  */
                 get tlsPeerCertificate(): Gio.TlsCertificate | null
-                set tlsPeerCertificate(value: Gio.TlsCertificate | null)
                 /**
                  * The verification errors on {@link ServerMessage.tlsPeerCertificate}
                  * @since 3.2
                  * @default G_TLS_CERTIFICATE_NO_FLAGS
                  */
                 get tlsPeerCertificateErrors(): Gio.TlsCertificateFlags
-                set tlsPeerCertificateErrors(value: Gio.TlsCertificateFlags)
                 /**
                  * Get the HTTP version of `msg`.
                  * @returns a #SoupHTTPVersion.
@@ -4405,10 +4390,10 @@ declare module "gi://Soup?version=3.0" {
                     "keepalive-pong-timeout": number
                     "max-incoming-payload-size": number
                     "max-total-message-size": number
-                    "state": WebsocketState
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "state": WebsocketState
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -4515,7 +4500,6 @@ declare module "gi://Soup?version=3.0" {
                  * @default SOUP_WEBSOCKET_STATE_OPEN
                  */
                 get state(): WebsocketState
-                set state(value: WebsocketState)
                 /**
                  * The URI of the WebSocket.
                  *

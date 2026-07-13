@@ -323,11 +323,11 @@ declare module "gi://GCab?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "compression": Compression
                     "reserved": Uint8Array
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "compression": Compression
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -347,7 +347,6 @@ declare module "gi://GCab?version=1.0" {
                  * @default GCAB_COMPRESSION_NONE
                  */
                 get compression(): Compression
-                set compression(value: Compression)
                 /**
                  * @default 0
                  */

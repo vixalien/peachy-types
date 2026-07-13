@@ -46,14 +46,14 @@ declare module "gi://GstMse?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "active-source-buffers": SourceBufferList
                     "duration": number
                     "position": number
-                    "ready-state": MediaSourceReadyState
-                    "source-buffers": SourceBufferList
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "active-source-buffers": SourceBufferList
+                    "ready-state": MediaSourceReadyState
+                    "source-buffers": SourceBufferList
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -76,7 +76,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @since 1.24
                  */
                 get activeSourceBuffers(): SourceBufferList
-                set activeSourceBuffers(value: SourceBufferList)
                 /**
                  * The Duration of the Media Source as a #GstClockTime
                  *
@@ -101,7 +100,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @default GST_MEDIA_SOURCE_READY_STATE_CLOSED
                  */
                 get readyState(): MediaSourceReadyState
-                set readyState(value: MediaSourceReadyState)
                 /**
                  * A #GstSourceBufferList of every #GstSourceBuffer in this Media Source
                  *
@@ -109,7 +107,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @since 1.24
                  */
                 get sourceBuffers(): SourceBufferList
-                set sourceBuffers(value: SourceBufferList)
                 /**
                  * Add a #GstSourceBuffer to this #GstMediaSource of the specified media type.
                  * The Media Source must be in the #GstMediaSourceReadyState %GST_MEDIA_SOURCE_READY_STATE_OPEN.
@@ -302,14 +299,14 @@ declare module "gi://GstMse?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Element.ReadWriteProperties, Gst.URIHandler.ReadWriteProperties {
                     "duration": number
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties, Gst.URIHandler.ReadableProperties {
                     "n-audio": number
                     "n-text": number
                     "n-video": number
                     "position": number
                     "ready-state": MseSrcReadyState
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties, Gst.URIHandler.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties, Gst.URIHandler.WritableProperties {
@@ -339,21 +336,18 @@ declare module "gi://GstMse?version=1.0" {
                  * @default 0
                  */
                 get nAudio(): number
-                set nAudio(value: number)
                 /**
                  * The number of text tracks in the Media Source
                  * @since 1.24
                  * @default 0
                  */
                 get nText(): number
-                set nText(value: number)
                 /**
                  * The number of video tracks in the Media Source
                  * @since 1.24
                  * @default 0
                  */
                 get nVideo(): number
-                set nVideo(value: number)
                 /**
                  * The playback position as a #GstClockTime
                  *
@@ -362,7 +356,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @default 0
                  */
                 get position(): number
-                set position(value: number)
                 /**
                  * The Ready State of this element, describing to what level it can supply
                  * content for the current #GstMseSrc:position. This is a separate concept
@@ -374,7 +367,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @default GST_MSE_SRC_READY_STATE_HAVE_NOTHING
                  */
                 get readyState(): MseSrcReadyState
-                set readyState(value: MseSrcReadyState)
                 /**
                  * Gets the duration of `self`.
                  *
@@ -529,15 +521,15 @@ declare module "gi://GstMse?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
                     "append-mode": SourceBufferAppendMode
-                    "append-window-end": number
-                    "append-window-start": number
-                    "buffered": never[]
                     "content-type": string
                     "timestamp-offset": number
-                    "updating": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "append-window-end": number
+                    "append-window-start": number
+                    "buffered": never[]
+                    "updating": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -576,7 +568,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @default 18446744073709551615
                  */
                 get appendWindowEnd(): number
-                set appendWindowEnd(value: number)
                 /**
                  * Any segments processed which end before this value will be ignored by this
                  * Source Buffer.
@@ -586,7 +577,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @default 0
                  */
                 get appendWindowStart(): number
-                set appendWindowStart(value: number)
                 /**
                  * The set of Time Intervals that have been loaded into the current Source
                  * Buffer
@@ -595,7 +585,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @since 1.24
                  */
                 get buffered(): never[]
-                set buffered(value: never[])
                 /**
                  * The MIME content-type of the data stream
                  * @since 1.24
@@ -622,7 +611,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @default FALSE
                  */
                 get updating(): boolean
-                set updating(value: boolean)
                 /**
                  * Attempts to end any processing of the currently pending data and reset the
                  * media parser.
@@ -826,10 +814,10 @@ declare module "gi://GstMse?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -852,7 +840,6 @@ declare module "gi://GstMse?version=1.0" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * [Specification](https://www.w3.org/TR/media-source-2/#dom-sourcebufferlist-length)
                  * @since 1.24

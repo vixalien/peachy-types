@@ -395,16 +395,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
+                    "value": string
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                     "local-name": string
                     "name": string
                     "namespace-uri": string
                     "owner-element": DOMElement
                     "prefix": string
                     "specified": boolean
-                    "value": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
@@ -421,24 +421,18 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMAttr.ConstructOnlyProperties
                 
                 get localName(): string
-                set localName(value: string)
                 
                 get name(): string
-                set name(value: string)
                 
                 get namespaceUri(): string
-                set namespaceUri(value: string)
                 
                 get ownerElement(): DOMElement
-                set ownerElement(value: DOMElement)
                 
                 get prefix(): string
-                set prefix(value: string)
                 /**
                  * @default FALSE
                  */
                 get specified(): boolean
-                set specified(value: boolean)
                 
                 get value(): string
                 set value(value: string)
@@ -506,10 +500,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "size": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "size": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -528,7 +522,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get size(): number
-                set size(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #guint64
@@ -592,12 +585,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "css-text": string
-                    "parent-rule": DOMCSSRule
-                    "parent-style-sheet": DOMCSSStyleSheet
-                    "type": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "parent-rule": DOMCSSRule
+                    "parent-style-sheet": DOMCSSStyleSheet
+                    "type": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -617,15 +610,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set cssText(value: string)
                 
                 get parentRule(): DOMCSSRule
-                set parentRule(value: DOMCSSRule)
                 
                 get parentStyleSheet(): DOMCSSStyleSheet
-                set parentStyleSheet(value: DOMCSSStyleSheet)
                 /**
                  * @default 0
                  */
                 get type(): number
-                set type(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -672,10 +662,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -694,7 +684,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gulong
@@ -727,11 +716,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "css-text": string
-                    "length": number
-                    "parent-rule": DOMCSSRule
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
+                    "parent-rule": DOMCSSRule
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -753,10 +742,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 
                 get parentRule(): DOMCSSRule
-                set parentRule(value: DOMCSSRule)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -843,12 +830,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMStyleSheet.ReadWriteProperties {
-                    "css-rules": DOMCSSRuleList
-                    "owner-rule": DOMCSSRule
-                    "rules": DOMCSSRuleList
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMStyleSheet.ReadableProperties {
+                    "css-rules": DOMCSSRuleList
+                    "owner-rule": DOMCSSRule
+                    "rules": DOMCSSRuleList
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMStyleSheet.WritableProperties {
@@ -865,13 +852,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMCSSStyleSheet.ConstructOnlyProperties
                 
                 get cssRules(): DOMCSSRuleList
-                set cssRules(value: DOMCSSRuleList)
                 
                 get ownerRule(): DOMCSSRule
-                set ownerRule(value: DOMCSSRule)
                 
                 get rules(): DOMCSSRuleList
-                set rules(value: DOMCSSRuleList)
                 /**
                  * @throws {GLib.Error}
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -937,10 +921,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "css-text": string
-                    "css-value-type": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "css-value-type": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -962,7 +946,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get cssValueType(): number
-                set cssValueType(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -1000,10 +983,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
 
                 interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "data": string
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
@@ -1025,7 +1008,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * @throws {GLib.Error}
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -1098,15 +1080,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                     "bottom": number
                     "height": number
                     "left": number
                     "right": number
                     "top": number
                     "width": number
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -1125,32 +1107,26 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0.000000
                  */
                 get bottom(): number
-                set bottom(value: number)
                 /**
                  * @default 0.000000
                  */
                 get height(): number
-                set height(value: number)
                 /**
                  * @default 0.000000
                  */
                 get left(): number
-                set left(value: number)
                 /**
                  * @default 0.000000
                  */
                 get right(): number
-                set right(value: number)
                 /**
                  * @default 0.000000
                  */
                 get top(): number
-                set top(value: number)
                 /**
                  * @default 0.000000
                  */
                 get width(): number
-                set width(value: number)
                 /**
                  * Returns the bottom coordinate of `self`, relative to the viewport.
                  * @since 2.18
@@ -1213,10 +1189,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -1235,7 +1211,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * Returns the number of #WebKitDOMClientRect objects that `self` contains.
                  * @since 2.18
@@ -1384,6 +1359,9 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                     "anchor-node": DOMNode
                     "anchor-offset": number
                     "base-node": DOMNode
@@ -1395,9 +1373,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "is-collapsed": boolean
                     "range-count": number
                     "type": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -1414,49 +1389,38 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMDOMSelection.ConstructOnlyProperties
                 
                 get anchorNode(): DOMNode
-                set anchorNode(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get anchorOffset(): number
-                set anchorOffset(value: number)
                 
                 get baseNode(): DOMNode
-                set baseNode(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get baseOffset(): number
-                set baseOffset(value: number)
                 
                 get extentNode(): DOMNode
-                set extentNode(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get extentOffset(): number
-                set extentOffset(value: number)
                 
                 get focusNode(): DOMNode
-                set focusNode(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get focusOffset(): number
-                set focusOffset(value: number)
                 /**
                  * @default FALSE
                  */
                 get isCollapsed(): boolean
-                set isCollapsed(value: boolean)
                 /**
                  * @default 0
                  */
                 get rangeCount(): number
-                set rangeCount(value: number)
                 
                 get type(): string
-                set type(value: string)
                 /**
                  * @since 2.16
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -1637,11 +1601,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                     "value": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -1660,7 +1624,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 
                 get value(): string
                 set value(value: string)
@@ -1733,8 +1696,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
-                    "closed": boolean
                     "default-status": string
+                    "name": string
+                    "status": string
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "closed": boolean
                     "device-pixel-ratio": number
                     "document": DOMDocument
                     "frame-element": DOMElement
@@ -1742,7 +1710,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "inner-height": number
                     "inner-width": number
                     "length": number
-                    "name": string
                     "offscreen-buffering": boolean
                     "opener": DOMDOMWindow
                     "orientation": number
@@ -1758,12 +1725,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "scroll-x": number
                     "scroll-y": number
                     "self": DOMDOMWindow
-                    "status": string
                     "top": DOMDOMWindow
                     "window": DOMDOMWindow
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties, DOMEventTarget.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties, DOMEventTarget.WritableProperties {
@@ -1782,7 +1745,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get closed(): boolean
-                set closed(value: boolean)
                 
                 get defaultStatus(): string
                 set defaultStatus(value: string)
@@ -1790,31 +1752,24 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0.000000
                  */
                 get devicePixelRatio(): number
-                set devicePixelRatio(value: number)
                 
                 get document(): DOMDocument
-                set document(value: DOMDocument)
                 
                 get frameElement(): DOMElement
-                set frameElement(value: DOMElement)
                 
                 get frames(): DOMDOMWindow
-                set frames(value: DOMDOMWindow)
                 /**
                  * @default 0
                  */
                 get innerHeight(): number
-                set innerHeight(value: number)
                 /**
                  * @default 0
                  */
                 get innerWidth(): number
-                set innerWidth(value: number)
                 /**
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 
                 get name(): string
                 set name(value: string)
@@ -1822,80 +1777,63 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get offscreenBuffering(): boolean
-                set offscreenBuffering(value: boolean)
                 
                 get opener(): DOMDOMWindow
-                set opener(value: DOMDOMWindow)
                 /**
                  * @default 0
                  */
                 get orientation(): number
-                set orientation(value: number)
                 /**
                  * @default 0
                  */
                 get outerHeight(): number
-                set outerHeight(value: number)
                 /**
                  * @default 0
                  */
                 get outerWidth(): number
-                set outerWidth(value: number)
                 /**
                  * @default 0
                  */
                 get pageXOffset(): number
-                set pageXOffset(value: number)
                 /**
                  * @default 0
                  */
                 get pageYOffset(): number
-                set pageYOffset(value: number)
                 
                 get parent(): DOMDOMWindow
-                set parent(value: DOMDOMWindow)
                 /**
                  * @default 0
                  */
                 get screenLeft(): number
-                set screenLeft(value: number)
                 /**
                  * @default 0
                  */
                 get screenTop(): number
-                set screenTop(value: number)
                 /**
                  * @default 0
                  */
                 get screenX(): number
-                set screenX(value: number)
                 /**
                  * @default 0
                  */
                 get screenY(): number
-                set screenY(value: number)
                 /**
                  * @default 0
                  */
                 get scrollX(): number
-                set scrollX(value: number)
                 /**
                  * @default 0
                  */
                 get scrollY(): number
-                set scrollY(value: number)
                 
                 get self(): DOMDOMWindow
-                set self(value: DOMDOMWindow)
                 
                 get status(): string
                 set status(value: string)
                 
                 get top(): DOMDOMWindow
-                set top(value: DOMDOMWindow)
                 
                 get window(): DOMDOMWindow
-                set window(value: DOMDOMWindow)
                 /**
                  * @since 2.16
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -2232,24 +2170,31 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
+                    "charset": string
+                    "cookie": string
+                    "design-mode": string
+                    "dir": string
+                    "document-uri": string
+                    "selected-stylesheet-set": string
+                    "title": string
+                    "xml-standalone": boolean
+                    "xml-version": string
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                     "active-element": DOMElement
                     "anchors": DOMHTMLCollection
                     "applets": DOMHTMLCollection
                     "body": DOMHTMLElement
                     "character-set": string
-                    "charset": string
                     "child-element-count": number
                     "children": DOMHTMLCollection
                     "compat-mode": string
                     "content-type": string
-                    "cookie": string
                     "current-script": DOMHTMLScriptElement
                     "default-view": DOMDOMWindow
-                    "design-mode": string
-                    "dir": string
                     "doctype": DOMDocumentType
                     "document-element": DOMElement
-                    "document-uri": string
                     "domain": string
                     "embeds": DOMHTMLCollection
                     "first-element-child": DOMElement
@@ -2270,9 +2215,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "referrer": string
                     "scripts": DOMHTMLCollection
                     "scrolling-element": DOMElement
-                    "selected-stylesheet-set": string
                     "style-sheets": DOMStyleSheetList
-                    "title": string
                     "url": string
                     "visibility-state": string
                     "webkit-current-full-screen-element": DOMElement
@@ -2281,11 +2224,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "webkit-fullscreen-enabled": boolean
                     "webkit-is-full-screen": boolean
                     "xml-encoding": string
-                    "xml-standalone": boolean
-                    "xml-version": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
@@ -2302,19 +2240,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMDocument.ConstructOnlyProperties
                 
                 get activeElement(): DOMElement
-                set activeElement(value: DOMElement)
                 
                 get anchors(): DOMHTMLCollection
-                set anchors(value: DOMHTMLCollection)
                 
                 get applets(): DOMHTMLCollection
-                set applets(value: DOMHTMLCollection)
                 
                 get body(): DOMHTMLElement
-                set body(value: DOMHTMLElement)
                 
                 get characterSet(): string
-                set characterSet(value: string)
                 
                 get charset(): string
                 set charset(value: string)
@@ -2322,25 +2255,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get childElementCount(): number
-                set childElementCount(value: number)
                 
                 get children(): DOMHTMLCollection
-                set children(value: DOMHTMLCollection)
                 
                 get compatMode(): string
-                set compatMode(value: string)
                 
                 get contentType(): string
-                set contentType(value: string)
                 
                 get cookie(): string
                 set cookie(value: string)
                 
                 get currentScript(): DOMHTMLScriptElement
-                set currentScript(value: DOMHTMLScriptElement)
                 
                 get defaultView(): DOMDOMWindow
-                set defaultView(value: DOMDOMWindow)
                 
                 get designMode(): string
                 set designMode(value: string)
@@ -2349,114 +2276,83 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set dir(value: string)
                 
                 get doctype(): DOMDocumentType
-                set doctype(value: DOMDocumentType)
                 
                 get documentElement(): DOMElement
-                set documentElement(value: DOMElement)
                 
                 get documentUri(): string
                 set documentUri(value: string)
                 
                 get domain(): string
-                set domain(value: string)
                 
                 get embeds(): DOMHTMLCollection
-                set embeds(value: DOMHTMLCollection)
                 
                 get firstElementChild(): DOMElement
-                set firstElementChild(value: DOMElement)
                 
                 get forms(): DOMHTMLCollection
-                set forms(value: DOMHTMLCollection)
                 
                 get head(): DOMHTMLHeadElement
-                set head(value: DOMHTMLHeadElement)
                 /**
                  * @default FALSE
                  */
                 get hidden(): boolean
-                set hidden(value: boolean)
                 
                 get images(): DOMHTMLCollection
-                set images(value: DOMHTMLCollection)
                 
                 get implementation(): DOMDOMImplementation
-                set implementation(value: DOMDOMImplementation)
                 
                 get inputEncoding(): string
-                set inputEncoding(value: string)
                 
                 get lastElementChild(): DOMElement
-                set lastElementChild(value: DOMElement)
                 
                 get lastModified(): string
-                set lastModified(value: string)
                 
                 get links(): DOMHTMLCollection
-                set links(value: DOMHTMLCollection)
                 
                 get origin(): string
-                set origin(value: string)
                 
                 get plugins(): DOMHTMLCollection
-                set plugins(value: DOMHTMLCollection)
                 
                 get pointerLockElement(): DOMElement
-                set pointerLockElement(value: DOMElement)
                 
                 get preferredStylesheetSet(): string
-                set preferredStylesheetSet(value: string)
                 
                 get readyState(): string
-                set readyState(value: string)
                 
                 get referrer(): string
-                set referrer(value: string)
                 
                 get scripts(): DOMHTMLCollection
-                set scripts(value: DOMHTMLCollection)
                 
                 get scrollingElement(): DOMElement
-                set scrollingElement(value: DOMElement)
                 
                 get selectedStylesheetSet(): string
                 set selectedStylesheetSet(value: string)
                 
                 get styleSheets(): DOMStyleSheetList
-                set styleSheets(value: DOMStyleSheetList)
                 
                 get title(): string
                 set title(value: string)
                 
                 get url(): string
-                set url(value: string)
                 
                 get visibilityState(): string
-                set visibilityState(value: string)
                 
                 get webkitCurrentFullScreenElement(): DOMElement
-                set webkitCurrentFullScreenElement(value: DOMElement)
                 /**
                  * @default FALSE
                  */
                 get webkitFullScreenKeyboardInputAllowed(): boolean
-                set webkitFullScreenKeyboardInputAllowed(value: boolean)
                 
                 get webkitFullscreenElement(): DOMElement
-                set webkitFullscreenElement(value: DOMElement)
                 /**
                  * @default FALSE
                  */
                 get webkitFullscreenEnabled(): boolean
-                set webkitFullscreenEnabled(value: boolean)
                 /**
                  * @default FALSE
                  */
                 get webkitIsFullScreen(): boolean
-                set webkitIsFullScreen(value: boolean)
                 
                 get xmlEncoding(): string
-                set xmlEncoding(value: string)
                 /**
                  * @default FALSE
                  */
@@ -3121,13 +3017,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                     "child-element-count": number
                     "children": DOMHTMLCollection
                     "first-element-child": DOMElement
                     "last-element-child": DOMElement
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
@@ -3146,16 +3042,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get childElementCount(): number
-                set childElementCount(value: number)
                 
                 get children(): DOMHTMLCollection
-                set children(value: DOMHTMLCollection)
                 
                 get firstElementChild(): DOMElement
-                set firstElementChild(value: DOMElement)
                 
                 get lastElementChild(): DOMElement
-                set lastElementChild(value: DOMElement)
                 /**
                  * @since 2.16
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -3223,15 +3115,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                     "entities": DOMNamedNodeMap
                     "internal-subset": string
                     "name": string
                     "notations": DOMNamedNodeMap
                     "public-id": string
                     "system-id": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
@@ -3248,22 +3140,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMDocumentType.ConstructOnlyProperties
                 
                 get entities(): DOMNamedNodeMap
-                set entities(value: DOMNamedNodeMap)
                 
                 get internalSubset(): string
-                set internalSubset(value: string)
                 
                 get name(): string
-                set name(value: string)
                 
                 get notations(): DOMNamedNodeMap
-                set notations(value: DOMNamedNodeMap)
                 
                 get publicId(): string
-                set publicId(value: string)
                 
                 get systemId(): string
-                set systemId(value: string)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #WebKitDOMNamedNodeMap
@@ -3314,18 +3200,24 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMNode.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
+                    "class-name": string
+                    "id": string
+                    "inner-html": string
+                    "outer-html": string
+                    "scroll-left": number
+                    "scroll-top": number
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                     "attributes": DOMNamedNodeMap
                     "child-element-count": number
                     "children": DOMHTMLCollection
                     "class-list": DOMDOMTokenList
-                    "class-name": string
                     "client-height": number
                     "client-left": number
                     "client-top": number
                     "client-width": number
                     "first-element-child": DOMElement
-                    "id": string
-                    "inner-html": string
                     "last-element-child": DOMElement
                     "local-name": string
                     "namespace-uri": string
@@ -3335,19 +3227,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "offset-parent": DOMElement
                     "offset-top": number
                     "offset-width": number
-                    "outer-html": string
                     "prefix": string
                     "previous-element-sibling": DOMElement
                     "scroll-height": number
-                    "scroll-left": number
-                    "scroll-top": number
                     "scroll-width": number
                     "style": DOMCSSStyleDeclaration
                     "tag-name": string
                     "webkit-region-overset": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMNode.ReadableProperties, DOMEventTarget.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMNode.WritableProperties, DOMEventTarget.WritableProperties {
@@ -3364,18 +3250,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMElement.ConstructOnlyProperties
                 
                 get attributes(): DOMNamedNodeMap
-                set attributes(value: DOMNamedNodeMap)
                 /**
                  * @default 0
                  */
                 get childElementCount(): number
-                set childElementCount(value: number)
                 
                 get children(): DOMHTMLCollection
-                set children(value: DOMHTMLCollection)
                 
                 get classList(): DOMDOMTokenList
-                set classList(value: DOMDOMTokenList)
                 
                 get className(): string
                 set className(value: string)
@@ -3383,25 +3265,20 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0.000000
                  */
                 get clientHeight(): number
-                set clientHeight(value: number)
                 /**
                  * @default 0.000000
                  */
                 get clientLeft(): number
-                set clientLeft(value: number)
                 /**
                  * @default 0.000000
                  */
                 get clientTop(): number
-                set clientTop(value: number)
                 /**
                  * @default 0.000000
                  */
                 get clientWidth(): number
-                set clientWidth(value: number)
                 
                 get firstElementChild(): DOMElement
-                set firstElementChild(value: DOMElement)
                 
                 get id(): string
                 set id(value: string)
@@ -3410,53 +3287,41 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set innerHtml(value: string)
                 
                 get lastElementChild(): DOMElement
-                set lastElementChild(value: DOMElement)
                 
                 get localName(): string
-                set localName(value: string)
                 
                 get namespaceUri(): string
-                set namespaceUri(value: string)
                 
                 get nextElementSibling(): DOMElement
-                set nextElementSibling(value: DOMElement)
                 /**
                  * @default 0.000000
                  */
                 get offsetHeight(): number
-                set offsetHeight(value: number)
                 /**
                  * @default 0.000000
                  */
                 get offsetLeft(): number
-                set offsetLeft(value: number)
                 
                 get offsetParent(): DOMElement
-                set offsetParent(value: DOMElement)
                 /**
                  * @default 0.000000
                  */
                 get offsetTop(): number
-                set offsetTop(value: number)
                 /**
                  * @default 0.000000
                  */
                 get offsetWidth(): number
-                set offsetWidth(value: number)
                 
                 get outerHtml(): string
                 set outerHtml(value: string)
                 
                 get prefix(): string
-                set prefix(value: string)
                 
                 get previousElementSibling(): DOMElement
-                set previousElementSibling(value: DOMElement)
                 /**
                  * @default 0
                  */
                 get scrollHeight(): number
-                set scrollHeight(value: number)
                 /**
                  * @default 0
                  */
@@ -3471,16 +3336,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get scrollWidth(): number
-                set scrollWidth(value: number)
                 
                 get style(): DOMCSSStyleDeclaration
-                set style(value: DOMCSSStyleDeclaration)
                 
                 get tagName(): string
-                set tagName(value: string)
                 
                 get webkitRegionOverset(): string
-                set webkitRegionOverset(value: string)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  */
@@ -4021,19 +3882,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "bubbles": boolean
                     "cancel-bubble": boolean
+                    "return-value": boolean
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "bubbles": boolean
                     "cancelable": boolean
                     "current-target": DOMEventTarget
                     "event-phase": number
-                    "return-value": boolean
                     "src-element": DOMEventTarget
                     "target": DOMEventTarget
                     "time-stamp": number
                     "type": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -4052,7 +3913,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get bubbles(): boolean
-                set bubbles(value: boolean)
                 /**
                  * @default FALSE
                  */
@@ -4062,15 +3922,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get cancelable(): boolean
-                set cancelable(value: boolean)
                 
                 get currentTarget(): DOMEventTarget
-                set currentTarget(value: DOMEventTarget)
                 /**
                  * @default 0
                  */
                 get eventPhase(): number
-                set eventPhase(value: number)
                 /**
                  * @default FALSE
                  */
@@ -4078,18 +3935,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set returnValue(value: boolean)
                 
                 get srcElement(): DOMEventTarget
-                set srcElement(value: DOMEventTarget)
                 
                 get target(): DOMEventTarget
-                set target(value: DOMEventTarget)
                 /**
                  * @default 0
                  */
                 get timeStamp(): number
-                set timeStamp(value: number)
                 
                 get type(): string
-                set type(value: string)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gboolean
@@ -4185,10 +4038,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMBlob.ReadWriteProperties {
-                    "name": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMBlob.ReadableProperties {
+                    "name": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMBlob.WritableProperties {
@@ -4205,7 +4058,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMFile.ConstructOnlyProperties
                 
                 get name(): string
-                set name(value: string)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -4231,10 +4083,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -4253,7 +4105,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gulong
@@ -5309,14 +5160,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "autofocus": boolean
                     "disabled": boolean
-                    "form": DOMHTMLFormElement
                     "name": string
                     "type": string
                     "value": string
-                    "will-validate": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "form": DOMHTMLFormElement
+                    "will-validate": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -5343,7 +5194,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set disabled(value: boolean)
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 
                 get name(): string
                 set name(value: string)
@@ -5357,7 +5207,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get willValidate(): boolean
-                set willValidate(value: boolean)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gboolean
@@ -5507,10 +5356,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -5529,7 +5378,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gulong
@@ -5728,13 +5576,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "bg-color": string
                     "dir": string
                     "fg-color": string
-                    "height": number
                     "link-color": string
                     "vlink-color": string
-                    "width": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMDocument.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "height": number
+                    "width": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMDocument.WritableProperties, DOMEventTarget.WritableProperties {
@@ -5765,7 +5613,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get height(): number
-                set height(value: number)
                 
                 get linkColor(): string
                 set linkColor(value: string)
@@ -5776,7 +5623,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get width(): number
-                set width(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  */
@@ -5919,7 +5765,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "draggable": boolean
                     "hidden": boolean
                     "inner-text": string
-                    "is-content-editable": boolean
                     "lang": string
                     "outer-text": string
                     "spellcheck": boolean
@@ -5930,6 +5775,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "is-content-editable": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -5970,7 +5816,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get isContentEditable(): boolean
-                set isContentEditable(value: boolean)
                 
                 get lang(): string
                 set lang(value: string)
@@ -6322,10 +6167,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
-                    "form": DOMHTMLFormElement
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "form": DOMHTMLFormElement
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -6342,7 +6187,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMHTMLFieldSetElement.ConstructOnlyProperties
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #WebKitDOMHTMLFormElement
@@ -6449,16 +6293,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "accept-charset": string
                     "action": string
-                    "elements": DOMHTMLCollection
                     "encoding": string
                     "enctype": string
-                    "length": number
                     "method": string
                     "name": string
                     "target": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "elements": DOMHTMLCollection
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -6481,7 +6325,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set action(value: string)
                 
                 get elements(): DOMHTMLCollection
-                set elements(value: DOMHTMLCollection)
                 
                 get encoding(): string
                 set encoding(value: string)
@@ -6492,7 +6335,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 
                 get method(): string
                 set method(value: string)
@@ -6610,10 +6452,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
-                    "content-document": DOMDocument
-                    "content-window": DOMDOMWindow
                     "frame-border": string
-                    "height": number
                     "long-desc": string
                     "margin-height": string
                     "margin-width": string
@@ -6621,10 +6460,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "no-resize": boolean
                     "scrolling": string
                     "src": string
-                    "width": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "content-document": DOMDocument
+                    "content-window": DOMDOMWindow
+                    "height": number
+                    "width": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -6641,10 +6483,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMHTMLFrameElement.ConstructOnlyProperties
                 
                 get contentDocument(): DOMDocument
-                set contentDocument(value: DOMDocument)
                 
                 get contentWindow(): DOMDOMWindow
-                set contentWindow(value: DOMDOMWindow)
                 
                 get frameBorder(): string
                 set frameBorder(value: string)
@@ -6652,7 +6492,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get height(): number
-                set height(value: number)
                 
                 get longDesc(): string
                 set longDesc(value: string)
@@ -6680,7 +6519,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get width(): number
-                set width(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #WebKitDOMDocument
@@ -7115,8 +6953,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
 
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
-                    "content-document": DOMDocument
-                    "content-window": DOMDOMWindow
                     "frame-border": string
                     "height": string
                     "long-desc": string
@@ -7129,6 +6965,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "content-document": DOMDocument
+                    "content-window": DOMDOMWindow
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -7148,10 +6986,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set align(value: string)
                 
                 get contentDocument(): DOMDocument
-                set contentDocument(value: DOMDocument)
                 
                 get contentWindow(): DOMDOMWindow
-                set contentWindow(value: DOMDOMWindow)
                 
                 get frameBorder(): string
                 set frameBorder(value: string)
@@ -7312,24 +7148,24 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "align": string
                     "alt": string
                     "border": string
-                    "complete": boolean
                     "height": number
                     "hspace": number
                     "is-map": boolean
                     "long-desc": string
                     "lowsrc": string
                     "name": string
-                    "natural-height": number
-                    "natural-width": number
                     "src": string
                     "use-map": string
                     "vspace": number
                     "width": number
-                    "x": number
-                    "y": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "complete": boolean
+                    "natural-height": number
+                    "natural-width": number
+                    "x": number
+                    "y": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -7357,7 +7193,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get complete(): boolean
-                set complete(value: boolean)
                 /**
                  * @default 0
                  */
@@ -7386,12 +7221,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get naturalHeight(): number
-                set naturalHeight(value: number)
                 /**
                  * @default 0
                  */
                 get naturalWidth(): number
-                set naturalWidth(value: number)
                 
                 get src(): string
                 set src(value: string)
@@ -7412,12 +7245,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get x(): number
-                set x(value: number)
                 /**
                  * @default 0
                  */
                 get y(): number
-                set y(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -7602,8 +7433,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "default-checked": boolean
                     "default-value": string
                     "disabled": boolean
-                    "files": DOMFileList
-                    "form": DOMHTMLFormElement
                     "height": number
                     "indeterminate": boolean
                     "max-length": number
@@ -7616,10 +7445,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "use-map": string
                     "value": string
                     "width": number
-                    "will-validate": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "files": DOMFileList
+                    "form": DOMHTMLFormElement
+                    "will-validate": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -7671,10 +7502,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set disabled(value: boolean)
                 
                 get files(): DOMFileList
-                set files(value: DOMFileList)
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 /**
                  * @default 0
                  */
@@ -7729,7 +7558,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get willValidate(): boolean
-                set willValidate(value: boolean)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -8085,11 +7913,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
-                    "form": DOMHTMLFormElement
                     "html-for": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "form": DOMHTMLFormElement
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -8106,7 +7934,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMHTMLLabelElement.ConstructOnlyProperties
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 
                 get htmlFor(): string
                 set htmlFor(value: string)
@@ -8146,10 +7973,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
 
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
-                    "form": DOMHTMLFormElement
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "form": DOMHTMLFormElement
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -8169,7 +7996,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set align(value: string)
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -8212,13 +8038,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "media": string
                     "rel": string
                     "rev": string
-                    "sheet": DOMStyleSheet
-                    "sizes": DOMDOMTokenList
                     "target": string
                     "type": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "sheet": DOMStyleSheet
+                    "sizes": DOMDOMTokenList
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -8258,10 +8084,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set rev(value: string)
                 
                 get sheet(): DOMStyleSheet
-                set sheet(value: DOMStyleSheet)
                 
                 get sizes(): DOMDOMTokenList
-                set sizes(value: DOMDOMTokenList)
                 
                 get target(): string
                 set target(value: string)
@@ -8395,11 +8219,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
-                    "areas": DOMHTMLCollection
                     "name": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "areas": DOMHTMLCollection
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -8416,7 +8240,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMHTMLMapElement.ConstructOnlyProperties
                 
                 get areas(): DOMHTMLCollection
-                set areas(value: DOMHTMLCollection)
                 
                 get name(): string
                 set name(value: string)
@@ -8800,10 +8623,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "code": string
                     "code-base": string
                     "code-type": string
-                    "content-document": DOMDocument
                     "data": string
                     "declare": boolean
-                    "form": DOMHTMLFormElement
                     "height": string
                     "hspace": number
                     "name": string
@@ -8815,6 +8636,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "content-document": DOMDocument
+                    "form": DOMHTMLFormElement
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -8849,7 +8672,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set codeType(value: string)
                 
                 get contentDocument(): DOMDocument
-                set contentDocument(value: DOMDocument)
                 
                 get data(): string
                 set data(value: string)
@@ -8860,7 +8682,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set declare(value: boolean)
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 
                 get height(): string
                 set height(value: string)
@@ -9148,15 +8969,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "default-selected": boolean
                     "disabled": boolean
-                    "form": DOMHTMLFormElement
-                    "index": number
                     "label": string
                     "selected": boolean
-                    "text": string
                     "value": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "form": DOMHTMLFormElement
+                    "index": number
+                    "text": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -9183,12 +9004,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set disabled(value: boolean)
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 /**
                  * @default 0
                  */
                 get index(): number
-                set index(value: number)
                 
                 get label(): string
                 set label(value: string)
@@ -9199,7 +9018,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set selected(value: boolean)
                 
                 get text(): string
-                set text(value: string)
                 
                 get value(): string
                 set value(value: string)
@@ -9288,11 +9106,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMHTMLCollection.ReadWriteProperties {
-                    "length": number
                     "selected-index": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLCollection.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLCollection.WritableProperties {
@@ -9311,7 +9129,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * @default 0
                  */
@@ -9762,19 +9579,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "autofocus": boolean
                     "disabled": boolean
-                    "form": DOMHTMLFormElement
                     "length": number
                     "multiple": boolean
                     "name": string
-                    "options": DOMHTMLOptionsCollection
                     "selected-index": number
                     "size": number
-                    "type": string
                     "value": string
-                    "will-validate": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "form": DOMHTMLFormElement
+                    "options": DOMHTMLOptionsCollection
+                    "type": string
+                    "will-validate": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -9801,7 +9618,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set disabled(value: boolean)
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 /**
                  * @default 0
                  */
@@ -9817,7 +9633,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set name(value: string)
                 
                 get options(): DOMHTMLOptionsCollection
-                set options(value: DOMHTMLOptionsCollection)
                 /**
                  * @default 0
                  */
@@ -9830,7 +9645,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set size(value: number)
                 
                 get type(): string
-                set type(value: string)
                 
                 get value(): string
                 set value(value: string)
@@ -9838,7 +9652,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get willValidate(): boolean
-                set willValidate(value: boolean)
                 /**
                  * @throws {GLib.Error}
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -9986,11 +9799,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "disabled": boolean
                     "media": string
-                    "sheet": DOMStyleSheet
                     "type": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "sheet": DOMStyleSheet
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -10015,7 +9828,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set media(value: string)
                 
                 get sheet(): DOMStyleSheet
-                set sheet(value: DOMStyleSheet)
                 
                 get type(): string
                 set type(value: string)
@@ -10129,7 +9941,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "align": string
                     "axis": string
                     "bg-color": string
-                    "cell-index": number
                     "ch": string
                     "ch-off": string
                     "col-span": number
@@ -10143,6 +9954,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "cell-index": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -10173,7 +9985,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get cellIndex(): number
-                set cellIndex(value: number)
                 
                 get ch(): string
                 set ch(value: string)
@@ -10501,19 +10312,19 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "align": string
                     "bg-color": string
                     "border": string
-                    "caption": DOMHTMLTableCaptionElement
                     "cell-padding": string
                     "cell-spacing": string
-                    "rows": DOMHTMLCollection
                     "rules": string
                     "summary": string
-                    "t-bodies": DOMHTMLCollection
-                    "t-foot": DOMHTMLTableSectionElement
-                    "t-head": DOMHTMLTableSectionElement
                     "width": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "caption": DOMHTMLTableCaptionElement
+                    "rows": DOMHTMLCollection
+                    "t-bodies": DOMHTMLCollection
+                    "t-foot": DOMHTMLTableSectionElement
+                    "t-head": DOMHTMLTableSectionElement
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -10539,7 +10350,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set border(value: string)
                 
                 get caption(): DOMHTMLTableCaptionElement
-                set caption(value: DOMHTMLTableCaptionElement)
                 
                 get cellPadding(): string
                 set cellPadding(value: string)
@@ -10548,7 +10358,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set cellSpacing(value: string)
                 
                 get rows(): DOMHTMLCollection
-                set rows(value: DOMHTMLCollection)
                 
                 get rules(): string
                 set rules(value: string)
@@ -10557,13 +10366,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set summary(value: string)
                 
                 get tBodies(): DOMHTMLCollection
-                set tBodies(value: DOMHTMLCollection)
                 
                 get tFoot(): DOMHTMLTableSectionElement
-                set tFoot(value: DOMHTMLTableSectionElement)
                 
                 get tHead(): DOMHTMLTableSectionElement
-                set tHead(value: DOMHTMLTableSectionElement)
                 
                 get width(): string
                 set width(value: string)
@@ -10752,15 +10558,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface ReadWriteProperties extends DOMHTMLElement.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
                     "align": string
                     "bg-color": string
-                    "cells": DOMHTMLCollection
                     "ch": string
                     "ch-off": string
-                    "row-index": number
-                    "section-row-index": number
                     "v-align": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "cells": DOMHTMLCollection
+                    "row-index": number
+                    "section-row-index": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -10783,7 +10589,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set bgColor(value: string)
                 
                 get cells(): DOMHTMLCollection
-                set cells(value: DOMHTMLCollection)
                 
                 get ch(): string
                 set ch(value: string)
@@ -10794,12 +10599,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get rowIndex(): number
-                set rowIndex(value: number)
                 /**
                  * @default 0
                  */
                 get sectionRowIndex(): number
-                set sectionRowIndex(value: number)
                 
                 get vAlign(): string
                 set vAlign(value: string)
@@ -10904,11 +10707,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "align": string
                     "ch": string
                     "ch-off": string
-                    "rows": DOMHTMLCollection
                     "v-align": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "rows": DOMHTMLCollection
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -10934,7 +10737,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set chOff(value: string)
                 
                 get rows(): DOMHTMLCollection
-                set rows(value: DOMHTMLCollection)
                 
                 get vAlign(): string
                 set vAlign(value: string)
@@ -11020,18 +10822,18 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "cols": number
                     "default-value": string
                     "disabled": boolean
-                    "form": DOMHTMLFormElement
                     "name": string
                     "read-only": boolean
                     "rows": number
                     "selection-end": number
                     "selection-start": number
-                    "type": string
                     "value": string
-                    "will-validate": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMHTMLElement.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "form": DOMHTMLFormElement
+                    "type": string
+                    "will-validate": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMHTMLElement.WritableProperties, DOMEventTarget.WritableProperties {
@@ -11066,7 +10868,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set disabled(value: boolean)
                 
                 get form(): DOMHTMLFormElement
-                set form(value: DOMHTMLFormElement)
                 
                 get name(): string
                 set name(value: string)
@@ -11092,7 +10893,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set selectionStart(value: number)
                 
                 get type(): string
-                set type(value: string)
                 
                 get value(): string
                 set value(value: string)
@@ -11100,7 +10900,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get willValidate(): boolean
-                set willValidate(value: boolean)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -11370,6 +11169,9 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMUIEvent.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMUIEvent.ReadableProperties {
                     "alt-graph-key": boolean
                     "alt-key": boolean
                     "ctrl-key": boolean
@@ -11377,9 +11179,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "key-location": number
                     "meta-key": boolean
                     "shift-key": boolean
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMUIEvent.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMUIEvent.WritableProperties {
@@ -11398,35 +11197,28 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get altGraphKey(): boolean
-                set altGraphKey(value: boolean)
                 /**
                  * @default FALSE
                  */
                 get altKey(): boolean
-                set altKey(value: boolean)
                 /**
                  * @default FALSE
                  */
                 get ctrlKey(): boolean
-                set ctrlKey(value: boolean)
                 
                 get keyIdentifier(): string
-                set keyIdentifier(value: string)
                 /**
                  * @default 0
                  */
                 get keyLocation(): number
-                set keyLocation(value: number)
                 /**
                  * @default FALSE
                  */
                 get metaKey(): boolean
-                set metaKey(value: boolean)
                 /**
                  * @default FALSE
                  */
                 get shiftKey(): boolean
-                set shiftKey(value: boolean)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gboolean
@@ -11503,11 +11295,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                     "media-text": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -11526,7 +11318,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 
                 get mediaText(): string
                 set mediaText(value: string)
@@ -11584,6 +11375,9 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMUIEvent.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMUIEvent.ReadableProperties {
                     "alt-key": boolean
                     "button": number
                     "client-x": number
@@ -11602,9 +11396,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "y": number
                 }
 
-                interface ReadableProperties extends ReadWriteProperties, DOMUIEvent.ReadableProperties {
-                }
-
                 interface WritableProperties extends ReadWriteProperties, DOMUIEvent.WritableProperties {
                 }
 
@@ -11621,76 +11412,60 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get altKey(): boolean
-                set altKey(value: boolean)
                 /**
                  * @default 0
                  */
                 get button(): number
-                set button(value: number)
                 /**
                  * @default 0
                  */
                 get clientX(): number
-                set clientX(value: number)
                 /**
                  * @default 0
                  */
                 get clientY(): number
-                set clientY(value: number)
                 /**
                  * @default FALSE
                  */
                 get ctrlKey(): boolean
-                set ctrlKey(value: boolean)
                 
                 get fromElement(): DOMNode
-                set fromElement(value: DOMNode)
                 /**
                  * @default FALSE
                  */
                 get metaKey(): boolean
-                set metaKey(value: boolean)
                 /**
                  * @default 0
                  */
                 get offsetX(): number
-                set offsetX(value: number)
                 /**
                  * @default 0
                  */
                 get offsetY(): number
-                set offsetY(value: number)
                 
                 get relatedTarget(): DOMEventTarget
-                set relatedTarget(value: DOMEventTarget)
                 /**
                  * @default 0
                  */
                 get screenX(): number
-                set screenX(value: number)
                 /**
                  * @default 0
                  */
                 get screenY(): number
-                set screenY(value: number)
                 /**
                  * @default FALSE
                  */
                 get shiftKey(): boolean
-                set shiftKey(value: boolean)
                 
                 get toElement(): DOMNode
-                set toElement(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get x(): number
-                set x(value: number)
                 /**
                  * @default 0
                  */
                 get y(): number
-                set y(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gboolean
@@ -11810,10 +11585,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -11832,7 +11607,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gulong
@@ -11906,6 +11680,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
+                    "node-value": string
+                    "text-content": string
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties, DOMEventTarget.ReadableProperties {
                     "base-uri": string
                     "child-nodes": DOMNodeList
                     "first-child": DOMNode
@@ -11913,15 +11692,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "next-sibling": DOMNode
                     "node-name": string
                     "node-type": number
-                    "node-value": string
                     "owner-document": DOMDocument
                     "parent-element": DOMElement
                     "parent-node": DOMNode
                     "previous-sibling": DOMNode
-                    "text-content": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties, DOMEventTarget.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties, DOMEventTarget.WritableProperties {
@@ -11938,42 +11712,31 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMNode.ConstructOnlyProperties
                 
                 get baseUri(): string
-                set baseUri(value: string)
                 
                 get childNodes(): DOMNodeList
-                set childNodes(value: DOMNodeList)
                 
                 get firstChild(): DOMNode
-                set firstChild(value: DOMNode)
                 
                 get lastChild(): DOMNode
-                set lastChild(value: DOMNode)
                 
                 get nextSibling(): DOMNode
-                set nextSibling(value: DOMNode)
                 
                 get nodeName(): string
-                set nodeName(value: string)
                 /**
                  * @default 0
                  */
                 get nodeType(): number
-                set nodeType(value: number)
                 
                 get nodeValue(): string
                 set nodeValue(value: string)
                 
                 get ownerDocument(): DOMDocument
-                set ownerDocument(value: DOMDocument)
                 
                 get parentElement(): DOMElement
-                set parentElement(value: DOMElement)
                 
                 get parentNode(): DOMNode
-                set parentNode(value: DOMNode)
                 
                 get previousSibling(): DOMNode
-                set previousSibling(value: DOMNode)
                 
                 get textContent(): string
                 set textContent(value: string)
@@ -12206,14 +11969,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                     "filter": DOMNodeFilter
                     "pointer-before-reference-node": boolean
                     "reference-node": DOMNode
                     "root": DOMNode
                     "what-to-show": number
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -12230,23 +11993,18 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMNodeIterator.ConstructOnlyProperties
                 
                 get filter(): DOMNodeFilter
-                set filter(value: DOMNodeFilter)
                 /**
                  * @default FALSE
                  */
                 get pointerBeforeReferenceNode(): boolean
-                set pointerBeforeReferenceNode(value: boolean)
                 
                 get referenceNode(): DOMNode
-                set referenceNode(value: DOMNode)
                 
                 get root(): DOMNode
-                set root(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get whatToShow(): number
-                set whatToShow(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  */
@@ -12314,10 +12072,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -12336,7 +12094,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gulong
@@ -12408,11 +12165,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMCharacterData.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
-                    "sheet": DOMStyleSheet
-                    "target": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMCharacterData.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "sheet": DOMStyleSheet
+                    "target": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMCharacterData.WritableProperties, DOMEventTarget.WritableProperties {
@@ -12429,10 +12186,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMProcessingInstruction.ConstructOnlyProperties
                 
                 get sheet(): DOMStyleSheet
-                set sheet(value: DOMStyleSheet)
                 
                 get target(): string
-                set target(value: string)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #WebKitDOMStyleSheet
@@ -12463,6 +12218,9 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                     "collapsed": boolean
                     "common-ancestor-container": DOMNode
                     "end-container": DOMNode
@@ -12470,9 +12228,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "start-container": DOMNode
                     "start-offset": number
                     "text": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -12491,29 +12246,22 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get collapsed(): boolean
-                set collapsed(value: boolean)
                 
                 get commonAncestorContainer(): DOMNode
-                set commonAncestorContainer(value: DOMNode)
                 
                 get endContainer(): DOMNode
-                set endContainer(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get endOffset(): number
-                set endOffset(value: number)
                 
                 get startContainer(): DOMNode
-                set startContainer(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get startOffset(): number
-                set startOffset(value: number)
                 
                 get text(): string
-                set text(value: string)
                 /**
                  * @throws {GLib.Error}
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -12730,15 +12478,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
                     "disabled": boolean
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                     "href": string
                     "media": DOMMediaList
                     "owner-node": DOMNode
                     "parent-style-sheet": DOMStyleSheet
                     "title": string
                     "type": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -12760,22 +12508,16 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 set disabled(value: boolean)
                 
                 get href(): string
-                set href(value: string)
                 
                 get media(): DOMMediaList
-                set media(value: DOMMediaList)
                 
                 get ownerNode(): DOMNode
-                set ownerNode(value: DOMNode)
                 
                 get parentStyleSheet(): DOMStyleSheet
-                set parentStyleSheet(value: DOMStyleSheet)
                 
                 get title(): string
-                set title(value: string)
                 
                 get type(): string
-                set type(value: string)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -12836,10 +12578,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
-                    "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -12858,7 +12600,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gulong
@@ -12890,10 +12631,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMCharacterData.ReadWriteProperties, DOMEventTarget.ReadWriteProperties {
-                    "whole-text": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMCharacterData.ReadableProperties, DOMEventTarget.ReadableProperties {
+                    "whole-text": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMCharacterData.WritableProperties, DOMEventTarget.WritableProperties {
@@ -12910,7 +12651,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMText.ConstructOnlyProperties
                 
                 get wholeText(): string
-                set wholeText(value: string)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #gchar
@@ -12950,13 +12690,13 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                     "current-node": DOMNode
                     "filter": DOMNodeFilter
                     "root": DOMNode
                     "what-to-show": number
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -12973,18 +12713,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMTreeWalker.ConstructOnlyProperties
                 
                 get currentNode(): DOMNode
-                set currentNode(value: DOMNode)
                 
                 get filter(): DOMNodeFilter
-                set filter(value: DOMNodeFilter)
                 
                 get root(): DOMNode
-                set root(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get whatToShow(): number
-                set whatToShow(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #WebKitDOMNode
@@ -13072,6 +12808,9 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMEvent.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMEvent.ReadableProperties {
                     "char-code": number
                     "detail": number
                     "key-code": number
@@ -13080,9 +12819,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "page-x": number
                     "page-y": number
                     "view": DOMDOMWindow
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMEvent.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMEvent.WritableProperties {
@@ -13101,40 +12837,32 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get charCode(): number
-                set charCode(value: number)
                 /**
                  * @default 0
                  */
                 get detail(): number
-                set detail(value: number)
                 /**
                  * @default 0
                  */
                 get keyCode(): number
-                set keyCode(value: number)
                 /**
                  * @default 0
                  */
                 get layerX(): number
-                set layerX(value: number)
                 /**
                  * @default 0
                  */
                 get layerY(): number
-                set layerY(value: number)
                 /**
                  * @default 0
                  */
                 get pageX(): number
-                set pageX(value: number)
                 /**
                  * @default 0
                  */
                 get pageY(): number
-                set pageY(value: number)
                 
                 get view(): DOMDOMWindow
-                set view(value: DOMDOMWindow)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #glong
@@ -13204,12 +12932,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMMouseEvent.ReadWriteProperties {
-                    "wheel-delta": number
-                    "wheel-delta-x": number
-                    "wheel-delta-y": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DOMMouseEvent.ReadableProperties {
+                    "wheel-delta": number
+                    "wheel-delta-x": number
+                    "wheel-delta-y": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMMouseEvent.WritableProperties {
@@ -13228,17 +12956,14 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get wheelDelta(): number
-                set wheelDelta(value: number)
                 /**
                  * @default 0
                  */
                 get wheelDeltaX(): number
-                set wheelDeltaX(value: number)
                 /**
                  * @default 0
                  */
                 get wheelDeltaY(): number
-                set wheelDeltaY(value: number)
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @returns A #glong
@@ -13335,6 +13060,9 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends DOMObject.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                     "boolean-value": boolean
                     "invalid-iterator-state": boolean
                     "number-value": number
@@ -13342,9 +13070,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     "single-node-value": DOMNode
                     "snapshot-length": number
                     "string-value": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, DOMObject.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DOMObject.WritableProperties {
@@ -13363,33 +13088,26 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default FALSE
                  */
                 get booleanValue(): boolean
-                set booleanValue(value: boolean)
                 /**
                  * @default FALSE
                  */
                 get invalidIteratorState(): boolean
-                set invalidIteratorState(value: boolean)
                 /**
                  * @default 0.000000
                  */
                 get numberValue(): number
-                set numberValue(value: number)
                 /**
                  * @default 0
                  */
                 get resultType(): number
-                set resultType(value: number)
                 
                 get singleNodeValue(): DOMNode
-                set singleNodeValue(value: DOMNode)
                 /**
                  * @default 0
                  */
                 get snapshotLength(): number
-                set snapshotLength(value: number)
                 
                 get stringValue(): string
-                set stringValue(value: string)
                 /**
                  * @throws {GLib.Error}
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -13896,15 +13614,15 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "content-length": number
                     "http-headers": Soup.MessageHeaders
                     "mime-type": string
                     "status-code": number
                     "suggested-filename": string
                     "uri": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -13924,37 +13642,31 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default 0
                  */
                 get contentLength(): number
-                set contentLength(value: number)
                 /**
                  * The HTTP headers of the response, or %NULL if the response is not an HTTP response.
                  * @since 2.6
                  */
                 get httpHeaders(): Soup.MessageHeaders
-                set httpHeaders(value: Soup.MessageHeaders)
                 /**
                  * The MIME type of the response.
                  * @default NULL
                  */
                 get mimeType(): string
-                set mimeType(value: string)
                 /**
                  * The status code of the response as returned by the server.
                  * @default 0
                  */
                 get statusCode(): number
-                set statusCode(value: number)
                 /**
                  * The suggested filename for the URI response.
                  * @default NULL
                  */
                 get suggestedFilename(): string
-                set suggestedFilename(value: string)
                 /**
                  * The URI for which the response was made.
                  * @default NULL
                  */
                 get uri(): string
-                set uri(value: string)
                 /**
                  * Get the expected content length of the #WebKitURIResponse.
                  *
@@ -14658,10 +14370,10 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "uri": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "uri": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -14681,7 +14393,6 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * @default NULL
                  */
                 get uri(): string
-                set uri(value: string)
                 /**
                  * Get the #WebKitDOMDocument currently loaded in `web_page`
                  * @deprecated since 2.40. Use JavaScriptCore API instead.

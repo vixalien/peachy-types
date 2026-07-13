@@ -542,11 +542,11 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "is-locked": boolean
-                    "modifier-mask": Gdk.ModifierType
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "is-locked": boolean
+                    "modifier-mask": Gdk.ModifierType
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -565,12 +565,10 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get isLocked(): boolean
-                set isLocked(value: boolean)
                 /**
                  * @default 0
                  */
                 get modifierMask(): Gdk.ModifierType
-                set modifierMask(value: Gdk.ModifierType)
                 /**
                  * Finds the first accelerator in `accel_group` that matches
                  *  `accel_key` and `accel_mods`, and activates it.
@@ -3284,14 +3282,14 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Gio.Application.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties {
-                    "active-window": Window | null
                     "app-menu": Gio.MenuModel | null
                     "menubar": Gio.MenuModel
                     "register-session": boolean
-                    "screensaver-active": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gio.Application.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties {
+                    "active-window": Window | null
+                    "screensaver-active": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gio.Application.WritableProperties, Gio.ActionGroup.WritableProperties, Gio.ActionMap.WritableProperties {
@@ -3308,7 +3306,6 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $constructOnlyProperties: Application.ConstructOnlyProperties
                 
                 get activeWindow(): Window | null
-                set activeWindow(value: Window | null)
                 
                 get appMenu(): Gio.MenuModel | null
                 set appMenu(value: Gio.MenuModel | null)
@@ -3332,7 +3329,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get screensaverActive(): boolean
-                set screensaverActive(value: boolean)
                 /**
                  * Installs an accelerator that will cause the named action
                  * to be activated when the key combination specificed by `accelerator`
@@ -6358,12 +6354,12 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties {
-                    "edit-widget": CellEditable
-                    "edited-cell": CellRenderer
                     "focus-cell": CellRenderer
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                    "edit-widget": CellEditable
+                    "edited-cell": CellRenderer
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
@@ -6386,7 +6382,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 3.0
                  */
                 get editWidget(): CellEditable
-                set editWidget(value: CellEditable)
                 /**
                  * The cell in the area that is currently edited
                  *
@@ -6395,7 +6390,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 3.0
                  */
                 get editedCell(): CellRenderer
-                set editedCell(value: CellRenderer)
                 /**
                  * The cell in the area that currently has focus
                  * @since 3.0
@@ -7500,13 +7494,13 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "minimum-height": number
                     "minimum-width": number
                     "natural-height": number
                     "natural-width": number
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -7536,7 +7530,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default -1
                  */
                 get minimumHeight(): number
-                set minimumHeight(value: number)
                 /**
                  * The minimum width for the #GtkCellArea in this context
                  * for all #GtkTreeModel rows that this context was requested
@@ -7545,7 +7538,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default -1
                  */
                 get minimumWidth(): number
-                set minimumWidth(value: number)
                 /**
                  * The natural height for the #GtkCellArea in this context
                  * for all #GtkTreeModel rows that this context was requested
@@ -7554,7 +7546,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default -1
                  */
                 get naturalHeight(): number
-                set naturalHeight(value: number)
                 /**
                  * The natural width for the #GtkCellArea in this context
                  * for all #GtkTreeModel rows that this context was requested
@@ -7563,7 +7554,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default -1
                  */
                 get naturalWidth(): number
-                set naturalWidth(value: number)
                 /**
                  * Allocates a width and/or a height for all rows which are to be
                  * rendered with `context`.
@@ -7842,11 +7832,9 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.InitiallyUnowned.ReadWriteProperties {
-                    "cell-background": string
                     "cell-background-gdk": Gdk.Color
                     "cell-background-rgba": Gdk.RGBA
                     "cell-background-set": boolean
-                    "editing": boolean
                     "height": number
                     "is-expanded": boolean
                     "is-expander": boolean
@@ -7861,9 +7849,11 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties {
+                    "editing": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties {
+                    "cell-background": string
                 }
 
                 interface ConstructOnlyProperties extends GObject.InitiallyUnowned.ConstructOnlyProperties {
@@ -7900,7 +7890,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get editing(): boolean
-                set editing(value: boolean)
                 /**
                  * @default -1
                  */
@@ -8974,7 +8963,6 @@ declare module "gi://Gtk?version=3.0" {
                     "align-set": boolean
                     "alignment": Pango.Alignment
                     "attributes": Pango.AttrList
-                    "background": string
                     "background-gdk": Gdk.Color
                     "background-rgba": Gdk.RGBA
                     "background-set": boolean
@@ -8986,13 +8974,11 @@ declare module "gi://Gtk?version=3.0" {
                     "family-set": boolean
                     "font": string
                     "font-desc": Pango.FontDescription
-                    "foreground": string
                     "foreground-gdk": Gdk.Color
                     "foreground-rgba": Gdk.RGBA
                     "foreground-set": boolean
                     "language": string
                     "language-set": boolean
-                    "markup": string
                     "max-width-chars": number
                     "placeholder-text": string
                     "rise": number
@@ -9025,6 +9011,9 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, CellRenderer.WritableProperties {
+                    "background": string
+                    "foreground": string
+                    "markup": string
                 }
 
                 interface ConstructOnlyProperties extends CellRenderer.ConstructOnlyProperties {
@@ -9499,7 +9488,6 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, CellLayout.ReadWriteProperties, Orientable.ReadWriteProperties {
-                    "background": string
                     "background-gdk": Gdk.Color
                     "background-rgba": Gdk.RGBA
                     "background-set": boolean
@@ -9512,6 +9500,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties, Orientable.WritableProperties {
+                    "background": string
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, CellLayout.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -10987,13 +10976,13 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
                     "cancel-button": Widget
                     "color-selection": Widget
                     "help-button": Widget
                     "ok-button": Widget
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -11010,16 +10999,12 @@ declare module "gi://Gtk?version=3.0" {
                 readonly $constructOnlyProperties: ColorSelectionDialog.ConstructOnlyProperties
                 
                 get cancelButton(): Widget
-                set cancelButton(value: Widget)
                 
                 get colorSelection(): Widget
-                set colorSelection(value: Widget)
                 
                 get helpButton(): Widget
-                set helpButton(value: Widget)
                 
                 get okButton(): Widget
-                set okButton(value: Widget)
                 /**
                  * Retrieves the #GtkColorSelection widget embedded in the dialog.
                  * @since 2.14
@@ -11136,13 +11121,13 @@ declare module "gi://Gtk?version=3.0" {
                     "id-column": number
                     "model": TreeModel
                     "popup-fixed-width": boolean
-                    "popup-shown": boolean
                     "row-span-column": number
                     "tearoff-title": string
                     "wrap-width": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, CellLayout.ReadableProperties {
+                    "popup-shown": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, CellLayout.WritableProperties {
@@ -11270,7 +11255,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get popupShown(): boolean
-                set popupShown(value: boolean)
                 /**
                  * If this is set to a non-negative value, it must be the index of a column
                  * of type %G_TYPE_INT in the model. The value in that column for each item
@@ -11941,7 +11925,6 @@ declare module "gi://Gtk?version=3.0" {
 
                 interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "border-width": number
-                    "child": Widget
                     "resize-mode": ResizeMode
                 }
 
@@ -11949,6 +11932,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                    "child": Widget
                 }
 
                 interface ConstructOnlyProperties extends Widget.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -13470,7 +13454,6 @@ declare module "gi://Gtk?version=3.0" {
                     "buffer": EntryBuffer
                     "caps-lock-warning": boolean
                     "completion": EntryCompletion
-                    "cursor-position": number
                     "editable": boolean
                     "enable-emoji-completion": boolean
                     "has-frame": boolean
@@ -13491,27 +13474,22 @@ declare module "gi://Gtk?version=3.0" {
                     "primary-icon-pixbuf": GdkPixbuf.Pixbuf
                     "primary-icon-sensitive": boolean
                     "primary-icon-stock": string
-                    "primary-icon-storage-type": ImageType
                     "primary-icon-tooltip-markup": string
                     "primary-icon-tooltip-text": string
                     "progress-fraction": number
                     "progress-pulse-step": number
-                    "scroll-offset": number
                     "secondary-icon-activatable": boolean
                     "secondary-icon-gicon": Gio.Icon
                     "secondary-icon-name": string
                     "secondary-icon-pixbuf": GdkPixbuf.Pixbuf
                     "secondary-icon-sensitive": boolean
                     "secondary-icon-stock": string
-                    "secondary-icon-storage-type": ImageType
                     "secondary-icon-tooltip-markup": string
                     "secondary-icon-tooltip-text": string
-                    "selection-bound": number
                     "shadow-type": ShadowType
                     "show-emoji-icon": boolean
                     "tabs": Pango.TabArray | null
                     "text": string
-                    "text-length": number
                     "truncate-multiline": boolean
                     "visibility": boolean
                     "width-chars": number
@@ -13519,6 +13497,12 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, CellEditable.ReadableProperties, Editable.ReadableProperties {
+                    "cursor-position": number
+                    "primary-icon-storage-type": ImageType
+                    "scroll-offset": number
+                    "secondary-icon-storage-type": ImageType
+                    "selection-bound": number
+                    "text-length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, CellEditable.WritableProperties, Editable.WritableProperties {
@@ -13573,7 +13557,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get cursorPosition(): number
-                set cursorPosition(value: number)
                 /**
                  * @default TRUE
                  */
@@ -13748,7 +13731,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default GTK_IMAGE_EMPTY
                  */
                 get primaryIconStorageType(): ImageType
-                set primaryIconStorageType(value: ImageType)
                 /**
                  * The contents of the tooltip on the primary icon, which is marked up
                  * with the [Pango text markup language][PangoMarkupFormat].
@@ -13787,7 +13769,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get scrollOffset(): number
-                set scrollOffset(value: number)
                 /**
                  * Whether the secondary icon is activatable.
                  *
@@ -13848,7 +13829,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default GTK_IMAGE_EMPTY
                  */
                 get secondaryIconStorageType(): ImageType
-                set secondaryIconStorageType(value: ImageType)
                 /**
                  * The contents of the tooltip on the secondary icon, which is marked up
                  * with the [Pango text markup language][PangoMarkupFormat].
@@ -13872,7 +13852,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get selectionBound(): number
-                set selectionBound(value: number)
                 /**
                  * Which kind of shadow to draw around the entry when
                  * #GtkEntry:has-frame is set to %TRUE.
@@ -13899,7 +13878,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get textLength(): number
-                set textLength(value: number)
                 /**
                  * When %TRUE, pasted multi-line text is truncated to the first line.
                  * @since 2.10
@@ -14851,12 +14829,12 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "length": number
                     "max-length": number
                     "text": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "length": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -14877,7 +14855,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get length(): number
-                set length(value: number)
                 /**
                  * The maximum length (in characters) of the text in the buffer.
                  * @since 2.18
@@ -17177,10 +17154,10 @@ declare module "gi://Gtk?version=3.0" {
 
                 interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, FileChooser.ReadWriteProperties, Orientable.ReadWriteProperties {
                     "search-mode": boolean
-                    "subtitle": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FileChooser.ReadableProperties, Orientable.ReadableProperties {
+                    "subtitle": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FileChooser.WritableProperties, Orientable.WritableProperties {
@@ -17202,7 +17179,6 @@ declare module "gi://Gtk?version=3.0" {
                 set searchMode(value: boolean)
                 
                 get subtitle(): string
-                set subtitle(value: string)
             }
 
             interface FileChooserWidgetClass extends Omit<BoxClass, "new"> {
@@ -18483,10 +18459,10 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, FontChooser.ReadWriteProperties, Orientable.ReadWriteProperties {
-                    "tweak-action": Gio.Action
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, FontChooser.ReadableProperties, Orientable.ReadableProperties {
+                    "tweak-action": Gio.Action
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, FontChooser.WritableProperties, Orientable.WritableProperties {
@@ -18510,7 +18486,6 @@ declare module "gi://Gtk?version=3.0" {
                  * the selected font has any features or axes.
                  */
                 get tweakAction(): Gio.Action
-                set tweakAction(value: Gio.Action)
             }
 
             interface FontChooserWidgetClass extends Omit<BoxClass, "new"> {
@@ -19055,7 +19030,6 @@ declare module "gi://Gtk?version=3.0" {
 
                 interface ReadWriteProperties extends Widget.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "auto-render": boolean
-                    "context": Gdk.GLContext
                     "has-alpha": boolean
                     "has-depth-buffer": boolean
                     "has-stencil-buffer": boolean
@@ -19063,6 +19037,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "context": Gdk.GLContext
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -19101,7 +19076,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 3.16
                  */
                 get context(): Gdk.GLContext
-                set context(value: Gdk.GLContext)
                 /**
                  * If set to %TRUE the buffer allocated by the widget will have an alpha channel
                  * component, and when rendering to the window the result will be composited over
@@ -21324,7 +21298,6 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
-                    "child-detached": boolean
                     "handle-position": PositionType
                     "shadow-type": ShadowType
                     "snap-edge": PositionType
@@ -21332,6 +21305,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "child-detached": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -21350,7 +21324,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get childDetached(): boolean
-                set childDetached(value: boolean)
                 /**
                  * @default GTK_POS_LEFT
                  */
@@ -24156,12 +24129,12 @@ declare module "gi://Gtk?version=3.0" {
                     "pixel-size": number
                     "resource": string
                     "stock": string
-                    "storage-type": ImageType
                     "surface": cairo.Surface
                     "use-fallback": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Misc.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "storage-type": ImageType
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Misc.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -24239,7 +24212,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default GTK_IMAGE_EMPTY
                  */
                 get storageType(): ImageType
-                set storageType(value: ImageType)
                 
                 get surface(): cairo.Surface
                 set surface(value: cairo.Surface)
@@ -24707,7 +24679,6 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends MenuItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
-                    "accel-group": AccelGroup
                     "always-show-image": boolean
                     "image": Widget
                     "use-stock": boolean
@@ -24717,6 +24688,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, MenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
+                    "accel-group": AccelGroup
                 }
 
                 interface ConstructOnlyProperties extends MenuItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -25343,17 +25315,13 @@ declare module "gi://Gtk?version=3.0" {
                 interface ReadWriteProperties extends Misc.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "angle": number
                     "attributes": Pango.AttrList | null
-                    "cursor-position": number
                     "ellipsize": Pango.EllipsizeMode
                     "justify": Justification
                     "label": string
                     "lines": number
                     "max-width-chars": number
-                    "mnemonic-keyval": number
                     "mnemonic-widget": Widget | null
-                    "pattern": string
                     "selectable": boolean
-                    "selection-bound": number
                     "single-line-mode": boolean
                     "track-visited-links": boolean
                     "use-markup": boolean
@@ -25366,9 +25334,13 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Misc.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "cursor-position": number
+                    "mnemonic-keyval": number
+                    "selection-bound": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Misc.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                    "pattern": string
                 }
 
                 interface ConstructOnlyProperties extends Misc.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -25397,7 +25369,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get cursorPosition(): number
-                set cursorPosition(value: number)
                 /**
                  * The preferred place to ellipsize the string, if the label does
                  * not have enough room to display the entire string, specified as a
@@ -25461,7 +25432,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 16777215
                  */
                 get mnemonicKeyval(): number
-                set mnemonicKeyval(value: number)
                 
                 get mnemonicWidget(): Widget | null
                 set mnemonicWidget(value: Widget | null)
@@ -25478,7 +25448,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get selectionBound(): number
-                set selectionBound(value: number)
                 /**
                  * Whether the label is in single line mode. In single line mode,
                  * the height of the label does not depend on the actual text, it
@@ -29981,7 +29950,6 @@ declare module "gi://Gtk?version=3.0" {
 
                 interface ReadWriteProperties extends Dialog.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "image": Widget
-                    "message-area": Widget
                     "message-type": MessageType
                     "secondary-text": string
                     "secondary-use-markup": boolean
@@ -29990,6 +29958,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Dialog.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "message-area": Widget
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Dialog.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -30023,7 +29992,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 2.22
                  */
                 get messageArea(): Widget
-                set messageArea(value: Widget)
                 /**
                  * The type of the message.
                  * @default GTK_MESSAGE_INFO
@@ -30507,12 +30475,12 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Gio.MountOperation.ReadWriteProperties {
-                    "is-showing": boolean
                     "parent": Window
                     "screen": Gdk.Screen
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gio.MountOperation.ReadableProperties {
+                    "is-showing": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gio.MountOperation.WritableProperties {
@@ -30531,7 +30499,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get isShowing(): boolean
-                set isShowing(value: boolean)
                 
                 get parent(): Window
                 set parent(value: Window)
@@ -32461,14 +32428,14 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Container.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
-                    "max-position": number
-                    "min-position": number
                     "position": number
                     "position-set": boolean
                     "wide-handle": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                    "max-position": number
+                    "min-position": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
@@ -32491,7 +32458,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 2147483647
                  */
                 get maxPosition(): number
-                set maxPosition(value: number)
                 /**
                  * The smallest possible value for the position property.
                  * This property is derived from the size and shrinkability
@@ -32500,7 +32466,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get minPosition(): number
-                set minPosition(value: number)
                 /**
                  * @default 0
                  */
@@ -33267,11 +33232,11 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Window.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
-                    "embedded": boolean
-                    "socket-window": Gdk.Window | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Window.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "embedded": boolean
+                    "socket-window": Gdk.Window | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Window.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -33292,13 +33257,11 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get embedded(): boolean
-                set embedded(value: boolean)
                 /**
                  * The window of the socket the plug is embedded in.
                  * @since 2.14
                  */
                 get socketWindow(): Gdk.Window | null
-                set socketWindow(value: Gdk.Window | null)
                 /**
                  * Finish the initialization of `plug` for a given #GtkSocket identified by
                  *  `socket_id`. This function will generally only be used by classes deriving from #GtkPlug.
@@ -34318,11 +34281,8 @@ declare module "gi://Gtk?version=3.0" {
                     "has-selection": boolean
                     "job-name": string
                     "n-pages": number
-                    "n-pages-to-print": number
                     "print-settings": PrintSettings
                     "show-progress": boolean
-                    "status": PrintStatus
-                    "status-string": string
                     "support-selection": boolean
                     "track-print-status": boolean
                     "unit": Unit
@@ -34330,6 +34290,9 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, PrintOperationPreview.ReadableProperties {
+                    "n-pages-to-print": number
+                    "status": PrintStatus
+                    "status-string": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, PrintOperationPreview.WritableProperties {
@@ -34464,7 +34427,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default -1
                  */
                 get nPagesToPrint(): number
-                set nPagesToPrint(value: number)
                 /**
                  * The #GtkPrintSettings used for initializing the dialog.
                  *
@@ -34489,7 +34451,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default GTK_PRINT_STATUS_INITIAL
                  */
                 get status(): PrintStatus
-                set status(value: PrintStatus)
                 /**
                  * A string representation of the status of the print operation.
                  * The string is translated and suitable for displaying the print
@@ -34500,7 +34461,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 2.10
                  */
                 get statusString(): string
-                set statusString(value: string)
                 /**
                  * If %TRUE, the print operation will support print of selection.
                  * This allows the print dialog to show a "Selection" button.
@@ -35880,7 +35840,6 @@ declare module "gi://Gtk?version=3.0" {
 
                 interface ReadWriteProperties extends ToggleAction.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "current-value": number
-                    "group": RadioAction
                     "value": number
                 }
 
@@ -35888,6 +35847,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, ToggleAction.WritableProperties, Buildable.WritableProperties {
+                    "group": RadioAction
                 }
 
                 interface ConstructOnlyProperties extends ToggleAction.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -36048,13 +36008,13 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends CheckButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
-                    "group": RadioButton
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, CheckButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, CheckButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
+                    "group": RadioButton
                 }
 
                 interface ConstructOnlyProperties extends CheckButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -36301,13 +36261,13 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends CheckMenuItem.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
-                    "group": RadioMenuItem
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, CheckMenuItem.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, CheckMenuItem.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
+                    "group": RadioMenuItem
                 }
 
                 interface ConstructOnlyProperties extends CheckMenuItem.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -36507,13 +36467,13 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends ToggleToolButton.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Actionable.ReadWriteProperties, Activatable.ReadWriteProperties, Buildable.ReadWriteProperties {
-                    "group": RadioToolButton
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, ToggleToolButton.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Actionable.ReadableProperties, Activatable.ReadableProperties, Buildable.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, ToggleToolButton.WritableProperties, Atk.ImplementorIface.WritableProperties, Actionable.WritableProperties, Activatable.WritableProperties, Buildable.WritableProperties {
+                    "group": RadioToolButton
                 }
 
                 interface ConstructOnlyProperties extends ToggleToolButton.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Actionable.ConstructOnlyProperties, Activatable.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -37656,10 +37616,10 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "size": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "size": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -37689,7 +37649,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get size(): number
-                set size(value: number)
                 /**
                  * Adds a new resource, pointed by `uri`, into the recently used
                  * resources list, using the metadata specified inside the
@@ -37931,13 +37890,13 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Bin.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties {
-                    "child-revealed": boolean
                     "reveal-child": boolean
                     "transition-duration": number
                     "transition-type": RevealerTransitionType
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "child-revealed": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -37956,7 +37915,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get childRevealed(): boolean
-                set childRevealed(value: boolean)
                 /**
                  * @default FALSE
                  */
@@ -39796,7 +39754,6 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, StyleProvider.ReadWriteProperties {
-                    "color-hash": Record<string, Gdk.Color>
                     "gtk-alternative-button-order": boolean
                     "gtk-alternative-sort-arrows": boolean
                     "gtk-application-prefer-dark-theme": boolean
@@ -39884,6 +39841,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, StyleProvider.ReadableProperties {
+                    "color-hash": Record<string, Gdk.Color>
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, StyleProvider.WritableProperties {
@@ -39905,7 +39863,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @deprecated since 3.8 Will always return an empty hash table.
                  */
                 get colorHash(): Record<string, Gdk.Color>
-                set colorHash(value: Record<string, Gdk.Color>)
                 /**
                  * @default FALSE
                  */
@@ -40818,17 +40775,17 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
-                    "accel-size-group": SizeGroup
-                    "height": number
                     "title": string
-                    "title-size-group": SizeGroup
                     "view": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
+                    "height": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                    "accel-size-group": SizeGroup
+                    "title-size-group": SizeGroup
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -40853,7 +40810,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 1
                  */
                 get height(): number
-                set height(value: number)
                 /**
                  * The title for this group of shortcuts.
                  */
@@ -40994,7 +40950,6 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends Box.ReadWriteProperties, Atk.ImplementorIface.ReadWriteProperties, Buildable.ReadWriteProperties, Orientable.ReadWriteProperties {
-                    "accel-size-group": SizeGroup
                     "accelerator": string
                     "action-name": string
                     "direction": TextDirection
@@ -41004,13 +40959,14 @@ declare module "gi://Gtk?version=3.0" {
                     "subtitle": string
                     "subtitle-set": boolean
                     "title": string
-                    "title-size-group": SizeGroup
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Box.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties, Orientable.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Box.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties, Orientable.WritableProperties {
+                    "accel-size-group": SizeGroup
+                    "title-size-group": SizeGroup
                 }
 
                 interface ConstructOnlyProperties extends Box.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties, Orientable.ConstructOnlyProperties {
@@ -42200,7 +42156,6 @@ declare module "gi://Gtk?version=3.0" {
                     "homogeneous": boolean
                     "interpolate-size": boolean
                     "transition-duration": number
-                    "transition-running": boolean
                     "transition-type": StackTransitionType
                     "vhomogeneous": boolean
                     "visible-child": Widget | null
@@ -42208,6 +42163,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Container.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "transition-running": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Container.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -42248,7 +42204,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get transitionRunning(): boolean
-                set transitionRunning(value: boolean)
                 /**
                  * @default GTK_STACK_TRANSITION_TYPE_NONE
                  */
@@ -42803,17 +42758,12 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "embedded": boolean
-                    "file": string
                     "gicon": Gio.Icon | null
                     "has-tooltip": boolean
                     "icon-name": string | null
-                    "orientation": Orientation
                     "pixbuf": GdkPixbuf.Pixbuf | null
                     "screen": Gdk.Screen
-                    "size": number
                     "stock": string | null
-                    "storage-type": ImageType
                     "title": string
                     "tooltip-markup": string | null
                     "tooltip-text": string | null
@@ -42821,9 +42771,14 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "embedded": boolean
+                    "orientation": Orientation
+                    "size": number
+                    "storage-type": ImageType
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
+                    "file": string
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -42841,7 +42796,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get embedded(): boolean
-                set embedded(value: boolean)
                 /**
                  * @default NULL
                  */
@@ -42884,7 +42838,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default GTK_ORIENTATION_HORIZONTAL
                  */
                 get orientation(): Orientation
-                set orientation(value: Orientation)
                 
                 get pixbuf(): GdkPixbuf.Pixbuf | null
                 set pixbuf(value: GdkPixbuf.Pixbuf | null)
@@ -42895,7 +42848,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get size(): number
-                set size(value: number)
                 /**
                  * @deprecated since 3.10 Use #GtkStatusIcon:icon-name instead.
                  * @default NULL
@@ -42906,7 +42858,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default GTK_IMAGE_EMPTY
                  */
                 get storageType(): ImageType
-                set storageType(value: ImageType)
                 /**
                  * The title of this tray icon. This should be a short, human-readable,
                  * localized string describing the tray icon. It may be used by tools
@@ -45475,14 +45426,14 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "copy-target-list": TargetList
-                    "cursor-position": number
-                    "has-selection": boolean
-                    "paste-target-list": TargetList
                     "text": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "copy-target-list": TargetList
+                    "cursor-position": number
+                    "has-selection": boolean
+                    "paste-target-list": TargetList
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -45504,7 +45455,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 2.10
                  */
                 get copyTargetList(): TargetList
-                set copyTargetList(value: TargetList)
                 /**
                  * The position of the insert mark (as offset from the beginning
                  * of the buffer). It is useful for getting notified when the
@@ -45513,21 +45463,18 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get cursorPosition(): number
-                set cursorPosition(value: number)
                 /**
                  * Whether the buffer has some text currently selected.
                  * @since 2.10
                  * @default FALSE
                  */
                 get hasSelection(): boolean
-                set hasSelection(value: boolean)
                 /**
                  * The list of targets this buffer supports for clipboard pasting
                  * and as DND destination.
                  * @since 2.10
                  */
                 get pasteTargetList(): TargetList
-                set pasteTargetList(value: TargetList)
                 
                 get tagTable(): TextTagTable
                 set tagTable(value: TextTagTable)
@@ -46671,7 +46618,6 @@ declare module "gi://Gtk?version=3.0" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "accumulative-margin": boolean
-                    "background": string
                     "background-full-height": boolean
                     "background-full-height-set": boolean
                     "background-gdk": Gdk.Color
@@ -46688,7 +46634,6 @@ declare module "gi://Gtk?version=3.0" {
                     "font-desc": Pango.FontDescription
                     "font-features": string
                     "font-features-set": boolean
-                    "foreground": string
                     "foreground-gdk": Gdk.Color
                     "foreground-rgba": Gdk.RGBA
                     "foreground-set": boolean
@@ -46704,7 +46649,6 @@ declare module "gi://Gtk?version=3.0" {
                     "left-margin-set": boolean
                     "letter-spacing": number
                     "letter-spacing-set": boolean
-                    "paragraph-background": string
                     "paragraph-background-gdk": Gdk.Color
                     "paragraph-background-rgba": Gdk.RGBA
                     "paragraph-background-set": boolean
@@ -46749,6 +46693,9 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
+                    "background": string
+                    "foreground": string
+                    "paragraph-background": string
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
@@ -53162,11 +53109,11 @@ declare module "gi://Gtk?version=3.0" {
                     "title": string
                     "visible": boolean
                     "widget": Widget | null
-                    "width": number
-                    "x-offset": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Buildable.ReadableProperties, CellLayout.ReadableProperties {
+                    "width": number
+                    "x-offset": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Buildable.WritableProperties, CellLayout.WritableProperties {
@@ -53274,12 +53221,10 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 0
                  */
                 get width(): number
-                set width(value: number)
                 /**
                  * @default 0
                  */
                 get xOffset(): number
-                set xOffset(value: number)
                 /**
                  * Adds an attribute mapping to the list in `tree_column`.  The `column` is the
                  * column of the model to get a value from, and the `attribute` is the
@@ -53723,10 +53668,10 @@ declare module "gi://Gtk?version=3.0" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Buildable.ReadWriteProperties {
                     "add-tearoffs": boolean
-                    "ui": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Buildable.ReadableProperties {
+                    "ui": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Buildable.WritableProperties {
@@ -53757,7 +53702,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default <ui>\n</ui>\n
                  */
                 get ui(): string
-                set ui(value: string)
                 /**
                  * Adds a UI element to the current contents of `manager`.
                  *
@@ -55550,7 +55494,6 @@ declare module "gi://Gtk?version=3.0" {
                     "app-paintable": boolean
                     "can-default": boolean
                     "can-focus": boolean
-                    "composite-child": boolean
                     "double-buffered": boolean
                     "events": Gdk.EventMask
                     "expand": boolean
@@ -55575,7 +55518,6 @@ declare module "gi://Gtk?version=3.0" {
                     "opacity": number
                     "parent": Container | null
                     "receives-default": boolean
-                    "scale-factor": number
                     "sensitive": boolean
                     "style": Style
                     "tooltip-markup": string | null
@@ -55585,10 +55527,12 @@ declare module "gi://Gtk?version=3.0" {
                     "vexpand-set": boolean
                     "visible": boolean
                     "width-request": number
-                    "window": Gdk.Window | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "composite-child": boolean
+                    "scale-factor": number
+                    "window": Gdk.Window | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.InitiallyUnowned.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
@@ -55622,7 +55566,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get compositeChild(): boolean
-                set compositeChild(value: boolean)
                 /**
                  * Whether the widget is double buffered.
                  * @since 2.18
@@ -55824,7 +55767,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default 1
                  */
                 get scaleFactor(): number
-                set scaleFactor(value: number)
                 /**
                  * @default TRUE
                  */
@@ -55906,7 +55848,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 2.14
                  */
                 get window(): Gdk.Window | null
-                set window(value: Gdk.Window | null)
                 /**
                  * For widgets that can be “activated” (buttons, menu items, etc.)
                  * this function activates them. Activation is what happens when you
@@ -60251,21 +60192,16 @@ declare module "gi://Gtk?version=3.0" {
                     "focus-visible": boolean
                     "gravity": Gdk.Gravity
                     "has-resize-grip": boolean
-                    "has-toplevel-focus": boolean
                     "hide-titlebar-when-maximized": boolean
                     "icon": GdkPixbuf.Pixbuf | null
                     "icon-name": string | null
-                    "is-active": boolean
-                    "is-maximized": boolean
                     "mnemonics-visible": boolean
                     "modal": boolean
                     "resizable": boolean
-                    "resize-grip-visible": boolean
                     "role": string | null
                     "screen": Gdk.Screen
                     "skip-pager-hint": boolean
                     "skip-taskbar-hint": boolean
-                    "startup-id": string
                     "title": string | null
                     "transient-for": Window | null
                     "type-hint": Gdk.WindowTypeHint
@@ -60274,9 +60210,14 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Bin.ReadableProperties, Atk.ImplementorIface.ReadableProperties, Buildable.ReadableProperties {
+                    "has-toplevel-focus": boolean
+                    "is-active": boolean
+                    "is-maximized": boolean
+                    "resize-grip-visible": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Bin.WritableProperties, Atk.ImplementorIface.WritableProperties, Buildable.WritableProperties {
+                    "startup-id": string
                 }
 
                 interface ConstructOnlyProperties extends Bin.ConstructOnlyProperties, Atk.ImplementorIface.ConstructOnlyProperties, Buildable.ConstructOnlyProperties {
@@ -60393,7 +60334,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get hasToplevelFocus(): boolean
-                set hasToplevelFocus(value: boolean)
                 /**
                  * Whether the titlebar should be hidden during maximization.
                  * @since 3.4
@@ -60416,12 +60356,10 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get isActive(): boolean
-                set isActive(value: boolean)
                 /**
                  * @default FALSE
                  */
                 get isMaximized(): boolean
-                set isMaximized(value: boolean)
                 /**
                  * Whether mnemonics are currently visible in this window.
                  *
@@ -60449,7 +60387,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @default FALSE
                  */
                 get resizeGripVisible(): boolean
-                set resizeGripVisible(value: boolean)
                 /**
                  * @default NULL
                  */
@@ -65191,7 +65128,6 @@ declare module "gi://Gtk?version=3.0" {
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "font": string | null
                     "font-desc": Pango.FontDescription | null
-                    "font-features": string
                     "language": string
                     "level": FontChooserLevel
                     "preview-text": string
@@ -65199,6 +65135,7 @@ declare module "gi://Gtk?version=3.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "font-features": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -65304,7 +65241,6 @@ declare module "gi://Gtk?version=3.0" {
                  * @since 3.24.1
                  */
                 get fontFeatures(): string
-                set fontFeatures(value: string)
                 /**
                  * The language for which the #GtkFontChooser:font-features were
                  * selected, in a format that is compatible with CSS and with Pango

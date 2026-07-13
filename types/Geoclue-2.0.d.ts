@@ -577,11 +577,11 @@ declare module "gi://Geoclue?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.AsyncInitable.ReadWriteProperties {
-                    "client": ClientProxy | null
-                    "location": LocationProxy | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.AsyncInitable.ReadableProperties {
+                    "client": ClientProxy | null
+                    "location": LocationProxy | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.AsyncInitable.WritableProperties {
@@ -610,7 +610,6 @@ declare module "gi://Geoclue?version=2.0" {
                  * (i-e when inside the Flatpak sandbox).
                  */
                 get client(): ClientProxy | null
-                set client(value: ClientProxy | null)
                 /**
                  * The Desktop ID of the application.
                  * @default NULL
@@ -630,7 +629,6 @@ declare module "gi://Geoclue?version=2.0" {
                  * The current location.
                  */
                 get location(): LocationProxy | null
-                set location(value: LocationProxy | null)
                 /**
                  * The current time threshold in seconds. This value is used by the
                  * service when it gets new location info. If the time passed is

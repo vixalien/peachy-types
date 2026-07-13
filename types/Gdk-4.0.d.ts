@@ -457,12 +457,12 @@ declare module "gi://Gdk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "content": ContentProvider | null
-                    "formats": ContentFormats
-                    "local": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "content": ContentProvider | null
+                    "formats": ContentFormats
+                    "local": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -483,7 +483,6 @@ declare module "gi://Gdk?version=4.0" {
                  * provided otherwise.
                  */
                 get content(): ContentProvider | null
-                set content(value: ContentProvider | null)
                 /**
                  * The `GdkDisplay` that the clipboard belongs to.
                  */
@@ -493,13 +492,11 @@ declare module "gi://Gdk?version=4.0" {
                  * The possible formats that the clipboard can provide its data in.
                  */
                 get formats(): ContentFormats
-                set formats(value: ContentFormats)
                 /**
                  * %TRUE if the contents of the clipboard are owned by this process.
                  * @default TRUE
                  */
                 get local(): boolean
-                set local(value: boolean)
                 /**
                  * Returns the `GdkContentProvider` currently set on `clipboard`.
                  *
@@ -813,11 +810,11 @@ declare module "gi://Gdk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "formats": ContentFormats
-                    "storable-formats": ContentFormats
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "formats": ContentFormats
+                    "storable-formats": ContentFormats
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -836,12 +833,10 @@ declare module "gi://Gdk?version=4.0" {
                  * The possible formats that the provider can provide its data in.
                  */
                 get formats(): ContentFormats
-                set formats(value: ContentFormats)
                 /**
                  * The subset of formats that clipboard managers should store this provider's data in.
                  */
                 get storableFormats(): ContentFormats
-                set storableFormats(value: ContentFormats)
                 /**
                  * Emits the ::content-changed signal.
                  */
@@ -1519,6 +1514,10 @@ declare module "gi://Gdk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                    "seat": Seat
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "active-layout-index": number
                     "caps-lock-state": boolean
                     "direction": Pango.Direction
@@ -1528,11 +1527,7 @@ declare module "gi://Gdk?version=4.0" {
                     "n-axes": number
                     "num-lock-state": boolean
                     "scroll-lock-state": boolean
-                    "seat": Seat
                     "tool": DeviceTool | null
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1566,7 +1561,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default 0
                  */
                 get activeLayoutIndex(): number
-                set activeLayoutIndex(value: number)
                 /**
                  * Whether Caps Lock is on.
                  *
@@ -1574,7 +1568,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default FALSE
                  */
                 get capsLockState(): boolean
-                set capsLockState(value: boolean)
                 /**
                  * The direction of the current layout.
                  *
@@ -1582,7 +1575,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default PANGO_DIRECTION_NEUTRAL
                  */
                 get direction(): Pango.Direction
-                set direction(value: Pango.Direction)
                 /**
                  * The `GdkDisplay` the `GdkDevice` pertains to.
                  */
@@ -1595,7 +1587,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default FALSE
                  */
                 get hasBidiLayouts(): boolean
-                set hasBidiLayouts(value: boolean)
                 /**
                  * Whether the device is represented by a cursor on the screen.
                  * @default FALSE
@@ -1611,7 +1602,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @since 4.18
                  */
                 get layoutNames(): string[] | null
-                set layoutNames(value: string[] | null)
                 /**
                  * The current modifier state of the device.
                  *
@@ -1619,13 +1609,11 @@ declare module "gi://Gdk?version=4.0" {
                  * @default GDK_NO_MODIFIER_MASK
                  */
                 get modifierState(): ModifierType
-                set modifierState(value: ModifierType)
                 /**
                  * Number of axes in the device.
                  * @default 0
                  */
                 get nAxes(): number
-                set nAxes(value: number)
                 /**
                  * The device name.
                  * @default NULL
@@ -1639,7 +1627,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default FALSE
                  */
                 get numLockState(): boolean
-                set numLockState(value: boolean)
                 /**
                  * The maximal number of concurrent touches on a touch device.
                  *
@@ -1664,7 +1651,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default FALSE
                  */
                 get scrollLockState(): boolean
-                set scrollLockState(value: boolean)
                 /**
                  * `GdkSeat` of this device.
                  */
@@ -1680,7 +1666,6 @@ declare module "gi://Gdk?version=4.0" {
                  * The `GdkDeviceTool` that is currently used with this device.
                  */
                 get tool(): DeviceTool | null
-                set tool(value: DeviceTool | null)
                 /**
                  * Vendor ID of this device.
                  *
@@ -2000,14 +1985,14 @@ declare module "gi://Gdk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "composited": boolean
                     "dmabuf-formats": DmabufFormats
                     "input-shapes": boolean
                     "rgba": boolean
                     "shadow-width": boolean
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2027,32 +2012,27 @@ declare module "gi://Gdk?version=4.0" {
                  * @default TRUE
                  */
                 get composited(): boolean
-                set composited(value: boolean)
                 /**
                  * The dma-buf formats that are supported on this display
                  * @since 4.14
                  */
                 get dmabufFormats(): DmabufFormats
-                set dmabufFormats(value: DmabufFormats)
                 /**
                  * %TRUE if the display supports input shapes.
                  * @default TRUE
                  */
                 get inputShapes(): boolean
-                set inputShapes(value: boolean)
                 /**
                  * %TRUE if the display supports an alpha channel.
                  * @default TRUE
                  */
                 get rgba(): boolean
-                set rgba(value: boolean)
                 /**
                  * %TRUE if the display supports extensible frames.
                  * @since 4.14
                  * @default TRUE
                  */
                 get shadowWidth(): boolean
-                set shadowWidth(value: boolean)
                 /**
                  * Emits a short beep on `display`
                  */
@@ -2995,11 +2975,11 @@ declare module "gi://Gdk?version=4.0" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "actions": DragAction
-                    "display": Display
                     "selected-action": DragAction
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "display": Display
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3038,7 +3018,6 @@ declare module "gi://Gdk?version=4.0" {
                  * The `GdkDisplay` that the drag belongs to.
                  */
                 get display(): Display
-                set display(value: Display)
                 /**
                  * The possible formats that the drag can provide its data in.
                  */
@@ -3313,10 +3292,10 @@ declare module "gi://Gdk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "display": Display
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "display": Display
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3351,7 +3330,6 @@ declare module "gi://Gdk?version=4.0" {
                  * The `GdkDisplay` that the drop belongs to.
                  */
                 get display(): Display
-                set display(value: Display)
                 /**
                  * The `GdkDrag` that initiated this drop
                  */
@@ -3991,10 +3969,10 @@ declare module "gi://Gdk?version=4.0" {
 
                 interface ReadWriteProperties extends DrawContext.ReadWriteProperties {
                     "allowed-apis": GLAPI
-                    "api": GLAPI
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DrawContext.ReadableProperties {
+                    "api": GLAPI
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DrawContext.WritableProperties {
@@ -4023,7 +4001,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default 0
                  */
                 get api(): GLAPI
-                set api(value: GLAPI)
                 /**
                  * Always %NULL
                  *
@@ -5174,6 +5151,9 @@ declare module "gi://Gdk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "connector": string | null
                     "description": string | null
                     "geometry": Rectangle
@@ -5186,9 +5166,6 @@ declare module "gi://Gdk?version=4.0" {
                     "subpixel-layout": SubpixelLayout
                     "valid": boolean
                     "width-mm": number
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -5209,14 +5186,12 @@ declare module "gi://Gdk?version=4.0" {
                  * @default NULL
                  */
                 get connector(): string | null
-                set connector(value: string | null)
                 /**
                  * A short description of the monitor, meant for display to the user.
                  * @since 4.10
                  * @default NULL
                  */
                 get description(): string | null
-                set description(value: string | null)
                 /**
                  * The `GdkDisplay` of the monitor.
                  */
@@ -5226,38 +5201,32 @@ declare module "gi://Gdk?version=4.0" {
                  * The geometry of the monitor.
                  */
                 get geometry(): Rectangle
-                set geometry(value: Rectangle)
                 /**
                  * The height of the monitor, in millimeters.
                  * @default 0
                  */
                 get heightMm(): number
-                set heightMm(value: number)
                 /**
                  * The manufacturer name.
                  * @default NULL
                  */
                 get manufacturer(): string | null
-                set manufacturer(value: string | null)
                 /**
                  * The model name.
                  * @default NULL
                  */
                 get model(): string | null
-                set model(value: string | null)
                 /**
                  * The refresh rate, in milli-Hertz.
                  * @default 0
                  */
                 get refreshRate(): number
-                set refreshRate(value: number)
                 /**
                  * The scale of the monitor.
                  * @since 4.14
                  * @default 1.000000
                  */
                 get scale(): number
-                set scale(value: number)
                 /**
                  * The scale factor.
                  *
@@ -5266,25 +5235,21 @@ declare module "gi://Gdk?version=4.0" {
                  * @default 1
                  */
                 get scaleFactor(): number
-                set scaleFactor(value: number)
                 /**
                  * The subpixel layout.
                  * @default GDK_SUBPIXEL_LAYOUT_UNKNOWN
                  */
                 get subpixelLayout(): SubpixelLayout
-                set subpixelLayout(value: SubpixelLayout)
                 /**
                  * Whether the object is still valid.
                  * @default TRUE
                  */
                 get valid(): boolean
-                set valid(value: boolean)
                 /**
                  * The width of the monitor, in millimeters.
                  * @default 0
                  */
                 get widthMm(): number
-                set widthMm(value: number)
                 /**
                  * Gets the name of the monitor's connector, if available.
                  *
@@ -5808,14 +5773,14 @@ declare module "gi://Gdk?version=4.0" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "cursor": Cursor | null
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "height": number
                     "mapped": boolean
                     "scale": number
                     "scale-factor": number
                     "width": number
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -5852,20 +5817,17 @@ declare module "gi://Gdk?version=4.0" {
                  * @default 0
                  */
                 get height(): number
-                set height(value: number)
                 /**
                  * Whether the surface is mapped.
                  * @default FALSE
                  */
                 get mapped(): boolean
-                set mapped(value: boolean)
                 /**
                  * The scale of the surface.
                  * @since 4.12
                  * @default 1.000000
                  */
                 get scale(): number
-                set scale(value: number)
                 /**
                  * The scale factor of the surface.
                  *
@@ -5874,13 +5836,11 @@ declare module "gi://Gdk?version=4.0" {
                  * @default 1
                  */
                 get scaleFactor(): number
-                set scaleFactor(value: number)
                 /**
                  * The width of the surface in pixels.
                  * @default 0
                  */
                 get width(): number
-                set width(value: number)
                 /**
                  * Emits a short beep associated to `surface`.
                  *
@@ -7258,21 +7218,21 @@ declare module "gi://Gdk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends Surface.ReadWriteProperties {
-                    "capabilities": ToplevelCapabilities
                     "decorated": boolean
                     "deletable": boolean
                     "fullscreen-mode": FullscreenMode
                     "gravity": Gravity
                     "icon-list": never
                     "modal": boolean
-                    "shortcuts-inhibited": boolean
                     "startup-id": string
-                    "state": ToplevelState
                     "title": string
                     "transient-for": Surface
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Surface.ReadableProperties {
+                    "capabilities": ToplevelCapabilities
+                    "shortcuts-inhibited": boolean
+                    "state": ToplevelState
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Surface.WritableProperties {
@@ -7296,7 +7256,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default 0
                  */
                 get capabilities(): ToplevelCapabilities
-                set capabilities(value: ToplevelCapabilities)
                 /**
                  * Whether the window manager should add decorations.
                  * @default FALSE
@@ -7347,7 +7306,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default FALSE
                  */
                 get shortcutsInhibited(): boolean
-                set shortcutsInhibited(value: boolean)
                 /**
                  * The startup ID of the surface.
                  *
@@ -7362,7 +7320,6 @@ declare module "gi://Gdk?version=4.0" {
                  * @default 0
                  */
                 get state(): ToplevelState
-                set state(value: ToplevelState)
                 /**
                  * The title of the surface.
                  * @default NULL

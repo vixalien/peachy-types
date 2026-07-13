@@ -714,21 +714,21 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, ActionGroup.ReadWriteProperties, ActionMap.ReadWriteProperties {
-                    "action-group": ActionGroup
                     "application-id": string | null
                     "flags": ApplicationFlags
                     "inactivity-timeout": number
-                    "is-busy": boolean
-                    "is-registered": boolean
-                    "is-remote": boolean
                     "resource-base-path": string | null
                     "version": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, ActionGroup.ReadableProperties, ActionMap.ReadableProperties {
+                    "is-busy": boolean
+                    "is-registered": boolean
+                    "is-remote": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, ActionGroup.WritableProperties, ActionMap.WritableProperties {
+                    "action-group": ActionGroup
                 }
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties, ActionGroup.ConstructOnlyProperties, ActionMap.ConstructOnlyProperties {
@@ -774,21 +774,18 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isBusy(): boolean
-                set isBusy(value: boolean)
                 /**
                  * Whether {@link Gio.Application.register} has been called.
                  * @since 2.28
                  * @default FALSE
                  */
                 get isRegistered(): boolean
-                set isRegistered(value: boolean)
                 /**
                  * Whether this application instance is remote.
                  * @since 2.28
                  * @default FALSE
                  */
                 get isRemote(): boolean
-                set isRemote(value: boolean)
                 /**
                  * The base resource path for the application.
                  * @since 2.28
@@ -1780,10 +1777,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "is-remote": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "is-remote": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1813,7 +1810,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isRemote(): boolean
-                set isRemote(value: boolean)
                 /**
                  * The options sent along with the commandline.
                  * @since 2.28
@@ -3583,13 +3579,13 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncInitable.ReadWriteProperties, Initable.ReadWriteProperties {
-                    "capabilities": DBusCapabilityFlags
-                    "closed": boolean
                     "exit-on-close": boolean
-                    "unique-name": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, Initable.ReadableProperties {
+                    "capabilities": DBusCapabilityFlags
+                    "closed": boolean
+                    "unique-name": string | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncInitable.WritableProperties, Initable.WritableProperties {
@@ -3628,14 +3624,12 @@ declare module "gi://Gio?version=2.0" {
                  * @default G_DBUS_CAPABILITY_FLAGS_NONE
                  */
                 get capabilities(): DBusCapabilityFlags
-                set capabilities(value: DBusCapabilityFlags)
                 /**
                  * A boolean specifying whether the connection has been closed.
                  * @since 2.26
                  * @default FALSE
                  */
                 get closed(): boolean
-                set closed(value: boolean)
                 /**
                  * A boolean specifying whether the process will be terminated (by
                  * calling `raise(SIGTERM)`) if the connection is closed by the
@@ -3703,7 +3697,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get uniqueName(): string | null
-                set uniqueName(value: string | null)
                 /**
                  * Adds a message filter. Filters are handlers that are run on all
                  * incoming and outgoing messages, prior to standard dispatch. Filters
@@ -5064,10 +5057,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "locked": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "locked": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -5086,7 +5079,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get locked(): boolean
-                set locked(value: boolean)
                 /**
                  * Copies `message` with a deep copy.
                  *
@@ -5802,10 +5794,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncInitable.ReadWriteProperties, DBusObjectManager.ReadWriteProperties, Initable.ReadWriteProperties {
-                    "name-owner": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, DBusObjectManager.ReadableProperties, Initable.ReadableProperties {
+                    "name-owner": string | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncInitable.WritableProperties, DBusObjectManager.WritableProperties, Initable.WritableProperties {
@@ -5884,7 +5876,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get nameOwner(): string | null
-                set nameOwner(value: string | null)
                 /**
                  * The object path the manager is for.
                  * @since 2.30
@@ -6494,10 +6485,10 @@ declare module "gi://Gio?version=2.0" {
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncInitable.ReadWriteProperties, DBusInterface.ReadWriteProperties, Initable.ReadWriteProperties {
                     "g-default-timeout": number
                     "g-interface-info": DBusInterfaceInfo | null
-                    "g-name-owner": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncInitable.ReadableProperties, DBusInterface.ReadableProperties, Initable.ReadableProperties {
+                    "g-name-owner": string | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncInitable.WritableProperties, DBusInterface.WritableProperties, Initable.WritableProperties {
@@ -6605,7 +6596,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get gNameOwner(): string | null
-                set gNameOwner(value: string | null)
                 /**
                  * The object path the proxy is for.
                  * @since 2.26
@@ -7122,11 +7112,11 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Initable.ReadWriteProperties {
-                    "active": boolean
-                    "client-address": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Initable.ReadableProperties {
+                    "active": boolean
+                    "client-address": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Initable.WritableProperties {
@@ -7151,7 +7141,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get active(): boolean
-                set active(value: boolean)
                 /**
                  * The D-Bus address to listen on.
                  * @since 2.26
@@ -7171,7 +7160,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get clientAddress(): string
-                set clientAddress(value: string)
                 /**
                  * Flags from the #GDBusServerFlags enumeration.
                  * @since 2.26
@@ -9637,11 +9625,11 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "cancelled": boolean
                     "rate-limit": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "cancelled": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -9661,7 +9649,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get cancelled(): boolean
-                set cancelled(value: boolean)
                 /**
                  * The limit of the monitor to watch for changes, in milliseconds.
                  * @default 800
@@ -10219,12 +10206,12 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "closed": boolean
-                    "input-stream": InputStream
-                    "output-stream": OutputStream
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "closed": boolean
+                    "input-stream": InputStream
+                    "output-stream": OutputStream
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -10245,19 +10232,16 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get closed(): boolean
-                set closed(value: boolean)
                 /**
                  * The {@link Gio.InputStream} to read from.
                  * @since 2.22
                  */
                 get inputStream(): InputStream
-                set inputStream(value: InputStream)
                 /**
                  * The {@link Gio.OutputStream} to write to.
                  * @since 2.22
                  */
                 get outputStream(): OutputStream
-                set outputStream(value: OutputStream)
                 /**
                  * Clears the pending flag on `stream`.
                  * @since 2.22
@@ -10647,6 +10631,9 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "is-any": boolean
                     "is-link-local": boolean
                     "is-loopback": boolean
@@ -10657,9 +10644,6 @@ declare module "gi://Gio?version=2.0" {
                     "is-mc-site-local": boolean
                     "is-multicast": boolean
                     "is-site-local": boolean
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -10706,7 +10690,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isAny(): boolean
-                set isAny(value: boolean)
                 /**
                  * Whether this is a link-local address.
                  * See g_inet_address_get_is_link_local().
@@ -10714,7 +10697,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isLinkLocal(): boolean
-                set isLinkLocal(value: boolean)
                 /**
                  * Whether this is the loopback address for its family.
                  * See g_inet_address_get_is_loopback().
@@ -10722,7 +10704,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isLoopback(): boolean
-                set isLoopback(value: boolean)
                 /**
                  * Whether this is a global multicast address.
                  * See g_inet_address_get_is_mc_global().
@@ -10730,7 +10711,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isMcGlobal(): boolean
-                set isMcGlobal(value: boolean)
                 /**
                  * Whether this is a link-local multicast address.
                  * See g_inet_address_get_is_mc_link_local().
@@ -10738,7 +10718,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isMcLinkLocal(): boolean
-                set isMcLinkLocal(value: boolean)
                 /**
                  * Whether this is a node-local multicast address.
                  * See g_inet_address_get_is_mc_node_local().
@@ -10746,7 +10725,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isMcNodeLocal(): boolean
-                set isMcNodeLocal(value: boolean)
                 /**
                  * Whether this is an organization-local multicast address.
                  * See g_inet_address_get_is_mc_org_local().
@@ -10754,7 +10732,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isMcOrgLocal(): boolean
-                set isMcOrgLocal(value: boolean)
                 /**
                  * Whether this is a site-local multicast address.
                  * See g_inet_address_get_is_mc_site_local().
@@ -10762,7 +10739,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isMcSiteLocal(): boolean
-                set isMcSiteLocal(value: boolean)
                 /**
                  * Whether this is a multicast address.
                  * See g_inet_address_get_is_multicast().
@@ -10770,7 +10746,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isMulticast(): boolean
-                set isMulticast(value: boolean)
                 /**
                  * Whether this is a site-local address.
                  * See g_inet_address_get_is_loopback().
@@ -10778,7 +10753,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get isSiteLocal(): boolean
-                set isSiteLocal(value: boolean)
                 /**
                  * The scope-id for an IPv6 address.
                  * See {@link Gio.InetAddress.get_scope_id}.
@@ -10978,11 +10952,11 @@ declare module "gi://Gio?version=2.0" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Initable.ReadWriteProperties {
                     "address": InetAddress
-                    "family": SocketFamily
                     "length": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Initable.ReadableProperties {
+                    "family": SocketFamily
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Initable.WritableProperties {
@@ -11009,7 +10983,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default G_SOCKET_FAMILY_INVALID
                  */
                 get family(): SocketFamily
-                set family(value: SocketFamily)
                 /**
                  * The prefix length, in bytes.
                  * @since 2.32
@@ -11733,10 +11706,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, ListModel.ReadWriteProperties {
-                    "n-items": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, ListModel.ReadableProperties {
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, ListModel.WritableProperties {
@@ -11765,7 +11738,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * Appends `item` to `store`. `item` must be of type #GListStore:item-type.
                  *
@@ -11995,10 +11967,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends OutputStream.ReadWriteProperties, PollableOutputStream.ReadWriteProperties, Seekable.ReadWriteProperties {
-                    "data-size": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, OutputStream.ReadableProperties, PollableOutputStream.ReadableProperties, Seekable.ReadableProperties {
+                    "data-size": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, OutputStream.WritableProperties, PollableOutputStream.WritableProperties, Seekable.WritableProperties {
@@ -12027,7 +11999,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default 0
                  */
                 get dataSize(): number
-                set dataSize(value: number)
                 /**
                  * Current size of the data buffer.
                  * @since 2.24
@@ -14939,12 +14910,12 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "allowed": boolean
-                    "can-acquire": boolean
-                    "can-release": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "allowed": boolean
+                    "can-acquire": boolean
+                    "can-release": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -14965,21 +14936,18 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get allowed(): boolean
-                set allowed(value: boolean)
                 /**
                  * %TRUE if it is generally possible to acquire the permission by calling
                  * g_permission_acquire().
                  * @default FALSE
                  */
                 get canAcquire(): boolean
-                set canAcquire(value: boolean)
                 /**
                  * %TRUE if it is generally possible to release the permission by calling
                  * g_permission_release().
                  * @default FALSE
                  */
                 get canRelease(): boolean
-                set canRelease(value: boolean)
                 /**
                  * Attempts to acquire the permission represented by `permission`.
                  *
@@ -15228,13 +15196,13 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Action.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Action.ReadableProperties {
                     "enabled": boolean
                     "parameter-type": GLib.VariantType
                     "state": GLib.Variant
                     "state-type": GLib.VariantType
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Action.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Action.WritableProperties {
@@ -15262,7 +15230,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default TRUE
                  */
                 get enabled(): boolean
-                set enabled(value: boolean)
                 /**
                  * If %TRUE, the state of the action will be the negation of the
                  * property value, provided the property is boolean.
@@ -15292,7 +15259,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.38
                  */
                 get parameterType(): GLib.VariantType
-                set parameterType(value: GLib.VariantType)
                 /**
                  * The name of the property to wrap on the object.
                  *
@@ -15307,14 +15273,12 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.38
                  */
                 get state(): GLib.Variant
-                set state(value: GLib.Variant)
                 /**
                  * The #GVariantType of the state that the action has, or %NULL if the
                  * action is stateless.
                  * @since 2.38
                  */
                 get stateType(): GLib.VariantType
-                set stateType(value: GLib.VariantType)
             }
 
             interface PropertyActionClass extends Omit<GObject.ObjectClass, "new"> {
@@ -16264,11 +16228,11 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "delay-apply": boolean
-                    "has-unapplied": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "delay-apply": boolean
+                    "has-unapplied": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -16300,7 +16264,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get delayApply(): boolean
-                set delayApply(value: boolean)
                 /**
                  * Whether the {@link Gio.Settings} object has outstanding changes.
                  *
@@ -16308,7 +16271,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get hasUnapplied(): boolean
-                set hasUnapplied(value: boolean)
                 /**
                  * The path within the backend where the settings are stored.
                  * @default NULL
@@ -17788,10 +17750,10 @@ declare module "gi://Gio?version=2.0" {
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Action.ReadWriteProperties {
                     "enabled": boolean
                     "state": GLib.Variant
-                    "state-type": GLib.VariantType
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Action.ReadableProperties {
+                    "state-type": GLib.VariantType
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Action.WritableProperties {
@@ -17845,7 +17807,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.28
                  */
                 get stateType(): GLib.VariantType
-                set stateType(value: GLib.VariantType)
                 /**
                  * Sets the action as enabled or not.
                  *
@@ -18640,15 +18601,15 @@ declare module "gi://Gio?version=2.0" {
                     "broadcast": boolean
                     "keepalive": boolean
                     "listen-backlog": number
-                    "local-address": SocketAddress
                     "multicast-loopback": boolean
                     "multicast-ttl": number
-                    "remote-address": SocketAddress
                     "timeout": number
                     "ttl": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, DatagramBased.ReadableProperties, Initable.ReadableProperties {
+                    "local-address": SocketAddress
+                    "remote-address": SocketAddress
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, DatagramBased.WritableProperties, Initable.WritableProperties {
@@ -18714,7 +18675,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.22
                  */
                 get localAddress(): SocketAddress
-                set localAddress(value: SocketAddress)
                 /**
                  * Whether outgoing multicast packets loop back to the local host.
                  * @since 2.32
@@ -18741,7 +18701,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.22
                  */
                 get remoteAddress(): SocketAddress
-                set remoteAddress(value: SocketAddress)
                 /**
                  * The timeout in seconds on socket I/O
                  * @since 2.26
@@ -19906,10 +19865,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, SocketConnectable.ReadWriteProperties {
-                    "family": SocketFamily
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, SocketConnectable.ReadableProperties {
+                    "family": SocketFamily
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, SocketConnectable.WritableProperties {
@@ -19930,7 +19889,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default G_SOCKET_FAMILY_INVALID
                  */
                 get family(): SocketFamily
-                set family(value: SocketFamily)
                 /**
                  * Gets the socket family type of `address`.
                  * @since 2.22
@@ -22220,10 +22178,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, AsyncResult.ReadWriteProperties {
-                    "completed": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, AsyncResult.ReadableProperties {
+                    "completed": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, AsyncResult.WritableProperties {
@@ -22261,7 +22219,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get completed(): boolean
-                set completed(value: boolean)
                 /**
                  * Gets `task`'s #GCancellable
                  * @since 2.36
@@ -23821,15 +23778,15 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "dns-names": never[] | null
                     "ip-addresses": never[] | null
                     "issuer-name": string | null
                     "not-valid-after": GLib.DateTime | null
                     "not-valid-before": GLib.DateTime | null
                     "subject-name": string | null
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -23876,14 +23833,12 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.70
                  */
                 get dnsNames(): never[] | null
-                set dnsNames(value: never[] | null)
                 /**
                  * The IP addresses from the certificate's Subject Alternative Names (SANs),
                  * %NULL if unavailable.
                  * @since 2.70
                  */
                 get ipAddresses(): never[] | null
-                set ipAddresses(value: never[] | null)
                 /**
                  * A #GTlsCertificate representing the entity that issued this
                  * certificate. If %NULL, this means that the certificate is either
@@ -23912,21 +23867,18 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get issuerName(): string | null
-                set issuerName(value: string | null)
                 /**
                  * The time at which this cert is no longer valid,
                  * %NULL if unavailable.
                  * @since 2.70
                  */
                 get notValidAfter(): GLib.DateTime | null
-                set notValidAfter(value: GLib.DateTime | null)
                 /**
                  * The time at which this cert is considered to be valid,
                  * %NULL if unavailable.
                  * @since 2.70
                  */
                 get notValidBefore(): GLib.DateTime | null
-                set notValidBefore(value: GLib.DateTime | null)
                 /**
                  * An optional password used when constructed with GTlsCertificate:pkcs12-data.
                  * @since 2.72
@@ -24012,7 +23964,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get subjectName(): string | null
-                set subjectName(value: string | null)
                 /**
                  * Gets the value of #GTlsCertificate:dns-names.
                  * @since 2.70
@@ -24369,19 +24320,19 @@ declare module "gi://Gio?version=2.0" {
                 interface ReadWriteProperties extends IOStream.ReadWriteProperties {
                     "advertised-protocols": string[]
                     "certificate": TlsCertificate | null
-                    "ciphersuite-name": string | null
                     "database": TlsDatabase | null
                     "interaction": TlsInteraction | null
-                    "negotiated-protocol": string | null
-                    "peer-certificate": TlsCertificate | null
-                    "peer-certificate-errors": TlsCertificateFlags
-                    "protocol-version": TlsProtocolVersion
                     "rehandshake-mode": TlsRehandshakeMode
                     "require-close-notify": boolean
                     "use-system-certdb": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, IOStream.ReadableProperties {
+                    "ciphersuite-name": string | null
+                    "negotiated-protocol": string | null
+                    "peer-certificate": TlsCertificate | null
+                    "peer-certificate-errors": TlsCertificateFlags
+                    "protocol-version": TlsProtocolVersion
                 }
 
                 interface WritableProperties extends ReadWriteProperties, IOStream.WritableProperties {
@@ -24428,7 +24379,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get ciphersuiteName(): string | null
-                set ciphersuiteName(value: string | null)
                 /**
                  * The certificate database to use when verifying this TLS connection.
                  * If no certificate database is set, then the default database will be
@@ -24465,7 +24415,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get negotiatedProtocol(): string | null
-                set negotiatedProtocol(value: string | null)
                 /**
                  * The connection's peer's certificate, after the TLS handshake has
                  * completed or failed. Note in particular that this is not yet set
@@ -24476,7 +24425,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.28
                  */
                 get peerCertificate(): TlsCertificate | null
-                set peerCertificate(value: TlsCertificate | null)
                 /**
                  * The errors noticed while verifying
                  * #GTlsConnection:peer-certificate. Normally this should be 0, but
@@ -24496,14 +24444,12 @@ declare module "gi://Gio?version=2.0" {
                  * @default G_TLS_CERTIFICATE_NO_FLAGS
                  */
                 get peerCertificateErrors(): TlsCertificateFlags
-                set peerCertificateErrors(value: TlsCertificateFlags)
                 /**
                  * The TLS protocol version in use. See g_tls_connection_get_protocol_version().
                  * @since 2.70
                  * @default G_TLS_PROTOCOL_VERSION_UNKNOWN
                  */
                 get protocolVersion(): TlsProtocolVersion
-                set protocolVersion(value: TlsProtocolVersion)
                 /**
                  * The rehandshaking mode. See
                  * g_tls_connection_set_rehandshake_mode().
@@ -27211,10 +27157,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Converter.ReadWriteProperties {
-                    "file-info": FileInfo | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Converter.ReadableProperties {
+                    "file-info": FileInfo | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Converter.WritableProperties {
@@ -27240,7 +27186,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.26
                  */
                 get fileInfo(): FileInfo | null
-                set fileInfo(value: FileInfo | null)
                 /**
                  * The format of the compressed data.
                  * @since 2.24
@@ -27284,14 +27229,14 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "enabled": boolean
                     "name": string
                     "parameter-type": GLib.VariantType | null
                     "state": GLib.Variant | null
                     "state-type": GLib.VariantType | null
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -27427,7 +27372,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default TRUE
                  */
                 get enabled(): boolean
-                set enabled(value: boolean)
                 /**
                  * The name of the action.  This is mostly meaningful for identifying
                  * the action once it has been added to a {@link Gio.ActionGroup}. It is immutable.
@@ -27435,7 +27379,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get name(): string
-                set name(value: string)
                 /**
                  * The type of the parameter that must be given when activating the
                  * action. This is immutable, and may be `NULL` if no parameter is needed when
@@ -27443,20 +27386,17 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.28
                  */
                 get parameterType(): GLib.VariantType | null
-                set parameterType(value: GLib.VariantType | null)
                 /**
                  * The state of the action, or `NULL` if the action is stateless.
                  * @since 2.28
                  */
                 get state(): GLib.Variant | null
-                set state(value: GLib.Variant | null)
                 /**
                  * The {@link GLib.VariantType} of the state that the action has, or `NULL` if the
                  * action is stateless. This is immutable.
                  * @since 2.28
                  */
                 get stateType(): GLib.VariantType | null
-                set stateType(value: GLib.VariantType | null)
                 /**
                  * Activates the action.
                  *
@@ -31243,12 +31183,12 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends DatagramBased.ReadWriteProperties, DtlsConnection.ReadWriteProperties {
-                    "accepted-cas": never[]
                     "server-identity": SocketConnectable
                     "validation-flags": TlsCertificateFlags
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DatagramBased.ReadableProperties, DtlsConnection.ReadableProperties {
+                    "accepted-cas": never[]
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DatagramBased.WritableProperties, DtlsConnection.WritableProperties {
@@ -31277,7 +31217,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.48
                  */
                 get acceptedCas(): never[]
-                set acceptedCas(value: never[])
                 /**
                  * A #GSocketConnectable describing the identity of the server that
                  * is expected on the other end of the connection.
@@ -31455,18 +31394,18 @@ declare module "gi://Gio?version=2.0" {
                 interface ReadWriteProperties extends DatagramBased.ReadWriteProperties {
                     "advertised-protocols": string[]
                     "certificate": TlsCertificate | null
-                    "ciphersuite-name": string | null
                     "database": TlsDatabase | null
                     "interaction": TlsInteraction | null
-                    "negotiated-protocol": string | null
-                    "peer-certificate": TlsCertificate | null
-                    "peer-certificate-errors": TlsCertificateFlags
-                    "protocol-version": TlsProtocolVersion
                     "rehandshake-mode": TlsRehandshakeMode
                     "require-close-notify": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, DatagramBased.ReadableProperties {
+                    "ciphersuite-name": string | null
+                    "negotiated-protocol": string | null
+                    "peer-certificate": TlsCertificate | null
+                    "peer-certificate-errors": TlsCertificateFlags
+                    "protocol-version": TlsProtocolVersion
                 }
 
                 interface WritableProperties extends ReadWriteProperties, DatagramBased.WritableProperties {
@@ -31649,7 +31588,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get ciphersuiteName(): string | null
-                set ciphersuiteName(value: string | null)
                 /**
                  * The certificate database to use when verifying this TLS connection.
                  * If no certificate database is set, then the default database will be
@@ -31686,7 +31624,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default NULL
                  */
                 get negotiatedProtocol(): string | null
-                set negotiatedProtocol(value: string | null)
                 /**
                  * The connection's peer's certificate, after the TLS handshake has
                  * completed or failed. Note in particular that this is not yet set
@@ -31697,7 +31634,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.48
                  */
                 get peerCertificate(): TlsCertificate | null
-                set peerCertificate(value: TlsCertificate | null)
                 /**
                  * The errors noticed while verifying
                  * #GDtlsConnection:peer-certificate. Normally this should be 0, but
@@ -31717,14 +31653,12 @@ declare module "gi://Gio?version=2.0" {
                  * @default G_TLS_CERTIFICATE_NO_FLAGS
                  */
                 get peerCertificateErrors(): TlsCertificateFlags
-                set peerCertificateErrors(value: TlsCertificateFlags)
                 /**
                  * The DTLS protocol version in use. See g_dtls_connection_get_protocol_version().
                  * @since 2.70
                  * @default G_TLS_PROTOCOL_VERSION_UNKNOWN
                  */
                 get protocolVersion(): TlsProtocolVersion
-                set protocolVersion(value: TlsProtocolVersion)
                 /**
                  * The rehandshaking mode. See
                  * g_dtls_connection_set_rehandshake_mode().
@@ -37392,12 +37326,12 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends Initable.ReadWriteProperties {
-                    "connectivity": NetworkConnectivity
-                    "network-available": boolean
-                    "network-metered": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Initable.ReadableProperties {
+                    "connectivity": NetworkConnectivity
+                    "network-available": boolean
+                    "network-metered": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Initable.WritableProperties {
@@ -37477,7 +37411,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default G_NETWORK_CONNECTIVITY_FULL
                  */
                 get connectivity(): NetworkConnectivity
-                set connectivity(value: NetworkConnectivity)
                 /**
                  * Whether the network is considered available. That is, whether the
                  * system has a default route for at least one of IPv4 or IPv6.
@@ -37500,7 +37433,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get networkAvailable(): boolean
-                set networkAvailable(value: boolean)
                 /**
                  * Whether the network is considered metered.
                  *
@@ -37527,7 +37459,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get networkMetered(): boolean
-                set networkMetered(value: boolean)
                 /**
                  * Attempts to determine whether or not the host pointed to by
                  *  `connectable` can be reached, without actually trying to connect to
@@ -38070,10 +38001,10 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends Initable.ReadWriteProperties {
-                    "power-saver-enabled": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Initable.ReadableProperties {
+                    "power-saver-enabled": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Initable.WritableProperties {
@@ -38097,7 +38028,6 @@ declare module "gi://Gio?version=2.0" {
                  * @default FALSE
                  */
                 get powerSaverEnabled(): boolean
-                set powerSaverEnabled(value: boolean)
                 /**
                  * Gets whether the system is in “Power Saver” mode.
                  *
@@ -39037,13 +38967,13 @@ declare module "gi://Gio?version=2.0" {
                 }
 
                 interface ReadWriteProperties extends TlsConnection.ReadWriteProperties {
-                    "accepted-cas": never[]
                     "server-identity": SocketConnectable | null
                     "use-ssl3": boolean
                     "validation-flags": TlsCertificateFlags
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, TlsConnection.ReadableProperties {
+                    "accepted-cas": never[]
                 }
 
                 interface WritableProperties extends ReadWriteProperties, TlsConnection.WritableProperties {
@@ -39105,7 +39035,6 @@ declare module "gi://Gio?version=2.0" {
                  * @since 2.28
                  */
                 get acceptedCas(): never[]
-                set acceptedCas(value: never[])
                 /**
                  * A #GSocketConnectable describing the identity of the server that
                  * is expected on the other end of the connection.

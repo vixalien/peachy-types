@@ -49,13 +49,13 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "description": string
                     "icon": Gio.Icon | null
                     "line": number
                     "style": AnnotationStyle
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -76,7 +76,6 @@ declare module "gi://GtkSource?version=5" {
                  * @default NULL
                  */
                 get description(): string
-                set description(value: string)
                 /**
                  * The icon displayed at {@link Annotation.line}
                  *
@@ -84,21 +83,18 @@ declare module "gi://GtkSource?version=5" {
                  * @since 5.18
                  */
                 get icon(): Gio.Icon | null
-                set icon(value: Gio.Icon | null)
                 /**
                  * The line where to display the annotation
                  * @since 5.18
                  * @default 1
                  */
                 get line(): number
-                set line(value: number)
                 /**
                  * The style of the annotation
                  * @since 5.18
                  * @default GTK_SOURCE_ANNOTATION_STYLE_NONE
                  */
                 get style(): AnnotationStyle
-                set style(value: AnnotationStyle)
                 /**
                  * @returns the description text displayed
                  */
@@ -352,11 +348,11 @@ declare module "gi://GtkSource?version=5" {
                     "highlight-syntax": boolean
                     "implicit-trailing-newline": boolean
                     "language": Language | null
-                    "loading": boolean
                     "style-scheme": StyleScheme | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.TextBuffer.ReadableProperties {
+                    "loading": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.TextBuffer.WritableProperties {
@@ -403,7 +399,6 @@ declare module "gi://GtkSource?version=5" {
                  * @default FALSE
                  */
                 get loading(): boolean
-                set loading(value: boolean)
                 /**
                  * Style scheme. It contains styles for syntax highlighting, optionally
                  * foreground, background, cursor color, current line color, and matching
@@ -808,7 +803,6 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "buffer": Gtk.TextView
                     "page-size": number
                     "remember-info-visibility": boolean
                     "select-on-show": boolean
@@ -816,6 +810,7 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "buffer": Gtk.TextView
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -836,7 +831,6 @@ declare module "gi://GtkSource?version=5" {
                  * This is a convenience property for providers.
                  */
                 get buffer(): Gtk.TextView
-                set buffer(value: Gtk.TextView)
                 /**
                  * The number of rows to display to the user before scrolling.
                  * @default 5
@@ -1115,11 +1109,11 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
-                    "busy": boolean
-                    "empty": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                    "busy": boolean
+                    "empty": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
@@ -1141,7 +1135,6 @@ declare module "gi://GtkSource?version=5" {
                  * @default FALSE
                  */
                 get busy(): boolean
-                set busy(value: boolean)
                 /**
                  * The "completion" is the #GtkSourceCompletion that was used to create the context.
                  */
@@ -1155,7 +1148,6 @@ declare module "gi://GtkSource?version=5" {
                  * @default TRUE
                  */
                 get empty(): boolean
-                set empty(value: boolean)
                 /**
                  * Gets the mode for which the context was activated.
                  */
@@ -1424,14 +1416,14 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "compression-type": CompressionType
-                    "encoding": Encoding
                     "location": Gio.File | null
-                    "newline-type": NewlineType
-                    "read-only": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "compression-type": CompressionType
+                    "encoding": Encoding
+                    "newline-type": NewlineType
+                    "read-only": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -1451,13 +1443,11 @@ declare module "gi://GtkSource?version=5" {
                  * @default GTK_SOURCE_COMPRESSION_TYPE_NONE
                  */
                 get compressionType(): CompressionType
-                set compressionType(value: CompressionType)
                 /**
                  * The character encoding, initially %NULL. After a successful file
                  * loading or saving operation, the encoding is non-%NULL.
                  */
                 get encoding(): Encoding
-                set encoding(value: Encoding)
                 /**
                  * The location.
                  */
@@ -1468,14 +1458,12 @@ declare module "gi://GtkSource?version=5" {
                  * @default GTK_SOURCE_NEWLINE_TYPE_LF
                  */
                 get newlineType(): NewlineType
-                set newlineType(value: NewlineType)
                 /**
                  * Whether the file is read-only or not. The value of this property is
                  * not updated automatically (there is no file monitors).
                  * @default FALSE
                  */
                 get readOnly(): boolean
-                set readOnly(value: boolean)
                 /**
                  * Checks synchronously the file on disk, to know whether the file is externally
                  * modified, or has been deleted, and whether the file is read-only.
@@ -2266,8 +2254,6 @@ declare module "gi://GtkSource?version=5" {
 
                 interface ReadWriteProperties extends Gtk.Widget.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties {
                     "alignment-mode": GutterRendererAlignmentMode
-                    "lines": GutterLines
-                    "view": Gtk.TextView
                     "xalign": number
                     "xpad": number
                     "yalign": number
@@ -2275,6 +2261,8 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.Widget.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties {
+                    "lines": GutterLines
+                    "view": Gtk.TextView
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.Widget.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties {
@@ -2304,12 +2292,10 @@ declare module "gi://GtkSource?version=5" {
                  * It should be used by #GtkSourceGutterRenderer implementations from {@link Gtk.Widget.vfunc_snapshot}.
                  */
                 get lines(): GutterLines
-                set lines(value: GutterLines)
                 /**
                  * The view on which the renderer is placed.
                  */
                 get view(): Gtk.TextView
-                set view(value: Gtk.TextView)
                 /**
                  * The horizontal alignment of the renderer.
                  *
@@ -2943,13 +2929,13 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                     "hidden": boolean
                     "id": string
                     "name": string
                     "section": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -2968,22 +2954,18 @@ declare module "gi://GtkSource?version=5" {
                  * @default FALSE
                  */
                 get hidden(): boolean
-                set hidden(value: boolean)
                 /**
                  * @default NULL
                  */
                 get id(): string
-                set id(value: string)
                 /**
                  * @default NULL
                  */
                 get name(): string
-                set name(value: string)
                 /**
                  * @default NULL
                  */
                 get section(): string
-                set section(value: string)
                 /**
                  * Returns the globs associated to this language.
                  *
@@ -3083,11 +3065,11 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "language-ids": string[] | null
                     "search-path": string[]
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "language-ids": string[] | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3104,7 +3086,6 @@ declare module "gi://GtkSource?version=5" {
                 readonly $constructOnlyProperties: LanguageManager.ConstructOnlyProperties
                 
                 get languageIds(): string[] | null
-                set languageIds(value: string[] | null)
                 
                 get searchPath(): string[]
                 set searchPath(value: string[])
@@ -3639,7 +3620,6 @@ declare module "gi://GtkSource?version=5" {
                     "header-font-name": string
                     "highlight-syntax": boolean
                     "line-numbers-font-name": string
-                    "n-pages": number
                     "print-footer": boolean
                     "print-header": boolean
                     "print-line-numbers": number
@@ -3648,6 +3628,7 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "n-pages": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3738,7 +3719,6 @@ declare module "gi://GtkSource?version=5" {
                  * @default -1
                  */
                 get nPages(): number
-                set nPages(value: number)
                 /**
                  * Whether to print a footer in each page.
                  *
@@ -4474,11 +4454,11 @@ declare module "gi://GtkSource?version=5" {
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
                     "highlight": boolean
                     "match-style": Style | null
-                    "occurrences-count": number
-                    "regex-error": GLib.Error | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "occurrences-count": number
+                    "regex-error": GLib.Error | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -4518,7 +4498,6 @@ declare module "gi://GtkSource?version=5" {
                  * @default 0
                  */
                 get occurrencesCount(): number
-                set occurrencesCount(value: number)
                 /**
                  * If the regex search pattern doesn't follow all the rules, this
                  * #GError property will be set. If the pattern is valid, the value is
@@ -4527,7 +4506,6 @@ declare module "gi://GtkSource?version=5" {
                  * Free with {@link GLib.Error.free}.
                  */
                 get regexError(): GLib.Error | null
-                set regexError(value: GLib.Error | null)
                 /**
                  * The {@link SearchSettings} associated to the search context.
                  *
@@ -4975,15 +4953,15 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "buffer": Gtk.TextBuffer
                     "description": string
-                    "focus-position": number
                     "language-id": string
                     "name": string
                     "trigger": string | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "buffer": Gtk.TextBuffer
+                    "focus-position": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -5000,7 +4978,6 @@ declare module "gi://GtkSource?version=5" {
                 readonly $constructOnlyProperties: Snippet.ConstructOnlyProperties
                 
                 get buffer(): Gtk.TextBuffer
-                set buffer(value: Gtk.TextBuffer)
                 /**
                  * @default NULL
                  */
@@ -5010,7 +4987,6 @@ declare module "gi://GtkSource?version=5" {
                  * @default -1
                  */
                 get focusPosition(): number
-                set focusPosition(value: number)
                 /**
                  * @default NULL
                  */
@@ -5945,12 +5921,12 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "description": string | null
-                    "filename": string | null
-                    "name": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "description": string | null
+                    "filename": string | null
+                    "name": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -5971,13 +5947,11 @@ declare module "gi://GtkSource?version=5" {
                  * @default NULL
                  */
                 get description(): string | null
-                set description(value: string | null)
                 /**
                  * Style scheme filename or %NULL.
                  * @default NULL
                  */
                 get filename(): string | null
-                set filename(value: string | null)
                 /**
                  * Style scheme id, a unique string used to identify the style scheme
                  * in {@link StyleSchemeManager}.
@@ -5990,7 +5964,6 @@ declare module "gi://GtkSource?version=5" {
                  * @default NULL
                  */
                 get name(): string
-                set name(value: string)
                 /**
                  * @returns a %NULL-terminated array containing the `scheme` authors or %NULL if no author is specified by the style scheme.
                  */
@@ -6162,11 +6135,11 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "scheme-ids": string[] | null
                     "search-path": string[]
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "scheme-ids": string[] | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -6183,7 +6156,6 @@ declare module "gi://GtkSource?version=5" {
                 readonly $constructOnlyProperties: StyleSchemeManager.ConstructOnlyProperties
                 
                 get schemeIds(): string[] | null
-                set schemeIds(value: string[] | null)
                 
                 get searchPath(): string[]
                 set searchPath(value: string[])
@@ -6509,10 +6481,8 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends Gtk.TextView.ReadWriteProperties, Gtk.Accessible.ReadWriteProperties, Gtk.AccessibleText.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties, Gtk.ConstraintTarget.ReadWriteProperties, Gtk.Scrollable.ReadWriteProperties {
-                    "annotations": Annotations
                     "auto-indent": boolean
                     "background-pattern": BackgroundPatternType
-                    "completion": Completion
                     "enable-snippets": boolean
                     "highlight-current-line": boolean
                     "indent-on-tab": boolean
@@ -6525,11 +6495,13 @@ declare module "gi://GtkSource?version=5" {
                     "show-right-margin": boolean
                     "smart-backspace": boolean
                     "smart-home-end": SmartHomeEndType
-                    "space-drawer": SpaceDrawer
                     "tab-width": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.TextView.ReadableProperties, Gtk.Accessible.ReadableProperties, Gtk.AccessibleText.ReadableProperties, Gtk.Buildable.ReadableProperties, Gtk.ConstraintTarget.ReadableProperties, Gtk.Scrollable.ReadableProperties {
+                    "annotations": Annotations
+                    "completion": Completion
+                    "space-drawer": SpaceDrawer
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.TextView.WritableProperties, Gtk.Accessible.WritableProperties, Gtk.AccessibleText.WritableProperties, Gtk.Buildable.WritableProperties, Gtk.ConstraintTarget.WritableProperties, Gtk.Scrollable.WritableProperties {
@@ -6549,7 +6521,6 @@ declare module "gi://GtkSource?version=5" {
                  * @since 5.18
                  */
                 get annotations(): Annotations
-                set annotations(value: Annotations)
                 /**
                  * @default FALSE
                  */
@@ -6565,7 +6536,6 @@ declare module "gi://GtkSource?version=5" {
                  * The completion object associated with the view
                  */
                 get completion(): Completion
-                set completion(value: Completion)
                 /**
                  * The property denotes if snippets should be
                  * expanded when the user presses Tab after having typed a word
@@ -6645,7 +6615,6 @@ declare module "gi://GtkSource?version=5" {
                  * The {@link SpaceDrawer} object associated with the view.
                  */
                 get spaceDrawer(): SpaceDrawer
-                set spaceDrawer(value: SpaceDrawer)
                 /**
                  * Width of a tab character expressed in number of spaces.
                  * @default 8
@@ -7120,11 +7089,11 @@ declare module "gi://GtkSource?version=5" {
                 }
 
                 interface ReadWriteProperties extends Gtk.IMContext.ReadWriteProperties {
-                    "command-bar-text": string
-                    "command-text": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gtk.IMContext.ReadableProperties {
+                    "command-bar-text": string
+                    "command-text": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gtk.IMContext.WritableProperties {
@@ -7143,12 +7112,10 @@ declare module "gi://GtkSource?version=5" {
                  * @default NULL
                  */
                 get commandBarText(): string
-                set commandBarText(value: string)
                 /**
                  * @default NULL
                  */
                 get commandText(): string
-                set commandText(value: string)
                 /**
                  * Executes `command` as if it was typed into the command bar by the
                  * user except that this does not emit the

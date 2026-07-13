@@ -486,8 +486,6 @@ declare module "gi://GstAudio?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GstBase.PushSrc.ReadWriteProperties {
-                    "actual-buffer-time": number
-                    "actual-latency-time": number
                     "buffer-time": number
                     "latency-time": number
                     "provide-clock": boolean
@@ -495,6 +493,8 @@ declare module "gi://GstAudio?version=1.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GstBase.PushSrc.ReadableProperties {
+                    "actual-buffer-time": number
+                    "actual-latency-time": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GstBase.PushSrc.WritableProperties {
@@ -514,13 +514,11 @@ declare module "gi://GstAudio?version=1.0" {
                  * @default -1
                  */
                 get actualBufferTime(): number
-                set actualBufferTime(value: number)
                 /**
                  * Actual configured audio latency in microseconds.
                  * @default -1
                  */
                 get actualLatencyTime(): number
-                set actualLatencyTime(value: number)
                 /**
                  * @default 200000
                  */
@@ -1336,12 +1334,12 @@ declare module "gi://GstAudio?version=1.0" {
 
                 interface ReadWriteProperties extends Gst.Element.ReadWriteProperties, Gst.Preset.ReadWriteProperties {
                     "hard-resync": boolean
-                    "mark-granule": boolean
                     "perfect-timestamp": boolean
                     "tolerance": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties, Gst.Preset.ReadableProperties {
+                    "mark-granule": boolean
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties, Gst.Preset.WritableProperties {
@@ -1365,7 +1363,6 @@ declare module "gi://GstAudio?version=1.0" {
                  * @default FALSE
                  */
                 get markGranule(): boolean
-                set markGranule(value: boolean)
                 /**
                  * @default FALSE
                  */

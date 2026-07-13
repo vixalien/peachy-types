@@ -1553,19 +1553,19 @@ declare module "gi://GstBase?version=1.0" {
                     "async": boolean
                     "blocksize": number
                     "enable-last-sample": boolean
-                    "last-sample": Gst.Sample | null
                     "max-bitrate": number
                     "max-lateness": number
                     "processing-deadline": number
                     "qos": boolean
                     "render-delay": number
-                    "stats": Gst.Structure
                     "sync": boolean
                     "throttle-time": number
                     "ts-offset": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Element.ReadableProperties {
+                    "last-sample": Gst.Sample | null
+                    "stats": Gst.Structure
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Element.WritableProperties {
@@ -1610,7 +1610,6 @@ declare module "gi://GstBase?version=1.0" {
                  * can be %NULL when the sink has not yet received a buffer.
                  */
                 get lastSample(): Gst.Sample | null
-                set lastSample(value: Gst.Sample | null)
                 /**
                  * Control the maximum amount of bits that will be rendered per second.
                  * Setting this property to a value bigger than 0 will make the sink delay
@@ -1657,7 +1656,6 @@ declare module "gi://GstBase?version=1.0" {
                  * @since 1.18
                  */
                 get stats(): Gst.Structure
-                set stats(value: Gst.Structure)
                 /**
                  * @default TRUE
                  */
@@ -3517,12 +3515,12 @@ declare module "gi://GstBase?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "current-level-bytes": number
-                    "current-level-time": number
-                    "current-level-visible": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "current-level-bytes": number
+                    "current-level-time": number
+                    "current-level-visible": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -3541,17 +3539,14 @@ declare module "gi://GstBase?version=1.0" {
                  * @default 0
                  */
                 get currentLevelBytes(): number
-                set currentLevelBytes(value: number)
                 /**
                  * @default 0
                  */
                 get currentLevelTime(): number
-                set currentLevelTime(value: number)
                 /**
                  * @default 0
                  */
                 get currentLevelVisible(): number
-                set currentLevelVisible(value: number)
                 
                 vfunc_empty(): void
                 

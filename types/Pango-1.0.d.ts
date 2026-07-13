@@ -799,14 +799,14 @@ declare module "gi://Pango?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
                     "is-monospace": boolean
                     "is-variable": boolean
                     "item-type": GObject.GType
                     "n-items": number
                     "name": string
-                }
-
-                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
@@ -827,34 +827,29 @@ declare module "gi://Pango?version=1.0" {
                  * @default FALSE
                  */
                 get isMonospace(): boolean
-                set isMonospace(value: boolean)
                 /**
                  * Is this a variable font
                  * @since 1.52
                  * @default FALSE
                  */
                 get isVariable(): boolean
-                set isVariable(value: boolean)
                 /**
                  * The type of items contained in this list.
                  * @since 1.52
                  */
                 get itemType(): GObject.GType
-                set itemType(value: GObject.GType)
                 /**
                  * The number of items contained in this list.
                  * @since 1.52
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * The name of the family
                  * @since 1.52
                  * @default NULL
                  */
                 get name(): string
-                set name(value: string)
                 /**
                  * Gets the `PangoFontFace` of `family` with the given name.
                  * @since 1.46
@@ -999,11 +994,11 @@ declare module "gi://Pango?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gio.ListModel.ReadWriteProperties {
-                    "item-type": GObject.GType
-                    "n-items": number
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties, Gio.ListModel.ReadableProperties {
+                    "item-type": GObject.GType
+                    "n-items": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties, Gio.ListModel.WritableProperties {
@@ -1023,14 +1018,12 @@ declare module "gi://Pango?version=1.0" {
                  * @since 1.52
                  */
                 get itemType(): GObject.GType
-                set itemType(value: GObject.GType)
                 /**
                  * The number of items contained in this list.
                  * @since 1.52
                  * @default 0
                  */
                 get nItems(): number
-                set nItems(value: number)
                 /**
                  * Loads a font file with one or more fonts into the `PangoFontMap`.
                  *

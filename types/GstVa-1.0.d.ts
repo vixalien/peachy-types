@@ -142,10 +142,10 @@ declare module "gi://GstVa?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "description": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "description": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -165,7 +165,6 @@ declare module "gi://GstVa?version=1.0" {
                  * @default NULL
                  */
                 get description(): string
-                set description(value: string)
                 
                 get vaDisplay(): never
                 set vaDisplay(value: never)

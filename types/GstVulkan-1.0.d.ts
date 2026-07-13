@@ -311,10 +311,10 @@ declare module "gi://GstVulkan?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "instance": VulkanInstance | null
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "instance": VulkanInstance | null
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -332,7 +332,6 @@ declare module "gi://GstVulkan?version=1.0" {
                 readonly $constructOnlyProperties: VulkanDevice.ConstructOnlyProperties
                 
                 get instance(): VulkanInstance | null
-                set instance(value: VulkanInstance | null)
                 
                 get physicalDevice(): VulkanPhysicalDevice
                 set physicalDevice(value: VulkanPhysicalDevice)
@@ -1451,10 +1450,10 @@ declare module "gi://GstVulkan?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "name": string
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "name": string
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -1483,7 +1482,6 @@ declare module "gi://GstVulkan?version=1.0" {
                  * @default NULL
                  */
                 get name(): string
-                set name(value: string)
                 /**
                  * Note: This is the intersection of the exposed supported API version as would
                  * be returned by gst_vulkan_physical_device_get_api_version() and
@@ -1933,10 +1931,10 @@ declare module "gi://GstVulkan?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Object.ReadWriteProperties {
-                    "display": VulkanDisplay
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Object.ReadableProperties {
+                    "display": VulkanDisplay
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Object.WritableProperties {
@@ -1953,7 +1951,6 @@ declare module "gi://GstVulkan?version=1.0" {
                 readonly $constructOnlyProperties: VulkanWindow.ConstructOnlyProperties
                 
                 get display(): VulkanDisplay
-                set display(value: VulkanDisplay)
                 /**
                  * Attempt to close the window.
                  * @since 1.18
