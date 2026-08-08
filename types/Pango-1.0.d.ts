@@ -7644,9 +7644,9 @@ declare module "gi://Pango?version=1.0" {
                 RENDER_COMPONENT_ALL: 62
                 SCALE: 1024
                 VERSION_MAJOR: 1
-                VERSION_MICRO: 0
+                VERSION_MICRO: 2
                 VERSION_MINOR: 58
-                VERSION_STRING: "1.58.0"
+                VERSION_STRING: "1.58.2"
                 /**
                  * Create a new allow-breaks attribute.
                  *

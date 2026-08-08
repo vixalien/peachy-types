@@ -10333,9 +10333,13 @@ declare module "gi://Gio?version=2.0" {
                  */
                 has_pending(): boolean
                 /**
-                 * Checks if a stream is closed.
+                 * Checks if a stream has been closed.
+                 *
+                 * This only indicates whether the I/O stream has been closed at the top level
+                 * by calling {@link Gio.IOStream.close}. If the underlying input and output
+                 * streams have been closed separately, this method will still return false.
                  * @since 2.22
-                 * @returns %TRUE if the stream is closed.
+                 * @returns true if the stream has been closed; false otherwise
                  */
                 is_closed(): boolean
                 /**
@@ -11282,8 +11286,14 @@ declare module "gi://Gio?version=2.0" {
                  */
                 has_pending(): boolean
                 /**
-                 * Checks if an input stream is closed.
-                 * @returns %TRUE if the stream is closed.
+                 * Checks if an input stream has been closed.
+                 *
+                 * This only indicates whether the stream has been closed from this end by
+                 * calling {@link Gio.InputStream.close}. If the stream is a pipe or socket,
+                 * for example, and the process on the other end has closed its end, this method
+                 * will still return false. Methods which try to read from the input stream will
+                 * return any remaining data, end-of-file or an error, however.
+                 * @returns true if the stream has been closed; false otherwise
                  */
                 is_closed(): boolean
                 /**
@@ -14238,8 +14248,14 @@ declare module "gi://Gio?version=2.0" {
                  */
                 has_pending(): boolean
                 /**
-                 * Checks if an output stream has already been closed.
-                 * @returns %TRUE if `stream` is closed. %FALSE otherwise.
+                 * Checks if an output stream has been closed.
+                 *
+                 * This only indicates whether the stream has been closed from this end by
+                 * calling {@link Gio.OutputStream.close}. If the stream is a pipe or socket,
+                 * for example, and the process on the other end has closed its end, this method
+                 * will still return false. Methods which try to write to the output stream will
+                 * return an error, however.
+                 * @returns true if the stream has been closed; false otherwise
                  */
                 is_closed(): boolean
                 /**
@@ -26250,7 +26266,7 @@ declare module "gi://Gio?version=2.0" {
                 /**
                  * Adds a file descriptor to `list`.
                  *
-                 * The file descriptor is duplicated using dup(). You keep your copy
+                 * The file descriptor is duplicated using `dup()`. You keep your copy
                  * of the descriptor and the copy contained in `list` will be closed
                  * when `list` is finalized.
                  *
@@ -26258,23 +26274,40 @@ declare module "gi://Gio?version=2.0" {
                  * system-wide file descriptor limit.
                  *
                  * The index of the file descriptor in the list is returned.  If you use
-                 * this index with g_unix_fd_list_get() then you will receive back a
+                 * this index with {@link Gio.UnixFDList.get} then you will receive back a
                  * duplicated copy of the same file descriptor.
                  * @throws {GLib.Error}
                  * @since 2.24
                  * @param fd a valid open file descriptor
-                 * @returns the index of the appended fd in case of success, else -1          (and `error` is set)
+                 * @returns the index of the appended fd in case of success, else `-1`          (and `error` is set)
                  */
                 append(fd: number): number
+                /**
+                 * Adds a file descriptor to `list`.
+                 *
+                 * After this call, `fd` belongs to the `list` and may no longer be closed by the
+                 * caller.
+                 *
+                 * The file descriptor `fd` should be set to close-on-exec.
+                 *
+                 * The index of the file descriptor in the list is returned. If you use this
+                 * index with {@link Gio.UnixFDList.get} then you will receive back a
+                 * duplicated copy of the same file descriptor.
+                 * @since 2.90
+                 * @param fd a valid open file descriptor
+                 * @returns the index of the appended `fd`
+                 */
+                append_take(fd: number): number
                 /**
                  * Gets a file descriptor out of `list`.
                  *
                  *  `index_` specifies the index of the file descriptor to get.  It is a
-                 * programmer error for `index_` to be out of range; see
-                 * g_unix_fd_list_get_length().
+                 * programmer error for `index_` to be out of range. Either use
+                 * {@link Gio.UnixFDList.lookup} to do a checked lookup, or check the index
+                 * against the list length using {@link Gio.UnixFDList.get_length}.
                  *
-                 * The file descriptor is duplicated using dup() and set as
-                 * close-on-exec before being returned.  You must call close() on it
+                 * The file descriptor is duplicated using `dup()` and set as
+                 * close-on-exec before being returned.  You must call `close()` on it
                  * when you are done.
                  *
                  * A possible cause of failure is exceeding the per-process or
@@ -26282,7 +26315,7 @@ declare module "gi://Gio?version=2.0" {
                  * @throws {GLib.Error}
                  * @since 2.24
                  * @param index_ the index into the list
-                 * @returns the file descriptor, or -1 in case of error
+                 * @returns the file descriptor, or `-1` in case of error
                  */
                 get(index_: number): number
                 /**
@@ -26293,6 +26326,36 @@ declare module "gi://Gio?version=2.0" {
                  */
                 get_length(): number
                 /**
+                 * Looks up a file descriptor in `list` at position `index_`.
+                 *
+                 *  `index_` specifies the index of the file descriptor to get. If no file
+                 * descriptor exists at this index, `-1` is returned.
+                 *
+                 * After this call, the descriptor remains the property of `list`. The caller
+                 * must not close it. The descriptor is valid only until `list` is changed in any
+                 * way.
+                 * @since 2.90
+                 * @param index_ the file descriptor index
+                 * @returns the file descriptor, or `-1` if not found
+                 */
+                lookup(index_: number): number
+                /**
+                 * Gets a file descriptor out of `list`.
+                 *
+                 *  `index_` specifies the index of the file descriptor to get. It is a programmer
+                 * error for `index_` to be out of range; see {@link Gio.UnixFDList.get_length}.
+                 *
+                 * This will always return a valid (non-negative) file descriptor.
+                 *
+                 * After this call, the descriptor remains the property of `list`. The caller
+                 * must not close it. The descriptor is valid only until `list` is changed in any
+                 * way.
+                 * @since 2.90
+                 * @param index_ the index into the list
+                 * @returns the file descriptor
+                 */
+                peek(index_: number): number
+                /**
                  * Returns the array of file descriptors that is contained in this
                  * object.
                  *
@@ -26300,11 +26363,11 @@ declare module "gi://Gio?version=2.0" {
                  * caller must not close them and must not free the array.  The array is
                  * valid only until `list` is changed in any way.
                  *
-                 * If `length` is non-%NULL then it is set to the number of file
+                 * If `length` is non-`NULL` then it is set to the number of file
                  * descriptors in the returned array. The returned array is also
-                 * terminated with -1.
+                 * terminated with `-1`.
                  *
-                 * This function never returns %NULL. In case there are no file
+                 * This function never returns `NULL`. In case there are no file
                  * descriptors contained in `list`, an empty array is returned.
                  * @since 2.24
                  * @returns an array of file     descriptors
@@ -26318,16 +26381,16 @@ declare module "gi://Gio?version=2.0" {
                  *  `list`. Further calls will return an empty list (unless more
                  * descriptors have been added).
                  *
-                 * The return result of this function must be freed with g_free().
+                 * The return result of this function must be freed with `g_free()`.
                  * The caller is also responsible for closing all of the file
                  * descriptors.  The file descriptors in the array are set to
                  * close-on-exec.
                  *
-                 * If `length` is non-%NULL then it is set to the number of file
+                 * If `length` is non-`NULL` then it is set to the number of file
                  * descriptors in the returned array. The returned array is also
-                 * terminated with -1.
+                 * terminated with `-1`.
                  *
-                 * This function never returns %NULL. In case there are no file
+                 * This function never returns `NULL`. In case there are no file
                  * descriptors contained in `list`, an empty array is returned.
                  * @since 2.24
                  * @returns an array of file     descriptors
@@ -26341,23 +26404,22 @@ declare module "gi://Gio?version=2.0" {
 
                 new (props?: Partial<GObject.ConstructorProps<UnixFDList>>): UnixFDList
                 /**
-                 * Creates a new #GUnixFDList containing no file descriptors.
+                 * Creates a new {@link Gio.UnixFDList} containing no file descriptors.
                  * @since 2.24
-                 * @returns a new #GUnixFDList
+                 * @returns a new {@link Gio.UnixFDList}
                  */
                 "new"(): UnixFDList
                 /**
-                 * Creates a new #GUnixFDList containing the file descriptors given in
-                 *  `fds`.  The file descriptors become the property of the new list and
-                 * may no longer be used by the caller.  The array itself is owned by
-                 * the caller.
+                 * Creates a new {@link Gio.UnixFDList} containing the file descriptors given
+                 * in `fds`. The file descriptors become the property of the new list and may no
+                 * longer be used by the caller. The array itself is owned by the caller.
                  *
                  * Each file descriptor in the array should be set to close-on-exec.
                  *
                  * If `n_fds` is -1 then `fds` must be terminated with -1.
                  * @since 2.24
                  * @param fds the initial list of file descriptors
-                 * @returns a new #GUnixFDList
+                 * @returns a new {@link Gio.UnixFDList}
                  */
                 new_from_array(fds: number[]): UnixFDList
             }
@@ -37555,6 +37617,12 @@ declare module "gi://Gio?version=2.0" {
                 [Symbol.hasInstance](instance: unknown): instance is NetworkMonitor
                 /**
                  * Gets the default #GNetworkMonitor for the system.
+                 *
+                 * Some implementations complete their initialization asynchronously:
+                 * properties such as #GNetworkMonitor:network-available may start at their
+                 * default values and update shortly afterwards, with notify emissions, once
+                 * the state is resolved from the thread-default main context of this first
+                 * call.
                  * @since 2.32
                  * @returns a #GNetworkMonitor, which will be     a dummy object if no network monitor is available
                  */
@@ -44135,8 +44203,8 @@ declare module "gi://Gio?version=2.0" {
                  */
                 readonly "SERVER_END_POINT": 1
                 /**
-                 * [`tls-exporter`](https://www.rfc-editor.org/rfc/rfc9266.html) binding
-                 *    type. Since: 2.74
+                 * [`tls-exporter`](https://www.rfc-editor.org/rfc/rfc9266.html) binding type.
+                 * @since 2.74
                  */
                 readonly "EXPORTER": 2
             }
@@ -44709,12 +44777,16 @@ declare module "gi://Gio?version=2.0" {
                  */
                 readonly "AUTHENTICATION_REQUIRE_SAME_USER": 32
                 /**
-                 * When authenticating, try to use
-                 *  protocols that work across a Linux user namespace boundary, even if this
-                 *  reduces interoperability with older D-Bus implementations. This currently
-                 *  affects client-side `EXTERNAL` authentication, for which this flag makes
-                 *  connections to a server in another user namespace succeed, but causes
-                 *  a deadlock when connecting to a GDBus server older than 2.73.3. Since: 2.74
+                 * Prefers protocols that work across user namespace boundaries during
+                 * authentication.
+                 *
+                 * When authenticating, try to use protocols that work across a Linux user
+                 * namespace boundary, even if this reduces interoperability with older D-Bus
+                 * implementations. This currently affects client-side `EXTERNAL`
+                 * authentication, for which this flag makes connections to a server in
+                 * another user namespace succeed, but causes a deadlock when connecting to a
+                 * GDBus server older than 2.73.3.
+                 * @since 2.74
                  */
                 readonly "CROSS_NAMESPACE": 64
             }
@@ -45544,7 +45616,8 @@ declare module "gi://Gio?version=2.0" {
             interface TlsCertificateFlagsBitfield {
                 readonly $gtype: GObject.GType<TlsCertificateFlags>
                 /**
-                 * No flags set. Since: 2.74
+                 * No flags set.
+                 * @since 2.74
                  */
                 readonly "NO_FLAGS": 0
                 /**
@@ -47759,6 +47832,12 @@ declare module "gi://Gio?version=2.0" {
                 memory_settings_backend_new(): SettingsBackend
                 /**
                  * Gets the default #GNetworkMonitor for the system.
+                 *
+                 * Some implementations complete their initialization asynchronously:
+                 * properties such as #GNetworkMonitor:network-available may start at their
+                 * default values and update shortly afterwards, with notify emissions, once
+                 * the state is resolved from the thread-default main context of this first
+                 * call.
                  * @since 2.32
                  * @returns a #GNetworkMonitor, which will be     a dummy object if no network monitor is available
                  */

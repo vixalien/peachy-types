@@ -3816,7 +3816,7 @@ declare module "gi://Adw?version=1" {
                  *         <object class="AdwHeaderBar"/>
                  *       </child>
                  *       <property name="content">
-                 *         <!-- ... -->
+                 *         <!-- put your content here -->
                  *       </property>
                  *     </object>
                  *   </property>
@@ -10652,10 +10652,10 @@ declare module "gi://Adw?version=1" {
                  *     </object>
                  *   </child>
                  *   <child type="primary">
-                 *     <!-- ... -->
+                 *     <!-- put your primary child here -->
                  *   </child>
                  *   <child type="secondary">
-                 *     <!-- ... -->
+                 *     <!-- put your secondary child here -->
                  *   </child>
                  * </object>
                  * ```
@@ -11269,7 +11269,15 @@ declare module "gi://Adw?version=1" {
                  *         <object class="AdwNavigationPage">
                  *           <property name="title" translatable="yes">Sidebar</property>
                  *           <property name="child">
-                 *             <!-- ... -->
+                 *             <object class="AdwToolbarView">
+                 *               <child type="top">
+                 *                 <object class="AdwHeaderBar"/>
+                 *               </child>
+                 *               <property name="content">
+                 *                 <!-- put your sidebar here, e.g.
+                 *                      AdwSidebar or AdwViewSwitcherSidebar -->
+                 *               </property>
+                 *             <object>
                  *           </property>
                  *         </object>
                  *       </property>
@@ -11277,7 +11285,14 @@ declare module "gi://Adw?version=1" {
                  *         <object class="AdwNavigationPage">
                  *           <property name="title" translatable="yes">Content</property>
                  *           <property name="child">
-                 *             <!-- ... -->
+                 *             <object class="AdwToolbarView">
+                 *               <child type="top">
+                 *                 <object class="AdwHeaderBar"/>
+                 *               </child>
+                 *               <property name="content">
+                 *                 <!-- put your content here -->
+                 *               </property>
+                 *             <object>
                  *           </property>
                  *         </object>
                  *       </property>
@@ -11903,7 +11918,7 @@ declare module "gi://Adw?version=1" {
                  *             <object class="AdwHeaderBar"/>
                  *           </child>
                  *           <property name="content">
-                 *             <!-- ... -->
+                 *             <!-- put your content here -->
                  *           </property>
                  *         </object>
                  *       </property>
@@ -12374,10 +12389,10 @@ declare module "gi://Adw?version=1" {
                  *   <property name="content">
                  *     <object class="AdwOverlaySplitView" id="split_view">
                  *       <property name="sidebar">
-                 *         <!-- ... -->
+                 *         <!-- put your sidebar here -->
                  *       </property>
                  *       <property name="content">
-                 *         <!-- ... -->
+                 *         <!-- put your content here -->
                  *       </property>
                  *     </object>
                  *   </property>
@@ -14659,7 +14674,7 @@ declare module "gi://Adw?version=1" {
                  *     <object class="AdwNavigationSplitView" id="split_view">
                  *       <property name="sidebar">
                  *         <object class="AdwNavigationPage">
-                 *           <property name="title" translatable="yes">Sidebar</property>
+                 *           <property name="title" translatable="yes">Items</property>
                  *           <property name="child">
                  *             <object class="AdwToolbarView">
                  *               <child type="top">
@@ -14669,7 +14684,7 @@ declare module "gi://Adw?version=1" {
                  *                 <object class="AdwSidebar" id="sidebar">
                  *                   <!-- Calls adw_navigation_split_view_set_show_content (split_view, TRUE); -->
                  *                   <signal name="activated" handler="sidebar_activated_cb"/>
-                 *                   <!-- ... -->
+                 *                   <!-- put your items here -->
                  *                 </object>
                  *               </property>
                  *             </object>
@@ -14678,9 +14693,9 @@ declare module "gi://Adw?version=1" {
                  *       </property>
                  *       <property name="content">
                  *         <object class="AdwNavigationPage">
-                 *           <property name="title" translatable="yes">Content</property>
+                 *           <property name="title" translatable="yes">Details</property>
                  *           <property name="child">
-                 *             <!-- ... -->
+                 *             <!-- put your details view here -->
                  *           </property>
                  *         </object>
                  *       </property>
@@ -14827,6 +14842,7 @@ declare module "gi://Adw?version=1" {
                     "enabled": boolean
                     "icon-name": string | null
                     "icon-paintable": Gdk.Paintable | null
+                    "prefix": Gtk.Widget | null
                     "subtitle": string | null
                     "suffix": Gtk.Widget | null
                     "title": string | null
@@ -14888,6 +14904,14 @@ declare module "gi://Adw?version=1" {
                  */
                 get iconPaintable(): Gdk.Paintable | null
                 set iconPaintable(value: Gdk.Paintable | null)
+                /**
+                 * The prefix widget for this item.
+                 *
+                 * Prefix will be shown at the start of the item's row, before the icon.
+                 * @since 1.10
+                 */
+                get prefix(): Gtk.Widget | null
+                set prefix(value: Gtk.Widget | null)
                 /**
                  * The section the item is in.
                  * @since 1.9
@@ -14977,6 +15001,12 @@ declare module "gi://Adw?version=1" {
                  */
                 get_index(): number
                 /**
+                 * Gets the prefix widget for `self`.
+                 * @since 1.10
+                 * @returns the prefix widget
+                 */
+                get_prefix(): Gtk.Widget | null
+                /**
                  * Gets the section `self` is in.
                  * @since 1.9
                  * @returns the section of `self`
@@ -15064,6 +15094,14 @@ declare module "gi://Adw?version=1" {
                  */
                 set_icon_paintable(paintable: Gdk.Paintable | null): void
                 /**
+                 * Sets the prefix widget for `self`.
+                 *
+                 * Prefix will be shown at the start of the item's row, before the icon.
+                 * @since 1.10
+                 * @param prefix the prefix widget
+                 */
+                set_prefix(prefix: Gtk.Widget | null): void
+                /**
                  * Sets the subtitle of `self`.
                  * @since 1.9
                  * @param subtitle the subtitle
@@ -15138,9 +15176,10 @@ declare module "gi://Adw?version=1" {
                  * To add a tooltip, use {@link SidebarItem.tooltip}. Tooltips always use
                  * Pango markup.
                  *
-                 * Items can have an arbitrary suffix widget, set with the
-                 * {@link SidebarItem.suffix} properties. It will be displayed at the end of
-                 * its row, or before the arrow in the {@link Adw.SidebarMode.page} mode.
+                 * Items can have an arbitrary prefix and suffix widgets, set with the
+                 * {@link SidebarItem.prefix} and {@link SidebarItem.suffix} properties.
+                 * They will be displayed at the start (before icon) and end of its row, and
+                 * before the arrow in the {@link Adw.SidebarMode.page} mode.
                  *
                  * To hide or disable the item, use the {@link SidebarItem.visible} and
                  * {@link SidebarItem.enabled} properties respectively.
@@ -15168,6 +15207,7 @@ declare module "gi://Adw?version=1" {
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, Gtk.Buildable.ReadWriteProperties {
                     "menu-model": Gio.MenuModel | null
+                    "suffix": Gtk.Widget | null
                     "title": string | null
                 }
 
@@ -15212,6 +15252,14 @@ declare module "gi://Adw?version=1" {
                  * @since 1.9
                  */
                 get sidebar(): Sidebar | null
+                /**
+                 * The suffix widget for this section.
+                 *
+                 * Suffix will be displayed at the end of the header.
+                 * @since 1.10
+                 */
+                get suffix(): Gtk.Widget | null
+                set suffix(value: Gtk.Widget | null)
                 /**
                  * Title of the section.
                  *
@@ -15283,6 +15331,12 @@ declare module "gi://Adw?version=1" {
                  */
                 get_sidebar(): Sidebar | null
                 /**
+                 * Gets the suffix widget for `self`.
+                 * @since 1.10
+                 * @returns the suffix widget
+                 */
+                get_suffix(): Gtk.Widget | null
+                /**
                  * Gets the title of `self`.
                  * @since 1.9
                  * @returns the title
@@ -15336,6 +15390,14 @@ declare module "gi://Adw?version=1" {
                  */
                 set_menu_model(menu_model: Gio.MenuModel | null): void
                 /**
+                 * Sets the suffix widget for `self`.
+                 *
+                 * Suffix will be shown at the end of the header.
+                 * @since 1.10
+                 * @param suffix the suffix widget
+                 */
+                set_suffix(suffix: Gtk.Widget | null): void
+                /**
                  * Sets the title of `self`.
                  *
                  * If set, it will be displayed instead of the separator before the section.
@@ -15368,6 +15430,10 @@ declare module "gi://Adw?version=1" {
                  * {@link SidebarSection.title} property. If a title is not set, the section
                  * will have a separator in front of it, or just spacing in the
                  * {@link Adw.SidebarMode.page} mode.
+                 *
+                 * Sections can also have an arbitrary suffix widget, set with the
+                 * {@link SidebarSection.suffix} properties. It will be displayed at the end
+                 * of its header.
                  *
                  * To add items, use {@link SidebarSection.append},
                  * {@link SidebarSection.prepend} or {@link SidebarSection.insert}.
@@ -23339,7 +23405,7 @@ declare module "gi://Adw?version=1" {
                  *         <object class="AdwHeaderBar"/>
                  *       </child>
                  *       <property name="content">
-                 *         <!-- ... -->
+                 *         <!-- put your content here -->
                  *       </property>
                  *     </object>
                  *   </property>
@@ -23370,7 +23436,7 @@ declare module "gi://Adw?version=1" {
                  *         <object class="AdwHeaderBar"/>
                  *       </child>
                  *       <property name="content">
-                 *         <!-- ... -->
+                 *         <!-- put your content here -->
                  *       </property>
                  *       <child type="bottom">
                  *         <object class="GtkActionBar" id="bottom_bar">
@@ -25906,7 +25972,7 @@ declare module "gi://Adw?version=1" {
                 MAJOR_VERSION: 1
                 MICRO_VERSION: 0
                 MINOR_VERSION: 10
-                VERSION_S: "1.10.beta"
+                VERSION_S: "1.10.rc"
                 /**
                  * Converts `self` to a `GdkRGBA` representing its background color.
                  *

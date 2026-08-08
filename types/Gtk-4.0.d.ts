@@ -2086,67 +2086,6 @@ declare module "gi://Gtk?version=4.0" {
                      */
                     "query-end"(): void
                     /**
-                     * Emitted when application global state is restored.
-                     *
-                     * The handler for this signal should do the opposite of what the
-                     * corresponding handler for {@link Gtk.Application.SignalSignatures["save-state"]}
-                     * does.
-                     *
-                     * You must be careful to be robust in the face of app upgrades and downgrades:
-                     * the `state` might have been created by a previous or occasionally even a future
-                     * version of your app. Do not assume that a given key exists in the state.
-                     * Apps must try to restore state saved by a previous version, but are free to
-                     * discard state if it was written by a future version.
-                     * @since 4.24
-                     * @param reason the reason for restoring state
-                     * @param state an `a{sv}` dictionary containing the state to restore, as saved by a {@link Gtk.Application.SignalSignatures["save-state"]} handler
-                     * @returns true to stop further handlers from running
-                     */
-                    "restore-state"(reason: RestoreReason, state: GLib.Variant): boolean
-                    /**
-                     * Emitted when an application's per-window state is restored.
-                     *
-                     * In response to this signal, you should create a new application
-                     * window, add it to `application`, apply the provided `state`, and present it.
-                     * The application can use the `reason` to determine how much of the state
-                     * should be restored.
-                     *
-                     * You must be careful to be robust in the face of app upgrades and downgrades:
-                     * the `state` might have been created by a previous or occasionally even a future
-                     * version of your app. Do not assume that a given key exists in the state.
-                     * Apps must try to restore state saved by a previous version, but are free to
-                     * discard state if it was written by a future version.
-                     *
-                     * GTK will remember which window the user was using most recently, and will
-                     * emit this signal for that window first. Thus, if you decide that the provided
-                     *  `reason` means that only one window should be restored, you can reliably
-                     * ignore emissions if a window already exists
-                     *
-                     * This signal will be emitted whenever the application needs to restore its
-                     * windows. This normally happens during the initial launch, but it can also
-                     * happen in the existing application instance if it is re-activated after all
-                     * application windows were closed.
-                     * @since 4.24
-                     * @param reason the reason this window is restored
-                     * @param state an `a{sv}` dictionary containing the state to restore, as saved by a {@link Gtk.ApplicationWindow.SignalSignatures["save-state"]} handler
-                     */
-                    "restore-window"(reason: RestoreReason, state: GLib.Variant): void
-                    /**
-                     * Emitted when the application is saving global state.
-                     *
-                     * The handler for this signal should persist any global state of
-                     *  `application` into `dict`.
-                     *
-                     * See {@link Gtk.Application.SignalSignatures["restore-state"]} for how to
-                     * restore global state, and {@link Gtk.ApplicationWindow.SignalSignatures["save-state"]}
-                     * and {@link Gtk.Application.SignalSignatures["restore-window"]} for handling
-                     * per-window state.
-                     * @since 4.24
-                     * @param dict a dictionary to populate with application state
-                     * @returns true to stop further handlers from running
-                     */
-                    "save-state"(dict: GLib.VariantDict): boolean
-                    /**
                      * Emitted when a window is added to an application.
                      *
                      * See {@link Gtk.Application.add_window}.
@@ -2164,10 +2103,8 @@ declare module "gi://Gtk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends Gio.Application.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties {
-                    "autosave-interval": number
                     "menubar": Gio.MenuModel | null
                     "register-session": boolean
-                    "support-save": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gio.Application.ReadableProperties, Gio.ActionGroup.ReadableProperties, Gio.ActionMap.ReadableProperties {
@@ -2191,14 +2128,6 @@ declare module "gi://Gtk?version=4.0" {
                  * The currently focused window of the application.
                  */
                 get activeWindow(): Window | null
-                /**
-                 * The number of seconds between automatic state saves. Defaults to 15.
-                 * A value of 0 will opt out of automatic state saving.
-                 * @since 4.24
-                 * @default 15
-                 */
-                get autosaveInterval(): number
-                set autosaveInterval(value: number)
                 /**
                  * The menu model to be used for the application's menu bar.
                  */
@@ -2224,14 +2153,6 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get screensaverActive(): boolean
                 /**
-                 * Set this property to true if the application supports
-                 * state saving and restoring.
-                 * @since 4.24
-                 * @default FALSE
-                 */
-                get supportSave(): boolean
-                set supportSave(value: boolean)
-                /**
                  * Adds a window to the application.
                  *
                  * This call can only happen after the application has started;
@@ -2249,14 +2170,6 @@ declare module "gi://Gtk?version=4.0" {
                  * @param window a window
                  */
                 add_window(window: Window): void
-                /**
-                 * Forget state that has been previously saved and prevent further automatic
-                 * state saving.
-                 *
-                 * In order to re-enable state saving, call {@link Gtk.Application.save}.
-                 * @since 4.24
-                 */
-                forget(): void
                 /**
                  * Gets the accelerators that are currently associated with
                  * the given action.
@@ -2386,13 +2299,6 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 remove_window(window: Window): void
                 /**
-                 * Saves the state of the application.
-                 *
-                 * See {@link Gtk.Application.forget} for a way to forget the state.
-                 * @since 4.24
-                 */
-                save(): void
-                /**
                  * Sets zero or more keyboard accelerators that will trigger the
                  * given action.
                  *
@@ -2439,28 +2345,6 @@ declare module "gi://Gtk?version=4.0" {
                  * @param cookie a cookie that was returned by {@link Gtk.Application.inhibit}
                  */
                 uninhibit(cookie: number): void
-                /**
-                 * Class closure for the {@link Application.SignalSignatures["restore-state"]} signal.
-                 * @since 4.24
-                 * @param reason the reason for restoring state
-                 * @param state a dictionary containing the application state to restore
-                 * @returns true to stop further handlers from running
-                 */
-                vfunc_restore_state(reason: RestoreReason, state: GLib.Variant): boolean
-                /**
-                 * Class closure for the {@link Application.SignalSignatures["restore-window"]} signal.
-                 * @since 4.24
-                 * @param reason the reason this window is restored
-                 * @param state a dictionary containing the application window state to restore
-                 */
-                vfunc_restore_window(reason: RestoreReason, state: GLib.Variant): void
-                /**
-                 * Class closure for the {@link Application.SignalSignatures["save-state"]} signal.
-                 * @since 4.24
-                 * @param state a dictionary to populate with application state
-                 * @returns true to stop further handlers from running
-                 */
-                vfunc_save_state(state: GLib.VariantDict): boolean
                 /**
                  * Signal emitted when a `GtkWindow` is added to
                  *    application through gtk_application_add_window().
@@ -2582,27 +2466,6 @@ declare module "gi://Gtk?version=4.0" {
                  * default window icon. Use {@link Gtk.Window.set_default_icon_name} or
                  * {@link Gtk.Window.iconName} to override that behavior.
                  *
-                 * ## State saving
-                 *
-                 * `GtkApplication` registers with a session manager if possible and
-                 * offers various functionality related to the session life-cycle,
-                 * such as state saving.
-                 *
-                 * State-saving functionality can be enabled by setting the
-                 * {@link Gtk.Application.supportSave} property to true.
-                 *
-                 * In order to save and restore per-window state, applications must
-                 * connect to the {@link Gtk.Application.SignalSignatures["restore-window"]} signal and
-                 * handle the {@link Gtk.ApplicationWindow.SignalSignatures["save-state"]} signal. There
-                 * are also {@link Gtk.Application.SignalSignatures["restore-state"]} and
-                 * {@link GtkApplication.SignalSignatures["save-state"]} signals, which can be used
-                 * for global state that is not connected to any window.
-                 *
-                 * `GtkApplication` automatically saves state before app shutdown, and by
-                 * default periodically auto-saves app state (as configured by the
-                 * {@link Gtk.Application.autosaveInterval} property). Applications can
-                 * also call {@link Gtk.Application.save} themselves at opportune times.
-                 *
                  * # Inhibiting
                  *
                  * An application can block various ways to end the session with
@@ -2629,20 +2492,6 @@ declare module "gi://Gtk?version=4.0" {
 
             namespace ApplicationWindow {
                 interface SignalSignatures extends Window.SignalSignatures, Gio.ActionGroup.SignalSignatures, Gio.ActionMap.SignalSignatures, Accessible.SignalSignatures, Buildable.SignalSignatures, ConstraintTarget.SignalSignatures, Native.SignalSignatures, Root.SignalSignatures, ShortcutManager.SignalSignatures {
-                    /**
-                     * The handler for this signal should persist any application-specific
-                     * state of `window` into `dict`.
-                     *
-                     * Note that window management state such as maximized, fullscreen,
-                     * or window size should not be saved as part of this. They are handled
-                     * by GTK.
-                     *
-                     * See {@link Gtk.Application.SignalSignatures["restore-window"]}.
-                     * @since 4.24
-                     * @param dict a dictionary to populate with application window state
-                     * @returns true to stop stop further handlers from running
-                     */
-                    "save-state"(dict: GLib.VariantDict): boolean
                 }
 
                 interface ReadWriteProperties extends Window.ReadWriteProperties, Gio.ActionGroup.ReadWriteProperties, Gio.ActionMap.ReadWriteProperties, Accessible.ReadWriteProperties, Buildable.ReadWriteProperties, ConstraintTarget.ReadWriteProperties, Native.ReadWriteProperties, Root.ReadWriteProperties, ShortcutManager.ReadWriteProperties {
@@ -2714,13 +2563,6 @@ declare module "gi://Gtk?version=4.0" {
                  * @param show_menubar whether to show a menubar when needed
                  */
                 set_show_menubar(show_menubar: boolean): void
-                /**
-                 * Class closure for the {@link ApplicationWindow.SignalSignatures["save-state"]} signal.
-                 * @since 4.24
-                 * @param dict a dictionary to populate with application window state
-                 * @returns true to stop stop further handlers from running
-                 */
-                vfunc_save_state(dict: GLib.VariantDict): boolean
             }
 
             interface ApplicationWindowClass extends Omit<WindowClass, "new"> {
@@ -25635,6 +25477,12 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 focus_out(): void
                 /**
+                 * Retrieves the client widget for the input context.
+                 * @since 4.24
+                 * @returns The client widget
+                 */
+                get_client_widget(): Widget | null
+                /**
                  * Retrieve the current preedit string for the input context,
                  * and a list of attributes to apply to the string.
                  *
@@ -37162,6 +37010,10 @@ declare module "gi://Gtk?version=4.0" {
                 readonly $constructOnlyProperties: Popover.ConstructOnlyProperties
                 /**
                  * Whether to dismiss the popover on outside clicks.
+                 *
+                 * If false, the popover won't automatically grab the focus when shown.
+                 * This is useful for usecases like entry completion, where the focus is
+                 * expected to stay on the entry.
                  * @default TRUE
                  */
                 get autohide(): boolean
@@ -43523,6 +43375,7 @@ declare module "gi://Gtk?version=4.0" {
                     "gtk-interface-color-scheme": InterfaceColorScheme
                     "gtk-interface-contrast": InterfaceContrast
                     "gtk-interface-reduced-motion": ReducedMotion
+                    "gtk-keyboard-focus-visible-timeout": number
                     "gtk-keynav-use-caret": boolean
                     "gtk-label-select-on-focus": boolean
                     "gtk-long-press-time": number
@@ -43873,6 +43726,13 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get gtkInterfaceReducedMotion(): ReducedMotion
                 set gtkInterfaceReducedMotion(value: ReducedMotion)
+                /**
+                 * Time in seconds that the focus is visible when using keyboard navigation. A zero value means "forever", and a negative
+                 * value means "toolkit default timeout".
+                 * @default -1
+                 */
+                get gtkKeyboardFocusVisibleTimeout(): number
+                set gtkKeyboardFocusVisibleTimeout(value: number)
                 /**
                  * Whether GTK should make sure that text can be navigated with
                  * a caret, even if it is not editable.
@@ -49745,6 +49605,7 @@ declare module "gi://Gtk?version=4.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Widget.ReadableProperties, Accessible.ReadableProperties, Buildable.ReadableProperties, ConstraintTarget.ReadableProperties {
+                    "svg": Svg
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Widget.WritableProperties, Accessible.WritableProperties, Buildable.WritableProperties, ConstraintTarget.WritableProperties {
@@ -49783,6 +49644,16 @@ declare module "gi://Gtk?version=4.0" {
                  */
                 get stylesheet(): GLib.Bytes | null
                 set stylesheet(value: GLib.Bytes | null)
+                /**
+                 * The GtkSvg paintable used for rendering.
+                 *
+                 * This property is mainly useful for making details of the
+                 * SVG rendering machinery available in the GTK inspector.
+                 *
+                 * You should not modify the returned object.
+                 * @since 4.24
+                 */
+                get svg(): Svg
                 /**
                  * Gets the current state of the widget.
                  * @since 4.24
@@ -75304,36 +75175,6 @@ declare module "gi://Gtk?version=4.0" {
                 ResponseType: ResponseTypeEnum
             }
             
-            interface RestoreReasonEnum {
-                readonly $gtype: GObject.GType<RestoreReason>
-                /**
-                 * Don't restore anything
-                 */
-                readonly "PRISTINE": 0
-                /**
-                 * This is normal launch. Restore as little as is reasonable
-                 */
-                readonly "LAUNCH": 1
-                /**
-                 * The application has crashed before. Try to restore the previous state
-                 */
-                readonly "RECOVER": 2
-                /**
-                 * This is a session restore. Restore the previous state as far as possible
-                 */
-                readonly "RESTORE": 3
-            }
-            type RestoreReason = RestoreReasonEnum[Exclude<keyof RestoreReasonEnum, "$gtype">]
-            interface $Exports {
-                /**
-                 * Enumerates possible reasons for an application to restore saved state.
-                 *
-                 * See {@link Gtk.Application.SignalSignatures["restore-state"]}.
-                 * @since 4.24
-                 */
-                RestoreReason: RestoreReasonEnum
-            }
-            
             interface RevealerTransitionTypeEnum {
                 readonly $gtype: GObject.GType<RevealerTransitionType>
                 /**
@@ -77874,7 +77715,7 @@ declare module "gi://Gtk?version=4.0" {
                 ACCESSIBLE_ATTRIBUTE_VARIANT_UNICASE: "unicase"
                 ACCESSIBLE_ATTRIBUTE_WEIGHT: "weight"
                 ACCESSIBLE_VALUE_UNDEFINED: -1
-                BINARY_AGE: 2302
+                BINARY_AGE: 2303
                 IM_MODULE_EXTENSION_POINT_NAME: "gtk-im-module"
                 INPUT_ERROR: -1
                 INTERFACE_AGE: 0
@@ -77885,7 +77726,7 @@ declare module "gi://Gtk?version=4.0" {
                 MAJOR_VERSION: 4
                 MAX_COMPOSE_LEN: 7
                 MEDIA_FILE_EXTENSION_POINT_NAME: "gtk-media-file"
-                MICRO_VERSION: 2
+                MICRO_VERSION: 3
                 MINOR_VERSION: 23
                 PAPER_NAME_A3: "iso_a3"
                 PAPER_NAME_A4: "iso_a4"

@@ -7928,6 +7928,19 @@ declare module "gi://Gdk?version=4.0" {
             }
             
 
+            interface DevicePadClassStruct {
+                readonly $gtype: GObject.GType<DevicePadClass>
+                [Symbol.hasInstance](instance: unknown): instance is DevicePadClass
+            }
+
+            interface DevicePadClass {
+            }
+
+            interface $Exports {
+                DevicePadClass: DevicePadClassStruct
+            }
+            
+
             interface DmabufFormatsStruct {
                 readonly $gtype: GObject.GType<DmabufFormats>
                 [Symbol.hasInstance](instance: unknown): instance is DmabufFormats
@@ -8068,19 +8081,6 @@ declare module "gi://Gdk?version=4.0" {
 
             interface $Exports {
                 FileList: FileListStruct
-            }
-            
-
-            interface FrameClockPrivateStruct {
-                readonly $gtype: GObject.GType<FrameClockPrivate>
-                [Symbol.hasInstance](instance: unknown): instance is FrameClockPrivate
-            }
-
-            interface FrameClockPrivate {
-            }
-
-            interface $Exports {
-                FrameClockPrivate: FrameClockPrivateStruct
             }
             
 

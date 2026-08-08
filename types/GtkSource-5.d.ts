@@ -502,7 +502,11 @@ declare module "gi://GtkSource?version=5" {
                  * @returns the {@link Language} associated with the buffer, or %NULL.
                  */
                 get_language(): Language | null
-                
+                /**
+                 * Whether the buffer is loading.
+                 * @since 5.10
+                 * @returns whether the buffer is loading
+                 */
                 get_loading(): boolean
                 /**
                  * Returns the text in the specified range converting any text formatting
@@ -2117,7 +2121,7 @@ declare module "gi://GtkSource?version=5" {
                  * Gets the Y range for a line based on `mode`.
                  *
                  * The value for `y` is relative to the renderers widget coordinates.
-                 * @since 5.18
+                 * @since 5.16
                  * @param line a line number starting from zero
                  * @param mode a #GtkSourceGutterRendererAlignmentMode
                  * @returns , a location for the Y position in widget coordinates, the line height based on `mode`
@@ -8417,7 +8421,7 @@ declare module "gi://GtkSource?version=5" {
                 __name__: "GtkSource"
                 __version__: "5"
                 MAJOR_VERSION: 5
-                MICRO_VERSION: 0
+                MICRO_VERSION: 1
                 MINOR_VERSION: 21
                 /**
                  * Like GTK_SOURCE_CHECK_VERSION, but the check for gtk_source_check_version is

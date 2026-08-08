@@ -3615,11 +3615,11 @@ declare module "gi://Atspi?version=2.0" {
                  */
                 readonly "CANONICAL": 1
                 /**
-                 * Flow sort order
+                 * Flow sort order. reserved for future use.
                  */
                 readonly "FLOW": 2
                 /**
-                 * Tab sort order
+                 * Tab sort order. Reserved for future use.
                  */
                 readonly "TAB": 3
                 /**
@@ -3627,16 +3627,18 @@ declare module "gi://Atspi?version=2.0" {
                  */
                 readonly "REVERSE_CANONICAL": 4
                 /**
-                 * Reverse flow sort order
+                 * Reverse flow sort order. Reserved
+                 * for future use.
                  */
                 readonly "REVERSE_FLOW": 5
                 /**
-                 * Reverse tab sort order
+                 * Reverse tab sort order. Reserved
+                 * for future use.
                  */
                 readonly "REVERSE_TAB": 6
                 /**
-                 * Used only to determine the end of the
-                 * enumeration.
+                 * Used only to determine the end of
+                 * the enumeration.
                  */
                 readonly "LAST_DEFINED": 7
             }
