@@ -276,6 +276,19 @@ declare module "gi://Gly?version=2" {
                  */
                 get_color_cicp(): Cicp | null
                 /**
+                 * Returns the ICC profile for the frames texture.
+                 * This value is `NULL` if no CICP is used.
+                 * @since 2.2
+                 * @returns Binary ICC profile
+                 */
+                get_color_icc_profile(): GLib.Bytes | null
+                /**
+                 * This function advertises which property contains the color information for the frame's texture. See [Enum.ColorMode] for details.
+                 * @since 2.2
+                 * @returns Color Mode
+                 */
+                get_color_mode(): ColorMode
+                /**
                  * Duration to show frame for animations.
                  *
                  * If the value is zero, the image is not animated.
@@ -283,6 +296,11 @@ declare module "gi://Gly?version=2" {
                  * @returns Duration in microseconds.
                  */
                 get_delay(): number
+                /**
+                 * @since 2.2
+                 * @returns More information about the frame
+                 */
+                get_details(): FrameDetails
                 /**
                  * Height for image data in pixels
                  * @since 2.0
@@ -322,6 +340,54 @@ declare module "gi://Gly?version=2" {
                  * @since 2.0
                  */
                 Frame: FrameClass
+            }
+            
+
+            namespace FrameDetails {
+                interface SignalSignatures extends GObject.Object.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "pixel-density": PixelDensity
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
+                }
+            }
+
+            interface FrameDetails extends GObject.Object {
+                readonly $signals: FrameDetails.SignalSignatures
+                readonly $readableProperties: FrameDetails.ReadableProperties
+                readonly $writableProperties: FrameDetails.WritableProperties
+                readonly $constructOnlyProperties: FrameDetails.ConstructOnlyProperties
+                
+                get pixelDensity(): PixelDensity
+                /**
+                 * @since 2.2
+                 * @returns Pixel density.
+                 */
+                get_pixel_density(): PixelDensity
+            }
+
+            interface FrameDetailsClass extends Omit<GObject.ObjectClass, "new"> {
+                readonly $gtype: GObject.GType<FrameDetails>
+                readonly prototype: FrameDetails
+
+                new (props?: Partial<GObject.ConstructorProps<FrameDetails>>): FrameDetails
+            }
+
+            interface $Exports {
+                /**
+                 * Detailled information about a frame.
+                 * @since 2.2
+                 */
+                FrameDetails: FrameDetailsClass
             }
             
 
@@ -569,6 +635,7 @@ declare module "gi://Gly?version=2" {
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
                     "accepted-memory-formats": MemoryFormatSelection
                     "apply-transformations": boolean
+                    "color-convert-icc-srgb": boolean
                     "sandbox-selector": SandboxSelector
                 }
 
@@ -597,6 +664,10 @@ declare module "gi://Gly?version=2" {
                 
                 get cancellable(): Gio.Cancellable
                 set cancellable(value: Gio.Cancellable)
+                /**
+                 * @default FALSE
+                 */
+                set colorConvertIccSrgb(value: boolean)
                 
                 set file(value: Gio.File)
                 /**
@@ -647,6 +718,14 @@ declare module "gi://Gly?version=2" {
                  * @param apply_transformations
                  */
                 set_apply_transformations(apply_transformations: boolean): void
+                /**
+                 * Sets whether to convert textures to sRGB if ICC profile is present
+                 *
+                 * This option is enabled by default.
+                 * @since 2.2
+                 * @param convert
+                 */
+                set_color_convert_icc_srgb(convert: boolean): void
                 /**
                  * Selects which sandbox mechanism should be used. The default without calling this function is {@link SandboxSelector}`.AUTO`.
                  * @since 2.0
@@ -799,6 +878,11 @@ declare module "gi://Gly?version=2" {
                  * @returns `TRUE` if format supports ICC color profiles.
                  */
                 set_color_icc_profile(icc_profile: (GLib.Bytes | Uint8Array)): boolean
+                /**
+                 * @since 2.2
+                 * @param pixel_density
+                 */
+                set_pixel_density(pixel_density: PixelDensity): void
             }
 
             interface NewFrameClass extends Omit<GObject.ObjectClass, "new"> {
@@ -814,6 +898,105 @@ declare module "gi://Gly?version=2" {
                  * @since 2.0
                  */
                 NewFrame: NewFrameClass
+            }
+            
+
+            namespace PixelDensity {
+                interface SignalSignatures extends GObject.Object.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                    "x-unit": PhysicalDimensionUnit
+                    "x-value": number
+                    "y-unit": PhysicalDimensionUnit
+                    "y-value": number
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
+                }
+            }
+
+            interface PixelDensity extends GObject.Object {
+                readonly $signals: PixelDensity.SignalSignatures
+                readonly $readableProperties: PixelDensity.ReadableProperties
+                readonly $writableProperties: PixelDensity.WritableProperties
+                readonly $constructOnlyProperties: PixelDensity.ConstructOnlyProperties
+                /**
+                 * @default Inch
+                 */
+                get xUnit(): PhysicalDimensionUnit
+                set xUnit(value: PhysicalDimensionUnit)
+                /**
+                 * @default 0.000000
+                 */
+                get xValue(): number
+                set xValue(value: number)
+                /**
+                 * @default Inch
+                 */
+                get yUnit(): PhysicalDimensionUnit
+                set yUnit(value: PhysicalDimensionUnit)
+                /**
+                 * @default 0.000000
+                 */
+                get yValue(): number
+                set yValue(value: number)
+                /**
+                 * @since 2.2
+                 * @param unit
+                 * @returns Converted pixel density
+                 */
+                convert(unit: PhysicalDimensionUnit): PixelDensity
+                /**
+                 * @since 2.2
+                 * @returns Horizontal pixel density unit
+                 */
+                get_x_unit(): PhysicalDimensionUnit
+                /**
+                 * @since 2.2
+                 * @returns Horizontal pixel density
+                 */
+                get_x_value(): number
+                /**
+                 * @since 2.2
+                 * @returns Horizontal pixel density unit
+                 */
+                get_y_unit(): PhysicalDimensionUnit
+                /**
+                 * @since 2.2
+                 * @returns Vertical pixel density
+                 */
+                get_y_value(): number
+            }
+
+            interface PixelDensityClass extends Omit<GObject.ObjectClass, "new"> {
+                readonly $gtype: GObject.GType<PixelDensity>
+                readonly prototype: PixelDensity
+
+                new (props?: Partial<GObject.ConstructorProps<PixelDensity>>): PixelDensity
+                /**
+                 * @since 2.2
+                 * @param x_value
+                 * @param x_unit
+                 * @param y_value
+                 * @param y_unit
+                 * @returns Pixel density
+                 */
+                "new"(x_value: number, x_unit: PhysicalDimensionUnit, y_value: number, y_unit: PhysicalDimensionUnit): PixelDensity
+            }
+
+            interface $Exports {
+                /**
+                 * Pixel density.
+                 * @since 2.2
+                 */
+                PixelDensity: PixelDensityClass
             }
             
 
@@ -844,6 +1027,30 @@ declare module "gi://Gly?version=2" {
 
             interface $Exports {
                 Cicp: CicpStruct
+            }
+            
+            interface ColorModeEnum {
+                readonly $gtype: GObject.GType<ColorMode>
+                /**
+                 * The frame's texture is in sRGB color profile. No further color inforamtion is available.
+                 */
+                readonly "SRGB": 1
+                /**
+                 * The frame's texture is in the color profile as specified by {@link Frame.get_color_cicp}.
+                 */
+                readonly "CICP": 2
+                /**
+                 * The frame's texture is in the color profile as specified by {@link Frame.get_color_icc_profile}.
+                 */
+                readonly "ICC_PROFILE": 3
+            }
+            type ColorMode = ColorModeEnum[Exclude<keyof ColorModeEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * Specifies what defines the textures color profile.
+                 * @since 2.2
+                 */
+                ColorMode: ColorModeEnum
             }
             
             interface LoaderError extends GLib.Error {}
@@ -999,6 +1206,32 @@ declare module "gi://Gly?version=2" {
              * @returns Returns `TRUE` if color channels are premultiplied
              */
             is_premultiplied: (memory_format: MemoryFormat) => boolean
+            }
+            
+            interface PhysicalDimensionUnitEnum {
+                readonly $gtype: GObject.GType<PhysicalDimensionUnit>
+                /**
+                 *  `GLY_PHYSICAL_DIMENSION_UNIT_PICA`
+                 */
+                readonly "INCH": 1
+                
+                readonly "PICA": 2
+                
+                readonly "POINT": 3
+                
+                readonly "METER": 4
+                
+                readonly "CENTIMETER": 5
+                
+                readonly "MILLIMETER": 6
+            }
+            type PhysicalDimensionUnit = PhysicalDimensionUnitEnum[Exclude<keyof PhysicalDimensionUnitEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * Sandbox mechanisms
+                 * @since 2.2
+                 */
+                PhysicalDimensionUnit: PhysicalDimensionUnitEnum
             }
             
             interface SandboxSelectorEnum {

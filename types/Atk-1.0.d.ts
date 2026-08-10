@@ -7095,10 +7095,10 @@ declare module "gi://Atk?version=1.0" {
             interface $Exports {
                 __name__: "Atk"
                 __version__: "1.0"
-                BINARY_AGE: 26110
+                BINARY_AGE: 26111
                 INTERFACE_AGE: 1
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 0
+                MICRO_VERSION: 1
                 MINOR_VERSION: 61
                 VERSION_MIN_REQUIRED: 2
                 /**

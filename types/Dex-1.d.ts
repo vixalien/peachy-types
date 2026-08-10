@@ -1834,21 +1834,66 @@ declare module "gi://Dex?version=1" {
                 readonly $writableProperties: StateMachine.WritableProperties
                 readonly $constructOnlyProperties: StateMachine.ConstructOnlyProperties
                 /**
+                 * Gets the most recent valid state requested with
+                 * {@link Dex.StateMachine.transition}.
+                 *
+                 * The requested state is initialized to the initial state passed to
+                 * {@link Dex.StateMachine.new}. It is updated immediately when
+                 * {@link Dex.StateMachine.transition} is called with a valid target state,
+                 * before that transition is run. It is not a guarantee that the transition
+                 * will run or succeed, and it may differ from the current state returned by
+                 * {@link Dex.StateMachine.get_state}.
+                 * @since 1.2
+                 * @returns the most recent valid requested state
+                 */
+                get_requested_state(): number
+                /**
                  * Gets the current state of `state_machine`.
                  * @returns the current state
                  */
                 get_state(): number
                 /**
+                 * Cooperatively interrupts the active transition callback.
+                 *
+                 * If a transition callback is currently active, its interrupt future returned
+                 * by {@link Dex.StateTransitionContext.wait_for_interrupt} is resolved. This
+                 * does not request a transition or change the current state; the active
+                 * callback decides how to handle the interrupt.
+                 * @since 1.2
+                 * @returns %TRUE if an active transition context was marked interrupted;   otherwise %FALSE
+                 */
+                interrupt(): boolean
+                /**
                  * Requests a transition to `target`.
+                 *
+                 * If `target` is a valid value for the state machine's enum type, it becomes
+                 * the requested state immediately and can be read with
+                 * {@link Dex.StateMachine.get_requested_state}. The requested state is the
+                 * most recent valid target passed to this method. It may differ from the
+                 * current state and does not imply that the transition will succeed.
                  *
                  * Transition requests are serialized. The matching callback is run from a
                  * fiber and may use `dex_await()` to wait for asynchronous work. If the
-                 * callback succeeds, the state machine commits the possibly modified inout
-                 * `to` argument and the returned future resolves to that enum value.
+                 * callback succeeds without calling
+                 * {@link Dex.StateTransitionContext.set_state}, the state machine commits
+                 *  `target`. If the callback updates the state directly, the returned future
+                 * resolves to the current state after the callback returns.
                  * @param target the target state
                  * @returns a future resolving to the final enum state
                  */
                 transition(target: number): Future
+                /**
+                 * Waits until `state_machine` enters `state`.
+                 *
+                 * If `state_machine` is already in `state`, the returned future is already
+                 * resolved. Otherwise, the future resolves the next time the current state is
+                 * set to `state`. This does not request a transition; use
+                 * {@link Dex.StateMachine.transition} to move the state machine.
+                 * @since 1.2
+                 * @param state the state to wait for
+                 * @returns a future resolving to `state`
+                 */
+                wait_for_state(state: number): Future
             }
 
             interface StateMachineClass extends Omit<ObjectClass, "new"> {
@@ -2370,6 +2415,94 @@ declare module "gi://Dex?version=1" {
                 StateTransition: StateTransitionStruct
             }
             
+
+            interface StateTransitionContextStruct {
+                readonly $gtype: GObject.GType<StateTransitionContext>
+                [Symbol.hasInstance](instance: unknown): instance is StateTransitionContext
+            }
+
+            interface StateTransitionContext {
+                /**
+                 * Attempts to continue from the current transition to `target` immediately.
+                 *
+                 * The continuation runs while the state machine still holds its internal
+                 * serialization slot, so queued {@link Dex.StateMachine.transition} requests
+                 * are not processed first. If `context` has not explicitly set the state with
+                 * {@link Dex.StateTransitionContext.set_state}, the current edge target is
+                 * committed before the next edge is executed.
+                 *
+                 * The next transition callback is called before this function returns. If that
+                 * callback uses `dex_await()`, the same transition fiber suspends and resumes,
+                 * while the state machine still holds the serialization slot. Chained
+                 * continuations therefore use the normal C call stack and should be reserved
+                 * for short, bounded chains rather than unbounded graph traversal.
+                 *
+                 * The next edge is looked up from the real current state to `target`. If no
+                 * such edge exists, %FALSE is returned and `error` is set to
+                 * {@link Dex.Error.INVALID_TRANSITION}. If the next edge callback fails, its
+                 * error is propagated.
+                 * @throws {GLib.Error}
+                 * @since 1.2
+                 * @param target the target state for the next edge
+                 * @returns %TRUE if the continuation succeeded; otherwise %FALSE
+                 */
+                continue_to(target: number): boolean
+                /**
+                 * Gets the source state for the transition edge being executed.
+                 *
+                 * This value is fixed for the lifetime of `context` and does not change if
+                 * {@link Dex.StateTransitionContext.set_state} is called.
+                 * @since 1.2
+                 * @returns the source state for the transition edge
+                 */
+                get_from(): number
+                /**
+                 * Gets the real current state from the {@link Dex.StateMachine}.
+                 * @since 1.2
+                 * @returns the current state
+                 */
+                get_state(): number
+                /**
+                 * Gets the target state for the transition edge being executed.
+                 *
+                 * This value is fixed for the lifetime of `context` and does not change if
+                 * {@link Dex.StateTransitionContext.set_state} is called.
+                 * @since 1.2
+                 * @returns the target state for the transition edge
+                 */
+                get_to(): number
+                /**
+                 * Sets the real current state in the {@link Dex.StateMachine}.
+                 *
+                 * This may be used by transition callbacks to expose intermediate states while
+                 * doing asynchronous work. `state` must be a valid value in the state machine's
+                 * enum type. This method may only be used while the transition callback is
+                 * active.
+                 * @since 1.2
+                 * @param state the new state
+                 */
+                set_state(state: number): void
+                /**
+                 * Creates a future that resolves when the active transition context is
+                 * interrupted.
+                 *
+                 * This is a cooperative mechanism for long-running transition callbacks. The
+                 * returned future resolves to %TRUE when {@link Dex.StateMachine.interrupt}
+                 * is called while `context` is active. If the context was already interrupted
+                 * before this function is called, the returned future is already resolved.
+                 *
+                 * If `context` completes before it is interrupted, the returned future is
+                 * rejected with %G_IO_ERROR_CANCELLED.
+                 * @since 1.2
+                 * @returns a future resolving to %TRUE when interrupted
+                 */
+                wait_for_interrupt(): Future
+            }
+
+            interface $Exports {
+                StateTransitionContext: StateTransitionContextStruct
+            }
+            
             interface BlockKindEnum {
                 readonly $gtype: GObject.GType<BlockKind>
                 
@@ -2533,16 +2666,21 @@ declare module "gi://Dex?version=1" {
             /**
              * Callback used to execute a transition edge.
              *
-             * On entry, `to` contains the declared target for the edge being executed. If
-             * the callback succeeds and leaves `to` unchanged, the transition completes at
-             * that state. If the callback changes `to`, {@link Dex.StateMachine} commits
-             * the changed state instead. The changed state must be a valid value in the
-             * state enum.
+             *  `context` is opaque and only valid for the duration of the callback. It must
+             * not be stored or used after the callback returns.
+             *
+             * Use {@link Dex.StateTransitionContext.get_from} and
+             * {@link Dex.StateTransitionContext.get_to} to inspect the edge that caused
+             * the callback to run. Use {@link Dex.StateTransitionContext.get_state} and
+             * {@link Dex.StateTransitionContext.set_state} to inspect or update the real
+             * state of the {@link Dex.StateMachine} while the transition is running. Use
+             * {@link Dex.StateTransitionContext.continue_to} to continue through another
+             * declared edge before queued transition requests are processed.
              * @throws {GLib.Error}
-             * @param from the current state
-             * @returns %TRUE if the transition succeeded; otherwise %FALSE and `error` is set, the target state for the current edge
+             * @param context a {@link Dex.StateTransitionContext}
+             * @returns %TRUE if the transition succeeded; otherwise %FALSE and `error` is set
              */
-            type StateTransitionFunc = (from: number, to: number) => [boolean, number]
+            type StateTransitionFunc = (context: StateTransitionContext) => boolean
             /**
              * A function which will be run on a dedicated thread.
              *

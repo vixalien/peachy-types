@@ -5047,7 +5047,8 @@ declare module "gi://GObject?version=2.0" {
             interface ConnectFlagsBitfield {
                 readonly $gtype: GObject.GType<ConnectFlags>
                 /**
-                 * Default behaviour (no special flags). Since: 2.74
+                 * Default behaviour (no special flags).
+                 * @since 2.74
                  */
                 readonly "DEFAULT": 0
                 /**
@@ -5318,7 +5319,8 @@ declare module "gi://GObject?version=2.0" {
             interface TypeFlagsBitfield {
                 readonly $gtype: GObject.GType<TypeFlags>
                 /**
-                 * No special flags. Since: 2.74
+                 * No special flags.
+                 * @since 2.74
                  */
                 readonly "NONE": 0
                 /**
