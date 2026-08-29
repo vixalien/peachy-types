@@ -7,17 +7,19 @@ message() {
     printf "\n${BOLD}${CYAN}>> ${1}${NC}\n"
 }
 
+export CI=true
+
 message "Enabling Node..."
-export PATH="/usr/lib/sdk/node24/bin:$PATH"
+export PATH="/usr/lib/sdk/node26/bin:$PATH"
+export PATH="$(npm root -g):$PATH"
 
-TMP_INSTALL_DIR=/tmp/pnpm-global
+message "Installing pnpm..."
+npx get-pnpm
 
-mkdir -p $TMP_INSTALL_DIR
+export PATH="/home/alien/.local/share/pnpm/bin:$PATH"
 
 message "Installing girgen..."
-export PATH="$TMP_INSTALL_DIR:$PATH"
-COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable --install-directory $TMP_INSTALL_DIR
-CI=true pnpm install
+pnpm install
 
 message "Cleaning up old files"
 rm types/*.d.ts
