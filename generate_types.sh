@@ -8,15 +8,16 @@ message() {
 }
 
 export CI=true
+export PNPM_HOME=$(mktemp -d)
+
+mkdir "$PNPM_HOME/bin"
 
 message "Enabling Node..."
-export PATH="/usr/lib/sdk/node26/bin:$PATH"
-export PATH="$(npm root -g):$PATH"
+export PATH="$PNPM_HOME/bin:/usr/lib/sdk/node26/bin:$PATH"
+# export PATH="$(npm root -g):$PATH"
 
 message "Installing pnpm..."
 npx get-pnpm
-
-export PATH="/home/alien/.local/share/pnpm/bin:$PATH"
 
 message "Installing girgen..."
 pnpm install
