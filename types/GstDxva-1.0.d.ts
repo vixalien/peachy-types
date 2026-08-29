@@ -4,6 +4,7 @@
 /// <reference path="./GObject-2.0.d.ts" />
 /// <reference path="./Gst-1.0.d.ts" />
 /// <reference path="./GstBase-1.0.d.ts" />
+/// <reference path="./GstCodecParsers-1.0.d.ts" />
 /// <reference path="./GstVideo-1.0.d.ts" />
 /// <reference path="./GstCodecs-1.0.d.ts" />
 
@@ -17,6 +18,7 @@ declare module "gi://GstDxva?version=1.0" {
     import type GObject from "gi://GObject?version=2.0"
     import type Gst from "gi://Gst?version=1.0"
     import type GstBase from "gi://GstBase?version=1.0"
+    import type GstCodecParsers from "gi://GstCodecParsers?version=1.0"
     import type GstVideo from "gi://GstVideo?version=1.0"
     import type GstCodecs from "gi://GstCodecs?version=1.0"
 

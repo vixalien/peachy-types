@@ -285,7 +285,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param factory_name the name of the #GstElementFactory
                  * @returns a #GstIterator of #GstElement     for all elements in the bin with the given element factory name
                  */
-                iterate_all_by_element_factory_name(factory_name: string): Iterator | null
+                iterate_all_by_element_factory_name(factory_name: string): Iterator
                 /**
                  * Looks for all elements inside the bin that implements the given
                  * interface. You can safely cast all returned elements to the given interface.
@@ -294,24 +294,24 @@ declare module "gi://Gst?version=1.0" {
                  * @param iface the #GType of an interface
                  * @returns a #GstIterator of #GstElement     for all elements in the bin implementing the given interface
                  */
-                iterate_all_by_interface(iface: (GObject.GType | { $gtype: GObject.GType })): Iterator | null
+                iterate_all_by_interface(iface: (GObject.GType | { $gtype: GObject.GType })): Iterator
                 /**
                  * Gets an iterator for the elements in this bin.
                  * @returns a #GstIterator of #GstElement
                  */
-                iterate_elements(): Iterator | null
+                iterate_elements(): Iterator
                 /**
                  * Gets an iterator for the elements in this bin.
                  * This iterator recurses into GstBin children.
                  * @returns a #GstIterator of #GstElement
                  */
-                iterate_recurse(): Iterator | null
+                iterate_recurse(): Iterator
                 /**
                  * Gets an iterator for all elements in the bin that have the
                  * #GST_ELEMENT_FLAG_SINK flag set.
                  * @returns a #GstIterator of #GstElement
                  */
-                iterate_sinks(): Iterator | null
+                iterate_sinks(): Iterator
                 /**
                  * Gets an iterator for the elements in this bin in topologically
                  * sorted order. This means that the elements are returned from
@@ -321,13 +321,13 @@ declare module "gi://Gst?version=1.0" {
                  * of the bin elements and for clock selection.
                  * @returns a #GstIterator of #GstElement
                  */
-                iterate_sorted(): Iterator | null
+                iterate_sorted(): Iterator
                 /**
                  * Gets an iterator for all elements in the bin that have the
                  * #GST_ELEMENT_FLAG_SOURCE flag set.
                  * @returns a #GstIterator of #GstElement
                  */
-                iterate_sources(): Iterator | null
+                iterate_sources(): Iterator
                 /**
                  * Queries `bin` for the current latency and reconfigures this latency on all the
                  * elements using a LATENCY event.
@@ -1458,6 +1458,13 @@ declare module "gi://Gst?version=1.0" {
                  */
                 is_synced(): boolean
                 /**
+                 * Checks that `clock` is the default system clock, as returned by
+                 * gst_system_clock_obtain(), and is of type %GST_CLOCK_TYPE_MONOTONIC.
+                 * @since 1.28
+                 * @returns %TRUE if `clock` is the default system monotonic clock,   %FALSE otherwise.
+                 */
+                is_system_monotonic(): boolean
+                /**
                  * Gets an ID from `clock` to trigger a periodic notification.
                  * The periodic notifications will start at time `start_time` and
                  * will then be fired with the given `interval`.
@@ -2199,6 +2206,9 @@ declare module "gi://Gst?version=1.0" {
                 /**
                  * Gets a list of devices from all of the relevant monitors. This may actually
                  * probe the hardware if the monitor is not currently started.
+                 *
+                 * Since 1.28.3, this function will block until the monitor has finished
+                 * starting if gst_device_monitor_start() has been called.
                  * @since 1.4
                  * @returns a #GList of   #GstDevice
                  */
@@ -2234,9 +2244,18 @@ declare module "gi://Gst?version=1.0" {
                  */
                 set_show_all_devices(show_all: boolean): void
                 /**
-                 * Starts monitoring the devices, one this has succeeded, the
+                 * Starts monitoring the devices, once this has succeeded, the
                  * %GST_MESSAGE_DEVICE_ADDED and %GST_MESSAGE_DEVICE_REMOVED messages
                  * will be emitted on the bus when the list of devices changes.
+                 *
+                 * Since 1.28, device providers are started asynchronously and
+                 * %GST_MESSAGE_DEVICE_MONITOR_STARTED will be emitted once the initial list
+                 * of devices has been populated, signalling that monitor startup has
+                 * completed.
+                 *
+                 * The monitor will hold a strong reference to itself while it is populating
+                 * devices asynchronously, so you must call gst_device_monitor_stop() before
+                 * unreffing if you want monitoring to stop immediately.
                  * @since 1.4
                  * @returns %TRUE if the device monitoring could be started, i.e. at least a     single device provider was started successfully.
                  */
@@ -2404,8 +2423,8 @@ declare module "gi://Gst?version=1.0" {
                  * Gets a list of devices that this provider understands. This may actually
                  * probe the hardware if the provider is not currently started.
                  *
-                 * If the provider has been started, this will returned the same #GstDevice
-                 * objedcts that have been returned by the #GST_MESSAGE_DEVICE_ADDED messages.
+                 * If the provider has been started, this will return the same #GstDevice
+                 * objects that have been returned by the #GST_MESSAGE_DEVICE_ADDED messages.
                  * @since 1.4
                  * @returns a #GList of   #GstDevice
                  */
@@ -2900,6 +2919,7 @@ declare module "gi://Gst?version=1.0" {
                  *
                  * MT safe.
                  * @since 1.10
+                 * @deprecated since 1.28 Use gst_object_call_async() or gst_call_async() instead.
                  * @param func Function to call asynchronously from another thread
                  */
                 call_async(func: ElementCallAsyncFunc): void
@@ -3789,12 +3809,14 @@ declare module "gi://Gst?version=1.0" {
                 register(plugin: Plugin | null, name: string, rank: number, type: (GObject.GType | { $gtype: GObject.GType })): boolean
                 /**
                  * Gets a string representing the given state change result.
+                 * @deprecated since 1.28 Use gst_state_change_return_get_name() instead.
                  * @param state_ret a #GstStateChangeReturn to get the name of.
                  * @returns a string with the name of the state    result.
                  */
                 state_change_return_get_name(state_ret: StateChangeReturn): string
                 /**
                  * Gets a string representing the given state.
+                 * @deprecated since 1.28 Use gst_state_get_name() instead.
                  * @param state a #GstState to get the name of.
                  * @returns a string with the name of the state.
                  */
@@ -3953,7 +3975,7 @@ declare module "gi://Gst?version=1.0" {
                  * Each element has a state (see #GstState).  You can get and set the state
                  * of an element with gst_element_get_state() and gst_element_set_state().
                  * Setting a state triggers a #GstStateChange. To get a string representation
-                 * of a #GstState, use gst_element_state_get_name().
+                 * of a #GstState, use gst_state_get_name().
                  *
                  * You can get and set a #GstClock on an element using gst_element_get_clock()
                  * and gst_element_set_clock().
@@ -4526,6 +4548,77 @@ declare module "gi://Gst?version=1.0" {
             }
             
 
+            namespace MetaFactory {
+                interface SignalSignatures extends PluginFeature.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends PluginFeature.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, PluginFeature.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, PluginFeature.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends PluginFeature.ConstructOnlyProperties {
+                }
+            }
+
+            interface MetaFactory extends PluginFeature {
+                readonly $signals: MetaFactory.SignalSignatures
+                readonly $readableProperties: MetaFactory.ReadableProperties
+                readonly $writableProperties: MetaFactory.WritableProperties
+                readonly $constructOnlyProperties: MetaFactory.ConstructOnlyProperties
+            }
+
+            interface MetaFactoryClass extends Omit<PluginFeatureClass, "new"> {
+                readonly $gtype: GObject.GType<MetaFactory>
+                readonly prototype: MetaFactory
+
+                new (props?: Partial<GObject.ConstructorProps<MetaFactory>>): MetaFactory
+                /**
+                 * Loads a previously registered #GstMetaInfo from the registry.
+                 * @since 1.28
+                 * @param factoryname The name of the #GstMetaInfo to load
+                 * @returns A #GstMetaInfo or NULL if not found
+                 */
+                load(factoryname: string): MetaInfo
+                /**
+                 * Registers a new #GstMetaInfo in the registry
+                 * @since 1.28
+                 * @param plugin The #GstPlugin to register `meta_info` for
+                 * @param meta_info The #GstMetaInfo to register
+                 */
+                register(plugin: Plugin, meta_info: MetaInfo): boolean
+            }
+
+            interface $Exports {
+                /**
+                 * Register a #GstMetaInfo that can be automatically loaded the first time it is
+                 * used.
+                 *
+                 * In general, applications and plugins don't need to use the factory
+                 * beyond registering the meta in a plugin init function. Once that is
+                 * done, the meta is stored in the registry, and ready as soon as the
+                 * registry is loaded.
+                 *
+                 * ## Registering a meta for dynamic loading
+                 *
+                 * |[<!-- language="C" -->
+                 *
+                 * static gboolean
+                 * plugin_init (GstPlugin * plugin)
+                 * {
+                 *   return gst_meta_factory_register (plugin, my_meta_get_info());
+                 * }
+                 * ]|
+                 * @since 1.28
+                 */
+                MetaFactory: MetaFactoryClass
+            }
+            
+
             namespace Object {
                 interface SignalSignatures extends GObject.InitiallyUnowned.SignalSignatures {
                     /**
@@ -4582,6 +4675,13 @@ declare module "gi://Gst?version=1.0" {
                  * @returns %FALSE if the given `binding` has not been setup for this object or has been setup for a non suitable property, %TRUE otherwise.
                  */
                 add_control_binding(binding: ControlBinding): boolean
+                /**
+                 * Equivalent to gst_element_call_async() but this API allows `func` to be called
+                 * with #GstObject. See also gst_element_call_async()
+                 * @since 1.28
+                 * @param func function to call asynchronously from another thread
+                 */
+                call_async(func: ObjectCallAsyncFunc): void
                 /**
                  * A default error function that uses g_printerr() to display the error message
                  * and the optional debug string..
@@ -4650,6 +4750,13 @@ declare module "gi://Gst?version=1.0" {
                  * @returns a string describing the path of `object`. You must          g_free() the string after usage.  MT safe. Grabs and releases the #GstObject's LOCK for all objects          in the hierarchy.
                  */
                 get_path_string(): string
+                /**
+                 * Returns the toplevel parent of `object`. This function increases the refcount
+                 * of the toplevel object so you should gst_object_unref() it after usage.
+                 * @since 1.28
+                 * @returns toplevel of `object`, or `object` itself if it has no   parent. unref after usage.  MT safe. Grabs and releases `object`'s LOCK.
+                 */
+                get_toplevel(): Object
                 /**
                  * Gets the value for the given controlled property at the requested time.
                  * @param property_name the name of the property to get
@@ -8295,6 +8402,93 @@ declare module "gi://Gst?version=1.0" {
             }
             
 
+            namespace ValueUniqueList {
+                interface SignalSignatures  {
+                }
+
+                interface ReadWriteProperties  {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties {
+                }
+
+                interface ConstructOnlyProperties  {
+                }
+            }
+
+            interface ValueUniqueList  {
+                readonly $signals: ValueUniqueList.SignalSignatures
+                readonly $readableProperties: ValueUniqueList.ReadableProperties
+                readonly $writableProperties: ValueUniqueList.WritableProperties
+                readonly $constructOnlyProperties: ValueUniqueList.ConstructOnlyProperties
+            }
+
+            interface ValueUniqueListClass {
+                readonly $gtype: GObject.GType<ValueUniqueList>
+                readonly prototype: ValueUniqueList
+
+                new (props?: Partial<GObject.ConstructorProps<ValueUniqueList>>): ValueUniqueList
+                /**
+                 * Appends `append_value` to the GstValueUniqueList in `value`.
+                 * @since 1.28
+                 * @param value a #GValue of type #GST_TYPE_UNIQUE_LIST
+                 * @param append_value the value to append
+                 */
+                append_and_take_value(value: (GObject.Value | unknown), append_value: (GObject.Value | unknown)): void
+                /**
+                 * Appends `append_value` to the GstValueUniqueList in `value`.
+                 * @since 1.28
+                 * @param value a #GValue of type #GST_TYPE_UNIQUE_LIST
+                 * @param append_value the value to append
+                 */
+                append_value(value: (GObject.Value | unknown), append_value: (GObject.Value | unknown)): void
+                /**
+                 * Concatenates copies of `value1` and `value2` into a set.  Values that are not
+                 * of type #GST_TYPE_UNIQUE_LIST are treated as if they were sets of length 1.
+                 *  `dest` will be initialized to the type #GST_TYPE_UNIQUE_LIST.
+                 * @since 1.28
+                 * @param value1 a #GValue
+                 * @param value2 a #GValue
+                 * @returns , an uninitialized #GValue to take the result
+                 */
+                concat(value1: (GObject.Value | unknown), value2: (GObject.Value | unknown)): unknown
+                /**
+                 * Gets the number of values contained in `value`.
+                 * @since 1.28
+                 * @param value a #GValue of type #GST_TYPE_UNIQUE_LIST
+                 * @returns the number of values
+                 */
+                get_size(value: (GObject.Value | unknown)): number
+                /**
+                 * Gets the value that is a member of the set contained in `value` and
+                 * has the index `index`.
+                 * @since 1.28
+                 * @param value a #GValue of type #GST_TYPE_UNIQUE_LIST
+                 * @param index index of value to get from the set
+                 * @returns the value at the given index
+                 */
+                get_value(value: (GObject.Value | unknown), index: number): GObject.Value
+                /**
+                 * Prepends `prepend_value` to the GstValueUniqueList in `value`.
+                 * @since 1.28
+                 * @param value a #GValue of type #GST_TYPE_UNIQUE_LIST
+                 * @param prepend_value the value to prepend
+                 */
+                prepend_value(value: (GObject.Value | unknown), prepend_value: (GObject.Value | unknown)): void
+            }
+
+            interface $Exports {
+                /**
+                 * A fundamental type that describes a set of #GValue
+                 * @since 1.28
+                 */
+                ValueUniqueList: ValueUniqueListClass
+            }
+            
+
             namespace ChildProxy {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                     /**
@@ -9728,10 +9922,30 @@ declare module "gi://Gst?version=1.0" {
                  */
                 insert(idx: number, buffer: Buffer): void
                 /**
+                 * Tests if you can safely modify `list`. It is only safe to modify buffer list when
+                 * there is only one owner of the buffer list - ie, the object is writable.
+                 */
+                is_writable(): boolean
+                /**
                  * Returns the number of buffers in `list`.
                  * @returns the number of buffers in the buffer list
                  */
                 length(): number
+                /**
+                 * Returns a writable copy of `list`.
+                 *
+                 * If there is only one reference count on `list`, the caller must be the owner,
+                 * and so this function will return the buffer list object unchanged. If on the other
+                 * hand there is more than one reference on the object, a new buffer list object will
+                 * be returned. The caller's reference on `list` will be removed, and instead the
+                 * caller will own a reference to the returned object.
+                 *
+                 * In short, this function unrefs the buffer_list in the argument and refs the buffer list
+                 * that it returns. Don't access the argument after calling this function. See
+                 * also: gst_buffer_list_ref().
+                 * @returns a writable buffer list which may or may not be the     same as `buffer` list
+                 */
+                make_writable(): BufferList
                 /**
                  * Removes `length` buffers starting from `idx` in `list`. The following buffers
                  * are moved to close the gap.
@@ -10100,6 +10314,26 @@ declare module "gi://Gst?version=1.0" {
                  */
                 is_subset_structure_full(structure: Structure, features: CapsFeatures | null): boolean
                 /**
+                 * Tests if you can safely modify `caps`. It is only safe to modify caps when
+                 * there is only one owner of the caps - ie, the object is writable.
+                 */
+                is_writable(): boolean
+                /**
+                 * Returns a writable copy of `caps`.
+                 *
+                 * If there is only one reference count on `caps`, the caller must be the owner,
+                 * and so this function will return the caps object unchanged. If on the other
+                 * hand there is more than one reference on the object, a new caps object will
+                 * be returned. The caller's reference on `caps` will be removed, and instead the
+                 * caller will own a reference to the returned object.
+                 *
+                 * In short, this function unrefs the caps in the argument and refs the caps
+                 * that it returns. Don't access the argument after calling this function. See
+                 * also: gst_caps_ref().
+                 * @returns a writable caps which may or may not be the     same as `caps`
+                 */
+                make_writable(): Caps
+                /**
                  * Calls the provided function once for each structure and caps feature in the
                  * #GstCaps. In contrast to gst_caps_foreach(), the function may modify but not
                  * delete the structures and features. The caps must be mutable.
@@ -10431,16 +10665,6 @@ declare module "gi://Gst?version=1.0" {
                  */
                 remove_id_str(feature: IdStr): void
                 /**
-                 * Sets the parent_refcount field of #GstCapsFeatures. This field is used to
-                 * determine whether a caps features is mutable or not. This function should only be
-                 * called by code implementing parent objects of #GstCapsFeatures, as described in
-                 * [the MT refcounting design document](additional/design/MT-refcounting.md).
-                 * @since 1.2
-                 * @param refcount a pointer to the parent's refcount
-                 * @returns %TRUE if the parent refcount could be set.
-                 */
-                set_parent_refcount(refcount: number): boolean
-                /**
                  * Converts `features` to a human-readable string representation.
                  *
                  * For debugging purposes its easier to do something like this:
@@ -10545,6 +10769,12 @@ declare module "gi://Gst?version=1.0" {
                  */
                 get_structure(): Structure
                 /**
+                 * Gets the task pool from `context`.
+                 * @since 1.28
+                 * @returns %TRUE if a task pool was set on `context`, a #GstTaskPool
+                 */
+                get_task_pool(): [boolean, TaskPool | null]
+                /**
                  * Checks if `context` has `context_type`.
                  * @since 1.2
                  * @param context_type Context type to check.
@@ -10558,11 +10788,39 @@ declare module "gi://Gst?version=1.0" {
                  */
                 is_persistent(): boolean
                 /**
+                 * Tests if you can safely modify `context`. It is only safe to modify context when
+                 * there is only one owner of the context - ie, the object is writable.
+                 */
+                is_writable(): boolean
+                /**
+                 * Returns a writable copy of `context`.
+                 *
+                 * If there is only one reference count on `context`, the caller must be the owner,
+                 * and so this function will return the context object unchanged. If on the other
+                 * hand there is more than one reference on the object, a new context object will
+                 * be returned. The caller's reference on `context` will be removed, and instead the
+                 * caller will own a reference to the returned object.
+                 *
+                 * In short, this function unrefs the context in the argument and refs the context
+                 * that it returns. Don't access the argument after calling this function. See
+                 * also: gst_context_ref().
+                 * @returns a writable context which may or may not be the     same as `context`
+                 */
+                make_writable(): Context
+                /**
                  * Convenience macro to increase the reference count of the context.
                  * @since 1.2
                  * @returns  `context` (for convenience when doing assignments)
                  */
                 ref(): Context
+                /**
+                 * Sets `pool` on `context` as the task pool to be shared between elements.
+                 * If `pool` is %NULL, any previously set task pool will be removed from
+                 * the context.
+                 * @since 1.28
+                 * @param pool a #GstTaskPool or %NULL to unset
+                 */
+                set_task_pool(pool: TaskPool | null): void
                 /**
                  * Convenience macro to decrease the reference count of the context, possibly
                  * freeing it.
@@ -11558,6 +11816,26 @@ declare module "gi://Gst?version=1.0" {
                  */
                 has_name_id(name: GLib.Quark): boolean
                 /**
+                 * Tests if you can safely modify `event`. It is only safe to modify event when
+                 * there is only one owner of the event - ie, the object is writable.
+                 */
+                is_writable(): boolean
+                /**
+                 * Returns a writable copy of `event`.
+                 *
+                 * If there is only one reference count on `event`, the caller must be the owner,
+                 * and so this function will return the event object unchanged. If on the other
+                 * hand there is more than one reference on the object, a new event object will
+                 * be returned. The caller's reference on `event` will be removed, and instead the
+                 * caller will own a reference to the returned object.
+                 *
+                 * In short, this function unrefs the event in the argument and refs the event
+                 * that it returns. Don't access the argument after calling this function. See
+                 * also: gst_event_ref().
+                 * @returns a writable event which may or may not be the     same as `event`
+                 */
+                make_writable(): Event
+                /**
                  * Get the format, minsize, maxsize and async-flag in the buffersize event.
                  * @returns , A pointer to store the format in, A pointer to store the minsize in, A pointer to store the maxsize in, A pointer to store the async-flag in
                  */
@@ -12145,6 +12423,42 @@ declare module "gi://Gst?version=1.0" {
             }
             
 
+            interface LogContextStruct {
+                readonly $gtype: GObject.GType<LogContext>
+                [Symbol.hasInstance](instance: unknown): instance is LogContext
+            }
+
+            interface LogContext {
+                /**
+                 * Free the logging context, clearing all tracked messages.
+                 * @since 1.28
+                 */
+                free(): void
+                /**
+                 * Resets the logging context, clearing all tracked messages.
+                 * @since 1.28
+                 */
+                reset(): void
+            }
+
+            interface $Exports {
+                LogContext: LogContextStruct
+            }
+            
+
+            interface LogContextBuilderStruct {
+                readonly $gtype: GObject.GType<LogContextBuilder>
+                [Symbol.hasInstance](instance: unknown): instance is LogContextBuilder
+            }
+
+            interface LogContextBuilder {
+            }
+
+            interface $Exports {
+                LogContextBuilder: LogContextBuilderStruct
+            }
+            
+
             interface MapInfoStruct {
                 readonly $gtype: GObject.GType<MapInfo>
                 new (fields?: {
@@ -12183,6 +12497,21 @@ declare module "gi://Gst?version=1.0" {
                  *             can use to store extra info.
                  */
                 user_data: never[]
+                /**
+                 * Release the memory obtained with gst_memory_map()
+                 * @since 1.28
+                 */
+                clear(): void
+                /**
+                 * @since 1.28
+                 * @returns Data of `info`.
+                 */
+                get_data(): Uint8Array | null
+                /**
+                 * Initializes `info`.
+                 * @since 1.28
+                 */
+                init(): void
             }
 
             interface $Exports {
@@ -12278,6 +12607,11 @@ declare module "gi://Gst?version=1.0" {
                  */
                 is_type(mem_type: string): boolean
                 /**
+                 * Tests if you can safely modify `memory`. It is only safe to modify memory when
+                 * there is only one owner of the memory - ie, the object is writable.
+                 */
+                is_writable(): boolean
+                /**
                  * Create a #GstMemory object that is mapped with `flags`. If `mem` is mappable
                  * with `flags`, this function returns the mapped `mem` directly. Otherwise a
                  * mapped copy of `mem` is returned.
@@ -12288,6 +12622,21 @@ declare module "gi://Gst?version=1.0" {
                  * @returns a #GstMemory object mapped with `flags` or %NULL when a mapping is not possible., pointer for info
                  */
                 make_mapped(flags: MapFlags): [Memory | null, MapInfo]
+                /**
+                 * Returns a writable copy of `memory`.
+                 *
+                 * If there is only one reference count on `memory`, the caller must be the owner,
+                 * and so this function will return the memory object unchanged. If on the other
+                 * hand there is more than one reference on the object, a new memory object will
+                 * be returned. The caller's reference on `memory` will be removed, and instead the
+                 * caller will own a reference to the returned object.
+                 *
+                 * In short, this function unrefs the memory in the argument and refs the memory
+                 * that it returns. Don't access the argument after calling this function. See
+                 * also: gst_memory_ref().
+                 * @returns a writable memory which may or may not be the     same as `memory`
+                 */
+                make_writable(): Memory
                 /**
                  * Fill `info` with the pointer and sizes of the memory in `mem` that can be
                  * accessed according to `flags`.
@@ -12446,6 +12795,18 @@ declare module "gi://Gst?version=1.0" {
                  */
                 new_device_changed(src: Object | null, device: Device, changed_device: Device): Message
                 /**
+                 * Creates a new device-monitor-started message. The device-monitor-started
+                 * message is produced by a #GstDeviceMonitor once it has started probing
+                 * devices. It does not indicate whether any #GstDeviceProvider instances
+                 * support monitoring at all, only whether at least one was able to start
+                 * probing.
+                 * @since 1.28
+                 * @param src The #GstObject that created the message
+                 * @param success Whether the monitor was started successfully
+                 * @returns a newly allocated #GstMessage
+                 */
+                new_device_monitor_started(src: Object | null, success: boolean): Message
+                /**
                  * Creates a new device-removed message. The device-removed message is produced
                  * by #GstDeviceProvider or a #GstDeviceMonitor. They announce the
                  * disappearance of monitored devices.
@@ -12492,7 +12853,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param debug A debugging string.
                  * @returns the new error message.  MT safe.
                  */
-                new_error(src: Object | null, error: GLib.Error, debug: string): Message
+                new_error(src: Object | null, error: GLib.Error, debug: string | null): Message
                 /**
                  * Create a new error message. The message will copy `error` and
                  *  `debug`. This message is posted by element when a fatal event
@@ -12505,7 +12866,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param details A GstStructure with details
                  * @returns the new error message.
                  */
-                new_error_with_details(src: Object | null, error: GLib.Error, debug: string, details: Structure | null): Message
+                new_error_with_details(src: Object | null, error: GLib.Error, debug: string | null, details: Structure | null): Message
                 /**
                  * This message is posted when an element has a new local #GstContext.
                  * @since 1.2
@@ -12522,7 +12883,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param debug A debugging string.
                  * @returns the new info message.  MT safe.
                  */
-                new_info(src: Object | null, error: GLib.Error, debug: string): Message
+                new_info(src: Object | null, error: GLib.Error, debug: string | null): Message
                 /**
                  * Create a new info message. The message will make copies of `error` and
                  *  `debug`.
@@ -12533,7 +12894,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param details A GstStructure with details
                  * @returns the new warning message.
                  */
-                new_info_with_details(src: Object | null, error: GLib.Error, debug: string, details: Structure | null): Message
+                new_info_with_details(src: Object | null, error: GLib.Error, debug: string | null, details: Structure | null): Message
                 /**
                  * Creates a new instant-rate-request message. Elements handling the
                  * instant-rate-change event must post this message. The message is
@@ -12824,7 +13185,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param debug A debugging string.
                  * @returns the new warning message.  MT safe.
                  */
-                new_warning(src: Object | null, error: GLib.Error, debug: string): Message
+                new_warning(src: Object | null, error: GLib.Error, debug: string | null): Message
                 /**
                  * Create a new warning message. The message will make copies of `error` and
                  *  `debug`.
@@ -12835,7 +13196,7 @@ declare module "gi://Gst?version=1.0" {
                  * @param details A GstStructure with details
                  * @returns the new warning message.
                  */
-                new_warning_with_details(src: Object | null, error: GLib.Error, debug: string, details: Structure | null): Message
+                new_warning_with_details(src: Object | null, error: GLib.Error, debug: string | null, details: Structure | null): Message
                 /**
                  * Modifies a pointer to a #GstMessage to point to a different #GstMessage. This
                  * function is similar to gst_message_replace() except that it takes ownership
@@ -12926,6 +13287,26 @@ declare module "gi://Gst?version=1.0" {
                  */
                 has_name(name: string): boolean
                 /**
+                 * Tests if you can safely modify `message`. It is only safe to modify message when
+                 * there is only one owner of the message - ie, the object is writable.
+                 */
+                is_writable(): boolean
+                /**
+                 * Returns a writable copy of `message`.
+                 *
+                 * If there is only one reference count on `message`, the caller must be the owner,
+                 * and so this function will return the message object unchanged. If on the other
+                 * hand there is more than one reference on the object, a new message object will
+                 * be returned. The caller's reference on `message` will be removed, and instead the
+                 * caller will own a reference to the returned object.
+                 *
+                 * In short, this function unrefs the message in the argument and refs the message
+                 * that it returns. Don't access the argument after calling this function. See
+                 * also: gst_message_ref().
+                 * @returns a writable message which may or may not be the     same as `message`
+                 */
+                make_writable(): Message
+                /**
                  * Extract the running_time from the async_done message.
                  *
                  * MT safe.
@@ -12984,6 +13365,14 @@ declare module "gi://Gst?version=1.0" {
                  * @returns , A location where to store a  pointer to the updated version of the #GstDevice, or %NULL, A location where to store a  pointer to the old version of the #GstDevice, or %NULL
                  */
                 parse_device_changed(): [Device, Device]
+                /**
+                 * Parses a device-monitor-started message. The device-monitor-started message
+                 * is produced by a #GstDeviceMonitor once at least one #GstDeviceProvider
+                 * successfully starts probing.
+                 * @since 1.28
+                 * @returns , Result location for whether the #GstDeviceMonitor was  successfully started
+                 */
+                parse_device_monitor_started(): boolean
                 /**
                  * Parses a device-removed message. The device-removed message is produced by
                  * #GstDeviceProvider or a #GstDeviceMonitor. It announces the
@@ -13177,8 +13566,8 @@ declare module "gi://Gst?version=1.0" {
                  *       gst_message_parse_state_changed (msg, &old_state, &new_state, NULL);
                  *       g_print ("Element %s changed state from %s to %s.\n",
                  *           GST_OBJECT_NAME (msg->src),
-                 *           gst_element_state_get_name (old_state),
-                 *           gst_element_state_get_name (new_state));
+                 *           gst_state_get_name (old_state),
+                 *           gst_state_get_name (new_state));
                  *       break;
                  *     }
                  *     ...
@@ -13448,6 +13837,13 @@ declare module "gi://Gst?version=1.0" {
                  */
                 api_type_set_params_aggregator(api: (GObject.GType | { $gtype: GObject.GType }), aggregator: AllocationMetaParamsAggregator): void
                 /**
+                 * @since 1.28
+                 * @param api an API
+                 * @param valid_tags a list of valid tags
+                 * @returns %TRUE if `api` only contains tags from `valid_tags`.
+                 */
+                api_type_tags_contain_only(api: (GObject.GType | { $gtype: GObject.GType }), valid_tags: string[]): boolean
+                /**
                  * Recreate a #GstMeta from serialized data returned by
                  * gst_meta_serialize() and add it to `buffer`.
                  *
@@ -13460,10 +13856,9 @@ declare module "gi://Gst?version=1.0" {
                  * @since 1.24
                  * @param buffer a #GstBuffer
                  * @param data serialization data obtained from gst_meta_serialize()
-                 * @param size size of `data`
                  * @returns the metadata owned by `buffer`, or %NULL., total size used by this meta, could be less than `size`
                  */
-                deserialize(buffer: Buffer, data: number, size: number): [Meta | null, number]
+                deserialize(buffer: Buffer, data: Uint8Array): [Meta | null, number]
                 /**
                  * Lookup a previously registered meta info structure by its implementation name
                  *  `impl`.
@@ -13876,9 +14271,58 @@ declare module "gi://Gst?version=1.0" {
                  */
                 get_event(): Event | null
                 /**
+                 * @since 1.28
+                 * @returns The #GstFlowReturn from the probe
+                 */
+                get_flow_return(): FlowReturn
+                /**
+                 * @since 1.28
+                 * @returns The probe ID from the probe
+                 */
+                get_id(): number
+                /**
+                 * @since 1.28
+                 * @returns The offset from the probe
+                 */
+                get_offset(): number
+                /**
                  * @returns The #GstQuery from the probe
                  */
                 get_query(): Query | null
+                /**
+                 * @since 1.28
+                 * @returns The size from the probe
+                 */
+                get_size(): number
+                /**
+                 * @since 1.28
+                 * @returns The #GstPadProbeType from the probe
+                 */
+                get_type(): PadProbeType
+                /**
+                 * Updates `info` with `buffer` or %NULL.
+                 * @since 1.28
+                 * @param buffer a #GstBuffer
+                 */
+                set_buffer(buffer: Buffer | null): void
+                /**
+                 * Updates `info` with `list` or %NULL.
+                 * @since 1.28
+                 * @param list a #GstBufferList
+                 */
+                set_buffer_list(list: BufferList | null): void
+                /**
+                 * Updates `info` with `event` or %NULL.
+                 * @since 1.28
+                 * @param event a #GstEvent
+                 */
+                set_event(event: Event | null): void
+                /**
+                 * Updates `info` with `flow_ret`.
+                 * @since 1.28
+                 * @param flow_ret A #GstFlowReturn
+                 */
+                set_flow_return(flow_ret: FlowReturn): void
             }
 
             interface $Exports {
@@ -14748,6 +15192,26 @@ declare module "gi://Gst?version=1.0" {
                  */
                 has_scheduling_mode_with_flags(mode: PadMode, flags: SchedulingFlags): boolean
                 /**
+                 * Tests if you can safely modify `query`. It is only safe to modify query when
+                 * there is only one owner of the query - ie, the object is writable.
+                 */
+                is_writable(): boolean
+                /**
+                 * Returns a writable copy of `query`.
+                 *
+                 * If there is only one reference count on `query`, the caller must be the owner,
+                 * and so this function will return the query object unchanged. If on the other
+                 * hand there is more than one reference on the object, a new query object will
+                 * be returned. The caller's reference on `query` will be removed, and instead the
+                 * caller will own a reference to the returned object.
+                 *
+                 * In short, this function unrefs the query in the argument and refs the query
+                 * that it returns. Don't access the argument after calling this function. See
+                 * also: gst_query_ref().
+                 * @returns a writable query which may or may not be the     same as `query`
+                 */
+                make_writable(): Query
+                /**
                  * Get the caps from `query`. The caps remains valid as long as `query` remains
                  * valid.
                  * @returns , A pointer to the caps
@@ -15137,6 +15601,7 @@ declare module "gi://Gst?version=1.0" {
                     reference?: Caps
                     timestamp?: ClockTime
                     duration?: ClockTime
+                    info?: Structure
                 }): ReferenceTimestampMeta
                 /**
                  * Gets the global #GstMetaInfo describing the #GstReferenceTimestampMeta meta.
@@ -15163,6 +15628,11 @@ declare module "gi://Gst?version=1.0" {
                  * duration, or %GST_CLOCK_TIME_NONE
                  */
                 duration: ClockTime
+                /**
+                 * Additional information about the timestamp.
+                 * @since 1.28
+                 */
+                info: Structure
             }
 
             interface $Exports {
@@ -15236,6 +15706,32 @@ declare module "gi://Gst?version=1.0" {
                  * @returns the segment of `sample`.  The segment remains valid as long as `sample` is valid.
                  */
                 get_segment(): Segment
+                /**
+                 * Tests if you can safely set the buffer and / or buffer list of `sample`.
+                 * @since 1.16
+                 */
+                is_writable(): boolean
+                /**
+                 * Returns a writable copy of `sample`. If the source sample is
+                 * already writable, this will simply return the same sample.
+                 *
+                 * Use this function to ensure that a sample can be safely modified before
+                 * making changes to it, for example before calling gst_sample_set_buffer()
+                 *
+                 * If the reference count of the source sample `sample` is exactly one, the caller
+                 * is the sole owner and this function will return the sample object unchanged.
+                 *
+                 * If there is more than one reference on the object, a copy will be made using
+                 * gst_sample_copy(). The passed-in `sample` will be unreffed in that case, and the
+                 * caller will now own a reference to the new returned sample object.
+                 *
+                 * In short, this function unrefs the sample in the argument and refs the sample
+                 * that it returns. Don't access the argument after calling this function unless
+                 * you have an additional reference to it.
+                 * @since 1.16
+                 * @returns a writable sample which may or may not be the     same as `sample`
+                 */
+                make_writable(): Sample
                 /**
                  * Set the buffer associated with `sample`. `sample` must be writable.
                  * @since 1.16
@@ -15994,6 +16490,15 @@ declare module "gi://Gst?version=1.0" {
                  */
                 get_boolean(fieldname: string): [boolean, boolean]
                 /**
+                 * Set pointer pointed by `caps` to the address of the value of type caps
+                 * correspondind to field with fieldname `fieldname`. Caller is responsible
+                 * for making sure the field exists and has the correct type.
+                 * @since 1.28
+                 * @param fieldname the name of the field
+                 * @returns %TRUE if could be set correctly. If there was no field with `fieldname` or the existing field did not contain a caps, this function return %FALSE., a pointer to a pointer on caps
+                 */
+                get_caps(fieldname: string): [boolean, Caps]
+                /**
                  * Sets the clock time pointed to by `value` corresponding to the clock time
                  * of the given field.  Caller is responsible for making sure the field exists
                  * and has the correct type.
@@ -16301,7 +16806,7 @@ declare module "gi://Gst?version=1.0" {
                 /**
                  * Checks if the structure is writable. %TRUE if parent
                  * is not set or its refcount is 1, %FALSE otherwise.
-                 * @since 1.26.2
+                 * @since 1.28
                  * @returns %TRUE if the structure is writable.
                  */
                 is_writable(): boolean
@@ -16417,15 +16922,6 @@ declare module "gi://Gst?version=1.0" {
                  * @param name the new name of the structure
                  */
                 set_name_static_str(name: string): void
-                /**
-                 * Sets the parent_refcount field of #GstStructure. This field is used to
-                 * determine whether a structure is mutable or not. This function should only be
-                 * called by code implementing parent objects of #GstStructure, as described in
-                 * the MT Refcounting section of the design documents.
-                 * @param refcount a pointer to the parent's refcount
-                 * @returns %TRUE if the parent refcount could be set.
-                 */
-                set_parent_refcount(refcount: number): boolean
                 /**
                  * Sets the field with the given name `field` to `value`.  If the field
                  * does not exist, it is created.  If the field exists, the previous
@@ -16839,6 +17335,26 @@ declare module "gi://Gst?version=1.0" {
                  */
                 is_equal(list2: TagList): boolean
                 /**
+                 * Tests if you can safely modify `taglist`. It is only safe to modify taglist when
+                 * there is only one owner of the taglist - ie, the object is writable.
+                 */
+                is_writable(): boolean
+                /**
+                 * Returns a writable copy of `taglist`.
+                 *
+                 * If there is only one reference count on `taglist`, the caller must be the owner,
+                 * and so this function will return the taglist object unchanged. If on the other
+                 * hand there is more than one reference on the object, a new taglist object will
+                 * be returned. The caller's reference on `taglist` will be removed, and instead the
+                 * caller will own a reference to the returned object.
+                 *
+                 * In short, this function unrefs the taglist in the argument and refs the taglist
+                 * that it returns. Don't access the argument after calling this function. See
+                 * also: gst_tag_list_ref().
+                 * @returns a writable taglist which may or may not be the     same as `taglist`
+                 */
+                make_writable(): TagList
+                /**
                  * Merges the two given lists into a new list. If one of the lists is %NULL, a
                  * copy of the other is returned. If both lists are %NULL, %NULL is returned.
                  *
@@ -17150,10 +17666,9 @@ declare module "gi://Gst?version=1.0" {
                  * the stream. The returned memory is valid until the typefinding function
                  * returns and must not be freed.
                  * @param offset The offset
-                 * @param size The number of bytes to return
                  * @returns the     requested data, or %NULL if that data is not available.
                  */
-                peek(offset: number, size: number): number | null
+                peek(offset: number): Uint8Array | null
                 /**
                  * If a #GstTypeFindFunction calls this function it suggests the caps with the
                  * given probability. A #GstTypeFindFunction may supply different suggestions
@@ -17674,6 +18189,7 @@ declare module "gi://Gst?version=1.0" {
                     serialize?: ValueSerializeFunc
                     deserialize?: ValueDeserializeFunc
                     deserialize_with_pspec?: ValueDeserializeWithPSpecFunc
+                    hash?: ValueHashFunc
                 }): ValueTable
             }
 
@@ -17699,6 +18215,11 @@ declare module "gi://Gst?version=1.0" {
                  * @since 1.20
                  */
                 deserialize_with_pspec: ValueDeserializeWithPSpecFunc
+                /**
+                 * a #GstValueHashFunc
+                 * @since 1.28
+                 */
+                hash: ValueHashFunc
             }
 
             interface $Exports {
@@ -19185,6 +19706,13 @@ declare module "gi://Gst?version=1.0" {
                  * gst_element_set_state() and checked using gst_element_get_state().
                  */
                 State: StateEnum
+                /**
+             * Gets a string representing the given state.
+             * @since 1.28
+             * @param state a #GstState to get the name of.
+             * @returns a string with the name of the state.
+             */
+            get_name: (state: State) => string
             }
             
             interface StateChangeEnum {
@@ -19327,6 +19855,13 @@ declare module "gi://Gst?version=1.0" {
                  * gst_element_set_state(). Only `GST_STATE_CHANGE_FAILURE` is a real failure.
                  */
                 StateChangeReturn: StateChangeReturnEnum
+                /**
+             * Gets a string representing the given state change result.
+             * @since 1.28
+             * @param state_ret a #GstStateChangeReturn to get the name of.
+             * @returns a string with the name of the state    result.
+             */
+            get_name: (state_ret: StateChangeReturn) => string
             }
             
             interface StreamError extends GLib.Error {}
@@ -20389,6 +20924,70 @@ declare module "gi://Gst?version=1.0" {
                 LockFlags: LockFlagsBitfield
             }
             
+            interface LogContextFlagsBitfield {
+                readonly $gtype: GObject.GType<LogContextFlags>
+                /**
+                 * No special behavior (empty flags)
+                 */
+                readonly "NONE": 0
+                /**
+                 * Enable message throttling/deduplication. This
+                 *  makes the context track which messages have been logged already based on
+                 *  their message hash, and only log them once (or periodically if an
+                 *  interval is set). Without this flag, all messages will be logged regardless
+                 *  of whether they've been logged before.
+                 */
+                readonly "THROTTLE": 1
+            }
+            type LogContextFlags = number
+            interface $Exports {
+                /**
+                 * Flags to control the behavior of a #GstLogContext.
+                 * @since 1.28
+                 */
+                LogContextFlags: LogContextFlagsBitfield
+            }
+            
+            interface LogContextHashFlagsBitfield {
+                readonly $gtype: GObject.GType<LogContextHashFlags>
+                /**
+                 * Default behavior for logging context
+                 *                          (uses object, format, file but not line number or string args)
+                 */
+                readonly "DEFAULT": 0
+                /**
+                 * Ignore object pointer or object ID when calculating message hash
+                 */
+                readonly "IGNORE_OBJECT": 1
+                /**
+                 * Ignore the "format" part of the debug
+                 * log message
+                 */
+                readonly "IGNORE_FORMAT": 2
+                /**
+                 * Ignore file name when calculating message hash
+                 */
+                readonly "IGNORE_FILE": 4
+                /**
+                 * Use line number when calculating message hash (not used by default)
+                 */
+                readonly "USE_LINE_NUMBER": 8
+                /**
+                 * Use the arguments part of the string message (not used by default)
+                 */
+                readonly "USE_STRING_ARGS": 16
+            }
+            type LogContextHashFlags = number
+            interface $Exports {
+                /**
+                 * Flags to control how the message hash is calculated in a #GstLogContext.
+                 * The message hash is used to determine if a message is a duplicate of a previously
+                 * logged message.
+                 * @since 1.28
+                 */
+                LogContextHashFlags: LogContextHashFlagsBitfield
+            }
+            
             interface MapFlagsBitfield {
                 readonly $gtype: GObject.GType<MapFlags>
                 /**
@@ -20399,6 +20998,13 @@ declare module "gi://Gst?version=1.0" {
                  * map for write access
                  */
                 readonly "WRITE": 2
+                /**
+                 * Take another reference of the memory and store it in the GstMapInfo. This
+                 * makes sure that the memory stays valid  while it is mapped and
+                 * automatically unrefs it on unmap.
+                 * @since 1.28
+                 */
+                readonly "REF_MEMORY": 256
                 /**
                  * first flag that can be used for custom purposes
                  */
@@ -20679,6 +21285,11 @@ declare module "gi://Gst?version=1.0" {
                  *     be applied (which may be in the past when the answer arrives). (Since: 1.18)
                  */
                 readonly "INSTANT_RATE_REQUEST": 2147483656
+                /**
+                 * Message indicating the #GstDeviceMonitor has completed async startup.
+                 * @since 1.28
+                 */
+                readonly "DEVICE_MONITOR_STARTED": 2147483657
                 /**
                  * mask for all of the above messages.
                  */
@@ -21523,6 +22134,11 @@ declare module "gi://Gst?version=1.0" {
                  * The stream contains subtitle / subpicture data.
                  */
                 readonly "TEXT": 16
+                /**
+                 * The stream contains metadata.
+                 * @since 1.28
+                 */
+                readonly "METADATA": 32
             }
             type StreamType = number
             interface $Exports {
@@ -21594,7 +22210,7 @@ declare module "gi://Gst?version=1.0" {
              * @param buffer a #GstBuffer
              * @returns %FALSE when gst_buffer_foreach_meta() should stop, a pointer to a #GstMeta
              */
-            type BufferForeachMetaFunc = (buffer: Buffer) => [boolean, Meta | null]
+            type BufferForeachMetaFunc = (buffer: Buffer, meta: Meta | null) => [boolean, Meta | null]
             /**
              * A function that will be called from gst_buffer_list_foreach(). The `buffer`
              * field will point to a the reference of the buffer at `idx`.
@@ -21609,7 +22225,7 @@ declare module "gi://Gst?version=1.0" {
              * @param idx the index of `buffer`
              * @returns %FALSE when gst_buffer_list_foreach() should stop, pointer to the buffer
              */
-            type BufferListFunc = (idx: number) => [boolean, Buffer | null]
+            type BufferListFunc = (buffer: Buffer | null, idx: number) => [boolean, Buffer | null]
             /**
              * Specifies the type of function passed to gst_bus_add_watch() or
              * gst_bus_add_watch_full(), which is called from the mainloop when a message
@@ -21637,6 +22253,11 @@ declare module "gi://Gst?version=1.0" {
              * @returns #GstBusSyncReply stating what to do with the message
              */
             type BusSyncHandler = (bus: Bus, message: Message) => BusSyncReply
+            /**
+             * Callback prototype used in #gst_call_async
+             * @since 1.28
+             */
+            type CallAsyncFunc = () => void
             /**
              * A function that will be called in gst_caps_filter_and_map_in_place().
              * The function may modify `features` and `structure`, and both will be
@@ -21721,6 +22342,7 @@ declare module "gi://Gst?version=1.0" {
             type DebugFuncPtr = () => void
             /**
              * Callback prototype used in #gst_element_call_async
+             * @deprecated since 1.28 Use #GstObjectCallAsyncFunc with gst_object_call_async() or #GstCallAsyncFunc with gst_call_async() instead.
              * @param element The #GstElement this function has been called against
              */
             type ElementCallAsyncFunc = (element: Element) => void
@@ -21962,6 +22584,12 @@ declare module "gi://Gst?version=1.0" {
              */
             type MiniObjectNotify = (obj: MiniObject) => void
             /**
+             * Callback prototype used in #gst_object_call_async
+             * @since 1.28
+             * @param object A #GstObject this function has been called against
+             */
+            type ObjectCallAsyncFunc = (object: Object) => void
+            /**
              * This function is called when the pad is activated during the element
              * READY to PAUSED state change. By default this function will call the
              * activate function that puts the pad in push mode but elements can
@@ -22126,10 +22754,9 @@ declare module "gi://Gst?version=1.0" {
              * This function is responsible for unreffing the old event when
              * removing or modifying.
              * @param pad the #GstPad.
-             * @param event a sticky #GstEvent.
-             * @returns %TRUE if the iteration should continue
+             * @returns %TRUE if the iteration should continue, a sticky #GstEvent.
              */
-            type PadStickyEventsForeachFunction = (pad: Pad, event: Event | null) => boolean
+            type PadStickyEventsForeachFunction = (pad: Pad, event: Event | null) => [boolean, Event | null]
             /**
              * Function signature to handle a unlinking the pad prom its peer.
              *
@@ -22288,6 +22915,13 @@ declare module "gi://Gst?version=1.0" {
              */
             type ValueDeserializeWithPSpecFunc = (dest: (GObject.Value | unknown), s: string, pspec: GObject.ParamSpec) => boolean
             /**
+             * Used by gst_value_hash() to calculate a hash of `value`.
+             * @since 1.28
+             * @param value a #GValue
+             * @returns %TRUE, or %FALSE if `value` cannot be hashed., a location to store the hash value
+             */
+            type ValueHashFunc = (value: (GObject.Value | unknown)) => [boolean, number]
+            /**
              * Used by gst_value_serialize() to obtain a non-binary form of the #GValue.
              *
              * Free-function: g_free
@@ -22406,6 +23040,7 @@ declare module "gi://Gst?version=1.0" {
                 TAG_ALBUM_ARTIST: "album-artist"
                 TAG_ALBUM_ARTIST_SORTNAME: "album-artist-sortname"
                 TAG_ALBUM_GAIN: "replaygain-album-gain"
+                TAG_ALBUM_GAIN_R128: "r128-album-gain"
                 TAG_ALBUM_PEAK: "replaygain-album-peak"
                 TAG_ALBUM_SORTNAME: "album-sortname"
                 TAG_ALBUM_VOLUME_COUNT: "album-disc-count"
@@ -22483,11 +23118,13 @@ declare module "gi://Gst?version=1.0" {
                 TAG_TITLE_SORTNAME: "title-sortname"
                 TAG_TRACK_COUNT: "track-count"
                 TAG_TRACK_GAIN: "replaygain-track-gain"
+                TAG_TRACK_GAIN_R128: "r128-track-gain"
                 TAG_TRACK_NUMBER: "track-number"
                 TAG_TRACK_PEAK: "replaygain-track-peak"
                 TAG_USER_RATING: "user-rating"
                 TAG_VERSION: "version"
                 TAG_VIDEO_CODEC: "video-codec"
+                TASK_POOL_CONTEXT_TYPE: "gst.task.pool"
                 TOC_REPEAT_COUNT_INFINITE: -1
                 URI_NO_PORT: 0
                 USECOND: ClockTimeDiff
@@ -22496,8 +23133,8 @@ declare module "gi://Gst?version=1.0" {
                 VALUE_LESS_THAN: -1
                 VALUE_UNORDERED: 2
                 VERSION_MAJOR: 1
-                VERSION_MICRO: 11
-                VERSION_MINOR: 26
+                VERSION_MICRO: 6
+                VERSION_MINOR: 28
                 VERSION_NANO: 0
                 /**
                  * Gets the maximum amount of memory blocks that a buffer can hold. This is a
@@ -22531,6 +23168,12 @@ declare module "gi://Gst?version=1.0" {
                  */
                 buffer_list_take(old_list: BufferList, new_list: BufferList | null): [boolean, BufferList]
                 /**
+                 * Calls `func` from another thread and passes `user_data` to it.
+                 * @since 1.28
+                 * @param func function to call asynchronously from another thread
+                 */
+                call_async(func: CallAsyncFunc): void
+                /**
                  * Creates a #GstCapsFeatures from a string representation.
                  * @since 1.2
                  * @param features a string representation of a #GstCapsFeatures.
@@ -22547,6 +23190,16 @@ declare module "gi://Gst?version=1.0" {
                  */
                 caps_from_string(string: string): Caps | null
                 /**
+                 * Applications might want to check if the runtime GStreamer version is greater
+                 * or equal to the version specified using `major`, `minor` and `micro`.
+                 * @since 1.28
+                 * @param major Major version number
+                 * @param minor Minor version number
+                 * @param micro Micro version number
+                 * @returns %TRUE if the GStreamer version is greater or equal to `major`\.@minor\.@micro, %FALSE otherwise. Also this function returns %FALSE when checking for a different `major` version to the current one, as major version bumps are ABI breaks anyway.
+                 */
+                check_version(major: number, minor: number, micro: number): boolean
+                /**
                  * Modifies a pointer to a #GstContext to point to a different #GstContext. The
                  * modification is done atomically (so this is useful for ensuring thread safety
                  * in some cases), and the reference counts are updated appropriately (the old
@@ -22560,6 +23213,66 @@ declare module "gi://Gst?version=1.0" {
                 context_replace(old_context: Context, new_context: Context | null): [boolean, Context]
                 
                 core_error_quark(): GLib.Quark
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if NEON (32-bit) is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_arm_neon(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if NEON (64-bit) is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_arm_neon64(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if 3DNow! is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_3dnow(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if AVX is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_avx(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if avx2 is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_avx2(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if MMX is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_mmx(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if extended MMX is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_mmxext(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if SSE2 is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_sse2(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if SSE3 is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_sse3(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if SSE4.1 is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_sse4_1(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if SSSE3 is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_sse4_2(): boolean
+                /**
+                 * @since 1.28
+                 * @returns %TRUE if SSSE3 is supported by the CPU, %FALSE otherwise.
+                 */
+                cpuid_supports_x86_ssse3(): boolean
                 /**
                  * Adds the logging function to the list of logging functions.
                  * Be sure to use #G_GNUC_NO_INSTRUMENT on that function, it is needed.
@@ -22716,6 +23429,22 @@ declare module "gi://Gst?version=1.0" {
                  */
                 debug_log_id_literal(category: DebugCategory, level: DebugLevel, file: string, func: string, line: number, id: string | null, message_string: string): void
                 /**
+                 * Logs a message with the specified context and ID. If the context has already
+                 * seen this message based on its flags configuration, the message will not be
+                 * logged.
+                 *
+                 *  `level` >= %GST_LEVEL_MEMDUMP is not supported.
+                 * @since 1.28
+                 * @param ctx a #GstLogContext
+                 * @param level level of the message
+                 * @param file the file that emitted the message, usually the __FILE__ identifier
+                 * @param function the function that emitted the message
+                 * @param line the line that emitted the message, usually the __LINE__ identifier
+                 * @param id the contextual ID of the message
+                 * @param message message string
+                 */
+                debug_log_id_literal_with_context(ctx: LogContext, level: DebugLevel, file: string, func: string, line: number, id: string | null, message: string): void
+                /**
                  * Logs the given message using the currently registered debugging handlers.
                  * @since 1.20
                  * @param category category to log
@@ -22727,6 +23456,21 @@ declare module "gi://Gst?version=1.0" {
                  * @param message_string a message string
                  */
                 debug_log_literal(category: DebugCategory, level: DebugLevel, file: string, func: string, line: number, object: GObject.Object | null, message_string: string): void
+                /**
+                 * Logs a literal message with the specified context. Depending on the context
+                 * state, the message may not be logged at all.
+                 *
+                 *  `level` >= %GST_LEVEL_MEMDUMP is not supported.
+                 * @since 1.28
+                 * @param ctx a #GstLogContext
+                 * @param level level of the message
+                 * @param file the file that emitted the message, usually the __FILE__ identifier
+                 * @param function the function that emitted the message
+                 * @param line the line that emitted the message, usually the __LINE__ identifier
+                 * @param object the object this message relates to,     or %NULL if none
+                 * @param message message string
+                 */
+                debug_log_literal_with_context(ctx: LogContext, level: DebugLevel, file: string, func: string, line: number, object: GObject.Object | null, message: string): void
                 /**
                  * Returns a string that represents `ptr`. This is safe to call with
                  * %GstStructure, %GstCapsFeatures, %GstMiniObject s (e.g. %GstCaps,
@@ -22995,7 +23739,7 @@ declare module "gi://Gst?version=1.0" {
                  * use gst_init_check() instead.
                  * @returns , pointer to application's argv
                  */
-                init(argv: string[] | null): string[] | null
+                init(argv: string[]): string[]
                 /**
                  * Initializes the GStreamer library, setting up internal path lists,
                  * registering built-in elements, and loading standard plugins.
@@ -23006,7 +23750,7 @@ declare module "gi://Gst?version=1.0" {
                  * @throws {GLib.Error}
                  * @returns %TRUE if GStreamer could be initialized., pointer to application's argv
                  */
-                init_check(argv: string[] | null): [boolean, string[] | null]
+                init_check(argv: string[]): [boolean, string[]]
                 /**
                  * Checks if `obj` is a #GstCapsFeatures
                  * @param obj
@@ -23085,6 +23829,13 @@ declare module "gi://Gst?version=1.0" {
                  */
                 meta_api_type_set_params_aggregator(api: (GObject.GType | { $gtype: GObject.GType }), aggregator: AllocationMetaParamsAggregator): void
                 /**
+                 * @since 1.28
+                 * @param api an API
+                 * @param valid_tags a list of valid tags
+                 * @returns %TRUE if `api` only contains tags from `valid_tags`.
+                 */
+                meta_api_type_tags_contain_only(api: (GObject.GType | { $gtype: GObject.GType }), valid_tags: string[]): boolean
+                /**
                  * Recreate a #GstMeta from serialized data returned by
                  * gst_meta_serialize() and add it to `buffer`.
                  *
@@ -23097,10 +23848,9 @@ declare module "gi://Gst?version=1.0" {
                  * @since 1.24
                  * @param buffer a #GstBuffer
                  * @param data serialization data obtained from gst_meta_serialize()
-                 * @param size size of `data`
                  * @returns the metadata owned by `buffer`, or %NULL., total size used by this meta, could be less than `size`
                  */
-                meta_deserialize(buffer: Buffer, data: number, size: number): [Meta | null, number]
+                meta_deserialize(buffer: Buffer, data: Uint8Array): [Meta | null, number]
                 /**
                  * Lookup a previously registered meta info structure by its implementation name
                  *  `impl`.
@@ -23394,6 +24144,20 @@ declare module "gi://Gst?version=1.0" {
                  * @returns a string with the name of the state    result.
                  */
                 state_change_get_name(transition: StateChange): string
+                /**
+                 * Gets a string representing the given state change result.
+                 * @since 1.28
+                 * @param state_ret a #GstStateChangeReturn to get the name of.
+                 * @returns a string with the name of the state    result.
+                 */
+                state_change_return_get_name(state_ret: StateChangeReturn): string
+                /**
+                 * Gets a string representing the given state.
+                 * @since 1.28
+                 * @param state a #GstState to get the name of.
+                 * @returns a string with the name of the state.
+                 */
+                state_get_name(state: State): string
                 
                 stream_error_quark(): GLib.Quark
                 /**
@@ -23898,12 +24662,11 @@ declare module "gi://Gst?version=1.0" {
                  * the simple continued fraction decomposition. Using 8 and 333 for
                  *  `n_terms` and `threshold` respectively seems to give nice results.
                  * @since 1.24
-                 * @param numerator First value as #gint
-                 * @param denominator Second value as #gint
                  * @param n_terms non-significative terms (typical value: 8)
                  * @param threshold threshold (typical value: 333)
+                 * @returns , First value as #gint, Second value as #gint
                  */
-                util_simplify_fraction(numerator: number, denominator: number, n_terms: number, threshold: number): void
+                util_simplify_fraction(numerator: number, denominator: number, n_terms: number, threshold: number): [number, number]
                 /**
                  * Scale `val` by the rational number `num` / `denom`, avoiding overflows and
                  * underflows and without loss of precision.
@@ -24174,6 +24937,14 @@ declare module "gi://Gst?version=1.0" {
                  */
                 value_get_structure(value: (GObject.Value | unknown)): Structure
                 /**
+                 * Compute a hash value of `value`.
+                 * #GValue considered as equals by gst_value_compare() will have the same hash value.
+                 * @since 1.28
+                 * @param value a #GValue to hash
+                 * @returns %TRUE, or %FALSE if `value` cannot be hashed., a location to store the hash value
+                 */
+                value_hash(value: (GObject.Value | unknown)): [boolean, number]
+                /**
                  * Initialises the target value to be of the same type as source and then copies
                  * the contents from source to target.
                  * @param src the source value
@@ -24200,10 +24971,12 @@ declare module "gi://Gst?version=1.0" {
                  */
                 value_is_fixed(value: (GObject.Value | unknown)): boolean
                 /**
-                 * Check that `value1` is a subset of `value2`.
+                 * Check that `value1` is a subset of `value2`. If `value1` and `value2` is are
+                 * fixed value, value1 must be a subset of value2 and not equal to `value2` to
+                 * be a subset of `value2`.
                  * @param value1 a #GValue
                  * @param value2 a #GValue
-                 * @returns %TRUE is `value1` is a subset of `value2`
+                 * @returns %TRUE is `value1` is a subset, strict subset if both values are  of `value2`
                  */
                 value_is_subset(value1: (GObject.Value | unknown), value2: (GObject.Value | unknown)): boolean
                 /**

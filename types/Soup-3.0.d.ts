@@ -1054,6 +1054,91 @@ declare module "gi://Soup?version=3.0" {
             }
             
 
+            namespace CompressionDictionaryRequest {
+                interface SignalSignatures extends GObject.Object.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "cancelled": boolean
+                    "dictionary": GLib.Bytes
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
+                }
+            }
+
+            interface CompressionDictionaryRequest extends GObject.Object {
+                readonly $signals: CompressionDictionaryRequest.SignalSignatures
+                readonly $readableProperties: CompressionDictionaryRequest.ReadableProperties
+                readonly $writableProperties: CompressionDictionaryRequest.WritableProperties
+                readonly $constructOnlyProperties: CompressionDictionaryRequest.ConstructOnlyProperties
+                /**
+                 * Whether the request has been cancelled.
+                 *
+                 * Set to %TRUE by {@link CompressionDictionaryRequest.cancel}.
+                 * @since 3.8
+                 * @default FALSE
+                 */
+                get cancelled(): boolean
+                /**
+                 * The raw dictionary bytes provided to resolve the request, or %NULL
+                 * if none has been set yet.
+                 *
+                 * Set with {@link CompressionDictionaryRequest.set_dictionary}.
+                 * @since 3.8
+                 */
+                get dictionary(): GLib.Bytes
+                /**
+                 * Cancels a pending {@link Message.SignalSignatures["request-compression-dictionary"]} request,
+                 * causing the response to fail.
+                 *
+                 * This can be called synchronously inside the signal handler or asynchronously
+                 * after ref-ing `request` and returning %TRUE from the handler.
+                 * @since 3.8
+                 */
+                cancel(): void
+                /**
+                 * Provides the dictionary bytes for a pending
+                 * {@link Message.SignalSignatures["request-compression-dictionary"]} request.
+                 *
+                 * This can be called synchronously inside the signal handler or asynchronously
+                 * after ref-ing `request` and returning %TRUE from the handler.
+                 * @since 3.8
+                 * @param dictionary the raw dictionary bytes
+                 */
+                set_dictionary(dictionary: (GLib.Bytes | Uint8Array)): void
+            }
+
+            interface CompressionDictionaryRequestClass extends Omit<GObject.ObjectClass, "new"> {
+                readonly $gtype: GObject.GType<CompressionDictionaryRequest>
+                readonly prototype: CompressionDictionaryRequest
+
+                new (props?: Partial<GObject.ConstructorProps<CompressionDictionaryRequest>>): CompressionDictionaryRequest
+            }
+
+            interface $Exports {
+                /**
+                 * Represents a pending request for a compression dictionary.
+                 *
+                 * An instance is emitted with the {@link Message.SignalSignatures["request-compression-dictionary"]}
+                 * signal. The handler should either call
+                 * {@link CompressionDictionaryRequest.set_dictionary} (synchronously or after
+                 * ref-ing the object and completing asynchronously) or call
+                 * {@link CompressionDictionaryRequest.cancel}, then return %TRUE. Return %FALSE
+                 * to let other signal handlers run; if no handler returns %TRUE the request is
+                 * treated as cancelled.
+                 * @since 3.8
+                 */
+                CompressionDictionaryRequest: CompressionDictionaryRequestClass
+            }
+            
+
             namespace ContentDecoder {
                 interface SignalSignatures extends GObject.Object.SignalSignatures, SessionFeature.SignalSignatures {
                 }
@@ -2123,6 +2208,21 @@ declare module "gi://Soup?version=3.0" {
                      */
                     "request-certificate-password"(tls_password: Gio.TlsPassword): boolean
                     /**
+                     * Emitted when the server responds with `Content-Encoding: dcb` or
+                     * `Content-Encoding: dcz` and libsoup needs the raw dictionary bytes
+                     * to set up decompression.
+                     *
+                     * Call {@link CompressionDictionaryRequest.set_dictionary} on `request`
+                     * to provide the dictionary, or {@link CompressionDictionaryRequest.cancel}
+                     * to abort. Either can be done synchronously inside this handler, or
+                     * asynchronously after calling {@link GObject.Object.ref} on `request`
+                     * and returning %TRUE.
+                     * @since 3.8
+                     * @param request a #SoupCompressionDictionaryRequest to resolve
+                     * @returns %TRUE to indicate the request will be handled (sync or async),   or %FALSE to let other handlers run. If no handler returns %TRUE the   response fails.
+                     */
+                    "request-compression-dictionary"(request: CompressionDictionaryRequest): boolean
+                    /**
                      * Emitted when a request that was already sent once is now
                      * being sent again.
                      *
@@ -2309,6 +2409,13 @@ declare module "gi://Soup?version=3.0" {
                  */
                 disable_feature(feature_type: (GObject.GType | { $gtype: GObject.GType })): void
                 /**
+                 * Gets the SHA-256 hash of the shared dictionary previously set with
+                 * {@link Message.set_compression_dictionary_hash}.
+                 * @since 3.8
+                 * @returns the raw 32-byte SHA-256 hash, or %NULL
+                 */
+                get_compression_dictionary_hash(): GLib.Bytes | null
+                /**
                  * Returns the unique idenfier for the last connection used.
                  *
                  * This may be 0 if it was a cached resource or it has not gotten
@@ -2469,6 +2576,25 @@ declare module "gi://Soup?version=3.0" {
                  * @param flags a set of #SoupMessageFlags values
                  */
                 remove_flags(flags: MessageFlags): void
+                /**
+                 * Sets the SHA-256 hash of the shared dictionary to advertise for Compression
+                 * Dictionary Transport (RFC 9842).
+                 *
+                 * When set, {@link ContentDecoder} will include `dcb` and/or `dcz` in the
+                 * `Accept-Encoding` request header (over HTTPS) and will send an
+                 * `Available-Dictionary` header containing the base64-encoded `hash`.
+                 * When the server responds with `Content-Encoding: dcb` or `dcz`, the
+                 * {@link Message.SignalSignatures["request-compression-dictionary"]} signal is emitted so the
+                 * caller can supply the actual dictionary bytes.
+                 *
+                 * The hash does not survive redirects: a dictionary is chosen for a specific
+                 * request URL, so when `msg` is redirected the hash and the `Available-Dictionary`
+                 * header are cleared. It is the caller's responsibility to select and set a new
+                 * dictionary appropriate for the redirect target, if any.
+                 * @since 3.8
+                 * @param hash a #GBytes containing the raw SHA-256 hash (32 bytes) of the   shared dictionary, or %NULL to unset
+                 */
+                set_compression_dictionary_hash(hash: (GLib.Bytes | Uint8Array | null)): void
                 /**
                  * Sets `first_party` as the main document #GUri for `msg`.
                  *
@@ -5633,6 +5759,11 @@ declare module "gi://Soup?version=3.0" {
                  * Parses `hdrs`'s Content-Range header and returns it in `start`,
                  *  `end`, and `total_length`. If the total length field in the header
                  * was specified as "*", then `total_length` will be set to -1.
+                 *
+                 * On success `start` and `end` are always non-negative, `end` is not before
+                 *  `start`, and `end` is within `total_length` if that was given, so they can be
+                 * used directly as offsets into the response body. The out parameters are
+                 * left untouched if the header cannot be parsed.
                  * @returns %TRUE if `hdrs` contained a "Content-Range" header   containing a byte range which could be parsed, %FALSE otherwise., return value for the start of the range, return value for the end of the range, return value for the total length of the   resource, or %NULL if you don't care.
                  */
                 get_content_range(): [boolean, number, number, number]
@@ -5714,6 +5845,11 @@ declare module "gi://Soup?version=3.0" {
                  *
                  * Beware that even if given a `total_length`, this function does not
                  * check that the ranges are satisfiable.
+                 *
+                 * A Range header requesting more than 200 ranges is rejected, since serving
+                 * that many ranges costs far more than the request asking for them.
+                 * {@link Server} answers such a request with
+                 * %SOUP_STATUS_REQUESTED_RANGE_NOT_SATISFIABLE.
                  *
                  * {@link Server} has built-in handling for range requests. If your
                  * server handler returns a %SOUP_STATUS_OK response containing the
@@ -7364,16 +7500,16 @@ declare module "gi://Soup?version=3.0" {
             interface $Exports {
                 __name__: "Soup"
                 __version__: "3.0"
-                COOKIE_MAX_AGE_ONE_DAY: 0
+                COOKIE_MAX_AGE_ONE_DAY: 86400
                 COOKIE_MAX_AGE_ONE_HOUR: 3600
-                COOKIE_MAX_AGE_ONE_WEEK: 0
-                COOKIE_MAX_AGE_ONE_YEAR: 0
+                COOKIE_MAX_AGE_ONE_WEEK: 604800
+                COOKIE_MAX_AGE_ONE_YEAR: 31556926.08
                 FORM_MIME_TYPE_MULTIPART: "multipart/form-data"
                 FORM_MIME_TYPE_URLENCODED: "application/x-www-form-urlencoded"
                 HSTS_POLICY_MAX_AGE_PAST: 0
                 HTTP_URI_FLAGS: 482
                 MAJOR_VERSION: 3
-                MICRO_VERSION: 1
+                MICRO_VERSION: 2
                 MINOR_VERSION: 7
                 VERSION_MIN_REQUIRED: 2
                 /**

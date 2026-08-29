@@ -1212,6 +1212,52 @@ declare module "gi://GstVideo?version=1.0" {
             }
             
 
+            namespace VideoDmabufPool {
+                interface SignalSignatures extends VideoBufferPool.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends VideoBufferPool.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, VideoBufferPool.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, VideoBufferPool.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends VideoBufferPool.ConstructOnlyProperties {
+                }
+            }
+
+            interface VideoDmabufPool extends VideoBufferPool {
+                readonly $signals: VideoDmabufPool.SignalSignatures
+                readonly $readableProperties: VideoDmabufPool.ReadableProperties
+                readonly $writableProperties: VideoDmabufPool.WritableProperties
+                readonly $constructOnlyProperties: VideoDmabufPool.ConstructOnlyProperties
+            }
+
+            interface VideoDmabufPoolClass extends Omit<VideoBufferPoolClass, "new"> {
+                readonly $gtype: GObject.GType<VideoDmabufPool>
+                readonly prototype: VideoDmabufPool
+
+                new (props?: Partial<GObject.ConstructorProps<VideoDmabufPool>>): VideoDmabufPool
+                /**
+                 * Create a new #GstVideoDmabufPool instance.
+                 * @since 1.28
+                 * @returns a #GstVideoDmabufPool or %NULL     if dmabufs are not supported.
+                 */
+                "new"(): VideoDmabufPool | null
+            }
+
+            interface $Exports {
+                /**
+                 * Using #GstUdmabufAllocator, setting defaults and implementing implicit sync.
+                 * @since 1.28
+                 */
+                VideoDmabufPool: VideoDmabufPoolClass
+            }
+            
+
             namespace VideoEncoder {
                 interface SignalSignatures extends Gst.Element.SignalSignatures, Gst.Preset.SignalSignatures {
                 }
@@ -2241,10 +2287,9 @@ declare module "gi://GstVideo?version=1.0" {
                 /**
                  * @since 1.22
                  * @param event The #GstEvent to modify.
-                 * @param state a bit-mask representing the state of the modifier keys (e.g. Control, Shift and Alt).
-                 * @returns TRUE if the event is a #GstNavigation event with associated modifiers state, otherwise FALSE.
+                 * @returns TRUE if the event is a #GstNavigation event with associated modifiers state, otherwise FALSE., a bit-mask representing the state of the modifier keys (e.g. Control, Shift and Alt).
                  */
-                event_parse_modifier_state(event: Gst.Event, state: NavigationModifierType): boolean
+                event_parse_modifier_state(event: Gst.Event): [boolean, NavigationModifierType]
                 /**
                  * Retrieve the details of either a #GstNavigation mouse button press event or
                  * a mouse button release event. Determine which type the event is using
@@ -3054,7 +3099,7 @@ declare module "gi://GstVideo?version=1.0" {
                     did?: number
                     sdid_block_number?: number
                     data_count?: number
-                    data?: number
+                    data?: number[]
                     checksum?: number
                 }): AncillaryMeta
                 
@@ -3107,7 +3152,7 @@ declare module "gi://GstVideo?version=1.0" {
                 /**
                  * The User data
                  */
-                data: number
+                data: number[]
                 /**
                  * The checksum of the ADF
                  */
@@ -3862,6 +3907,14 @@ declare module "gi://GstVideo?version=1.0" {
                  * @returns %TRUE when `config` could be set.
                  */
                 set_config(config: Gst.Structure): boolean
+                /**
+                 * Transform the GstMeta of `src` into `dest` using `convert`.
+                 * @since 1.28
+                 * @param src a #GstBuffer
+                 * @param dest a writable #GstBuffer
+                 * @returns TRUE if any meta was copied
+                 */
+                transform_metas(src: Gst.Buffer, dest: Gst.Buffer): boolean
             }
 
             interface $Exports {
@@ -4096,7 +4149,7 @@ declare module "gi://GstVideo?version=1.0" {
                  */
                 tile_info: VideoTileInfo[]
                 /**
-                 * Fill `components` with the number of all the components packed in plane `p`
+                 * Fill `components` with the number of all the components packed in `plane`
                  * for the format `info`. A value of -1 in `components` indicates that no more
                  * components are packed in the plane.
                  * @since 1.18
@@ -4793,10 +4846,20 @@ declare module "gi://GstVideo?version=1.0" {
                  * the paddings defined in `alignment` are compatible with the strides
                  * defined in `meta` and will fail to update if they are not.
                  * @since 1.18
+                 * @deprecated since 1.28 Use gst_video_meta_set_alignment_full() instead
                  * @param alignment a #GstVideoAlignment
                  * @returns %TRUE if `alignment`'s meta has been updated, %FALSE if not
                  */
                 set_alignment(alignment: VideoAlignment): boolean
+                /**
+                 * Set the alignment of `meta` to `alignment`. This function checks that
+                 * the paddings defined in `alignment` are compatible with the strides
+                 * defined in `meta` and will fail to update if they are not.
+                 * @since 1.28
+                 * @param alignment a #GstVideoAlignment
+                 * @returns %TRUE if `alignment`'s meta has been updated, %FALSE if not
+                 */
+                set_alignment_full(alignment: VideoAlignment): boolean
                 /**
                  * Unmap a previously mapped plane with gst_video_meta_map().
                  * @param plane a plane
@@ -4837,6 +4900,112 @@ declare module "gi://GstVideo?version=1.0" {
 
             interface $Exports {
                 VideoMetaTransform: VideoMetaTransformStruct
+            }
+            
+
+            interface VideoMetaTransformMatrixStruct {
+                readonly $gtype: GObject.GType<VideoMetaTransformMatrix>
+                new (fields?: {
+                    in_info?: VideoInfo
+                    in_rectangle?: VideoRectangle
+                    out_info?: VideoInfo
+                    out_rectangle?: VideoRectangle
+                    matrix?: number[]
+                }): VideoMetaTransformMatrix
+                /**
+                 * Get the #GQuark for the "gst-video-matrix" metadata transform operation.
+                 * @since 1.28
+                 * @returns a #GQuark
+                 */
+                get_quark(): GLib.Quark
+            }
+
+            interface VideoMetaTransformMatrix {
+                /**
+                 * the input #GstVideoInfo
+                 */
+                in_info: VideoInfo
+                /**
+                 * the input #GstVideoRectangle
+                 */
+                in_rectangle: VideoRectangle
+                /**
+                 * the output #GstVideoInfo
+                 */
+                out_info: VideoInfo
+                /**
+                 * the output #GstVideoRectangle
+                 */
+                out_rectangle: VideoRectangle
+                /**
+                 * a 3x3 matrix representing an homographic transformation
+                 */
+                matrix: number[]
+                /**
+                 * Based on the rectangles, initializes the matrix to do a translation and
+                 * scaling from `in_rectangle` to `out_rectangle`
+                 * @since 1.28
+                 * @param in_info The #GstVideoInfo of the input image
+                 * @param in_rectangle the input #GstVideoRectangle
+                 * @param out_info the output #GstVideoInfo
+                 * @param out_rectangle the output #GstVideoRectangle
+                 */
+                init(in_info: VideoInfo, in_rectangle: VideoRectangle, out_info: VideoInfo, out_rectangle: VideoRectangle): void
+                /**
+                 * Transforms the (@x, `y`) point from the input coordinates to the
+                 * output ones.  The point's coordinates are transformed by first
+                 * applying the `transform`.matrix to it using the top left (x, y) of
+                 *  `transform`.in_rectangle as the origin, then translate it to use
+                 * the top-left of `transform`.out_rectangle as new origin.
+                 * @since 1.28
+                 * @returns %FALSE if the point is outside of `transform`.out_rectangle after the transformation has been applied, a non-NULL pointer to the X value of the coordinate, a non-NULL pointer to the Y value of the coordinate
+                 */
+                point(x: number, y: number): [boolean, number, number]
+                /**
+                 * Transforms the (@x, `y`) point from the input coordinates to the
+                 * output ones.  The point's coordinates are transformed by first
+                 * applying the `transform`.matrix to it using the top left (x, y) of
+                 *  `transform`.in_rectangle as the origin, then translate it to use
+                 * the top-left of `transform`.out_rectangle as new origin.
+                 * @since 1.28
+                 * @returns %FALSE if the point is outside of `transform`.out_rectangle after the transformation has been applied, a non-NULL pointer to the X value of the coordinate, a non-NULL pointer to the Y value of the coordinate
+                 */
+                point_clipped(x: number, y: number): [boolean, number, number]
+                /**
+                 * Transforms `rect` from the input coordinates to the
+                 * output ones.  The point's coordinates are transformed by first
+                 * applying the `transform`.matrix to it using the top left (x, y) of
+                 *  `transform`.in_rectangle as the origin, then translate it to use
+                 * the top-left of `transform`.out_rectangle as new origin.
+                 *
+                 *  `rect` is always axis aligned at input and this function only returns
+                 * axis aligned rectangles as output, otherwise it returns FALSE.
+                 *
+                 * Output rectangle could be in partially or totally outside of
+                 *  `transform`.out_rectangle.
+                 * @since 1.28
+                 * @returns %FALSE is the output rectangle is not axis aligned, a rectangle in the coordinate of the original image
+                 */
+                rectangle(rect: VideoRectangle): [boolean, VideoRectangle]
+                /**
+                 * Transforms `rect` from the input coordinates to the
+                 * output ones.  The point's coordinates are transformed by first
+                 * applying the `transform`.matrix to it using the top left (x, y) of
+                 *  `transform`.in_rectangle as the origin, then translate it to use
+                 * the top-left of `transform`.out_rectangle as new origin.
+                 *
+                 *  `rect` is always axis aligned at input and this function only returns
+                 * axis aligned rectangles as output, otherwise it returns FALSE.
+                 *
+                 * Output rectangle will be clipped to fit inside `transform`.out_rectangle.
+                 * @since 1.28
+                 * @returns %FALSE if the output rectangle is not axis aligned or if  the rectangle is entirely outside of the out_rectangle., a rectangle in the coordinate of the original image
+                 */
+                rectangle_clipped(rect: VideoRectangle): [boolean, VideoRectangle]
+            }
+
+            interface $Exports {
+                VideoMetaTransformMatrix: VideoMetaTransformMatrixStruct
             }
             
 
@@ -4885,6 +5054,11 @@ declare module "gi://GstVideo?version=1.0" {
                  * rectangles or change the render co-ordinates or render dimension). The
                  * actual overlay pixel data buffers contained in the rectangles are not
                  * copied.
+                 *
+                 * This should be avoided unless rectangles need to be modified because it
+                 * invalidates caching in sinks and compositor elements. To add extra rectangles
+                 * it is rather recommended to add an extra composition meta using
+                 * gst_buffer_add_video_overlay_composition_meta().
                  * @returns a new #GstVideoOverlayComposition equivalent     to `comp`.
                  */
                 copy(): VideoOverlayComposition
@@ -4908,6 +5082,11 @@ declare module "gi://GstVideo?version=1.0" {
                  * new writable copy of `comp` and unref `comp` itself. All the contained
                  * rectangles will also be copied, but the actual overlay pixel data buffers
                  * contained in the rectangles are not copied.
+                 *
+                 * This should be avoided unless rectangles need to be modified because it
+                 * invalidates caching in sinks and compositor elements. To add extra rectangles
+                 * it is rather recommended to add an extra composition meta using
+                 * gst_buffer_add_video_overlay_composition_meta().
                  * @returns a writable #GstVideoOverlayComposition     equivalent to `comp`.
                  */
                 make_writable(): VideoOverlayComposition
@@ -5384,9 +5563,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * Note that for interlaced content, `in_offset` needs to be incremented with
                  * 2 to get the next input line.
                  * @param out_offset an output offset
-                 * @returns an array of `n_tap` gdouble values with filter coefficients., result input offset, result n_taps
+                 * @returns an array of `n_taps` gdouble values with filter coefficients., result input offset
                  */
-                get_coeff(out_offset: number): [number, number, number]
+                get_coeff(out_offset: number): [number[], number]
                 /**
                  * Get the maximum number of taps for `scale`.
                  * @returns the maximum number of taps
@@ -5869,9 +6048,11 @@ declare module "gi://GstVideo?version=1.0" {
                  */
                 free(): void
                 /**
-                 * @param data
+                 *  `data` needs to have the correct size and alignment for the configured video
+                 * format of `encoder`.
+                 * @param data The line to write to
                  */
-                write_line(data: number): void
+                write_line(data: Uint8Array): void
             }
 
             interface $Exports {
@@ -7495,6 +7676,21 @@ declare module "gi://GstVideo?version=1.0" {
                  * @since 1.26
                  */
                 readonly "GRAY10_LE16": 138
+                /**
+                 * Fully packed variant of NV16_10LE32
+                 * @since 1.28
+                 */
+                readonly "NV16_10LE40": 139
+                /**
+                 * packed 4:4:4 RGB (B-G-R-x), 10 bits for R/G/B channel and MSB 2 bits for padding.
+                 * @since 1.28
+                 */
+                readonly "BGR10X2_LE": 140
+                /**
+                 * packed 4:4:4 RGB (R-G-B-x), 10 bits for R/G/B channel and MSB 2 bits for padding.
+                 * @since 1.28
+                 */
+                readonly "RGB10X2_LE": 141
             }
             type VideoFormat = VideoFormatEnum[Exclude<keyof VideoFormatEnum, "$gtype">]
             interface $Exports {
@@ -9059,10 +9255,10 @@ declare module "gi://GstVideo?version=1.0" {
                 VIDEO_ENCODER_SINK_NAME: "sink"
                 VIDEO_ENCODER_SRC_NAME: "src"
                 VIDEO_FORMATS_ALL: "{ "
-                VIDEO_FORMATS_ALL_STR: "A444_16BE, A444_16LE, AYUV64, ARGB64, Y416_BE, RGBA64_BE, ARGB64_BE, BGRA64_BE, ABGR64_BE, Y416_LE, RGBA64_LE, ARGB64_LE, BGRA64_LE, ABGR64_LE, A422_16BE, A422_16LE, A420_16BE, A420_16LE, A444_12BE, GBRA_12BE, A444_12LE, GBRA_12LE, Y412_BE, Y412_LE, A422_12BE, A422_12LE, A420_12BE, A420_12LE, A444_10BE, GBRA_10BE, A444_10LE, GBRA_10LE, A422_10BE, A422_10LE, A420_10BE, A420_10LE, Y410, BGR10A2_LE, RGB10A2_LE, A444, GBRA, AYUV, VUYA, RGBA, RBGA, ARGB, BGRA, ABGR, A422, A420, AV12, Y444_16BE, GBR_16BE, Y444_16LE, GBR_16LE, Y216_BE, v216, Y216_LE, P016_BE, P016_LE, Y444_12BE, GBR_12BE, Y444_12LE, GBR_12LE, I422_12BE, I422_12LE, Y212_BE, Y212_LE, I420_12BE, I420_12LE, P012_BE, P012_LE, Y444_10BE, GBR_10BE, Y444_10LE, GBR_10LE, r210, I422_10BE, I422_10LE, NV16_10LE32, Y210, UYVP, v210, I420_10BE, I420_10LE, P010_10BE, MT2110R, MT2110T, NV12_10BE_8L128, NV12_10LE40_4L4, P010_10LE, NV12_10LE40, NV12_10LE32, Y444, BGRP, GBR, RGBP, NV24, v308, IYU2, RGBx, xRGB, BGRx, xBGR, RGB, BGR, Y42B, NV16, NV61, YUY2, YVYU, UYVY, VYUY, I420, YV12, NV12, NV21, NV12_16L32S, NV12_32L32, NV12_4L4, NV12_64Z32, NV12_8L128, Y41B, IYU1, YUV9, YVU9, BGR16, RGB16, BGR15, RGB15, RGB8P, GRAY16_BE, GRAY16_LE, GRAY10_LE16, GRAY10_LE32, GRAY8"
+                VIDEO_FORMATS_ALL_STR: "A444_16BE, A444_16LE, AYUV64, ARGB64, Y416_BE, RGBA64_BE, ARGB64_BE, BGRA64_BE, ABGR64_BE, Y416_LE, RGBA64_LE, ARGB64_LE, BGRA64_LE, ABGR64_LE, A422_16BE, A422_16LE, A420_16BE, A420_16LE, A444_12BE, GBRA_12BE, A444_12LE, GBRA_12LE, Y412_BE, Y412_LE, A422_12BE, A422_12LE, A420_12BE, A420_12LE, A444_10BE, GBRA_10BE, A444_10LE, GBRA_10LE, A422_10BE, A422_10LE, A420_10BE, A420_10LE, Y410, BGR10A2_LE, RGB10A2_LE, A444, GBRA, AYUV, VUYA, RGBA, RBGA, ARGB, BGRA, ABGR, A422, A420, AV12, Y444_16BE, GBR_16BE, Y444_16LE, GBR_16LE, Y216_BE, v216, Y216_LE, P016_BE, P016_LE, Y444_12BE, GBR_12BE, Y444_12LE, GBR_12LE, I422_12BE, I422_12LE, Y212_BE, Y212_LE, I420_12BE, I420_12LE, P012_BE, P012_LE, Y444_10BE, GBR_10BE, Y444_10LE, GBR_10LE, r210, BGR10x2_LE, RGB10x2_LE, I422_10BE, I422_10LE, NV16_10LE40, NV16_10LE32, Y210, UYVP, v210, I420_10BE, I420_10LE, P010_10BE, MT2110R, MT2110T, NV12_10BE_8L128, NV12_10LE40_4L4, P010_10LE, NV12_10LE40, NV12_10LE32, Y444, BGRP, GBR, RGBP, NV24, v308, IYU2, RGBx, xRGB, BGRx, xBGR, RGB, BGR, Y42B, NV16, NV61, YUY2, YVYU, UYVY, VYUY, I420, YV12, NV12, NV21, NV12_16L32S, NV12_32L32, NV12_4L4, NV12_64Z32, NV12_8L128, Y41B, IYU1, YUV9, YVU9, BGR16, RGB16, BGR15, RGB15, RGB8P, GRAY16_BE, GRAY16_LE, GRAY10_LE16, GRAY10_LE32, GRAY8"
                 VIDEO_FORMATS_ANY: "{ "
                 VIDEO_FORMATS_ANY_STR: "DMA_DRM, "
-                VIDEO_FORMAT_LAST: 139
+                VIDEO_FORMAT_LAST: 142
                 VIDEO_FPS_RANGE: "(fraction) [ 0, max ]"
                 VIDEO_MAX_COMPONENTS: 4
                 VIDEO_MAX_PLANES: 4
@@ -9220,10 +9416,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * @param buffer a #GstBuffer
                  * @param uuid User Data Unregistered UUID
                  * @param data SEI User Data Unregistered buffer
-                 * @param size size of the data buffer
                  * @returns the #GstVideoSEIUserDataUnregisteredMeta on `buffer`.
                  */
-                buffer_add_video_sei_user_data_unregistered_meta(buffer: Gst.Buffer, uuid: number, data: number | null, size: number): VideoSEIUserDataUnregisteredMeta
+                buffer_add_video_sei_user_data_unregistered_meta(buffer: Gst.Buffer, uuid: Uint8Array, data: Uint8Array | null): VideoSEIUserDataUnregisteredMeta
                 /**
                  * Attaches #GstVideoTimeCodeMeta metadata to `buffer` with the given
                  * parameters.
@@ -9457,10 +9652,9 @@ declare module "gi://GstVideo?version=1.0" {
                 /**
                  * @since 1.22
                  * @param event The #GstEvent to modify.
-                 * @param state a bit-mask representing the state of the modifier keys (e.g. Control, Shift and Alt).
-                 * @returns TRUE if the event is a #GstNavigation event with associated modifiers state, otherwise FALSE.
+                 * @returns TRUE if the event is a #GstNavigation event with associated modifiers state, otherwise FALSE., a bit-mask representing the state of the modifier keys (e.g. Control, Shift and Alt).
                  */
-                navigation_event_parse_modifier_state(event: Gst.Event, state: NavigationModifierType): boolean
+                navigation_event_parse_modifier_state(event: Gst.Event): [boolean, NavigationModifierType]
                 /**
                  * Retrieve the details of either a #GstNavigation mouse button press event or
                  * a mouse button release event. Determine which type the event is using
@@ -9910,10 +10104,9 @@ declare module "gi://GstVideo?version=1.0" {
                  * and `modifier` will be set to DRM_FORMAT_MOD_INVALID.
                  * @since 1.26
                  * @param format a #GstVideoFormat
-                 * @param modifier return location for the modifier
-                 * @returns the DRM_FORMAT_* corresponding to `format`.
+                 * @returns the DRM_FORMAT_* corresponding to `format`., return location for the modifier
                  */
-                video_dma_drm_format_from_gst_format(format: VideoFormat, modifier: number | null): number
+                video_dma_drm_format_from_gst_format(format: VideoFormat): [number, number]
                 /**
                  * Converting a dma drm fourcc and modifier pair into a #GstVideoFormat. If
                  * no matching video format is found, then GST_VIDEO_FORMAT_UNKNOWN is returned.
@@ -10313,6 +10506,12 @@ declare module "gi://GstVideo?version=1.0" {
                 video_meta_api_get_type(): GObject.GType
                 
                 video_meta_get_info(): Gst.MetaInfo
+                /**
+                 * Get the #GQuark for the "gst-video-matrix" metadata transform operation.
+                 * @since 1.28
+                 * @returns a #GQuark
+                 */
+                video_meta_transform_matrix_get_quark(): GLib.Quark
                 /**
                  * Get the #GQuark for the "gst-video-scale" metadata transform operation.
                  * @returns a #GQuark

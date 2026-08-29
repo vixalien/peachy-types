@@ -224,6 +224,18 @@ declare module "gi://GstAllocators?version=1.0" {
                  * @returns a GstMemory based on `allocator`. When the buffer will be released the allocator will close the `fd` unless the %GST_FD_MEMORY_FLAG_DONT_CLOSE flag is specified. The memory is only mmapped on gst_buffer_map() request.
                  */
                 alloc(allocator: Gst.Allocator, fd: number, size: number, flags: FdMemoryFlags): Gst.Memory | null
+                /**
+                 * Return a %GstMemory that wraps a generic file descriptor.
+                 * @since 1.28
+                 * @param allocator allocator to be used for this memory
+                 * @param fd file descriptor
+                 * @param maxsize the total size of the memory represented by `fd`
+                 * @param offset the offset of valid data in the memory
+                 * @param size the size of valid data in the memory
+                 * @param flags extra #GstFdMemoryFlags
+                 * @returns a GstMemory based on `allocator`. When the buffer will be released the allocator will close the `fd` unless the %GST_FD_MEMORY_FLAG_DONT_CLOSE flag is specified. The memory is only mmapped on gst_buffer_map() request.
+                 */
+                alloc_full(allocator: Gst.Allocator, fd: number, maxsize: number, offset: number, size: number, flags: FdMemoryFlags): Gst.Memory | null
             }
 
             interface $Exports {
@@ -293,6 +305,60 @@ declare module "gi://GstAllocators?version=1.0" {
                  * @since 1.24
                  */
                 ShmAllocator: ShmAllocatorClass
+            }
+            
+
+            namespace UdmabufAllocator {
+                interface SignalSignatures extends DmaBufAllocator.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends DmaBufAllocator.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, DmaBufAllocator.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, DmaBufAllocator.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends DmaBufAllocator.ConstructOnlyProperties {
+                }
+            }
+
+            interface UdmabufAllocator extends DmaBufAllocator {
+                readonly $signals: UdmabufAllocator.SignalSignatures
+                readonly $readableProperties: UdmabufAllocator.ReadableProperties
+                readonly $writableProperties: UdmabufAllocator.WritableProperties
+                readonly $constructOnlyProperties: UdmabufAllocator.ConstructOnlyProperties
+            }
+
+            interface UdmabufAllocatorClass extends Omit<DmaBufAllocatorClass, "new"> {
+                readonly $gtype: GObject.GType<UdmabufAllocator>
+                readonly prototype: UdmabufAllocator
+
+                new (props?: Partial<GObject.ConstructorProps<UdmabufAllocator>>): UdmabufAllocator
+                /**
+                 * Get the #GstUdmabufAllocator singleton if available.
+                 * @since 1.28
+                 * @returns a #GstAllocator or %NULL if gst_udmabuf_allocator_init_once() did not register the allocator.
+                 */
+                get(): Gst.Allocator | null
+                /**
+                 * Register a #GstUdmabufAllocator using gst_allocator_register() with the name
+                 * %GST_ALLOCATOR_UDMABUF. This is no-op after the first call.
+                 * @since 1.28
+                 */
+                init_once(): void
+            }
+
+            interface $Exports {
+                /**
+                 * This is a subclass of #GstDmaBufAllocator that implements the
+                 * gst_allocator_alloc() method using `memfd_create()` and `UDMABUF_CREATE`.
+                 * Platforms not supporting that (most non-Linux) will always return %NULL.
+                 * @since 1.28
+                 */
+                UdmabufAllocator: UdmabufAllocatorClass
             }
             
 
@@ -379,6 +445,7 @@ declare module "gi://GstAllocators?version=1.0" {
                 ALLOCATOR_DMABUF: "dmabuf"
                 ALLOCATOR_FD: "fd"
                 ALLOCATOR_SHM: "shm"
+                ALLOCATOR_UDMABUF: "udmabuf"
                 CAPS_FEATURE_MEMORY_DMABUF: "memory:DMABuf"
                 /**
                  * Return the file descriptor associated with `mem`.

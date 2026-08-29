@@ -9936,8 +9936,10 @@ declare module "gi://Gio?version=2.0" {
                 get_completion_suffix(initial_text: string): string | null
                 /**
                  * Gets an array of completion strings for a given initial text.
+                 *
+                 * The strings are returned in an undefined order.
                  * @param initial_text text to be completed.
-                 * @returns array of strings with possible completions for `initial_text`. This array must be freed by g_strfreev() when finished.
+                 * @returns array of strings with   possible completions for `initial_text`
                  */
                 get_completions(initial_text: string): string[]
                 /**

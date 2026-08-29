@@ -63,6 +63,14 @@ declare module "gi://GstCuda?version=1.0" {
                  */
                 alloc(context: CudaContext, stream: CudaStream | null, info: GstVideo.VideoInfo): Gst.Memory | null
                 /**
+                 * @since 1.28
+                 * @param context a #GstCudaContext
+                 * @param stream a #GstCudaStream
+                 * @param info a #GstVideoInfo
+                 * @returns a newly allocated #GstCudaMemory
+                 */
+                alloc_stream_ordered(context: CudaContext, stream: CudaStream, info: GstVideo.VideoInfo): Gst.Memory | null
+                /**
                  * Allocates a new memory that wraps the given CUDA device memory.
                  *
                  *  `info` must represent actual memory layout, in other words, offset, stride
@@ -301,6 +309,14 @@ declare module "gi://GstCuda?version=1.0" {
                  * @returns A newly created #GstCudaContext
                  */
                 new_wrapped(handler: CudaGst.context, device: CudaGst.device): CudaContext | null
+                /**
+                 * Finds the DXGI adapter LUID corresponding to the given CUDA device.
+                 * This is useful for matching CUDA devices with Direct3D adapters on Windows.
+                 * @since 1.28.2
+                 * @param cuda_device a CUDA device index
+                 * @returns The DXGI adapter LUID or 0 if not found or on non-Windows platforms
+                 */
+                find_dxgi_adapter_luid(cuda_device: CudaGst.device): number
                 /**
                  * Pops the current CUDA context from CPU thread
                  * @since 1.22
@@ -792,6 +808,8 @@ declare module "gi://GstCuda?version=1.0" {
                 CUDA_CONTEXT_TYPE: "gst.cuda.context"
                 CUDA_MEMORY_TYPE_NAME: "gst.cuda.memory"
                 MAP_CUDA: 131072
+                MAP_READ_CUDA: Gst.MapFlags
+                MAP_WRITE_CUDA: Gst.MapFlags
                 /**
                  * Gets configured allocation method
                  * @since 1.24

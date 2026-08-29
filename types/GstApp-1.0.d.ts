@@ -124,7 +124,7 @@ declare module "gi://GstApp?version=1.0" {
                      * Note that when the application does not pull samples fast enough, the
                      * queued samples could consume a lot of memory, especially when dealing with
                      * raw video frames. It's possible to control the behaviour of the queue with
-                     * the "drop" and "max-buffers" / "max-bytes" / "max-time" set of properties.
+                     * the "leaky-type" and "max-buffers" / "max-bytes" / "max-time" set of properties.
                      *
                      * If an EOS event was received before any buffers, this function returns
                      * %NULL. Use gst_app_sink_is_eos () to check for the EOS condition.
@@ -143,7 +143,7 @@ declare module "gi://GstApp?version=1.0" {
                      * Note that when the application does not pull samples fast enough, the
                      * queued samples could consume a lot of memory, especially when dealing with
                      * raw video frames. It's possible to control the behaviour of the queue with
-                     * the "drop" and "max-buffers" / "max-bytes" / "max-time" set of properties.
+                     * the "leaky-type" and "max-buffers" / "max-bytes" / "max-time" set of properties.
                      *
                      * This function will only pull serialized events, excluding
                      * the EOS event for which this functions returns
@@ -195,7 +195,7 @@ declare module "gi://GstApp?version=1.0" {
                      * Note that when the application does not pull samples fast enough, the
                      * queued samples could consume a lot of memory, especially when dealing with
                      * raw video frames. It's possible to control the behaviour of the queue with
-                     * the "drop" and "max-buffers" / "max-bytes" / "max-time" set of properties.
+                     * the "leaky-type" and "max-buffers" / "max-bytes" / "max-time" set of properties.
                      *
                      * If an EOS event was received before any buffers or the timeout expires,
                      * this function returns %NULL. Use gst_app_sink_is_eos () to check
@@ -212,14 +212,22 @@ declare module "gi://GstApp?version=1.0" {
                     "caps": Gst.Caps | null
                     "drop": boolean
                     "emit-signals": boolean
+                    "leaky-type": AppLeakyType
                     "max-buffers": number
                     "max-bytes": number
                     "max-time": number
+                    "silent": boolean
                     "wait-on-eos": boolean
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GstBase.BaseSink.ReadableProperties, Gst.URIHandler.ReadableProperties {
+                    "current-level-buffers": number
+                    "current-level-bytes": number
+                    "current-level-time": number
+                    "dropped": number
                     "eos": boolean
+                    "in": number
+                    "out": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GstBase.BaseSink.WritableProperties, Gst.URIHandler.WritableProperties {
@@ -243,10 +251,36 @@ declare module "gi://GstApp?version=1.0" {
                 get caps(): Gst.Caps | null
                 set caps(value: Gst.Caps | null)
                 /**
+                 * The number of currently queued buffers inside appsink.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get currentLevelBuffers(): number
+                /**
+                 * The number of currently queued bytes inside appsink.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get currentLevelBytes(): number
+                /**
+                 * The amount of currently queued time inside appsink.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get currentLevelTime(): number
+                /**
+                 * Drop old buffers when the buffer queue is filled.
+                 * @deprecated since 1.28 Use "leaky-type" property instead.
                  * @default FALSE
                  */
                 get drop(): boolean
                 set drop(value: boolean)
+                /**
+                 * Number of buffers that were dropped.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get dropped(): number
                 /**
                  * @default FALSE
                  */
@@ -256,6 +290,22 @@ declare module "gi://GstApp?version=1.0" {
                  * @default TRUE
                  */
                 get eos(): boolean
+                /**
+                 * Number of input buffers that were queued.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get in(): number
+                /**
+                 * When set to any other value than GST_APP_LEAKY_TYPE_NONE then the appsink
+                 * will drop any buffers that are pushed into it once its internal queue is
+                 * full. The selected type defines whether to drop the oldest or new
+                 * buffers.
+                 * @since 1.28
+                 * @default GST_APP_LEAKY_TYPE_NONE
+                 */
+                get leakyType(): AppLeakyType
+                set leakyType(value: AppLeakyType)
                 /**
                  * Maximum amount of buffers in the queue (0 = unlimited).
                  * @default 0
@@ -276,6 +326,19 @@ declare module "gi://GstApp?version=1.0" {
                  */
                 get maxTime(): number
                 set maxTime(value: number)
+                /**
+                 * Number of output buffers that were dequeued.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get out(): number
+                /**
+                 * Don't emit notify for input, output and dropped buffers.
+                 * @since 1.28
+                 * @default TRUE
+                 */
+                get silent(): boolean
+                set silent(value: boolean)
                 /**
                  * Wait for all buffers to be processed after receiving an EOS.
                  *
@@ -298,8 +361,27 @@ declare module "gi://GstApp?version=1.0" {
                  */
                 get_caps(): Gst.Caps | null
                 /**
+                 * Get the number of currently queued buffers inside `appsink`.
+                 * @since 1.28
+                 * @returns The number of currently queued buffers.
+                 */
+                get_current_level_buffers(): number
+                /**
+                 * Get the number of currently queued bytes inside `appsink`.
+                 * @since 1.28
+                 * @returns The number of currently queued bytes.
+                 */
+                get_current_level_bytes(): number
+                /**
+                 * Get the amount of currently queued time inside `appsink`.
+                 * @since 1.28
+                 * @returns The amount of currently queued time.
+                 */
+                get_current_level_time(): Gst.ClockTime
+                /**
                  * Check if `appsink` will drop old buffers when the maximum amount of queued
                  * data is reached (meaning max buffers, time or bytes limit, whichever is hit first).
+                 * @deprecated since 1.28 Use gst_app_src_get_leaky_type() instead.
                  * @returns %TRUE if `appsink` is dropping old buffers when the queue is filled.
                  */
                 get_drop(): boolean
@@ -308,6 +390,13 @@ declare module "gi://GstApp?version=1.0" {
                  * @returns %TRUE if `appsink` is emitting the "new-preroll" and "new-sample" signals.
                  */
                 get_emit_signals(): boolean
+                /**
+                 * Returns the currently set #GstAppLeakyType. See gst_app_sink_set_leaky_type()
+                 * for more details.
+                 * @since 1.28
+                 * @returns The currently set #GstAppLeakyType.
+                 */
+                get_leaky_type(): AppLeakyType
                 /**
                  * Get the maximum amount of buffers that can be queued in `appsink`.
                  * @returns The maximum amount of buffers that can be queued.
@@ -421,6 +510,7 @@ declare module "gi://GstApp?version=1.0" {
                 /**
                  * Instruct `appsink` to drop old buffers when the maximum amount of queued
                  * data is reached, that is, when any configured limit is hit (max-buffers, max-time or max-bytes).
+                 * @deprecated since 1.28 Use gst_app_src_get_leaky_type() instead.
                  * @param drop the new state
                  */
                 set_drop(drop: boolean): void
@@ -431,6 +521,15 @@ declare module "gi://GstApp?version=1.0" {
                  * @param emit the new state
                  */
                 set_emit_signals(emit: boolean): void
+                /**
+                 * When set to any other value than GST_APP_LEAKY_TYPE_NONE then the appsink
+                 * will drop any buffers that are pushed into it once its internal queue is
+                 * full. The selected type defines whether to drop the oldest or new
+                 * buffers.
+                 * @since 1.28
+                 * @param leaky the #GstAppLeakyType
+                 */
+                set_leaky_type(leaky: AppLeakyType): void
                 /**
                  * Set the maximum amount of buffers that can be queued in `appsink`. After this
                  * amount of buffers are queued in appsink, any more buffers will block upstream
@@ -457,6 +556,24 @@ declare module "gi://GstApp?version=1.0" {
                  * @param max the maximum total duration to queue
                  */
                 set_max_time(max: Gst.ClockTime): void
+                /**
+                 * Set callbacks which will be executed for each new preroll, new sample and eos.
+                 * This is an alternative to using the signals, it has lower overhead and is thus
+                 * less expensive, but also less flexible.
+                 *
+                 * If callbacks are installed, no signals will be emitted for performance
+                 * reasons.
+                 *
+                 * Once `cb` is set on an #GstAppSink it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 *
+                 * Note that gst_app_sink_set_callbacks() and
+                 * gst_app_sink_set_simple_callbacks() are mutually exclusive and setting one
+                 * will unset the other.
+                 * @since 1.28
+                 * @param cb the callbacks
+                 */
+                set_simple_callbacks(cb: AppSinkSimpleCallbacks | null): void
                 /**
                  * Instruct `appsink` to wait for all buffers to be consumed when an EOS is received.
                  * @param wait the new state
@@ -669,7 +786,7 @@ declare module "gi://GstApp?version=1.0" {
                  * Appsink will internally use a queue to collect buffers from the streaming
                  * thread. If the application is not pulling samples fast enough, this queue
                  * will consume a lot of memory over time. The "max-buffers", "max-time" and "max-bytes"
-                 * properties can be used to limit the queue size. The "drop" property controls whether the
+                 * properties can be used to limit the queue size. The "leaky-type" property controls whether the
                  * streaming thread blocks or if older buffers are dropped when the maximum
                  * queue size is reached. Note that blocking the streaming thread can negatively
                  * affect real-time performance and should be avoided.
@@ -787,6 +904,7 @@ declare module "gi://GstApp?version=1.0" {
                     "max-time": number
                     "min-latency": number
                     "min-percent": number
+                    "silent": boolean
                     "size": number
                     "stream-type": AppStreamType
                 }
@@ -795,6 +913,9 @@ declare module "gi://GstApp?version=1.0" {
                     "current-level-buffers": number
                     "current-level-bytes": number
                     "current-level-time": number
+                    "dropped": number
+                    "in": number
+                    "out": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GstBase.BaseSrc.WritableProperties, Gst.URIHandler.WritableProperties {
@@ -842,6 +963,12 @@ declare module "gi://GstApp?version=1.0" {
                  */
                 get currentLevelTime(): number
                 /**
+                 * Number of buffers that were dropped.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get dropped(): number
+                /**
                  * The total duration in nanoseconds of the data stream. If the total duration is known, it
                  * is recommended to configure it with this property.
                  * @since 1.10
@@ -878,6 +1005,12 @@ declare module "gi://GstApp?version=1.0" {
                  */
                 get handleSegmentChange(): boolean
                 set handleSegmentChange(value: boolean)
+                /**
+                 * Number of input buffers that were queued.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get in(): number
                 /**
                  * Instruct the source to behave like a live source. This includes that it
                  * will only push out buffers in the PLAYING state.
@@ -940,6 +1073,19 @@ declare module "gi://GstApp?version=1.0" {
                  */
                 get minPercent(): number
                 set minPercent(value: number)
+                /**
+                 * Number of output buffers that were dequeued.
+                 * @since 1.28
+                 * @default 0
+                 */
+                get out(): number
+                /**
+                 * Don't emit notify for input, output and dropped buffers.
+                 * @since 1.28
+                 * @default TRUE
+                 */
+                get silent(): boolean
+                set silent(value: boolean)
                 /**
                  * The total size in bytes of the data stream. If the total size is known, it
                  * is recommended to configure it with this property.
@@ -1136,6 +1282,25 @@ declare module "gi://GstApp?version=1.0" {
                  */
                 set_max_time(max: Gst.ClockTime): void
                 /**
+                 * Set callbacks which will be executed when data is needed, enough data has
+                 * been collected or when a seek should be performed.
+                 * This is an alternative to using the signals, it has lower overhead and is thus
+                 * less expensive, but also less flexible.
+                 *
+                 * If callbacks are installed, no signals will be emitted for performance
+                 * reasons.
+                 *
+                 * Once `cb` is set on an #GstAppSrc it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 *
+                 * Note that gst_app_src_set_callbacks() and
+                 * gst_app_src_set_simple_callbacks() are mutually exclusive and setting one
+                 * will unset the other.
+                 * @since 1.28
+                 * @param cb the callbacks
+                 */
+                set_simple_callbacks(cb: AppSrcSimpleCallbacks | null): void
+                /**
                  * Set the size of the stream in bytes. A value of -1 means that the size is
                  * not known.
                  * @param size the size to set
@@ -1297,6 +1462,83 @@ declare module "gi://GstApp?version=1.0" {
             }
             
 
+            interface AppSinkSimpleCallbacksStruct {
+                readonly $gtype: GObject.GType<AppSinkSimpleCallbacks>
+                new (fields?: {
+                }): AppSinkSimpleCallbacks
+                /**
+                 * Creates a new instance of callbacks.
+                 * @since 1.28
+                 * @returns New empty GstAppSinkSimpleCallbacks
+                 */
+                "new"(): AppSinkSimpleCallbacks
+            }
+
+            interface AppSinkSimpleCallbacks {
+                /**
+                 * Increases the reference count of `cb`.
+                 * @since 1.28
+                 * @returns the callbacks
+                 */
+                ref(): AppSinkSimpleCallbacks
+                /**
+                 * Sets the EOS callback on `cb`.
+                 *
+                 * Once `cb` is set on an #GstAppSink it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 * @since 1.28
+                 * @param eos_cb EOS callback
+                 */
+                set_eos(eos_cb: AppSinkEosCallback): void
+                /**
+                 * Sets the new event callback on `cb`.
+                 *
+                 * Once `cb` is set on an #GstAppSink it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 * @since 1.28
+                 * @param new_event_cb new event callback
+                 */
+                set_new_event(new_event_cb: AppSinkNewEventCallback): void
+                /**
+                 * Sets the new preroll callback on `cb`.
+                 *
+                 * Once `cb` is set on an #GstAppSink it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 * @since 1.28
+                 * @param new_preroll_cb new preroll callback
+                 */
+                set_new_preroll(new_preroll_cb: AppSinkNewPrerollCallback): void
+                /**
+                 * Sets the new sample callback on `cb`.
+                 *
+                 * Once `cb` is set on an #GstAppSink it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 * @since 1.28
+                 * @param new_sample_cb new sample callback
+                 */
+                set_new_sample(new_sample_cb: AppSinkNewSampleCallback): void
+                /**
+                 * Sets the new event callback on `cb`.
+                 *
+                 * Once `cb` is set on an #GstAppSink it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 * @since 1.28
+                 * @param propose_allocation_cb propose allocation callback
+                 */
+                set_propose_allocation(propose_allocation_cb: AppSinkProposeAllocationCallback): void
+                /**
+                 * Decreases the reference count of `cb` and frees it after the
+                 * last reference is dropped.
+                 * @since 1.28
+                 */
+                unref(): void
+            }
+
+            interface $Exports {
+                AppSinkSimpleCallbacks: AppSinkSimpleCallbacksStruct
+            }
+            
+
             interface AppSrcPrivateStruct {
                 readonly $gtype: GObject.GType<AppSrcPrivate>
                 [Symbol.hasInstance](instance: unknown): instance is AppSrcPrivate
@@ -1307,6 +1549,65 @@ declare module "gi://GstApp?version=1.0" {
 
             interface $Exports {
                 AppSrcPrivate: AppSrcPrivateStruct
+            }
+            
+
+            interface AppSrcSimpleCallbacksStruct {
+                readonly $gtype: GObject.GType<AppSrcSimpleCallbacks>
+                new (fields?: {
+                }): AppSrcSimpleCallbacks
+                /**
+                 * Creates a new instance of callbacks.
+                 * @since 1.28
+                 * @returns New empty GstAppSrcSimpleCallbacks
+                 */
+                "new"(): AppSrcSimpleCallbacks
+            }
+
+            interface AppSrcSimpleCallbacks {
+                /**
+                 * Increases the reference count of `cb`.
+                 * @since 1.28
+                 * @returns the callbacks
+                 */
+                ref(): AppSrcSimpleCallbacks
+                /**
+                 * Sets the enough data callback on `cb`.
+                 *
+                 * Once `cb` is set on an #GstAppSrc it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 * @since 1.28
+                 * @param enough_data_cb EOS callback
+                 */
+                set_enough_data(enough_data_cb: AppSrcEnoughDataCallback): void
+                /**
+                 * Sets the need data callback on `cb`.
+                 *
+                 * Once `cb` is set on an #GstAppSrc it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 * @since 1.28
+                 * @param need_data_cb EOS callback
+                 */
+                set_need_data(need_data_cb: AppSrcNeedDataCallback): void
+                /**
+                 * Sets the seek data callback on `cb`.
+                 *
+                 * Once `cb` is set on an #GstAppSrc it is not possible anymore to change any of
+                 * the callbacks inside it.
+                 * @since 1.28
+                 * @param seek_data_cb EOS callback
+                 */
+                set_seek_data(seek_data_cb: AppSrcSeekDataCallback): void
+                /**
+                 * Decreases the reference count of `cb` and frees it after the
+                 * last reference is dropped.
+                 * @since 1.28
+                 */
+                unref(): void
+            }
+
+            interface $Exports {
+                AppSrcSimpleCallbacks: AppSrcSimpleCallbacksStruct
             }
             
             interface AppLeakyTypeEnum {
@@ -1359,6 +1660,81 @@ declare module "gi://GstApp?version=1.0" {
                  */
                 AppStreamType: AppStreamTypeEnum
             }
+            /**
+             * Called when the end-of-stream has been reached. This callback
+             * is called from the streaming thread.
+             * @since 1.28
+             * @param appsink a #GstAppSink
+             */
+            type AppSinkEosCallback = (appsink: AppSink) => void
+            /**
+             * Called when a new event is available. This callback is called from the
+             * streaming thread. The new event can be retrieved with
+             * gst_app_sink_pull_object() either from this callback or from any other thread.
+             *
+             * The callback should return %TRUE if the event has been handled, %FALSE
+             * otherwise.
+             * @since 1.28
+             * @param appsink a #GstAppSink
+             * @returns %TRUE when the event has been handled.
+             */
+            type AppSinkNewEventCallback = (appsink: AppSink) => boolean
+            /**
+             * Called when a new preroll sample is available. This callback is called from
+             * the streaming thread. The new preroll sample can be retrieved with
+             * gst_app_sink_pull_preroll() either from this callback or from any other
+             * thread.
+             * @since 1.28
+             * @param appsink a #GstAppSink
+             * @returns %GST_FLOW_OK on success.
+             */
+            type AppSinkNewPrerollCallback = (appsink: AppSink) => Gst.FlowReturn
+            /**
+             * Called when a new sample is available. This callback is called from the
+             * streaming thread. The new sample can be retrieved with
+             * gst_app_sink_pull_sample() either from this callback or from any other
+             * thread.
+             * @since 1.28
+             * @param appsink a #GstAppSink
+             * @returns %GST_FLOW_OK on success.
+             */
+            type AppSinkNewSampleCallback = (appsink: AppSink) => Gst.FlowReturn
+            /**
+             * Called when the propose_allocation query is available. This callback is
+             * called from the streaming thread.
+             * @since 1.28
+             * @param appsink a #GstAppSink
+             * @param query An ALLOCATION query
+             * @returns %TRUE when the query has been handled.
+             */
+            type AppSinkProposeAllocationCallback = (appsink: AppSink, query: Gst.Query) => boolean
+            /**
+             * Called when appsrc has enough data. It is recommended that the application
+             * stops calling push-buffer until the need_data callback is emitted again to
+             * avoid excessive buffer queueing.
+             * @since 1.28
+             * @param appsrc a #GstAppSrc
+             */
+            type AppSrcEnoughDataCallback = (appsrc: AppSrc) => void
+            /**
+             * Called when the appsrc needs more data. A buffer or EOS should be pushed to
+             * appsrc from this thread or another thread. `length` is just a hint and when it
+             * is set to -1, any number of bytes can be pushed into `appsrc`.
+             * @since 1.28
+             * @param appsrc a #GstAppSrc
+             * @param length Length hint
+             */
+            type AppSrcNeedDataCallback = (appsrc: AppSrc, length: number) => void
+            /**
+             * Called when a seek should be performed to the offset. The next push-buffer
+             * should produce buffers from the new `offset`. This callback is only called for
+             * seekable stream types.
+             * @since 1.28
+             * @param appsrc a #GstAppSrc
+             * @param offset Offset to seek to.
+             * @returns %TRUE if the seek was successful.
+             */
+            type AppSrcSeekDataCallback = (appsrc: AppSrc, offset: number) => boolean
 
             interface $Exports {
                 __name__: "GstApp"

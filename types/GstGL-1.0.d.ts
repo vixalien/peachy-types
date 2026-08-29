@@ -277,6 +277,11 @@ declare module "gi://GstGL?version=1.0" {
                 get timestampOffset(): number
                 set timestampOffset(value: number)
                 /**
+                 * @since 1.28
+                 * @returns the configured #GstGLContext.
+                 */
+                get_gl_context(): GLContext | null
+                /**
                  * called in the GL thread to fill the current video texture.
                  * @param mem
                  */
@@ -2492,6 +2497,11 @@ declare module "gi://GstGL?version=1.0" {
                  */
                 get_display(): never
                 /**
+                 * @since 1.28
+                 * @returns whether an visible output surface has been requested
+                 */
+                get_request_output_surface(): boolean
+                /**
                  * @since 1.6
                  * @returns , resulting surface width, resulting surface height
                  */
@@ -2602,6 +2612,12 @@ declare module "gi://GstGL?version=1.0" {
                  * @returns whether the specified region could be set
                  */
                 set_render_rectangle(x: number, y: number, width: number, height: number): boolean
+                /**
+                 * Configure whether a visible output surface is requested.
+                 * @since 1.28
+                 * @param output_surface whether to request an output surface.
+                 */
+                set_request_output_surface(output_surface: boolean): void
                 /**
                  * Sets the resize callback called every time a resize of the window occurs.
                  * @since 1.4
@@ -4504,6 +4520,12 @@ declare module "gi://GstGL?version=1.0" {
                  * @since 1.26
                  */
                 readonly "INCLUDE_EMULATED": 4
+                /**
+                 * EGL is responsible for the colorspace conversion. In this case, all
+                 * supported modifiers get translated to RGBA.
+                 * @since 1.28
+                 */
+                readonly "DIRECT_IMPORT": 8
             }
             type GLDrmFormatFlags = number
             interface $Exports {
@@ -4715,7 +4737,7 @@ declare module "gi://GstGL?version=1.0" {
                 GL_API_OPENGL_NAME: "opengl"
                 GL_BASE_MEMORY_ALLOCATOR_NAME: "GLBaseMemory"
                 GL_BUFFER_ALLOCATOR_NAME: "GLBuffer"
-                GL_COLOR_CONVERT_FORMATS: "{ RGBA, RGB, RGBx, BGR, BGRx, BGRA, xRGB, xBGR, ARGB, ABGR, GBRA, GBR, RGBP, BGRP, Y444, I420, YV12, Y42B, Y41B, NV12, NV21, NV16, NV61, YUY2, UYVY, Y210, AYUV, VUYA, Y410, A444, A422, GRAY8, GRAY16_LE, GRAY16_BE, RGB16, BGR16, ARGB64, A420, AV12, NV12_16L32S, NV12_4L4, RBGA, v210"
+                GL_COLOR_CONVERT_FORMATS: "{ RGBA, RGB, RGBx, BGR, BGRx, BGRA, xRGB, xBGR, ARGB, ABGR, GBRA, GBR, RGBP, BGRP, Y444, I420, YV12, Y42B, Y41B, NV12, NV21, NV16, NV61, NV24, YUY2, UYVY, Y210, AYUV, VUYA, Y410, A444, A422, GRAY8, GRAY16_LE, GRAY16_BE, RGB16, BGR16, ARGB64, A420, AV12, NV12_16L32S, NV12_4L4, RBGA, v210"
                 GL_COLOR_CONVERT_VIDEO_CAPS: "video/x-raw("
                 GL_CONFIG_STRUCTURE_NAME: "gst-gl-context-config"
                 GL_CONTEXT_TYPE_CGL: "gst.gl.context.CGL"
@@ -4726,7 +4748,7 @@ declare module "gi://GstGL?version=1.0" {
                 GL_DISPLAY_CONTEXT_TYPE: "gst.gl.GLDisplay"
                 GL_MEMORY_ALLOCATOR_NAME: "GLMemory"
                 GL_MEMORY_PBO_ALLOCATOR_NAME: "GLMemoryPBO"
-                GL_MEMORY_VIDEO_FORMATS_STR: "{ RGBA, BGRA, RGBx, BGRx, ARGB, ABGR, xRGB, xBGR, GBRA, GBR, RGBP, BGRP, RGB, BGR, RGB16, BGR16, AYUV, VUYA, A444, A422, Y410, I420, YV12, NV12, NV21, NV16, NV61, YUY2, UYVY, Y210, Y41B, Y42B, Y444, GRAY8, GRAY16_LE, GRAY16_BE, ARGB64, A420, AV12, NV12_16L32S, NV12_4L4, RBGA, v210"
+                GL_MEMORY_VIDEO_FORMATS_STR: "{ RGBA, BGRA, RGBx, BGRx, ARGB, ABGR, xRGB, xBGR, GBRA, GBR, RGBP, BGRP, RGB, BGR, RGB16, BGR16, AYUV, VUYA, A444, A422, Y410, I420, YV12, NV12, NV21, NV16, NV61, NV24, YUY2, UYVY, Y210, Y41B, Y42B, Y444, GRAY8, GRAY16_LE, GRAY16_BE, ARGB64, A420, AV12, NV12_16L32S, NV12_4L4, RBGA, v210"
                 GL_RENDERBUFFER_ALLOCATOR_NAME: "GLRenderbuffer"
                 GL_TEXTURE_TARGET_2D_STR: "2D"
                 GL_TEXTURE_TARGET_EXTERNAL_OES_STR: "external-oes"

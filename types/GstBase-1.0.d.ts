@@ -323,6 +323,14 @@ declare module "gi://GstBase?version=1.0" {
                  * The caller needs to explicitly set or unset flags that should be set or
                  * unset.
                  *
+                 * Likewise, no assumptions should be made about timestamps and offset of the
+                 * returned buffer. The caller should use gst_adapter_prev_pts(),
+                 * gst_adapter_prev_dts(), and gst_adapter_prev_offset() to obtain the relevant
+                 * information.
+                 *
+                 * The returned buffer might not be writable, use gst_buffer_make_writable()
+                 * if you need to change e.g. flags or timestamps.
+                 *
                  * Since 1.6 this will also copy over all GstMeta of the input buffers except
                  * for meta with the %GST_META_FLAG_POOLED flag or with the "memory" tag.
                  *
@@ -684,7 +692,7 @@ declare module "gi://GstBase?version=1.0" {
                  * Subclasses should call this at construction time in order for `self` to
                  * aggregate on a timeout even when no live source is connected.
                  * @since 1.22
-                 * @param force_live
+                 * @param force_live The new value
                  */
                 set_force_live(force_live: boolean): void
                 /**
@@ -730,7 +738,7 @@ declare module "gi://GstBase?version=1.0" {
                  * Subclasses MUST call this before gst_aggregator_selected_samples(),
                  * if it is used at all.
                  * @since 1.18
-                 * @param segment
+                 * @param segment The new #GstSegment
                  */
                 update_segment(segment: Gst.Segment): void
                 /**
@@ -745,18 +753,28 @@ declare module "gi://GstBase?version=1.0" {
                  */
                 vfunc_aggregate(timeout: boolean): Gst.FlowReturn
                 /**
-                 * Optional.
-                 *                  Called when a buffer is received on a sink pad, the task of
-                 *                  clipping it and translating it to the current segment falls
-                 *                  on the subclass. The function should use the segment of data
-                 *                  and the negotiated media type on the pad to perform
-                 *                  clipping of input buffer. This function takes ownership of
-                 *                  buf and should output a buffer or return NULL in
-                 *                  if the buffer should be dropped.
-                 * @param aggregator_pad
-                 * @param buf
+                 * Called when a buffer is received on a sink pad, the task of
+                 * clipping it and translating it to the current segment falls
+                 * on the subclass. The function should use the segment of data
+                 * and the negotiated media type on the pad to perform
+                 * clipping of input buffer. This function takes ownership of
+                 * buf and should output a buffer or return NULL in
+                 * if the buffer should be dropped.
+                 * @param aggregator_pad a #GstAggregatorPad
+                 * @param buf a #GstBuffer
+                 * @returns a #GstBuffer.
                  */
-                vfunc_clip(aggregator_pad: AggregatorPad, buf: Gst.Buffer): Gst.Buffer
+                vfunc_clip(aggregator_pad: AggregatorPad, buf: Gst.Buffer): Gst.Buffer | null
+                /**
+                 * Called when a new pad needs to be created. Allows subclass that
+                 * don't have a single sink pad template to provide a pad based
+                 * on the provided information.
+                 * @param templ the pad template to use
+                 * @param req_name requested pad name
+                 * @param caps caps for the pad
+                 * @returns a new #GstAggregatorPad.
+                 */
+                vfunc_create_new_pad(templ: Gst.PadTemplate, req_name: string | null, caps: Gst.Caps | null): AggregatorPad
                 /**
                  * Optional.
                  *                     Allows the subclass to influence the allocation choices.
@@ -782,11 +800,11 @@ declare module "gi://GstBase?version=1.0" {
                  */
                 vfunc_finish_buffer_list(bufferlist: Gst.BufferList): Gst.FlowReturn
                 /**
-                 * Optional.
-                 *                   Fixate and return the src pad caps provided.  The function takes
-                 *                   ownership of `caps` and returns a fixated version of
-                 *                   `caps`. `caps` is not guaranteed to be writable.
-                 * @param caps
+                 * Fixate and return the src pad caps provided. The function takes
+                 * ownership of `caps` and returns a fixated version of
+                 *  `caps`. `caps` is not guaranteed to be writable.
+                 * @param caps a #GstCaps to fixate
+                 * @returns the fixated caps #GstCaps.
                  */
                 vfunc_fixate_src_caps(caps: Gst.Caps): Gst.Caps
                 /**
@@ -825,7 +843,7 @@ declare module "gi://GstBase?version=1.0" {
                  * a #GstAggregator::samples-selected handler, and can be used to precisely
                  * control aggregating parameters for a given set of input samples.
                  * @since 1.18
-                 * @param aggregator_pad
+                 * @param aggregator_pad a #GstAggregatorPad
                  * @returns The sample that is about to be aggregated. It may hold a #GstBuffer   or a #GstBufferList. The contents of its info structure is subclass-dependent,   and documented on a subclass basis. The buffers held by the sample are   not writable.
                  */
                 vfunc_peek_next_sample(aggregator_pad: AggregatorPad): Gst.Sample | null
@@ -838,19 +856,17 @@ declare module "gi://GstBase?version=1.0" {
                  */
                 vfunc_propose_allocation(pad: AggregatorPad, decide_query: Gst.Query, query: Gst.Query): boolean
                 /**
-                 * Optional.
-                 *                  Called when an event is received on a sink pad, the subclass
-                 *                  should always chain up.
-                 * @param aggregator_pad
-                 * @param event
+                 * Called when an event is received on a sink pad, the subclass
+                 * should always chain up.
+                 * @param aggregator_pad a #GstAggregatorPad
+                 * @param event a #GstEvent
                  */
                 vfunc_sink_event(aggregator_pad: AggregatorPad, event: Gst.Event): boolean
                 /**
-                 * Optional.
-                 *                        Called when an event is received on a sink pad before queueing up
-                 *                        serialized events. The subclass should always chain up (Since: 1.18).
-                 * @param aggregator_pad
-                 * @param event
+                 * Called when an event is received on a sink pad before queueing up
+                 * serialized events. The subclass should always chain up (Since: 1.18).
+                 * @param aggregator_pad a #GstAggregatorPad
+                 * @param event a #GstEvent
                  */
                 vfunc_sink_event_pre_queue(aggregator_pad: AggregatorPad, event: Gst.Event): Gst.FlowReturn
                 /**
@@ -878,10 +894,9 @@ declare module "gi://GstBase?version=1.0" {
                  */
                 vfunc_src_activate(mode: Gst.PadMode, active: boolean): boolean
                 /**
-                 * Optional.
-                 *                  Called when an event is received on the src pad, the subclass
-                 *                  should always chain up.
-                 * @param event
+                 * Called when an event is received on the src pad, the subclass
+                 * should always chain up.
+                 * @param event a #GstEvent
                  */
                 vfunc_src_event(event: Gst.Event): boolean
                 /**
@@ -905,10 +920,10 @@ declare module "gi://GstBase?version=1.0" {
                  */
                 vfunc_stop(): boolean
                 /**
-                 * @param caps
+                 * @param caps the new source pad #GstCaps
                  * @returns , 
                  */
-                vfunc_update_src_caps(caps: Gst.Caps): [Gst.FlowReturn, Gst.Caps]
+                vfunc_update_src_caps(caps: Gst.Caps): [Gst.FlowReturn, Gst.Caps | null]
             }
 
             interface AggregatorClass extends Omit<Gst.ElementClass, "new"> {
@@ -1000,6 +1015,9 @@ declare module "gi://GstBase?version=1.0" {
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, Gst.Pad.ReadableProperties {
+                    "current-level-buffers": number
+                    "current-level-bytes": number
+                    "current-level-time": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, Gst.Pad.WritableProperties {
@@ -1014,6 +1032,24 @@ declare module "gi://GstBase?version=1.0" {
                 readonly $readableProperties: AggregatorPad.ReadableProperties
                 readonly $writableProperties: AggregatorPad.WritableProperties
                 readonly $constructOnlyProperties: AggregatorPad.ConstructOnlyProperties
+                /**
+                 * The number of currently queued buffers inside this pad
+                 * @since 1.28
+                 * @default 0
+                 */
+                get currentLevelBuffers(): number
+                /**
+                 * The number of currently queued bytes inside this pad
+                 * @since 1.28
+                 * @default 0
+                 */
+                get currentLevelBytes(): number
+                /**
+                 * The amount of currently queued time inside this pad
+                 * @since 1.28
+                 * @default 0
+                 */
+                get currentLevelTime(): number
                 /**
                  * Enables the emission of signals such as #GstAggregatorPad::buffer-consumed
                  * @since 1.16
@@ -1094,6 +1130,7 @@ declare module "gi://GstBase?version=1.0" {
                 }
 
                 interface ReadWriteProperties extends Gst.Element.ReadWriteProperties {
+                    "disable-clip": boolean
                     "disable-passthrough": boolean
                 }
 
@@ -1112,6 +1149,13 @@ declare module "gi://GstBase?version=1.0" {
                 readonly $readableProperties: BaseParse.ReadableProperties
                 readonly $writableProperties: BaseParse.WritableProperties
                 readonly $constructOnlyProperties: BaseParse.ConstructOnlyProperties
+                /**
+                 * Disable dropping buffers that are out of segment
+                 * @since 1.28
+                 * @default TRUE
+                 */
+                get disableClip(): boolean
+                set disableClip(value: boolean)
                 /**
                  * If set to %TRUE, baseparse will unconditionally force parsing of the
                  * incoming data. This can be required in the rare cases where the incoming
@@ -1200,6 +1244,9 @@ declare module "gi://GstBase?version=1.0" {
                  * is used to estimate the total duration of the stream and to estimate
                  * a seek position, if there's no index and the format is syncable
                  * (see gst_base_parse_set_syncable()).
+                 *
+                 * This value is reset during PAUSED->READY state changes. Subclasses must
+                 * call this function from #GstBaseParseClass::start if they want to set a static value.
                  * @param bitrate average bitrate in bits/second
                  */
                 set_average_bitrate(bitrate: number): void
@@ -1209,6 +1256,9 @@ declare module "gi://GstBase?version=1.0" {
                  * duration.  Alternatively, if `interval` is non-zero (default), then stream
                  * duration is determined based on estimated bitrate, and updated every `interval`
                  * frames.
+                 *
+                 * This value is reset during PAUSED->READY state changes. Subclasses must
+                 * call this function from #GstBaseParseClass::start if they want to set a static value.
                  * @param fmt #GstFormat.
                  * @param duration duration value.
                  * @param interval how often to update the duration estimate based on bitrate, or 0.
@@ -1220,6 +1270,9 @@ declare module "gi://GstBase?version=1.0" {
                  * location, a corresponding decoder might need an initial `lead_in` and a
                  * following `lead_out` number of frames to ensure the desired segment is
                  * entirely filled upon decoding.
+                 *
+                 * This value is reset during PAUSED->READY state changes. Subclasses must
+                 * call this function from #GstBaseParseClass::start if they want to set a static value.
                  * @param fps_num frames per second (numerator).
                  * @param fps_den frames per second (denominator).
                  * @param lead_in frames needed before a segment for subsequent decode
@@ -1230,6 +1283,9 @@ declare module "gi://GstBase?version=1.0" {
                  * Set if frames carry timing information which the subclass can (generally)
                  * parse and provide.  In particular, intrinsic (rather than estimated) time
                  * can be obtained following a seek.
+                 *
+                 * This value is reset during PAUSED->READY state changes. Subclasses must
+                 * call this function from #GstBaseParseClass::start if they want to set a static value.
                  * @param has_timing whether frames carry timing information
                  */
                 set_has_timing_info(has_timing: boolean): void
@@ -1238,6 +1294,9 @@ declare module "gi://GstBase?version=1.0" {
                  * versa.  While this is generally correct for audio data, it may not
                  * be otherwise. Sub-classes implementing such formats should disable
                  * timestamp inferring.
+                 *
+                 * This value is retained over PAUSED->READY state changes. Subclasses
+                 * can call this function from their instance init function.
                  * @param infer_ts %TRUE if parser should infer DTS/PTS from each other
                  */
                 set_infer_ts(infer_ts: boolean): void
@@ -1249,6 +1308,9 @@ declare module "gi://GstBase?version=1.0" {
                  * If the provided values changed from previously provided ones, this will
                  * also post a LATENCY message on the bus so the pipeline can reconfigure its
                  * global latency.
+                 *
+                 * This value is retained over PAUSED->READY state changes. Subclasses
+                 * can call this function from their instance init function.
                  * @param min_latency minimum parse latency
                  * @param max_latency maximum parse latency
                  */
@@ -1256,6 +1318,9 @@ declare module "gi://GstBase?version=1.0" {
                 /**
                  * Subclass can use this function to tell the base class that it needs to
                  * be given buffers of at least `min_size` bytes.
+                 *
+                 * This value is reset during PAUSED->READY state changes. Subclasses must
+                 * call this function from #GstBaseParseClass::start if they want to set a static value.
                  * @param min_size Minimum size in bytes of the data that this base class should       give to subclass.
                  */
                 set_min_frame_size(min_size: number): void
@@ -1267,6 +1332,9 @@ declare module "gi://GstBase?version=1.0" {
                  * will be invoked, but #GstBaseParseClass::pre_push_frame will still be
                  * invoked, so subclass can perform as much or as little is appropriate for
                  * passthrough semantics in #GstBaseParseClass::pre_push_frame.
+                 *
+                 * This value is reset during PAUSED->READY state changes. Subclasses must
+                 * call this function from #GstBaseParseClass::start if they want to set a static value.
                  * @param passthrough %TRUE if parser should run in passthrough mode
                  */
                 set_passthrough(passthrough: boolean): void
@@ -1275,6 +1343,9 @@ declare module "gi://GstBase?version=1.0" {
                  * interpolation (previous timestamp + duration), which is incorrect for
                  * data streams with reordering, where PTS can go backward. Sub-classes
                  * implementing such formats should disable PTS interpolation.
+                 *
+                 * This value is retained over PAUSED->READY state changes. Subclasses
+                 * can call this function from their instance init function.
                  * @param pts_interpolate %TRUE if parser should interpolate PTS timestamps
                  */
                 set_pts_interpolation(pts_interpolate: boolean): void
@@ -1282,6 +1353,9 @@ declare module "gi://GstBase?version=1.0" {
                  * Set if frame starts can be identified. This is set by default and
                  * determines whether seeking based on bitrate averages
                  * is possible for a format/stream.
+                 *
+                 * This value is reset during PAUSED->READY state changes. Subclasses must
+                 * call this function from #GstBaseParseClass::start if they want to set a static value.
                  * @param syncable set if frame starts can be identified
                  */
                 set_syncable(syncable: boolean): void
@@ -4592,7 +4666,7 @@ declare module "gi://GstBase?version=1.0" {
                  * Free-function: g_free
                  * @returns the current data. g_free() after usage.
                  */
-                free_and_get_data(): number
+                free_and_get_data(): Uint8Array
                 /**
                  * Returns the remaining size of data that can still be written. If
                  * -1 is returned the remaining size is only limited by system resources.
@@ -4997,6 +5071,11 @@ declare module "gi://GstBase?version=1.0" {
                  * selected by the `start-time` property.
                  */
                 readonly "SET": 2
+                /**
+                 * Start at the current running time when reaching %GST_STATE_PLAYING.
+                 * @since 1.28
+                 */
+                readonly "NOW": 3
             }
             type AggregatorStartTimeSelection = AggregatorStartTimeSelectionEnum[Exclude<keyof AggregatorStartTimeSelectionEnum, "$gtype">]
             interface $Exports {

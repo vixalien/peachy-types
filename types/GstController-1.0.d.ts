@@ -421,6 +421,7 @@ declare module "gi://GstController?version=1.0" {
                 /**
                  * Returns a read-only copy of the list of #GstControlPoint for the given property.
                  * Free the list after done with it.
+                 * @deprecated since 1.28 Use gst_timed_value_control_source_list_control_points() instead.
                  * @returns a copy of the list, or %NULL if the property isn't handled by the controller
                  */
                 get_all(): ControlPoint[]
@@ -429,6 +430,14 @@ declare module "gi://GstController?version=1.0" {
                  * @returns the number of control points that are set.
                  */
                 get_count(): number
+                /**
+                 * Returns an array of #GstTimedValue representing the control points
+                 * that have been set on this control source. To modify the value of a
+                 * control point, use #gst_timed_value_control_source_set.
+                 * @since 1.28
+                 * @returns an array of control points, or %NULL if no control points are set.
+                 */
+                list_control_points(): Gst.TimedValue[] | null
                 /**
                  * Set the value of given controller-handled property at a certain time.
                  * @param timestamp the time the control-change is scheduled for

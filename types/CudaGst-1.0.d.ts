@@ -356,6 +356,23 @@ declare module "gi://CudaGst?version=1.0" {
                 memPoolProps: memPoolPropsStruct
             }
             
+
+            interface uuidStruct {
+                readonly $gtype: GObject.GType<uuid>
+                new (fields?: {
+                    bytes?: number[]
+                }): uuid
+            }
+
+            interface uuid {
+                
+                bytes: number[]
+            }
+
+            interface $Exports {
+                uuid: uuidStruct
+            }
+            
             interface GLDeviceListEnum {
                 readonly $gtype: GObject.GType<GLDeviceList>
                 

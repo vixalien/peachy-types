@@ -1573,6 +1573,7 @@ declare module "gi://WebKit?version=6.0" {
                      * to get the favicon. If you are interested in the favicon of a
                      * #WebKitWebView it's easier to use the #WebKitWebView:favicon
                      * property. See webkit_web_view_get_favicon() for more details.
+                     * @deprecated since 2.54
                      * @param page_uri the URI of the Web page containing the icon
                      * @param favicon_uri the URI of the favicon
                      */
@@ -1611,6 +1612,10 @@ declare module "gi://WebKit?version=6.0" {
                  * This is an asynchronous method. When the operation is finished, callback will
                  * be invoked. You can then call webkit_favicon_database_get_favicon_finish()
                  * to get the result of the operation.
+                 *
+                 * New applications should use {@link FaviconDatabase.get_page_icons} and
+                 * {@link FaviconDatabase.get_page_icons_finish} instead.
+                 * @deprecated since 2.54
                  * @param page_uri URI of the page for which we want to retrieve the favicon
                  * @param cancellable A #GCancellable or %NULL.
                  * @param callback A #GAsyncReadyCallback to call when the request is            satisfied or %NULL if you don't care about the result.
@@ -1618,13 +1623,18 @@ declare module "gi://WebKit?version=6.0" {
                 get_favicon(page_uri: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
                 /**
                  * Finishes an operation started with webkit_favicon_database_get_favicon().
+                 *
+                 * New applications should use {@link FaviconDatabase.get_page_icons} and
+                 * {@link FaviconDatabase.get_page_icons_finish} instead.
                  * @throws {GLib.Error}
+                 * @deprecated since 2.54
                  * @param result A #GAsyncResult obtained from the #GAsyncReadyCallback passed to webkit_favicon_database_get_favicon()
                  * @returns a new favicon image, or %NULL in case of error.
                  */
                 get_favicon_finish(result: Gio.AsyncResult): Gdk.Texture
                 /**
                  * Obtains the URI of the favicon for the given `page_uri`.
+                 * @deprecated since 2.54
                  * @param page_uri URI of the page containing the icon
                  * @returns a newly allocated URI for the favicon, or %NULL if the database doesn't have a favicon for `page_uri`.
                  */
@@ -6939,7 +6949,7 @@ declare module "gi://WebKit?version=6.0" {
                  * Get the parsed manifest version, or `0` if there is no
                  * version specified in the manifest.
                  *
-                 * A {@link WebKit.WebExtensionError.UNSUPPORTED_MANIFEST_VERSION} error will be
+                 * A {@link WebExtensionError.UNSUPPORTED_MANIFEST_VERSION} error will be
                  * reported if the manifest version isn't specified.
                  * @since 2.52
                  * @returns the parsed manifest version.
@@ -7880,6 +7890,7 @@ declare module "gi://WebKit?version=6.0" {
                     "display-capture-state": MediaCaptureState
                     "editable": boolean
                     "is-muted": boolean
+                    "magnification": number
                     "microphone-capture-state": MediaCaptureState
                     "zoom-level": number
                 }
@@ -8002,6 +8013,9 @@ declare module "gi://WebKit?version=6.0" {
                 /**
                  * The favicon currently associated to the #WebKitWebView.
                  * See webkit_web_view_get_favicon() for more details.
+                 *
+                 * New applications should use {@link WebView.pageIcons} instead.
+                 * @deprecated since 2.54
                  */
                 get favicon(): Gdk.Texture
                 /**
@@ -8059,6 +8073,18 @@ declare module "gi://WebKit?version=6.0" {
                  * @default TRUE
                  */
                 get isWebProcessResponsive(): boolean
+                /**
+                 * The magnification factor of the #WebKitWebView content.
+                 *
+                 * The magnification factor represents the visual scaling of the page (similar
+                 * to pinch-to-zoom). This is independent of the layout zoom level. Setting
+                 * the magnification factor scales the rendered page visually without affecting
+                 * page layout or text wrapping.
+                 * @since 2.54
+                 * @default 1.000000
+                 */
+                get magnification(): number
+                set magnification(value: number)
                 /**
                  * Capture state of the microphone device. Whenever the user grants a media-request sent by the web
                  * page, requesting audio capture capabilities (`navigator.mediaDevices.getUserMedia({audio:
@@ -8437,6 +8463,9 @@ declare module "gi://WebKit?version=6.0" {
                  * Returns favicon currently associated to `web_view`, if any. You can
                  * connect to notify::favicon signal of `web_view` to be notified when
                  * the favicon is available.
+                 *
+                 * New applications should use {@link WebView.get_page_icons} instead.
+                 * @deprecated since 2.54
                  * @returns the favicon image or %NULL if there's no    icon associated with `web_view`.
                  */
                 get_favicon(): Gdk.Texture
@@ -8473,6 +8502,16 @@ declare module "gi://WebKit?version=6.0" {
                  * @returns %TRUE if the web process attached to `web_view` is responsive, or %FALSE otherwise.
                  */
                 get_is_web_process_responsive(): boolean
+                /**
+                 * Get the magnification factor of `web_view`.
+                 *
+                 * The magnification factor represents the visual scaling of the page (similar
+                 * to pinch-to-zoom). This is independent of the layout zoom level (which is
+                 * obtained with webkit_web_view_get_zoom_level()).
+                 * @since 2.54
+                 * @returns the current magnification factor of `web_view`
+                 */
+                get_magnification(): number
                 /**
                  * Return the main resource of `web_view`.
                  * @returns the main #WebKitWebResource of the view    or %NULL if nothing has been loaded.
@@ -9012,6 +9051,18 @@ declare module "gi://WebKit?version=6.0" {
                  */
                 set_is_muted(muted: boolean): void
                 /**
+                 * Set the magnification factor of `web_view`.
+                 *
+                 * The magnification factor represents the visual scaling of the page (similar
+                 * to pinch-to-zoom). This is independent of the layout zoom level (which is
+                 * set with webkit_web_view_set_zoom_level()). Setting the magnification factor
+                 * scales the rendered page visually around the center of the view without
+                 * affecting page layout or text wrapping.
+                 * @since 2.54
+                 * @param magnification the magnification factor
+                 */
+                set_magnification(magnification: number): void
+                /**
                  * Set the microphone capture state of a #WebKitWebView.
                  *
                  * If #WebKitSettings:enable-mediastream is %FALSE, this method will have no visible effect. Once the
@@ -9549,6 +9600,7 @@ declare module "gi://WebKit?version=6.0" {
 
                 interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
                     "autoplay": AutoplayPolicy
+                    "custom-user-agent": string | null
                 }
             }
 
@@ -9565,11 +9617,25 @@ declare module "gi://WebKit?version=6.0" {
                 get autoplay(): AutoplayPolicy
                 set autoplay(value: AutoplayPolicy)
                 /**
+                 * The custom user agent string to send for navigations governed by these
+                 * #WebKitWebsitePolicies, or %NULL to use the default user agent.
+                 * @since 2.54
+                 * @default NULL
+                 */
+                get customUserAgent(): string | null
+                set customUserAgent(value: string | null)
+                /**
                  * Get the #WebKitWebsitePolicies:autoplay property.
                  * @since 2.30
                  * @returns #WebKitAutoplayPolicy
                  */
                 get_autoplay_policy(): AutoplayPolicy
+                /**
+                 * Get the #WebKitWebsitePolicies:custom-user-agent property.
+                 * @since 2.54
+                 * @returns the custom user agent string, or %NULL if the default    user agent is used
+                 */
+                get_custom_user_agent(): string | null
             }
 
             interface WebsitePoliciesClass extends Omit<GObject.ObjectClass, "new"> {
@@ -9590,7 +9656,7 @@ declare module "gi://WebKit?version=6.0" {
                  * View specific website policies.
                  *
                  * WebKitWebsitePolicies allows you to configure per-page policies,
-                 * currently only autoplay policies are supported.
+                 * currently only autoplay and custom user agent policies are supported.
                  * @since 2.30
                  */
                 WebsitePolicies: WebsitePoliciesClass
@@ -11625,8 +11691,9 @@ declare module "gi://WebKit?version=6.0" {
                 /**
                  * Gets the size of the data of types `types` in a #WebKitWebsiteData.
                  *
-                 * Note that currently the data size is only known for %WEBKIT_WEBSITE_DATA_DISK_CACHE data type
-                 * so for all other types 0 will be returned.
+                 * Note that currently the data size is only known for the %WEBKIT_WEBSITE_DATA_DISK_CACHE,
+                 * %WEBKIT_WEBSITE_DATA_LOCAL_STORAGE, %WEBKIT_WEBSITE_DATA_INDEXEDDB_DATABASES and
+                 * %WEBKIT_WEBSITE_DATA_DOM_CACHE data types, so for all other types 0 will be returned.
                  * @since 2.16
                  * @param types a bitmask  of #WebKitWebsiteDataTypes
                  * @returns the size of `website_data` for the given `types`.
@@ -13393,7 +13460,7 @@ declare module "gi://WebKit?version=6.0" {
                 EDITING_COMMAND_SELECT_ALL: "SelectAll"
                 EDITING_COMMAND_UNDO: "Undo"
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 4
+                MICRO_VERSION: 91
                 MINOR_VERSION: 53
                 /**
                  * Gets the quark for the domain of download errors.

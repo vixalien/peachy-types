@@ -1415,6 +1415,20 @@ declare module "gi://Xmlb?version=2.0" {
                  */
                 lookup_query(xpath: string): Query
                 /**
+                 * Create an #XbQuery from the given `xpath` XPath string, or return it from the
+                 * query cache in the #XbSilo.
+                 *
+                 *  `xpath` must be valid: it is a programmer error if creating the query fails
+                 * (i.e. if xb_query_new() returns an error).
+                 *
+                 * This function is thread-safe.
+                 * @throws {GLib.Error}
+                 * @since 0.3.27
+                 * @param xpath an XPath query string
+                 * @returns an #XbQuery representing `xpath`
+                 */
+                lookup_query_full(xpath: string): Query
+                /**
                  * Searches the silo using an XPath query, returning up to `limit` results.
                  *
                  * It is safe to call this function from a different thread to the one that
@@ -2394,7 +2408,7 @@ declare module "gi://Xmlb?version=2.0" {
                 __name__: "Xmlb"
                 __version__: "2.0"
                 MAJOR_VERSION: 0
-                MICRO_VERSION: 26
+                MICRO_VERSION: 29
                 MINOR_VERSION: 3
                 /**
                  * Converts a string to an opcode kind.

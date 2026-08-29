@@ -109,6 +109,13 @@ declare module "gi://GstNet?version=1.0" {
                  * @returns a new #GstClock that receives a time from the remote clock.
                  */
                 "new"(name: string | null, remote_address: string, remote_port: number, base_time: Gst.ClockTime): NetClientClock
+                /**
+                 * Clears any cached #GstNetClientClock clocks.
+                 * All references should be released beforehand.
+                 * Mainly used for testing.
+                 * @since 1.28
+                 */
+                deinit(): void
             }
 
             interface $Exports {
