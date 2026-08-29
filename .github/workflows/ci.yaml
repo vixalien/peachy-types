@@ -27,7 +27,7 @@ jobs:
       - name: Add Flatpak remotes
         run: |
           flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          flatpak --user remote-add --if-not-exists flathub-beta https://flathub.org/repo/flathub-beta.flatpakrepo
+          flatpak --user remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
           flatpak --user remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 
       - name: Install Flatpak SDKs
