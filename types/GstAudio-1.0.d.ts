@@ -2864,20 +2864,6 @@ declare module "gi://GstAudio?version=1.0" {
                  * @returns %TRUE is `mix` is passthrough.
                  */
                 is_passthrough(): boolean
-                /**
-                 * In case the samples are interleaved, `in` and `out` must point to an
-                 * array with a single element pointing to a block of interleaved samples.
-                 *
-                 * If non-interleaved samples are used, `in` and `out` must point to an
-                 * array with pointers to memory blocks, one for each channel.
-                 *
-                 * Perform channel mixing on `in_data` and write the result to `out_data`.
-                 *  `in_data` and `out_data` need to be in `format` and `layout`.
-                 * @param in input samples
-                 * @param out output samples
-                 * @param samples number of samples
-                 */
-                samples(in_: never | null, out: never | null, samples: number): void
             }
 
             interface $Exports {
@@ -3004,31 +2990,6 @@ declare module "gi://GstAudio?version=1.0" {
                  */
                 reset(): void
                 /**
-                 * Perform the conversion with `in_frames` in `in` to `out_frames` in `out`
-                 * using `convert`.
-                 *
-                 * In case the samples are interleaved, `in` and `out` must point to an
-                 * array with a single element pointing to a block of interleaved samples.
-                 *
-                 * If non-interleaved samples are used, `in` and `out` must point to an
-                 * array with pointers to memory blocks, one for each channel.
-                 *
-                 *  `in` may be %NULL, in which case `in_frames` of silence samples are processed
-                 * by the converter.
-                 *
-                 * This function always produces `out_frames` of output and consumes `in_frames` of
-                 * input. Use gst_audio_converter_get_out_frames() and
-                 * gst_audio_converter_get_in_frames() to make sure `in_frames` and `out_frames`
-                 * are matching and `in` and `out` point to enough memory.
-                 * @param flags extra #GstAudioConverterFlags
-                 * @param in input frames
-                 * @param in_frames number of input frames
-                 * @param out output frames
-                 * @param out_frames number of output frames
-                 * @returns %TRUE is the conversion could be performed.
-                 */
-                samples(flags: AudioConverterFlags, in_: never | null, in_frames: number, out: never | null, out_frames: number): boolean
-                /**
                  * Returns whether the audio converter can perform the conversion in-place.
                  * The return value would be typically input to gst_base_transform_set_in_place()
                  * @since 1.12
@@ -3080,11 +3041,11 @@ declare module "gi://GstAudio?version=1.0" {
                 readonly $gtype: GObject.GType<AudioDownmixMeta>
                 new (fields?: {
                     meta?: Gst.Meta
-                    from_position?: AudioChannelPosition
-                    to_position?: AudioChannelPosition
+                    from_position?: AudioChannelPosition[]
+                    to_position?: AudioChannelPosition[]
                     from_channels?: number
                     to_channels?: number
-                    matrix?: number
+                    matrix?: number[]
                 }): AudioDownmixMeta
                 
                 get_info(): Gst.MetaInfo
@@ -3098,11 +3059,11 @@ declare module "gi://GstAudio?version=1.0" {
                 /**
                  * the channel positions of the source
                  */
-                from_position: AudioChannelPosition
+                from_position: AudioChannelPosition[]
                 /**
                  * the channel positions of the destination
                  */
-                to_position: AudioChannelPosition
+                to_position: AudioChannelPosition[]
                 /**
                  * the number of channels of the source
                  */
@@ -3114,7 +3075,7 @@ declare module "gi://GstAudio?version=1.0" {
                 /**
                  * the matrix coefficients.
                  */
-                matrix: number
+                matrix: number[]
             }
 
             interface $Exports {
@@ -3368,7 +3329,7 @@ declare module "gi://GstAudio?version=1.0" {
                     meta?: Gst.Meta
                     info?: AudioInfo
                     samples?: number
-                    offsets?: number
+                    offsets?: number[]
                 }): AudioMeta
                 
                 get_info(): Gst.MetaInfo
@@ -3392,7 +3353,7 @@ declare module "gi://GstAudio?version=1.0" {
                  *   buffer or %NULL if the buffer has interleaved layout; if not %NULL, this
                  *   is guaranteed to be an array of `info`.channels elements
                  */
-                offsets: number
+                offsets: number[]
             }
 
             interface $Exports {
@@ -3415,22 +3376,6 @@ declare module "gi://GstAudio?version=1.0" {
                  * history it might have.
                  */
                 reset(): void
-                /**
-                 * Perform quantization on `samples` in `in` and write the result to `out`.
-                 *
-                 * In case the samples are interleaved, `in` and `out` must point to an
-                 * array with a single element pointing to a block of interleaved samples.
-                 *
-                 * If non-interleaved samples are used, `in` and `out` must point to an
-                 * array with pointers to memory blocks, one for each channel.
-                 *
-                 *  `in` and `out` may point to the same memory location, in which case samples will be
-                 * modified in-place.
-                 * @param in input samples
-                 * @param out output samples
-                 * @param samples number of samples
-                 */
-                samples(in_: never | null, out: never | null, samples: number): void
             }
 
             interface $Exports {
@@ -4352,6 +4297,26 @@ declare module "gi://GstAudio?version=1.0" {
                  */
                 readonly "F64BE": 31
                 /**
+                 * 20 bits in 32 bits, signed, little endian.
+                 * @since 1.28
+                 */
+                readonly "S20_32LE": 32
+                /**
+                 * 20 bits in 32 bits, signed, big endian.
+                 * @since 1.28
+                 */
+                readonly "S20_32BE": 33
+                /**
+                 * 20 bits in 32 bits, unsigned, little endian.
+                 * @since 1.28
+                 */
+                readonly "U20_32LE": 34
+                /**
+                 * 20 bits in 32 bits, unsigned, big endian.
+                 * @since 1.28
+                 */
+                readonly "U20_32BE": 35
+                /**
                  * 16 bits in 16 bits, signed, native endianness
                  */
                 readonly "S16": 4
@@ -4391,6 +4356,16 @@ declare module "gi://GstAudio?version=1.0" {
                  * 20 bits in 24 bits, unsigned, native endianness
                  */
                 readonly "U20": 22
+                /**
+                 * 20 bits in 32 bits, signed, native endian.
+                 * @since 1.28
+                 */
+                readonly "S20_32": 32
+                /**
+                 * 20 bits in 32 bits, unsigned, native endian.
+                 * @since 1.28
+                 */
+                readonly "U20_32": 34
                 /**
                  * 18 bits in 24 bits, signed, native endianness
                  */
@@ -5063,8 +5038,8 @@ declare module "gi://GstAudio?version=1.0" {
                 AUDIO_DEF_RATE: 44100
                 AUDIO_ENCODER_SINK_NAME: "sink"
                 AUDIO_ENCODER_SRC_NAME: "src"
-                AUDIO_FORMATS_ALL: "{ F64BE, F64LE, F32BE, F32LE, S32BE, S32LE, U32BE, U32LE, S24_32BE, S24_32LE, U24_32BE, U24_32LE, S24BE, S24LE, U24BE, U24LE, S20BE, S20LE, U20BE, U20LE, S18BE, S18LE, U18BE, U18LE, S16BE, S16LE, U16BE, U16LE, S8, U8 }"
-                AUDIO_FORMAT_LAST: 32
+                AUDIO_FORMATS_ALL: "{ F64BE, F64LE, F32BE, F32LE, S32BE, S32LE, U32BE, U32LE, S24_32BE, S24_32LE, U24_32BE, U24_32LE, S24BE, S24LE, U24BE, U24LE, S20_32BE, S20_32LE, U20_32BE, U20_32LE, S20BE, S20LE, U20BE, U20LE, S18BE, S18LE, U18BE, U18LE, S16BE, S16LE, U16BE, U16LE, S8, U8 }"
+                AUDIO_FORMAT_LAST: 36
                 AUDIO_RATE_RANGE: "(int) [ 1, max ]"
                 AUDIO_RESAMPLER_OPT_CUBIC_B: "GstAudioResampler.cubic-b"
                 AUDIO_RESAMPLER_OPT_CUBIC_C: "GstAudioResampler.cubic-c"
@@ -5406,20 +5381,6 @@ declare module "gi://GstAudio?version=1.0" {
                  */
                 buffer_add_audio_clipping_meta(buffer: Gst.Buffer, format: Gst.Format, start: number, end: number): AudioClippingMeta
                 /**
-                 * Attaches #GstAudioDownmixMeta metadata to `buffer` with the given parameters.
-                 *
-                 *  `matrix` is an two-dimensional array of `to_channels` times `from_channels`
-                 * coefficients, i.e. the i-th output channels is constructed by multiplicating
-                 * the input channels with the coefficients in `matrix`[i] and taking the sum
-                 * of the results.
-                 * @param buffer a #GstBuffer
-                 * @param from_position the channel positions   of the source
-                 * @param to_position the channel positions of   the destination
-                 * @param matrix The matrix coefficients.
-                 * @returns the #GstAudioDownmixMeta on `buffer`.
-                 */
-                buffer_add_audio_downmix_meta(buffer: Gst.Buffer, from_position: AudioChannelPosition[], to_position: AudioChannelPosition[], matrix: number): AudioDownmixMeta
-                /**
                  * Attaches audio level information to `buffer`. (RFC 6464)
                  * @since 1.20
                  * @param buffer a #GstBuffer
@@ -5454,7 +5415,7 @@ declare module "gi://GstAudio?version=1.0" {
                  * @param offsets the offsets (in bytes) where each channel plane starts   in the buffer or %NULL to calculate it (see below); must be %NULL also   when `info`->layout is %GST_AUDIO_LAYOUT_INTERLEAVED
                  * @returns the #GstAudioMeta that was attached on the `buffer`
                  */
-                buffer_add_audio_meta(buffer: Gst.Buffer, info: AudioInfo, samples: number, offsets: number | null): AudioMeta
+                buffer_add_audio_meta(buffer: Gst.Buffer, info: AudioInfo, samples: number, offsets: number[] | null): AudioMeta
                 /**
                  * Allocates and attaches a #GstDsdPlaneOffsetMeta on `buffer`, which must be
                  * writable for that purpose. The fields of the #GstDsdPlaneOffsetMeta are
@@ -5479,12 +5440,11 @@ declare module "gi://GstAudio?version=1.0" {
                  * This meta is only needed for non-interleaved (= planar) DSD data.
                  * @since 1.24
                  * @param buffer a #GstBuffer
-                 * @param num_channels Number of channels in the DSD data
                  * @param num_bytes_per_channel Number of bytes per channel
                  * @param offsets the offsets (in bytes) where each channel plane starts   in the buffer
                  * @returns the #GstDsdPlaneOffsetMeta that was attached   on the `buffer`
                  */
-                buffer_add_dsd_plane_offset_meta(buffer: Gst.Buffer, num_channels: number, num_bytes_per_channel: number, offsets: number | null): DsdPlaneOffsetMeta
+                buffer_add_dsd_plane_offset_meta(buffer: Gst.Buffer, num_bytes_per_channel: number, offsets: number[] | null): DsdPlaneOffsetMeta
                 /**
                  * Find the #GstAudioDownmixMeta on `buffer` for the given destination
                  * channel positions.
@@ -5528,10 +5488,9 @@ declare module "gi://GstAudio?version=1.0" {
                  * @param input_plane_offsets Plane offsets for non-interleaved input data
                  * @param output_plane_offsets Plane offsets for non-interleaved output data
                  * @param num_dsd_bytes How many bytes with DSD data to convert
-                 * @param num_channels Number of channels (must be at least 1)
                  * @param reverse_byte_bits If TRUE, reverse the bits in each DSD byte
                  */
-                dsd_convert(input_data: number, output_data: number, input_format: DsdFormat, output_format: DsdFormat, input_layout: AudioLayout, output_layout: AudioLayout, input_plane_offsets: number, output_plane_offsets: number, num_dsd_bytes: number, num_channels: number, reverse_byte_bits: boolean): void
+                dsd_convert(input_data: Uint8Array, output_data: Uint8Array, input_format: DsdFormat, output_format: DsdFormat, input_layout: AudioLayout, output_layout: AudioLayout, input_plane_offsets: number[] | null, output_plane_offsets: number[] | null, num_dsd_bytes: number, reverse_byte_bits: boolean): void
                 /**
                  * Convert the DSD format string `str` to its #GstDsdFormat.
                  * @since 1.24

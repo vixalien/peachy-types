@@ -1092,7 +1092,7 @@ declare module "gi://Gly?version=2" {
             interface MemoryFormatEnum {
                 readonly $gtype: GObject.GType<MemoryFormat>
                 /**
-                 * 8-bit RGRA premultiplied
+                 * 8-bit BGRA premultiplied
                  */
                 readonly "B8G8R8A8_PREMULTIPLIED": 0
                 /**
@@ -1104,11 +1104,11 @@ declare module "gi://Gly?version=2" {
                  */
                 readonly "R8G8B8A8_PREMULTIPLIED": 2
                 /**
-                 * 8-bit RGBA
+                 * 8-bit BGRA
                  */
                 readonly "B8G8R8A8": 3
                 /**
-                 * 8-bit AGBR
+                 * 8-bit ARGB
                  */
                 readonly "A8R8G8B8": 4
                 /**
@@ -1187,7 +1187,9 @@ declare module "gi://Gly?version=2" {
             type MemoryFormat = MemoryFormatEnum[Exclude<keyof MemoryFormatEnum, "$gtype">]
             interface $Exports {
                 /**
-                 * Memory format
+                 * Describes the formats the image data can have. Orderings like "RGB" are
+                 * independent of the systems endianness. Single channels like "R16" follow
+                 * the endianness of the system.
                  * @since 2.0
                  */
                 MemoryFormat: MemoryFormatEnum

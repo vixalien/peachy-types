@@ -4,6 +4,7 @@
 /// <reference path="./GObject-2.0.d.ts" />
 /// <reference path="./Gst-1.0.d.ts" />
 /// <reference path="./GstBase-1.0.d.ts" />
+/// <reference path="./GstCodecParsers-1.0.d.ts" />
 /// <reference path="./GstVideo-1.0.d.ts" />
 
 /**
@@ -16,6 +17,7 @@ declare module "gi://GstCodecs?version=1.0" {
     import type GObject from "gi://GObject?version=2.0"
     import type Gst from "gi://Gst?version=1.0"
     import type GstBase from "gi://GstBase?version=1.0"
+    import type GstCodecParsers from "gi://GstCodecParsers?version=1.0"
     import type GstVideo from "gi://GstVideo?version=1.0"
 
     /**
@@ -91,6 +93,13 @@ declare module "gi://GstCodecs?version=1.0" {
                  * @param picture a #GstAV1Picture
                  */
                 vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: AV1Picture): Gst.FlowReturn
+                /**
+                 * Notifies subclass of SPS update
+                 * @since 1.20
+                 * @param seq_hdr a #GstAV1SequenceHeaderOBU
+                 * @param max_dpb_size the size of dpb including preferred output delay   by subclass reported via get_preferred_output_delay method.
+                 */
+                vfunc_new_sequence(seq_hdr: GstCodecParsers.AV1SequenceHeaderOBU, max_dpb_size: number): Gst.FlowReturn
                 /**
                  * Called with a #GstAV1Picture which is required to be outputted.
                  * The #GstVideoCodecFrame must be consumed by subclass.
@@ -220,6 +229,12 @@ declare module "gi://GstCodecs?version=1.0" {
                  */
                 vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: H264Picture): Gst.FlowReturn
                 /**
+                 * Notifies subclass of SPS update
+                 * @param sps a #GstH264SPS
+                 * @param max_dpb_size the size of dpb including preferred output delay   by subclass reported via get_preferred_output_delay method.
+                 */
+                vfunc_new_sequence(sps: GstCodecParsers.H264SPS, max_dpb_size: number): Gst.FlowReturn
+                /**
                  * Called with a #GstH264Picture which is required to be outputted.
                  * The #GstVideoCodecFrame must be consumed by subclass.
                  * @param frame a #GstVideoCodecFrame
@@ -282,6 +297,13 @@ declare module "gi://GstCodecs?version=1.0" {
                  */
                 get_picture(system_frame_number: number): H265Picture | null
                 /**
+                 * Retrieve the extended SPS values attached to the given #GstH265SPS
+                 * @since 1.28
+                 * @param sps the #GstH265SPS matching the requested #GstH265SPSEXT
+                 * @returns a #GstH265SPSEXT if successful, or %NULL otherwise
+                 */
+                get_sps_ext(sps: GstCodecParsers.H265SPS): GstCodecParsers.H265SPSEXT | null
+                /**
                  * Called to en/disable reference picture modification process.
                  * @since 1.20
                  * @param process whether subclass is requiring reference picture modification process
@@ -320,6 +342,12 @@ declare module "gi://GstCodecs?version=1.0" {
                  * @param picture a #GstH265Picture
                  */
                 vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: H265Picture): Gst.FlowReturn
+                /**
+                 * Notifies subclass of video sequence update
+                 * @param sps a #GstH265SPS
+                 * @param max_dpb_size the size of dpb including preferred output delay   by subclass reported via get_preferred_output_delay method.
+                 */
+                vfunc_new_sequence(sps: GstCodecParsers.H265SPS, max_dpb_size: number): Gst.FlowReturn
                 /**
                  * @param frame
                  * @param picture
@@ -404,6 +432,13 @@ declare module "gi://GstCodecs?version=1.0" {
                  * @param picture a #GstH266Picture
                  */
                 vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: H266Picture): Gst.FlowReturn
+                /**
+                 * Notifies subclass of video sequence update
+                 * @since 1.26
+                 * @param sps a #GstH266SPS
+                 * @param max_dpb_size the size of dpb including preferred output delay   by subclass reported via get_preferred_output_delay method.
+                 */
+                vfunc_new_sequence(sps: GstCodecParsers.H266SPS, max_dpb_size: number): Gst.FlowReturn
                 /**
                  * @param frame
                  * @param picture
@@ -500,6 +535,16 @@ declare module "gi://GstCodecs?version=1.0" {
                  */
                 vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: Mpeg2Picture): Gst.FlowReturn
                 /**
+                 * Notifies subclass of SPS update
+                 * @since 1.20
+                 * @param seq a #GstMpegVideoSequenceHdr
+                 * @param seq_ext a #GstMpegVideoSequenceExt
+                 * @param seq_display_ext
+                 * @param seq_scalable_ext
+                 * @param max_dpb_size the size of dpb including preferred output delay   by subclass reported via get_preferred_output_delay method.
+                 */
+                vfunc_new_sequence(seq: GstCodecParsers.MpegVideoSequenceHdr, seq_ext: GstCodecParsers.MpegVideoSequenceExt, seq_display_ext: GstCodecParsers.MpegVideoSequenceDisplayExt, seq_scalable_ext: GstCodecParsers.MpegVideoSequenceScalableExt, max_dpb_size: number): Gst.FlowReturn
+                /**
                  * Called with a #GstMpeg2Picture which is required to be outputted.
                  * The #GstVideoCodecFrame must be consumed by subclass.
                  * @since 1.20
@@ -558,6 +603,11 @@ declare module "gi://GstCodecs?version=1.0" {
                 readonly $writableProperties: Vp8Decoder.WritableProperties
                 readonly $constructOnlyProperties: Vp8Decoder.ConstructOnlyProperties
                 /**
+                 * @param picture
+                 * @param parser
+                 */
+                vfunc_decode_picture(picture: Vp8Picture, parser: GstCodecParsers.Vp8Parser): Gst.FlowReturn
+                /**
                  * Optional.
                  *                     Called per one #GstVp8Picture to notify subclass to finish
                  *                     decoding process for the #GstVp8Picture
@@ -581,6 +631,12 @@ declare module "gi://GstCodecs?version=1.0" {
                  * @param picture
                  */
                 vfunc_new_picture(frame: GstVideo.VideoCodecFrame, picture: Vp8Picture): Gst.FlowReturn
+                /**
+                 * Notifies subclass of SPS update
+                 * @param frame_hdr
+                 * @param max_dpb_size
+                 */
+                vfunc_new_sequence(frame_hdr: GstCodecParsers.Vp8FrameHdr, max_dpb_size: number): Gst.FlowReturn
                 /**
                  * Called with a #GstVp8Picture which is required to be outputted.
                  *                     Subclass can retrieve parent #GstVideoCodecFrame by using
@@ -800,10 +856,16 @@ declare module "gi://GstCodecs?version=1.0" {
             interface AV1TileStruct {
                 readonly $gtype: GObject.GType<AV1Tile>
                 new (fields?: {
+                    tile_group?: GstCodecParsers.AV1TileGroupOBU
+                    obu?: GstCodecParsers.AV1OBU
                 }): AV1Tile
             }
 
             interface AV1Tile {
+                
+                tile_group: GstCodecParsers.AV1TileGroupOBU
+                
+                obu: GstCodecParsers.AV1OBU
             }
 
             interface $Exports {
@@ -979,6 +1041,14 @@ declare module "gi://GstCodecs?version=1.0" {
                  */
                 num_ref_frames(): number
                 /**
+                 * Perform "8.2.5.4 Adaptive memory control decoded reference picture marking process"
+                 * @since 1.20
+                 * @param ref_pic_marking a #GstH264RefPicMarking
+                 * @param picture a #GstH264Picture
+                 * @returns %TRUE if successful
+                 */
+                perform_memory_management_control_operation(ref_pic_marking: GstCodecParsers.H264RefPicMarking, picture: H264Picture): boolean
+                /**
                  * @since 1.20
                  * @param interlaced %TRUE if interlaced
                  */
@@ -1030,10 +1100,16 @@ declare module "gi://GstCodecs?version=1.0" {
             interface H264SliceStruct {
                 readonly $gtype: GObject.GType<H264Slice>
                 new (fields?: {
+                    header?: GstCodecParsers.H264SliceHdr
+                    nalu?: GstCodecParsers.H264NalUnit
                 }): H264Slice
             }
 
             interface H264Slice {
+                
+                header: GstCodecParsers.H264SliceHdr
+                
+                nalu: GstCodecParsers.H264NalUnit
             }
 
             interface $Exports {
@@ -1179,10 +1255,16 @@ declare module "gi://GstCodecs?version=1.0" {
             interface H265SliceStruct {
                 readonly $gtype: GObject.GType<H265Slice>
                 new (fields?: {
+                    header?: GstCodecParsers.H265SliceHdr
+                    nalu?: GstCodecParsers.H265NalUnit
                 }): H265Slice
             }
 
             interface H265Slice {
+                
+                header: GstCodecParsers.H265SliceHdr
+                
+                nalu: GstCodecParsers.H265NalUnit
             }
 
             interface $Exports {
@@ -1329,10 +1411,16 @@ declare module "gi://GstCodecs?version=1.0" {
             interface H266SliceStruct {
                 readonly $gtype: GObject.GType<H266Slice>
                 new (fields?: {
+                    header?: GstCodecParsers.H266SliceHdr
+                    nalu?: GstCodecParsers.H266NalUnit
                 }): H266Slice
             }
 
             interface H266Slice {
+                
+                header: GstCodecParsers.H266SliceHdr
+                
+                nalu: GstCodecParsers.H266NalUnit
             }
 
             interface $Exports {
@@ -1949,6 +2037,27 @@ declare module "gi://GstCodecs?version=1.0" {
                  * @since 1.20
                  */
                 free(): void
+                /**
+                 * Parses the compressed information in the VP9 bitstream contained in `data`,
+                 * and fills in `header` with the parsed values.
+                 * The `size` argument represent the whole frame size.
+                 * @since 1.20
+                 * @param header The #GstVp9FrameHeader to fill
+                 * @param data The data to parse
+                 * @param size The size of the `data` to parse
+                 * @returns a #GstVp9ParserResult
+                 */
+                parse_compressed_frame_header(header: Vp9FrameHeader, data: number, size: number): GstCodecParsers.Vp9ParserResult
+                /**
+                 * Parses the VP9 bitstream contained in `data`, and fills in `header`
+                 * with the information. The `size` argument represent the whole frame size.
+                 * @since 1.20
+                 * @param header The #GstVp9FrameHeader to fill
+                 * @param data The data to parse
+                 * @param size The size of the `data` to parse
+                 * @returns a #GstVp9ParserResult
+                 */
+                parse_uncompressed_frame_header(header: Vp9FrameHeader, data: number, size: number): GstCodecParsers.Vp9ParserResult
             }
 
             interface $Exports {

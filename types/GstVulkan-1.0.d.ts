@@ -3206,42 +3206,6 @@ declare module "gi://GstVulkan?version=1.0" {
             }
             
 
-            interface VulkanVideoCapabilitiesStruct {
-                readonly $gtype: GObject.GType<VulkanVideoCapabilities>
-                new (fields?: {
-                }): VulkanVideoCapabilities
-            }
-
-            interface VulkanVideoCapabilities {
-            }
-
-            interface $Exports {
-                VulkanVideoCapabilities: VulkanVideoCapabilitiesStruct
-            }
-            
-
-            interface VulkanVideoProfileStruct {
-                readonly $gtype: GObject.GType<VulkanVideoProfile>
-                new (fields?: {
-                    reserved?: never[]
-                }): VulkanVideoProfile
-            }
-
-            interface VulkanVideoProfile {
-                
-                reserved: never[]
-                /**
-                 * @param b another #GstVulkanVideoProfile
-                 * @returns whether `a` and `b` contains the same information.
-                 */
-                is_equal(b: VulkanVideoProfile): boolean
-            }
-
-            interface $Exports {
-                VulkanVideoProfile: VulkanVideoProfileStruct
-            }
-            
-
             interface VulkanWindowPrivateStruct {
                 readonly $gtype: GObject.GType<VulkanWindowPrivate>
                 [Symbol.hasInstance](instance: unknown): instance is VulkanWindowPrivate
@@ -3402,30 +3366,6 @@ declare module "gi://GstVulkan?version=1.0" {
                  * @since 1.18
                  */
                 VulkanHandleType: VulkanHandleTypeEnum
-            }
-            
-            interface VulkanVideoOperationEnum {
-                readonly $gtype: GObject.GType<VulkanVideoOperation>
-                /**
-                 * decode operation
-                 */
-                readonly "DECODE": 0
-                /**
-                 * encode operation
-                 */
-                readonly "ENCODE": 1
-                /**
-                 * unknown
-                 */
-                readonly "UNKNOWN": 2
-            }
-            type VulkanVideoOperation = VulkanVideoOperationEnum[Exclude<keyof VulkanVideoOperationEnum, "$gtype">]
-            interface $Exports {
-                /**
-                 * The type of video operation.
-                 * @since 1.24
-                 */
-                VulkanVideoOperation: VulkanVideoOperationEnum
             }
             
             interface VulkanWindowError extends GLib.Error {}

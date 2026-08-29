@@ -2350,6 +2350,14 @@ declare module "gi://AppStream?version=1.0" {
                  */
                 get_id(): string
                 /**
+                 * Gets a URL to fetch machine-readable JSON data about this issue
+                 * from the Global CVE Allocation System (GCVE) database, if this
+                 * issue references a CVE or GCVE entry.
+                 * @since 1.1.4
+                 * @returns the JSON data URL, or %NULL if none exists.
+                 */
+                get_json_url(): string | null
+                /**
                  * Gets the issue type.
                  * @returns the #AsIssueKind
                  */
@@ -2357,6 +2365,11 @@ declare module "gi://AppStream?version=1.0" {
                 /**
                  * Gets the URL associacted with this issue, usually
                  * referencing a bug report or issue description.
+                 *
+                 * If no explicit URL was set for a CVE or GCVE issue, a link to the
+                 * respective database entry is synthesized: GCVE identifiers are
+                 * resolved via the Global CVE Allocation System (GCVE) database,
+                 * legacy CVE identifiers via the CVE Program database.
                  * @returns the URL.
                  */
                 get_url(): string
@@ -2885,6 +2898,8 @@ declare module "gi://AppStream?version=1.0" {
                 get_components_by_launchable(kind: LaunchableKind, id: string): ComponentBox
                 /**
                  * Find components in the AppStream data pool which provide a certain item.
+                 * Provided items of type %AS_PROVIDED_KIND_MODALIAS may contain wildcards,
+                 * which are matched against the searched item as well.
                  * @param kind An #AsProvidesKind
                  * @param item The value of the provided item.
                  * @returns an #AsComponentBox of found components.
@@ -4079,6 +4094,201 @@ declare module "gi://AppStream?version=1.0" {
             }
             
 
+            namespace ReviewsClient {
+                interface SignalSignatures extends GObject.Object.SignalSignatures {
+                }
+
+                interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
+                }
+
+                interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                }
+
+                interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
+                }
+
+                interface ConstructOnlyProperties extends GObject.Object.ConstructOnlyProperties {
+                }
+            }
+
+            interface ReviewsClient extends GObject.Object {
+                readonly $signals: ReviewsClient.SignalSignatures
+                readonly $readableProperties: ReviewsClient.ReadableProperties
+                readonly $writableProperties: ReviewsClient.WritableProperties
+                readonly $constructOnlyProperties: ReviewsClient.ConstructOnlyProperties
+                /**
+                 * Fetch the overall user rating for the given software component ID
+                 * from the reviews server, as a percentage value (where 100% means
+                 * a perfect five-star rating).
+                 * This call does blocking network I/O.
+                 * @throws {GLib.Error}
+                 * @param component_id the ID of the software component to fetch the rating for.
+                 * @returns the overall rating percentage, or -1 if no rating was available.
+                 */
+                fetch_rating_for_id(component_id: string): number
+                /**
+                 * Fetch user reviews for the given software component from the reviews server.
+                 * The reviews are sorted by their score (most helpful first), so subsequent
+                 * pages can be requested by increasing `start` in steps of `limit`.
+                 * This call does blocking network I/O.
+                 * @throws {GLib.Error}
+                 * @param cpt the component to fetch reviews for.
+                 * @param start index of the first review to fetch, for pagination.
+                 * @param limit maximum amount of reviews to fetch, or 0 for the default limit.
+                 * @returns the fetched reviews, or %NULL on error.
+                 */
+                fetch_reviews(cpt: Component, start: number, limit: number): Review[]
+                /**
+                 * Fetch user reviews for the given software component ID from the reviews server.
+                 * The reviews are sorted by their score (most helpful first), so subsequent
+                 * pages can be requested by increasing `start` in steps of `limit`.
+                 * This call does blocking network I/O.
+                 * @throws {GLib.Error}
+                 * @param component_id the ID of the software component to fetch reviews for.
+                 * @param version the version of the component, or %NULL if unknown.
+                 * @param start index of the first review to fetch, for pagination.
+                 * @param limit maximum amount of reviews to fetch, or 0 for the default limit.
+                 * @returns the fetched reviews, or %NULL on error.
+                 */
+                fetch_reviews_for_id(component_id: string, version: string | null, start: number, limit: number): Review[]
+                /**
+                 * Get the ID of the client application which is fetching reviews.
+                 * @returns the client-ID.
+                 */
+                get_client_id(): string
+                /**
+                 * Get the locale used for filtering reviews.
+                 * @returns the current locale, in POSIX format.
+                 */
+                get_locale(): string
+                /**
+                 * Get the URL of the reviews server that we are communicating with.
+                 * @returns the reviews server URL.
+                 */
+                get_server_url(): string
+                /**
+                 * Get the user agent used for communication with the reviews server.
+                 * @returns the user agent string.
+                 */
+                get_user_agent(): string | null
+                /**
+                 * Get the (salted) hash value used to identify the current user
+                 * to the reviews service, generating it if necessary.
+                 * The hash is used so the user can only vote once on each application,
+                 * and so their own reviews can be identified. It can not easily be traced
+                 * back to an individual user.
+                 * @returns the user hash, or %NULL if none could be generated.
+                 */
+                get_user_hash(): string
+                /**
+                 * Remove a review that the current user has written from the reviews server.
+                 * The review must have been received from the server via a previous fetch
+                 * operation, and the server will refuse to remove reviews that were not
+                 * written by the current user.
+                 * This call does blocking network I/O.
+                 * @throws {GLib.Error}
+                 * @since 1.1.4
+                 * @param review the review to remove.
+                 * @returns %TRUE on success.
+                 */
+                remove_review(review: Review): boolean
+                /**
+                 * Set an ID for the client application which is fetching reviews.
+                 * The ID is used when generating the user hash, so the same user
+                 * gets a different identity for each client application they are
+                 * submitting reviews from.
+                 *
+                 * You should set this value early, before any user hash was generated.
+                 * Set it to %NULL to restore the default client-ID.
+                 * @param client_id the new client-ID.
+                 */
+                set_client_id(client_id: string | null): void
+                /**
+                 * Set the locale used for filtering reviews, so reviews in the
+                 * given (or a compatible) language are preferred.
+                 * Set it to %NULL to restore the default of using the current
+                 * system locale.
+                 * @param locale the new locale, in POSIX format.
+                 */
+                set_locale(locale: string | null): void
+                /**
+                 * Set the URL of the ODRS-compatible reviews server to communicate with.
+                 * Set it to %NULL to restore the default server.
+                 * @param url the new reviews server URL.
+                 */
+                set_server_url(url: string | null): void
+                /**
+                 * Set the user agent to use when communicating with the reviews server.
+                 * Set it to %NULL to restore the default user agent.
+                 * @param user_agent the new user agent string.
+                 */
+                set_user_agent(user_agent: string | null): void
+                /**
+                 * Explicitly set the opaque hash value used to identify the current
+                 * user to the reviews service.
+                 * Set it to %NULL to have a suitable hash generated automatically,
+                 * which is the default behavior.
+                 * @param user_hash the new user hash string.
+                 */
+                set_user_hash(user_hash: string | null): void
+                /**
+                 * Submit a new user review for a software component to the reviews server.
+                 * The `review` must have a rating, summary and description set. If it has no
+                 * reviewer name set, a suitable one is chosen automatically based on the
+                 * name of the current user.
+                 *
+                 * On success, the review is updated with its server-assigned ID and is
+                 * marked as written by the current user.
+                 * This call does blocking network I/O.
+                 * @throws {GLib.Error}
+                 * @since 1.1.4
+                 * @param component_id the ID of the software component the review is for.
+                 * @param review the review to submit.
+                 * @returns %TRUE on success.
+                 */
+                submit_review(component_id: string, review: Review): boolean
+                /**
+                 * Cast a vote on a review that was previously received from the reviews
+                 * server, to mark it as helpful or unhelpful, or to report it as abusive.
+                 * On success, the review is marked as voted on by the current user.
+                 * This call does blocking network I/O.
+                 * @throws {GLib.Error}
+                 * @since 1.1.4
+                 * @param review the review to vote on.
+                 * @param vote the kind of vote to cast, e.g. %AS_REVIEW_VOTE_KIND_UP.
+                 * @returns %TRUE on success.
+                 */
+                vote_review(review: Review, vote: ReviewVoteKind): boolean
+            }
+
+            interface ReviewsClientClass extends Omit<GObject.ObjectClass, "new"> {
+                readonly $gtype: GObject.GType<ReviewsClient>
+                readonly prototype: ReviewsClient
+
+                new (props?: Partial<GObject.ConstructorProps<ReviewsClient>>): ReviewsClient
+                /**
+                 * Creates a new #AsReviewsClient.
+                 * @returns an #AsReviewsClient
+                 */
+                "new"(): ReviewsClient
+            }
+
+            interface $Exports {
+                /**
+                 * Fetch user reviews for software components.
+                 *
+                 * This class is a client for the Open Desktop Ratings Service (ODRS) or
+                 * a compatible service, and can retrieve user reviews and ratings for
+                 * software components.
+                 *
+                 * All operations do blocking network I/O and this class is not thread-safe:
+                 * When calling it from worker threads, use one instance per thread or
+                 * serialize access to a shared instance with your own locking.
+                 */
+                ReviewsClient: ReviewsClientClass
+            }
+            
+
             namespace Screenshot {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                 }
@@ -4334,6 +4544,9 @@ declare module "gi://AppStream?version=1.0" {
                 get_device_name_for_modalias(modalias: string, allow_fallback: boolean): string
                 /**
                  * Get the current display length for the given side kind.
+                 *
+                 * If no value was set explicitly and we are in a Wayland session,
+                 * the size of the largest connected display is determined automatically.
                  * If the display size is unknown, this function will return 0.
                  * @param side the #AsDisplaySideKind to select.
                  * @returns the display size in logical pixels.
@@ -4415,6 +4628,9 @@ declare module "gi://AppStream?version=1.0" {
                  * The size needs to be in device-independent pixels, see the
                  * AppStream documentation for more information:
                  * https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-relations-display_length
+                 *
+                 * Setting a value explicitly will disable any automatic detection
+                 * of the display size.
                  * @param side the #AsDisplaySideKind to select.
                  * @param value_dip the length value in device-independt pixels.
                  */
@@ -5944,11 +6160,15 @@ declare module "gi://AppStream?version=1.0" {
                  * Common Vulnerabilities and Exposures issue
                  */
                 readonly "CVE": 2
+                /**
+                 * Global CVE Allocation System issue. Since: 1.1.4
+                 */
+                readonly "GCVE": 3
             }
             type IssueKind = IssueKindEnum[Exclude<keyof IssueKindEnum, "$gtype">]
             interface $Exports {
                 /**
-                 * Checksums supported by #AsRelease
+                 * The issue type.
                  */
                 IssueKind: IssueKindEnum
                 /**
@@ -6692,6 +6912,64 @@ declare module "gi://AppStream?version=1.0" {
             to_string: (kind: ReleaseUrlKind) => string
             }
             
+            interface ReviewVoteKindEnum {
+                readonly $gtype: GObject.GType<ReviewVoteKind>
+                /**
+                 * Unknown vote action.
+                 */
+                readonly "UNKNOWN": 0
+                /**
+                 * Vote the review up, it was helpful.
+                 */
+                readonly "UP": 1
+                /**
+                 * Vote the review down, it was unhelpful.
+                 */
+                readonly "DOWN": 2
+                /**
+                 * Report the review as abusive.
+                 */
+                readonly "REPORT": 3
+            }
+            type ReviewVoteKind = ReviewVoteKindEnum[Exclude<keyof ReviewVoteKindEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * A vote cast on a user review.
+                 * @since 1.1.4
+                 */
+                ReviewVoteKind: ReviewVoteKindEnum
+            }
+            
+            interface ReviewsClientError extends GLib.Error {}
+
+            interface ReviewsClientErrorEnum {
+                readonly $gtype: GObject.GType<ReviewsClientError>
+
+                new(props: { message: string, code: number }): ReviewsClientError
+                /**
+                 * Generic failure.
+                 */
+                readonly "FAILED": 0
+                /**
+                 * Could not communicate with the ratings server.
+                 */
+                readonly "NETWORK": 1
+                /**
+                 * Data received from the server could not be parsed.
+                 */
+                readonly "PARSE": 2
+                
+            quark: () => GLib.Quark
+            }
+
+            interface $Exports {
+                /**
+                 * A ratings client error.
+                 * @since 1.1.4
+                 */
+                ReviewsClientError: ReviewsClientErrorEnum
+            }
+            
             interface ScreenshotKindEnum {
                 readonly $gtype: GObject.GType<ScreenshotKind>
                 /**
@@ -7341,7 +7619,7 @@ declare module "gi://AppStream?version=1.0" {
                 __version__: "1.0"
                 MAJOR_VERSION: 1
                 MICRO_VERSION: 6
-                MINOR_VERSION: 0
+                MINOR_VERSION: 1
                 /**
                  * Converts the text representation to an enumerated value.
                  * @since 0.12.1
@@ -7933,6 +8211,8 @@ declare module "gi://AppStream?version=1.0" {
                  * @returns string version of `kind`
                  */
                 release_url_kind_to_string(kind: ReleaseUrlKind): string
+                
+                reviews_client_error_quark(): GLib.Quark
                 /**
                  * Converts the text representation to an enumerated value.
                  * @param kind the string.

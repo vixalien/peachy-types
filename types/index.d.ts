@@ -52,6 +52,7 @@ import "./GstAudio-1.0.d.ts"
 import "./GstBadAudio-1.0.d.ts"
 import "./GstBase-1.0.d.ts"
 import "./GstCheck-1.0.d.ts"
+import "./GstCodecParsers-1.0.d.ts"
 import "./GstCodecs-1.0.d.ts"
 import "./GstController-1.0.d.ts"
 import "./GstCuda-1.0.d.ts"
@@ -60,6 +61,8 @@ import "./GstGL-1.0.d.ts"
 import "./GstGLEGL-1.0.d.ts"
 import "./GstGLWayland-1.0.d.ts"
 import "./GstGLX11-1.0.d.ts"
+import "./GstHip-1.0.d.ts"
+import "./GstHipGL-1.0.d.ts"
 import "./GstInsertBin-1.0.d.ts"
 import "./GstMpegts-1.0.d.ts"
 import "./GstMse-1.0.d.ts"
@@ -166,6 +169,7 @@ declare global {
         GstBadAudio:| typeof import("gi://GstBadAudio?version=1.0").default
         GstBase:| typeof import("gi://GstBase?version=1.0").default
         GstCheck:| typeof import("gi://GstCheck?version=1.0").default
+        GstCodecParsers:| typeof import("gi://GstCodecParsers?version=1.0").default
         GstCodecs:| typeof import("gi://GstCodecs?version=1.0").default
         GstController:| typeof import("gi://GstController?version=1.0").default
         GstCuda:| typeof import("gi://GstCuda?version=1.0").default
@@ -174,6 +178,8 @@ declare global {
         GstGLEGL:| typeof import("gi://GstGLEGL?version=1.0").default
         GstGLWayland:| typeof import("gi://GstGLWayland?version=1.0").default
         GstGLX11:| typeof import("gi://GstGLX11?version=1.0").default
+        GstHip:| typeof import("gi://GstHip?version=1.0").default
+        GstHipGL:| typeof import("gi://GstHipGL?version=1.0").default
         GstInsertBin:| typeof import("gi://GstInsertBin?version=1.0").default
         GstMpegts:| typeof import("gi://GstMpegts?version=1.0").default
         GstMse:| typeof import("gi://GstMse?version=1.0").default
@@ -321,6 +327,8 @@ interface Gi {
     require(namespace: "GstBase"):| typeof import("gi://GstBase?version=1.0").default
     require(namespace: "GstCheck", version: "1.0"): typeof import("gi://GstCheck?version=1.0").default
     require(namespace: "GstCheck"):| typeof import("gi://GstCheck?version=1.0").default
+    require(namespace: "GstCodecParsers", version: "1.0"): typeof import("gi://GstCodecParsers?version=1.0").default
+    require(namespace: "GstCodecParsers"):| typeof import("gi://GstCodecParsers?version=1.0").default
     require(namespace: "GstCodecs", version: "1.0"): typeof import("gi://GstCodecs?version=1.0").default
     require(namespace: "GstCodecs"):| typeof import("gi://GstCodecs?version=1.0").default
     require(namespace: "GstController", version: "1.0"): typeof import("gi://GstController?version=1.0").default
@@ -337,6 +345,10 @@ interface Gi {
     require(namespace: "GstGLWayland"):| typeof import("gi://GstGLWayland?version=1.0").default
     require(namespace: "GstGLX11", version: "1.0"): typeof import("gi://GstGLX11?version=1.0").default
     require(namespace: "GstGLX11"):| typeof import("gi://GstGLX11?version=1.0").default
+    require(namespace: "GstHip", version: "1.0"): typeof import("gi://GstHip?version=1.0").default
+    require(namespace: "GstHip"):| typeof import("gi://GstHip?version=1.0").default
+    require(namespace: "GstHipGL", version: "1.0"): typeof import("gi://GstHipGL?version=1.0").default
+    require(namespace: "GstHipGL"):| typeof import("gi://GstHipGL?version=1.0").default
     require(namespace: "GstInsertBin", version: "1.0"): typeof import("gi://GstInsertBin?version=1.0").default
     require(namespace: "GstInsertBin"):| typeof import("gi://GstInsertBin?version=1.0").default
     require(namespace: "GstMpegts", version: "1.0"): typeof import("gi://GstMpegts?version=1.0").default

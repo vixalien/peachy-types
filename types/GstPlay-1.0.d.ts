@@ -490,6 +490,12 @@ declare module "gi://GstPlay?version=1.0" {
                  */
                 "new"(video_renderer: PlayVideoRenderer | null): Play
                 /**
+                 * @since 1.28
+                 * @param config a #GstPlay configuration
+                 * @returns The looping mode.
+                 */
+                config_get_loop(config: Gst.Structure): PlayLoop
+                /**
                  * @since 1.24
                  * @param config a #GstPlay configuration
                  * @returns %TRUE if pipeline dumps are included in #GstPlay error message details.
@@ -515,6 +521,15 @@ declare module "gi://GstPlay?version=1.0" {
                  * @returns the configured agent, or %NULL
                  */
                 config_get_user_agent(config: Gst.Structure): string | null
+                /**
+                 * Sets the looping mode.
+                 *
+                 * Looping is disabled by default.
+                 * @since 1.28
+                 * @param config a #GstPlay configuration
+                 * @param loop #GstPlayLoop
+                 */
+                config_set_loop(config: Gst.Structure, loop: PlayLoop): void
                 /**
                  * When enabled, the error message emitted by #GstPlay will include a pipeline
                  * dump (in Graphviz DOT format) in the error details #GstStructure. The field
@@ -1391,6 +1406,31 @@ declare module "gi://GstPlay?version=1.0" {
                 PlayError: PlayErrorEnum
             }
             
+            interface PlayLoopEnum {
+                readonly $gtype: GObject.GType<PlayLoop>
+                /**
+                 * Don't loop.
+                 */
+                readonly "NONE": 0
+                /**
+                 * Loop over the current track.
+                 */
+                readonly "TRACK": 1
+            }
+            type PlayLoop = PlayLoopEnum[Exclude<keyof PlayLoopEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * @since 1.28
+                 */
+                PlayLoop: PlayLoopEnum
+                /**
+             * @since 1.28
+             * @param loop a #GstPlayLoop
+             * @returns a string with the name of the loop.
+             */
+            get_name: (loop: PlayLoop) => string
+            }
+            
             interface PlayMessageEnum {
                 readonly $gtype: GObject.GType<PlayMessage>
                 /**
@@ -1704,6 +1744,12 @@ declare module "gi://GstPlay?version=1.0" {
                  * @since 1.20
                  */
                 play_error_quark(): GLib.Quark
+                /**
+                 * @since 1.28
+                 * @param loop a #GstPlayLoop
+                 * @returns a string with the name of the loop.
+                 */
+                play_loop_get_name(loop: PlayLoop): string
                 /**
                  * @since 1.20
                  * @param message_type a #GstPlayMessage

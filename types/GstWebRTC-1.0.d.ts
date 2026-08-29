@@ -119,10 +119,12 @@ declare module "gi://GstWebRTC?version=1.0" {
                     
                     "on-open"(): void
                     /**
+                     * @deprecated since 1.22 Use gst_webrtc_data_channel_send_data_full() instead
                      * @param data a #GBytes with the data
                      */
                     "send-data"(data: (GLib.Bytes | Uint8Array | null)): void
                     /**
+                     * @deprecated since 1.22 Use gst_webrtc_data_channel_send_string_full() instead
                      * @param data the data to send as a string
                      */
                     "send-string"(data: string | null): void
@@ -214,6 +216,7 @@ declare module "gi://GstWebRTC?version=1.0" {
                 close(): void
                 /**
                  * Send `data` as a data message over `channel`.
+                 * @deprecated since 1.22 Use gst_webrtc_data_channel_send_data_full() instead
                  * @param data a #GBytes or %NULL
                  */
                 send_data(data: (GLib.Bytes | Uint8Array | null)): void
@@ -227,6 +230,7 @@ declare module "gi://GstWebRTC?version=1.0" {
                 send_data_full(data: (GLib.Bytes | Uint8Array | null)): boolean
                 /**
                  * Send `str` as a string message over `channel`.
+                 * @deprecated since 1.22 Use gst_webrtc_data_channel_send_string_full() instead
                  * @param str a string or %NULL
                  */
                 send_string(str: string | null): void
@@ -323,6 +327,13 @@ declare module "gi://GstWebRTC?version=1.0" {
                  */
                 add_turn_server(uri: string): boolean
                 /**
+                 * Invoke the close procedure as specified in
+                 * https://www.w3.org/TR/webrtc/#dom-rtcpeerconnection-close.
+                 * @since 1.28
+                 * @param promise a #GstPromise to be notified when the task is complete.
+                 */
+                close(promise: Gst.Promise | null): void
+                /**
                  * @since 1.22
                  * @param stream The #GstWebRTCICEStream
                  * @param component The #GstWebRTCICEComponent
@@ -359,6 +370,7 @@ declare module "gi://GstWebRTC?version=1.0" {
                 get_remote_candidates(stream: WebRTCICEStream): WebRTCICECandidateStats[]
                 /**
                  * @since 1.22
+                 * @deprecated since 1.28 Use gst_webrtc_ice_transport_get_selected_candidate_pair().
                  * @param stream The #GstWebRTCICEStream
                  * @returns FALSE on failure, otherwise `local_stats` `remote_stats` will be set, A pointer to #GstWebRTCICECandidateStats for local candidate, pointer to #GstWebRTCICECandidateStats for remote candidate
                  */
@@ -446,6 +458,13 @@ declare module "gi://GstWebRTC?version=1.0" {
                  */
                 vfunc_add_turn_server(uri: string): boolean
                 /**
+                 * Invoke the close procedure as specified in
+                 * https://www.w3.org/TR/webrtc/#dom-rtcpeerconnection-close.
+                 * @since 1.28
+                 * @param promise a #GstPromise to be notified when the task is complete.
+                 */
+                vfunc_close(promise: Gst.Promise | null): void
+                /**
                  * @since 1.22
                  * @param stream The #GstWebRTCICEStream
                  * @param component The #GstWebRTCICEComponent
@@ -479,6 +498,7 @@ declare module "gi://GstWebRTC?version=1.0" {
                 vfunc_get_remote_candidates(stream: WebRTCICEStream): WebRTCICECandidateStats
                 /**
                  * @since 1.22
+                 * @deprecated since 1.28 Use gst_webrtc_ice_transport_get_selected_candidate_pair().
                  * @param stream The #GstWebRTCICEStream
                  * @returns FALSE on failure, otherwise `local_stats` `remote_stats` will be set, A pointer to #GstWebRTCICECandidateStats for local candidate, pointer to #GstWebRTCICECandidateStats for remote candidate
                  */
@@ -683,6 +703,13 @@ declare module "gi://GstWebRTC?version=1.0" {
                  */
                 gathering_state_change(new_state: WebRTCICEGatheringState): void
                 /**
+                 * See also
+                 * https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair
+                 * @since 1.28
+                 * @returns A #GstWebRTCICECandidatePair
+                 */
+                get_selected_candidate_pair(): WebRTCICECandidatePair | null
+                /**
                  * @param stream_id
                  * @param component
                  * @param attr
@@ -692,6 +719,13 @@ declare module "gi://GstWebRTC?version=1.0" {
                 selected_pair_change(): void
                 
                 vfunc_gather_candidates(): boolean
+                /**
+                 * See also
+                 * https://w3c.github.io/webrtc-pc/#dom-rtcicetransport-getselectedcandidatepair
+                 * @since 1.28
+                 * @returns A #GstWebRTCICECandidatePair
+                 */
+                vfunc_get_selected_candidate_pair(): WebRTCICECandidatePair | null
             }
 
             interface WebRTCICETransportClass extends Omit<Gst.ObjectClass, "new"> {
@@ -969,6 +1003,92 @@ declare module "gi://GstWebRTC?version=1.0" {
             }
             
 
+            interface WebRTCICECandidateStruct {
+                readonly $gtype: GObject.GType<WebRTCICECandidate>
+                new (fields?: {
+                    candidate?: string
+                    component?: number
+                    sdp_mid?: string
+                    sdp_mline_index?: number
+                    stats?: WebRTCICECandidateStats
+                    gst_reserved?: never[]
+                }): WebRTCICECandidate
+            }
+
+            interface WebRTCICECandidate {
+                /**
+                 * String carrying the candidate-attribute as defined in
+                 *   section 15.1 of RFC5245
+                 */
+                candidate: string
+                /**
+                 * The assigned network component of the candidate (1 for RTP
+                 *   2 for RTCP).
+                 */
+                component: number
+                /**
+                 * The media stream "identification-tag" defined in [RFC5888] for the
+                 *   media component this candidate is associated with.
+                 */
+                sdp_mid: string
+                /**
+                 * The index (starting at zero) of the media description in
+                 *   the SDP this candidate is associated with.
+                 */
+                sdp_mline_index: number
+                /**
+                 * The #GstWebRTCICECandidateStats associated to this candidate.
+                 */
+                stats: WebRTCICECandidateStats
+                
+                gst_reserved: never[]
+                /**
+                 * @since 1.28
+                 * @returns A copy of `candidate`
+                 */
+                copy(): WebRTCICECandidate
+                /**
+                 * Helper function to free #GstWebRTCICECandidate
+                 * @since 1.28
+                 */
+                free(): void
+            }
+
+            interface $Exports {
+                WebRTCICECandidate: WebRTCICECandidateStruct
+            }
+            
+
+            interface WebRTCICECandidatePairStruct {
+                readonly $gtype: GObject.GType<WebRTCICECandidatePair>
+                new (fields?: {
+                    local?: WebRTCICECandidate
+                    remote?: WebRTCICECandidate
+                }): WebRTCICECandidatePair
+            }
+
+            interface WebRTCICECandidatePair {
+                
+                local: WebRTCICECandidate
+                
+                remote: WebRTCICECandidate
+                /**
+                 * @since 1.28
+                 * @returns A copy of `pair`
+                 */
+                copy(): WebRTCICECandidatePair
+                /**
+                 * Helper function to free #GstWebRTCICECandidatePair
+                 * @since 1.28
+                 */
+                free(): void
+            }
+
+            interface $Exports {
+                WebRTCICECandidatePair: WebRTCICECandidatePairStruct
+            }
+            
+
             interface WebRTCICECandidateStatsStruct {
                 readonly $gtype: GObject.GType<WebRTCICECandidateStats>
                 new (fields?: {
@@ -980,29 +1100,44 @@ declare module "gi://GstWebRTC?version=1.0" {
                     relay_proto?: string
                     prio?: number
                     url?: string
-                    gst_reserved?: never[]
                 }): WebRTCICECandidateStats
             }
 
             interface WebRTCICECandidateStats {
-                
+                /**
+                 * A string containing the address of the candidate. This value may be
+                 *          an IPv4 address, an IPv6 address, or a fully-qualified domain name
+                 */
                 ipaddr: string
-                
+                /**
+                 * The network port number used by the candidate
+                 */
                 port: number
-                
+                /**
+                 * A string that uniquely identifies the object that is being
+                 *             monitored to produce this set of statistics
+                 */
                 stream_id: number
-                
+                /**
+                 * The candidate type
+                 */
                 type: string
-                
+                /**
+                 * A string specifying the protocol (tcp or udp) used to transmit data
+                 *         on the `port`
+                 */
                 proto: string
                 
                 relay_proto: string
-                
+                /**
+                 * The candidate's priority, corresponding to RTCIceCandidate.priority
+                 */
                 prio: number
-                
+                /**
+                 * For local candidates, the url property is the URL of the ICE server
+                 *       from which the candidate was received
+                 */
                 url: string
-                
-                gst_reserved: never[]
                 /**
                  * @since 1.22
                  * @returns A copy of `stats`
@@ -1084,6 +1219,29 @@ declare module "gi://GstWebRTC?version=1.0" {
                  * @since 1.16
                  */
                 WebRTCBundlePolicy: WebRTCBundlePolicyEnum
+            }
+            
+            interface WebRTCDTLSRoleEnum {
+                readonly $gtype: GObject.GType<WebRTCDTLSRole>
+                /**
+                 * client
+                 */
+                readonly "CLIENT": 0
+                /**
+                 * server
+                 */
+                readonly "SERVER": 1
+                /**
+                 * unknown
+                 */
+                readonly "UNKNOWN": 2
+            }
+            type WebRTCDTLSRole = WebRTCDTLSRoleEnum[Exclude<keyof WebRTCDTLSRoleEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * @since 1.28
+                 */
+                WebRTCDTLSRole: WebRTCDTLSRoleEnum
             }
             
             interface WebRTCDTLSSetupEnum {
@@ -1253,6 +1411,57 @@ declare module "gi://GstWebRTC?version=1.0" {
                 WebRTCFECType: WebRTCFECTypeEnum
             }
             
+            interface WebRTCICECandidateProtocolTypeEnum {
+                readonly $gtype: GObject.GType<WebRTCICECandidateProtocolType>
+                
+                readonly "TCP": 0
+                
+                readonly "UDP": 1
+            }
+            type WebRTCICECandidateProtocolType = WebRTCICECandidateProtocolTypeEnum[Exclude<keyof WebRTCICECandidateProtocolTypeEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * @since 1.28
+                 */
+                WebRTCICECandidateProtocolType: WebRTCICECandidateProtocolTypeEnum
+            }
+            
+            interface WebRTCICECandidateTypeEnum {
+                readonly $gtype: GObject.GType<WebRTCICECandidateType>
+                /**
+                 * The candidate is a host candidate, whose
+                 *   IP address as specified in the RTCIceCandidate.address property is in fact the
+                 *   true address of the remote peer.
+                 */
+                readonly "HOST": 0
+                /**
+                 * The candidate is a server
+                 *   reflexive candidate; the ip and port are a binding allocated by a NAT for an
+                 *   agent when it sent a packet through the NAT to a server. They can be learned by
+                 *   the STUN server and TURN server to represent the candidate's peer anonymously.
+                 */
+                readonly "SERVER_REFLEXIVE": 1
+                /**
+                 * The candidate is a peer
+                 *   reflexive candidate; the ip and port are a binding allocated by a NAT when it
+                 *   sent a STUN request to represent the candidate's peer anonymously.
+                 */
+                readonly "PEER_REFLEXIVE": 2
+                /**
+                 * The candidate is a relay candidate,
+                 *   obtained from a TURN server. The relay candidate's IP address is an address the
+                 *   TURN server uses to forward the media between the two peers.
+                 */
+                readonly "RELAYED": 3
+            }
+            type WebRTCICECandidateType = WebRTCICECandidateTypeEnum[Exclude<keyof WebRTCICECandidateTypeEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * @since 1.28
+                 */
+                WebRTCICECandidateType: WebRTCICECandidateTypeEnum
+            }
+            
             interface WebRTCICEComponentEnum {
                 readonly $gtype: GObject.GType<WebRTCICEComponent>
                 /**
@@ -1347,6 +1556,38 @@ declare module "gi://GstWebRTC?version=1.0" {
             interface $Exports {
                 
                 WebRTCICERole: WebRTCICERoleEnum
+            }
+            
+            interface WebRTCICETcpCandidateTypeEnum {
+                readonly $gtype: GObject.GType<WebRTCICETcpCandidateType>
+                /**
+                 * An "active" TCP candidate is one for which the transport
+                 *                                            will attempt to open an outbound connection but will not
+                 *                                            receive incoming connection requests.
+                 */
+                readonly "ACTIVE": 0
+                /**
+                 * A "passive" TCP candidate is one for which the transport
+                 *                                             will receive incoming connection attempts but not attempt
+                 *                                             a connection.
+                 */
+                readonly "PASSIVE": 1
+                /**
+                 * An "so" candidate is one for which the transport will attempt
+                 *                                        to open a connection simultaneously with its peer.
+                 */
+                readonly "SO": 2
+                /**
+                 * Value used for non-TCP candidate type.
+                 */
+                readonly "NONE": 3
+            }
+            type WebRTCICETcpCandidateType = WebRTCICETcpCandidateTypeEnum[Exclude<keyof WebRTCICETcpCandidateTypeEnum, "$gtype">]
+            interface $Exports {
+                /**
+                 * @since 1.28
+                 */
+                WebRTCICETcpCandidateType: WebRTCICETcpCandidateTypeEnum
             }
             
             interface WebRTCICETransportPolicyEnum {
