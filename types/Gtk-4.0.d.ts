@@ -43344,6 +43344,7 @@ declare module "gi://Gtk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, StyleProvider.ReadWriteProperties {
+                    "gtk-accent-color": Gdk.RGBA
                     "gtk-alternative-button-order": boolean
                     "gtk-alternative-sort-arrows": boolean
                     "gtk-application-prefer-dark-theme": boolean
@@ -43417,6 +43418,15 @@ declare module "gi://Gtk?version=4.0" {
                 readonly $readableProperties: Settings.ReadableProperties
                 readonly $writableProperties: Settings.WritableProperties
                 readonly $constructOnlyProperties: Settings.ConstructOnlyProperties
+                /**
+                 * The desktop accent color (if available).
+                 *
+                 * GTK provides this value to the CSS stylesheet as a named color
+                 * under the name "accent_color".
+                 * @since 4.24
+                 */
+                get gtkAccentColor(): Gdk.RGBA
+                set gtkAccentColor(value: Gdk.RGBA)
                 /**
                  * Whether buttons in dialogs should use the alternative button order.
                  * @default FALSE
