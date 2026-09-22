@@ -2146,8 +2146,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 stop(): void
                 /**
-                 * @param handler
-                 * @param message
+                 * @since 2.8
+                 * @deprecated since 2.22 Use JavaScriptCore API instead
+                 * @param handler Name of the user message handler.
+                 * @param message JavaScript value to be sent.
+                 * @returns Whether the message was successfully sent.
                  */
                 webkit_message_handlers_post_message(handler: string, message: string): boolean
             }
@@ -3430,7 +3433,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get_client_left(): number
                 /**
-                 * Returns a collection of #WebKitDOMClientRect objects, each of which describe
+                 * Returns a collection of #WebKitDOMClientRect objects, each of which describes
                  * the size and position of a CSS border box relative to the viewport.
                  * @since 2.18
                  * @deprecated since 2.22 Use JavaScriptCore API instead
@@ -12012,7 +12015,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 /**
                  * This function has been removed from the DOM spec and it just returns %FALSE.
                  * @deprecated since 2.12
-                 * @returns A #gboolean                                                                                                                                                                       *
+                 * @returns A #gboolean
                  */
                 get_expand_entity_references(): boolean
                 /**
@@ -13246,7 +13249,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get_uri(): string
                 /**
-                 * Gets whether `frame` is the main frame of a #WebKitWebPage
+                 * Gets whether `frame` is the main frame of a #WebKitWebPage.
                  * @since 2.2
                  * @returns %TRUE if `frame` is a main frame or %FALSE otherwise
                  */
@@ -13455,7 +13458,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                      * webkit_frame_get_js_context_for_script_world().
                      * @since 2.2
                      * @param page a #WebKitWebPage
-                     * @param frame the #WebKitFrame  to which `world` belongs
+                     * @param frame the #WebKitFrame to which `world` belongs
                      */
                     "window-object-cleared"(page: WebPage, frame: Frame): void
                 }
@@ -13493,23 +13496,23 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 new (props?: Partial<GObject.ConstructorProps<ScriptWorld>>): ScriptWorld
                 /**
                  * Creates a new isolated #WebKitScriptWorld. Scripts executed in
-                 * isolated worlds have access to the DOM but not to other variable
+                 * isolated worlds have access to the DOM but not to other variables
                  * or functions created by the page.
                  * The #WebKitScriptWorld is created with a generated unique name. Use
                  * webkit_script_world_new_with_name() if you want to create it with a
                  * custom name.
                  * You can get the JavaScript execution context of a #WebKitScriptWorld
-                 * for a given #WebKitFrame with webkit_frame_get_javascript_context_for_script_world().
+                 * for a given #WebKitFrame with webkit_frame_get_js_context_for_script_world().
                  * @since 2.2
                  * @returns a new isolated #WebKitScriptWorld
                  */
                 "new"(): ScriptWorld
                 /**
                  * Creates a new isolated #WebKitScriptWorld with a name. Scripts executed in
-                 * isolated worlds have access to the DOM but not to other variable
+                 * isolated worlds have access to the DOM but not to other variables
                  * or functions created by the page.
                  * You can get the JavaScript execution context of a #WebKitScriptWorld
-                 * for a given #WebKitFrame with webkit_frame_get_javascript_context_for_script_world().
+                 * for a given #WebKitFrame with webkit_frame_get_js_context_for_script_world().
                  * @since 2.22
                  * @param name a name for the script world
                  * @returns a new isolated #WebKitScriptWorld
@@ -13519,7 +13522,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * Get the default #WebKitScriptWorld. This is the normal script world
                  * where all scripts are executed by default.
                  * You can get the JavaScript execution context of a #WebKitScriptWorld
-                 * for a given #WebKitFrame with webkit_frame_get_javascript_context_for_script_world().
+                 * for a given #WebKitFrame with webkit_frame_get_js_context_for_script_world().
                  * @since 2.2
                  * @returns the default #WebKitScriptWorld
                  */
@@ -13900,7 +13903,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * Access to editing capabilities of a #WebKitWebPage.
                  *
                  * The WebKitWebEditor provides access to various editing capabilities of
-                 * a #WebKitWebPage such as a possibility to react to the current selection in
+                 * a #WebKitWebPage such as the possibility to react to the current selection in
                  * #WebKitWebPage.
                  * @since 2.10
                  */
@@ -13919,7 +13922,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                     /**
                      * This signal is emitted when a #WebKitUserMessage is received from the
                      * #WebKitWebContext corresponding to `extension`. Messages sent by #WebKitWebContext
-                     * are always broadcasted to all #WebKitWebExtension<!-- -->s and they can't be
+                     * are always broadcast to all web extensions and they can't be
                      * replied to. Calling webkit_user_message_send_reply() will do nothing.
                      * @since 2.28
                      * @param message the #WebKitUserMessage received
@@ -13954,7 +13957,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 /**
                  * Send `message` to the #WebKitWebContext corresponding to `extension`. If `message` is floating, it's consumed.
                  *
-                 * If you don't expect any reply, or you simply want to ignore it, you can pass %NULL as `calback`.
+                 * If you don't expect any reply, or you simply want to ignore it, you can pass %NULL as `callback`.
                  * When the operation is finished, `callback` will be called. You can then call
                  * webkit_web_extension_send_message_to_context_finish() to get the message reply.
                  * @since 2.28
@@ -13985,7 +13988,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  * Represents an extension of the WebProcess.
                  *
                  * WebKitWebExtension is a loadable module for the WebProcess. It allows you to execute code in the
-                 * WebProcess and being able to use the DOM API, to change any request or to inject custom
+                 * WebProcess and to use the DOM API, to change any request or to inject custom
                  * JavaScript code, for example.
                  *
                  * To create a WebKitWebExtension you should write a module with an initialization function that could
@@ -14061,7 +14064,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             namespace WebFormManager {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                     /**
-                     * Emitted after form elements (or form associated elements) are associated to `frame`.
+                     * Emitted after form elements (or form associated elements) are associated with `frame`.
                      * This is useful to implement form auto filling for web pages where form fields are added
                      * dynamically. This signal might be emitted multiple times for the same frame.
                      *
@@ -14072,7 +14075,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                      * keep them alive after the signal handler returns.
                      * @since 2.40
                      * @param frame a #WebKitFrame
-                     * @param elements a #GPtrArray of     #JSCValue with the list of forms in the page
+                     * @param elements a #GPtrArray of     #JSCValue with the list of form controls associated with `frame`
                      */
                     "form-controls-associated"(frame: Frame, elements: JavaScriptCore.Value[]): void
                     /**
@@ -14160,7 +14163,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
 
             interface $Exports {
                 /**
-                 * Form manager of a #WebKitWebPage in a #WebKitScriptWorld
+                 * Form manager of a #WebKitWebPage in a #WebKitScriptWorld.
                  * @since 2.40
                  */
                 WebFormManager: WebFormManagerClass
@@ -14191,7 +14194,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $writableProperties: WebHitTestResult.WritableProperties
                 readonly $constructOnlyProperties: WebHitTestResult.ConstructOnlyProperties
                 /**
-                 * The #WebKitDOMNode
+                 * The #WebKitDOMNode.
                  * @deprecated since 2.40
                  */
                 get node(): DOMNode
@@ -14237,7 +14240,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                      * Emitted when a message is sent to the console. This can be a message
                      * produced by the use of JavaScript console API, a JavaScript exception,
                      * a security error or other errors, warnings, debug or log messages.
-                     * The `console_message` contains information of the message.
+                     * The `console_message` contains information about the message.
                      * @since 2.12
                      * @param console_message the #WebKitConsoleMessage
                      */
@@ -14261,11 +14264,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                      * This signal is emitted when the DOM document of a #WebKitWebPage has been
                      * loaded.
                      *
-                     * You can wait for this signal to get the DOM document
+                     * You can wait for this signal to get the DOM document.
                      */
                     "document-loaded"(): void
                     /**
-                     * Emitted after form elements (or form associated elements) are associated to a particular web
+                     * Emitted after form elements (or form associated elements) are associated with a particular web
                      * page. This is useful to implement form auto filling for web pages where form fields are added
                      * dynamically. This signal might be emitted multiple times for the same web page.
                      *
@@ -14275,12 +14278,12 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                      * Clients should take a reference to the members of the `elements` array if it is desired to
                      * keep them alive after the signal handler returns.
                      * @since 2.16
-                     * @deprecated since 2.26 , use #WebKitWebPage::form-controls-associated-for-frame instead.
-                     * @param elements a #GPtrArray of     #WebKitDOMElement with the list of forms in the page
+                     * @deprecated since 2.26 Use #WebKitWebPage::form-controls-associated-for-frame instead.
+                     * @param elements a #GPtrArray of     #WebKitDOMElement with the list of form controls associated with `web_page`
                      */
                     "form-controls-associated"(elements: DOMElement[]): void
                     /**
-                     * Emitted after form elements (or form associated elements) are associated to a particular web
+                     * Emitted after form elements (or form associated elements) are associated with a particular web
                      * page. This is useful to implement form auto filling for web pages where form fields are added
                      * dynamically. This signal might be emitted multiple times for the same web page.
                      *
@@ -14291,7 +14294,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                      * keep them alive after the signal handler returns.
                      * @since 2.26
                      * @deprecated since 2.40 Use #WebKitWebFormManager::form-controls-associated instead.
-                     * @param elements a #GPtrArray of     #WebKitDOMElement with the list of forms in the page
+                     * @param elements a #GPtrArray of     #WebKitDOMElement with the list of form controls associated with `frame`
                      * @param frame the #WebKitFrame
                      */
                     "form-controls-associated-for-frame"(elements: DOMElement[], frame: Frame): void
@@ -14305,7 +14308,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                      * emitted again with the `request` argument containing the new
                      * request to be sent to the server due to the redirection and the
                      *  `redirected_response` parameter containing the response
-                     * received by the server for the initial request.
+                     * received from the server for the initial request.
                      *
                      * Modifications to the #WebKitURIRequest and its associated
                      * #SoupMessageHeaders will be taken into account when the request
@@ -14322,7 +14325,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                      *
                      * You can handle the user message asynchronously by calling g_object_ref() on
                      *  `message` and returning %TRUE. If the last reference of `message` is removed
-                     * and the message has been replied, the operation in the #WebKitWebView will
+                     * and the message has not been replied to, the operation in the #WebKitWebView will
                      * finish with error %WEBKIT_USER_MESSAGE_UNHANDLED_MESSAGE.
                      * @since 2.28
                      * @param message the #WebKitUserMessage received
@@ -14394,8 +14397,8 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get uri(): string
                 /**
-                 * Get the #WebKitDOMDocument currently loaded in `web_page`
-                 * @deprecated since 2.40. Use JavaScriptCore API instead.
+                 * Get the #WebKitDOMDocument currently loaded in `web_page`.
+                 * @deprecated since 2.40 Use JavaScriptCore API instead.
                  * @returns the #WebKitDOMDocument currently loaded, or %NULL    if no document is currently loaded.
                  */
                 get_dom_document(): DOMDocument
@@ -14413,7 +14416,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 get_form_manager(world: ScriptWorld | null): WebFormManager
                 /**
-                 * Get the identifier of the #WebKitWebPage
+                 * Get the identifier of the #WebKitWebPage.
                  * @returns the identifier of `web_page`
                  */
                 get_id(): number
@@ -14429,7 +14432,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  *
                  * You can monitor the active URI by connecting to the notify::uri
                  * signal of `web_page`.
-                 * @returns the current active URI of `web_view` or %NULL if nothing has been    loaded yet.
+                 * @returns the current active URI of `web_page` or %NULL if nothing has been    loaded yet.
                  */
                 get_uri(): string
                 /**
@@ -14525,7 +14528,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 add_event_listener(event_name: string, handler: GObject.Callback, use_capture: boolean): boolean
                 /**
                  * Version of webkit_dom_event_target_add_event_listener() using a closure
-                 * instead of a callbacks for easier binding in other languages.
+                 * instead of callbacks for easier binding in other languages.
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @param event_name A #gchar
                  * @param handler A #GClosure
@@ -14550,7 +14553,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 remove_event_listener(event_name: string, handler: never | null, use_capture: boolean): boolean
                 /**
                  * Version of webkit_dom_event_target_remove_event_listener() using a closure
-                 * instead of a callbacks for easier binding in other languages.
+                 * instead of callbacks for easier binding in other languages.
                  * @deprecated since 2.22 Use JavaScriptCore API instead
                  * @param event_name A #gchar
                  * @param handler A #GClosure
@@ -14642,7 +14645,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 interface Interface extends GObject.Object {
                     /**
                      * @deprecated since 2.22 Use JavaScriptCore API instead
-                     * @param prefix The prefix to lookup
+                     * @param prefix The prefix to look up
                      * @returns a #gchar
                      */
                     vfunc_lookup_namespace_uri(prefix: string): string
@@ -14656,7 +14659,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                 readonly $constructOnlyProperties: DOMXPathNSResolver.ConstructOnlyProperties
                 /**
                  * @deprecated since 2.22 Use JavaScriptCore API instead
-                 * @param prefix The prefix to lookup
+                 * @param prefix The prefix to look up
                  * @returns a #gchar
                  */
                 lookup_namespace_uri(prefix: string): string
@@ -14687,36 +14690,36 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 copy(): ConsoleMessage
                 /**
-                 * Free the #WebKitConsoleMessage
+                 * Free the #WebKitConsoleMessage.
                  * @since 2.12
                  */
                 free(): void
                 /**
-                 * Gets the log level of a #WebKitConsoleMessage
+                 * Gets the log level of a #WebKitConsoleMessage.
                  * @since 2.12
                  * @returns a #WebKitConsoleMessageLevel indicating the log level of `console_message`
                  */
                 get_level(): ConsoleMessageLevel
                 /**
-                 * Gets the line number of a #WebKitConsoleMessage
+                 * Gets the line number of a #WebKitConsoleMessage.
                  * @since 2.12
                  * @returns the line number of `console_message`
                  */
                 get_line(): number
                 /**
-                 * Gets the source of a #WebKitConsoleMessage
+                 * Gets the source of a #WebKitConsoleMessage.
                  * @since 2.12
                  * @returns a #WebKitConsoleMessageSource indicating the source of `console_message`
                  */
                 get_source(): ConsoleMessageSource
                 /**
-                 * Gets the source identifier of a #WebKitConsoleMessage
+                 * Gets the source identifier of a #WebKitConsoleMessage.
                  * @since 2.12
                  * @returns the source identifier of `console_message`
                  */
                 get_source_id(): string
                 /**
-                 * Gets the text message of a #WebKitConsoleMessage
+                 * Gets the text message of a #WebKitConsoleMessage.
                  * @since 2.12
                  * @returns the text message of `console_message`
                  */
@@ -15006,7 +15009,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 readonly "RELOAD": 13
                 /**
-                 * Copy current selection the clipboard.
+                 * Copy current selection to the clipboard.
                  */
                 readonly "COPY": 14
                 /**
@@ -15086,11 +15089,11 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
                  */
                 readonly "OPEN_AUDIO_IN_NEW_WINDOW": 33
                 /**
-                 * Copy video link location in to the clipboard.
+                 * Copy video link location to the clipboard.
                  */
                 readonly "COPY_VIDEO_LINK_TO_CLIPBOARD": 34
                 /**
-                 * Copy audio link location in to the clipboard.
+                 * Copy audio link location to the clipboard.
                  */
                 readonly "COPY_AUDIO_LINK_TO_CLIPBOARD": 35
                 /**
@@ -15142,7 +15145,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             interface $Exports {
                 /**
                  * Enum values used to denote the stock actions for
-                 * #WebKitContextMenuItem<!-- -->s
+                 * #WebKitContextMenuItem objects
                  */
                 ContextMenuAction: ContextMenuActionEnum
             }
@@ -15233,7 +15236,7 @@ declare module "gi://WebKit2WebExtension?version=4.1" {
             type WebExtensionInitializeFunction = (extension: WebExtension) => void
             /**
              * Type definition for a function that will be called to initialize
-             * the web extensions when the web process starts, and which receives
+             * the web extension when the web process starts, and which receives
              * as additional argument the user data set with
              * webkit_web_context_set_web_extensions_initialization_user_data().
              * @since 2.4

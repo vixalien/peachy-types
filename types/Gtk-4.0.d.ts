@@ -43344,6 +43344,7 @@ declare module "gi://Gtk?version=4.0" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties, StyleProvider.ReadWriteProperties {
+                    "gtk-accent-color": Gdk.RGBA
                     "gtk-alternative-button-order": boolean
                     "gtk-alternative-sort-arrows": boolean
                     "gtk-application-prefer-dark-theme": boolean
@@ -43417,6 +43418,15 @@ declare module "gi://Gtk?version=4.0" {
                 readonly $readableProperties: Settings.ReadableProperties
                 readonly $writableProperties: Settings.WritableProperties
                 readonly $constructOnlyProperties: Settings.ConstructOnlyProperties
+                /**
+                 * The desktop accent color (if available).
+                 *
+                 * GTK provides this value to the CSS stylesheet as a named color
+                 * under the name "accent_color".
+                 * @since 4.24
+                 */
+                get gtkAccentColor(): Gdk.RGBA
+                set gtkAccentColor(value: Gdk.RGBA)
                 /**
                  * Whether buttons in dialogs should use the alternative button order.
                  * @default FALSE
@@ -43729,6 +43739,7 @@ declare module "gi://Gtk?version=4.0" {
                 /**
                  * Time in seconds that the focus is visible when using keyboard navigation. A zero value means "forever", and a negative
                  * value means "toolkit default timeout".
+                 * @since 4.24
                  * @default -1
                  */
                 get gtkKeyboardFocusVisibleTimeout(): number
@@ -77715,10 +77726,10 @@ declare module "gi://Gtk?version=4.0" {
                 ACCESSIBLE_ATTRIBUTE_VARIANT_UNICASE: "unicase"
                 ACCESSIBLE_ATTRIBUTE_WEIGHT: "weight"
                 ACCESSIBLE_VALUE_UNDEFINED: -1
-                BINARY_AGE: 2303
+                BINARY_AGE: 2401
                 IM_MODULE_EXTENSION_POINT_NAME: "gtk-im-module"
                 INPUT_ERROR: -1
-                INTERFACE_AGE: 0
+                INTERFACE_AGE: 1
                 INVALID_LIST_POSITION: 4294967295
                 LEVEL_BAR_OFFSET_FULL: "full"
                 LEVEL_BAR_OFFSET_HIGH: "high"
@@ -77726,8 +77737,8 @@ declare module "gi://Gtk?version=4.0" {
                 MAJOR_VERSION: 4
                 MAX_COMPOSE_LEN: 7
                 MEDIA_FILE_EXTENSION_POINT_NAME: "gtk-media-file"
-                MICRO_VERSION: 3
-                MINOR_VERSION: 23
+                MICRO_VERSION: 1
+                MINOR_VERSION: 24
                 PAPER_NAME_A3: "iso_a3"
                 PAPER_NAME_A4: "iso_a4"
                 PAPER_NAME_A5: "iso_a5"

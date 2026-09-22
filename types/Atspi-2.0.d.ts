@@ -5314,6 +5314,8 @@ declare module "gi://Atspi?version=2.0" {
                  * enumeration.
                  */
                 readonly "LAST_DEFINED": 44
+                
+                readonly "DEFAULT": 39
             }
             type StateType = StateTypeEnum[Exclude<keyof StateTypeEnum, "$gtype">]
             interface $Exports {
@@ -5633,7 +5635,7 @@ declare module "gi://Atspi?version=2.0" {
                 ACCESSIBLE_VERSION: 1
                 ACTION_VERSION: 1
                 APPLICATION_VERSION: 1
-                CACHE_VERSION: 1
+                CACHE_VERSION: 2
                 COLLECTION_VERSION: 1
                 COMPONENTLAYER_COUNT: 9
                 COMPONENT_VERSION: 1

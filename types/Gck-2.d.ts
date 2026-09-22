@@ -2879,7 +2879,7 @@ declare module "gi://Gck?version=2" {
                 __version__: "2"
                 INVALID: -1
                 MAJOR_VERSION: 4
-                MICRO_VERSION: 0
+                MICRO_VERSION: 1
                 MINOR_VERSION: 4
                 URI_FOR_MODULE_WITH_VERSION: 24
                 URI_FOR_OBJECT_ON_TOKEN: 6

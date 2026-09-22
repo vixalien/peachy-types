@@ -61,9 +61,9 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 get parent(): Class
                 set parent(value: Class)
                 /**
-                 * Add a constructor to `jsc_class`. If `name` is %NULL, the class name will be used. When <function>new</function>
+                 * Add a constructor to `jsc_class`. If `name` is %NULL, the class name will be used. When `new`
                  * is used with the constructor or jsc_value_constructor_call() is called, `callback` is invoked receiving
-                 * a #GPtrArray of #JSCValue<!-- -->s as arguments and `user_data` as the last parameter. When the constructor object
+                 * a #GPtrArray of #JSCValue objects as arguments and `user_data` as the last parameter. When the constructor object
                  * is cleared in the #JSCClass context, `destroy_notify` is called with `user_data` as parameter.
                  *
                  * This function creates the constructor, which needs to be added to an object as a property to be able to use it. Use
@@ -78,7 +78,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 add_constructor_variadic(name: string | null, callback: GObject.Callback, return_type: (GObject.GType | { $gtype: GObject.GType })): Value
                 /**
-                 * Add a constructor to `jsc_class`. If `name` is %NULL, the class name will be used. When <function>new</function>
+                 * Add a constructor to `jsc_class`. If `name` is %NULL, the class name will be used. When `new`
                  * is used with the constructor or jsc_value_constructor_call() is called, `callback` is invoked receiving the
                  * parameters and `user_data` as the last parameter. When the constructor object is cleared in the #JSCClass context,
                  *  `destroy_notify` is called with `user_data` as parameter.
@@ -91,13 +91,13 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  * @param name the constructor name or %NULL
                  * @param callback a #GCallback to be called to create an instance of `jsc_class`
                  * @param return_type the #GType of the constructor return value
-                 * @param parameter_types a list of #GType<!-- -->s, one for each parameter, or %NULL
+                 * @param parameter_types a list of #GType values, one for each parameter, or %NULL
                  * @returns a #JSCValue representing the class constructor.
                  */
                 add_constructor(name: string | null, callback: GObject.Callback, return_type: (GObject.GType | { $gtype: GObject.GType }), parameter_types: GObject.GType[] | null): Value
                 /**
                  * Add method with `name` to `jsc_class`. When the method is called by JavaScript or jsc_value_object_invoke_method(),
-                 *  `callback` is called receiving the class instance as first parameter, followed by a #GPtrArray of #JSCValue<!-- -->s
+                 *  `callback` is called receiving the class instance as first parameter, followed by a #GPtrArray of #JSCValue objects
                  * with the method arguments and then `user_data` as last parameter. When the method is cleared in the #JSCClass context,
                  *  `destroy_notify` is called with `user_data` as parameter.
                  *
@@ -123,13 +123,13 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  * @param name the method name
                  * @param callback a #GCallback to be called to invoke method `name` of `jsc_class`
                  * @param return_type the #GType of the method return value, or %G_TYPE_NONE if the method is void.
-                 * @param parameter_types a list of #GType<!-- -->s, one for each parameter, or %NULL
+                 * @param parameter_types a list of #GType values, one for each parameter, or %NULL
                  */
                 add_method(name: string, callback: GObject.Callback, return_type: (GObject.GType | { $gtype: GObject.GType }), parameter_types: GObject.GType[] | null): void
                 /**
                  * Add a property with `name` to `jsc_class`. When the property value is read, `getter` is called
-                 * receiving the the class instance as first parameter and `user_data` as last parameter. When the property
-                 * value needs to be set, `setter` is called receiving the the class instance as first parameter, followed
+                 * receiving the class instance as first parameter and `user_data` as last parameter. When the property
+                 * value needs to be set, `setter` is called receiving the class instance as first parameter, followed
                  * by the value to be set and then `user_data` as the last parameter. When the property is cleared in the
                  * #JSCClass context, `destroy_notify` is called with `user_data` as parameter.
                  *
@@ -164,11 +164,11 @@ declare module "gi://JavaScriptCore?version=4.1" {
 
             interface $Exports {
                 /**
-                 * A JSSClass represents a custom JavaScript class registered by the user in a #JSCContext.
-                 * It allows to create new JavaScripts objects whose instances are created by the user using
+                 * A JSCClass represents a custom JavaScript class registered by the user in a #JSCContext.
+                 * It allows creating new JavaScript objects whose instances are created by the user using
                  * this API.
-                 * It's possible to add constructors, properties and methods for a JSSClass by providing
-                 * #GCallback<!-- -->s to implement them.
+                 * It's possible to add constructors, properties and methods for a JSCClass by providing
+                 * #GCallback functions to implement them.
                  */
                 Class: ClassClass
             }
@@ -227,7 +227,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 evaluate(code: string, length: number): Value
                 /**
-                 * Evaluate `code` and create an new object where symbols defined in `code` will be added as properties,
+                 * Evaluate `code` and create a new object where symbols defined in `code` will be added as properties,
                  * instead of being added to `context` global object. The new object is returned as `object` parameter.
                  * Similar to how jsc_value_new_object() works, if `object_instance` is not %NULL `object_class` must be provided too.
                  * The `line_number` is the starting line number in `uri`; the value is one-based so the first line is 1.
@@ -253,7 +253,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 evaluate_with_source_uri(code: string, length: number, uri: string, line_number: number): Value
                 /**
-                 * Get the last unhandled exception thrown in `context` by API functions calls.
+                 * Get the last unhandled exception thrown in `context` by API function calls.
                  * @returns a #JSCException or %NULL if there isn't any    unhandled exception in the #JSCContext.
                  */
                 get_exception(): Exception | null
@@ -293,7 +293,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 /**
                  * Register a custom class in `context` using the given `name`. If the new class inherits from
                  * another #JSCClass, the parent should be passed as `parent_class`, otherwise %NULL should be
-                 * used. The optional `vtable` parameter allows to provide a custom implementation for handling
+                 * used. The optional `vtable` parameter allows providing a custom implementation for handling
                  * the class, for example, to handle external properties not added to the prototype.
                  * When an instance of the #JSCClass is cleared in the context, `destroy_notify` is called with
                  * the instance as parameter.
@@ -343,7 +343,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 "new"(): Context
                 /**
-                 * Create a new #JSCContext in `virtual_machine`.
+                 * Create a new #JSCContext in `vm`.
                  * @param vm a #JSCVirtualMachine
                  * @returns the newly created #JSCContext.
                  */
@@ -419,11 +419,11 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 get_name(): string
                 /**
                  * Get the source URI of `exception`.
-                 * @returns the the source URI of `exception`, or %NULL.
+                 * @returns the source URI of `exception`, or %NULL.
                  */
                 get_source_uri(): string | null
                 /**
-                 * Return a report message of `exception`, containing all the possible details such us
+                 * Return a report message of `exception`, containing all the possible details such as
                  * source URI, line, column and backtrace, and formatted to be printed.
                  * @returns a new string with the exception report
                  */
@@ -523,9 +523,9 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 array_buffer_get_size(): number
                 /**
-                 * Invoke <function>new</function> with constructor referenced by `value`. If `n_parameters`
+                 * Invoke `new` with constructor referenced by `value`. If `n_parameters`
                  * is 0 no parameters will be passed to the constructor.
-                 * @param parameters the #JSCValue<!-- -->s to pass as parameters to the constructor, or %NULL
+                 * @param parameters the #JSCValue objects to pass as parameters to the constructor, or %NULL
                  * @returns a #JSCValue referencing the newly created object instance.
                  */
                 constructor_call(parameters: Value[] | null): Value
@@ -534,8 +534,8 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  * is 0 no parameters will be passed to the function.
                  *
                  * This function always returns a #JSCValue, in case of void functions a #JSCValue referencing
-                 * <function>undefined</function> is returned
-                 * @param parameters the #JSCValue<!-- -->s to pass as parameters to the function, or %NULL
+                 * `undefined` is returned
+                 * @param parameters the #JSCValue objects to pass as parameters to the function, or %NULL
                  * @returns a #JSCValue with the return value of the function.
                  */
                 function_call(parameters: Value[] | null): Value
@@ -571,8 +571,8 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 is_function(): boolean
                 /**
-                 * Get whether the value referenced by `value` is <function>null</function>.
-                 * @returns whether the value is null.
+                 * Get whether the value referenced by `value` is `null`.
+                 * @returns whether the value is `null`.
                  */
                 is_null(): boolean
                 /**
@@ -597,7 +597,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 is_typed_array(): boolean
                 /**
-                 * Get whether the value referenced by `value` is <function>undefined</function>.
+                 * Get whether the value referenced by `value` is `undefined`.
                  * @returns whether the value is undefined.
                  */
                 is_undefined(): boolean
@@ -627,7 +627,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  * Define or modify a property with `property_name` in object referenced by `value`. When the
                  * property value is read or set, `getter` and `setter` callbacks will be called.
                  * When the property is cleared in the #JSCClass context, `destroy_notify` is called with
-                 *  `user_data` as parameter. This is equivalent to JavaScript <function>Object.defineProperty()</function>
+                 *  `user_data` as parameter. This is equivalent to JavaScript `Object.defineProperty()`
                  * when used with an accessor descriptor.
                  *
                  * Note that the value returned by `getter` must be fully transferred. In case of boxed types, you could use
@@ -646,7 +646,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 object_define_property_accessor(property_name: string, flags: ValuePropertyFlags, property_type: (GObject.GType | { $gtype: GObject.GType }), getter: GObject.Callback | null, setter: GObject.Callback | null): void
                 /**
                  * Define or modify a property with `property_name` in object referenced by `value`. This is equivalent to
-                 * JavaScript <function>Object.defineProperty()</function> when used with a data descriptor.
+                 * JavaScript `Object.defineProperty()` when used with a data descriptor.
                  * @param property_name the name of the property to define
                  * @param flags #JSCValuePropertyFlags
                  * @param property_value the default property value
@@ -691,9 +691,9 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  * of this function.
                  *
                  * This function always returns a #JSCValue, in case of void methods a #JSCValue referencing
-                 * <function>undefined</function> is returned.
+                 * `undefined` is returned.
                  * @param name the method name
-                 * @param parameters the #JSCValue<!-- -->s to pass as parameters to the method, or %NULL
+                 * @param parameters the #JSCValue objects to pass as parameters to the method, or %NULL
                  * @returns a #JSCValue with the return value of the method.
                  */
                 object_invoke_method(name: string, parameters: Value[] | null): Value
@@ -760,9 +760,9 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  * Obtains a pointer to the memory region that holds the elements of the typed
                  * array; modifications done to them will be visible to JavaScript code. If
                  *  `length` is not %NULL, the number of elements contained in the typed array
-                 * are also stored in the pointed location.
+                 * is also stored in the pointed location.
                  *
-                 * The returned pointer needs to be casted to the appropriate type (see
+                 * The returned pointer needs to be cast to the appropriate type (see
                  * #JSCTypedArrayType), and has the `offset` over the underlying array
                  * buffer data applied—that is, points to the first element of the typed
                  * array:
@@ -827,7 +827,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  * released. This is intended to be used for freeing resources related to
                  * the memory region which contains the data:
                  *
-                 * |[!<-- language="C" -->
+                 * |[<!-- language="C" -->
                  * GMappedFile *f = g_mapped_file_new (file_path, TRUE, NULL);
                  * JSCValue *value = jsc_value_new_array_buffer (context,
                  *     g_mapped_file_get_contents (f), g_mapped_file_get_length (f),
@@ -836,7 +836,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  *
                  * Note that the `user_data` can be the same value as `data`:
                  *
-                 * |[!<-- language="C" -->
+                 * |[<!-- language="C" -->
                  * void *bytes = g_malloc0 (100);
                  * JSCValue *value = jsc_value_new_array_buffer (context, bytes, 100, g_free, bytes);
                  * ]|
@@ -858,7 +858,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 new_array_from_garray(context: Context, array: Value[] | null): Value
                 /**
-                 * Create a new #JSCValue referencing an array of strings with the items from `strv`. If `array`
+                 * Create a new #JSCValue referencing an array of strings with the items from `strv`. If `strv`
                  * is %NULL or empty a new empty array will be created.
                  * @param context a #JSCContext
                  * @param strv a %NULL-terminated array of strings
@@ -883,7 +883,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 /**
                  * Create a function in `context`. If `name` is %NULL an anonymous function will be created.
                  * When the function is called by JavaScript or jsc_value_function_call(), `callback` is called
-                 * receiving an #GPtrArray of #JSCValue<!-- -->s with the arguments and then `user_data` as last parameter.
+                 * receiving a #GPtrArray of #JSCValue objects with the arguments and then `user_data` as last parameter.
                  * When the function is cleared in `context`, `destroy_notify` is called with `user_data` as parameter.
                  *
                  * Note that the value returned by `callback` must be fully transferred. In case of boxed types, you could use
@@ -911,12 +911,12 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  * @param name the function name or %NULL
                  * @param callback a #GCallback.
                  * @param return_type the #GType of the function return value, or %G_TYPE_NONE if the function is void.
-                 * @param parameter_types a list of #GType<!-- -->s, one for each parameter, or %NULL
+                 * @param parameter_types a list of #GType values, one for each parameter, or %NULL
                  * @returns a #JSCValue.
                  */
                 new_function(context: Context, name: string | null, callback: GObject.Callback, return_type: (GObject.GType | { $gtype: GObject.GType }), parameter_types: GObject.GType[] | null): Value
                 /**
-                 * Create a new #JSCValue referencing <function>null</function> in `context`.
+                 * Create a new #JSCValue referencing `null` in `context`.
                  * @param context a #JSCContext
                  * @returns a #JSCValue.
                  */
@@ -940,7 +940,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 new_object(context: Context, instance: never | null, jsc_class: Class | null): Value
                 /**
                  * Creates a new Promise. `executor` will be invoked during promise initialization
-                 * and it receives the `resolve` and `reject` objects than can be called to resolve
+                 * and it receives the `resolve` and `reject` objects that can be called to resolve
                  * or reject the promise. It is called like a JavaScript function, so exceptions raised
                  * during the executor invocation will not be propagated to the context, but
                  * handled by the promise causing a rejection.
@@ -982,7 +982,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 new_typed_array(context: Context, type: TypedArrayType, length: number): Value
                 /**
-                 * Create a new #JSCValue referencing <function>undefined</function> in `context`.
+                 * Create a new #JSCValue referencing `undefined` in `context`.
                  * @param context a #JSCContext
                  * @returns a #JSCValue.
                  */
@@ -1036,11 +1036,11 @@ declare module "gi://JavaScriptCore?version=4.1" {
 
             interface $Exports {
                 /**
-                 * JSCVirtualMachine represents a group of JSCContext<!-- -->s. It allows
+                 * JSCVirtualMachine represents a group of JSCContext objects. It allows
                  * concurrent JavaScript execution by creating a different instance of
                  * JSCVirtualMachine in each thread.
                  *
-                 * To create a group of JSCContext<!-- -->s pass the same JSCVirtualMachine
+                 * To create a group of JSCContext objects pass the same JSCVirtualMachine
                  * instance to every JSCContext constructor.
                  */
                 VirtualMachine: VirtualMachineClass
@@ -1293,11 +1293,11 @@ declare module "gi://JavaScriptCore?version=4.1" {
                  */
                 readonly "UINT": 2
                 /**
-                 * A #gsize options type.
+                 * A #gsize option type.
                  */
                 readonly "SIZE": 3
                 /**
-                 * A #gdouble options type.
+                 * A #gdouble option type.
                  */
                 readonly "DOUBLE": 4
                 /**
@@ -1411,7 +1411,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
              * @param context a #JSCContext
              * @param instance the `jsc_class` instance
              * @param name the property name
-             * @returns %TRUE if handled or %FALSE to to forward the request to the parent class or prototype chain.
+             * @returns %TRUE if handled or %FALSE to forward the request to the parent class or prototype chain.
              */
             type ClassDeletePropertyFunction = (jsc_class: Class, context: Context, instance: never | null, name: string) => boolean
             /**
@@ -1461,7 +1461,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
              */
             type ExceptionHandler = (context: Context, exception: Exception) => void
             /**
-             * A function passed to `jsc_value_new_promise` called during initialization
+             * A function passed to jsc_value_new_promise() called during initialization
              *
              * It is called like a JavaScript function, so exceptions raised will not be propagated
              * to the context, but handled by the promise causing a rejection.
@@ -1474,7 +1474,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
             /**
              * Function used to iterate options.
              *
-             * Not that `description` string is not localized.
+             * Note that `description` string is not localized.
              * @since 2.24
              * @param option the option name
              * @param type the option #JSCOptionType
@@ -1487,8 +1487,8 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 __name__: "JavaScriptCore"
                 __version__: "4.1"
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 91
-                MINOR_VERSION: 53
+                MICRO_VERSION: 0
+                MINOR_VERSION: 54
                 OPTIONS_USE_DFG: "useDFGJIT"
                 OPTIONS_USE_FTL: "useFTLJIT"
                 OPTIONS_USE_JIT: "useJIT"
@@ -1528,7 +1528,7 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 get_minor_version(): number
                 /**
                  * Iterates all available options calling `function` for each one. Iteration can
-                 * stop early if `function` returns %FALSE.
+                 * stop early if `function` returns %TRUE.
                  * @since 2.24
                  * @param function a #JSCOptionsFunc callback
                  */
@@ -1557,20 +1557,20 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 /**
                  * Create a #GOptionGroup to handle JSCOptions as command line arguments.
                  * The options will be exposed as command line arguments with the form
-                 * <emphasis>--jsc-&lt;option&gt;=&lt;value&gt;</emphasis>.
+                 * `--jsc-<option>=<value>`.
                  * Each entry in the returned #GOptionGroup is configured to apply the
                  * corresponding option during command line parsing. Applications only need to
                  * pass the returned group to g_option_context_add_group(), and the rest will
-                 * be taken care for automatically.
+                 * be taken care of automatically.
                  * @since 2.24
                  * @returns a #GOptionGroup for the JSCOptions
                  */
                 options_get_option_group(): GLib.OptionGroup
                 /**
                  * Get `option` as a range string. The string must be in the
-                 * format <emphasis>[!]&lt;low&gt;[:&lt;high&gt;]</emphasis> where low and high are #guint values.
+                 * format `[!]<low>[:<high>]` where low and high are #guint values.
                  * Values between low and high (both included) will be considered in
-                 * the range, unless <emphasis>!</emphasis> is used to invert the range.
+                 * the range, unless `!` is used to invert the range.
                  * @since 2.24
                  * @param option the option identifier
                  * @returns %TRUE if `value` has been set or %FALSE if the option doesn't exist, return location for the option value
@@ -1623,9 +1623,9 @@ declare module "gi://JavaScriptCore?version=4.1" {
                 options_set_int(option: string, value: number): boolean
                 /**
                  * Set `option` as a range string. The string must be in the
-                 * format <emphasis>[!]&lt;low&gt;[:&lt;high&gt;]</emphasis> where low and high are #guint values.
+                 * format `[!]<low>[:<high>]` where low and high are #guint values.
                  * Values between low and high (both included) will be considered in
-                 * the range, unless <emphasis>!</emphasis> is used to invert the range.
+                 * the range, unless `!` is used to invert the range.
                  * @since 2.24
                  * @param option the option identifier
                  * @param value the value to set

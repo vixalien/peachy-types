@@ -2671,7 +2671,7 @@ declare module "gi://Secret?version=1" {
                 COLLECTION_DEFAULT: "default"
                 COLLECTION_SESSION: "session"
                 MAJOR_VERSION: 0
-                MICRO_VERSION: 7
+                MICRO_VERSION: 8
                 MINOR_VERSION: 21
                 /**
                  * Check if attributes are valid according to the provided schema.

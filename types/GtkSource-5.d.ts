@@ -8422,7 +8422,7 @@ declare module "gi://GtkSource?version=5" {
                 __version__: "5"
                 MAJOR_VERSION: 5
                 MICRO_VERSION: 1
-                MINOR_VERSION: 21
+                MINOR_VERSION: 22
                 /**
                  * Like GTK_SOURCE_CHECK_VERSION, but the check for gtk_source_check_version is
                  * at runtime instead of compile time. This is useful for compiling

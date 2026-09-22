@@ -380,6 +380,8 @@ declare module "gi://GDesktopEnums?version=3.0" {
                 readonly "FLAT": 1
                 
                 readonly "ADAPTIVE": 2
+                
+                readonly "CUSTOM": 3
             }
             type PointerAccelProfile = PointerAccelProfileEnum[Exclude<keyof PointerAccelProfileEnum, "$gtype">]
             interface $Exports {

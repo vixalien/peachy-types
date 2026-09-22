@@ -823,10 +823,11 @@ declare module "gi://Gly?version=2" {
                 }
 
                 interface ReadWriteProperties extends GObject.Object.ReadWriteProperties {
-                    "color-icc-profile": GLib.Bytes
                 }
 
                 interface ReadableProperties extends ReadWriteProperties, GObject.Object.ReadableProperties {
+                    "color-icc-profile": GLib.Bytes
+                    "encoding-progressive": number
                 }
 
                 interface WritableProperties extends ReadWriteProperties, GObject.Object.WritableProperties {
@@ -848,7 +849,10 @@ declare module "gi://Gly?version=2" {
                 readonly $constructOnlyProperties: NewFrame.ConstructOnlyProperties
                 
                 get colorIccProfile(): GLib.Bytes
-                set colorIccProfile(value: GLib.Bytes)
+                /**
+                 * @default 0
+                 */
+                get encodingProgressive(): number
                 /**
                  * @default 0
                  */
@@ -879,10 +883,15 @@ declare module "gi://Gly?version=2" {
                  */
                 set_color_icc_profile(icc_profile: (GLib.Bytes | Uint8Array)): boolean
                 /**
+                 * @since 2.3
+                 * @param progressive Enable with `1`, disable with `1`, and use default with `-1`.
+                 */
+                set_encoding_progressive(progressive: number): boolean
+                /**
                  * @since 2.2
                  * @param pixel_density
                  */
-                set_pixel_density(pixel_density: PixelDensity): void
+                set_pixel_density(pixel_density: PixelDensity): boolean
             }
 
             interface NewFrameClass extends Omit<GObject.ObjectClass, "new"> {

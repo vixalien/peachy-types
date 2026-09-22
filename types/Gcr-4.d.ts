@@ -4032,7 +4032,7 @@ declare module "gi://Gcr?version=4" {
                 __name__: "Gcr"
                 __version__: "4"
                 MAJOR_VERSION: 4
-                MICRO_VERSION: 0
+                MICRO_VERSION: 1
                 MINOR_VERSION: 4
                 PURPOSE_CLIENT_AUTH: "1.3.6.1.5.5.7.3.2"
                 PURPOSE_CODE_SIGNING: "1.3.6.1.5.5.7.3.3"

@@ -168,7 +168,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 is_for_proxy(): boolean
                 /**
-                 * Determine whether this this is a first attempt or a retry for this authentication challenge.
+                 * Determine whether this is a first attempt or a retry for this authentication challenge.
                  * @since 2.2
                  * @returns %TRUE if authentication attempt is a retry or %FALSE otherwise.
                  */
@@ -285,11 +285,11 @@ declare module "gi://WebKit2?version=4.1" {
                 get id(): string
                 set id(value: string)
                 /**
-                 * Get the the previously set #WebKitAutomationSession.
+                 * Get the previously set #WebKitApplicationInfo.
                  *
-                 * Get the #WebKitAutomationSession previously set with webkit_automation_session_set_application_info().
+                 * Get the #WebKitApplicationInfo previously set with webkit_automation_session_set_application_info().
                  * @since 2.18
-                 * @returns the #WebKitAutomationSession of `session`, or %NULL if no one has been set.
+                 * @returns the #WebKitApplicationInfo of `session`, or %NULL if no one has been set.
                  */
                 get_application_info(): ApplicationInfo
                 /**
@@ -342,10 +342,10 @@ declare module "gi://WebKit2?version=4.1" {
                      * This signal is emitted when `back_forward_list` changes. This happens
                      * when the current item is updated, a new item is added or one or more
                      * items are removed. Note that both `item_added` and `items_removed` can
-                     * %NULL when only the current item is updated. Items are only removed
+                     * be %NULL when only the current item is updated. Items are only removed
                      * when the list is cleared or the maximum items limit is reached.
                      * @param item_added the #WebKitBackForwardListItem added or %NULL
-                     * @param items_removed a #GList of #WebKitBackForwardListItem<!-- -->s
+                     * @param items_removed a #GList of #WebKitBackForwardListItem objects
                      */
                     "changed"(item_added: BackForwardListItem | null, items_removed: never | null): void
                 }
@@ -439,7 +439,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Methods webkit_web_view_go_back() and webkit_web_view_go_forward() move
                  * the current item backward or forward by one. Method
                  * webkit_web_view_go_to_back_forward_list_item() sets the current item to the
-                 * specified item. All other methods returning #WebKitBackForwardListItem<!-- -->s
+                 * specified item. All other methods returning #WebKitBackForwardListItem objects
                  * do not change the value of the current item, they just return the requested
                  * item or items.
                  */
@@ -504,7 +504,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * One item of the #WebKitBackForwardList.
                  *
                  * A history item is part of the #WebKitBackForwardList and consists
-                 * out of a title and a URI.
+                 * of a title and a URI.
                  */
                 BackForwardListItem: BackForwardListItemClass
             }
@@ -649,7 +649,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Whenever the user interacts with an <input type='color' />
                  * HTML element, WebKit will need to show a dialog to choose a color. For that
                  * to happen in a general way, instead of just opening a #GtkColorChooser
-                 * (which might be not desirable in some cases, which could prefer to use their
+                 * (which might not be desirable for applications that prefer to use their
                  * own color chooser dialog), WebKit will fire the
                  * #WebKitWebView::run-color-chooser signal with a #WebKitColorChooserRequest
                  * object, which will allow the client application to specify the color to be
@@ -1133,7 +1133,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * When the operation is finished, `callback` will be called. You can then call
                  * webkit_cookie_manager_get_cookies_finish() to get the result of the operation.
                  * @since 2.20
-                 * @param uri the URI associated to the cookies to be retrieved
+                 * @param uri the URI associated with the cookies to be retrieved
                  * @param cancellable a #GCancellable or %NULL to ignore
                  * @param callback a #GAsyncReadyCallback to call when the request is satisfied
                  */
@@ -1210,8 +1210,8 @@ declare module "gi://WebKit2?version=4.1" {
                  * By default, `cookie_manager` doesn't store the cookies persistently, so you need to call this
                  * method to keep cookies saved across sessions.
                  *
-                 * This method should never be called on a #WebKitCookieManager associated to an ephemeral #WebKitWebsiteDataManager.
-                 * @param filename the filename to read to/write from
+                 * This method should never be called on a #WebKitCookieManager associated with an ephemeral #WebKitWebsiteDataManager.
+                 * @param filename the filename to read from/write to
                  * @param storage a #WebKitCookiePersistentStorage
                  */
                 set_persistent_storage(filename: string, storage: CookiePersistentStorage): void
@@ -1232,7 +1232,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * You can get it from a #WebKitWebsiteDataManager with
                  * webkit_website_data_manager_get_cookie_manager(), and use it to set where to
                  * store cookies with webkit_cookie_manager_set_persistent_storage(),
-                 * or to set the acceptance policy, with webkit_cookie_manager_get_accept_policy().
+                 * or to set the acceptance policy, with webkit_cookie_manager_set_accept_policy().
                  */
                 CookieManager: CookieManagerClass
             }
@@ -1274,8 +1274,8 @@ declare module "gi://WebKit2?version=4.1" {
                  * A permission request for enumerating the user's media devices
                  *
                  * WebKitDeviceInfoPermissionRequest represents a request for
-                 * permission to whether WebKit should be allowed to access the user's
-                 * devices information when requested through the MediaDevices.enumerateDevices
+                 * permission to decide whether WebKit should be allowed to access the user's
+                 * device information when requested through the MediaDevices.enumerateDevices
                  * API.
                  *
                  * When a WebKitDeviceInfoPermissionRequest is not handled by the user,
@@ -1376,7 +1376,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * This value will range from 0.0 to 1.0. The value is an estimate
                  * based on the total number of bytes expected to be received for
                  * a download.
-                 * If you need a more accurate progress information you can connect to
+                 * If you need more accurate progress information you can connect to
                  * #WebKitDownload::received-data signal to track the progress.
                  * @default 1.000000
                  */
@@ -1422,10 +1422,9 @@ declare module "gi://WebKit2?version=4.1" {
                 get_elapsed_time(): number
                 /**
                  * Gets the value of the #WebKitDownload:estimated-progress property.
-                 * Gets the value of the #WebKitDownload:estimated-progress property.
                  * You can monitor the estimated progress of the download operation by
                  * connecting to the notify::estimated-progress signal of `download`.
-                 * @returns an estimate of the of the percent complete for a download     as a range from 0.0 to 1.0.
+                 * @returns an estimate of the percent complete for a download     as a range from 0.0 to 1.0.
                  */
                 get_estimated_progress(): number
                 /**
@@ -1516,7 +1515,7 @@ declare module "gi://WebKit2?version=4.1" {
             namespace EditorState {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                     /**
-                     * Emitted when the #WebKitEdtorState is changed.
+                     * Emitted when the #WebKitEditorState is changed.
                      * @since 2.44
                      */
                     "changed"(): void
@@ -1652,8 +1651,9 @@ declare module "gi://WebKit2?version=4.1" {
                  * Asynchronously obtains a favicon image.
                  *
                  * Asynchronously obtains an image of the favicon for the
-                 * given page URI. It returns the cached icon if it's in the database
-                 * asynchronously waiting for the icon to be read from the database.
+                 * given page URI. If the icon is already in the memory cache, its image data
+                 * is not read from the database again. The result is always delivered
+                 * asynchronously.
                  *
                  * This is an asynchronous method. When the operation is finished, callback will
                  * be invoked. You can then call webkit_favicon_database_get_favicon_finish()
@@ -1689,12 +1689,12 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Provides access to the icons associated with web sites.
                  *
-                 * WebKit will automatically look for available icons in <link>
+                 * WebKit will automatically look for available icons in `<link>`
                  * elements on opened pages as well as an existing favicon.ico and
                  * load the images found into a memory cache if possible. That cache
                  * is frozen to an on-disk database for persistence.
                  *
-                 * If #WebKitSettings:enable-private-browsing is %TRUE, new icons
+                 * If {@link WebsiteDataManager.isEphemeral} is %TRUE, new icons
                  * won't be added to the on-disk database and no existing icons will
                  * be deleted from it. Nevertheless, WebKit will still store them in
                  * the in-memory cache during the current execution.
@@ -1751,7 +1751,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get selectMultiple(): boolean
                 /**
                  * A %NULL-terminated array of strings containing the list of
-                 * selected files associated to the current request. See
+                 * selected files associated with the current request. See
                  * webkit_file_chooser_request_get_selected_files() for more details.
                  */
                 get selectedFiles(): string[]
@@ -1787,13 +1787,13 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * See webkit_file_chooser_request_get_mime_types() if you are
                  * interested in getting the list of accepted MIME types.
-                 * @returns a #GtkFileFilter if a list of accepted MIME types is defined or %NULL otherwise. The returned object is owned by WebKit should not be modified or freed.
+                 * @returns a #GtkFileFilter if a list of accepted MIME types is defined or %NULL otherwise. The returned object is owned by WebKit and should not be modified or freed.
                  */
                 get_mime_types_filter(): Gtk.FileFilter
                 /**
                  * Whether the file chooser should allow selecting multiple files.
                  *
-                 * Determine whether the file chooser associated to this
+                 * Determine whether the file chooser associated with this
                  * #WebKitFileChooserRequest should allow selecting multiple files,
                  * which depends on the HTML input element having a 'multiple'
                  * attribute defined.
@@ -1801,12 +1801,12 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get_select_multiple(): boolean
                 /**
-                 * Get the list of selected files associated to the request.
+                 * Get the list of selected files associated with the request.
                  *
-                 * Get the list of selected files currently associated to the
+                 * Get the list of selected files currently associated with the
                  * request. Initially, the return value of this method contains any
                  * files selected in previous file chooser requests for this HTML
-                 * input element. Once webkit_file_chooser_request_select_files, the
+                 * input element. Once webkit_file_chooser_request_select_files() has been called, the
                  * value will reflect whatever files are given.
                  *
                  * This function should normally be called only before presenting the
@@ -1838,8 +1838,8 @@ declare module "gi://WebKit2?version=4.1" {
                  * file type, WebKit will need to show a dialog to choose one or
                  * more files to be uploaded to the server along with the rest of the
                  * form data. For that to happen in a general way, instead of just
-                 * opening a #GtkFileChooserDialog (which might be not desirable in
-                 * some cases, which could prefer to use their own file chooser
+                 * opening a #GtkFileChooserDialog (which might not be desirable for
+                 * applications that prefer to use their own file chooser
                  * dialog), WebKit will fire the #WebKitWebView::run-file-chooser
                  * signal with a #WebKitFileChooserRequest object, which will allow
                  * the client application to specify the files to be selected, to
@@ -1921,7 +1921,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get text(): string
                 /**
-                 * The #WebKitWebView this controller is associated to.
+                 * The #WebKitWebView this controller is associated with.
                  */
                 get webView(): WebView
                 set webView(value: WebView)
@@ -1966,7 +1966,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get_search_text(): string
                 /**
-                 * Gets the #WebKitWebView this find controller is associated to.
+                 * Gets the #WebKitWebView this find controller is associated with.
                  *
                  * Do
                  * not dereference the returned instance as it belongs to the
@@ -2040,14 +2040,14 @@ declare module "gi://WebKit2?version=4.1" {
                  * Controls text search in a #WebKitWebView.
                  *
                  * A #WebKitFindController is used to search text in a #WebKitWebView. You
-                 * can get a #WebKitWebView<!-- -->'s #WebKitFindController with
+                 * can get a #WebKitWebView's #WebKitFindController with
                  * webkit_web_view_get_find_controller(), and later use it to search
                  * for text using webkit_find_controller_search(), or get the
                  * number of matches using webkit_find_controller_count_matches(). The
                  * operations are asynchronous and trigger signals when ready, such as
                  * #WebKitFindController::found-text,
                  * #WebKitFindController::failed-to-find-text or
-                 * #WebKitFindController::counted-matches<!-- -->.
+                 * #WebKitFindController::counted-matches.
                  */
                 FindController: FindControllerClass
             }
@@ -2076,21 +2076,21 @@ declare module "gi://WebKit2?version=4.1" {
                 readonly $writableProperties: FormSubmissionRequest.WritableProperties
                 readonly $constructOnlyProperties: FormSubmissionRequest.ConstructOnlyProperties
                 /**
-                 * Get the values of the text fields contained in the form associated to `request`.
+                 * Get the values of the text fields contained in the form associated with `request`.
                  *
                  * Get a #GHashTable with the values of the text fields contained in the form
-                 * associated to `request`. Note that fields will be missing if the form
+                 * associated with `request`. Note that fields will be missing if the form
                  * contains multiple text input elements with the same name, so this
                  * function does not reliably return all text fields.
-                 * @deprecated since 2.20. Use webkit_form_submission_request_list_text_fields() instead.
+                 * @deprecated since 2.20 Use webkit_form_submission_request_list_text_fields() instead.
                  * @returns a #GHashTable with the form    text fields, or %NULL if the form doesn't contain text fields.
                  */
                 get_text_fields(): Record<never, never> | null
                 /**
-                 * Get lists of the text fields contained in the form associated to `request`.
+                 * Get lists of the text fields contained in the form associated with `request`.
                  *
                  * Get lists with the names and values of the text fields contained in
-                 * the form associated to `request`. Note that names and values may be
+                 * the form associated with `request`. Note that names and values may be
                  * %NULL.
                  *
                  * If this function returns %FALSE, then both `field_names` and
@@ -3183,7 +3183,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Gets the length of the `menu`.
                  * @since 2.18
-                 * @returns the number of #WebKitOptionMenuItem<!-- -->s in `menu`
+                 * @returns the number of #WebKitOptionMenuItem objects in `menu`
                  */
                 get_n_items(): number
                 /**
@@ -3191,7 +3191,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * Selecting an item changes the
                  * text shown by the combo button, but it doesn't change the value of the element. You need to
-                 * explicitly activate the item with webkit_option_menu_select_item() or close the menu with
+                 * explicitly activate the item with webkit_option_menu_activate_item() or close the menu with
                  * webkit_option_menu_close() in which case the currently selected item will be activated.
                  * @since 2.18
                  * @param index the index of the item
@@ -3212,7 +3212,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * When a select element in a #WebKitWebView needs to display a dropdown menu, the signal
                  * #WebKitWebView::show-option-menu is emitted, providing a WebKitOptionMenu with the
-                 * #WebKitOptionMenuItem<!-- -->s that should be displayed.
+                 * #WebKitOptionMenuItem objects that should be displayed.
                  * @since 2.18
                  */
                 OptionMenu: OptionMenuClass
@@ -3367,7 +3367,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 download(): void
                 /**
-                 * #WebKitResponsePolicyDecision, this would cancel the request.
+                 * Ignore the action which triggered this decision.
                  *
                  * Ignore the action which triggered this decision. For instance, for a
                  * #WebKitResponsePolicyDecision, this would cancel the request.
@@ -3385,7 +3385,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * in the origin associated with the accepted navigation action.
                  *
                  * For example, a navigation decision to a video sharing website may
-                 * be accepted under the priviso no movies are allowed to autoplay. The
+                 * be accepted under the proviso no movies are allowed to autoplay. The
                  * autoplay policy in this case would be set in the `policies`.
                  * @since 2.30
                  * @param policies a #WebKitWebsitePolicies
@@ -3430,7 +3430,7 @@ declare module "gi://WebKit2?version=4.1" {
                     "apply"(): void
                     /**
                      * Emitted after change of selected printer in the dialog. The actual page setup
-                     * and print settings are available and the custom widget can actualize itself
+                     * and print settings are available and the custom widget can update itself
                      * according to their values.
                      * @since 2.16
                      * @deprecated since 2.40
@@ -3526,16 +3526,16 @@ declare module "gi://WebKit2?version=4.1" {
                  * @deprecated since 2.40
                  * @param widget a #GtkWidget
                  * @param title a `widget`'s title
-                 * @returns a new #WebKitPrintOperation.
+                 * @returns a new #WebKitPrintCustomWidget.
                  */
                 "new"(widget: Gtk.Widget, title: string): PrintCustomWidget
             }
 
             interface $Exports {
                 /**
-                 * Allows to embed a custom widget in print dialog.
+                 * Allows embedding a custom widget in the print dialog.
                  *
-                 * A WebKitPrintCustomWidget allows to embed a custom widget in the print
+                 * A WebKitPrintCustomWidget allows embedding a custom widget in the print
                  * dialog by connecting to the #WebKitPrintOperation::create-custom-widget
                  * signal, creating a new WebKitPrintCustomWidget with
                  * webkit_print_custom_widget_new() and returning it from there. You can later
@@ -3560,7 +3560,7 @@ declare module "gi://WebKit2?version=4.1" {
                      * Emitted when displaying the print dialog with webkit_print_operation_run_dialog().
                      * The returned #WebKitPrintCustomWidget will be added to the print dialog and
                      * it will be owned by the `print_operation`. However, the object is guaranteed
-                     * to be alive until the #WebKitPrintCustomWidget::apply is emitted.
+                     * to be alive until the #WebKitPrintCustomWidget::apply signal is emitted.
                      * @since 2.16
                      * @deprecated since 2.40
                      * @returns A #WebKitPrintCustomWidget that will be embedded in the dialog.
@@ -3662,8 +3662,8 @@ declare module "gi://WebKit2?version=4.1" {
                  * is returned and the print operation starts. In this case, the #WebKitPrintOperation::finished
                  * signal is emitted when the operation finishes. If an error occurs while printing, the signal
                  * #WebKitPrintOperation::failed is emitted before #WebKitPrintOperation::finished.
-                 * If the print dialog is not cancelled current print settings and page setup of `print_operation`
-                 * are updated with options selected by the user when Print button is pressed in print dialog.
+                 * If the print dialog is not cancelled, the current print settings and page setup of `print_operation`
+                 * are updated with the options selected by the user when the Print button is pressed in the print dialog.
                  * You can get the updated print settings and page setup by calling
                  * webkit_print_operation_get_print_settings() and webkit_print_operation_get_page_setup()
                  * after this method.
@@ -3752,7 +3752,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Return the #WebKitURIRequest associated with the response decision.
                  *
-                 * Modifications to the returned object are <emphasis>not</emphasis> taken
+                 * Modifications to the returned object are *not* taken
                  * into account when the request is sent over the network, and is intended
                  * only to aid in evaluating whether a response decision should be taken or
                  * not. To modify requests before they are sent over the network the
@@ -3768,7 +3768,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Gets whether the request is the main frame main resource
                  * @since 2.40
-                 * @returns %TRUE if the request is the main frame main resouce or %FALSE otherwise
+                 * @returns %TRUE if the request is the main frame main resource or %FALSE otherwise
                  */
                 is_main_frame_main_resource(): boolean
                 /**
@@ -4035,7 +4035,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Whether file access is allowed from file URLs. By default, when
                  * something is loaded in a #WebKitWebView using a file URI, cross
                  * origin requests to other file resources are not allowed. This
-                 * setting allows you to change that behaviour, so that it would be
+                 * setting allows you to change that behavior, so that it would be
                  * possible to do a XMLHttpRequest of a local file, for example.
                  * @since 2.10
                  * @default FALSE
@@ -4045,7 +4045,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Determine whether it's allowed to create and run modal dialogs
                  * from a #WebKitWebView through JavaScript with
-                 * <function>window.showModalDialog</function>. If it's set to
+                 * `window.showModalDialog`. If it's set to
                  * %FALSE, the associated #WebKitWebView won't be able to create
                  * new modal dialogs, so not even the #WebKitWebView::create
                  * signal will be emitted.
@@ -4057,7 +4057,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Whether or not the top frame is allowed to navigate to data URLs. It is disabled by default
                  * due to the risk it poses when loading untrusted URLs, with data URLs being used in scamming
                  * and phishing attacks. In contrast, a scenario where it could be enabled could be an app that
-                 * embeds a WebView and you have control of the pages being show instead of a generic browser.
+                 * embeds a WebView and you have control of the pages being shown instead of a generic browser.
                  * @since 2.28
                  * @default FALSE
                  */
@@ -4068,7 +4068,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * should be allowed to access content from any origin.  By default, when
                  * something is loaded in a #WebKitWebView using a file scheme URL,
                  * access to the local file system and arbitrary local storage is not
-                 * allowed. This setting allows you to change that behaviour, so that
+                 * allowed. This setting allows you to change that behavior, so that
                  * it would be possible to use local storage, for example.
                  * @since 2.14
                  * @default FALSE
@@ -4344,7 +4344,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Determines whether or not private browsing is enabled. Private browsing
                  * will disable history, cache and form auto-fill for any pages visited.
-                 * @deprecated since 2.16. Use #WebKitWebView:is-ephemeral or #WebKitWebsiteDataManager:is-ephemeral instead.
+                 * @deprecated since 2.16 Use #WebKitWebView:is-ephemeral or #WebKitWebsiteDataManager:is-ephemeral instead.
                  * @default FALSE
                  */
                 get enablePrivateBrowsing(): boolean
@@ -4376,9 +4376,9 @@ declare module "gi://WebKit2?version=4.1" {
                  * Whether to enable Spatial Navigation. This feature consists in the ability
                  * to navigate between focusable elements in a Web page, such as hyperlinks
                  * and form controls, by using Left, Right, Up and Down arrow keys.
-                 * For example, if an user presses the Right key, heuristics determine whether
+                 * For example, if a user presses the Right key, heuristics determine whether
                  * there is an element they might be trying to reach towards the right, and if
-                 * there are multiple elements, which element they probably wants.
+                 * there are multiple elements, which element they probably want.
                  * @since 2.4
                  * @default FALSE
                  */
@@ -4485,7 +4485,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get mathFontFamily(): string | null
                 set mathFontFamily(value: string | null)
                 /**
-                 * List of media content types requiring hardware support, split by semicolons (:).
+                 * List of media content types requiring hardware support, split by colons (:).
                  * For example: 'video/webm; codecs="vp*":video/mp4; codecs="avc*":video/&ast; codecs="av1*"'.
                  * @since 2.30
                  * @default NULL
@@ -4564,8 +4564,8 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Allow customization of the WebRTC UDP ports range.
                  *
-                 * In some constrained environments where a firewall blocks UDP network traffic excepted on a
-                 * specific port range, this settings can be used to give hints to the WebRTC backend regarding
+                 * In some constrained environments where a firewall blocks UDP network traffic except on a
+                 * specific port range, this setting can be used to give hints to the WebRTC backend regarding
                  * which ports to allocate. The format is min-port:max-port, so for instance 20000:30000. The
                  * default empty string value means the OS will use no hints from the WebRTC backend. Using 0
                  * for one of the values is allowed and means the value is unspecified.
@@ -4584,7 +4584,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get zoomTextOnly(): boolean
                 set zoomTextOnly(value: boolean)
                 /**
-                 * Reads the contents of the given `group_name` from the given `key_file` and apply the value of
+                 * Reads the contents of the given `group_name` from the given `key_file` and applies the value of
                  * each key/value to the corresponding property on the `settings`.
                  *
                  * Value types have to match with the corresponding setting property type and the group keys have to
@@ -4613,7 +4613,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the #WebKitSettings:allow-top-navigation-to-data-urls property.
                  * @since 2.28
-                 * @returns %TRUE If navigation to data URLs from the top frame is allowed or %FALSE\ otherwise.
+                 * @returns %TRUE If navigation to data URLs from the top frame is allowed or %FALSE otherwise.
                  */
                 get_allow_top_navigation_to_data_urls(): boolean
                 /**
@@ -4679,7 +4679,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the #WebKitSettings:enable-back-forward-navigation-gestures property.
                  * @since 2.24
-                 * @returns %TRUE if horizontal swipe gesture will trigger back-forward navigaiton or %FALSE otherwise.
+                 * @returns %TRUE if horizontal swipe gesture will trigger back-forward navigation or %FALSE otherwise.
                  */
                 get_enable_back_forward_navigation_gestures(): boolean
                 /**
@@ -4733,7 +4733,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get_enable_hyperlink_auditing(): boolean
                 /**
                  * Get the #WebKitSettings:enable-java property.
-                 * @deprecated since 2.38. This function always returns %FALSE.
+                 * @deprecated since 2.38 This function always returns %FALSE.
                  * @returns %FALSE always.
                  */
                 get_enable_java(): boolean
@@ -4786,7 +4786,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get_enable_offline_web_application_cache(): boolean
                 /**
                  * Get the #WebKitSettings:enable-page-cache property.
-                 * @returns %TRUE if page cache enabled or %FALSE otherwise.
+                 * @returns %TRUE if page cache is enabled or %FALSE otherwise.
                  */
                 get_enable_page_cache(): boolean
                 /**
@@ -4797,7 +4797,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get_enable_plugins(): boolean
                 /**
                  * Get the #WebKitSettings:enable-private-browsing property.
-                 * @deprecated since 2.16. Use #WebKitWebView:is-ephemeral or #WebKitWebContext:is-ephemeral instead.
+                 * @deprecated since 2.16 Use #WebKitWebView:is-ephemeral or #WebKitWebsiteDataManager:is-ephemeral instead.
                  * @returns %TRUE If private browsing is enabled or %FALSE otherwise.
                  */
                 get_enable_private_browsing(): boolean
@@ -4851,7 +4851,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get_enable_write_console_messages_to_stdout(): boolean
                 /**
                  * The XSS auditor has been removed. This function returns %FALSE.
-                 * @deprecated since 2.38. This function does nothing.
+                 * @deprecated since 2.38 This function does nothing.
                  * @returns %FALSE
                  */
                 get_enable_xss_auditor(): boolean
@@ -4863,7 +4863,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Gets whether a feature is enabled.
                  * @since 2.42
-                 * @param feature the feature to toggle.
+                 * @param feature the feature to query.
                  * @returns Whether the feature is enabled.
                  */
                 get_feature_enabled(feature: Feature): boolean
@@ -4880,7 +4880,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get_javascript_can_access_clipboard(): boolean
                 /**
                  * Get the #WebKitSettings:javascript-can-open-windows-automatically property.
-                 * @returns %TRUE If JavaScript can open window automatically or %FALSE otherwise.
+                 * @returns %TRUE If JavaScript can open windows automatically or %FALSE otherwise.
                  */
                 get_javascript_can_open_windows_automatically(): boolean
                 /**
@@ -4891,7 +4891,8 @@ declare module "gi://WebKit2?version=4.1" {
                 get_load_icons_ignoring_image_load_setting(): boolean
                 /**
                  * Gets the #WebKitSettings:math-font-family property.
-                 * @returns The default font family used to display content marked with math font.  Since 2.52
+                 * @since 2.52
+                 * @returns The default font family used to display content marked with math font.
                  */
                 get_math_font_family(): string | null
                 /**
@@ -4907,7 +4908,7 @@ declare module "gi://WebKit2?version=4.1" {
                 get_media_playback_allows_inline(): boolean
                 /**
                  * Get the #WebKitSettings:media-playback-requires-user-gesture property.
-                 * @returns %TRUE If an user gesture is needed to play or load media    or %FALSE if no user gesture is needed.
+                 * @returns %TRUE If a user gesture is needed to play or load media    or %FALSE if no user gesture is needed.
                  */
                 get_media_playback_requires_user_gesture(): boolean
                 /**
@@ -5092,7 +5093,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Set the #WebKitSettings:enable-java property.
                  *
                  * Deprecated function that does nothing.
-                 * @deprecated since 2.38. This function does nothing.
+                 * @deprecated since 2.38 This function does nothing.
                  * @param enabled Value to be set
                  */
                 set_enable_java(enabled: boolean): void
@@ -5133,7 +5134,7 @@ declare module "gi://WebKit2?version=4.1" {
                 set_enable_mediasource(enabled: boolean): void
                 /**
                  * Set the #WebKitSettings:enable-mock-capture-devices property.
-                 * @since 2.4
+                 * @since 2.24
                  * @param enabled Value to be set
                  */
                 set_enable_mock_capture_devices(enabled: boolean): void
@@ -5156,7 +5157,7 @@ declare module "gi://WebKit2?version=4.1" {
                 set_enable_plugins(enabled: boolean): void
                 /**
                  * Set the #WebKitSettings:enable-private-browsing property.
-                 * @deprecated since 2.16. Use #WebKitWebView:is-ephemeral or #WebKitWebContext:is-ephemeral instead.
+                 * @deprecated since 2.16 Use #WebKitWebView:is-ephemeral or #WebKitWebsiteDataManager:is-ephemeral instead.
                  * @param enabled Value to be set
                  */
                 set_enable_private_browsing(enabled: boolean): void
@@ -5212,7 +5213,7 @@ declare module "gi://WebKit2?version=4.1" {
                 set_enable_write_console_messages_to_stdout(enabled: boolean): void
                 /**
                  * The XSS auditor has been removed. This function does nothing.
-                 * @deprecated since 2.38. This function does nothing.
+                 * @deprecated since 2.38 This function does nothing.
                  * @param enabled Value to be set
                  */
                 set_enable_xss_auditor(enabled: boolean): void
@@ -5257,15 +5258,14 @@ declare module "gi://WebKit2?version=4.1" {
                 set_load_icons_ignoring_image_load_setting(enabled: boolean): void
                 /**
                  * Set the #WebKitSettings:math-font-family property.
-                 *
-                 * Since 2.52
+                 * @since 2.52
                  * @param math_font_family the new default math font family
                  */
                 set_math_font_family(math_font_family: string | null): void
                 /**
                  * Set the #WebKitSettings:media-content-types-requiring-hardware-support property.
                  * @since 2.30
-                 * @param content_types list of media content types requiring hardware support split by semicolons (:) or %NULL to use the default value.
+                 * @param content_types list of media content types requiring hardware support split by colons (:) or %NULL to use the default value.
                  */
                 set_media_content_types_requiring_hardware_support(content_types: string | null): void
                 /**
@@ -5317,10 +5317,10 @@ declare module "gi://WebKit2?version=4.1" {
                  * Set the #WebKitSettings:user-agent property by appending the application details.
                  *
                  * Set the #WebKitSettings:user-agent property by appending the application details to the default user
-                 * agent. If no application name or version is given, the default user agent used will be used. If only
-                 * the version is given, the default engine version is used with the given application name.
+                 * agent. If no application name is given, the default user agent will be used and `application_version`
+                 * is ignored. If only the name is given, the default engine version is used with the given application name.
                  * @param application_name The application name used for the user agent or %NULL to use the default user agent.
-                 * @param application_version The application version for the user agent or %NULL to user the default version.
+                 * @param application_version The application version for the user agent or %NULL to use the default version.
                  */
                 set_user_agent_with_application_details(application_name: string | null, application_version: string | null): void
                 /**
@@ -5389,7 +5389,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Gets the list of available development WebKit features.
                  *
                  * The returned features are a subset of those returned by
-                 * {@link Settings.get_all_features}, and includes those which
+                 * {@link Settings.get_all_features}, and include those which
                  * web and WebKit developers might find useful, but in general should
                  * *not* be exposed to end users; see {@link FeatureStatus} for
                  * more details.
@@ -5401,7 +5401,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Gets the list of available experimental WebKit features.
                  *
                  * The returned features are a subset of those returned by
-                 * {@link Settings.get_all_features}, and includes those which
+                 * {@link Settings.get_all_features}, and include those which
                  * certain applications may want to expose to end users; see
                  * {@link FeatureStatus} for more details.
                  * @since 2.42
@@ -5412,7 +5412,7 @@ declare module "gi://WebKit2?version=4.1" {
 
             interface $Exports {
                 /**
-                 * Control the behaviour of a #WebKitWebView.
+                 * Control the behavior of a #WebKitWebView.
                  *
                  * #WebKitSettings can be applied to a #WebKitWebView to control text charset,
                  * color, font sizes, printing mode, script support, loading of images and various
@@ -5671,9 +5671,9 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the request body.
                  * @since 2.40
-                 * @returns (nullable): the body of the `request`.
+                 * @returns the body of the `request`.
                  */
-                get_http_body(): Gio.InputStream
+                get_http_body(): Gio.InputStream | null
                 /**
                  * Get the #SoupMessageHeaders of the request.
                  * @since 2.36
@@ -5817,11 +5817,11 @@ declare module "gi://WebKit2?version=4.1" {
                  * a #WebKitURISchemeRequestCallback. After that, when a URI response
                  * is made with that particular scheme, your callback will be
                  * called. There you will be able to provide more response parameters
-                 * when the methods and properties of a #WebKitURISchemeRequest is not
+                 * when the methods and properties of a #WebKitURISchemeRequest are not
                  * enough.
                  *
                  * When you finished setting up your #WebKitURISchemeResponse, call
-                 * webkit_uri_request_finish_with_response() with it to return the response.
+                 * webkit_uri_scheme_request_finish_with_response() with it to return the response.
                  */
                 URISchemeResponse: URISchemeResponseClass
             }
@@ -5866,7 +5866,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * filter identifiers.
                  * @since 2.24
                  * @param cancellable a #GCancellable or %NULL to ignore
-                 * @param callback a #GAsyncReadyCallback to call when the removal is completed
+                 * @param callback a #GAsyncReadyCallback to call when the identifiers have been fetched
                  */
                 fetch_identifiers(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
                 /**
@@ -5930,10 +5930,10 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 remove_finish(result: Gio.AsyncResult): boolean
                 /**
-                 * Asynchronously save a content filter from a set source rule.
+                 * Asynchronously save a content filter from a source rule set.
                  *
                  * Asynchronously save a content filter from a source rule set in the
-                 * [WebKit content extesions JSON format](https://webkit.org/blog/3476/content-blockers-first-look/).
+                 * [WebKit content extensions JSON format](https://webkit.org/blog/3476/content-blockers-first-look/).
                  *
                  * The `identifier` can be used afterwards to refer to the filter when using
                  * webkit_user_content_filter_store_remove() and webkit_user_content_filter_store_load().
@@ -5975,7 +5975,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 save_from_file(identifier: string, file: Gio.File, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
                 /**
-                 * Finishes and asynchronous filter save previously started with
+                 * Finishes an asynchronous filter save previously started with
                  * webkit_user_content_filter_store_save_from_file().
                  * @throws {GLib.Error}
                  * @since 2.24
@@ -6027,8 +6027,8 @@ declare module "gi://WebKit2?version=4.1" {
                 interface SignalSignatures extends GObject.Object.SignalSignatures {
                     /**
                      * This signal is emitted when JavaScript in a web view calls
-                     * <code>window.webkit.messageHandlers.<name>.postMessage()</code>, after registering
-                     * <code><name></code> using
+                     * `window.webkit.messageHandlers.<name>.postMessage()`, after registering
+                     * `<name>` using
                      * webkit_user_content_manager_register_script_message_handler()
                      * @since 2.8
                      * @param value the value received from the JavaScript world.
@@ -6036,8 +6036,8 @@ declare module "gi://WebKit2?version=4.1" {
                     "script-message-received::{}"(value: JavascriptResult): void
                     /**
                      * This signal is emitted when JavaScript in a web view calls
-                     * <code>window.webkit.messageHandlers.<name>.postMessage()</code>, after registering
-                     * <code><name></code> using
+                     * `window.webkit.messageHandlers.<name>.postMessage()`, after registering
+                     * `<name>` using
                      * webkit_user_content_manager_register_script_message_handler_with_reply()
                      *
                      * The given `reply` can be used to send a return value with
@@ -6116,7 +6116,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * ```c
                  * WebKitWebView *view = webkit_web_view_new ();
-                 * WebKitUserContentManager *manager = webkit_web_view_get_user_content_manager ();
+                 * WebKitUserContentManager *manager = webkit_web_view_get_user_content_manager (view);
                  * g_signal_connect (manager, "script-message-received::foobar",
                  *                   G_CALLBACK (handle_script_message), NULL);
                  * webkit_user_content_manager_register_script_message_handler (manager, "foobar");
@@ -6184,8 +6184,7 @@ declare module "gi://WebKit2?version=4.1" {
                 remove_all_style_sheets(): void
                 /**
                  * Removes a filter from the given #WebKitUserContentManager.
-                 *
-                 * Since 2.24
+                 * @since 2.24
                  * @param filter A #WebKitUserContentFilter
                  */
                 remove_filter(filter: UserContentFilter): void
@@ -6518,7 +6517,7 @@ declare module "gi://WebKit2?version=4.1" {
                     "local-storage-directory": string
                     "memory-pressure-settings": MemoryPressureSettings
                     "process-swap-on-cross-site-navigation-enabled": boolean
-                    "time-zone-override": string
+                    "time-zone-override": string | null
                     "website-data-manager": WebsiteDataManager
                 }
             }
@@ -6531,7 +6530,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where local storage data will be saved.
                  * @since 2.8
-                 * @deprecated since 2.10. Use #WebKitWebsiteDataManager:local-storage-directory instead.
+                 * @deprecated since 2.10 Use #WebKitWebsiteDataManager:local-storage-directory instead.
                  * @default NULL
                  */
                 get localStorageDirectory(): string
@@ -6542,7 +6541,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 set memoryPressureSettings(value: MemoryPressureSettings)
                 /**
-                 * Whether swap Web processes on cross-site navigations is enabled.
+                 * Whether swapping Web processes on cross-site navigations is enabled.
                  *
                  * When enabled, pages from each security origin will be handled by
                  * their own separate Web processes, which are started (and
@@ -6566,13 +6565,13 @@ declare module "gi://WebKit2?version=4.1" {
                  * @since 2.38
                  * @default NULL
                  */
-                get timeZoneOverride(): string
-                set timeZoneOverride(value: string)
+                get timeZoneOverride(): string | null
+                set timeZoneOverride(value: string | null)
                 /**
                  * Whether to use system appearance for rendering scrollbars.
                  *
                  * This is enabled by default for backwards compatibility, but it's only
-                 * recommened to use when the application includes other widgets to ensure
+                 * recommended to use when the application includes other widgets to ensure
                  * consistency, or when consistency with other applications is required too.
                  * @since 2.30
                  * @deprecated since 2.46
@@ -6603,7 +6602,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 add_path_to_sandbox(path: string, read_only: boolean): void
                 /**
-                 * Ignore further TLS errors on the `host` for the certificate present in `info`.
+                 * Ignore further TLS errors on the `host` for `certificate`.
                  *
                  * If `host` is an IPv6 address, it should not be surrounded by brackets. This
                  * expectation matches g_uri_get_host().
@@ -6621,7 +6620,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Requests downloading of the specified URI string.
                  *
-                 * The download operation will not be associated to any #WebKitWebView,
+                 * The download operation will not be associated with any #WebKitWebView,
                  * if you are interested in starting a download from a particular #WebKitWebView use
                  * webkit_web_view_download_uri() instead.
                  * @param uri the URI to download
@@ -6685,7 +6684,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * @throws {GLib.Error}
                  * @deprecated since 2.32
                  * @param result a #GAsyncResult
-                 * @returns a #GList of #WebKitPlugin. You must free the #GList with    g_list_free() and unref the #WebKitPlugin<!-- -->s with g_object_unref() when you're done with them.
+                 * @returns a #GList of #WebKitPlugin. You must free the #GList with    g_list_free() and unref the #WebKitPlugin objects with g_object_unref() when you're done with them.
                  */
                 get_plugins_finish(result: Gio.AsyncResult): Plugin[]
                 /**
@@ -6715,9 +6714,9 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get_spell_checking_enabled(): boolean
                 /**
-                 * Get the the list of spell checking languages.
+                 * Get the list of spell checking languages.
                  *
-                 * Get the the list of spell checking languages associated with
+                 * Get the list of spell checking languages associated with
                  *  `context`, or %NULL if no languages have been previously set.
                  *
                  * See webkit_web_context_set_spell_checking_languages() for more
@@ -6728,11 +6727,12 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the #WebKitWebContext:time-zone-override property.
                  * @since 2.38
+                 * @returns the time zone override, or %NULL if none was set.
                  */
-                get_time_zone_override(): string
+                get_time_zone_override(): string | null
                 /**
                  * Get the TLS errors policy of `context`.
-                 * @deprecated since 2.32. Use webkit_website_data_manager_get_tls_errors_policy() instead.
+                 * @deprecated since 2.32 Use webkit_website_data_manager_get_tls_errors_policy() instead.
                  * @returns a #WebKitTLSErrorsPolicy
                  */
                 get_tls_errors_policy(): TLSErrorsPolicy
@@ -6740,7 +6740,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Get the #WebKitWebContext:use-system-appearance-for-scrollbars property.
                  * @since 2.30
                  * @deprecated since 2.46
-                 * @returns %TRUE if scrollbars are rendering using the system appearance, or %FALSE otherwise
+                 * @returns %TRUE if scrollbars are rendered using the system appearance, or %FALSE otherwise
                  */
                 get_use_system_appearance_for_scrollbars(): boolean
                 /**
@@ -6805,7 +6805,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Register `scheme` in `context`.
                  *
-                 * Register `scheme` in `context`, so that when an URI request with `scheme` is made in the
+                 * Register `scheme` in `context`, so that when a URI request with `scheme` is made in the
                  * #WebKitWebContext, the #WebKitURISchemeRequestCallback registered will be called with a
                  * #WebKitURISchemeRequest.
                  * It is possible to handle URI scheme requests asynchronously, by calling g_object_ref() on the
@@ -6845,7 +6845,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 register_uri_scheme(scheme: string, callback: URISchemeRequestCallback): void
                 /**
-                 * Send `message` to all web process extensions associated to `context`.
+                 * Send `message` to all web process extensions associated with `context`.
                  *
                  * If `message` is floating, it's consumed.
                  * @since 2.28
@@ -6879,7 +6879,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Specifies a usage model for WebViews, which WebKit will use to
                  * determine its caching behavior. All web views follow the cache
                  * model. This cache model determines the RAM and disk space to use
-                 * for caching previously viewed content .
+                 * for caching previously viewed content.
                  *
                  * Research indicates that users tend to browse within clusters of
                  * documents that hold resources in common, and to revisit previously
@@ -6906,7 +6906,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Note that this method overrides the directory set in the #WebKitWebsiteDataManager,
                  * but it doesn't change the value returned by webkit_website_data_manager_get_disk_cache_directory()
                  * since the #WebKitWebsiteDataManager is immutable.
-                 * @deprecated since 2.10. Use webkit_web_context_new_with_website_data_manager() instead.
+                 * @deprecated since 2.10 Use webkit_web_context_new_with_website_data_manager() instead.
                  * @param directory the directory to set
                  */
                 set_disk_cache_directory(directory: string): void
@@ -6935,7 +6935,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * When `proxy_mode` is %WEBKIT_NETWORK_PROXY_MODE_CUSTOM `proxy_settings` must be
                  * a valid #WebKitNetworkProxySettings; otherwise, `proxy_settings` must be %NULL.
                  * @since 2.16
-                 * @deprecated since 2.32. Use webkit_website_data_manager_set_network_proxy_settings() instead.
+                 * @deprecated since 2.32 Use webkit_website_data_manager_set_network_proxy_settings() instead.
                  * @param proxy_mode a #WebKitNetworkProxyMode
                  * @param proxy_settings a #WebKitNetworkProxySettings, or %NULL
                  */
@@ -6998,7 +6998,7 @@ declare module "gi://WebKit2?version=4.1" {
                 set_spell_checking_languages(languages: string[]): void
                 /**
                  * Set the TLS errors policy of `context` as `policy`.
-                 * @deprecated since 2.32. Use webkit_website_data_manager_set_tls_errors_policy() instead.
+                 * @deprecated since 2.32 Use webkit_website_data_manager_set_tls_errors_policy() instead.
                  * @param policy a #WebKitTLSErrorsPolicy
                  */
                 set_tls_errors_policy(policy: TLSErrorsPolicy): void
@@ -7081,7 +7081,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * An ephemeral #WebKitWebContext is a context
                  * created with an ephemeral #WebKitWebsiteDataManager. This is just a convenient method
                  * to create ephemeral contexts without having to create your own #WebKitWebsiteDataManager.
-                 * All #WebKitWebView<!-- -->s associated with this context will also be ephemeral. Websites will
+                 * All #WebKitWebView objects associated with this context will also be ephemeral. Websites will
                  * not store any data in the client storage.
                  * This is normally used to implement private instances.
                  * @since 2.16
@@ -7104,15 +7104,15 @@ declare module "gi://WebKit2?version=4.1" {
 
             interface $Exports {
                 /**
-                 * Manages aspects common to all #WebKitWebView<!-- -->s
+                 * Manages aspects common to all #WebKitWebView objects
                  *
                  * The #WebKitWebContext manages all aspects common to all
-                 * #WebKitWebView<!-- -->s.
+                 * #WebKitWebView objects.
                  *
                  * You can define the #WebKitCacheModel with
                  * webkit_web_context_set_cache_model(), depending on the needs of
                  * your application. You can access the #WebKitSecurityManager to specify
-                 * the behaviour of your application regarding security using
+                 * the behavior of your application regarding security using
                  * webkit_web_context_get_security_manager().
                  *
                  * It is also possible to change your preferred language or enable
@@ -7255,7 +7255,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 detach(): void
                 /**
-                 * Get the height that the inspector view when attached.
+                 * Get the height that the inspector view should have when attached.
                  *
                  * Get the height that the inspector view should have when
                  * it's attached. If the inspector view is not attached this
@@ -7275,7 +7275,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * This can be %NULL if
                  * nothing has been loaded yet in the inspected view, if the inspector
-                 * has been closed or when inspected view was loaded from a HTML string
+                 * has been closed or when the inspected view was loaded from an HTML string
                  * instead of a URI.
                  * @returns the URI that is currently being inspected or %NULL
                  */
@@ -7363,7 +7363,7 @@ declare module "gi://WebKit2?version=4.1" {
                      * every time new data has been received. It's
                      * useful to know the progress of the resource load operation.
                      *
-                     * This is signal is deprecated since version 2.40 and it's never emitted.
+                     * This signal is deprecated since version 2.40 and it's never emitted.
                      * @deprecated since 2.40
                      * @param data_length the length of data received in bytes
                      */
@@ -7424,7 +7424,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Finish an asynchronous operation started with webkit_web_resource_get_data().
                  * @throws {GLib.Error}
                  * @param result a #GAsyncResult
-                 * @returns a    string with the data of `resource`, or %NULL in case of error. if `length`    is not %NULL, the size of the data will be assigned to it.
+                 * @returns a    string with the data of `resource`, or %NULL in case of error. If `length`    is not %NULL, the size of the data will be assigned to it.
                  */
                 get_data_finish(result: Gio.AsyncResult): Uint8Array
                 /**
@@ -7442,25 +7442,15 @@ declare module "gi://WebKit2?version=4.1" {
                  * The active URI might change during
                  * a load operation:
                  *
-                 * <orderedlist>
-                 * <listitem><para>
-                 *   When the resource load starts, the active URI is the requested URI
-                 * </para></listitem>
-                 * <listitem><para>
-                 *   When the initial request is sent to the server, #WebKitWebResource::sent-request
-                 *   signal is emitted without a redirected response, the active URI is the URI of
-                 *   the request sent to the server.
-                 * </para></listitem>
-                 * <listitem><para>
-                 *   In case of a server redirection, #WebKitWebResource::sent-request signal
-                 *   is emitted again with a redirected response, the active URI is the URI the request
-                 *   was redirected to.
-                 * </para></listitem>
-                 * <listitem><para>
-                 *   When the response is received from the server, the active URI is the final
-                 *   one and it will not change again.
-                 * </para></listitem>
-                 * </orderedlist>
+                 * 1. When the resource load starts, the active URI is the requested URI
+                 * 2. When the initial request is sent to the server, #WebKitWebResource::sent-request
+                 *    signal is emitted without a redirected response, the active URI is the URI of
+                 *    the request sent to the server.
+                 * 3. In case of a server redirection, #WebKitWebResource::sent-request signal
+                 *    is emitted again with a redirected response, the active URI is the URI the request
+                 *    was redirected to.
+                 * 4. When the response is received from the server, the active URI is the final
+                 *    one and it will not change again.
                  *
                  * You can monitor the active URI by connecting to the notify::uri
                  * signal of `resource`.
@@ -7516,7 +7506,7 @@ declare module "gi://WebKit2?version=4.1" {
                     "authenticate"(request: AuthenticationRequest): boolean
                     /**
                      * Emitted when closing a #WebKitWebView is requested. This occurs when a
-                     * call is made from JavaScript's <function>window.close</function> function or
+                     * call is made from JavaScript's `window.close` function or
                      * after trying to close the `web_view` with webkit_web_view_try_close().
                      * It is the owner's responsibility to handle this signal to hide or
                      * destroy the #WebKitWebView, if necessary.
@@ -7526,36 +7516,27 @@ declare module "gi://WebKit2?version=4.1" {
                      * Emitted when a context menu is about to be displayed to give the application
                      * a chance to customize the proposed menu, prevent the menu from being displayed,
                      * or build its own context menu.
-                     * <itemizedlist>
-                     * <listitem><para>
-                     *  To customize the proposed menu you can use webkit_context_menu_prepend(),
+                     *
+                     * - To customize the proposed menu you can use webkit_context_menu_prepend(),
                      *  webkit_context_menu_append() or webkit_context_menu_insert() to add new
-                     *  #WebKitContextMenuItem<!-- -->s to `context_menu`, webkit_context_menu_move_item()
+                     *  #WebKitContextMenuItem objects to `context_menu`, webkit_context_menu_move_item()
                      *  to reorder existing items, or webkit_context_menu_remove() to remove an
                      *  existing item. The signal handler should return %FALSE, and the menu represented
                      *  by `context_menu` will be shown.
-                     * </para></listitem>
-                     * <listitem><para>
-                     *  To prevent the menu from being displayed you can just connect to this signal
+                     * - To prevent the menu from being displayed you can just connect to this signal
                      *  and return %TRUE so that the proposed menu will not be shown.
-                     * </para></listitem>
-                     * <listitem><para>
-                     *  To build your own menu, you can remove all items from the proposed menu with
+                     * - To build your own menu, you can remove all items from the proposed menu with
                      *  webkit_context_menu_remove_all(), add your own items and return %FALSE so
                      *  that the menu will be shown. You can also ignore the proposed #WebKitContextMenu,
                      *  build your own #GtkMenu and return %TRUE to prevent the proposed menu from being shown.
-                     * </para></listitem>
-                     * <listitem><para>
-                     *  If you just want the default menu to be shown always, simply don't connect to this
-                     *  signal because showing the proposed context menu is the default behaviour.
-                     * </para></listitem>
-                     * </itemizedlist>
+                     * - If you just want the default menu to be shown always, simply don't connect to this
+                     *  signal because showing the proposed context menu is the default behavior.
                      *
                      * The `event` parameter is now deprecated. Use webkit_context_menu_get_event() to get the
                      * #GdkEvent that triggered the context menu.
                      *
                      * If the signal handler returns %FALSE the context menu represented by `context_menu`
-                     * will be shown, if it return %TRUE the context menu will not be shown.
+                     * will be shown, if it returns %TRUE the context menu will not be shown.
                      *
                      * The proposed #WebKitContextMenu passed in `context_menu` argument is only valid
                      * during the signal emission.
@@ -7593,8 +7574,8 @@ declare module "gi://WebKit2?version=4.1" {
                     /**
                      * This signal is emitted when WebKit is requesting the client to decide a policy
                      * decision, such as whether to navigate to a page, open a new window or whether or
-                     * not to download a resource. The #WebKitNavigationPolicyDecision passed in the
-                     *  `decision` argument is a generic type, but should be casted to a more
+                     * not to download a resource. The #WebKitPolicyDecision passed in the
+                     *  `decision` argument is a generic type, but should be cast to a more
                      * specific type when making the decision. For example:
                      *
                      * ```c
@@ -7631,7 +7612,7 @@ declare module "gi://WebKit2?version=4.1" {
                      * If the last reference is removed on a #WebKitPolicyDecision and no decision has been
                      * made explicitly, webkit_policy_decision_use() will be the default policy decision. The
                      * default signal handler will simply call webkit_policy_decision_use(). Only the first
-                     * policy decision chosen for a given #WebKitPolicyDecision will have any affect.
+                     * policy decision chosen for a given #WebKitPolicyDecision will have any effect.
                      * @param decision the #WebKitPolicyDecision
                      * @param decision_type a #WebKitPolicyDecisionType denoting the type of `decision`
                      * @returns %TRUE to stop other handlers from being invoked for the event.   %FALSE to propagate the event further.
@@ -7639,10 +7620,10 @@ declare module "gi://WebKit2?version=4.1" {
                     "decide-policy"(decision: PolicyDecision, decision_type: PolicyDecisionType): boolean
                     /**
                      * Emitted when JavaScript code calls
-                     * <function>element.webkitRequestFullScreen</function>. If the
+                     * `element.webkitRequestFullScreen`. If the
                      * signal is not handled the #WebKitWebView will proceed to full screen
                      * its top level window. This signal can be used by client code to
-                     * request permission to the user prior doing the full screen
+                     * request permission to the user prior to doing the full screen
                      * transition and eventually prepare the top-level window
                      * (e.g. hide some widgets that would otherwise be part of the
                      * full screen window).
@@ -7767,7 +7748,7 @@ declare module "gi://WebKit2?version=4.1" {
                      * operations.
                      *
                      * A possible way to use this signal could be through a dialog
-                     * allowing the user decide what to do with the request:
+                     * allowing the user to decide what to do with the request:
                      *
                      * ```c
                      * static gboolean permission_request_cb (WebKitWebView *web_view,
@@ -7832,7 +7813,7 @@ declare module "gi://WebKit2?version=4.1" {
                      *
                      * You can handle the query asynchronously by calling webkit_permission_state_query_ref() on
                      *  `query` and returning %TRUE. If the last reference of `query` is removed and the query has not
-                     * been handled, the query result will be set to %WEBKIT_QUERY_PERMISSION_PROMPT.
+                     * been handled, the query result will be set to %WEBKIT_PERMISSION_STATE_PROMPT.
                      * @since 2.40
                      * @param query the #WebKitPermissionStateQuery
                      * @returns %TRUE if the message was handled, or %FALSE otherwise.
@@ -7859,7 +7840,7 @@ declare module "gi://WebKit2?version=4.1" {
                     /**
                      * Emitted after #WebKitWebView::ready-to-show on the newly
                      * created #WebKitWebView when JavaScript code calls
-                     * <function>window.showModalDialog</function>. The purpose of
+                     * `window.showModalDialog`. The purpose of
                      * this signal is to allow the client application to prepare the
                      * new view to behave as modal. Once the signal is emitted a new
                      * main loop will be run to block user interaction in the parent
@@ -7902,30 +7883,21 @@ declare module "gi://WebKit2?version=4.1" {
                      */
                     "run-file-chooser"(request: FileChooserRequest): boolean
                     /**
-                     * Emitted when JavaScript code calls <function>window.alert</function>,
-                     * <function>window.confirm</function> or <function>window.prompt</function>,
-                     * or when <function>onbeforeunload</function> event is fired.
+                     * Emitted when JavaScript code calls `window.alert`,
+                     * `window.confirm` or `window.prompt`,
+                     * or when `onbeforeunload` event is fired.
                      * The `dialog` parameter should be used to build the dialog.
                      * If the signal is not handled a different dialog will be built and shown depending
                      * on the dialog type:
-                     * <itemizedlist>
-                     * <listitem><para>
-                     *  %WEBKIT_SCRIPT_DIALOG_ALERT: message dialog with a single Close button.
-                     * </para></listitem>
-                     * <listitem><para>
-                     *  %WEBKIT_SCRIPT_DIALOG_CONFIRM: message dialog with OK and Cancel buttons.
-                     * </para></listitem>
-                     * <listitem><para>
-                     *  %WEBKIT_SCRIPT_DIALOG_PROMPT: message dialog with OK and Cancel buttons and
-                     *  a text entry with the default text.
-                     * </para></listitem>
-                     * <listitem><para>
-                     *  %WEBKIT_SCRIPT_DIALOG_BEFORE_UNLOAD_CONFIRM: message dialog with Stay and Leave buttons.
-                     * </para></listitem>
-                     * </itemizedlist>
+                     *
+                     * - %WEBKIT_SCRIPT_DIALOG_ALERT: message dialog with a single Close button.
+                     * - %WEBKIT_SCRIPT_DIALOG_CONFIRM: message dialog with OK and Cancel buttons.
+                     * - %WEBKIT_SCRIPT_DIALOG_PROMPT: message dialog with OK and Cancel buttons and
+                     *   a text entry with the default text.
+                     * - %WEBKIT_SCRIPT_DIALOG_BEFORE_UNLOAD_CONFIRM: message dialog with Stay and Leave buttons.
                      *
                      * It is possible to handle the script dialog request asynchronously, by simply
-                     * caling webkit_script_dialog_ref() on the `dialog` argument and calling
+                     * calling webkit_script_dialog_ref() on the `dialog` argument and calling
                      * webkit_script_dialog_close() when done.
                      * If the last reference is removed on a #WebKitScriptDialog and the dialog has not been
                      * closed, webkit_script_dialog_close() will be called.
@@ -8004,7 +7976,7 @@ declare module "gi://WebKit2?version=4.1" {
                      * This signal is emitted when the web process terminates abnormally due
                      * to `reason`.
                      * @since 2.20
-                     * @param reason the a #WebKitWebProcessTerminationReason
+                     * @param reason a #WebKitWebProcessTerminationReason
                      */
                     "web-process-terminated"(reason: WebProcessTerminationReason): void
                 }
@@ -8074,7 +8046,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * %WEBKIT_MEDIA_CAPTURE_STATE_NONE or %WEBKIT_MEDIA_CAPTURE_STATE_MUTED.
                  *
                  * If the capture state of the device is set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE the web-page
-                 * can still re-request the permission to the user. Permission desision caching is left to the
+                 * can still re-request the permission to the user. Permission decision caching is left to the
                  * application.
                  * @since 2.34
                  * @default WEBKIT_MEDIA_CAPTURE_STATE_NONE
@@ -8099,7 +8071,7 @@ declare module "gi://WebKit2?version=4.1" {
                 set defaultContentSecurityPolicy(value: string | null)
                 /**
                  * Capture state of the display device. Whenever the user grants a media-request sent by the web
-                 * page, requesting screencasting capabilities (`navigator.mediaDevices.getDisplayMedia() this
+                 * page, requesting screencasting capabilities (`navigator.mediaDevices.getDisplayMedia()`) this
                  * property will be set to %WEBKIT_MEDIA_CAPTURE_STATE_ACTIVE.
                  *
                  * The application can monitor this property and provide a visual indicator allowing to
@@ -8107,7 +8079,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * %WEBKIT_MEDIA_CAPTURE_STATE_NONE or %WEBKIT_MEDIA_CAPTURE_STATE_MUTED.
                  *
                  * If the capture state of the device is set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE the web-page
-                 * can still re-request the permission to the user. Permission desision caching is left to the
+                 * can still re-request the permission to the user. Permission decision caching is left to the
                  * application.
                  * @since 2.34
                  * @default WEBKIT_MEDIA_CAPTURE_STATE_NONE
@@ -8134,7 +8106,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get estimatedLoadProgress(): number
                 /**
-                 * The favicon currently associated to the #WebKitWebView.
+                 * The favicon currently associated with the #WebKitWebView.
                  * See webkit_web_view_get_favicon() for more details.
                  */
                 get favicon(): never
@@ -8161,10 +8133,10 @@ declare module "gi://WebKit2?version=4.1" {
                  * This is a %G_PARAM_CONSTRUCT_ONLY property, so you have to create an ephemeral
                  * #WebKitWebView and it can't be changed. The ephemeral #WebKitWebsiteDataManager
                  * created for the #WebKitWebView will inherit the network settings from the
-                 * #WebKitWebContext<!-- -->'s #WebKitWebsiteDataManager. To use different settings
+                 * #WebKitWebContext's #WebKitWebsiteDataManager. To use different settings
                  * you can get the #WebKitWebsiteDataManager with webkit_web_view_get_website_data_manager()
                  * and set the new ones.
-                 * Note that all #WebKitWebView<!-- -->s created with an ephemeral #WebKitWebContext
+                 * Note that all #WebKitWebView objects created with an ephemeral #WebKitWebContext
                  * will be ephemeral automatically.
                  * See also webkit_web_context_new_ephemeral().
                  * @since 2.16
@@ -8206,7 +8178,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get isPlayingAudio(): boolean
                 /**
-                 * Whether the web process currently associated to the #WebKitWebView is responsive.
+                 * Whether the web process currently associated with the #WebKitWebView is responsive.
                  * @since 2.34
                  * @default TRUE
                  */
@@ -8233,7 +8205,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * %WEBKIT_MEDIA_CAPTURE_STATE_NONE or %WEBKIT_MEDIA_CAPTURE_STATE_MUTED.
                  *
                  * If the capture state of the device is set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE the web-page
-                 * can still re-request the permission to the user. Permission desision caching is left to the
+                 * can still re-request the permission to the user. Permission decision caching is left to the
                  * application.
                  * @since 2.34
                  * @default WEBKIT_MEDIA_CAPTURE_STATE_NONE
@@ -8316,7 +8288,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Asynchronously call `body` with `arguments` in the script world with name `world_name` of the main frame current context in `web_view`.
                  * The `arguments` values must be one of the following types, or contain only the following GVariant types: number, string and dictionary.
                  * The result of the operation can be a Promise that will be properly passed to the callback.
-                 * If `world_name` is %NULL, the default world is used. Any value that is not %NULL is a distin ct world.
+                 * If `world_name` is %NULL, the default world is used. Any value that is not %NULL is a distinct world.
                  * The `source_uri` will be shown in exceptions and doesn't affect the behavior of the script.
                  * When not provided, the document URL is used.
                  *
@@ -8347,13 +8319,12 @@ declare module "gi://WebKit2?version=4.1" {
                  *     }
                  *
                  *     if (jsc_value_is_number (value)) {
-                 *         gint32        int_value = jsc_value_to_string (value);
+                 *         gint32        int_value = jsc_value_to_int32 (value);
                  *         JSCException *exception = jsc_context_get_exception (jsc_value_get_context (value));
                  *         if (exception)
                  *             g_warning ("Error running javascript: %s", jsc_exception_get_message (exception));
                  *         else
                  *             g_print ("Script result: %d\n", int_value);
-                 *         g_free (str_value);
                  *     } else {
                  *         g_warning ("Error running javascript: unexpected return value");
                  *     }
@@ -8368,7 +8339,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *     g_variant_dict_insert (&dict, "count", "u", 42);
                  *     GVariant *args = g_variant_dict_end (&dict);
                  *     const gchar *body = "return new Promise((resolve) => { resolve(count); });";
-                 *     webkit_web_view_call_async_javascript_function (web_view, body, -1, arguments, NULL, NULL, NULL, web_view_javascript_finished, NULL);
+                 *     webkit_web_view_call_async_javascript_function (web_view, body, -1, args, NULL, NULL, NULL, web_view_javascript_finished, NULL);
                  * }
                  * ```
                  * @since 2.40
@@ -8545,7 +8516,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the camera capture state of a #WebKitWebView.
                  * @since 2.34
-                 * @returns The #WebKitMediaCaptureState of the camera device. If #WebKitSettings:enable-mediastream is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.
+                 * @returns The #WebKitMediaCaptureState of the camera device. If #WebKitSettings:enable-media-stream is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.
                  */
                 get_camera_capture_state(): MediaCaptureState
                 /**
@@ -8567,7 +8538,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the display capture state of a #WebKitWebView.
                  * @since 2.34
-                 * @returns The #WebKitMediaCaptureState of the display device. If #WebKitSettings:enable-mediastream is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.
+                 * @returns The #WebKitMediaCaptureState of the display device. If #WebKitSettings:enable-media-stream is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.
                  */
                 get_display_capture_state(): MediaCaptureState
                 /**
@@ -8581,13 +8552,13 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * You can monitor the estimated progress of a load operation by
                  * connecting to the notify::estimated-load-progress signal of `web_view`.
-                 * @returns an estimate of the of the percent complete for a document     load as a range from 0.0 to 1.0.
+                 * @returns an estimate of the percent complete for a document     load as a range from 0.0 to 1.0.
                  */
                 get_estimated_load_progress(): number
                 /**
-                 * Returns favicon currently associated to `web_view`.
+                 * Returns favicon currently associated with `web_view`.
                  *
-                 * Returns favicon currently associated to `web_view`, if any. You can
+                 * Returns favicon currently associated with `web_view`, if any. You can
                  * connect to notify::favicon signal of `web_view` to be notified when
                  * the favicon is available.
                  * @returns the favicon image or %NULL if there's no    icon associated with `web_view`.
@@ -8598,7 +8569,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * Gets the #WebKitFindController that will allow the caller to query
                  * the #WebKitWebView for the text to look for.
-                 * @returns the #WebKitFindController associated to this particular #WebKitWebView.
+                 * @returns the #WebKitFindController associated with this particular #WebKitWebView.
                  */
                 get_find_controller(): FindController
                 /**
@@ -8610,14 +8581,14 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get_input_method_context(): InputMethodContext | null
                 /**
-                 * Get the #WebKitWebInspector associated to `web_view`
+                 * Get the #WebKitWebInspector associated with `web_view`
                  * @returns the #WebKitWebInspector of `web_view`
                  */
                 get_inspector(): WebInspector
                 /**
                  * Gets the mute state of `web_view`.
                  * @since 2.30
-                 * @returns %TRUE if `web_view` audio is muted or %FALSE is audio is not muted.
+                 * @returns %TRUE if `web_view` audio is muted or %FALSE if audio is not muted.
                  */
                 get_is_muted(): boolean
                 /**
@@ -8644,7 +8615,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the microphone capture state of a #WebKitWebView.
                  * @since 2.34
-                 * @returns The #WebKitMediaCaptureState of the microphone device. If #WebKitSettings:enable-mediastream is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.
+                 * @returns The #WebKitMediaCaptureState of the microphone device. If #WebKitSettings:enable-media-stream is %FALSE, this method will return %WEBKIT_MEDIA_CAPTURE_STATE_NONE.
                  */
                 get_microphone_capture_state(): MediaCaptureState
                 /**
@@ -8671,9 +8642,9 @@ declare module "gi://WebKit2?version=4.1" {
                  * the desired preferences, and then replace the existing `web_view`
                  * settings with webkit_web_view_set_settings() or get the existing
                  *  `web_view` settings and update it directly. #WebKitSettings objects
-                 * can be shared by multiple #WebKitWebView<!-- -->s, so modifying
+                 * can be shared by multiple #WebKitWebView objects, so modifying
                  * the settings of a #WebKitWebView would affect other
-                 * #WebKitWebView<!-- -->s using the same #WebKitSettings.
+                 * #WebKitWebView objects using the same #WebKitSettings.
                  * @returns the #WebKitSettings attached to `web_view`
                  */
                 get_settings(): Settings
@@ -8741,50 +8712,30 @@ declare module "gi://WebKit2?version=4.1" {
                  * The active URI might change during
                  * a load operation:
                  *
-                 * <orderedlist>
-                 * <listitem><para>
-                 *   When nothing has been loaded yet on `web_view` the active URI is %NULL.
-                 * </para></listitem>
-                 * <listitem><para>
-                 *   When a new load operation starts the active URI is the requested URI:
-                 *   <itemizedlist>
-                 *   <listitem><para>
-                 *     If the load operation was started by webkit_web_view_load_uri(),
-                 *     the requested URI is the given one.
-                 *   </para></listitem>
-                 *   <listitem><para>
-                 *     If the load operation was started by webkit_web_view_load_html(),
-                 *     the requested URI is "about:blank".
-                 *   </para></listitem>
-                 *   <listitem><para>
-                 *     If the load operation was started by webkit_web_view_load_alternate_html(),
-                 *     the requested URI is content URI provided.
-                 *   </para></listitem>
-                 *   <listitem><para>
-                 *     If the load operation was started by webkit_web_view_go_back() or
-                 *     webkit_web_view_go_forward(), the requested URI is the original URI
-                 *     of the previous/next item in the #WebKitBackForwardList of `web_view`.
-                 *   </para></listitem>
-                 *   <listitem><para>
-                 *     If the load operation was started by
-                 *     webkit_web_view_go_to_back_forward_list_item(), the requested URI
-                 *     is the opriginal URI of the given #WebKitBackForwardListItem.
-                 *   </para></listitem>
-                 *   </itemizedlist>
-                 * </para></listitem>
-                 * <listitem><para>
-                 *   If there is a server redirection during the load operation,
-                 *   the active URI is the redirected URI. When the signal
-                 *   #WebKitWebView::load-changed is emitted with %WEBKIT_LOAD_REDIRECTED
-                 *   event, the active URI is already updated to the redirected URI.
-                 * </para></listitem>
-                 * <listitem><para>
-                 *   When the signal #WebKitWebView::load-changed is emitted
-                 *   with %WEBKIT_LOAD_COMMITTED event, the active URI is the final
-                 *   one and it will not change unless a new load operation is started
-                 *   or a navigation action within the same page is performed.
-                 * </para></listitem>
-                 * </orderedlist>
+                 * 1. When nothing has been loaded yet on `web_view` the active URI is %NULL.
+                 * 2. When a new load operation starts the active URI is the requested URI:
+                 *
+                 *    - If the load operation was started by webkit_web_view_load_uri(),
+                 *      the requested URI is the given one.
+                 *    - If the load operation was started by webkit_web_view_load_html(),
+                 *      the requested URI is "about:blank".
+                 *    - If the load operation was started by webkit_web_view_load_alternate_html(),
+                 *      the requested URI is content URI provided.
+                 *    - If the load operation was started by webkit_web_view_go_back() or
+                 *      webkit_web_view_go_forward(), the requested URI is the original URI
+                 *      of the previous/next item in the #WebKitBackForwardList of `web_view`.
+                 *    - If the load operation was started by
+                 *      webkit_web_view_go_to_back_forward_list_item(), the requested URI
+                 *      is the original URI of the given #WebKitBackForwardListItem.
+                 *
+                 * 3. If there is a server redirection during the load operation,
+                 *    the active URI is the redirected URI. When the signal
+                 *    #WebKitWebView::load-changed is emitted with %WEBKIT_LOAD_REDIRECTED
+                 *    event, the active URI is already updated to the redirected URI.
+                 * 4. When the signal #WebKitWebView::load-changed is emitted
+                 *    with %WEBKIT_LOAD_COMMITTED event, the active URI is the final
+                 *    one and it will not change unless a new load operation is started
+                 *    or a navigation action within the same page is performed.
                  *
                  * You can monitor the active URI by connecting to the notify::uri
                  * signal of `web_view`.
@@ -8792,7 +8743,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get_uri(): string
                 /**
-                 * Gets the user content manager associated to `web_view`.
+                 * Gets the user content manager associated with `web_view`.
                  * @since 2.6
                  * @returns the #WebKitUserContentManager associated with the view
                  */
@@ -8804,7 +8755,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get_web_extension_mode(): WebExtensionMode
                 /**
-                 * Get the #WebKitWebsiteDataManager associated to `web_view`.
+                 * Get the #WebKitWebsiteDataManager associated with `web_view`.
                  *
                  * If `web_view` is not ephemeral,
                  * the returned #WebKitWebsiteDataManager will be the same as the #WebKitWebsiteDataManager
@@ -8834,7 +8785,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get_window_properties(): WindowProperties
                 /**
-                 * Set the zoom level of `web_view`.
+                 * Get the zoom level of `web_view`.
                  *
                  * Get the zoom level of `web_view`, i.e. the factor by which the
                  * view contents are scaled with respect to their original size.
@@ -8867,7 +8818,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Get whether a #WebKitWebView was created with #WebKitWebView:is-controlled-by-automation
                  * property enabled.
                  *
-                 * Only #WebKitWebView<!-- -->s controlled by automation can be used in an
+                 * Only #WebKitWebView objects controlled by automation can be used in an
                  * automation session.
                  * @since 2.18
                  * @returns %TRUE if `web_view` is controlled by automation, or %FALSE otherwise.
@@ -8889,7 +8840,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * To create an ephemeral #WebKitWebView you need to
                  * use g_object_new() and pass is-ephemeral property with %TRUE value. See
                  * #WebKitWebView:is-ephemeral for more details.
-                 * If `web_view` was created with a ephemeral #WebKitWebView:related-view or an
+                 * If `web_view` was created with an ephemeral #WebKitWebView:related-view or an
                  * ephemeral #WebKitWebView:web-context it will also be ephemeral.
                  * @since 2.16
                  * @returns %TRUE if `web_view` is ephemeral or %FALSE otherwise.
@@ -8911,7 +8862,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * You can monitor when a #WebKitWebView is loading a page by connecting to
                  * notify::is-loading signal of `web_view`. This is useful when you are
-                 * interesting in knowing when the view is loading something but not in the
+                 * interested in knowing when the view is loading something but not in the
                  * details about the status of the load operation, for example to start a spinner
                  * when the view is loading a page and stop it when it finishes.
                  * @returns %TRUE if `web_view` is loading a page or %FALSE otherwise.
@@ -9002,7 +8953,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * You can monitor the load operation by connecting to
                  * #WebKitWebView::load-changed signal.
-                 * @param uri an URI string
+                 * @param uri a URI string
                  */
                 load_uri(uri: string): void
                 /**
@@ -9044,7 +8995,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *     JSCValue               *value;
                  *     GError                 *error = NULL;
                  *
-                 *     js_result = webkit_web_view_run_javascript_finish (WEBKIT_WEB_VIEW (object), result, &error);
+                 *     js_result = webkit_web_view_run_javascript_in_world_finish (WEBKIT_WEB_VIEW (object), result, &error);
                  *     if (!js_result) {
                  *         g_warning ("Error running javascript: %s", error->message);
                  *         g_error_free (error);
@@ -9053,13 +9004,12 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  *     value = webkit_javascript_result_get_js_value (js_result);
                  *     if (jsc_value_is_number (value)) {
-                 *         gint32        int_value = jsc_value_to_string (value);
+                 *         gint32        int_value = jsc_value_to_int32 (value);
                  *         JSCException *exception = jsc_context_get_exception (jsc_value_get_context (value));
                  *         if (exception)
                  *             g_warning ("Error running javascript: %s", jsc_exception_get_message (exception));
                  *         else
                  *             g_print ("Script result: %d\n", int_value);
-                 *         g_free (str_value);
                  *     } else {
                  *         g_warning ("Error running javascript: unexpected return value");
                  *     }
@@ -9074,7 +9024,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *     g_variant_dict_insert (&dict, "count", "u", 42);
                  *     GVariant *args = g_variant_dict_end (&dict);
                  *     const gchar *body = "return new Promise((resolve) => { resolve(count); });";
-                 *     webkit_web_view_run_async_javascript_function_in_world (web_view, body, arguments, NULL, NULL, web_view_javascript_finished, NULL);
+                 *     webkit_web_view_run_async_javascript_function_in_world (web_view, body, args, NULL, NULL, web_view_javascript_finished, NULL);
                  * }
                  * ```
                  * @since 2.38
@@ -9174,7 +9124,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * @throws {GLib.Error}
                  * @deprecated since 2.40 Use webkit_web_view_evaluate_javascript_finish() instead.
                  * @param result a #GAsyncResult
-                 * @returns a #WebKitJavascriptResult with the result of the last executed statement in `script`    or %NULL in case of error
+                 * @returns a #WebKitJavascriptResult with the result of the last executed statement in the script    or %NULL in case of error
                  */
                 run_javascript_from_gresource_finish(result: Gio.AsyncResult): JavascriptResult
                 /**
@@ -9197,7 +9147,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Finish an asynchronous operation started with webkit_web_view_run_javascript_in_world().
                  * @throws {GLib.Error}
                  * @since 2.22
-                 * @deprecated since 2.40 Use webkit_web_view_call_async_javascript_function_finish() instead.
+                 * @deprecated since 2.40 Use webkit_web_view_evaluate_javascript_finish() instead.
                  * @param result a #GAsyncResult
                  * @returns a #WebKitJavascriptResult with the result of the last executed statement in `script`    or %NULL in case of error
                  */
@@ -9205,7 +9155,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Asynchronously save the current web page.
                  *
-                 * Asynchronously save the current web page associated to the
+                 * Asynchronously save the current web page associated with the
                  * #WebKitWebView into a self-contained format using the mode
                  * specified in `save_mode`.
                  *
@@ -9227,7 +9177,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Asynchronously save the current web page.
                  *
-                 * Asynchronously save the current web page associated to the
+                 * Asynchronously save the current web page associated with the
                  * #WebKitWebView into a self-contained format using the mode
                  * specified in `save_mode` and writing it to `file`.
                  *
@@ -9257,7 +9207,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * @since 2.28
                  * @param message a #WebKitUserMessage
                  * @param cancellable a #GCancellable or %NULL to ignore
-                 * @param callback (nullable): A #GAsyncReadyCallback to call when the request is satisfied or %NULL
+                 * @param callback A #GAsyncReadyCallback to call when the request is satisfied or %NULL
                  */
                 send_message_to_page(message: UserMessage, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
                 /**
@@ -9275,8 +9225,8 @@ declare module "gi://WebKit2?version=4.1" {
                  * the actual contents are rendered. Note that if the web page loaded in `web_view`
                  * specifies a background color, it will take precedence over the `rgba` color.
                  * By default the `web_view` background color is opaque white.
-                 * Note that the parent window must have a RGBA visual and
-                 * #GtkWidget:app-paintable property set to %TRUE for backgrounds colors to work.
+                 * Note that the parent window must have an RGBA visual and
+                 * #GtkWidget:app-paintable property set to %TRUE for background colors to work.
                  *
                  * ```c
                  * static void browser_window_set_background_color (BrowserWindow *window,
@@ -9303,7 +9253,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Set the camera capture state of a #WebKitWebView.
                  *
-                 * If #WebKitSettings:enable-mediastream is %FALSE, this method will have no visible effect. Once the
+                 * If #WebKitSettings:enable-media-stream is %FALSE, this method will have no visible effect. Once the
                  * state of the device has been set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE it cannot be changed
                  * anymore. The page can however request capture again using the mediaDevices API.
                  * @since 2.34
@@ -9344,7 +9294,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Set the display capture state of a #WebKitWebView.
                  *
-                 * If #WebKitSettings:enable-mediastream is %FALSE, this method will have no visible effect. Once the
+                 * If #WebKitSettings:enable-media-stream is %FALSE, this method will have no visible effect. Once the
                  * state of the device has been set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE it cannot be changed
                  * anymore. The page can however request capture again using the mediaDevices API.
                  * @since 2.34
@@ -9359,7 +9309,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * CONTENTEDITABLE attribute has been set on the element or one of its parent
                  * elements. By default a #WebKitWebView is not editable.
                  *
-                 * Normally, a HTML document is not editable unless the elements within the
+                 * Normally, an HTML document is not editable unless the elements within the
                  * document are editable. This function provides a way to make the contents
                  * of a #WebKitWebView editable without altering the document or DOM structure.
                  * @since 2.8
@@ -9396,7 +9346,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Set the microphone capture state of a #WebKitWebView.
                  *
-                 * If #WebKitSettings:enable-mediastream is %FALSE, this method will have no visible effect. Once the
+                 * If #WebKitSettings:enable-media-stream is %FALSE, this method will have no visible effect. Once the
                  * state of the device has been set to %WEBKIT_MEDIA_CAPTURE_STATE_NONE it cannot be changed
                  * anymore. The page can however request capture again using the mediaDevices API.
                  * @since 2.34
@@ -9410,7 +9360,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * existing #WebKitSettings of `web_view` will be replaced by
                  *  `settings`. New settings are applied immediately on `web_view`.
                  * The same #WebKitSettings object can be shared
-                 * by multiple #WebKitWebView<!-- -->s.
+                 * by multiple #WebKitWebView objects.
                  * @param settings a #WebKitSettings
                  */
                 set_settings(settings: Settings): void
@@ -9432,7 +9382,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 stop_loading(): void
                 /**
-                 * Terminates the web process associated to `web_view`.
+                 * Terminates the web process associated with `web_view`.
                  *
                  * When the web process gets terminated
                  * using this method, the #WebKitWebView::web-process-terminated signal is emitted with
@@ -9567,9 +9517,9 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * Creates a new #WebKitWebView with the default #WebKitWebContext and
                  * no #WebKitUserContentManager associated with it.
-                 * See also webkit_web_view_new_with_context(),
-                 * webkit_web_view_new_with_user_content_manager(), and
-                 * webkit_web_view_new_with_settings().
+                 * Set the #WebKitWebView:web-context, #WebKitWebView:user-content-manager
+                 * or #WebKitWebView:settings properties at construction to use a different
+                 * configuration.
                  * @returns The newly created #WebKitWebView widget
                  */
                 "new"(): WebView
@@ -9725,7 +9675,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * A permission request for accessing website data from third-party domains.
                  *
                  * WebKitWebsiteDataAccessPermissionRequest represents a request for
-                 * permission to allow a third-party domain access its cookies.
+                 * permission to allow a third-party domain to access its cookies.
                  *
                  * When a WebKitWebsiteDataAccessPermissionRequest is not handled by the user,
                  * it is denied by default.
@@ -9788,7 +9738,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where HTTP disk cache will be stored.
                  * @since 2.10
-                 * @deprecated since 2.40. Use WebKitWebsiteDataManager:base-cache-directory instead.
+                 * @deprecated since 2.40 Use WebKitWebsiteDataManager:base-cache-directory instead.
                  * @default NULL
                  */
                 get diskCacheDirectory(): string | null
@@ -9796,7 +9746,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where DOM cache will be stored.
                  * @since 2.30
-                 * @deprecated since 2.40. Use WebKitWebsiteDataManager:base-cache-directory instead.
+                 * @deprecated since 2.40 Use WebKitWebsiteDataManager:base-cache-directory instead.
                  * @default NULL
                  */
                 get domCacheDirectory(): string | null
@@ -9804,7 +9754,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where the HTTP Strict-Transport-Security (HSTS) cache will be stored.
                  * @since 2.26
-                 * @deprecated since 2.40. Use WebKitWebsiteDataManager:base-cache-directory instead.
+                 * @deprecated since 2.40 Use WebKitWebsiteDataManager:base-cache-directory instead.
                  * @default NULL
                  */
                 get hstsCacheDirectory(): string | null
@@ -9812,7 +9762,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where IndexedDB databases will be stored.
                  * @since 2.10
-                 * @deprecated since 2.40. Use WebKitWebsiteDataManager:base-data-directory instead.
+                 * @deprecated since 2.40 Use WebKitWebsiteDataManager:base-data-directory instead.
                  * @default NULL
                  */
                 get indexeddbDirectory(): string | null
@@ -9830,7 +9780,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where Intelligent Tracking Prevention (ITP) data will be stored.
                  * @since 2.30
-                 * @deprecated since 2.40. Use WebKitWebsiteDataManager:base-data-directory instead.
+                 * @deprecated since 2.40 Use WebKitWebsiteDataManager:base-data-directory instead.
                  * @default NULL
                  */
                 get itpDirectory(): string | null
@@ -9838,7 +9788,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where local storage data will be stored.
                  * @since 2.10
-                 * @deprecated since 2.40. Use WebKitWebsiteDataManager:base-data-directory instead.
+                 * @deprecated since 2.40 Use WebKitWebsiteDataManager:base-data-directory instead.
                  * @default NULL
                  */
                 get localStorageDirectory(): string | null
@@ -9846,7 +9796,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where offline web application cache will be stored.
                  * @since 2.10
-                 * @deprecated since 2.40. Use WebKitWebsiteDataManager:base-cache-directory instead.
+                 * @deprecated since 2.40 Use WebKitWebsiteDataManager:base-cache-directory instead.
                  * @default NULL
                  */
                 get offlineApplicationCacheDirectory(): string | null
@@ -9861,9 +9811,9 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 set originStorageRatio(value: number)
                 /**
-                 * The directory where service workers registrations will be stored.
+                 * The directory where service worker registrations will be stored.
                  * @since 2.30
-                 * @deprecated since 2.40. Use WebKitWebsiteDataManager:base-data-directory instead.
+                 * @deprecated since 2.40 Use WebKitWebsiteDataManager:base-data-directory instead.
                  * @default NULL
                  */
                 get serviceWorkerRegistrationsDirectory(): string | null
@@ -9880,7 +9830,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * The directory where WebSQL databases will be stored.
                  * @since 2.10
-                 * @deprecated since 2.24. WebSQL is no longer supported. Use IndexedDB instead.
+                 * @deprecated since 2.24 WebSQL is no longer supported. Use IndexedDB instead.
                  * @default NULL
                  */
                 get websqlDirectory(): string | null
@@ -9927,7 +9877,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * @throws {GLib.Error}
                  * @since 2.16
                  * @param result a #GAsyncResult
-                 * @returns a #GList of #WebKitWebsiteData. You must free the #GList with    g_list_free() and unref the #WebKitWebsiteData<!-- -->s with webkit_website_data_unref() when you're done with them.
+                 * @returns a #GList of #WebKitWebsiteData. You must free the #GList with    g_list_free() and unref the #WebKitWebsiteData objects with webkit_website_data_unref() when you're done with them.
                  */
                 fetch_finish(result: Gio.AsyncResult): WebsiteData[]
                 /**
@@ -9951,14 +9901,14 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the #WebKitWebsiteDataManager:disk-cache-directory property.
                  * @since 2.10
-                 * @deprecated since 2.40 , use webkit_website_data_manager_get_base_cache_directory() instead.
+                 * @deprecated since 2.40 Use webkit_website_data_manager_get_base_cache_directory() instead.
                  * @returns the directory where HTTP disk cache is stored or %NULL if `manager` is ephemeral.
                  */
                 get_disk_cache_directory(): string | null
                 /**
                  * Get the #WebKitWebsiteDataManager:dom-cache-directory property.
                  * @since 2.30
-                 * @deprecated since 2.40 , use webkit_website_data_manager_get_base_cache_directory() instead.
+                 * @deprecated since 2.40 Use webkit_website_data_manager_get_base_cache_directory() instead.
                  * @returns the directory where DOM cache is stored or %NULL if `manager` is ephemeral.
                  */
                 get_dom_cache_directory(): string | null
@@ -9977,21 +9927,21 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the #WebKitWebsiteDataManager:hsts-cache-directory property.
                  * @since 2.26
-                 * @deprecated since 2.40 , use webkit_website_data_manager_get_base_cache_directory() instead.
+                 * @deprecated since 2.40 Use webkit_website_data_manager_get_base_cache_directory() instead.
                  * @returns the directory where the HSTS cache is stored or %NULL if `manager` is ephemeral.
                  */
                 get_hsts_cache_directory(): string | null
                 /**
                  * Get the #WebKitWebsiteDataManager:indexeddb-directory property.
                  * @since 2.10
-                 * @deprecated since 2.40 , use webkit_website_data_manager_get_base_data_directory() instead.
+                 * @deprecated since 2.40 Use webkit_website_data_manager_get_base_data_directory() instead.
                  * @returns the directory where IndexedDB databases are stored or %NULL if `manager` is ephemeral.
                  */
                 get_indexeddb_directory(): string | null
                 /**
                  * Get the #WebKitWebsiteDataManager:itp-directory property.
                  * @since 2.30
-                 * @deprecated since 2.40 , use webkit_website_data_manager_get_base_data_directory() instead.
+                 * @deprecated since 2.40 Use webkit_website_data_manager_get_base_data_directory() instead.
                  * @returns the directory where Intelligent Tracking Prevention data is stored or %NULL if `manager` is ephemeral.
                  */
                 get_itp_directory(): string | null
@@ -10019,20 +9969,20 @@ declare module "gi://WebKit2?version=4.1" {
                  * @throws {GLib.Error}
                  * @since 2.30
                  * @param result a #GAsyncResult
-                 * @returns a #GList of #WebKitITPThirdParty.    You must free the #GList with g_list_free() and unref the #WebKitITPThirdParty<!-- -->s with    webkit_itp_third_party_unref() when you're done with them.
+                 * @returns a #GList of #WebKitITPThirdParty.    You must free the #GList with g_list_free() and unref the #WebKitITPThirdParty objects with    webkit_itp_third_party_unref() when you're done with them.
                  */
                 get_itp_summary_finish(result: Gio.AsyncResult): ITPThirdParty[]
                 /**
                  * Get the #WebKitWebsiteDataManager:local-storage-directory property.
                  * @since 2.10
-                 * @deprecated since 2.40 , use webkit_website_data_manager_get_base_data_directory() instead.
+                 * @deprecated since 2.40 Use webkit_website_data_manager_get_base_data_directory() instead.
                  * @returns the directory where local storage data is stored or %NULL if `manager` is ephemeral.
                  */
                 get_local_storage_directory(): string | null
                 /**
                  * Get the #WebKitWebsiteDataManager:offline-application-cache-directory property.
                  * @since 2.10
-                 * @deprecated since 2.40 , use webkit_website_data_manager_get_base_cache_directory() instead.
+                 * @deprecated since 2.40 Use webkit_website_data_manager_get_base_cache_directory() instead.
                  * @returns the directory where offline web application cache is stored or %NULL if `manager` is ephemeral.
                  */
                 get_offline_application_cache_directory(): string | null
@@ -10047,7 +9997,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the #WebKitWebsiteDataManager:service-worker-registrations-directory property.
                  * @since 2.30
-                 * @deprecated since 2.40 , use webkit_website_data_manager_get_base_data_directory() instead.
+                 * @deprecated since 2.40 Use webkit_website_data_manager_get_base_data_directory() instead.
                  * @returns the directory where service worker registrations are stored or %NULL if `manager` is ephemeral.
                  */
                 get_service_worker_registrations_directory(): string | null
@@ -10060,7 +10010,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the #WebKitWebsiteDataManager:websql-directory property.
                  * @since 2.10
-                 * @deprecated since 2.24. WebSQL is no longer supported. Use IndexedDB instead.
+                 * @deprecated since 2.24 WebSQL is no longer supported. Use IndexedDB instead.
                  * @returns the directory where WebSQL databases are stored or %NULL if `manager` is ephemeral.
                  */
                 get_websql_directory(): string | null
@@ -10135,7 +10085,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Enable or disable persistent credential storage.
                  *
                  * When enabled, which is the default for
-                 * non-ephemeral sessions, the network process will try to read and write HTTP authentiacation
+                 * non-ephemeral sessions, the network process will try to read and write HTTP authentication
                  * credentials from persistent storage.
                  * @since 2.30
                  * @param enabled value to set
@@ -10188,7 +10138,7 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  * You can use WebKitWebsiteDataManager to configure the local directories
                  * where website data will be stored. Use #WebKitWebsiteDataManager:base-data-directory
-                 * and #WebKitWebsiteDataManager:base-cache-directory set a common base directory for all
+                 * and #WebKitWebsiteDataManager:base-cache-directory to set a common base directory for all
                  * website data and caches.
                  *
                  * A WebKitWebsiteDataManager can be ephemeral, in which case all the directory configuration
@@ -11019,7 +10969,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * The returned string is suitable to be displayed to end users, but it
                  * should not be relied upon being localized.
                  *
-                 * Note that some *features may not* have a detailed description, and `NULL`
+                 * Note that some *features may not* have a detailed description, and %NULL
                  * is returned in this case.
                  * @since 2.42
                  * @returns Feature description.
@@ -11037,7 +10987,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * The returned string is suitable to be displayed to end users, but it
                  * should not be relied upon being localized.
                  *
-                 * Note that some *features may not* have a short name, and `NULL`
+                 * Note that some *features may not* have a short name, and %NULL
                  * is returned in this case.
                  * @since 2.42
                  * @returns Short feature name.
@@ -11060,7 +11010,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Atomically releases a reference on the given `feature`.
                  *
-                 * If the reference was the last, the resources associated to the
+                 * If the reference was the last, the resources associated with the
                  *  `feature` are freed. This function is MT-safe and may be called from
                  * any thread.
                  * @since 2.42
@@ -11083,7 +11033,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Finds a feature given its identifier.
                  * @since 2.54
                  * @param identifier a #WebKitFeature identifier
-                 * @returns The feature with the given     `identifier`, or `NULL` if it cannot be found.
+                 * @returns The feature with the given     `identifier`, or %NULL if it cannot be found.
                  */
                 find(identifier: string): Feature | null
                 /**
@@ -11095,7 +11045,8 @@ declare module "gi://WebKit2?version=4.1" {
                 get(index: number): Feature
                 /**
                  * Gets the number of elements in the feature list.
-                 * @returns number of elements.  Since 2.42
+                 * @since 2.42
+                 * @returns number of elements.
                  */
                 get_length(): number
                 /**
@@ -11109,7 +11060,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Atomically releases a reference on the given `feature_list`.
                  *
-                 * If the reference was the last, the resources associated to the
+                 * If the reference was the last, the resources associated with the
                  *  `feature_list` are freed. This function is MT-safe and may be called
                  * from any thread.
                  * @since 2.42
@@ -11291,7 +11242,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get the last time a #WebKitITPThirdParty has been seen under `itp_first_party`.
                  *
-                 * Each `WebKitITPFirstParty` is created by webkit_itp_third_party_get_first_parties() and
+                 * Each #WebKitITPFirstParty is created by webkit_itp_third_party_get_first_parties() and
                  * therefore corresponds to exactly one #WebKitITPThirdParty.
                  * @since 2.30
                  * @returns the last update time as a #GDateTime
@@ -11300,7 +11251,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Get whether `itp_first_party` has granted website data access to its #WebKitITPThirdParty.
                  *
-                 * Each `WebKitITPFirstParty` is created by webkit_itp_third_party_get_first_parties() and
+                 * Each #WebKitITPFirstParty is created by webkit_itp_third_party_get_first_parties() and
                  * therefore corresponds to exactly one #WebKitITPThirdParty.
                  * @since 2.30
                  * @returns %TRUE if website data access has been granted, or %FALSE otherwise
@@ -11510,7 +11461,7 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Make a copy of `settings`.
                  * @since 2.34
-                 * @returns A copy of of the passed #WebKitMemoryPressureSettings.
+                 * @returns A copy of the passed #WebKitMemoryPressureSettings.
                  */
                 copy(): MemoryPressureSettings
                 /**
@@ -11565,7 +11516,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Sets `value` as the fraction of the defined memory limit where the process will be
                  * killed.
                  *
-                 * The threshold must be a value bigger or equal to 0. A value of 0 means that the process
+                 * The threshold must be a value bigger than or equal to 0. A value of 0 means that the process
                  * is never killed. If the threshold is not 0, then it must be bigger than the strict threshold
                  * defined in `settings`. The threshold can also have values bigger than 1. The default value is 0.
                  * @since 2.34
@@ -11573,7 +11524,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 set_kill_threshold(value: number): void
                 /**
-                 * Sets `memory_limit` the memory limit value to `settings`.
+                 * Sets `memory_limit` as the memory limit value of `settings`.
                  *
                  * The default value is the system's RAM size with a maximum of 3GB.
                  * @since 2.34
@@ -11622,7 +11573,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 get_description(): string | null
                 /**
-                 * Get the list of file extensions associated to the MIME type.
+                 * Get the list of file extensions associated with the MIME type.
                  * @deprecated since 2.32
                  * @returns a     %NULL-terminated array of strings
                  */
@@ -11709,8 +11660,8 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Return the #WebKitURIRequest associated with the navigation action.
                  *
-                 * Modifications to the returned object are <emphasis>not</emphasis> taken
-                 * into account when the request is sent over the network, and is intended
+                 * Modifications to the returned object are *not* taken
+                 * into account when the request is sent over the network, and the object is intended
                  * only to aid in evaluating whether a navigation action should be taken or
                  * not. To modify requests before they are sent over the network the
                  * #WebKitPage::send-request signal can be used instead.
@@ -11762,28 +11713,19 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  *  `ignore_hosts` is a list of hostnames and IP addresses that the resolver should allow direct connections to.
                  * Entries can be in one of 4 formats:
-                 * <itemizedlist>
-                 * <listitem><para>
-                 * A hostname, such as "example.com", ".example.com", or "*.example.com", any of which match "example.com" or
-                 * any subdomain of it.
-                 * </para></listitem>
-                 * <listitem><para>
-                 * An IPv4 or IPv6 address, such as "192.168.1.1", which matches only that address.
-                 * </para></listitem>
-                 * <listitem><para>
-                 * A hostname or IP address followed by a port, such as "example.com:80", which matches whatever the hostname or IP
-                 * address would match, but only for URLs with the (explicitly) indicated port. In the case of an IPv6 address, the address
-                 * part must appear in brackets: "[::1]:443"
-                 * </para></listitem>
-                 * <listitem><para>
-                 * An IP address range, given by a base address and prefix length, such as "fe80::/10", which matches any address in that range.
-                 * </para></listitem>
-                 * </itemizedlist>
+                 *
+                 * - A hostname, such as "example.com", ".example.com", or "*.example.com", any of which match "example.com" or
+                 *   any subdomain of it.
+                 * - An IPv4 or IPv6 address, such as "192.168.1.1", which matches only that address.
+                 * - A hostname or IP address followed by a port, such as "example.com:80", which matches whatever the hostname or IP
+                 *   address would match, but only for URLs with the (explicitly) indicated port. In the case of an IPv6 address, the address
+                 *   part must appear in brackets: "[::1]:443"
+                 * - An IP address range, given by a base address and prefix length, such as "fe80::/10", which matches any address in that range.
                  *
                  * Note that when dealing with Unicode hostnames, the matching is done against the ASCII form of the name.
                  * Also note that hostname exclusions apply only to connections made to hosts identified by name, and IP address exclusions apply only
                  * to connections made to hosts identified by address. That is, if example.com has an address of 192.168.1.1, and `ignore_hosts`
-                 * contains only "192.168.1.1", then a connection to "example.com" will use the proxy, and a connection to 192.168.1.1" will not.
+                 * contains only "192.168.1.1", then a connection to "example.com" will use the proxy, and a connection to "192.168.1.1" will not.
                  * @since 2.16
                  * @param default_proxy_uri the default proxy URI to use, or %NULL.
                  * @param ignore_hosts an optional list of hosts/IP addresses to not use a proxy for.
@@ -11800,28 +11742,19 @@ declare module "gi://WebKit2?version=4.1" {
                  *
                  *  `ignore_hosts` is a list of hostnames and IP addresses that the resolver should allow direct connections to.
                  * Entries can be in one of 4 formats:
-                 * <itemizedlist>
-                 * <listitem><para>
-                 * A hostname, such as "example.com", ".example.com", or "*.example.com", any of which match "example.com" or
-                 * any subdomain of it.
-                 * </para></listitem>
-                 * <listitem><para>
-                 * An IPv4 or IPv6 address, such as "192.168.1.1", which matches only that address.
-                 * </para></listitem>
-                 * <listitem><para>
-                 * A hostname or IP address followed by a port, such as "example.com:80", which matches whatever the hostname or IP
-                 * address would match, but only for URLs with the (explicitly) indicated port. In the case of an IPv6 address, the address
-                 * part must appear in brackets: "[::1]:443"
-                 * </para></listitem>
-                 * <listitem><para>
-                 * An IP address range, given by a base address and prefix length, such as "fe80::/10", which matches any address in that range.
-                 * </para></listitem>
-                 * </itemizedlist>
+                 *
+                 * - A hostname, such as "example.com", ".example.com", or "*.example.com", any of which match "example.com" or
+                 *   any subdomain of it.
+                 * - An IPv4 or IPv6 address, such as "192.168.1.1", which matches only that address.
+                 * - A hostname or IP address followed by a port, such as "example.com:80", which matches whatever the hostname or IP
+                 *   address would match, but only for URLs with the (explicitly) indicated port. In the case of an IPv6 address, the address
+                 *   part must appear in brackets: "[::1]:443"
+                 * - An IP address range, given by a base address and prefix length, such as "fe80::/10", which matches any address in that range.
                  *
                  * Note that when dealing with Unicode hostnames, the matching is done against the ASCII form of the name.
                  * Also note that hostname exclusions apply only to connections made to hosts identified by name, and IP address exclusions apply only
                  * to connections made to hosts identified by address. That is, if example.com has an address of 192.168.1.1, and `ignore_hosts`
-                 * contains only "192.168.1.1", then a connection to "example.com" will use the proxy, and a connection to 192.168.1.1" will not.
+                 * contains only "192.168.1.1", then a connection to "example.com" will use the proxy, and a connection to "192.168.1.1" will not.
                  * @since 2.16
                  * @param default_proxy_uri the default proxy URI to use, or %NULL.
                  * @param ignore_hosts an optional list of hosts/IP addresses to not use a proxy for.
@@ -11834,12 +11767,12 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Adds a URI-scheme-specific proxy.
                  *
-                 * URIs whose scheme matches `uri_scheme` will be proxied via `proxy_uri`.
+                 * URIs whose scheme matches `scheme` will be proxied via `proxy_uri`.
                  * As with the default proxy URI, if `proxy_uri` starts with "socks://", it will be treated as referring to
                  * all three of the socks5, socks4a, and socks4 proxy types.
                  * @since 2.16
                  * @param scheme the URI scheme to add a proxy for
-                 * @param proxy_uri the proxy URI to use for `uri_scheme`
+                 * @param proxy_uri the proxy URI to use for `scheme`
                  */
                 add_proxy_for_scheme(scheme: string, proxy_uri: string): void
                 /**
@@ -12156,7 +12089,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Atomically decrements the reference count of `dialog` by one.
                  *
                  * If the
-                 * reference count drops to 0, all memory allocated by the #WebKitScriptdialog is
+                 * reference count drops to 0, all memory allocated by the #WebKitScriptDialog is
                  * released. This function is MT-safe and may be called from any
                  * thread.
                  * @since 2.24
@@ -12190,7 +12123,8 @@ declare module "gi://WebKit2?version=4.1" {
                 /**
                  * Reply to a script message with a value.
                  *
-                 * This function can be called twice for passing the reply value in.
+                 * This function can only be called once. Further calls to it or to
+                 * webkit_script_message_reply_return_error_message() emit a critical warning and are ignored.
                  * @since 2.40
                  * @param reply_value Reply value of the provided script message
                  */
@@ -12247,7 +12181,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 "new"(protocol: string, host: string, port: number): SecurityOrigin
                 /**
-                 * Create a new security origin from the provided.
+                 * Create a new security origin from the provided URI.
                  *
                  * Create a new security origin from the provided URI. Components of
                  *  `uri` other than protocol, host, and port do not affect the created
@@ -12496,7 +12430,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Scripts can be applied to some URIs
                  * only by passing non-null values for `allow_list` or `block_list`. Passing a
                  * %NULL allow_list implies that all URIs are on the allow_list. The script
-                 * is applied if an URI matches the allow_list and not the block_list.
+                 * is applied if a URI matches the allow_list and not the block_list.
                  * URI patterns must be of the form `[protocol]://[host]/[path]`, where the
                  * *host* and *path* components can contain the wildcard character (`*`) to
                  * represent zero or more other characters.
@@ -12515,7 +12449,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Scripts can be applied to some URIs
                  * only by passing non-null values for `allow_list` or `block_list`. Passing a
                  * %NULL allow_list implies that all URIs are on the allow_list. The script
-                 * is applied if an URI matches the allow_list and not the block_list.
+                 * is applied if a URI matches the allow_list and not the block_list.
                  * URI patterns must be of the form `[protocol]://[host]/[path]`, where the
                  * *host* and *path* components can contain the wildcard character (`*`) to
                  * represent zero or more other characters.
@@ -12577,7 +12511,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Style sheets can be applied to some URIs
                  * only by passing non-null values for `allow_list` or `block_list`. Passing a
                  * %NULL allow_list implies that all URIs are on the allow_list. The style
-                 * sheet is applied if an URI matches the allow_list and not the block_list.
+                 * sheet is applied if a URI matches the allow_list and not the block_list.
                  * URI patterns must be of the form `[protocol]://[host]/[path]`, where the
                  * *host* and *path* components can contain the wildcard character (`*`) to
                  * represent zero or more other characters.
@@ -12596,7 +12530,7 @@ declare module "gi://WebKit2?version=4.1" {
                  * Style sheets can be applied to some URIs
                  * only by passing non-null values for `allow_list` or `block_list`. Passing a
                  * %NULL allow_list implies that all URIs are on the allow_list. The style
-                 * sheet is applied if an URI matches the allow_list and not the block_list.
+                 * sheet is applied if a URI matches the allow_list and not the block_list.
                  * URI patterns must be of the form `[protocol]://[host]/[path]`, where the
                  * *host* and *path* components can contain the wildcard character (`*`) to
                  * represent zero or more other characters.
@@ -13075,7 +13009,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 readonly "RELOAD": 13
                 /**
-                 * Copy current selection the clipboard.
+                 * Copy current selection to the clipboard.
                  */
                 readonly "COPY": 14
                 /**
@@ -13155,11 +13089,11 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 readonly "OPEN_AUDIO_IN_NEW_WINDOW": 33
                 /**
-                 * Copy video link location in to the clipboard.
+                 * Copy video link location to the clipboard.
                  */
                 readonly "COPY_VIDEO_LINK_TO_CLIPBOARD": 34
                 /**
-                 * Copy audio link location in to the clipboard.
+                 * Copy audio link location to the clipboard.
                  */
                 readonly "COPY_AUDIO_LINK_TO_CLIPBOARD": 35
                 /**
@@ -13211,7 +13145,7 @@ declare module "gi://WebKit2?version=4.1" {
             interface $Exports {
                 /**
                  * Enum values used to denote the stock actions for
-                 * #WebKitContextMenuItem<!-- -->s
+                 * #WebKitContextMenuItem objects
                  */
                 ContextMenuAction: ContextMenuActionEnum
             }
@@ -13351,9 +13285,9 @@ declare module "gi://WebKit2?version=4.1" {
             interface FeatureStatusEnum {
                 readonly $gtype: GObject.GType<FeatureStatus>
                 /**
-                 * Feature that adjust behaviour for
+                 * Feature that adjusts behavior for
                  *   specific application needs. The feature is not part of a Web platform
-                 *   feature, not a mature feature intended to be always on.
+                 *   feature, nor a mature feature intended to be always on.
                  */
                 readonly "EMBEDDER": 0
                 /**
@@ -13364,7 +13298,7 @@ declare module "gi://WebKit2?version=4.1" {
                 readonly "UNSTABLE": 1
                 /**
                  * Feature for debugging the WebKit engine.
-                 *   The feature is not generally useful for user or web developers, and
+                 *   The feature is not generally useful for users or web developers, and
                  *   always disabled by default.
                  */
                 readonly "INTERNAL": 2
@@ -13401,7 +13335,7 @@ declare module "gi://WebKit2?version=4.1" {
             type FeatureStatus = FeatureStatusEnum[Exclude<keyof FeatureStatusEnum, "$gtype">]
             interface $Exports {
                 /**
-                 * Describes the status of a {@link WebKitFeature}.
+                 * Describes the status of a {@link Feature}.
                  *
                  * The status for a given feature can be obtained with
                  * {@link webkit_feature_get_status}.
@@ -13413,7 +13347,7 @@ declare module "gi://WebKit2?version=4.1" {
             interface HardwareAccelerationPolicyEnum {
                 readonly $gtype: GObject.GType<HardwareAccelerationPolicy>
                 /**
-                 * Hardware acceleration is enabled/disabled as request by web contents. Deprecated 2.54.
+                 * Hardware acceleration is enabled/disabled as requested by web contents. Deprecated 2.54.
                  */
                 readonly "ON_DEMAND": 0
                 /**
@@ -13516,7 +13450,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 readonly "SCRIPT_FAILED": 699
                 /**
-                 * An unsupported parameter has been used to call and async function from API. Since 2.40
+                 * An unsupported parameter has been used to call an async function from API. Since 2.40
                  */
                 readonly "INVALID_PARAMETER": 600
                 /**
@@ -13912,9 +13846,9 @@ declare module "gi://WebKit2?version=4.1" {
                  *   of this process model is that the rendering process for a web view
                  *   can crash while the rest of the views keep working normally. This
                  *   process model is indicated for applications which may use a number
-                 *   of web views and the content of in each must not interfere with the
-                 *   rest — for example a full-fledged web browser with support for
-                 *   multiple tabs.
+                 *   of web views and the content in each must not interfere with the
+                 *   rest (for example, a full-fledged web browser with support for
+                 *   multiple tabs).
                  */
                 readonly "MULTIPLE_SECONDARY_PROCESSES": 1
             }
@@ -14089,7 +14023,7 @@ declare module "gi://WebKit2?version=4.1" {
             type UserContentInjectedFrames = UserContentInjectedFramesEnum[Exclude<keyof UserContentInjectedFramesEnum, "$gtype">]
             interface $Exports {
                 /**
-                 * Specifies in which frames user style sheets are to be inserted in.
+                 * Specifies in which frames user style sheets are to be inserted.
                  * @since 2.6
                  */
                 UserContentInjectedFrames: UserContentInjectedFramesEnum
@@ -14136,7 +14070,7 @@ declare module "gi://WebKit2?version=4.1" {
             type UserScriptInjectionTime = UserScriptInjectionTimeEnum[Exclude<keyof UserScriptInjectionTimeEnum, "$gtype">]
             interface $Exports {
                 /**
-                 * Specifies at which place of documents an user script will be inserted.
+                 * Specifies at which place of documents a user script will be inserted.
                  * @since 2.6
                  */
                 UserScriptInjectionTime: UserScriptInjectionTimeEnum
@@ -14145,7 +14079,7 @@ declare module "gi://WebKit2?version=4.1" {
             interface UserStyleLevelEnum {
                 readonly $gtype: GObject.GType<UserStyleLevel>
                 /**
-                 * The style sheet is an user style sheet,
+                 * The style sheet is a user style sheet,
                  *   its contents always override other style sheets. This is the default.
                  */
                 readonly "USER": 0
@@ -14159,7 +14093,7 @@ declare module "gi://WebKit2?version=4.1" {
             type UserStyleLevel = UserStyleLevelEnum[Exclude<keyof UserStyleLevelEnum, "$gtype">]
             interface $Exports {
                 /**
-                 * Specifies how to treat an user style sheet.
+                 * Specifies how to treat a user style sheet.
                  * @since 2.6
                  */
                 UserStyleLevel: UserStyleLevelEnum
@@ -14172,7 +14106,7 @@ declare module "gi://WebKit2?version=4.1" {
 
                 new(props: { message: string, code: number }): WebExtensionMatchPatternError
                 /**
-                 * An unknown error occured.
+                 * An unknown error occurred.
                  */
                 readonly "UNKNOWN": 899
                 /**
@@ -14323,7 +14257,7 @@ declare module "gi://WebKit2?version=4.1" {
                 readonly "CASE_INSENSITIVE": 1
                 /**
                  * search text only at the
-                 *   begining of the words.
+                 *   beginning of the words.
                  */
                 readonly "AT_WORD_STARTS": 2
                 /**
@@ -14399,7 +14333,7 @@ declare module "gi://WebKit2?version=4.1" {
                  */
                 readonly "SPELLCHECK": 1
                 /**
-                 * Suggest to not autocapitlize
+                 * Suggest to not autocapitalize
                  */
                 readonly "LOWERCASE": 2
                 /**
@@ -14573,7 +14507,7 @@ declare module "gi://WebKit2?version=4.1" {
                 XRSessionFeatures: XRSessionFeaturesBitfield
             }
             /**
-             * Type definition for a function that will be called back when an URI request is
+             * Type definition for a function that will be called back when a URI request is
              * made for a user registered URI scheme.
              * @param request the #WebKitURISchemeRequest
              */
@@ -14592,8 +14526,8 @@ declare module "gi://WebKit2?version=4.1" {
                 EDITING_COMMAND_SELECT_ALL: "SelectAll"
                 EDITING_COMMAND_UNDO: "Undo"
                 MAJOR_VERSION: 2
-                MICRO_VERSION: 91
-                MINOR_VERSION: 53
+                MICRO_VERSION: 0
+                MINOR_VERSION: 54
                 /**
                  * Gets the quark for the domain of download errors.
                  * @returns download error domain.

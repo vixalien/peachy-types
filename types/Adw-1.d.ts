@@ -14343,6 +14343,10 @@ declare module "gi://Adw?version=1" {
                 get selectedItem(): SidebarItem | null
                 /**
                  * A widget to be displayed after the sidebar items.
+                 *
+                 * The suffix will be displayed immediately after the items. To display it at
+                 * the bottom of the sidebar instead, set {@link Gtk.Widget.vexpand} to
+                 * `TRUE` and {@link Gtk.Widget.valign} to {@link Gtk.Align.END}.
                  * @since 1.10
                  */
                 get suffix(): Gtk.Widget | null
@@ -14573,6 +14577,10 @@ declare module "gi://Adw?version=1" {
                 set_selected(selected: number): void
                 /**
                  * Sets the widget to be displayed after the sidebar items.
+                 *
+                 * The suffix will be displayed immediately after the items. To display it at
+                 * the bottom of the sidebar instead, set {@link Gtk.Widget.vexpand} to
+                 * `TRUE` and {@link Gtk.Widget.valign} to {@link Gtk.Align.END}.
                  * @since 1.10
                  * @param suffix the suffix widget
                  */
@@ -22838,6 +22846,10 @@ declare module "gi://Adw?version=1" {
                 /**
                  * A widget to be displayed after the sidebar items.
                  *
+                 * The suffix will be displayed immediately after the items. To display it at
+                 * the bottom of the sidebar instead, set {@link Gtk.Widget.vexpand} to
+                 * `TRUE` and {@link Gtk.Widget.valign} to {@link Gtk.Align.END}.
+                 *
                  * See {@link Sidebar.suffix}.
                  * @since 1.10
                  */
@@ -22946,6 +22958,10 @@ declare module "gi://Adw?version=1" {
                 set_stack(stack: ViewStack | null): void
                 /**
                  * Sets the widget to be displayed after the sidebar items.
+                 *
+                 * The suffix will be displayed immediately after the items. To display it at
+                 * the bottom of the sidebar instead, set {@link Gtk.Widget.vexpand} to
+                 * `TRUE` and {@link Gtk.Widget.valign} to {@link Gtk.Align.END}.
                  *
                  * See {@link Sidebar.set_suffix}.
                  * @since 1.10
@@ -25971,8 +25987,8 @@ declare module "gi://Adw?version=1" {
                 DURATION_INFINITE: 4294967295
                 MAJOR_VERSION: 1
                 MICRO_VERSION: 0
-                MINOR_VERSION: 10
-                VERSION_S: "1.10.rc"
+                MINOR_VERSION: 11
+                VERSION_S: "1.11.alpha"
                 /**
                  * Converts `self` to a `GdkRGBA` representing its background color.
                  *

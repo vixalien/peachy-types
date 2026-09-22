@@ -2416,6 +2416,13 @@ declare module "gi://Soup?version=3.0" {
                  */
                 get_compression_dictionary_hash(): GLib.Bytes | null
                 /**
+                 * Gets the identifier of the shared dictionary previously set with
+                 * {@link Message.set_compression_dictionary_id}.
+                 * @since 3.8
+                 * @returns the dictionary identifier, or %NULL
+                 */
+                get_compression_dictionary_id(): string | null
+                /**
                  * Returns the unique idenfier for the last connection used.
                  *
                  * This may be 0 if it was a cached resource or it has not gotten
@@ -2587,14 +2594,34 @@ declare module "gi://Soup?version=3.0" {
                  * {@link Message.SignalSignatures["request-compression-dictionary"]} signal is emitted so the
                  * caller can supply the actual dictionary bytes.
                  *
+                 * If the dictionary was registered with an identifier, set it with
+                 * {@link Message.set_compression_dictionary_id} so that a `Dictionary-ID`
+                 * header accompanies `Available-Dictionary`.
+                 *
                  * The hash does not survive redirects: a dictionary is chosen for a specific
-                 * request URL, so when `msg` is redirected the hash and the `Available-Dictionary`
-                 * header are cleared. It is the caller's responsibility to select and set a new
-                 * dictionary appropriate for the redirect target, if any.
+                 * request URL, so when `msg` is redirected the hash, the id and both headers are
+                 * cleared. It is the caller's responsibility to select and set a new dictionary
+                 * appropriate for the redirect target, if any.
                  * @since 3.8
                  * @param hash a #GBytes containing the raw SHA-256 hash (32 bytes) of the   shared dictionary, or %NULL to unset
                  */
                 set_compression_dictionary_hash(hash: (GLib.Bytes | Uint8Array | null)): void
+                /**
+                 * Sets the identifier of the shared dictionary advertised for Compression
+                 * Dictionary Transport (RFC 9842).
+                 *
+                 *  `id` is the value the server gave in the `id` parameter of the
+                 * `Use-As-Dictionary` response header that registered the dictionary. It is
+                 * sent as a `Dictionary-ID` header alongside `Available-Dictionary`, and only
+                 * when a hash has been set with
+                 * {@link Message.set_compression_dictionary_hash} and that header is sent, so
+                 * it can never be emitted on its own.
+                 *
+                 * Like the hash, the id does not survive redirects.
+                 * @since 3.8
+                 * @param id the dictionary identifier, or %NULL to unset
+                 */
+                set_compression_dictionary_id(id: string | null): void
                 /**
                  * Sets `first_party` as the main document #GUri for `msg`.
                  *
@@ -4902,6 +4929,23 @@ declare module "gi://Soup?version=3.0" {
                  */
                 process_incoming_message(header: number, payload: (GLib.Bytes | Uint8Array)): [GLib.Bytes, number]
                 /**
+                 * Process a message after it's received, without producing more than
+                 *  `max_output_size` bytes of output.
+                 *
+                 * This behaves like {@link WebsocketExtension.process_incoming_message},
+                 * but extensions that expand their input (such as `permessage-deflate`)
+                 * stop and return an error with {@link WebsocketError.CLOSE_TOO_BIG}
+                 * instead of producing output larger than `max_output_size`. Extensions
+                 * that don't implement this fall back to
+                 * {@link WebsocketExtension.process_incoming_message}.
+                 * @throws {GLib.Error}
+                 * @since 3.8
+                 * @param payload the payload data
+                 * @param max_output_size the maximum size in bytes of the processed payload
+                 * @returns the message payload data, or %NULL in case of error, the message header
+                 */
+                process_incoming_message_with_limit(header: number, payload: (GLib.Bytes | Uint8Array), max_output_size: number): [GLib.Bytes, number]
+                /**
                  * Process a message before it's sent.
                  *
                  * If the payload isn't changed the given `payload` is just returned, otherwise
@@ -4951,6 +4995,23 @@ declare module "gi://Soup?version=3.0" {
                  * @returns the message payload data, or %NULL in case of error, the message header
                  */
                 vfunc_process_incoming_message(header: number, payload: (GLib.Bytes | Uint8Array)): [GLib.Bytes, number]
+                /**
+                 * Process a message after it's received, without producing more than
+                 *  `max_output_size` bytes of output.
+                 *
+                 * This behaves like {@link WebsocketExtension.process_incoming_message},
+                 * but extensions that expand their input (such as `permessage-deflate`)
+                 * stop and return an error with {@link WebsocketError.CLOSE_TOO_BIG}
+                 * instead of producing output larger than `max_output_size`. Extensions
+                 * that don't implement this fall back to
+                 * {@link WebsocketExtension.process_incoming_message}.
+                 * @throws {GLib.Error}
+                 * @since 3.8
+                 * @param payload the payload data
+                 * @param max_output_size the maximum size in bytes of the processed payload
+                 * @returns the message payload data, or %NULL in case of error, the message header
+                 */
+                vfunc_process_incoming_message_with_limit(header: number, payload: (GLib.Bytes | Uint8Array), max_output_size: number): [GLib.Bytes, number]
                 /**
                  * Process a message before it's sent.
                  *
@@ -7509,7 +7570,7 @@ declare module "gi://Soup?version=3.0" {
                 HSTS_POLICY_MAX_AGE_PAST: 0
                 HTTP_URI_FLAGS: 482
                 MAJOR_VERSION: 3
-                MICRO_VERSION: 2
+                MICRO_VERSION: 3
                 MINOR_VERSION: 7
                 VERSION_MIN_REQUIRED: 2
                 /**

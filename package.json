@@ -1,6 +1,6 @@
 {
   "name": "@peachy/types",
-  "version": "2026.8.29",
+  "version": "2026.9.22",
   "repository": {
     "url": "https://github.com/vixalien/peachy-types"
   },
@@ -20,7 +20,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@11.24.0",
+  "packageManager": "pnpm@12.5.1",
   "devDependencies": {
     "girgen": "^0.3.20"
   }
